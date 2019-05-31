@@ -6,10 +6,10 @@ module Cisco-IOS-XR-Subscriber-infra-subdb-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-Subscriber-infra-subdb-oper-sub2 {
-    revision-date 2015-11-09;
+    revision-date 2018-09-28;
   }
   include Cisco-IOS-XR-Subscriber-infra-subdb-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2018-09-28;
   }
 
   organization
@@ -35,6 +35,10 @@ module Cisco-IOS-XR-Subscriber-infra-subdb-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-28 {
+    description
+      "Fixed Subscriber database Association.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -52,6 +56,25 @@ module Cisco-IOS-XR-Subscriber-infra-subdb-oper {
         key "node-name";
         description
           "Subscriber data for a particular node";
+        container subdb-assoc {
+          description
+            "Subscriber data for associated templates";
+          container labels {
+            description
+              "List of associated subscriber labels";
+            list label {
+              key "subscriber-label";
+              description
+                "Association for a given subscriber label";
+              leaf subscriber-label {
+                type uint32;
+                description
+                  "Subscriber label";
+              }
+              uses SUBDB-ASSOC-SESSION;
+            }
+          }
+        }
         container association {
           description
             "Subscriber data for associated templates";

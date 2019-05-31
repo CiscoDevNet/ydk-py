@@ -607,7 +607,7 @@ class MplsTePathOptionProperty(Enum):
 
     .. data:: lockdown = 1
 
-    	Path is not a canditate forreoptimization
+    	Path is not a candidate for reoptimization
 
     .. data:: verbatim = 4
 
@@ -623,6 +623,10 @@ class MplsTePathOptionProperty(Enum):
 
     	Segment Routing path
 
+    .. data:: sticky = 32
+
+    	Force tunnel to remain on same path
+
     """
 
     none = Enum.YLeaf(0, "none")
@@ -634,6 +638,8 @@ class MplsTePathOptionProperty(Enum):
     pce = Enum.YLeaf(8, "pce")
 
     segment_routing = Enum.YLeaf(16, "segment-routing")
+
+    sticky = Enum.YLeaf(32, "sticky")
 
 
 class MplsTePathOptionProtection(Enum):
@@ -1733,11 +1739,6 @@ class MplsTe(Entity):
                 
                 	**presence node**\: True
                 
-                .. attribute:: enable
-                
-                	Always set to true
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
                 
 
                 """
@@ -1757,11 +1758,9 @@ class MplsTe(Entity):
                     self._leafs = OrderedDict([
                         ('tunnel_name', (YLeaf(YType.str, 'tunnel-name'), ['str'])),
                         ('tunnel_type', (YLeaf(YType.enumeration, 'tunnel-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeConfigTunnel', '')])),
-                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.tunnel_name = None
                     self.tunnel_type = None
-                    self.enable = None
 
                     self.tunnel_attributes = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes()
                     self.tunnel_attributes.parent = self
@@ -1774,7 +1773,7 @@ class MplsTe(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel, ['tunnel_name', 'tunnel_type', 'enable'], name, value)
+                    self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel, ['tunnel_name', 'tunnel_type'], name, value)
 
 
                 class TunnelAttributes(Entity):
@@ -2024,11 +2023,6 @@ class MplsTe(Entity):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: enable
-                            
-                            	Always set to true
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
                             
 
                             """
@@ -2048,11 +2042,9 @@ class MplsTe(Entity):
                                 self._leafs = OrderedDict([
                                     ('path_setup_name', (YLeaf(YType.str, 'path-setup-name'), ['str'])),
                                     ('preference', (YLeaf(YType.uint32, 'preference'), ['int'])),
-                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ])
                                 self.path_setup_name = None
                                 self.preference = None
-                                self.enable = None
 
                                 self.path_computation = None
                                 self._children_name_map["path_computation"] = "path-computation"
@@ -2060,7 +2052,7 @@ class MplsTe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup, ['path_setup_name', 'preference', 'enable'], name, value)
+                                self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup, ['path_setup_name', 'preference'], name, value)
 
 
                             class PathComputation(Entity):
@@ -6201,11 +6193,6 @@ class MplsTe(Entity):
                         
                         	**length:** 1..64
                         
-                        .. attribute:: create
-                        
-                        	Auto\-mesh group enable object that controls whether this group is configured or not .This object must be set before other configuration supplied for this group
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: one_hop
                         
                         	Automatically create tunnel to all next\-hops
@@ -6232,21 +6219,19 @@ class MplsTe(Entity):
                                 ('destination_list', (YLeaf(YType.str, 'destination-list'), ['str'])),
                                 ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                                 ('attribute_set', (YLeaf(YType.str, 'attribute-set'), ['str'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('one_hop', (YLeaf(YType.empty, 'one-hop'), ['Empty'])),
                             ])
                             self.mesh_group_id = None
                             self.destination_list = None
                             self.disable = None
                             self.attribute_set = None
-                            self.create = None
                             self.one_hop = None
                             self._segment_path = lambda: "mesh-group" + "[mesh-group-id='" + str(self.mesh_group_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/mesh-groups/%s" % self._segment_path()
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup, ['mesh_group_id', 'destination_list', 'disable', 'attribute_set', 'create', 'one_hop'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup, ['mesh_group_id', 'destination_list', 'disable', 'attribute_set', 'one_hop'], name, value)
 
 
 
@@ -7403,11 +7388,6 @@ class MplsTe(Entity):
                     	Configure pce properties
                     	**type**\:  :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce>`
                     
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
@@ -7445,10 +7425,8 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([("bfd-reverse-path", ("bfd_reverse_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath)), ("att-path-option-path-selection", ("att_path_option_path_selection", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
-                        self.enable = None
 
                         self.bfd_reverse_path = None
                         self._children_name_map["bfd_reverse_path"] = "bfd-reverse-path"
@@ -7475,7 +7453,7 @@ class MplsTe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute, ['attribute_set_name', 'enable'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute, ['attribute_set_name'], name, value)
 
 
                     class BfdReversePath(Entity):
@@ -9014,11 +8992,6 @@ class MplsTe(Entity):
                     
                     	**presence node**\: True
                     
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: record_route
                     
                     	Record the route used by the tunnel
@@ -9079,12 +9052,10 @@ class MplsTe(Entity):
                         self._leafs = OrderedDict([
                             ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
                             ('interface_bandwidth', (YLeaf(YType.uint32, 'interface-bandwidth'), ['int'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('record_route', (YLeaf(YType.empty, 'record-route'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
                         self.interface_bandwidth = None
-                        self.enable = None
                         self.record_route = None
 
                         self.priority = None
@@ -9115,7 +9086,7 @@ class MplsTe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute, ['attribute_set_name', 'interface_bandwidth', 'enable', 'record_route'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute, ['attribute_set_name', 'interface_bandwidth', 'record_route'], name, value)
 
 
                     class Priority(Entity):
@@ -10536,11 +10507,6 @@ class MplsTe(Entity):
                     	Configure pce properties
                     	**type**\:  :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce>`
                     
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
@@ -10576,10 +10542,8 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask)), ("logging", ("logging", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
-                        self.enable = None
 
                         self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection()
                         self.path_selection.parent = self
@@ -10604,7 +10568,7 @@ class MplsTe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute, ['attribute_set_name', 'enable'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute, ['attribute_set_name'], name, value)
 
 
                     class PathSelection(Entity):
@@ -12271,11 +12235,6 @@ class MplsTe(Entity):
                     
                     	**presence node**\: True
                     
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: record_route
                     
                     	Record the route used by the tunnel
@@ -12321,11 +12280,9 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([("signalled-name", ("signalled_name", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName)), ("auto-backup-logging", ("auto_backup_logging", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging)), ("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection)), ("policy-classes", ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('record_route', (YLeaf(YType.empty, 'record-route'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
-                        self.enable = None
                         self.record_route = None
 
                         self.signalled_name = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName()
@@ -12358,7 +12315,7 @@ class MplsTe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute, ['attribute_set_name', 'enable', 'record_route'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute, ['attribute_set_name', 'record_route'], name, value)
 
 
                     class SignalledName(Entity):
@@ -13740,11 +13697,6 @@ class MplsTe(Entity):
                     	The APS protecion type
                     	**type**\:  :py:class:`MplsTeOtnApsProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtection>`
                     
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
@@ -13771,13 +13723,11 @@ class MplsTe(Entity):
                             ('aps_protection_mode', (YLeaf(YType.enumeration, 'aps-protection-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsProtectionMode', '')])),
                             ('aps_restoration_style', (YLeaf(YType.enumeration, 'aps-restoration-style'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsRestorationStyle', '')])),
                             ('aps_protection_type', (YLeaf(YType.enumeration, 'aps-protection-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsProtection', '')])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
                         self.aps_protection_mode = None
                         self.aps_restoration_style = None
                         self.aps_protection_type = None
-                        self.enable = None
 
                         self.revert_schedule_names = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames()
                         self.revert_schedule_names.parent = self
@@ -13799,7 +13749,7 @@ class MplsTe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute, ['attribute_set_name', 'aps_protection_mode', 'aps_restoration_style', 'aps_protection_type', 'enable'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute, ['attribute_set_name', 'aps_protection_mode', 'aps_restoration_style', 'aps_protection_type'], name, value)
 
 
                     class RevertScheduleNames(Entity):
@@ -14282,11 +14232,6 @@ class MplsTe(Entity):
                     
                     	**presence node**\: True
                     
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: record_route
                     
                     	Record the route used by the tunnel
@@ -14366,7 +14311,6 @@ class MplsTe(Entity):
                             ('autoroute_announce', (YLeaf(YType.empty, 'autoroute-announce'), ['Empty'])),
                             ('interface_bandwidth', (YLeaf(YType.uint32, 'interface-bandwidth'), ['int'])),
                             ('forward_class', (YLeaf(YType.uint32, 'forward-class'), ['int'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('record_route', (YLeaf(YType.empty, 'record-route'), ['Empty'])),
                             ('collection_only', (YLeaf(YType.empty, 'collection-only'), ['Empty'])),
                             ('soft_preemption', (YLeaf(YType.empty, 'soft-preemption'), ['Empty'])),
@@ -14376,7 +14320,6 @@ class MplsTe(Entity):
                         self.autoroute_announce = None
                         self.interface_bandwidth = None
                         self.forward_class = None
-                        self.enable = None
                         self.record_route = None
                         self.collection_only = None
                         self.soft_preemption = None
@@ -14414,7 +14357,7 @@ class MplsTe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute, ['attribute_set_name', 'autoroute_announce', 'interface_bandwidth', 'forward_class', 'enable', 'record_route', 'collection_only', 'soft_preemption', 'load_share'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute, ['attribute_set_name', 'autoroute_announce', 'interface_bandwidth', 'forward_class', 'record_route', 'collection_only', 'soft_preemption', 'load_share'], name, value)
 
 
                     class AutoMeshLogging(Entity):
@@ -15855,11 +15798,6 @@ class MplsTe(Entity):
                     	Path diversity
                     	**type**\:  :py:class:`PathDiversity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity>`
                     
-                    .. attribute:: enable
-                    
-                    	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
@@ -15883,10 +15821,8 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([("path-diversity", ("path_diversity", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection))])
                         self._leafs = OrderedDict([
                             ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
-                        self.enable = None
 
                         self.path_diversity = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity()
                         self.path_diversity.parent = self
@@ -15900,7 +15836,7 @@ class MplsTe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute, ['attribute_set_name', 'enable'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute, ['attribute_set_name'], name, value)
 
 
                     class PathDiversity(Entity):
@@ -16995,11 +16931,6 @@ class MplsTe(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: enable
-                    
-                    	Enabled PCE peer (default source address uses local)
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: password
                     
                     	MD5 password
@@ -17039,13 +16970,11 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('pce_peer_address', (YLeaf(YType.str, 'pce-peer-address'), ['str'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ('password', (YLeaf(YType.str, 'password'), ['str'])),
                             ('keychain', (YLeaf(YType.str, 'keychain'), ['str'])),
                             ('precedence', (YLeaf(YType.uint32, 'precedence'), ['int'])),
                         ])
                         self.pce_peer_address = None
-                        self.enable = None
                         self.password = None
                         self.keychain = None
                         self.precedence = None
@@ -17054,7 +16983,7 @@ class MplsTe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Peers.Peer, ['pce_peer_address', 'enable', 'password', 'keychain', 'precedence'], name, value)
+                        self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Peers.Peer, ['pce_peer_address', 'password', 'keychain', 'precedence'], name, value)
 
 
 

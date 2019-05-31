@@ -392,7 +392,7 @@ class ETHERWIS(Entity):
             	This is the 16\-octet section trace message that is transmitted in the J0 byte.  The value SHOULD be '89'h followed by fifteen octets of '00'h (or some cyclic shift thereof) when the section trace function is not used, and the implementation SHOULD use that value (or a cyclic shift thereof) as a default if no other value has been set
             	**type**\: str
             
-            	**length:** 16
+            	**length:** 16..16
             
             	**config**\: False
             
@@ -401,7 +401,7 @@ class ETHERWIS(Entity):
             	This is the 16\-octet section trace message that was most recently received in the J0 byte
             	**type**\: str
             
-            	**length:** 16
+            	**length:** 16..16
             
             	**config**\: False
             
@@ -506,7 +506,7 @@ class ETHERWIS(Entity):
             	This is the 16\-octet path trace message that is transmitted in the J1 byte.  The value SHOULD be '89'h followed by fifteen octets of '00'h (or some cyclic shift thereof) when the path trace function is not used, and the implementation SHOULD use that value (or a cyclic shift thereof) as a default if no other value has been set
             	**type**\: str
             
-            	**length:** 16
+            	**length:** 16..16
             
             	**config**\: False
             
@@ -515,7 +515,7 @@ class ETHERWIS(Entity):
             	This is the 16\-octet path trace message that was most recently received in the J1 byte
             	**type**\: str
             
-            	**length:** 16
+            	**length:** 16..16
             
             	**config**\: False
             

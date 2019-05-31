@@ -406,69 +406,6 @@ submodule Cisco-IOS-XR-alarmgr-server-oper-sub1 {
       "Alarm severity";
   }
 
-  grouping SYSTEM-ALARM {
-    description
-      "Alarm mgr show alarm brief data";
-    leaf location {
-      type string {
-        length "0..128";
-      }
-      description
-        "Alarm location";
-    }
-    leaf severity {
-      type Alarm-severity;
-      description
-        "Alarm severity";
-    }
-    leaf group {
-      type Alarm-groups;
-      description
-        "Alarm group";
-    }
-    leaf set-time {
-      type string {
-        length "0..64";
-      }
-      description
-        "Alarm set time";
-    }
-    leaf set-timestamp {
-      type uint64;
-      description
-        "Alarm set time(timestamp format)";
-    }
-    leaf clear-time {
-      type string {
-        length "0..64";
-      }
-      description
-        "Alarm clear time";
-    }
-    leaf clear-timestamp {
-      type uint64;
-      description
-        "Alarm clear time(timestamp format)";
-    }
-    leaf description {
-      type string {
-        length "0..256";
-      }
-      description
-        "Alarm description";
-    }
-  }
-
-  grouping ALARM-MGR-SHOW-ALARM-AID-BRIEF-INFO {
-    description
-      "Alarm mgr show alarm brief info";
-    container alarm {
-      description
-        "Alarm Brief";
-      uses SYSTEM-ALARM;
-    }
-  }
-
   grouping ALARM-MGR-SHOW-ALARM-BRIEF-SUPPR-DATA {
     description
       "Alarm mgr show alarm brief suppressed data";

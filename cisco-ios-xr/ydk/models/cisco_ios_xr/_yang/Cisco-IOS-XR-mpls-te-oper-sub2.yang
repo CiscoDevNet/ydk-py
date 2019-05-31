@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";

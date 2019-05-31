@@ -68,7 +68,7 @@ class OSPFTRAPMIB(Entity):
         	A 4\-octet string serving as a bit map for the trap events defined by the OSPF traps.  This object is used to enable and disable specific OSPF traps where a 1 in the bit field represents enabled.  The right\-most bit (least significant) represents trap 0.  This object is persistent and when written  the entity SHOULD save the change to non\-volatile storage
         	**type**\: str
         
-        	**length:** 4
+        	**length:** 4..4
         
         	**config**\: False
         

@@ -415,7 +415,7 @@ class Pbr(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, [u'node_name', u'policy_name', u'state', u'state_description'], name, value)
+                                    self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, ['node_name', 'policy_name', 'state', 'state_description'], name, value)
 
 
                                 class ClassStat(Entity):
@@ -512,7 +512,7 @@ class Pbr(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, [u'counter_validity_bitmask', u'class_name', u'class_id'], name, value)
+                                        self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, ['counter_validity_bitmask', 'class_name', 'class_id'], name, value)
 
 
                                     class GeneralStats(Entity):
@@ -656,7 +656,7 @@ class Pbr(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, [u'transmit_packets', u'transmit_bytes', u'total_drop_packets', u'total_drop_bytes', u'total_drop_rate', u'match_data_rate', u'total_transmit_rate', u'pre_policy_matched_packets', u'pre_policy_matched_bytes'], name, value)
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, ['transmit_packets', 'transmit_bytes', 'total_drop_packets', 'total_drop_bytes', 'total_drop_rate', 'match_data_rate', 'total_transmit_rate', 'pre_policy_matched_packets', 'pre_policy_matched_bytes'], name, value)
 
 
 
@@ -758,7 +758,7 @@ class Pbr(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, [u'rqst_rcvd_packets', u'rqst_rcvd_bytes', u'drop_packets', u'drop_bytes', u'resp_sent_packets', u'resp_sent_bytes'], name, value)
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, ['rqst_rcvd_packets', 'rqst_rcvd_bytes', 'drop_packets', 'drop_bytes', 'resp_sent_packets', 'resp_sent_bytes'], name, value)
 
 
 
@@ -882,7 +882,7 @@ class Pbr(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats, [u'rqst_rcvd_packets', u'rqst_rcvd_bytes', u'drop_packets', u'drop_bytes', u'resp_sent_packets', u'resp_sent_bytes', u'req_sent_packets', u'tcp_sent_packets'], name, value)
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats, ['rqst_rcvd_packets', 'rqst_rcvd_bytes', 'drop_packets', 'drop_bytes', 'resp_sent_packets', 'resp_sent_bytes', 'req_sent_packets', 'tcp_sent_packets'], name, value)
 
 
 

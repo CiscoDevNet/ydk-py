@@ -201,6 +201,33 @@ class IsisAuthenticationFailureMode(Enum):
     send_only = Enum.YLeaf(1, "send-only")
 
 
+class IsisConfigurableLevel(Enum):
+    """
+    IsisConfigurableLevel (Enum Class)
+
+    Isis configurable level
+
+    .. data:: level_12 = 0
+
+    	Both Levels
+
+    .. data:: level_1 = 1
+
+    	level 1
+
+    .. data:: level_2 = 2
+
+    	level 2
+
+    """
+
+    level_12 = Enum.YLeaf(0, "level-12")
+
+    level_1 = Enum.YLeaf(1, "level-1")
+
+    level_2 = Enum.YLeaf(2, "level-2")
+
+
 class IsisConfigurableLevels(Enum):
     """
     IsisConfigurableLevels (Enum Class)
@@ -1332,7 +1359,7 @@ class Isis(Entity):
     """
 
     _prefix = 'clns-isis-cfg'
-    _revision = '2018-11-23'
+    _revision = '2019-03-15'
 
     def __init__(self):
         super(Isis, self).__init__()
@@ -1370,7 +1397,7 @@ class Isis(Entity):
         """
 
         _prefix = 'clns-isis-cfg'
-        _revision = '2018-11-23'
+        _revision = '2019-03-15'
 
         def __init__(self):
             super(Isis.Instances, self).__init__()
@@ -1569,6 +1596,13 @@ class Isis(Entity):
             	If TRUE, dynamic hostname resolution is disabled, and system IDs will always be displayed by show and debug output
             	**type**\: bool
             
+            .. attribute:: purge_transmit_strict
+            
+            	Allow only authentication TLV in purge LSPs
+            	**type**\:  :py:class:`IsisConfigurableLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevel>`
+            
+            	**default value**\: level-12
+            
             .. attribute:: nsr
             
             	IS\-IS NSR configuration
@@ -1584,7 +1618,7 @@ class Isis(Entity):
             """
 
             _prefix = 'clns-isis-cfg'
-            _revision = '2018-11-23'
+            _revision = '2019-03-15'
 
             def __init__(self):
                 super(Isis.Instances.Instance, self).__init__()
@@ -1605,6 +1639,7 @@ class Isis(Entity):
                     ('vrf_context', (YLeaf(YType.str, 'vrf-context'), ['str'])),
                     ('instance_id', (YLeaf(YType.uint32, 'instance-id'), ['int'])),
                     ('dynamic_host_name', (YLeaf(YType.boolean, 'dynamic-host-name'), ['bool'])),
+                    ('purge_transmit_strict', (YLeaf(YType.enumeration, 'purge-transmit-strict'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevel', '')])),
                     ('nsr', (YLeaf(YType.empty, 'nsr'), ['Empty'])),
                     ('log_pdu_drops', (YLeaf(YType.empty, 'log-pdu-drops'), ['Empty'])),
                 ])
@@ -1617,6 +1652,7 @@ class Isis(Entity):
                 self.vrf_context = None
                 self.instance_id = None
                 self.dynamic_host_name = None
+                self.purge_transmit_strict = None
                 self.nsr = None
                 self.log_pdu_drops = None
 
@@ -1709,7 +1745,7 @@ class Isis(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Isis.Instances.Instance, ['instance_name', 'running', 'log_adjacency_changes', 'ignore_lsp_errors', 'is_type', 'tracing_mode', 'vrf_context', 'instance_id', 'dynamic_host_name', 'nsr', 'log_pdu_drops'], name, value)
+                self._perform_setattr(Isis.Instances.Instance, ['instance_name', 'running', 'log_adjacency_changes', 'ignore_lsp_errors', 'is_type', 'tracing_mode', 'vrf_context', 'instance_id', 'dynamic_host_name', 'purge_transmit_strict', 'nsr', 'log_pdu_drops'], name, value)
 
 
             class Srgb(Entity):
@@ -1741,7 +1777,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Srgb, self).__init__()
@@ -1781,7 +1817,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspGenerationIntervals, self).__init__()
@@ -1843,7 +1879,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval, self).__init__()
@@ -1887,7 +1923,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspArrivalTimes, self).__init__()
@@ -1949,7 +1985,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime, self).__init__()
@@ -2016,7 +2052,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.TraceBufferSize, self).__init__()
@@ -2059,7 +2095,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.MaxLinkMetrics, self).__init__()
@@ -2094,7 +2130,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric, self).__init__()
@@ -2147,7 +2183,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.AdjacencyStagger, self).__init__()
@@ -2187,7 +2223,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Afs, self).__init__()
@@ -2241,7 +2277,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.Afs.Af, self).__init__()
@@ -2466,7 +2502,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Afs.Af.AfData, self).__init__()
@@ -2609,6 +2645,16 @@ class Isis(Entity):
                             """
                             Enable Segment Routing configuration
                             
+                            .. attribute:: srv6
+                            
+                            	SRv6 configuration
+                            	**type**\:  :py:class:`Srv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6>`
+                            
+                            .. attribute:: connected_prefix_sids
+                            
+                            	Connected Segment Routing prefix SID map configuration
+                            	**type**\:  :py:class:`ConnectedPrefixSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids>`
+                            
                             .. attribute:: prefix_sid_map
                             
                             	Enable Segment Routing prefix SID map configuration
@@ -2629,17 +2675,12 @@ class Isis(Entity):
                             	Prefer segment routing labels over LDP labels
                             	**type**\:  :py:class:`IsisLabelPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreference>`
                             
-                            .. attribute:: srv6
-                            
-                            	Enable Segment Routing SRV6 configuration
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
                             
 
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting, self).__init__()
@@ -2649,17 +2690,23 @@ class Isis(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("prefix-sid-map", ("prefix_sid_map", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap))])
+                                self._child_classes = OrderedDict([("srv6", ("srv6", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6)), ("connected-prefix-sids", ("connected_prefix_sids", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids)), ("prefix-sid-map", ("prefix_sid_map", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap))])
                                 self._leafs = OrderedDict([
                                     ('bundle_member_adj_sid', (YLeaf(YType.empty, 'bundle-member-adj-sid'), ['Empty'])),
                                     ('labeled_only', (YLeaf(YType.empty, 'labeled-only'), ['Empty'])),
                                     ('mpls', (YLeaf(YType.enumeration, 'mpls'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisLabelPreference', '')])),
-                                    ('srv6', (YLeaf(YType.empty, 'srv6'), ['Empty'])),
                                 ])
                                 self.bundle_member_adj_sid = None
                                 self.labeled_only = None
                                 self.mpls = None
-                                self.srv6 = None
+
+                                self.srv6 = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6()
+                                self.srv6.parent = self
+                                self._children_name_map["srv6"] = "srv6"
+
+                                self.connected_prefix_sids = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids()
+                                self.connected_prefix_sids.parent = self
+                                self._children_name_map["connected_prefix_sids"] = "connected-prefix-sids"
 
                                 self.prefix_sid_map = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap()
                                 self.prefix_sid_map.parent = self
@@ -2668,7 +2715,278 @@ class Isis(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting, ['bundle_member_adj_sid', 'labeled_only', 'mpls', 'srv6'], name, value)
+                                self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting, ['bundle_member_adj_sid', 'labeled_only', 'mpls'], name, value)
+
+
+                            class Srv6(Entity):
+                                """
+                                SRv6 configuration
+                                
+                                .. attribute:: srv6_locators
+                                
+                                	SRv6 Locator configuration
+                                	**type**\:  :py:class:`Srv6Locators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators>`
+                                
+                                .. attribute:: running
+                                
+                                	The presence of this object enables SRv6. This must be the first object created under the SRV6 container, and the last one deleted
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'clns-isis-cfg'
+                                _revision = '2019-03-15'
+
+                                def __init__(self):
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6, self).__init__()
+
+                                    self.yang_name = "srv6"
+                                    self.yang_parent_name = "segment-routing"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("srv6-locators", ("srv6_locators", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators))])
+                                    self._leafs = OrderedDict([
+                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                                    ])
+                                    self.running = None
+
+                                    self.srv6_locators = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators()
+                                    self.srv6_locators.parent = self
+                                    self._children_name_map["srv6_locators"] = "srv6-locators"
+                                    self._segment_path = lambda: "srv6"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6, ['running'], name, value)
+
+
+                                class Srv6Locators(Entity):
+                                    """
+                                    SRv6 Locator configuration
+                                    
+                                    .. attribute:: srv6_locator
+                                    
+                                    	Configuration for a single SRv6 Locator
+                                    	**type**\: list of  		 :py:class:`Srv6Locator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators.Srv6Locator>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'clns-isis-cfg'
+                                    _revision = '2019-03-15'
+
+                                    def __init__(self):
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators, self).__init__()
+
+                                        self.yang_name = "srv6-locators"
+                                        self.yang_parent_name = "srv6"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("srv6-locator", ("srv6_locator", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators.Srv6Locator))])
+                                        self._leafs = OrderedDict()
+
+                                        self.srv6_locator = YList(self)
+                                        self._segment_path = lambda: "srv6-locators"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators, [], name, value)
+
+
+                                    class Srv6Locator(Entity):
+                                        """
+                                        Configuration for a single SRv6 Locator
+                                        
+                                        .. attribute:: locator_name  (key)
+                                        
+                                        	Locator Name
+                                        	**type**\: str
+                                        
+                                        	**length:** 1..60
+                                        
+                                        .. attribute:: running
+                                        
+                                        	The presence of this object enables a SRv6 Locator. This must be the first object created under the SRv6Locator container, and the last one deleted
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'clns-isis-cfg'
+                                        _revision = '2019-03-15'
+
+                                        def __init__(self):
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, self).__init__()
+
+                                            self.yang_name = "srv6-locator"
+                                            self.yang_parent_name = "srv6-locators"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['locator_name']
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('locator_name', (YLeaf(YType.str, 'locator-name'), ['str'])),
+                                                ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                                            ])
+                                            self.locator_name = None
+                                            self.running = None
+                                            self._segment_path = lambda: "srv6-locator" + "[locator-name='" + str(self.locator_name) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, ['locator_name', 'running'], name, value)
+
+
+
+
+
+                            class ConnectedPrefixSids(Entity):
+                                """
+                                Connected Segment Routing prefix SID map
+                                configuration
+                                
+                                .. attribute:: connected_prefix_sid
+                                
+                                	Segment Routing prefix SID map
+                                	**type**\: list of  		 :py:class:`ConnectedPrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'clns-isis-cfg'
+                                _revision = '2019-03-15'
+
+                                def __init__(self):
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids, self).__init__()
+
+                                    self.yang_name = "connected-prefix-sids"
+                                    self.yang_parent_name = "segment-routing"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("connected-prefix-sid", ("connected_prefix_sid", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid))])
+                                    self._leafs = OrderedDict()
+
+                                    self.connected_prefix_sid = YList(self)
+                                    self._segment_path = lambda: "connected-prefix-sids"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids, [], name, value)
+
+
+                                class ConnectedPrefixSid(Entity):
+                                    """
+                                    Segment Routing prefix SID map
+                                    
+                                    .. attribute:: address_prefix  (key)
+                                    
+                                    	IP address prefix
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                                    
+                                    .. attribute:: algo  (key)
+                                    
+                                    	Algo
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: sid_type
+                                    
+                                    	SID type for the interface
+                                    	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: sid
+                                    
+                                    	SID value for the interface
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..1048575
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: sid_range
+                                    
+                                    	Range of SIDs
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..1048575
+                                    
+                                    .. attribute:: interface
+                                    
+                                    	Interface to which prefix belongs
+                                    	**type**\: str
+                                    
+                                    	**length:** 1..64
+                                    
+                                    .. attribute:: php
+                                    
+                                    	Enable/Disable Penultimate Hop Popping
+                                    	**type**\:  :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
+                                    
+                                    .. attribute:: explicit_null
+                                    
+                                    	Enable/Disable Explicit\-NULL flag
+                                    	**type**\:  :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'clns-isis-cfg'
+                                    _revision = '2019-03-15'
+
+                                    def __init__(self):
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, self).__init__()
+
+                                        self.yang_name = "connected-prefix-sid"
+                                        self.yang_parent_name = "connected-prefix-sids"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['address_prefix','algo']
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
+                                            ('algo', (YLeaf(YType.uint32, 'algo'), ['int'])),
+                                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isissid1', '')])),
+                                            ('sid', (YLeaf(YType.uint32, 'sid'), ['int'])),
+                                            ('sid_range', (YLeaf(YType.uint32, 'sid-range'), ['int'])),
+                                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                            ('php', (YLeaf(YType.enumeration, 'php'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisphpFlag', '')])),
+                                            ('explicit_null', (YLeaf(YType.enumeration, 'explicit-null'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisexplicitNullFlag', '')])),
+                                        ])
+                                        self.address_prefix = None
+                                        self.algo = None
+                                        self.sid_type = None
+                                        self.sid = None
+                                        self.sid_range = None
+                                        self.interface = None
+                                        self.php = None
+                                        self.explicit_null = None
+                                        self._segment_path = lambda: "connected-prefix-sid" + "[address-prefix='" + str(self.address_prefix) + "']" + "[algo='" + str(self.algo) + "']"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, ['address_prefix', 'algo', 'sid_type', 'sid', 'sid_range', 'interface', 'php', 'explicit_null'], name, value)
+
+
 
 
                             class PrefixSidMap(Entity):
@@ -2691,7 +3009,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap, self).__init__()
@@ -2731,7 +3049,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles, self).__init__()
@@ -2773,7 +3091,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle, self).__init__()
@@ -2847,7 +3165,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable, self).__init__()
@@ -2908,7 +3226,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings, self).__init__()
@@ -2950,7 +3268,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing, self).__init__()
@@ -2990,7 +3308,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes, self).__init__()
@@ -3032,7 +3350,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, self).__init__()
@@ -3072,7 +3390,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits, self).__init__()
@@ -3103,17 +3421,24 @@ class Isis(Entity):
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
-                                    .. attribute:: frr_type
+                                    .. attribute:: frr_type  (key)
                                     
-                                    	keys\: frr\-type
-                                    	**type**\: list of  		 :py:class:`FrrType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit.FrrType>`
+                                    	Computation Type
+                                    	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                    
+                                    .. attribute:: priority
+                                    
+                                    	Compute for all prefixes upto the specified priority
+                                    	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
+                                    
+                                    	**mandatory**\: True
                                     
                                     
 
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit, self).__init__()
@@ -3122,65 +3447,21 @@ class Isis(Entity):
                                         self.yang_parent_name = "priority-limits"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self.ylist_key_names = ['level']
-                                        self._child_classes = OrderedDict([("frr-type", ("frr_type", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit.FrrType))])
+                                        self.ylist_key_names = ['level','frr_type']
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel', '')])),
+                                            ('frr_type', (YLeaf(YType.enumeration, 'frr-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr', '')])),
+                                            ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriority', '')])),
                                         ])
                                         self.level = None
-
-                                        self.frr_type = YList(self)
-                                        self._segment_path = lambda: "priority-limit" + "[level='" + str(self.level) + "']"
+                                        self.frr_type = None
+                                        self.priority = None
+                                        self._segment_path = lambda: "priority-limit" + "[level='" + str(self.level) + "']" + "[frr-type='" + str(self.frr_type) + "']"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit, ['level'], name, value)
-
-
-                                    class FrrType(Entity):
-                                        """
-                                        keys\: frr\-type
-                                        
-                                        .. attribute:: frr_type  (key)
-                                        
-                                        	Computation Type
-                                        	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
-                                        
-                                        .. attribute:: priority
-                                        
-                                        	Compute for all prefixes upto the specified priority
-                                        	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
-                                        
-                                        	**mandatory**\: True
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
-
-                                        def __init__(self):
-                                            super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit.FrrType, self).__init__()
-
-                                            self.yang_name = "frr-type"
-                                            self.yang_parent_name = "priority-limit"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self.ylist_key_names = ['frr_type']
-                                            self._child_classes = OrderedDict([])
-                                            self._leafs = OrderedDict([
-                                                ('frr_type', (YLeaf(YType.enumeration, 'frr-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr', '')])),
-                                                ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriority', '')])),
-                                            ])
-                                            self.frr_type = None
-                                            self.priority = None
-                                            self._segment_path = lambda: "frr-type" + "[frr-type='" + str(self.frr_type) + "']"
-                                            self._is_frozen = True
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit.FrrType, ['frr_type', 'priority'], name, value)
-
+                                        self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit, ['level', 'frr_type', 'priority'], name, value)
 
 
 
@@ -3200,7 +3481,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes, self).__init__()
@@ -3245,7 +3526,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, self).__init__()
@@ -3285,7 +3566,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers, self).__init__()
@@ -3334,7 +3615,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker, self).__init__()
@@ -3376,7 +3657,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies, self).__init__()
@@ -3417,7 +3698,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, self).__init__()
@@ -3466,7 +3747,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.RouterId, self).__init__()
@@ -3505,7 +3786,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities, self).__init__()
@@ -3559,7 +3840,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority, self).__init__()
@@ -3603,7 +3884,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes, self).__init__()
@@ -3660,7 +3941,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix, self).__init__()
@@ -3713,7 +3994,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance, self).__init__()
@@ -3768,7 +4049,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp, self).__init__()
@@ -3823,7 +4104,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable, self).__init__()
@@ -3863,7 +4144,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces, self).__init__()
@@ -3901,7 +4182,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3941,7 +4222,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes, self).__init__()
@@ -3987,7 +4268,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix, self).__init__()
@@ -4027,7 +4308,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Propagations, self).__init__()
@@ -4076,7 +4357,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation, self).__init__()
@@ -4118,7 +4399,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions, self).__init__()
@@ -4176,7 +4457,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution, self).__init__()
@@ -4248,7 +4529,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, self).__init__()
@@ -4327,7 +4608,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, self).__init__()
@@ -4414,7 +4695,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp, self).__init__()
@@ -4496,7 +4777,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp, self).__init__()
@@ -4545,7 +4826,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables, self).__init__()
@@ -4585,7 +4866,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable, self).__init__()
@@ -4630,7 +4911,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable.AttributeTable, self).__init__()
@@ -4671,7 +4952,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals, self).__init__()
@@ -4717,7 +4998,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval, self).__init__()
@@ -4766,7 +5047,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.DistributeListIn, self).__init__()
@@ -4805,7 +5086,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals, self).__init__()
@@ -4867,7 +5148,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval, self).__init__()
@@ -4923,7 +5204,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence, self).__init__()
@@ -4979,7 +5260,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation, self).__init__()
@@ -5021,7 +5302,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances, self).__init__()
@@ -5084,7 +5365,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance, self).__init__()
@@ -5126,7 +5407,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Ispf, self).__init__()
@@ -5163,7 +5444,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States, self).__init__()
@@ -5205,7 +5486,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State, self).__init__()
@@ -5248,7 +5529,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal, self).__init__()
@@ -5302,7 +5583,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Mpls, self).__init__()
@@ -5358,7 +5639,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId, self).__init__()
@@ -5403,7 +5684,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level, self).__init__()
@@ -5443,7 +5724,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids, self).__init__()
@@ -5497,7 +5778,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid, self).__init__()
@@ -5541,7 +5822,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Metrics, self).__init__()
@@ -5596,7 +5877,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric, self).__init__()
@@ -5655,7 +5936,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Weights, self).__init__()
@@ -5700,7 +5981,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight, self).__init__()
@@ -5928,7 +6209,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Afs.Af.TopologyName, self).__init__()
@@ -6072,6 +6353,16 @@ class Isis(Entity):
                             """
                             Enable Segment Routing configuration
                             
+                            .. attribute:: srv6
+                            
+                            	SRv6 configuration
+                            	**type**\:  :py:class:`Srv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6>`
+                            
+                            .. attribute:: connected_prefix_sids
+                            
+                            	Connected Segment Routing prefix SID map configuration
+                            	**type**\:  :py:class:`ConnectedPrefixSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids>`
+                            
                             .. attribute:: prefix_sid_map
                             
                             	Enable Segment Routing prefix SID map configuration
@@ -6092,17 +6383,12 @@ class Isis(Entity):
                             	Prefer segment routing labels over LDP labels
                             	**type**\:  :py:class:`IsisLabelPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreference>`
                             
-                            .. attribute:: srv6
-                            
-                            	Enable Segment Routing SRV6 configuration
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
                             
 
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting, self).__init__()
@@ -6112,17 +6398,23 @@ class Isis(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("prefix-sid-map", ("prefix_sid_map", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap))])
+                                self._child_classes = OrderedDict([("srv6", ("srv6", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6)), ("connected-prefix-sids", ("connected_prefix_sids", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids)), ("prefix-sid-map", ("prefix_sid_map", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap))])
                                 self._leafs = OrderedDict([
                                     ('bundle_member_adj_sid', (YLeaf(YType.empty, 'bundle-member-adj-sid'), ['Empty'])),
                                     ('labeled_only', (YLeaf(YType.empty, 'labeled-only'), ['Empty'])),
                                     ('mpls', (YLeaf(YType.enumeration, 'mpls'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisLabelPreference', '')])),
-                                    ('srv6', (YLeaf(YType.empty, 'srv6'), ['Empty'])),
                                 ])
                                 self.bundle_member_adj_sid = None
                                 self.labeled_only = None
                                 self.mpls = None
-                                self.srv6 = None
+
+                                self.srv6 = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6()
+                                self.srv6.parent = self
+                                self._children_name_map["srv6"] = "srv6"
+
+                                self.connected_prefix_sids = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids()
+                                self.connected_prefix_sids.parent = self
+                                self._children_name_map["connected_prefix_sids"] = "connected-prefix-sids"
 
                                 self.prefix_sid_map = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap()
                                 self.prefix_sid_map.parent = self
@@ -6131,7 +6423,278 @@ class Isis(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting, ['bundle_member_adj_sid', 'labeled_only', 'mpls', 'srv6'], name, value)
+                                self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting, ['bundle_member_adj_sid', 'labeled_only', 'mpls'], name, value)
+
+
+                            class Srv6(Entity):
+                                """
+                                SRv6 configuration
+                                
+                                .. attribute:: srv6_locators
+                                
+                                	SRv6 Locator configuration
+                                	**type**\:  :py:class:`Srv6Locators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators>`
+                                
+                                .. attribute:: running
+                                
+                                	The presence of this object enables SRv6. This must be the first object created under the SRV6 container, and the last one deleted
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'clns-isis-cfg'
+                                _revision = '2019-03-15'
+
+                                def __init__(self):
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6, self).__init__()
+
+                                    self.yang_name = "srv6"
+                                    self.yang_parent_name = "segment-routing"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("srv6-locators", ("srv6_locators", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators))])
+                                    self._leafs = OrderedDict([
+                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                                    ])
+                                    self.running = None
+
+                                    self.srv6_locators = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators()
+                                    self.srv6_locators.parent = self
+                                    self._children_name_map["srv6_locators"] = "srv6-locators"
+                                    self._segment_path = lambda: "srv6"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6, ['running'], name, value)
+
+
+                                class Srv6Locators(Entity):
+                                    """
+                                    SRv6 Locator configuration
+                                    
+                                    .. attribute:: srv6_locator
+                                    
+                                    	Configuration for a single SRv6 Locator
+                                    	**type**\: list of  		 :py:class:`Srv6Locator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators.Srv6Locator>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'clns-isis-cfg'
+                                    _revision = '2019-03-15'
+
+                                    def __init__(self):
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators, self).__init__()
+
+                                        self.yang_name = "srv6-locators"
+                                        self.yang_parent_name = "srv6"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("srv6-locator", ("srv6_locator", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators.Srv6Locator))])
+                                        self._leafs = OrderedDict()
+
+                                        self.srv6_locator = YList(self)
+                                        self._segment_path = lambda: "srv6-locators"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators, [], name, value)
+
+
+                                    class Srv6Locator(Entity):
+                                        """
+                                        Configuration for a single SRv6 Locator
+                                        
+                                        .. attribute:: locator_name  (key)
+                                        
+                                        	Locator Name
+                                        	**type**\: str
+                                        
+                                        	**length:** 1..60
+                                        
+                                        .. attribute:: running
+                                        
+                                        	The presence of this object enables a SRv6 Locator. This must be the first object created under the SRv6Locator container, and the last one deleted
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'clns-isis-cfg'
+                                        _revision = '2019-03-15'
+
+                                        def __init__(self):
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, self).__init__()
+
+                                            self.yang_name = "srv6-locator"
+                                            self.yang_parent_name = "srv6-locators"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['locator_name']
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('locator_name', (YLeaf(YType.str, 'locator-name'), ['str'])),
+                                                ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                                            ])
+                                            self.locator_name = None
+                                            self.running = None
+                                            self._segment_path = lambda: "srv6-locator" + "[locator-name='" + str(self.locator_name) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, ['locator_name', 'running'], name, value)
+
+
+
+
+
+                            class ConnectedPrefixSids(Entity):
+                                """
+                                Connected Segment Routing prefix SID map
+                                configuration
+                                
+                                .. attribute:: connected_prefix_sid
+                                
+                                	Segment Routing prefix SID map
+                                	**type**\: list of  		 :py:class:`ConnectedPrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'clns-isis-cfg'
+                                _revision = '2019-03-15'
+
+                                def __init__(self):
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids, self).__init__()
+
+                                    self.yang_name = "connected-prefix-sids"
+                                    self.yang_parent_name = "segment-routing"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("connected-prefix-sid", ("connected_prefix_sid", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid))])
+                                    self._leafs = OrderedDict()
+
+                                    self.connected_prefix_sid = YList(self)
+                                    self._segment_path = lambda: "connected-prefix-sids"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids, [], name, value)
+
+
+                                class ConnectedPrefixSid(Entity):
+                                    """
+                                    Segment Routing prefix SID map
+                                    
+                                    .. attribute:: address_prefix  (key)
+                                    
+                                    	IP address prefix
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                                    
+                                    .. attribute:: algo  (key)
+                                    
+                                    	Algo
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: sid_type
+                                    
+                                    	SID type for the interface
+                                    	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: sid
+                                    
+                                    	SID value for the interface
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..1048575
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: sid_range
+                                    
+                                    	Range of SIDs
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..1048575
+                                    
+                                    .. attribute:: interface
+                                    
+                                    	Interface to which prefix belongs
+                                    	**type**\: str
+                                    
+                                    	**length:** 1..64
+                                    
+                                    .. attribute:: php
+                                    
+                                    	Enable/Disable Penultimate Hop Popping
+                                    	**type**\:  :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
+                                    
+                                    .. attribute:: explicit_null
+                                    
+                                    	Enable/Disable Explicit\-NULL flag
+                                    	**type**\:  :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'clns-isis-cfg'
+                                    _revision = '2019-03-15'
+
+                                    def __init__(self):
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, self).__init__()
+
+                                        self.yang_name = "connected-prefix-sid"
+                                        self.yang_parent_name = "connected-prefix-sids"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['address_prefix','algo']
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
+                                            ('algo', (YLeaf(YType.uint32, 'algo'), ['int'])),
+                                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isissid1', '')])),
+                                            ('sid', (YLeaf(YType.uint32, 'sid'), ['int'])),
+                                            ('sid_range', (YLeaf(YType.uint32, 'sid-range'), ['int'])),
+                                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                            ('php', (YLeaf(YType.enumeration, 'php'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisphpFlag', '')])),
+                                            ('explicit_null', (YLeaf(YType.enumeration, 'explicit-null'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisexplicitNullFlag', '')])),
+                                        ])
+                                        self.address_prefix = None
+                                        self.algo = None
+                                        self.sid_type = None
+                                        self.sid = None
+                                        self.sid_range = None
+                                        self.interface = None
+                                        self.php = None
+                                        self.explicit_null = None
+                                        self._segment_path = lambda: "connected-prefix-sid" + "[address-prefix='" + str(self.address_prefix) + "']" + "[algo='" + str(self.algo) + "']"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, ['address_prefix', 'algo', 'sid_type', 'sid', 'sid_range', 'interface', 'php', 'explicit_null'], name, value)
+
+
 
 
                             class PrefixSidMap(Entity):
@@ -6154,7 +6717,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap, self).__init__()
@@ -6194,7 +6757,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles, self).__init__()
@@ -6236,7 +6799,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle, self).__init__()
@@ -6310,7 +6873,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable, self).__init__()
@@ -6371,7 +6934,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings, self).__init__()
@@ -6413,7 +6976,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing, self).__init__()
@@ -6453,7 +7016,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes, self).__init__()
@@ -6495,7 +7058,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, self).__init__()
@@ -6535,7 +7098,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits, self).__init__()
@@ -6566,17 +7129,24 @@ class Isis(Entity):
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
-                                    .. attribute:: frr_type
+                                    .. attribute:: frr_type  (key)
                                     
-                                    	keys\: frr\-type
-                                    	**type**\: list of  		 :py:class:`FrrType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit.FrrType>`
+                                    	Computation Type
+                                    	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                    
+                                    .. attribute:: priority
+                                    
+                                    	Compute for all prefixes upto the specified priority
+                                    	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
+                                    
+                                    	**mandatory**\: True
                                     
                                     
 
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit, self).__init__()
@@ -6585,65 +7155,21 @@ class Isis(Entity):
                                         self.yang_parent_name = "priority-limits"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self.ylist_key_names = ['level']
-                                        self._child_classes = OrderedDict([("frr-type", ("frr_type", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit.FrrType))])
+                                        self.ylist_key_names = ['level','frr_type']
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel', '')])),
+                                            ('frr_type', (YLeaf(YType.enumeration, 'frr-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr', '')])),
+                                            ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriority', '')])),
                                         ])
                                         self.level = None
-
-                                        self.frr_type = YList(self)
-                                        self._segment_path = lambda: "priority-limit" + "[level='" + str(self.level) + "']"
+                                        self.frr_type = None
+                                        self.priority = None
+                                        self._segment_path = lambda: "priority-limit" + "[level='" + str(self.level) + "']" + "[frr-type='" + str(self.frr_type) + "']"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit, ['level'], name, value)
-
-
-                                    class FrrType(Entity):
-                                        """
-                                        keys\: frr\-type
-                                        
-                                        .. attribute:: frr_type  (key)
-                                        
-                                        	Computation Type
-                                        	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
-                                        
-                                        .. attribute:: priority
-                                        
-                                        	Compute for all prefixes upto the specified priority
-                                        	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
-                                        
-                                        	**mandatory**\: True
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
-
-                                        def __init__(self):
-                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit.FrrType, self).__init__()
-
-                                            self.yang_name = "frr-type"
-                                            self.yang_parent_name = "priority-limit"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self.ylist_key_names = ['frr_type']
-                                            self._child_classes = OrderedDict([])
-                                            self._leafs = OrderedDict([
-                                                ('frr_type', (YLeaf(YType.enumeration, 'frr-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr', '')])),
-                                                ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriority', '')])),
-                                            ])
-                                            self.frr_type = None
-                                            self.priority = None
-                                            self._segment_path = lambda: "frr-type" + "[frr-type='" + str(self.frr_type) + "']"
-                                            self._is_frozen = True
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit.FrrType, ['frr_type', 'priority'], name, value)
-
+                                        self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit, ['level', 'frr_type', 'priority'], name, value)
 
 
 
@@ -6663,7 +7189,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes, self).__init__()
@@ -6708,7 +7234,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, self).__init__()
@@ -6748,7 +7274,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers, self).__init__()
@@ -6797,7 +7323,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker, self).__init__()
@@ -6839,7 +7365,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies, self).__init__()
@@ -6880,7 +7406,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, self).__init__()
@@ -6929,7 +7455,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.RouterId, self).__init__()
@@ -6968,7 +7494,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities, self).__init__()
@@ -7022,7 +7548,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority, self).__init__()
@@ -7066,7 +7592,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes, self).__init__()
@@ -7123,7 +7649,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix, self).__init__()
@@ -7176,7 +7702,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance, self).__init__()
@@ -7231,7 +7757,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp, self).__init__()
@@ -7286,7 +7812,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable, self).__init__()
@@ -7326,7 +7852,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces, self).__init__()
@@ -7364,7 +7890,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -7404,7 +7930,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes, self).__init__()
@@ -7450,7 +7976,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix, self).__init__()
@@ -7490,7 +8016,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations, self).__init__()
@@ -7539,7 +8065,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation, self).__init__()
@@ -7581,7 +8107,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions, self).__init__()
@@ -7639,7 +8165,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution, self).__init__()
@@ -7711,7 +8237,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, self).__init__()
@@ -7790,7 +8316,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, self).__init__()
@@ -7877,7 +8403,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp, self).__init__()
@@ -7959,7 +8485,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp, self).__init__()
@@ -8008,7 +8534,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables, self).__init__()
@@ -8048,7 +8574,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable, self).__init__()
@@ -8093,7 +8619,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable.AttributeTable, self).__init__()
@@ -8134,7 +8660,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals, self).__init__()
@@ -8180,7 +8706,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval, self).__init__()
@@ -8229,7 +8755,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.DistributeListIn, self).__init__()
@@ -8268,7 +8794,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals, self).__init__()
@@ -8330,7 +8856,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval, self).__init__()
@@ -8386,7 +8912,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence, self).__init__()
@@ -8442,7 +8968,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation, self).__init__()
@@ -8484,7 +9010,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances, self).__init__()
@@ -8547,7 +9073,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance, self).__init__()
@@ -8589,7 +9115,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf, self).__init__()
@@ -8626,7 +9152,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States, self).__init__()
@@ -8668,7 +9194,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State, self).__init__()
@@ -8711,7 +9237,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal, self).__init__()
@@ -8765,7 +9291,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls, self).__init__()
@@ -8821,7 +9347,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId, self).__init__()
@@ -8866,7 +9392,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level, self).__init__()
@@ -8906,7 +9432,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids, self).__init__()
@@ -8960,7 +9486,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid, self).__init__()
@@ -9004,7 +9530,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics, self).__init__()
@@ -9059,7 +9585,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric, self).__init__()
@@ -9118,7 +9644,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Weights, self).__init__()
@@ -9163,7 +9689,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight, self).__init__()
@@ -9206,7 +9732,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspRefreshIntervals, self).__init__()
@@ -9253,7 +9779,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval, self).__init__()
@@ -9311,7 +9837,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Distribute, self).__init__()
@@ -9353,7 +9879,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.FlexAlgos, self).__init__()
@@ -9400,7 +9926,7 @@ class Isis(Entity):
                     	Set the Flex\-Algo metric\-type
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 1..1
                     
                     .. attribute:: priority
                     
@@ -9408,6 +9934,11 @@ class Isis(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    .. attribute:: frr_disable
+                    
+                    	If TRUE, FRR protectinn is disabled for the Flex\-Algo
+                    	**type**\: bool
                     
                     .. attribute:: advertise_definition
                     
@@ -9419,7 +9950,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.FlexAlgos.FlexAlgo, self).__init__()
@@ -9435,12 +9966,14 @@ class Isis(Entity):
                             ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                             ('metric_type', (YLeaf(YType.uint32, 'metric-type'), ['int'])),
                             ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                            ('frr_disable', (YLeaf(YType.boolean, 'frr-disable'), ['bool'])),
                             ('advertise_definition', (YLeaf(YType.boolean, 'advertise-definition'), ['bool'])),
                         ])
                         self.flex_algo = None
                         self.running = None
                         self.metric_type = None
                         self.priority = None
+                        self.frr_disable = None
                         self.advertise_definition = None
 
                         self.affinity_exclude_anies = Isis.Instances.Instance.FlexAlgos.FlexAlgo.AffinityExcludeAnies()
@@ -9450,7 +9983,7 @@ class Isis(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Isis.Instances.Instance.FlexAlgos.FlexAlgo, ['flex_algo', 'running', 'metric_type', 'priority', 'advertise_definition'], name, value)
+                        self._perform_setattr(Isis.Instances.Instance.FlexAlgos.FlexAlgo, ['flex_algo', 'running', 'metric_type', 'priority', 'frr_disable', 'advertise_definition'], name, value)
 
 
                     class AffinityExcludeAnies(Entity):
@@ -9467,7 +10000,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.FlexAlgos.FlexAlgo.AffinityExcludeAnies, self).__init__()
@@ -9506,7 +10039,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.AffinityMappings, self).__init__()
@@ -9552,7 +10085,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.AffinityMappings.AffinityMapping, self).__init__()
@@ -9592,7 +10125,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspAcceptPasswords, self).__init__()
@@ -9638,7 +10171,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword, self).__init__()
@@ -9678,7 +10211,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspMtus, self).__init__()
@@ -9713,7 +10246,7 @@ class Isis(Entity):
                     	Bytes
                     	**type**\: int
                     
-                    	**range:** 128..4352
+                    	**range:** 128..8979
                     
                     	**mandatory**\: True
                     
@@ -9724,7 +10257,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspMtus.LspMtu, self).__init__()
@@ -9771,7 +10304,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.SrlgTable, self).__init__()
@@ -9811,7 +10344,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.SrlgTable.SrlgNames, self).__init__()
@@ -9860,7 +10393,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName, self).__init__()
@@ -9902,7 +10435,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos, self).__init__()
@@ -9946,7 +10479,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos.FromTo, self).__init__()
@@ -10020,7 +10553,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Nsf, self).__init__()
@@ -10063,7 +10596,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LinkGroups, self).__init__()
@@ -10125,7 +10658,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LinkGroups.LinkGroup, self).__init__()
@@ -10169,7 +10702,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspCheckIntervals, self).__init__()
@@ -10215,7 +10748,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval, self).__init__()
@@ -10255,7 +10788,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspPasswords, self).__init__()
@@ -10326,7 +10859,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspPasswords.LspPassword, self).__init__()
@@ -10374,7 +10907,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Nets, self).__init__()
@@ -10411,7 +10944,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.Nets.Net, self).__init__()
@@ -10449,7 +10982,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspLifetimes, self).__init__()
@@ -10495,7 +11028,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspLifetimes.LspLifetime, self).__init__()
@@ -10535,7 +11068,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.OverloadBits, self).__init__()
@@ -10601,7 +11134,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.OverloadBits.OverloadBit, self).__init__()
@@ -10647,7 +11180,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2018-11-23'
+                _revision = '2019-03-15'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Interfaces, self).__init__()
@@ -10797,7 +11330,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2018-11-23'
+                    _revision = '2019-03-15'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.Interfaces.Interface, self).__init__()
@@ -10922,7 +11455,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable, self).__init__()
@@ -10960,7 +11493,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable.FlexAlgos, self).__init__()
@@ -10999,7 +11532,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals, self).__init__()
@@ -11046,7 +11579,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval, self).__init__()
@@ -11086,7 +11619,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals, self).__init__()
@@ -11133,7 +11666,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval, self).__init__()
@@ -11194,7 +11727,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.Bfd, self).__init__()
@@ -11237,7 +11770,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.Priorities, self).__init__()
@@ -11281,7 +11814,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority, self).__init__()
@@ -11321,7 +11854,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords, self).__init__()
@@ -11367,7 +11900,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword, self).__init__()
@@ -11407,7 +11940,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords, self).__init__()
@@ -11467,7 +12000,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword, self).__init__()
@@ -11511,7 +12044,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings, self).__init__()
@@ -11553,7 +12086,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding, self).__init__()
@@ -11593,7 +12126,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers, self).__init__()
@@ -11639,7 +12172,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier, self).__init__()
@@ -11679,7 +12212,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds, self).__init__()
@@ -11724,7 +12257,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold, self).__init__()
@@ -11764,7 +12297,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears, self).__init__()
@@ -11800,7 +12333,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear, self).__init__()
@@ -11838,7 +12371,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals, self).__init__()
@@ -11887,7 +12420,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval, self).__init__()
@@ -11927,7 +12460,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs, self).__init__()
@@ -11982,7 +12515,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf, self).__init__()
@@ -12092,7 +12625,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData, self).__init__()
@@ -12208,7 +12741,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid, self).__init__()
@@ -12289,7 +12822,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable, self).__init__()
@@ -12354,7 +12887,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces, self).__init__()
@@ -12406,7 +12939,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, self).__init__()
@@ -12448,7 +12981,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, self).__init__()
@@ -12493,7 +13026,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, self).__init__()
@@ -12533,7 +13066,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes, self).__init__()
@@ -12576,7 +13109,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType, self).__init__()
@@ -12616,7 +13149,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes, self).__init__()
@@ -12659,7 +13192,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, self).__init__()
@@ -12700,7 +13233,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, self).__init__()
@@ -12735,7 +13268,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, self).__init__()
@@ -12773,7 +13306,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes, self).__init__()
@@ -12808,7 +13341,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, self).__init__()
@@ -12846,7 +13379,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces, self).__init__()
@@ -12897,7 +13430,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, self).__init__()
@@ -12939,7 +13472,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers, self).__init__()
@@ -12989,7 +13522,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, self).__init__()
@@ -13036,7 +13569,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp, self).__init__()
@@ -13110,7 +13643,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid, self).__init__()
@@ -13156,7 +13689,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids, self).__init__()
@@ -13233,7 +13766,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids.AlgorithmPrefixSid, self).__init__()
@@ -13281,7 +13814,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics, self).__init__()
@@ -13333,7 +13866,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric, self).__init__()
@@ -13373,7 +13906,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags, self).__init__()
@@ -13418,7 +13951,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag, self).__init__()
@@ -13473,7 +14006,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup, self).__init__()
@@ -13513,7 +14046,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids, self).__init__()
@@ -13567,7 +14100,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid, self).__init__()
@@ -13611,7 +14144,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics, self).__init__()
@@ -13666,7 +14199,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric, self).__init__()
@@ -13725,7 +14258,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights, self).__init__()
@@ -13770,7 +14303,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight, self).__init__()
@@ -13884,7 +14417,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2018-11-23'
+                                _revision = '2019-03-15'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName, self).__init__()
@@ -14002,7 +14535,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid, self).__init__()
@@ -14083,7 +14616,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable, self).__init__()
@@ -14148,7 +14681,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces, self).__init__()
@@ -14200,7 +14733,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, self).__init__()
@@ -14242,7 +14775,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, self).__init__()
@@ -14287,7 +14820,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, self).__init__()
@@ -14327,7 +14860,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes, self).__init__()
@@ -14370,7 +14903,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType, self).__init__()
@@ -14410,7 +14943,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes, self).__init__()
@@ -14453,7 +14986,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, self).__init__()
@@ -14494,7 +15027,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, self).__init__()
@@ -14529,7 +15062,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, self).__init__()
@@ -14567,7 +15100,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes, self).__init__()
@@ -14602,7 +15135,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, self).__init__()
@@ -14640,7 +15173,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces, self).__init__()
@@ -14691,7 +15224,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, self).__init__()
@@ -14733,7 +15266,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers, self).__init__()
@@ -14783,7 +15316,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2018-11-23'
+                                            _revision = '2019-03-15'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, self).__init__()
@@ -14830,7 +15363,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp, self).__init__()
@@ -14904,7 +15437,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid, self).__init__()
@@ -14950,7 +15483,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids, self).__init__()
@@ -15027,7 +15560,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids.AlgorithmPrefixSid, self).__init__()
@@ -15075,7 +15608,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics, self).__init__()
@@ -15127,7 +15660,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric, self).__init__()
@@ -15167,7 +15700,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags, self).__init__()
@@ -15212,7 +15745,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag, self).__init__()
@@ -15267,7 +15800,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup, self).__init__()
@@ -15307,7 +15840,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids, self).__init__()
@@ -15361,7 +15894,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid, self).__init__()
@@ -15405,7 +15938,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics, self).__init__()
@@ -15460,7 +15993,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric, self).__init__()
@@ -15519,7 +16052,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2018-11-23'
+                                    _revision = '2019-03-15'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights, self).__init__()
@@ -15564,7 +16097,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2018-11-23'
+                                        _revision = '2019-03-15'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight, self).__init__()
@@ -15607,7 +16140,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals, self).__init__()
@@ -15655,7 +16188,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval, self).__init__()
@@ -15695,7 +16228,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2018-11-23'
+                        _revision = '2019-03-15'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.LspIntervals, self).__init__()
@@ -15742,7 +16275,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2018-11-23'
+                            _revision = '2019-03-15'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval, self).__init__()

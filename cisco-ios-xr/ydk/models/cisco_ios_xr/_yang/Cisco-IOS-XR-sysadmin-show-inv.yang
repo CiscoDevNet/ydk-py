@@ -1,7 +1,9 @@
 module Cisco-IOS-XR-sysadmin-show-inv {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-show-inv";
   prefix inv;
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -12,26 +14,25 @@ module Cisco-IOS-XR-sysadmin-show-inv {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR SysAdmin configuration.
-
-Calvados Inventory Service maintain entity database
-
-Copyright(c) 2011-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR SysAdmin configuration.
+     
+     Calvados Inventory Service maintain entity database
+     
+     Copyright(c) 2011-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2017-04-12 {
     description
       "Changed the namespace and module name";
   }
-
 
   grouping target_str {
     leaf name {
@@ -112,10 +113,11 @@ All rights reserved.
       uses target_str;
     }
   }
+
   container inventory {
+    config false;
     description
       "show inventory";
-    config false;
     uses inv-loc;
     uses inv-all;
     uses inv-chassis;

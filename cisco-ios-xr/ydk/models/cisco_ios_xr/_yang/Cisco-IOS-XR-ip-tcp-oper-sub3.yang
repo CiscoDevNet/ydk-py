@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-01 {
+    description
+      "Added socket async double free prevention count in tcp statistics summary";
+  }
   revision 2018-02-14 {
     description
       "PCB_ID argument is passed in string format.";
@@ -1365,6 +1369,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Cached fib pd context";
       leaf entry {
         type uint32;
+        description
+          "Cached fib pd context";
       }
     }
     list fib-label-output {
@@ -1373,6 +1379,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Cached Label stack";
       leaf entry {
         type uint32;
+        description
+          "Cached Label stack";
       }
     }
     list timer {
@@ -1866,12 +1874,20 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Maximum number of packets extended for scaled
          sockets";
     }
+    leaf sock-async-double-free-prevent-count {
+      type uint32;
+      description
+        "Total number of socket async buffer double free
+         prevented";
+    }
     list iqs-total-ingpacket {
       max-elements "20";
       description
         "Total Number of Ingress packets on TCP iqs";
       leaf entry {
         type uint32;
+        description
+          "Total Number of Ingress packets on TCP iqs";
       }
     }
     list iqs-total-egpacket {
@@ -1880,6 +1896,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Total Number of Egress packets on TCP iqs";
       leaf entry {
         type uint32;
+        description
+          "Total Number of Egress packets on TCP iqs";
       }
     }
   }
@@ -1898,6 +1916,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Number of successful data write to XIPC";
       leaf entry {
         type uint32;
+        description
+          "Number of successful data write to XIPC";
       }
     }
     list data-read-success-num {
@@ -1906,6 +1926,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Number of successful data read from XIPC";
       leaf entry {
         type uint32;
+        description
+          "Number of successful data read from XIPC";
       }
     }
     list data-write-error-num {
@@ -1914,6 +1936,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Number of failed data write to XIPC";
       leaf entry {
         type uint32;
+        description
+          "Number of failed data write to XIPC";
       }
     }
     list data-read-error-num {
@@ -1922,6 +1946,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Number of failed data read from XIPC";
       leaf entry {
         type uint32;
+        description
+          "Number of failed data read from XIPC";
       }
     }
     list control-write-success-num {
@@ -1930,6 +1956,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Number of successful control write to XIPC";
       leaf entry {
         type uint32;
+        description
+          "Number of successful control write to XIPC";
       }
     }
     list control-read-success-num {
@@ -1938,6 +1966,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Number of successful control read to XIPC";
       leaf entry {
         type uint32;
+        description
+          "Number of successful control read to XIPC";
       }
     }
     list control-write-error-num {
@@ -1946,6 +1976,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Number of failed control write to XIPC";
       leaf entry {
         type uint32;
+        description
+          "Number of failed control write to XIPC";
       }
     }
     list control-read-error-num {
@@ -1954,6 +1986,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
         "Number of failed control read from XIPC";
       leaf entry {
         type uint32;
+        description
+          "Number of failed control read from XIPC";
       }
     }
     list data-write-byte {
@@ -1963,6 +1997,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
       leaf entry {
         type uint64;
         units "byte";
+        description
+          "Number of bytes data has been written";
       }
     }
     list data-read-byte {
@@ -1972,6 +2008,8 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
       leaf entry {
         type uint64;
         units "byte";
+        description
+          "Number of bytes data has been read";
       }
     }
   }

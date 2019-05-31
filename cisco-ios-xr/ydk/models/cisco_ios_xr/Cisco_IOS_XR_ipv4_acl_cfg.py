@@ -254,7 +254,7 @@ class Ipv4AclAndPrefixList(Entity):
                     
                     .. attribute:: protocol2
                     
-                    	Protocol2 to match. It is used in upper bound (range operator). Any value not in the permissible range will be rejected
+                    	Protocol2 to match. It is used in upper bound (range operator). Any value not in the permissible range will  be rejected
                     	**type**\: union of the below types:
                     
                     		**type**\:  :py:class:`Ipv4AclProtocolNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclProtocolNumber>`
@@ -333,7 +333,7 @@ class Ipv4AclAndPrefixList(Entity):
                     
                     .. attribute:: igmp_message_type
                     
-                    	IGMP message type to match. Leave unspecified if no message type comparison is to be done
+                    	IGMP message type to match. Leave unspecified if  no message type comparison is to be done
                     	**type**\: union of the below types:
                     
                     		**type**\:  :py:class:`Ipv4AclIgmpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclIgmpNumber>`
@@ -389,7 +389,7 @@ class Ipv4AclAndPrefixList(Entity):
                     
                     .. attribute:: fragments
                     
-                    	Check non\-initial fragments. Item is mutually exclusive with TCP, SCTP, UDP, IGMP and ICMP comparions and with logging
+                    	Check non\-initial fragments. Item is mutually  exclusive with TCP, SCTP, UDP, IGMP and ICMP  comparions and with logging
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: remark
@@ -558,14 +558,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: source_wild_card_bits
                         
-                        	Wildcard bits to apply to source address (if specified), leave unspecified for no wildcarding
+                        	Wildcard bits to apply to source address  (if specified), leave unspecified for no  wildcarding
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: source_prefix_length
                         
-                        	Prefix length to apply to source address (if specified), leave unspecified for no wildcarding
+                        	Prefix length to apply to source address  (if specified), leave unspecified for no  wildcarding
                         	**type**\: int
                         
                         	**range:** 0..32
@@ -615,14 +615,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: destination_wild_card_bits
                         
-                        	Wildcard bits to apply to destination address (if specified), leave unspecified for no wildcarding
+                        	Wildcard bits to apply to destination address (if specified), leave unspecified for no  wildcarding
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: destination_prefix_length
                         
-                        	Prefix length to apply to destination address (if specified), leave unspecified for no wildcarding
+                        	Prefix length to apply to destination address  (if specified), leave unspecified for no  wildcarding
                         	**type**\: int
                         
                         	**range:** 0..32
@@ -665,7 +665,7 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: source_operator
                         
-                        	Source port comparison operator. This is a required field if any source port value is given, otherwise, config will be rejected. Leave unspecified if no source port comparison is to be done
+                        	Source port comparison operator. This is a required  field if any source port value is given, otherwise, config will be rejected. Leave unspecified if no source port comparison is to be done
                         	**type**\:  :py:class:`Ipv4AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum>`
                         
                         .. attribute:: first_source_port
@@ -791,7 +791,7 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: icmp_type_code
                         
-                        	Well known ICMP message code types to match, leave unspecified if ICMP message code type comparion is not to be performed
+                        	Well known ICMP message code types to match,  leave unspecified if ICMP message code type  comparion is not to be performed
                         	**type**\:  :py:class:`Ipv4AclIcmpTypeCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclIcmpTypeCodeEnum>`
                         
                         
@@ -828,7 +828,7 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: tcp_bits_match_operator
                         
-                        	TCP Bits match operator. Leave unspecified if flexible comparison of TCP bits is not required
+                        	TCP Bits match operator. Leave unspecified if  flexible comparison of TCP bits is not  required
                         	**type**\:  :py:class:`Ipv4AclTcpMatchOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpMatchOperatorEnum>`
                         
                         .. attribute:: tcp_bits
@@ -838,7 +838,7 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: tcp_bits_mask
                         
-                        	TCP bits mask to use for flexible TCP matching. Leave unspecified if tcp\-bits\-match\-operator is unspecified
+                        	TCP bits mask to use for flexible TCP matching. Leave unspecified if tcp\-bits\-match\-operator is  unspecified
                         	**type**\:  :py:class:`Ipv4AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpBitsNumber>`
                         
                         
@@ -879,7 +879,7 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: packet_length_operator
                         
-                        	Packet length operator applicable if packet length is to be compared. This is a required field if any packet\-length value is given, otherwise, config will be rejected
+                        	Packet length operator applicable if packet length is to be compared. This is a required field if any packet\-length value is given, otherwise, config  will be rejected
                         	**type**\:  :py:class:`Ipv4AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum>`
                         
                         .. attribute:: packet_length_min
@@ -1279,12 +1279,12 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: dscp_operator
                         
-                        	DSCP operator is applicable only when DSCP range is configured. Leave unspecified if DSCP range is not required
+                        	DSCP operator is applicable only when DSCP  range is configured. Leave unspecified if  DSCP range is not required
                         	**type**\:  :py:class:`Ipv4AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum>`
                         
                         .. attribute:: dscp_min
                         
-                        	Mininum DSCP value for comparison. It can be used for the lower bound (range operator) or single value (equal, less, greater..etc). Any value not in the permissible range will be rejected. Leave unspecified otherwise
+                        	Mininum DSCP value for comparison. It can be used for the  lower bound (range operator) or single value (equal, less, greater..etc). Any value not in the permissible range will be rejected. Leave unspecified otherwise
                         	**type**\: union of the below types:
                         
                         		**type**\:  :py:class:`Ipv4AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclDscpNumber>`

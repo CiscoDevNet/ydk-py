@@ -314,7 +314,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnIdToIndexTable.DocsL2vpnIdToIndexEntry, [u'docsl2vpnid', u'docsl2vpnidtoindexidx'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnIdToIndexTable.DocsL2vpnIdToIndexEntry, ['docsl2vpnid', 'docsl2vpnidtoindexidx'], name, value)
 
 
 
@@ -409,7 +409,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry, [u'docsl2vpnidx', u'docsl2vpnindextoidid'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry, ['docsl2vpnidx', 'docsl2vpnindextoidid'], name, value)
 
 
 
@@ -536,7 +536,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmTable.DocsL2vpnCmEntry, [u'docsifcmtscmstatusindex', u'docsl2vpncmcompliantcapability', u'docsl2vpncmdutfilteringcapability', u'docsl2vpncmdutcmim', u'docsl2vpncmdhcpsnooping'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmTable.DocsL2vpnCmEntry, ['docsifcmtscmstatusindex', 'docsl2vpncmcompliantcapability', 'docsl2vpncmdutfilteringcapability', 'docsl2vpncmdutcmim', 'docsl2vpncmdhcpsnooping'], name, value)
 
 
 
@@ -664,7 +664,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmTable.DocsL2vpnVpnCmEntry, [u'docsl2vpnidx', u'docsifcmtscmstatusindex', u'docsl2vpnvpncmcmim', u'docsl2vpnvpncmindividualsaid', u'docsl2vpnvpncmvendorspecific'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmTable.DocsL2vpnVpnCmEntry, ['docsl2vpnidx', 'docsifcmtscmstatusindex', 'docsl2vpnvpncmcmim', 'docsl2vpnvpncmindividualsaid', 'docsl2vpnvpncmvendorspecific'], name, value)
 
 
 
@@ -827,7 +827,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmStatsTable.DocsL2vpnVpnCmStatsEntry, [u'docsl2vpnidx', u'docsifcmtscmstatusindex', u'docsl2vpnvpncmstatsupstreampkts', u'docsl2vpnvpncmstatsupstreambytes', u'docsl2vpnvpncmstatsupstreamdiscards', u'docsl2vpnvpncmstatsdownstreampkts', u'docsl2vpnvpncmstatsdownstreambytes', u'docsl2vpnvpncmstatsdownstreamdiscards'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmStatsTable.DocsL2vpnVpnCmStatsEntry, ['docsl2vpnidx', 'docsifcmtscmstatusindex', 'docsl2vpnvpncmstatsupstreampkts', 'docsl2vpnvpncmstatsupstreambytes', 'docsl2vpnvpncmstatsupstreamdiscards', 'docsl2vpnvpncmstatsdownstreampkts', 'docsl2vpnvpncmstatsdownstreambytes', 'docsl2vpnvpncmstatsdownstreamdiscards'], name, value)
 
 
 
@@ -939,7 +939,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnPortStatusTable.DocsL2vpnPortStatusEntry, [u'dot1dbaseport', u'docsl2vpnidx', u'docsl2vpnportstatusgroupsaid'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnPortStatusTable.DocsL2vpnPortStatusEntry, ['dot1dbaseport', 'docsl2vpnidx', 'docsl2vpnportstatusgroupsaid'], name, value)
 
 
 
@@ -1072,7 +1072,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnSfStatusTable.DocsL2vpnSfStatusEntry, [u'ifindex', u'docsqosserviceflowid', u'docsl2vpnsfstatusl2vpnid', u'docsl2vpnsfstatusingressuserpriority', u'docsl2vpnsfstatusvendorspecific'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnSfStatusTable.DocsL2vpnSfStatusEntry, ['ifindex', 'docsqosserviceflowid', 'docsl2vpnsfstatusl2vpnid', 'docsl2vpnsfstatusingressuserpriority', 'docsl2vpnsfstatusvendorspecific'], name, value)
 
 
 
@@ -1236,7 +1236,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnPktClassTable.DocsL2vpnPktClassEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqospktclassid', u'docsl2vpnpktclassl2vpnid', u'docsl2vpnpktclassuserprirangelow', u'docsl2vpnpktclassuserprirangehigh', u'docsl2vpnpktclasscmim', u'docsl2vpnpktclassvendorspecific'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnPktClassTable.DocsL2vpnPktClassEntry, ['ifindex', 'docsqosserviceflowid', 'docsqospktclassid', 'docsl2vpnpktclassl2vpnid', 'docsl2vpnpktclassuserprirangelow', 'docsl2vpnpktclassuserprirangehigh', 'docsl2vpnpktclasscmim', 'docsl2vpnpktclassvendorspecific'], name, value)
 
 
 
@@ -1384,7 +1384,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmNsiTable.DocsL2vpnCmNsiEntry, [u'docsl2vpnidx', u'docsifcmtscmstatusindex', u'docsl2vpncmnsiencapsubtype', u'docsl2vpncmnsiencapvalue', u'docsl2vpncmnsiagi', u'docsl2vpncmnsisaii', u'docsl2vpncmnsitaii'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmNsiTable.DocsL2vpnCmNsiEntry, ['docsl2vpnidx', 'docsifcmtscmstatusindex', 'docsl2vpncmnsiencapsubtype', 'docsl2vpncmnsiencapvalue', 'docsl2vpncmnsiagi', 'docsl2vpncmnsisaii', 'docsl2vpncmnsitaii'], name, value)
 
 
 
@@ -1493,7 +1493,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmVpnCpeTable.DocsL2vpnCmVpnCpeEntry, [u'docsifcmtscmstatusindex', u'docsl2vpnidx', u'docsl2vpncmvpncpemacaddress'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmVpnCpeTable.DocsL2vpnCmVpnCpeEntry, ['docsifcmtscmstatusindex', 'docsl2vpnidx', 'docsl2vpncmvpncpemacaddress'], name, value)
 
 
 
@@ -1602,7 +1602,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmCpeTable.DocsL2vpnVpnCmCpeEntry, [u'docsl2vpnidx', u'docsifcmtscmstatusindex', u'docsl2vpnvpncmcpemacaddress'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmCpeTable.DocsL2vpnVpnCmCpeEntry, ['docsl2vpnidx', 'docsifcmtscmstatusindex', 'docsl2vpnvpncmcpemacaddress'], name, value)
 
 
 
@@ -1724,7 +1724,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnDot1qTpFdbExtTable.DocsL2vpnDot1qTpFdbExtEntry, [u'dot1qfdbid', u'dot1qtpfdbaddress', u'docsl2vpndot1qtpfdbexttransmitpkts', u'docsl2vpndot1qtpfdbextreceivepkts'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnDot1qTpFdbExtTable.DocsL2vpnDot1qTpFdbExtEntry, ['dot1qfdbid', 'dot1qtpfdbaddress', 'docsl2vpndot1qtpfdbexttransmitpkts', 'docsl2vpndot1qtpfdbextreceivepkts'], name, value)
 
 
 
@@ -1846,7 +1846,7 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnDot1qTpGroupExtTable.DocsL2vpnDot1qTpGroupExtEntry, [u'dot1qvlanindex', u'dot1qtpgroupaddress', u'docsl2vpndot1qtpgroupexttransmitpkts', u'docsl2vpndot1qtpgroupextreceivepkts'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnDot1qTpGroupExtTable.DocsL2vpnDot1qTpGroupExtEntry, ['dot1qvlanindex', 'dot1qtpgroupaddress', 'docsl2vpndot1qtpgroupexttransmitpkts', 'docsl2vpndot1qtpgroupextreceivepkts'], name, value)
 
 
 

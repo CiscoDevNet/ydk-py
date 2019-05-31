@@ -111,7 +111,7 @@ class Sla(Entity):
             """
 
             _prefix = 'ethernet-cfm-cfg'
-            _revision = '2017-10-06'
+            _revision = '2018-07-27'
 
             def __init__(self):
                 super(Sla.Protocols.Ethernet, self).__init__()
@@ -149,7 +149,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-cfg'
-                _revision = '2017-10-06'
+                _revision = '2018-07-27'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.Profiles, self).__init__()
@@ -204,12 +204,14 @@ class Sla(Entity):
                     	The possible packet types are cfm\-loopback, cfm\-delay\-measurement, cfm\-delay\-measurement\-version\-0, cfm\-loss\-measurement and cfm\-synthetic\-loss\-measurement
                     	**type**\: str
                     
+                    	**mandatory**\: True
+                    
                     
 
                     """
 
                     _prefix = 'ethernet-cfm-cfg'
-                    _revision = '2017-10-06'
+                    _revision = '2018-07-27'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.Profiles.Profile, self).__init__()
@@ -259,7 +261,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-cfg'
-                        _revision = '2017-10-06'
+                        _revision = '2018-07-27'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics, self).__init__()
@@ -325,7 +327,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2017-10-06'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, self).__init__()
@@ -389,7 +391,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-cfg'
-                                _revision = '2017-10-06'
+                                _revision = '2018-07-27'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, self).__init__()
@@ -430,7 +432,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-cfg'
-                                _revision = '2017-10-06'
+                                _revision = '2018-07-27'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions, self).__init__()
@@ -492,7 +494,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-cfg'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-07-27'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action, self).__init__()
@@ -545,6 +547,8 @@ class Sla(Entity):
                                 
                                 	**range:** 1..10000
                                 
+                                	**mandatory**\: True
+                                
                                 .. attribute:: bins_width_tenths
                                 
                                 	Tenths portion of the bin width
@@ -559,7 +563,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-cfg'
-                                _revision = '2017-10-06'
+                                _revision = '2018-07-27'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, self).__init__()
@@ -603,7 +607,7 @@ class Sla(Entity):
                         
                         .. attribute:: probe_interval_day
                         
-                        	Day of week on which to schedule probes. This must be specified if, and only if, ProbeIntervalUnit is 'Week'
+                        	Day of week on which to schedule probes.  This must be specified if, and only if, ProbeIntervalUnit is 'Week'
                         	**type**\:  :py:class:`SlaProbeIntervalDayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalDayEnum>`
                         
                         .. attribute:: probe_interval_unit
@@ -653,7 +657,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-cfg'
-                        _revision = '2017-10-06'
+                        _revision = '2018-07-27'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, self).__init__()
@@ -697,7 +701,7 @@ class Sla(Entity):
                         
                         .. attribute:: send
                         
-                        	Schedule to use for packets within a burst. The default value is to send a single packet once
+                        	Schedule to use for packets within a burst.  The default value is to send a single packet once
                         	**type**\:  :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send>`
                         
                         	**presence node**\: True
@@ -728,7 +732,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-cfg'
-                        _revision = '2017-10-06'
+                        _revision = '2018-07-27'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Profiles.Profile.Probe, self).__init__()
@@ -760,7 +764,7 @@ class Sla(Entity):
 
                         class Send(Entity):
                             """
-                            Schedule to use for packets within a burst.
+                            Schedule to use for packets within a burst. 
                             The default value is to send a single packet
                             once.
                             
@@ -811,7 +815,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2017-10-06'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, self).__init__()
@@ -877,7 +881,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2017-10-06'
+                            _revision = '2018-07-27'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, self).__init__()

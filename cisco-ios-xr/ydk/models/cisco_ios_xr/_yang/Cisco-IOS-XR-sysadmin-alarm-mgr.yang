@@ -1,6 +1,7 @@
 module Cisco-IOS-XR-sysadmin-alarm-mgr {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-alarm-mgr";
   prefix alarms;
+
   import ietf-yang-types {
     prefix yang;
   }
@@ -10,7 +11,9 @@ module Cisco-IOS-XR-sysadmin-alarm-mgr {
   import Cisco-IOS-XR-sysadmin-show-trace {
     prefix show_trace;
   }
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -21,26 +24,25 @@ module Cisco-IOS-XR-sysadmin-alarm-mgr {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR SysAdmin configuration.
-
-Alarm management YANG model
-
-Copyright(c) 2011-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR SysAdmin configuration.
+     
+     Alarm management YANG model
+     
+     Copyright(c) 2011-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
-  revision 2017-04-12 {
-    description
-      "Changed the namespace and module name";
-  }
 
+  revision 2018-04-09 {
+    description
+      "Required changes for ConfD 6.4.5";
+  }
 
   typedef severity_td {
     type enumeration {
@@ -524,10 +526,11 @@ All rights reserved.
       uses alarmDetailSuppressedFilters;
     }
   }
+
   container alarm_mgr {
+    config false;
     description
       "Calvados alarms operational data model";
-    config false;
     uses show_trace:traceable;
     container brief {
       description

@@ -136,6 +136,10 @@ class SergShowImRole(Enum):
 
     	Slave Role
 
+    .. data:: active = 3
+
+    	Active Role
+
     """
 
     none = Enum.YLeaf(0, "none")
@@ -143,6 +147,8 @@ class SergShowImRole(Enum):
     master = Enum.YLeaf(1, "master")
 
     slave = Enum.YLeaf(2, "slave")
+
+    active = Enum.YLeaf(3, "active")
 
 
 class SergShowMem(Enum):
@@ -208,6 +214,10 @@ class SergShowRole(Enum):
 
     	Slave Role
 
+    .. data:: active = 3
+
+    	Active Role
+
     """
 
     none = Enum.YLeaf(0, "none")
@@ -215,6 +225,8 @@ class SergShowRole(Enum):
     master = Enum.YLeaf(1, "master")
 
     slave = Enum.YLeaf(2, "slave")
+
+    active = Enum.YLeaf(3, "active")
 
 
 class SergShowSessionError(Enum):
@@ -537,7 +549,7 @@ class SessionRedundancyManager(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SessionRedundancyManager.Interfaces.Interface, ['interface', u'interface_name', u'interface_mapping_id', u'forward_referenced', u'group_id', u'role'], name, value)
+                self._perform_setattr(SessionRedundancyManager.Interfaces.Interface, ['interface', 'interface_name', 'interface_mapping_id', 'forward_referenced', 'group_id', 'role'], name, value)
 
 
 
@@ -725,7 +737,7 @@ class SessionRedundancyManager(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SessionRedundancyManager.Groups.Group, ['group', u'group_id', u'description', u'disabled', u'role', u'peer_ipv4_address', u'peer_ipv6_address', u'interface_count', u'preferred_role', u'slave_mode', u'object_tracking_status', u'node_name'], name, value)
+                self._perform_setattr(SessionRedundancyManager.Groups.Group, ['group', 'group_id', 'description', 'disabled', 'role', 'peer_ipv4_address', 'peer_ipv6_address', 'interface_count', 'preferred_role', 'slave_mode', 'object_tracking_status', 'node_name'], name, value)
 
 
 
@@ -839,6 +851,15 @@ class SessionRedundancyManager(Entity):
         
         	**config**\: False
         
+        .. attribute:: active_group_count
+        
+        	No. of Active Groups
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
         .. attribute:: interface_count
         
         	No. of Configured Interfaces
@@ -860,6 +881,15 @@ class SessionRedundancyManager(Entity):
         .. attribute:: slave_interface_count
         
         	No. of Slave Interfaces
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: active_interface_count
+        
+        	No. of Active Interfaces
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -905,9 +935,11 @@ class SessionRedundancyManager(Entity):
                 ('disabled_group_count', (YLeaf(YType.uint32, 'disabled-group-count'), ['int'])),
                 ('master_group_count', (YLeaf(YType.uint32, 'master-group-count'), ['int'])),
                 ('slave_group_count', (YLeaf(YType.uint32, 'slave-group-count'), ['int'])),
+                ('active_group_count', (YLeaf(YType.uint32, 'active-group-count'), ['int'])),
                 ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
                 ('master_interface_count', (YLeaf(YType.uint32, 'master-interface-count'), ['int'])),
                 ('slave_interface_count', (YLeaf(YType.uint32, 'slave-interface-count'), ['int'])),
+                ('active_interface_count', (YLeaf(YType.uint32, 'active-interface-count'), ['int'])),
                 ('pool_count', (YLeaf(YType.uint32, 'pool-count'), ['int'])),
             ])
             self.disabled = None
@@ -923,16 +955,18 @@ class SessionRedundancyManager(Entity):
             self.disabled_group_count = None
             self.master_group_count = None
             self.slave_group_count = None
+            self.active_group_count = None
             self.interface_count = None
             self.master_interface_count = None
             self.slave_interface_count = None
+            self.active_interface_count = None
             self.pool_count = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SessionRedundancyManager.Summary, [u'disabled', u'active_state', u'preferred_role', u'slave_mode', u'hold_timer', u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'group_count', u'disabled_group_count', u'master_group_count', u'slave_group_count', u'interface_count', u'master_interface_count', u'slave_interface_count', u'pool_count'], name, value)
+            self._perform_setattr(SessionRedundancyManager.Summary, ['disabled', 'active_state', 'preferred_role', 'slave_mode', 'hold_timer', 'source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'group_count', 'disabled_group_count', 'master_group_count', 'slave_group_count', 'active_group_count', 'interface_count', 'master_interface_count', 'slave_interface_count', 'active_interface_count', 'pool_count'], name, value)
 
 
     def clone_ptr(self):
@@ -1218,9 +1252,23 @@ class SessionRedundancyAgent(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: role_active
+                    
+                    	Active Role is Set
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
                     .. attribute:: negative_acknowledgement_update_all
                     
                     	Negative Acknowledgement Update Flag is Set
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: entry_type
+                    
+                    	Local or Sync Entry
                     	**type**\: bool
                     
                     	**config**\: False
@@ -1261,14 +1309,18 @@ class SessionRedundancyAgent(Entity):
                             ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ('key_index', (YLeaf(YType.str, 'key-index'), ['str'])),
                             ('role_master', (YLeaf(YType.boolean, 'role-master'), ['bool'])),
+                            ('role_active', (YLeaf(YType.boolean, 'role-active'), ['bool'])),
                             ('negative_acknowledgement_update_all', (YLeaf(YType.boolean, 'negative-acknowledgement-update-all'), ['bool'])),
+                            ('entry_type', (YLeaf(YType.boolean, 'entry-type'), ['bool'])),
                         ])
                         self.group_id = None
                         self.group_id_xr = None
                         self.interface_name = None
                         self.key_index = None
                         self.role_master = None
+                        self.role_active = None
                         self.negative_acknowledgement_update_all = None
+                        self.entry_type = None
 
                         self.session_detailed_information = YList(self)
                         self.session_sync_error_information = YList(self)
@@ -1276,7 +1328,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', u'group_id_xr', u'interface_name', u'key_index', u'role_master', u'negative_acknowledgement_update_all'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', 'group_id_xr', 'interface_name', 'key_index', 'role_master', 'role_active', 'negative_acknowledgement_update_all', 'entry_type'], name, value)
 
 
                     class SessionDetailedInformation(Entity):
@@ -1350,7 +1402,7 @@ class SessionRedundancyAgent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, [u'component', u'operation_', u'tx_list_queue_fail', u'marked_for_sweeping', u'marked_for_cleanup'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, ['component', 'operation_', 'tx_list_queue_fail', 'marked_for_sweeping', 'marked_for_cleanup'], name, value)
 
 
 
@@ -1411,7 +1463,7 @@ class SessionRedundancyAgent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, [u'sync_error_count', u'last_error_code', u'last_error_type'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, ['sync_error_count', 'last_error_code', 'last_error_type'], name, value)
 
 
 
@@ -1764,6 +1816,24 @@ class SessionRedundancyAgent(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: tx_list_rx_tcp_restart_start_of_download
+                    
+                    	TxListRxTCPRestartStartOfDownload
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: tx_list_rx_tcp_restart_end_of_download
+                    
+                    	TxListRxTCPRestartEndOfDownload
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_receive_session_session_eoms
                     
                     	TxListReceiveSessionSessionEOMS
@@ -1986,6 +2056,8 @@ class SessionRedundancyAgent(Entity):
                             ('tx_list_receive_session_session_sod_selected', (YLeaf(YType.uint32, 'tx-list-receive-session-session-sod-selected'), ['int'])),
                             ('tx_list_receive_session_session_eod_all', (YLeaf(YType.uint32, 'tx-list-receive-session-session-eod-all'), ['int'])),
                             ('tx_list_receive_session_session_eod_selected', (YLeaf(YType.uint32, 'tx-list-receive-session-session-eod-selected'), ['int'])),
+                            ('tx_list_rx_tcp_restart_start_of_download', (YLeaf(YType.uint32, 'tx-list-rx-tcp-restart-start-of-download'), ['int'])),
+                            ('tx_list_rx_tcp_restart_end_of_download', (YLeaf(YType.uint32, 'tx-list-rx-tcp-restart-end-of-download'), ['int'])),
                             ('tx_list_receive_session_session_eoms', (YLeaf(YType.uint32, 'tx-list-receive-session-session-eoms'), ['int'])),
                             ('tx_list_receive_session_session_clear_all', (YLeaf(YType.uint32, 'tx-list-receive-session-session-clear-all'), ['int'])),
                             ('tx_list_receive_session_session_clear_selected', (YLeaf(YType.uint32, 'tx-list-receive-session-session-clear-selected'), ['int'])),
@@ -2040,6 +2112,8 @@ class SessionRedundancyAgent(Entity):
                         self.tx_list_receive_session_session_sod_selected = None
                         self.tx_list_receive_session_session_eod_all = None
                         self.tx_list_receive_session_session_eod_selected = None
+                        self.tx_list_rx_tcp_restart_start_of_download = None
+                        self.tx_list_rx_tcp_restart_end_of_download = None
                         self.tx_list_receive_session_session_eoms = None
                         self.tx_list_receive_session_session_clear_all = None
                         self.tx_list_receive_session_session_clear_selected = None
@@ -2063,7 +2137,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, ['stats_client_id', u'tx_list_start_of_download_add_ok', u'tx_list_start_of_download_add_not_ok', u'tx_list_end_of_download_add_ok', u'tx_list_end_of_download_add_not_ok', u'tx_list_end_of_message_add_ok', u'tx_list_end_of_message_add_not_ok', u'tx_list_clear_all_add_ok', u'tx_list_clear_all_add_not_ok', u'tx_list_clear_selected_add_ok', u'tx_list_clear_selected_add_not_ok', u'tx_list_replay_all_add_ok', u'tx_list_replay_all_add_not_ok', u'tx_list_replay_selected_add_ok', u'tx_list_replay_selected_add_not_ok', u'tx_list_session_session_add_ok', u'tx_list_session_session_add_not_ok', u'tx_list_session_session_update_ok', u'tx_list_session_session_update_not_ok', u'tx_list_session_session_delete', u'clean_call_back', u'tx_list_encode_session_session_ok', u'tx_list_encode_session_session_partial_write', u'last_replay_all_count', u'tx_list_receive_command_replay_all', u'tx_list_receive_command_replay_selected', u'tx_list_receive_session_session_delete_valid', u'tx_list_receive_session_session_delete_invalid', u'tx_list_receive_session_session_update_valid', u'tx_list_receive_session_session_update_invalid', u'tx_list_receive_session_session_sod_all', u'tx_list_receive_session_session_sod_selected', u'tx_list_receive_session_session_eod_all', u'tx_list_receive_session_session_eod_selected', u'tx_list_receive_session_session_eoms', u'tx_list_receive_session_session_clear_all', u'tx_list_receive_session_session_clear_selected', u'tx_list_receive_session_session_neg_ack', u'tx_list_receive_session_session_neg_ack_not_ok', u'tx_list_client_registration_ok', u'tx_list_client_registration_not_ok', u'tx_list_client_de_registration', u'tx_list_client_connection_down', u'tx_list_client_cleanup', u'tx_list_active_ok', u'tx_list_active_not_ok', u'tx_list_de_active_ok', u'tx_list_de_active_not_ok', u'tx_list_send_pool_role_ok', u'tx_list_send_pool_role_not_ok', u'tx_list_send_pool_update_ok', u'tx_list_send_pool_update_not_ok', u'tx_list_recv_pool_update_ok'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, ['stats_client_id', 'tx_list_start_of_download_add_ok', 'tx_list_start_of_download_add_not_ok', 'tx_list_end_of_download_add_ok', 'tx_list_end_of_download_add_not_ok', 'tx_list_end_of_message_add_ok', 'tx_list_end_of_message_add_not_ok', 'tx_list_clear_all_add_ok', 'tx_list_clear_all_add_not_ok', 'tx_list_clear_selected_add_ok', 'tx_list_clear_selected_add_not_ok', 'tx_list_replay_all_add_ok', 'tx_list_replay_all_add_not_ok', 'tx_list_replay_selected_add_ok', 'tx_list_replay_selected_add_not_ok', 'tx_list_session_session_add_ok', 'tx_list_session_session_add_not_ok', 'tx_list_session_session_update_ok', 'tx_list_session_session_update_not_ok', 'tx_list_session_session_delete', 'clean_call_back', 'tx_list_encode_session_session_ok', 'tx_list_encode_session_session_partial_write', 'last_replay_all_count', 'tx_list_receive_command_replay_all', 'tx_list_receive_command_replay_selected', 'tx_list_receive_session_session_delete_valid', 'tx_list_receive_session_session_delete_invalid', 'tx_list_receive_session_session_update_valid', 'tx_list_receive_session_session_update_invalid', 'tx_list_receive_session_session_sod_all', 'tx_list_receive_session_session_sod_selected', 'tx_list_receive_session_session_eod_all', 'tx_list_receive_session_session_eod_selected', 'tx_list_rx_tcp_restart_start_of_download', 'tx_list_rx_tcp_restart_end_of_download', 'tx_list_receive_session_session_eoms', 'tx_list_receive_session_session_clear_all', 'tx_list_receive_session_session_clear_selected', 'tx_list_receive_session_session_neg_ack', 'tx_list_receive_session_session_neg_ack_not_ok', 'tx_list_client_registration_ok', 'tx_list_client_registration_not_ok', 'tx_list_client_de_registration', 'tx_list_client_connection_down', 'tx_list_client_cleanup', 'tx_list_active_ok', 'tx_list_active_not_ok', 'tx_list_de_active_ok', 'tx_list_de_active_not_ok', 'tx_list_send_pool_role_ok', 'tx_list_send_pool_role_not_ok', 'tx_list_send_pool_update_ok', 'tx_list_send_pool_update_not_ok', 'tx_list_recv_pool_update_ok'], name, value)
 
 
 
@@ -2220,7 +2294,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, [u'structure_name', u'size', u'current_count', u'alloc_fails', u'alloc_count', u'freed_count', u'memory_type'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, ['structure_name', 'size', 'current_count', 'alloc_fails', 'alloc_count', 'freed_count', 'memory_type'], name, value)
 
 
 
@@ -2294,7 +2368,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, [u'size', u'total', u'success', u'failure'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
 
 
 
@@ -2368,7 +2442,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, [u'size', u'total', u'success', u'failure'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
 
 
 
@@ -2819,7 +2893,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', u'group_id_xr', u'description', u'disabled', u'init_role', u'negotiating_role', u'current_role', u'slave_mode', u'hold_timer', u'core_tracking_object_name', u'core_tracking_object_status', u'access_tracking_object_name', u'access_tracking_object_status', u'object_tracking_status', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'peer_last_negotiation_time', u'peer_last_up_time', u'peer_last_down_time', u'peer_init_role', u'peer_negotiating_role', u'peer_current_role', u'peer_object_tracking_status', u'last_switchover_time', u'switchover_count', u'last_switchover_reason', u'switchover_hold_time', u'session_count', u'slave_update_failure_count', u'pending_session_update_count', u'pending_session_delete_count', u'interface_count', u'revertive_timer', u'switchover_revert_time', u'pool_count'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', 'group_id_xr', 'description', 'disabled', 'init_role', 'negotiating_role', 'current_role', 'slave_mode', 'hold_timer', 'core_tracking_object_name', 'core_tracking_object_status', 'access_tracking_object_name', 'access_tracking_object_status', 'object_tracking_status', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'peer_last_negotiation_time', 'peer_last_up_time', 'peer_last_down_time', 'peer_init_role', 'peer_negotiating_role', 'peer_current_role', 'peer_object_tracking_status', 'last_switchover_time', 'switchover_count', 'last_switchover_reason', 'switchover_hold_time', 'session_count', 'slave_update_failure_count', 'pending_session_update_count', 'pending_session_delete_count', 'interface_count', 'revertive_timer', 'switchover_revert_time', 'pool_count'], name, value)
 
 
                     class ClientSessionCount(Entity):
@@ -2868,7 +2942,7 @@ class SessionRedundancyAgent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, [u'component', u'session_count'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, ['component', 'session_count'], name, value)
 
 
 
@@ -2938,7 +3012,7 @@ class SessionRedundancyAgent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, [u'interface_name', u'interface_synchronization_id', u'forward_referenced', u'session_count'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, ['interface_name', 'interface_synchronization_id', 'forward_referenced', 'session_count'], name, value)
 
 
 
@@ -2977,7 +3051,7 @@ class SessionRedundancyAgent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool, [u'pool_name'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool, ['pool_name'], name, value)
 
 
 
@@ -3203,7 +3277,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', u'interface_name', u'interface_synchronization_id', u'group_id', u'role', u'forward_referenced', u'session_count', u'interface_enable_error_count', u'interface_disable_error_count', u'interface_caps_add_error_count', u'interface_caps_remove_error_count', u'interface_attribute_update_error_count'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', 'interface_name', 'interface_synchronization_id', 'group_id', 'role', 'forward_referenced', 'session_count', 'interface_enable_error_count', 'interface_disable_error_count', 'interface_caps_add_error_count', 'interface_caps_remove_error_count', 'interface_attribute_update_error_count'], name, value)
 
 
                     class InterfaceOper(Entity):
@@ -3277,7 +3351,7 @@ class SessionRedundancyAgent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, [u'idb_oper_reg_enable', u'idb_oper_reg_disable', u'idb_oper_caps_add', u'idb_oper_caps_remove', u'idb_oper_attr_update'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, ['idb_oper_reg_enable', 'idb_oper_reg_disable', 'idb_oper_caps_add', 'idb_oper_caps_remove', 'idb_oper_attr_update'], name, value)
 
 
 
@@ -3379,7 +3453,7 @@ class SessionRedundancyAgent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, [u'idb_state_fwd_ref', u'idb_state_stale', u'idb_state_registered', u'idb_state_caps_added', u'idb_state_owned_re_source', u'idb_client_eoms_pending', u'idb_state_p_end_caps_rem', u'idb_state_p_end_reg_disable'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, ['idb_state_fwd_ref', 'idb_state_stale', 'idb_state_registered', 'idb_state_caps_added', 'idb_state_owned_re_source', 'idb_client_eoms_pending', 'idb_state_p_end_caps_rem', 'idb_state_p_end_reg_disable'], name, value)
 
 
 
@@ -3447,7 +3521,7 @@ class SessionRedundancyAgent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, [u'component', u'serg_show_idb_client_eoms_pending', u'serg_show_idb_client_sync_eod_pending', u'session_count'], name, value)
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, ['component', 'serg_show_idb_client_eoms_pending', 'serg_show_idb_client_sync_eod_pending', 'session_count'], name, value)
 
 
 
@@ -3899,7 +3973,7 @@ class SessionRedundancyAgent(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal, [u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'redundancy_role', u'restart_client_sync_in_progress', u'client_init_sync_time_stamp', u'restart_peer_sync_in_progress', u'peer_init_sync_time_stamp', u'sync_in_progress', u'peer_action_timer', u'retry_timer_remaining', u'tx_list_client_registration_invalid', u'tx_list_client_de_registration_invalid', u'tx_list_client_connection_up', u'tx_list_client_connection_down', u'tx_list_client_peer_done', u'tx_list_client_message_call_back', u'tx_list_client_receive_valid', u'tx_list_client_receive_invalid', u'tx_list_client_receive_command_valid', u'tx_list_client_receive_command_invalid', u'tx_list_client_receive_session_sessionvalid', u'tx_list_client_receive_session_session_invalid', u'tx_list_peer_timer_handler', u'tx_list_peer_registration_invalid', u'tx_list_peer_de_registration_invalid', u'tx_list_peer_message_call_back_valid', u'tx_list_peer_message_call_back_invalid', u'tx_list_peer_done', u'tx_list_peer_cmd_connection_up_not_ok', u'tx_list_peer_cmd_connection_down_not_ok', u'tx_list_peer_session_connection_up_not_ok', u'tx_list_peer_session_connection_down_not_ok', u'tx_list_send_pool_update_not_ok'], name, value)
+                    self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal, ['source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'redundancy_role', 'restart_client_sync_in_progress', 'client_init_sync_time_stamp', 'restart_peer_sync_in_progress', 'peer_init_sync_time_stamp', 'sync_in_progress', 'peer_action_timer', 'retry_timer_remaining', 'tx_list_client_registration_invalid', 'tx_list_client_de_registration_invalid', 'tx_list_client_connection_up', 'tx_list_client_connection_down', 'tx_list_client_peer_done', 'tx_list_client_message_call_back', 'tx_list_client_receive_valid', 'tx_list_client_receive_invalid', 'tx_list_client_receive_command_valid', 'tx_list_client_receive_command_invalid', 'tx_list_client_receive_session_sessionvalid', 'tx_list_client_receive_session_session_invalid', 'tx_list_peer_timer_handler', 'tx_list_peer_registration_invalid', 'tx_list_peer_de_registration_invalid', 'tx_list_peer_message_call_back_valid', 'tx_list_peer_message_call_back_invalid', 'tx_list_peer_done', 'tx_list_peer_cmd_connection_up_not_ok', 'tx_list_peer_cmd_connection_down_not_ok', 'tx_list_peer_session_connection_up_not_ok', 'tx_list_peer_session_connection_down_not_ok', 'tx_list_send_pool_update_not_ok'], name, value)
 
 
                 class IntfStatusStatistics(Entity):
@@ -3983,7 +4057,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, [u'pend_caps_rem_cnt', u'pend_reg_disable_cnt', u'pend_other_batch_oper_cnt', u'non_stale_cnt', u'grp_bound_cnt'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, ['pend_caps_rem_cnt', 'pend_reg_disable_cnt', 'pend_other_batch_oper_cnt', 'non_stale_cnt', 'grp_bound_cnt'], name, value)
 
 
 
@@ -4112,7 +4186,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, [u'tx_list_encode_marker_ok', u'tx_list_encode_marker_partial_write', u'tx_list_clean_marker', u'tx_list_encode_command_ok', u'tx_list_encode_command_partial_write', u'tx_list_clean_command', u'tx_list_encode_negotiation_ok', u'tx_list_encode_negotiation_partial_write', u'tx_list_clean_negotiation'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, ['tx_list_encode_marker_ok', 'tx_list_encode_marker_partial_write', 'tx_list_clean_marker', 'tx_list_encode_command_ok', 'tx_list_encode_command_partial_write', 'tx_list_clean_command', 'tx_list_encode_negotiation_ok', 'tx_list_encode_negotiation_partial_write', 'tx_list_clean_negotiation'], name, value)
 
 
 
@@ -4209,7 +4283,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, [u'component', u'client_connection_status', u'client_initialization_synchronization_pending', u'client_synchronization_end_of_download_pending', u'up_time_stamp', u'down_time_stamp', u'clean_up_timer_remaining'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, ['component', 'client_connection_status', 'client_initialization_synchronization_pending', 'client_synchronization_end_of_download_pending', 'up_time_stamp', 'down_time_stamp', 'clean_up_timer_remaining'], name, value)
 
 
 
@@ -4292,7 +4366,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, [u'component', u'session_count', u'opaque_size', u'opaque_high_size', u'opaque_data_size'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, ['component', 'session_count', 'opaque_size', 'opaque_high_size', 'opaque_data_size'], name, value)
 
 
 
@@ -4568,7 +4642,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, [u'messages_sent', u'bytes_sent', u'messages_received', u'bytes_received', u'connect_count', u'blocked_connect_count', u'connect_retry_count', u'remote_node_down_count', u'accept_count', u'maximum_sent_message_size', u'maximum_received_message_size', u'peer_pause_count', u'buffer_full_occurence_count', u'mem_move_message_count', u'mem_move_bytes_count', u'socket_read_count', u'socket_write_count', u'active_socket_count', u'maximum_requested_buffer_size', u'buffer_freed_count', u'buffer_cache_hit', u'buffer_cache_miss'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, ['messages_sent', 'bytes_sent', 'messages_received', 'bytes_received', 'connect_count', 'blocked_connect_count', 'connect_retry_count', 'remote_node_down_count', 'accept_count', 'maximum_sent_message_size', 'maximum_received_message_size', 'peer_pause_count', 'buffer_full_occurence_count', 'mem_move_message_count', 'mem_move_bytes_count', 'socket_read_count', 'socket_write_count', 'active_socket_count', 'maximum_requested_buffer_size', 'buffer_freed_count', 'buffer_cache_hit', 'buffer_cache_miss'], name, value)
 
 
 
@@ -4767,7 +4841,7 @@ class SessionRedundancyAgent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', u'group_id_xr', u'role', u'disabled', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'preferred_role', u'slave_mode', u'object_tracking_status', u'interface_count', u'session_count', u'pending_add_session_count'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', 'group_id_xr', 'role', 'disabled', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'preferred_role', 'slave_mode', 'object_tracking_status', 'interface_count', 'session_count', 'pending_add_session_count'], name, value)
 
 
 

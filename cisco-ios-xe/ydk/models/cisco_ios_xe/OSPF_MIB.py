@@ -1008,7 +1008,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAreaTable.OspfAreaEntry, ['ospfareaid', 'ospfauthtype', 'ospfimportasextern', 'ospfspfruns', 'ospfareabdrrtrcount', 'ospfasbdrrtrcount', 'ospfarealsacount', 'ospfarealsacksumsum', 'ospfareasummary', 'ospfareastatus', 'ospfareanssatranslatorrole', 'ospfareanssatranslatorstate', 'ospfareanssatranslatorstabilityinterval', 'ospfareanssatranslatorevents', u'cospfopaquearealsacount', u'cospfopaquearealsacksumsum', u'cospfareanssatranslatorrole', u'cospfareanssatranslatorstate', u'cospfareanssatranslatorevents'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaTable.OspfAreaEntry, ['ospfareaid', 'ospfauthtype', 'ospfimportasextern', 'ospfspfruns', 'ospfareabdrrtrcount', 'ospfasbdrrtrcount', 'ospfarealsacount', 'ospfarealsacksumsum', 'ospfareasummary', 'ospfareastatus', 'ospfareanssatranslatorrole', 'ospfareanssatranslatorstate', 'ospfareanssatranslatorstabilityinterval', 'ospfareanssatranslatorevents', 'cospfopaquearealsacount', 'cospfopaquearealsacksumsum', 'cospfareanssatranslatorrole', 'cospfareanssatranslatorstate', 'cospfareanssatranslatorevents'], name, value)
 
             class CospfAreaNssaTranslatorRole(Enum):
                 """
@@ -2215,7 +2215,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfIfTable.OspfIfEntry, ['ospfifipaddress', 'ospfaddresslessif', 'ospfifareaid', 'ospfiftype', 'ospfifadminstat', 'ospfifrtrpriority', 'ospfiftransitdelay', 'ospfifretransinterval', 'ospfifhellointerval', 'ospfifrtrdeadinterval', 'ospfifpollinterval', 'ospfifstate', 'ospfifdesignatedrouter', 'ospfifbackupdesignatedrouter', 'ospfifevents', 'ospfifauthkey', 'ospfifstatus', 'ospfifmulticastforwarding', 'ospfifdemand', 'ospfifauthtype', 'ospfiflsacount', 'ospfiflsacksumsum', 'ospfifdesignatedrouterid', 'ospfifbackupdesignatedrouterid', u'cospfiflsacount', u'cospfiflsacksumsum'], name, value)
+                self._perform_setattr(OSPFMIB.OspfIfTable.OspfIfEntry, ['ospfifipaddress', 'ospfaddresslessif', 'ospfifareaid', 'ospfiftype', 'ospfifadminstat', 'ospfifrtrpriority', 'ospfiftransitdelay', 'ospfifretransinterval', 'ospfifhellointerval', 'ospfifrtrdeadinterval', 'ospfifpollinterval', 'ospfifstate', 'ospfifdesignatedrouter', 'ospfifbackupdesignatedrouter', 'ospfifevents', 'ospfifauthkey', 'ospfifstatus', 'ospfifmulticastforwarding', 'ospfifdemand', 'ospfifauthtype', 'ospfiflsacount', 'ospfiflsacksumsum', 'ospfifdesignatedrouterid', 'ospfifbackupdesignatedrouterid', 'cospfiflsacount', 'cospfiflsacksumsum'], name, value)
 
             class OspfIfMulticastForwarding(Enum):
                 """
@@ -2728,7 +2728,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry, ['ospfvirtifareaid', 'ospfvirtifneighbor', 'ospfvirtiftransitdelay', 'ospfvirtifretransinterval', 'ospfvirtifhellointerval', 'ospfvirtifrtrdeadinterval', 'ospfvirtifstate', 'ospfvirtifevents', 'ospfvirtifauthkey', 'ospfvirtifstatus', 'ospfvirtifauthtype', 'ospfvirtiflsacount', 'ospfvirtiflsacksumsum', u'cospfvirtiflsacount', u'cospfvirtiflsacksumsum'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry, ['ospfvirtifareaid', 'ospfvirtifneighbor', 'ospfvirtiftransitdelay', 'ospfvirtifretransinterval', 'ospfvirtifhellointerval', 'ospfvirtifrtrdeadinterval', 'ospfvirtifstate', 'ospfvirtifevents', 'ospfvirtifauthkey', 'ospfvirtifstatus', 'ospfvirtifauthtype', 'ospfvirtiflsacount', 'ospfvirtiflsacksumsum', 'cospfvirtiflsacount', 'cospfvirtiflsacksumsum'], name, value)
 
             class OspfVirtIfState(Enum):
                 """
@@ -3485,7 +3485,7 @@ class OSPFMIB(Entity):
             	The entire link state advertisement, including its header
             	**type**\: str
             
-            	**length:** 36
+            	**length:** 36..36
             
             	**config**\: False
             

@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-snmp-agent-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-20 {
+    description
+      "Fixed English plural name transformation error.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -269,7 +273,7 @@ submodule Cisco-IOS-XR-snmp-agent-oper-sub2 {
          are kept in correlater before sending them to
          hosts";
     }
-    list non-rootcaus {
+    list non-root-cause {
       description
         "OIDs/VarBinds defining the nonrootcause match
          conditions.";

@@ -388,7 +388,19 @@ class BmMbrStateReason(Enum):
 
     	Client has configured the bundle state Down
 
-    .. data:: bm_mbr_state_reason_count = 75
+    .. data:: bm_mbr_state_reason_lacp_oos = 75
+
+    	Link is in standby due to bundle out of service
+
+    	state
+
+    .. data:: bm_mbr_state_reason_errdis_bundle_oos = 76
+
+    	Link is error-disabled due to bundle out of
+
+    	service state
+
+    .. data:: bm_mbr_state_reason_count = 77
 
     	Enumeration maximum value
 
@@ -544,7 +556,11 @@ class BmMbrStateReason(Enum):
 
     bm_mbr_state_reason_client_bundle_ctrl = Enum.YLeaf(74, "bm-mbr-state-reason-client-bundle-ctrl")
 
-    bm_mbr_state_reason_count = Enum.YLeaf(75, "bm-mbr-state-reason-count")
+    bm_mbr_state_reason_lacp_oos = Enum.YLeaf(75, "bm-mbr-state-reason-lacp-oos")
+
+    bm_mbr_state_reason_errdis_bundle_oos = Enum.YLeaf(76, "bm-mbr-state-reason-errdis-bundle-oos")
+
+    bm_mbr_state_reason_count = Enum.YLeaf(77, "bm-mbr-state-reason-count")
 
 
 class BmMuxreason(Enum):
@@ -2657,6 +2673,22 @@ class ImAttrMedia(Enum):
 
     	im attr media 100gbase sr bd
 
+    .. data:: im_attr_media_1000base_2bx_d = 383
+
+    	im attr media 1000base 2bx d
+
+    .. data:: im_attr_media_1000base_2bx_d_i = 384
+
+    	im attr media 1000base 2bx d i
+
+    .. data:: im_attr_media_1000base_2bx_u = 385
+
+    	im attr media 1000base 2bx u
+
+    .. data:: im_attr_media_1000base_2bx_u_i = 386
+
+    	im attr media 1000base 2bx u i
+
     """
 
     im_attr_media_other = Enum.YLeaf(0, "im-attr-media-other")
@@ -3424,6 +3456,14 @@ class ImAttrMedia(Enum):
     im_attr_media_100gbase_sm_sr = Enum.YLeaf(381, "im-attr-media-100gbase-sm-sr")
 
     im_attr_media_100gbase_sr_bd = Enum.YLeaf(382, "im-attr-media-100gbase-sr-bd")
+
+    im_attr_media_1000base_2bx_d = Enum.YLeaf(383, "im-attr-media-1000base-2bx-d")
+
+    im_attr_media_1000base_2bx_d_i = Enum.YLeaf(384, "im-attr-media-1000base-2bx-d-i")
+
+    im_attr_media_1000base_2bx_u = Enum.YLeaf(385, "im-attr-media-1000base-2bx-u")
+
+    im_attr_media_1000base_2bx_u_i = Enum.YLeaf(386, "im-attr-media-1000base-2bx-u-i")
 
 
 class ImAttrTransportMode(Enum):
@@ -9759,6 +9799,15 @@ class Interfaces(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: replication_error
+                        
+                        	Error from final replication attempt
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -9786,6 +9835,7 @@ class Interfaces(Entity):
                                 ('lacp_enabled', (YLeaf(YType.str, 'lacp-enabled'), ['str'])),
                                 ('member_type', (YLeaf(YType.enumeration, 'member-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmdMemberTypeEnum', '')])),
                                 ('member_name', (YLeaf(YType.str, 'member-name'), ['str'])),
+                                ('replication_error', (YLeaf(YType.uint32, 'replication-error'), ['int'])),
                             ])
                             self.interface_name = None
                             self.port_priority = None
@@ -9797,6 +9847,7 @@ class Interfaces(Entity):
                             self.lacp_enabled = None
                             self.member_type = None
                             self.member_name = None
+                            self.replication_error = None
 
                             self.counters = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters()
                             self.counters.parent = self
@@ -9817,7 +9868,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name', 'replication_error'], name, value)
 
 
                         class Counters(Entity):
@@ -12377,7 +12428,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
+                        self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
 
 
@@ -12437,7 +12488,7 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType, [u'interface_type_name', u'interface_type_description'], name, value)
+                        self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType, ['interface_type_name', 'interface_type_description'], name, value)
 
 
                     class InterfaceCounts(Entity):
@@ -12511,7 +12562,7 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
+                            self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
 
 
@@ -12727,7 +12778,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InterfaceBriefs.InterfaceBrief, ['interface_name', u'interface', u'parent_interface', u'type', u'state', u'actual_state', u'line_state', u'actual_line_state', u'encapsulation', u'encapsulation_type_string', u'mtu', u'sub_interface_mtu_overhead', u'l2_transport', u'bandwidth'], name, value)
+                self._perform_setattr(Interfaces.InterfaceBriefs.InterfaceBrief, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
 
 
@@ -12852,7 +12903,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InventorySummary.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
+                self._perform_setattr(Interfaces.InventorySummary.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
 
 
@@ -12912,7 +12963,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InventorySummary.InterfaceType, [u'interface_type_name', u'interface_type_description'], name, value)
+                self._perform_setattr(Interfaces.InventorySummary.InterfaceType, ['interface_type_name', 'interface_type_description'], name, value)
 
 
             class InterfaceCounts(Entity):
@@ -12986,7 +13037,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
+                    self._perform_setattr(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
 
 
@@ -13231,7 +13282,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InterfaceSummary.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
+                self._perform_setattr(Interfaces.InterfaceSummary.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
 
 
@@ -13291,7 +13342,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType, [u'interface_type_name', u'interface_type_description'], name, value)
+                self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType, ['interface_type_name', 'interface_type_description'], name, value)
 
 
             class InterfaceCounts(Entity):
@@ -13365,7 +13416,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
 
 

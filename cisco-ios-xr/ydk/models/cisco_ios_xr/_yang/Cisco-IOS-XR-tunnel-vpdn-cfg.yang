@@ -235,6 +235,12 @@ module Cisco-IOS-XR-tunnel-vpdn-cfg {
           description
             "To support NAS-Port format e in Cisco AVP 100";
         }
+        leaf rate-convert-speed-avps {
+          type empty;
+          units "bit/s";
+          description
+            "DSL Line bps Info attributes";
+        }
         leaf description {
           type string {
             length "1..100";

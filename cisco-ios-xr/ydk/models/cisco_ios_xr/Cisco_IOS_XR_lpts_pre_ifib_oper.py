@@ -623,7 +623,7 @@ class LptsPifib_(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, ['entry', u'vrf_name', u'vid', u'l3protocol', u'l4protocol', u'intf_name', u'intf_handle', u'destination_addr', u'source_addr', u'destination_type', u'destination_value', u'source_port', u'is_frag', u'is_syn', u'opcode', u'flow_type', u'listener_tag', u'local_flag', u'is_fgid', u'deliver_list_short', u'deliver_list_long', u'min_ttl', u'accepts', u'drops', u'stale', u'pifib_type', u'pifib_program_time'], name, value)
+                            self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, ['entry', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'destination_addr', 'source_addr', 'destination_type', 'destination_value', 'source_port', 'is_frag', 'is_syn', 'opcode', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'accepts', 'drops', 'stale', 'pifib_type', 'pifib_program_time'], name, value)
 
 
 
@@ -728,7 +728,7 @@ class LptsPifib_(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats, [u'dynamic_flows_enabled', u'platform_supported_max', u'platform_configured_max', u'platform_total_configured', u'total_hw_entries', u'total_sw_entries'], name, value)
+                    self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats, ['dynamic_flows_enabled', 'platform_supported_max', 'platform_configured_max', 'platform_total_configured', 'total_hw_entries', 'total_sw_entries'], name, value)
 
 
                 class Flow(Entity):
@@ -846,7 +846,7 @@ class LptsPifib_(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow, [u'flow_name', u'configurable', u'configured', u'default_max', u'configured_max', u'active_max', u'hardware_count', u'software_count', u'pending_software_entries'], name, value)
+                        self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow, ['flow_name', 'configurable', 'configured', 'default_max', 'configured_max', 'active_max', 'hardware_count', 'software_count', 'pending_software_entries'], name, value)
 
 
 

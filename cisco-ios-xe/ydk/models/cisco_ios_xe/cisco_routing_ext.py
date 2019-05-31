@@ -18,6 +18,70 @@ from ydk.models.ietf.ietf_routing import RoutingProtocol
 
 
 
+class Rip(RoutingProtocol):
+    """
+    RIP.
+    
+    
+
+    """
+
+    _prefix = 'rt-ext'
+    _revision = '2016-07-09'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:rip"):
+        super(Rip, self).__init__(ns, pref, tag)
+
+
+
+class IsIs(RoutingProtocol):
+    """
+    IS\-IS.
+    
+    
+
+    """
+
+    _prefix = 'rt-ext'
+    _revision = '2016-07-09'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:is-is"):
+        super(IsIs, self).__init__(ns, pref, tag)
+
+
+
+class Bgp(RoutingProtocol):
+    """
+    BGP.
+    
+    
+
+    """
+
+    _prefix = 'rt-ext'
+    _revision = '2016-07-09'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:bgp"):
+        super(Bgp, self).__init__(ns, pref, tag)
+
+
+
+class Eigrp(RoutingProtocol):
+    """
+    Eigrp.
+    
+    
+
+    """
+
+    _prefix = 'rt-ext'
+    _revision = '2016-07-09'
+
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:eigrp"):
+        super(Eigrp, self).__init__(ns, pref, tag)
+
+
+
 class Igrp(RoutingProtocol):
     """
     IGRP
@@ -66,38 +130,6 @@ class Hsrp(RoutingProtocol):
 
 
 
-class Rip(RoutingProtocol):
-    """
-    RIP.
-    
-    
-
-    """
-
-    _prefix = 'rt-ext'
-    _revision = '2016-07-09'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:rip"):
-        super(Rip, self).__init__(ns, pref, tag)
-
-
-
-class Bgp(RoutingProtocol):
-    """
-    BGP.
-    
-    
-
-    """
-
-    _prefix = 'rt-ext'
-    _revision = '2016-07-09'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:bgp"):
-        super(Bgp, self).__init__(ns, pref, tag)
-
-
-
 class Lisp(RoutingProtocol):
     """
     LISP
@@ -111,38 +143,6 @@ class Lisp(RoutingProtocol):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:lisp"):
         super(Lisp, self).__init__(ns, pref, tag)
-
-
-
-class Eigrp(RoutingProtocol):
-    """
-    Eigrp.
-    
-    
-
-    """
-
-    _prefix = 'rt-ext'
-    _revision = '2016-07-09'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:eigrp"):
-        super(Eigrp, self).__init__(ns, pref, tag)
-
-
-
-class IsIs(RoutingProtocol):
-    """
-    IS\-IS.
-    
-    
-
-    """
-
-    _prefix = 'rt-ext'
-    _revision = '2016-07-09'
-
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:is-is"):
-        super(IsIs, self).__init__(ns, pref, tag)
 
 
 

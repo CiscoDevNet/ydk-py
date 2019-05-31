@@ -29,6 +29,10 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-03-28 {
+    description
+      "Added CLI to disable hmac-sha1";
+  }
   revision 2018-09-11 {
     description
       "Added backup ssh server schema";
@@ -126,6 +130,20 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
     container client {
       description
         "Provide SSH client service";
+      container client-disable {
+        description
+          "disable";
+        container client-hmac {
+          description
+            "hmac";
+          leaf client-hmac-sha1 {
+            type boolean;
+            default "false";
+            description
+              "Disable Hmac-sha1 negotiation";
+          }
+        }
+      }
       container client-algo {
         description
           "Cisco ssh algorithms";
@@ -171,6 +189,11 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
         description
           "Source interface VRF for ssh client sessions";
       }
+      leaf v2 {
+        type empty;
+        description
+          "Cisco ssh client force protocol version 2 only";
+      }
       leaf tcp-window-scale {
         type uint32 {
           range "1..14";
@@ -215,6 +238,12 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
             default "false";
             description
               "Disable Hmac-sha2-512 negotiation";
+          }
+          leaf hmac-sha1 {
+            type boolean;
+            default "false";
+            description
+              "Disable Hmac-sha1 negotiation";
           }
         }
       }

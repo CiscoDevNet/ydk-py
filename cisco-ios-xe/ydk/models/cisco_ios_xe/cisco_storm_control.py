@@ -36,9 +36,9 @@ class StormControlAction(Identity):
 
 
 
-class ActionShutdown(StormControlAction):
+class ActionDrop(StormControlAction):
     """
-    Shutdown service.
+    Drop packets.
     
     
 
@@ -47,8 +47,8 @@ class ActionShutdown(StormControlAction):
     _prefix = 'cisco-stormctrl'
     _revision = '2016-12-14'
 
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-storm-control", pref="cisco-storm-control", tag="cisco-storm-control:action-shutdown"):
-        super(ActionShutdown, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-storm-control", pref="cisco-storm-control", tag="cisco-storm-control:action-drop"):
+        super(ActionDrop, self).__init__(ns, pref, tag)
 
 
 
@@ -68,9 +68,9 @@ class ActionSnmpTrap(StormControlAction):
 
 
 
-class ActionDrop(StormControlAction):
+class ActionShutdown(StormControlAction):
     """
-    Drop packets.
+    Shutdown service.
     
     
 
@@ -79,8 +79,8 @@ class ActionDrop(StormControlAction):
     _prefix = 'cisco-stormctrl'
     _revision = '2016-12-14'
 
-    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-storm-control", pref="cisco-storm-control", tag="cisco-storm-control:action-drop"):
-        super(ActionDrop, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-storm-control", pref="cisco-storm-control", tag="cisco-storm-control:action-shutdown"):
+        super(ActionShutdown, self).__init__(ns, pref, tag)
 
 
 

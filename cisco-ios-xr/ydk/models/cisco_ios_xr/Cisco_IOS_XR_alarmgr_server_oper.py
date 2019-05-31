@@ -4773,13 +4773,6 @@ class Alarms(Entity):
         
         	**config**\: False
         
-        .. attribute:: alarm_id
-        
-        	Show brief system scope alarm related data
-        	**type**\:  :py:class:`AlarmId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.AlarmId>`
-        
-        	**config**\: False
-        
         
 
         """
@@ -4795,7 +4788,7 @@ class Alarms(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("brief-card", ("brief_card", Alarms.Brief.BriefCard)), ("brief-system", ("brief_system", Alarms.Brief.BriefSystem)), ("alarm-id", ("alarm_id", Alarms.Brief.AlarmId))])
+            self._child_classes = OrderedDict([("brief-card", ("brief_card", Alarms.Brief.BriefCard)), ("brief-system", ("brief_system", Alarms.Brief.BriefSystem))])
             self._leafs = OrderedDict()
 
             self.brief_card = Alarms.Brief.BriefCard()
@@ -4805,10 +4798,6 @@ class Alarms(Entity):
             self.brief_system = Alarms.Brief.BriefSystem()
             self.brief_system.parent = self
             self._children_name_map["brief_system"] = "brief-system"
-
-            self.alarm_id = Alarms.Brief.AlarmId()
-            self.alarm_id.parent = self
-            self._children_name_map["alarm_id"] = "alarm-id"
             self._segment_path = lambda: "brief"
             self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/%s" % self._segment_path()
             self._is_frozen = True
@@ -6276,251 +6265,6 @@ class Alarms(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'suppressed_time', 'suppressed_timestamp', 'description'], name, value)
-
-
-
-
-
-        class AlarmId(Entity):
-            """
-            Show brief system scope alarm related data.
-            
-            .. attribute:: active_alarms
-            
-            	Table of ActiveAlarm
-            	**type**\:  :py:class:`ActiveAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.AlarmId.ActiveAlarms>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'alarmgr-server-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Alarms.Brief.AlarmId, self).__init__()
-
-                self.yang_name = "alarm-id"
-                self.yang_parent_name = "brief"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("active-alarms", ("active_alarms", Alarms.Brief.AlarmId.ActiveAlarms))])
-                self._leafs = OrderedDict()
-
-                self.active_alarms = Alarms.Brief.AlarmId.ActiveAlarms()
-                self.active_alarms.parent = self
-                self._children_name_map["active_alarms"] = "active-alarms"
-                self._segment_path = lambda: "alarm-id"
-                self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Alarms.Brief.AlarmId, [], name, value)
-
-
-            class ActiveAlarms(Entity):
-                """
-                Table of ActiveAlarm
-                
-                .. attribute:: active_alarm
-                
-                	Show the active alarms at this scope
-                	**type**\: list of  		 :py:class:`ActiveAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.AlarmId.ActiveAlarms.ActiveAlarm>`
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'alarmgr-server-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Alarms.Brief.AlarmId.ActiveAlarms, self).__init__()
-
-                    self.yang_name = "active-alarms"
-                    self.yang_parent_name = "alarm-id"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("active-alarm", ("active_alarm", Alarms.Brief.AlarmId.ActiveAlarms.ActiveAlarm))])
-                    self._leafs = OrderedDict()
-
-                    self.active_alarm = YList(self)
-                    self._segment_path = lambda: "active-alarms"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/alarm-id/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Alarms.Brief.AlarmId.ActiveAlarms, [], name, value)
-
-
-                class ActiveAlarm(Entity):
-                    """
-                    Show the active alarms at this scope.
-                    
-                    .. attribute:: aid  (key)
-                    
-                    	Alarm ID
-                    	**type**\: str
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: alarm
-                    
-                    	Alarm Brief
-                    	**type**\:  :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.AlarmId.ActiveAlarms.ActiveAlarm.Alarm>`
-                    
-                    	**config**\: False
-                    
-                    
-
-                    """
-
-                    _prefix = 'alarmgr-server-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Alarms.Brief.AlarmId.ActiveAlarms.ActiveAlarm, self).__init__()
-
-                        self.yang_name = "active-alarm"
-                        self.yang_parent_name = "active-alarms"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = ['aid']
-                        self._child_classes = OrderedDict([("alarm", ("alarm", Alarms.Brief.AlarmId.ActiveAlarms.ActiveAlarm.Alarm))])
-                        self._leafs = OrderedDict([
-                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
-                        ])
-                        self.aid = None
-
-                        self.alarm = Alarms.Brief.AlarmId.ActiveAlarms.ActiveAlarm.Alarm()
-                        self.alarm.parent = self
-                        self._children_name_map["alarm"] = "alarm"
-                        self._segment_path = lambda: "active-alarm" + "[aid='" + str(self.aid) + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/alarm-id/active-alarms/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Alarms.Brief.AlarmId.ActiveAlarms.ActiveAlarm, ['aid'], name, value)
-
-
-                    class Alarm(Entity):
-                        """
-                        Alarm Brief
-                        
-                        .. attribute:: location
-                        
-                        	Alarm location
-                        	**type**\: str
-                        
-                        	**length:** 0..128
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: severity
-                        
-                        	Alarm severity
-                        	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: group
-                        
-                        	Alarm group
-                        	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: set_time
-                        
-                        	Alarm set time
-                        	**type**\: str
-                        
-                        	**length:** 0..64
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: set_timestamp
-                        
-                        	Alarm set time(timestamp format)
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: clear_time
-                        
-                        	Alarm clear time
-                        	**type**\: str
-                        
-                        	**length:** 0..64
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: clear_timestamp
-                        
-                        	Alarm clear time(timestamp format)
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: description
-                        
-                        	Alarm description
-                        	**type**\: str
-                        
-                        	**length:** 0..256
-                        
-                        	**config**\: False
-                        
-                        
-
-                        """
-
-                        _prefix = 'alarmgr-server-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Alarms.Brief.AlarmId.ActiveAlarms.ActiveAlarm.Alarm, self).__init__()
-
-                            self.yang_name = "alarm"
-                            self.yang_parent_name = "active-alarm"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('location', (YLeaf(YType.str, 'location'), ['str'])),
-                                ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper', 'AlarmSeverity', '')])),
-                                ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper', 'AlarmGroups', '')])),
-                                ('set_time', (YLeaf(YType.str, 'set-time'), ['str'])),
-                                ('set_timestamp', (YLeaf(YType.uint64, 'set-timestamp'), ['int'])),
-                                ('clear_time', (YLeaf(YType.str, 'clear-time'), ['str'])),
-                                ('clear_timestamp', (YLeaf(YType.uint64, 'clear-timestamp'), ['int'])),
-                                ('description', (YLeaf(YType.str, 'description'), ['str'])),
-                            ])
-                            self.location = None
-                            self.severity = None
-                            self.group = None
-                            self.set_time = None
-                            self.set_timestamp = None
-                            self.clear_time = None
-                            self.clear_timestamp = None
-                            self.description = None
-                            self._segment_path = lambda: "alarm"
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Alarms.Brief.AlarmId.ActiveAlarms.ActiveAlarm.Alarm, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'description'], name, value)
-
 
 
 

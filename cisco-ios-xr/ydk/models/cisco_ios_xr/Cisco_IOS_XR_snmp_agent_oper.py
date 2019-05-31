@@ -162,7 +162,7 @@ class Snmp(Entity):
     """
 
     _prefix = 'snmp-agent-oper'
-    _revision = '2017-09-07'
+    _revision = '2018-07-20'
 
     def __init__(self):
         super(Snmp, self).__init__()
@@ -234,7 +234,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-09-07'
+        _revision = '2018-07-20'
 
         def __init__(self):
             super(Snmp.TrapServers, self).__init__()
@@ -318,7 +318,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.TrapServers.TrapServer, self).__init__()
@@ -348,7 +348,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.TrapServers.TrapServer, [u'trap_host', u'port', u'number_of_pkts_in_trap_q', u'max_q_length_of_trap_q', u'number_of_pkts_sent', u'number_of_pkts_dropped'], name, value)
+                self._perform_setattr(Snmp.TrapServers.TrapServer, ['trap_host', 'port', 'number_of_pkts_in_trap_q', 'max_q_length_of_trap_q', 'number_of_pkts_sent', 'number_of_pkts_dropped'], name, value)
 
 
 
@@ -537,7 +537,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-09-07'
+        _revision = '2018-07-20'
 
         def __init__(self):
             super(Snmp.Information, self).__init__()
@@ -673,7 +673,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.Hosts, self).__init__()
@@ -720,7 +720,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.Hosts.Host, self).__init__()
@@ -742,7 +742,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.Hosts.Host, [u'name'], name, value)
+                    self._perform_setattr(Snmp.Information.Hosts.Host, ['name'], name, value)
 
 
                 class HostInformation(Entity):
@@ -806,7 +806,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Information.Hosts.Host.HostInformation, self).__init__()
@@ -837,7 +837,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Hosts.Host.HostInformation, [u'user', u'snmp_target_address_t_host', u'snmp_target_address_port', u'snmp_target_addresstype', u'snmp_target_params_security_model', u'snmp_target_params_security_name', u'snmp_target_params_security_level'], name, value)
+                        self._perform_setattr(Snmp.Information.Hosts.Host.HostInformation, ['user', 'snmp_target_address_t_host', 'snmp_target_address_port', 'snmp_target_addresstype', 'snmp_target_params_security_model', 'snmp_target_params_security_name', 'snmp_target_params_security_level'], name, value)
 
 
 
@@ -859,7 +859,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.SystemUpTime, self).__init__()
@@ -879,7 +879,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.SystemUpTime, [u'system_up_time_edm'], name, value)
+                self._perform_setattr(Snmp.Information.SystemUpTime, ['system_up_time_edm'], name, value)
 
 
 
@@ -899,7 +899,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.NmsAddresses, self).__init__()
@@ -991,7 +991,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.NmsAddresses.NmsAddress, self).__init__()
@@ -1023,7 +1023,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.NmsAddresses.NmsAddress, [u'nms_addr', u'nms_address', u'get_request_count', u'getnext_request_count', u'getbulk_request_count', u'set_request_count', u'test_request_count'], name, value)
+                    self._perform_setattr(Snmp.Information.NmsAddresses.NmsAddress, ['nms_addr', 'nms_address', 'get_request_count', 'getnext_request_count', 'getbulk_request_count', 'set_request_count', 'test_request_count'], name, value)
 
 
 
@@ -1044,7 +1044,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.EngineId, self).__init__()
@@ -1064,7 +1064,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.EngineId, [u'engine_id'], name, value)
+                self._perform_setattr(Snmp.Information.EngineId, ['engine_id'], name, value)
 
 
 
@@ -1154,7 +1154,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.RxQueue, self).__init__()
@@ -1189,7 +1189,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.RxQueue, [u'qlen', u'in_min', u'in_avg', u'in_max', u'pend_min', u'pend_avg', u'pend_max'], name, value)
+                self._perform_setattr(Snmp.Information.RxQueue, ['qlen', 'in_min', 'in_avg', 'in_max', 'pend_min', 'pend_avg', 'pend_max'], name, value)
 
 
             class IncomingQ(Entity):
@@ -1228,7 +1228,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.RxQueue.IncomingQ, self).__init__()
@@ -1252,7 +1252,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.RxQueue.IncomingQ, [u'min', u'avg', u'max'], name, value)
+                    self._perform_setattr(Snmp.Information.RxQueue.IncomingQ, ['min', 'avg', 'max'], name, value)
 
 
 
@@ -1292,7 +1292,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.RxQueue.PendingQ, self).__init__()
@@ -1316,7 +1316,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.RxQueue.PendingQ, [u'min', u'avg', u'max'], name, value)
+                    self._perform_setattr(Snmp.Information.RxQueue.PendingQ, ['min', 'avg', 'max'], name, value)
 
 
 
@@ -1337,7 +1337,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.SystemName, self).__init__()
@@ -1357,7 +1357,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.SystemName, [u'system_name'], name, value)
+                self._perform_setattr(Snmp.Information.SystemName, ['system_name'], name, value)
 
 
 
@@ -1377,7 +1377,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.RequestTypeDetail, self).__init__()
@@ -1417,7 +1417,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.RequestTypeDetail.NmsAddresses, self).__init__()
@@ -1511,7 +1511,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, self).__init__()
@@ -1543,7 +1543,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, [u'nms_addr', u'total_count', u'agent_request_count', u'interface_request_count', u'entity_request_count', u'route_request_count', u'infra_request_count'], name, value)
+                        self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, ['nms_addr', 'total_count', 'agent_request_count', 'interface_request_count', 'entity_request_count', 'route_request_count', 'infra_request_count'], name, value)
 
 
 
@@ -1649,7 +1649,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.DuplicateDrop, self).__init__()
@@ -1689,7 +1689,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.DuplicateDrop, [u'duplicate_request_status', u'last_status_change_time', u'duplicate_drop_configured_timeout', u'duplicate_dropped_requests', u'retry_processed_requests', u'first_enable_time', u'latest_duplicate_dropped_requests', u'latest_retry_processed_requests', u'duplicate_request_latest_enable_time', u'duplicate_drop_enable_count', u'duplicate_drop_disable_count'], name, value)
+                self._perform_setattr(Snmp.Information.DuplicateDrop, ['duplicate_request_status', 'last_status_change_time', 'duplicate_drop_configured_timeout', 'duplicate_dropped_requests', 'retry_processed_requests', 'first_enable_time', 'latest_duplicate_dropped_requests', 'latest_retry_processed_requests', 'duplicate_request_latest_enable_time', 'duplicate_drop_enable_count', 'duplicate_drop_disable_count'], name, value)
 
 
 
@@ -1709,7 +1709,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.BulkStatsTransfers, self).__init__()
@@ -1797,7 +1797,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, self).__init__()
@@ -1829,7 +1829,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, [u'transfer_name', u'transfer_name_xr', u'url_primary', u'url_secondary', u'retained_file', u'time_left', u'retry_left'], name, value)
+                    self._perform_setattr(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, ['transfer_name', 'transfer_name_xr', 'url_primary', 'url_secondary', 'retained_file', 'time_left', 'retry_left'], name, value)
 
 
 
@@ -1850,7 +1850,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.TrapInfos, self).__init__()
@@ -1930,7 +1930,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.TrapInfos.TrapInfo, self).__init__()
@@ -1960,7 +1960,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo, [u'trap_host', u'port', u'host', u'port_xr', u'trap_oid_count'], name, value)
+                    self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo, ['trap_host', 'port', 'host', 'port_xr', 'trap_oid_count'], name, value)
 
 
                 class TrapOiDinfo(Entity):
@@ -2020,7 +2020,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, self).__init__()
@@ -2050,7 +2050,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, [u'trap_oid', u'count', u'drop_count', u'retry_count', u'lastsent_time', u'lasrdrop_time'], name, value)
+                        self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, ['trap_oid', 'count', 'drop_count', 'retry_count', 'lastsent_time', 'lasrdrop_time'], name, value)
 
 
 
@@ -2072,7 +2072,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.PollOids, self).__init__()
@@ -2137,7 +2137,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.PollOids.PollOid, self).__init__()
@@ -2163,7 +2163,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.PollOids.PollOid, [u'object_id', u'nms_count', u'nms', u'request_count'], name, value)
+                    self._perform_setattr(Snmp.Information.PollOids.PollOid, ['object_id', 'nms_count', 'nms', 'request_count'], name, value)
 
 
 
@@ -2184,7 +2184,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.InfomDetails, self).__init__()
@@ -2264,7 +2264,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.InfomDetails.InfomDetail, self).__init__()
@@ -2294,7 +2294,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail, [u'trap_host', u'port', u'host', u'port_xr', u'trap_oid_count'], name, value)
+                    self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail, ['trap_host', 'port', 'host', 'port_xr', 'trap_oid_count'], name, value)
 
 
                 class TrapOiDinfo(Entity):
@@ -2354,7 +2354,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, self).__init__()
@@ -2384,7 +2384,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, [u'trap_oid', u'count', u'drop_count', u'retry_count', u'lastsent_time', u'lasrdrop_time'], name, value)
+                        self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, ['trap_oid', 'count', 'drop_count', 'retry_count', 'lastsent_time', 'lasrdrop_time'], name, value)
 
 
 
@@ -2669,7 +2669,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.Statistics, self).__init__()
@@ -2747,7 +2747,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.Statistics, [u'packets_received', u'bad_versions_received', u'bad_community_names_received', u'bad_community_uses_received', u'asn_parse_errors_received', u'silent_drop_count', u'proxy_drop_count', u'too_big_packet_received', u'max_packet_size', u'no_such_names_received', u'bad_values_received', u'read_only_received', u'total_general_errors', u'total_requested_variables', u'total_set_variables_received', u'get_requests_received', u'get_next_requests_received', u'set_requests_received', u'get_responses_received', u'traps_received', u'total_packets_sent', u'too_big_packets_sent', u'no_such_names_sent', u'bad_values_sent', u'general_errors_sent', u'get_requests_sent', u'get_next_request_sent', u'set_requests_sent', u'get_responses_sent', u'traps_sent'], name, value)
+                self._perform_setattr(Snmp.Information.Statistics, ['packets_received', 'bad_versions_received', 'bad_community_names_received', 'bad_community_uses_received', 'asn_parse_errors_received', 'silent_drop_count', 'proxy_drop_count', 'too_big_packet_received', 'max_packet_size', 'no_such_names_received', 'bad_values_received', 'read_only_received', 'total_general_errors', 'total_requested_variables', 'total_set_variables_received', 'get_requests_received', 'get_next_requests_received', 'set_requests_received', 'get_responses_received', 'traps_received', 'total_packets_sent', 'too_big_packets_sent', 'no_such_names_sent', 'bad_values_sent', 'general_errors_sent', 'get_requests_sent', 'get_next_request_sent', 'set_requests_sent', 'get_responses_sent', 'traps_sent'], name, value)
 
 
 
@@ -2776,7 +2776,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.IncomingQueue, self).__init__()
@@ -2798,7 +2798,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.IncomingQueue, [u'queue_count'], name, value)
+                self._perform_setattr(Snmp.Information.IncomingQueue, ['queue_count'], name, value)
 
 
             class InqEntry(Entity):
@@ -2851,7 +2851,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.IncomingQueue.InqEntry, self).__init__()
@@ -2879,7 +2879,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.IncomingQueue.InqEntry, [u'address_of_queue', u'request_count', u'processed_request_count', u'last_access_time', u'priority'], name, value)
+                    self._perform_setattr(Snmp.Information.IncomingQueue.InqEntry, ['address_of_queue', 'request_count', 'processed_request_count', 'last_access_time', 'priority'], name, value)
 
 
 
@@ -2901,7 +2901,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.ContextMapping, self).__init__()
@@ -2967,7 +2967,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.ContextMapping.ContexMapping, self).__init__()
@@ -2995,7 +2995,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.ContextMapping.ContexMapping, [u'context', u'feature_name', u'instance', u'topology', u'feature'], name, value)
+                    self._perform_setattr(Snmp.Information.ContextMapping.ContexMapping, ['context', 'feature_name', 'instance', 'topology', 'feature'], name, value)
 
 
 
@@ -3016,7 +3016,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.TrapOids, self).__init__()
@@ -3072,7 +3072,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.TrapOids.TrapOid, self).__init__()
@@ -3096,7 +3096,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.TrapOids.TrapOid, [u'trap_oid', u'trap_oid_count', u'trap_oid_xr'], name, value)
+                    self._perform_setattr(Snmp.Information.TrapOids.TrapOid, ['trap_oid', 'trap_oid_count', 'trap_oid_xr'], name, value)
 
 
 
@@ -3117,7 +3117,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.NmSpackets, self).__init__()
@@ -3189,7 +3189,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.NmSpackets.NmSpacket, self).__init__()
@@ -3217,7 +3217,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, [u'packetcount', u'number_of_nmsq_pkts_dropped', u'number_of_pkts_dropped', u'overload_start_time', u'overload_end_time'], name, value)
+                    self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, ['packetcount', 'number_of_nmsq_pkts_dropped', 'number_of_pkts_dropped', 'overload_start_time', 'overload_end_time'], name, value)
 
 
 
@@ -3238,7 +3238,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.Mibs, self).__init__()
@@ -3292,7 +3292,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.Mibs.Mib, self).__init__()
@@ -3320,7 +3320,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.Mibs.Mib, [u'name'], name, value)
+                    self._perform_setattr(Snmp.Information.Mibs.Mib, ['name'], name, value)
 
 
                 class Oids(Entity):
@@ -3339,7 +3339,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Information.Mibs.Mib.Oids, self).__init__()
@@ -3385,7 +3385,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-20'
 
                         def __init__(self):
                             super(Snmp.Information.Mibs.Mib.Oids.Oid, self).__init__()
@@ -3406,7 +3406,7 @@ class Snmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Information.Mibs.Mib.Oids.Oid, [u'oid', u'oid_name'], name, value)
+                            self._perform_setattr(Snmp.Information.Mibs.Mib.Oids.Oid, ['oid', 'oid_name'], name, value)
 
 
 
@@ -3480,7 +3480,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Information.Mibs.Mib.MibInformation, self).__init__()
@@ -3513,7 +3513,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Mibs.Mib.MibInformation, [u'mib_name', u'dll_name', u'mib_config_filename', u'is_mib_loaded', u'dll_capabilities', u'trap_strings', u'timeout', u'load_time'], name, value)
+                        self._perform_setattr(Snmp.Information.Mibs.Mib.MibInformation, ['mib_name', 'dll_name', 'mib_config_filename', 'is_mib_loaded', 'dll_capabilities', 'trap_strings', 'timeout', 'load_time'], name, value)
 
 
 
@@ -3535,7 +3535,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.SerialNumbers, self).__init__()
@@ -3679,7 +3679,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.SerialNumbers.SerialNumber, self).__init__()
@@ -3723,7 +3723,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.SerialNumbers.SerialNumber, [u'number', u'req_id', u'port', u'nms', u'request_id', u'port_xr', u'pdu_type', u'error_status', u'serial_num', u'input_q', u'output_q', u'pending_q', u'response_out'], name, value)
+                    self._perform_setattr(Snmp.Information.SerialNumbers.SerialNumber, ['number', 'req_id', 'port', 'nms', 'request_id', 'port_xr', 'pdu_type', 'error_status', 'serial_num', 'input_q', 'output_q', 'pending_q', 'response_out'], name, value)
 
 
 
@@ -3744,7 +3744,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.DropNmsAddresses, self).__init__()
@@ -3872,7 +3872,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.DropNmsAddresses.DropNmsAddress, self).__init__()
@@ -3912,7 +3912,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.DropNmsAddresses.DropNmsAddress, [u'nms_addr', u'nms_address', u'incoming_q_count', u'threshold_incoming_q_count', u'encode_count', u'duplicate_count', u'stack_count', u'aipc_count', u'overload_count', u'timeout_count', u'internal_count'], name, value)
+                    self._perform_setattr(Snmp.Information.DropNmsAddresses.DropNmsAddress, ['nms_addr', 'nms_address', 'incoming_q_count', 'threshold_incoming_q_count', 'encode_count', 'duplicate_count', 'stack_count', 'aipc_count', 'overload_count', 'timeout_count', 'internal_count'], name, value)
 
 
 
@@ -3933,7 +3933,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.Views, self).__init__()
@@ -3980,7 +3980,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.Views.View, self).__init__()
@@ -4002,7 +4002,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.Views.View, [u'name'], name, value)
+                    self._perform_setattr(Snmp.Information.Views.View, ['name'], name, value)
 
 
                 class ViewInformation(Entity):
@@ -4044,7 +4044,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Information.Views.View.ViewInformation, self).__init__()
@@ -4069,7 +4069,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Views.View.ViewInformation, [u'object_id', u'snmp_view_family_type', u'snmp_view_family_storage_type', u'snmp_view_family_status'], name, value)
+                        self._perform_setattr(Snmp.Information.Views.View.ViewInformation, ['object_id', 'snmp_view_family_type', 'snmp_view_family_storage_type', 'snmp_view_family_status'], name, value)
 
 
 
@@ -4091,7 +4091,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.SystemDescr, self).__init__()
@@ -4111,7 +4111,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.SystemDescr, [u'sys_descr'], name, value)
+                self._perform_setattr(Snmp.Information.SystemDescr, ['sys_descr'], name, value)
 
 
 
@@ -4138,7 +4138,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.Tables, self).__init__()
@@ -4182,7 +4182,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.Tables.Groups, self).__init__()
@@ -4229,7 +4229,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Information.Tables.Groups.Group, self).__init__()
@@ -4253,7 +4253,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Tables.Groups.Group, [u'name'], name, value)
+                        self._perform_setattr(Snmp.Information.Tables.Groups.Group, ['name'], name, value)
 
 
                     class GroupInformations(Entity):
@@ -4272,7 +4272,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-20'
 
                         def __init__(self):
                             super(Snmp.Information.Tables.Groups.Group.GroupInformations, self).__init__()
@@ -4350,7 +4350,7 @@ class Snmp(Entity):
                             """
 
                             _prefix = 'snmp-agent-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2018-07-20'
 
                             def __init__(self):
                                 super(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, self).__init__()
@@ -4379,7 +4379,7 @@ class Snmp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, [u'modelnumber', u'level', u'vacm_access_read_view_name', u'vacm_access_write_view_name', u'vacm_access_notify_view_name', u'vacm_access_status'], name, value)
+                                self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, ['modelnumber', 'level', 'vacm_access_read_view_name', 'vacm_access_write_view_name', 'vacm_access_notify_view_name', 'vacm_access_status'], name, value)
 
 
 
@@ -4402,7 +4402,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.Tables.UserEngineIds, self).__init__()
@@ -4449,7 +4449,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Information.Tables.UserEngineIds.UserEngineId, self).__init__()
@@ -4471,7 +4471,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId, [u'engine_id'], name, value)
+                        self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId, ['engine_id'], name, value)
 
 
                     class UserName(Entity):
@@ -4510,7 +4510,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-20'
 
                         def __init__(self):
                             super(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, self).__init__()
@@ -4533,7 +4533,7 @@ class Snmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, [u'user_name', u'usm_user_storage_type', u'usm_user_status'], name, value)
+                            self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, ['user_name', 'usm_user_storage_type', 'usm_user_status'], name, value)
 
 
 
@@ -4556,7 +4556,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.SystemOid, self).__init__()
@@ -4576,7 +4576,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.SystemOid, [u'sys_obj_id'], name, value)
+                self._perform_setattr(Snmp.Information.SystemOid, ['sys_obj_id'], name, value)
 
 
 
@@ -4623,7 +4623,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Information.TrapQueue, self).__init__()
@@ -4649,7 +4649,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.TrapQueue, [u'trap_min', u'trap_avg', u'trap_max'], name, value)
+                self._perform_setattr(Snmp.Information.TrapQueue, ['trap_min', 'trap_avg', 'trap_max'], name, value)
 
 
             class TrapQ(Entity):
@@ -4688,7 +4688,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Information.TrapQueue.TrapQ, self).__init__()
@@ -4712,7 +4712,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.TrapQueue.TrapQ, [u'min', u'avg', u'max'], name, value)
+                    self._perform_setattr(Snmp.Information.TrapQueue.TrapQ, ['min', 'avg', 'max'], name, value)
 
 
 
@@ -4734,7 +4734,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-09-07'
+        _revision = '2018-07-20'
 
         def __init__(self):
             super(Snmp.Interfaces, self).__init__()
@@ -4785,7 +4785,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Interfaces.Interface, self).__init__()
@@ -4807,7 +4807,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Interfaces.Interface, [u'name', u'interface_index'], name, value)
+                self._perform_setattr(Snmp.Interfaces.Interface, ['name', 'interface_index'], name, value)
 
 
 
@@ -4849,7 +4849,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-09-07'
+        _revision = '2018-07-20'
 
         def __init__(self):
             super(Snmp.Correlator, self).__init__()
@@ -4902,7 +4902,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Correlator.RuleDetails, self).__init__()
@@ -4960,10 +4960,10 @@ class Snmp(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: non_rootcaus
+                .. attribute:: non_root_cause
                 
                 	OIDs/VarBinds defining the nonrootcause match conditions
-                	**type**\: list of  		 :py:class:`NonRootcaus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus>`
+                	**type**\: list of  		 :py:class:`NonRootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause>`
                 
                 	**config**\: False
                 
@@ -4979,7 +4979,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Correlator.RuleDetails.RuleDetail, self).__init__()
@@ -4989,7 +4989,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['rule_name']
-                    self._child_classes = OrderedDict([("rule-summary", ("rule_summary", Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary)), ("root-cause", ("root_cause", Snmp.Correlator.RuleDetails.RuleDetail.RootCause)), ("non-rootcaus", ("non_rootcaus", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus)), ("apply-host", ("apply_host", Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost))])
+                    self._child_classes = OrderedDict([("rule-summary", ("rule_summary", Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary)), ("root-cause", ("root_cause", Snmp.Correlator.RuleDetails.RuleDetail.RootCause)), ("non-root-cause", ("non_root_cause", Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause)), ("apply-host", ("apply_host", Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost))])
                     self._leafs = OrderedDict([
                         ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
                         ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
@@ -5005,14 +5005,14 @@ class Snmp(Entity):
                     self.root_cause.parent = self
                     self._children_name_map["root_cause"] = "root-cause"
 
-                    self.non_rootcaus = YList(self)
+                    self.non_root_cause = YList(self)
                     self.apply_host = YList(self)
                     self._segment_path = lambda: "rule-detail" + "[rule-name='" + str(self.rule_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-details/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail, [u'rule_name', u'timeout'], name, value)
+                    self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail, ['rule_name', 'timeout'], name, value)
 
 
                 class RuleSummary(Entity):
@@ -5047,7 +5047,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, self).__init__()
@@ -5070,7 +5070,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, [u'rule_name', u'rule_state', u'buffered_traps_count'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, ['rule_name', 'rule_state', 'buffered_traps_count'], name, value)
 
 
 
@@ -5098,7 +5098,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, self).__init__()
@@ -5119,7 +5119,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, [u'oid'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, ['oid'], name, value)
 
 
                     class VarBind(Entity):
@@ -5152,7 +5152,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-20'
 
                         def __init__(self):
                             super(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, self).__init__()
@@ -5175,12 +5175,12 @@ class Snmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, [u'oid', u'match_type', u'reg_exp'], name, value)
+                            self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, ['oid', 'match_type', 'reg_exp'], name, value)
 
 
 
 
-                class NonRootcaus(Entity):
+                class NonRootCause(Entity):
                     """
                     OIDs/VarBinds defining the nonrootcause match
                     conditions.
@@ -5195,7 +5195,7 @@ class Snmp(Entity):
                     .. attribute:: var_bind
                     
                     	VarBinds of the trap
-                    	**type**\: list of  		 :py:class:`VarBind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind>`
+                    	**type**\: list of  		 :py:class:`VarBind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause.VarBind>`
                     
                     	**config**\: False
                     
@@ -5204,28 +5204,28 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus, self).__init__()
+                        super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause, self).__init__()
 
-                        self.yang_name = "non-rootcaus"
+                        self.yang_name = "non-root-cause"
                         self.yang_parent_name = "rule-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind))])
+                        self._child_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause.VarBind))])
                         self._leafs = OrderedDict([
                             ('oid', (YLeaf(YType.str, 'oid'), ['str'])),
                         ])
                         self.oid = None
 
                         self.var_bind = YList(self)
-                        self._segment_path = lambda: "non-rootcaus"
+                        self._segment_path = lambda: "non-root-cause"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus, [u'oid'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause, ['oid'], name, value)
 
 
                     class VarBind(Entity):
@@ -5258,13 +5258,13 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-20'
 
                         def __init__(self):
-                            super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind, self).__init__()
+                            super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause.VarBind, self).__init__()
 
                             self.yang_name = "var-bind"
-                            self.yang_parent_name = "non-rootcaus"
+                            self.yang_parent_name = "non-root-cause"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
@@ -5281,7 +5281,7 @@ class Snmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind, [u'oid', u'match_type', u'reg_exp'], name, value)
+                            self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause.VarBind, ['oid', 'match_type', 'reg_exp'], name, value)
 
 
 
@@ -5311,7 +5311,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, self).__init__()
@@ -5332,7 +5332,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, [u'ip_address', u'port'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, ['ip_address', 'port'], name, value)
 
 
 
@@ -5366,7 +5366,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Correlator.BufferStatus, self).__init__()
@@ -5388,7 +5388,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Correlator.BufferStatus, [u'current_size', u'configured_size'], name, value)
+                self._perform_setattr(Snmp.Correlator.BufferStatus, ['current_size', 'configured_size'], name, value)
 
 
 
@@ -5408,7 +5408,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Correlator.RuleSetDetails, self).__init__()
@@ -5462,7 +5462,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Correlator.RuleSetDetails.RuleSetDetail, self).__init__()
@@ -5486,7 +5486,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail, [u'rule_set_name', u'rule_set_name_xr'], name, value)
+                    self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail, ['rule_set_name', 'rule_set_name_xr'], name, value)
 
 
                 class Rules(Entity):
@@ -5521,7 +5521,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, self).__init__()
@@ -5544,7 +5544,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, [u'rule_name', u'rule_state', u'buffered_traps_count'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, ['rule_name', 'rule_state', 'buffered_traps_count'], name, value)
 
 
 
@@ -5566,7 +5566,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.Correlator.Traps, self).__init__()
@@ -5636,7 +5636,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-07-20'
 
                 def __init__(self):
                     super(Snmp.Correlator.Traps.Trap, self).__init__()
@@ -5666,7 +5666,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Correlator.Traps.Trap, [u'entry_id', u'correlation_id', u'is_root_cause', u'rule_name'], name, value)
+                    self._perform_setattr(Snmp.Correlator.Traps.Trap, ['entry_id', 'correlation_id', 'is_root_cause', 'rule_name'], name, value)
 
 
                 class TrapInfo(Entity):
@@ -5714,7 +5714,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-07-20'
 
                     def __init__(self):
                         super(Snmp.Correlator.Traps.Trap.TrapInfo, self).__init__()
@@ -5739,7 +5739,7 @@ class Snmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo, [u'oid', u'relative_timestamp', u'timestamp'], name, value)
+                        self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo, ['oid', 'relative_timestamp', 'timestamp'], name, value)
 
 
                     class VarBind(Entity):
@@ -5765,7 +5765,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2018-07-20'
 
                         def __init__(self):
                             super(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, self).__init__()
@@ -5786,7 +5786,7 @@ class Snmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, [u'oid', u'value'], name, value)
+                            self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, ['oid', 'value'], name, value)
 
 
 
@@ -5810,7 +5810,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-09-07'
+        _revision = '2018-07-20'
 
         def __init__(self):
             super(Snmp.InterfaceIndexes, self).__init__()
@@ -5859,7 +5859,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.InterfaceIndexes.InterfaceIndex, self).__init__()
@@ -5881,7 +5881,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.InterfaceIndexes.InterfaceIndex, [u'interface_index', u'interface_name'], name, value)
+                self._perform_setattr(Snmp.InterfaceIndexes.InterfaceIndex, ['interface_index', 'interface_name'], name, value)
 
 
 
@@ -5902,7 +5902,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-09-07'
+        _revision = '2018-07-20'
 
         def __init__(self):
             super(Snmp.IfIndexes, self).__init__()
@@ -5949,7 +5949,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-07-20'
 
             def __init__(self):
                 super(Snmp.IfIndexes.IfIndex, self).__init__()
@@ -5971,7 +5971,7 @@ class Snmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.IfIndexes.IfIndex, [u'interface_index', u'interface_name'], name, value)
+                self._perform_setattr(Snmp.IfIndexes.IfIndex, ['interface_index', 'interface_name'], name, value)
 
 
 
@@ -6184,7 +6184,7 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, ['entity_phynum', u'physical_index', u'ent_physical_name', u'location', u'ent_physical_descr', u'ent_physical_firmware_rev', u'ent_physical_hardware_rev', u'ent_physical_modelname', u'ent_physical_serial_num', u'ent_physical_software_rev', u'ent_physical_mfg_name'], name, value)
+                    self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, ['entity_phynum', 'physical_index', 'ent_physical_name', 'location', 'ent_physical_descr', 'ent_physical_firmware_rev', 'ent_physical_hardware_rev', 'ent_physical_modelname', 'ent_physical_serial_num', 'ent_physical_software_rev', 'ent_physical_mfg_name'], name, value)
 
 
 
@@ -7024,7 +7024,7 @@ class Snmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', u'threshold_severity', u'threshold_relation', u'threshold_value', u'threshold_evaluation', u'threshold_notification_enabled'], name, value)
+                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', 'threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
 
 
 

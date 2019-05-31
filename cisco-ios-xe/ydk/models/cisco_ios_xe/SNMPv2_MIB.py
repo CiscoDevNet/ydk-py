@@ -205,7 +205,7 @@ class SNMPv2MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPv2MIB.System, [u'sysdescr', u'sysobjectid', u'sysuptime', u'syscontact', u'sysname', u'syslocation', u'sysservices', u'sysorlastchange'], name, value)
+            self._perform_setattr(SNMPv2MIB.System, ['sysdescr', 'sysobjectid', 'sysuptime', 'syscontact', 'sysname', 'syslocation', 'sysservices', 'sysorlastchange'], name, value)
 
 
 
@@ -608,7 +608,7 @@ class SNMPv2MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPv2MIB.Snmp, [u'snmpinpkts', u'snmpoutpkts', u'snmpinbadversions', u'snmpinbadcommunitynames', u'snmpinbadcommunityuses', u'snmpinasnparseerrs', u'snmpintoobigs', u'snmpinnosuchnames', u'snmpinbadvalues', u'snmpinreadonlys', u'snmpingenerrs', u'snmpintotalreqvars', u'snmpintotalsetvars', u'snmpingetrequests', u'snmpingetnexts', u'snmpinsetrequests', u'snmpingetresponses', u'snmpintraps', u'snmpouttoobigs', u'snmpoutnosuchnames', u'snmpoutbadvalues', u'snmpoutgenerrs', u'snmpoutgetrequests', u'snmpoutgetnexts', u'snmpoutsetrequests', u'snmpoutgetresponses', u'snmpouttraps', u'snmpenableauthentraps', u'snmpsilentdrops', u'snmpproxydrops'], name, value)
+            self._perform_setattr(SNMPv2MIB.Snmp, ['snmpinpkts', 'snmpoutpkts', 'snmpinbadversions', 'snmpinbadcommunitynames', 'snmpinbadcommunityuses', 'snmpinasnparseerrs', 'snmpintoobigs', 'snmpinnosuchnames', 'snmpinbadvalues', 'snmpinreadonlys', 'snmpingenerrs', 'snmpintotalreqvars', 'snmpintotalsetvars', 'snmpingetrequests', 'snmpingetnexts', 'snmpinsetrequests', 'snmpingetresponses', 'snmpintraps', 'snmpouttoobigs', 'snmpoutnosuchnames', 'snmpoutbadvalues', 'snmpoutgenerrs', 'snmpoutgetrequests', 'snmpoutgetnexts', 'snmpoutsetrequests', 'snmpoutgetresponses', 'snmpouttraps', 'snmpenableauthentraps', 'snmpsilentdrops', 'snmpproxydrops'], name, value)
 
         class SnmpEnableAuthenTraps(Enum):
             """
@@ -683,7 +683,7 @@ class SNMPv2MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPv2MIB.SnmpSet, [u'snmpsetserialno'], name, value)
+            self._perform_setattr(SNMPv2MIB.SnmpSet, ['snmpsetserialno'], name, value)
 
 
 
@@ -799,7 +799,7 @@ class SNMPv2MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SNMPv2MIB.SysORTable.SysOREntry, [u'sysorindex', u'sysorid', u'sysordescr', u'sysoruptime'], name, value)
+                self._perform_setattr(SNMPv2MIB.SysORTable.SysOREntry, ['sysorindex', 'sysorid', 'sysordescr', 'sysoruptime'], name, value)
 
 
 

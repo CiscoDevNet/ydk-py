@@ -222,7 +222,7 @@ class Lldp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lldp.GlobalLldp.LldpInfo, [u'chassis_id', u'chassis_id_sub_type', u'system_name', u'timer', u'hold_time', u're_init'], name, value)
+                self._perform_setattr(Lldp.GlobalLldp.LldpInfo, ['chassis_id', 'chassis_id_sub_type', 'system_name', 'timer', 'hold_time', 're_init'], name, value)
 
 
 
@@ -461,7 +461,7 @@ class Lldp(Entity):
                         
                         .. attribute:: lldp_neighbor
                         
-                        	lldp neighbor
+                        	Next neighbor in the list
                         	**type**\: list of  		 :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor>`
                         
                         	**config**\: False
@@ -499,7 +499,7 @@ class Lldp(Entity):
 
                         class LldpNeighbor(Entity):
                             """
-                            lldp neighbor
+                            Next neighbor in the list
                             
                             .. attribute:: detail
                             
@@ -634,7 +634,7 @@ class Lldp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor, [u'receiving_interface_name', u'receiving_parent_interface_name', u'device_id', u'chassis_id', u'port_id_detail', u'header_version', u'hold_time', u'enabled_capabilities', u'platform'], name, value)
+                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -781,7 +781,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail, [u'peer_mac_address', u'port_description', u'system_name', u'system_description', u'time_remaining', u'system_capabilities', u'enabled_capabilities', u'auto_negotiation', u'physical_media_capabilities', u'media_attachment_unit_type', u'port_vlan_id'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -790,7 +790,7 @@ class Lldp(Entity):
                                     
                                     .. attribute:: lldp_addr_entry
                                     
-                                    	lldp addr entry
+                                    	Next address entry in list
                                     	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
                                     
                                     	**config**\: False
@@ -823,7 +823,7 @@ class Lldp(Entity):
 
                                     class LldpAddrEntry(Entity):
                                         """
-                                        lldp addr entry
+                                        Next address entry in list
                                         
                                         .. attribute:: address
                                         
@@ -880,7 +880,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, [u'ma_subtype', u'if_num'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
 
 
                                         class Address(Entity):
@@ -940,7 +940,7 @@ class Lldp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1083,7 +1083,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib, [u'rem_time_mark', u'rem_local_port_num', u'rem_index', u'chassis_id_sub_type', u'chassis_id_len', u'port_id_sub_type', u'port_id_len', u'combined_capabilities'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
 
 
                                 class UnknownTlvList(Entity):
@@ -1092,7 +1092,7 @@ class Lldp(Entity):
                                     
                                     .. attribute:: lldp_unknown_tlv_entry
                                     
-                                    	lldp unknown tlv entry
+                                    	Next unknown TLV entry in list
                                     	**type**\: list of  		 :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
                                     
                                     	**config**\: False
@@ -1125,7 +1125,7 @@ class Lldp(Entity):
 
                                     class LldpUnknownTlvEntry(Entity):
                                         """
-                                        lldp unknown tlv entry
+                                        Next unknown TLV entry in list
                                         
                                         .. attribute:: tlv_type
                                         
@@ -1171,7 +1171,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, [u'tlv_type', u'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
 
 
 
@@ -1182,7 +1182,7 @@ class Lldp(Entity):
                                     
                                     .. attribute:: lldp_org_def_tlv_entry
                                     
-                                    	lldp org def tlv entry
+                                    	Next Org Def TLV entry in list
                                     	**type**\: list of  		 :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
                                     
                                     	**config**\: False
@@ -1215,7 +1215,7 @@ class Lldp(Entity):
 
                                     class LldpOrgDefTlvEntry(Entity):
                                         """
-                                        lldp org def tlv entry
+                                        Next Org Def TLV entry in list
                                         
                                         .. attribute:: oui
                                         
@@ -1283,7 +1283,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, [u'oui', u'tlv_subtype', u'tlv_info_indes', u'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
 
 
 
@@ -1352,7 +1352,7 @@ class Lldp(Entity):
                         
                         .. attribute:: lldp_neighbor
                         
-                        	lldp neighbor
+                        	Next neighbor in the list
                         	**type**\: list of  		 :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor>`
                         
                         	**config**\: False
@@ -1390,7 +1390,7 @@ class Lldp(Entity):
 
                         class LldpNeighbor(Entity):
                             """
-                            lldp neighbor
+                            Next neighbor in the list
                             
                             .. attribute:: detail
                             
@@ -1525,7 +1525,7 @@ class Lldp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor, [u'receiving_interface_name', u'receiving_parent_interface_name', u'device_id', u'chassis_id', u'port_id_detail', u'header_version', u'hold_time', u'enabled_capabilities', u'platform'], name, value)
+                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
 
 
                             class Detail_(Entity):
@@ -1672,7 +1672,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_, [u'peer_mac_address', u'port_description', u'system_name', u'system_description', u'time_remaining', u'system_capabilities', u'enabled_capabilities', u'auto_negotiation', u'physical_media_capabilities', u'media_attachment_unit_type', u'port_vlan_id'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -1681,7 +1681,7 @@ class Lldp(Entity):
                                     
                                     .. attribute:: lldp_addr_entry
                                     
-                                    	lldp addr entry
+                                    	Next address entry in list
                                     	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry>`
                                     
                                     	**config**\: False
@@ -1714,7 +1714,7 @@ class Lldp(Entity):
 
                                     class LldpAddrEntry(Entity):
                                         """
-                                        lldp addr entry
+                                        Next address entry in list
                                         
                                         .. attribute:: address
                                         
@@ -1771,7 +1771,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry, [u'ma_subtype', u'if_num'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
 
 
                                         class Address(Entity):
@@ -1831,7 +1831,7 @@ class Lldp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1974,7 +1974,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib, [u'rem_time_mark', u'rem_local_port_num', u'rem_index', u'chassis_id_sub_type', u'chassis_id_len', u'port_id_sub_type', u'port_id_len', u'combined_capabilities'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
 
 
                                 class UnknownTlvList(Entity):
@@ -1983,7 +1983,7 @@ class Lldp(Entity):
                                     
                                     .. attribute:: lldp_unknown_tlv_entry
                                     
-                                    	lldp unknown tlv entry
+                                    	Next unknown TLV entry in list
                                     	**type**\: list of  		 :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
                                     
                                     	**config**\: False
@@ -2016,7 +2016,7 @@ class Lldp(Entity):
 
                                     class LldpUnknownTlvEntry(Entity):
                                         """
-                                        lldp unknown tlv entry
+                                        Next unknown TLV entry in list
                                         
                                         .. attribute:: tlv_type
                                         
@@ -2062,7 +2062,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, [u'tlv_type', u'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
 
 
 
@@ -2073,7 +2073,7 @@ class Lldp(Entity):
                                     
                                     .. attribute:: lldp_org_def_tlv_entry
                                     
-                                    	lldp org def tlv entry
+                                    	Next Org Def TLV entry in list
                                     	**type**\: list of  		 :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
                                     
                                     	**config**\: False
@@ -2106,7 +2106,7 @@ class Lldp(Entity):
 
                                     class LldpOrgDefTlvEntry(Entity):
                                         """
-                                        lldp org def tlv entry
+                                        Next Org Def TLV entry in list
                                         
                                         .. attribute:: oui
                                         
@@ -2174,7 +2174,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, [u'oui', u'tlv_subtype', u'tlv_info_indes', u'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
 
 
 
@@ -2243,7 +2243,7 @@ class Lldp(Entity):
                         
                         .. attribute:: lldp_neighbor
                         
-                        	lldp neighbor
+                        	Next neighbor in the list
                         	**type**\: list of  		 :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor>`
                         
                         	**config**\: False
@@ -2281,7 +2281,7 @@ class Lldp(Entity):
 
                         class LldpNeighbor(Entity):
                             """
-                            lldp neighbor
+                            Next neighbor in the list
                             
                             .. attribute:: detail
                             
@@ -2416,7 +2416,7 @@ class Lldp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor, [u'receiving_interface_name', u'receiving_parent_interface_name', u'device_id', u'chassis_id', u'port_id_detail', u'header_version', u'hold_time', u'enabled_capabilities', u'platform'], name, value)
+                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -2563,7 +2563,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail, [u'peer_mac_address', u'port_description', u'system_name', u'system_description', u'time_remaining', u'system_capabilities', u'enabled_capabilities', u'auto_negotiation', u'physical_media_capabilities', u'media_attachment_unit_type', u'port_vlan_id'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -2572,7 +2572,7 @@ class Lldp(Entity):
                                     
                                     .. attribute:: lldp_addr_entry
                                     
-                                    	lldp addr entry
+                                    	Next address entry in list
                                     	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
                                     
                                     	**config**\: False
@@ -2605,7 +2605,7 @@ class Lldp(Entity):
 
                                     class LldpAddrEntry(Entity):
                                         """
-                                        lldp addr entry
+                                        Next address entry in list
                                         
                                         .. attribute:: address
                                         
@@ -2662,7 +2662,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, [u'ma_subtype', u'if_num'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
 
 
                                         class Address(Entity):
@@ -2722,7 +2722,7 @@ class Lldp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -2865,7 +2865,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib, [u'rem_time_mark', u'rem_local_port_num', u'rem_index', u'chassis_id_sub_type', u'chassis_id_len', u'port_id_sub_type', u'port_id_len', u'combined_capabilities'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
 
 
                                 class UnknownTlvList(Entity):
@@ -2874,7 +2874,7 @@ class Lldp(Entity):
                                     
                                     .. attribute:: lldp_unknown_tlv_entry
                                     
-                                    	lldp unknown tlv entry
+                                    	Next unknown TLV entry in list
                                     	**type**\: list of  		 :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
                                     
                                     	**config**\: False
@@ -2907,7 +2907,7 @@ class Lldp(Entity):
 
                                     class LldpUnknownTlvEntry(Entity):
                                         """
-                                        lldp unknown tlv entry
+                                        Next unknown TLV entry in list
                                         
                                         .. attribute:: tlv_type
                                         
@@ -2953,7 +2953,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, [u'tlv_type', u'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
 
 
 
@@ -2964,7 +2964,7 @@ class Lldp(Entity):
                                     
                                     .. attribute:: lldp_org_def_tlv_entry
                                     
-                                    	lldp org def tlv entry
+                                    	Next Org Def TLV entry in list
                                     	**type**\: list of  		 :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
                                     
                                     	**config**\: False
@@ -2997,7 +2997,7 @@ class Lldp(Entity):
 
                                     class LldpOrgDefTlvEntry(Entity):
                                         """
-                                        lldp org def tlv entry
+                                        Next Org Def TLV entry in list
                                         
                                         .. attribute:: oui
                                         
@@ -3065,7 +3065,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, [u'oui', u'tlv_subtype', u'tlv_info_indes', u'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
 
 
 
@@ -3253,7 +3253,7 @@ class Lldp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'tx_enabled', u'rx_enabled', u'tx_state', u'rx_state', u'if_index', u'port_id', u'port_id_sub_type', u'port_description'], name, value)
+                        self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'tx_enabled', 'rx_enabled', 'tx_state', 'rx_state', 'if_index', 'port_id', 'port_id_sub_type', 'port_description'], name, value)
 
 
                     class LocalNetworkAddresses(Entity):
@@ -3262,7 +3262,7 @@ class Lldp(Entity):
                         
                         .. attribute:: lldp_addr_entry
                         
-                        	lldp addr entry
+                        	Next address entry in list
                         	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry>`
                         
                         	**config**\: False
@@ -3295,7 +3295,7 @@ class Lldp(Entity):
 
                         class LldpAddrEntry(Entity):
                             """
-                            lldp addr entry
+                            Next address entry in list
                             
                             .. attribute:: address
                             
@@ -3352,7 +3352,7 @@ class Lldp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry, [u'ma_subtype', u'if_num'], name, value)
+                                self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
 
 
                             class Address(Entity):
@@ -3412,7 +3412,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -3567,7 +3567,7 @@ class Lldp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lldp.Nodes.Node.Statistics, [u'transmitted_packets', u'aged_out_entries', u'discarded_packets', u'bad_packets', u'received_packets', u'discarded_tl_vs', u'unrecognized_tl_vs', u'out_of_memory_errors', u'encapsulation_errors', u'queue_overflow_errors', u'table_overflow_errors'], name, value)
+                    self._perform_setattr(Lldp.Nodes.Node.Statistics, ['transmitted_packets', 'aged_out_entries', 'discarded_packets', 'bad_packets', 'received_packets', 'discarded_tl_vs', 'unrecognized_tl_vs', 'out_of_memory_errors', 'encapsulation_errors', 'queue_overflow_errors', 'table_overflow_errors'], name, value)
 
 
 

@@ -439,7 +439,7 @@ class CISCOIETFISISMIB(Entity):
         	The ID for this Intermediate System. This value is appended to each of the area addresses to form the Network Entity Titles. The derivation of a value for this object is implementation\-specific.  Some implementations may automatically assign values and not permit an SNMP write, while others may require the value to be set manually
         	**type**\: str
         
-        	**length:** 6
+        	**length:** 6..6
         
         	**config**\: False
         
@@ -985,7 +985,7 @@ class CISCOIETFISISMIB(Entity):
             	The IP Address value for this summary address. This object follows the index behavior
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -1126,7 +1126,7 @@ class CISCOIETFISISMIB(Entity):
             	The IP Address value for this summary address. This object follows the index behavior
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -1230,7 +1230,7 @@ class CISCOIETFISISMIB(Entity):
             	The System ID of the Router Peer
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -1881,7 +1881,7 @@ class CISCOIETFISISMIB(Entity):
             	On a point to point circuit with a fully initialized adjacency to a peer IS, the value of this object is the circuit ID negotiated during adjacency initialization. On a point to point circuit without such an adjacency, the value is the concatenation of the local system ID and the one byte ciiCircLevelIDOctet for this circuit i.e. the value that would be proposed for the circuit ID.  On other circuit types, the value returned is the zero length OCTET STRING
             	**type**\: str
             
-            	**length:** 0 \| 7
+            	**length:** 0..0 \| 7..7
             
             	**config**\: False
             
@@ -1890,7 +1890,7 @@ class CISCOIETFISISMIB(Entity):
             	The ID of the LAN Designated Intermediate System on this circuit at this level. If, for any reason, this system is not partaking in the relevant Designated Intermediate System election process, then the value returned is the zero length OCTET STRING
             	**type**\: str
             
-            	**length:** 0 \| 7
+            	**length:** 0..0 \| 7..7
             
             	**config**\: False
             
@@ -2834,7 +2834,7 @@ class CISCOIETFISISMIB(Entity):
             	The system ID of the neighboring Intermediate System
             	**type**\: str
             
-            	**length:** 6
+            	**length:** 6..6
             
             	**config**\: False
             
@@ -3254,7 +3254,7 @@ class CISCOIETFISISMIB(Entity):
             	One IP Address as reported in IIH PDUs received from the neighbor
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -3765,7 +3765,7 @@ class CISCOIETFISISMIB(Entity):
             	The destination of this IP Reachable Address. This is either a network address, subnetwork address or host address. This object follows the ManualOrAutomatic behavior
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -3799,7 +3799,7 @@ class CISCOIETFISISMIB(Entity):
             	The IP next hop to this destination
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -4050,7 +4050,7 @@ class CISCOIETFISISMIB(Entity):
             	The 8 byte LSP ID, consisting of the SystemID, Circuit ID, and Fragment Number
             	**type**\: str
             
-            	**length:** 0 \| 8
+            	**length:** 0..0 \| 8..8
             
             	**config**\: False
             
@@ -4207,7 +4207,7 @@ class CISCOIETFISISMIB(Entity):
             	
             	**type**\: str
             
-            	**length:** 0 \| 8
+            	**length:** 0..0 \| 8..8
             
             	**refers to**\:  :py:class:`ciilspid <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.CiiLSPSummaryTable.CiiLSPSummaryEntry>`
             

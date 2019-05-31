@@ -26,6 +26,23 @@ module Cisco-IOS-XR-ethernet-cfm-datatypes {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Cfm-bandwidth-notification-state {
+    type enumeration {
+      enum "ok" {
+        value 1;
+        description
+          "Link is not degraded";
+      }
+      enum "degraded" {
+        value 2;
+        description
+          "Link is in degraded state";
+      }
+    }
+    description
+      "Cfm bandwidth notification state";
+  }
+
   typedef Cfm-bnm-wtr {
     type uint32 {
       range "0..600";
@@ -98,23 +115,6 @@ module Cisco-IOS-XR-ethernet-cfm-datatypes {
     }
     description
       "Cfm level";
-  }
-
-  typedef Bandwidth-notification-state {
-    type enumeration {
-      enum "ok" {
-        value 1;
-        description
-          "Link is not degraded";
-      }
-      enum "degraded" {
-        value 2;
-        description
-          "Link is in degraded state";
-      }
-    }
-    description
-      "Bandwidth notification state";
   }
 
   typedef Cfm-cos-bits {

@@ -368,7 +368,7 @@ class Controller(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Reachable.Location, [u'rack', u'card', u'switch_id'], name, value)
+                        self._perform_setattr(Controller.Switch.Oper.Reachable.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
 
@@ -483,7 +483,7 @@ class Controller(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Summary.Location, [u'rack', u'card', u'switch_id', u'serial_num'], name, value)
+                        self._perform_setattr(Controller.Switch.Oper.Summary.Location, ['rack', 'card', 'switch_id', 'serial_num'], name, value)
 
 
                     class PortIter(Entity):
@@ -577,7 +577,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Summary.Location.PortIter, [u'port', u'phys_state', u'admin_state', u'port_speed', u'protocol_state', u'forwarding', u'connects_to'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Summary.Location.PortIter, ['port', 'phys_state', 'admin_state', 'port_speed', 'protocol_state', 'forwarding', 'connects_to'], name, value)
 
 
 
@@ -744,7 +744,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Statistics.SummaryStatistics.Location, [u'rack', u'card', u'switch_id', u'serial_num'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Statistics.SummaryStatistics.Location, ['rack', 'card', 'switch_id', 'serial_num'], name, value)
 
 
                         class PortIter(Entity):
@@ -857,7 +857,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Statistics.SummaryStatistics.Location.PortIter, [u'port', u'phys_state', u'state_changes', u'sw_sum_tx_packets', u'sw_sum_rx_packets', u'sw_sum_tx_drops_errors', u'sw_sum_rx_drops_errors', u'connects_to'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Statistics.SummaryStatistics.Location.PortIter, ['port', 'phys_state', 'state_changes', 'sw_sum_tx_packets', 'sw_sum_rx_packets', 'sw_sum_tx_drops_errors', 'sw_sum_rx_drops_errors', 'connects_to'], name, value)
 
 
 
@@ -964,7 +964,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Statistics.Detail.Location, [u'rack', u'card', u'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Statistics.Detail.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                         class PortIter(Entity):
@@ -1042,7 +1042,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Statistics.Detail.Location.PortIter, [u'port', u'phys_state', u'port_speed', u'connects_to'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Statistics.Detail.Location.PortIter, ['port', 'phys_state', 'port_speed', 'connects_to'], name, value)
 
 
                             class Counters(Entity):
@@ -1434,7 +1434,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Statistics.Detail.Location.PortIter.Counters, [u'sw_det_rx_ucast_packets', u'sw_det_rx_mcast_packets', u'sw_det_rx_bcast_packets', u'sw_det_rx_flow_control', u'sw_det_rx_good_octets', u'sw_det_rx_bad_octets', u'sw_det_rx_fifo_overrun', u'sw_det_rx_undersize', u'sw_det_rx_fragments', u'sw_det_rx_oversize', u'sw_det_rx_jabber', u'sw_det_rx_errors', u'sw_det_rx_bad_crc', u'sw_det_rx_collisions', u'sw_det_rx_policing_drops', u'sw_det_tx_ucast_packets', u'sw_det_tx_mcast_packets', u'sw_det_tx_bcast_packets', u'sw_det_tx_flow_control', u'sw_det_tx_good_octets', u'sw_det_tx_deferred', u'sw_det_tx_fifo_unrun', u'sw_det_tx_mult_collision', u'sw_det_tx_excess_collision', u'sw_det_tx_late_collisions', u'sw_det_tx_policing_drops', u'sw_det_txq_drops', u'sw_det_rxtx_packets_64', u'sw_det_rxtx_packets_65_127', u'sw_det_rxtx_packets_128_255', u'sw_det_rxtx_packets_256_511', u'sw_det_rxtx_packets_512_1023', u'sw_det_rxtx_packets_1024_max'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Statistics.Detail.Location.PortIter.Counters, ['sw_det_rx_ucast_packets', 'sw_det_rx_mcast_packets', 'sw_det_rx_bcast_packets', 'sw_det_rx_flow_control', 'sw_det_rx_good_octets', 'sw_det_rx_bad_octets', 'sw_det_rx_fifo_overrun', 'sw_det_rx_undersize', 'sw_det_rx_fragments', 'sw_det_rx_oversize', 'sw_det_rx_jabber', 'sw_det_rx_errors', 'sw_det_rx_bad_crc', 'sw_det_rx_collisions', 'sw_det_rx_policing_drops', 'sw_det_tx_ucast_packets', 'sw_det_tx_mcast_packets', 'sw_det_tx_bcast_packets', 'sw_det_tx_flow_control', 'sw_det_tx_good_octets', 'sw_det_tx_deferred', 'sw_det_tx_fifo_unrun', 'sw_det_tx_mult_collision', 'sw_det_tx_excess_collision', 'sw_det_tx_late_collisions', 'sw_det_tx_policing_drops', 'sw_det_txq_drops', 'sw_det_rxtx_packets_64', 'sw_det_rxtx_packets_65_127', 'sw_det_rxtx_packets_128_255', 'sw_det_rxtx_packets_256_511', 'sw_det_rxtx_packets_512_1023', 'sw_det_rxtx_packets_1024_max'], name, value)
 
 
 
@@ -1583,7 +1583,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics.Location, [u'rack', u'card', u'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                         class PortIter(Entity):
@@ -1632,7 +1632,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter, [u'port'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter, ['port'], name, value)
 
 
                             class MacEntry(Entity):
@@ -1699,7 +1699,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter.MacEntry, [u'id', u'base_reg', u'desc', u'value'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter.MacEntry, ['id', 'base_reg', 'desc', 'value'], name, value)
 
 
 
@@ -4210,7 +4210,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location, [u'rack', u'card', u'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                         class PortIter(Entity):
@@ -4259,7 +4259,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter, [u'port'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter, ['port'], name, value)
 
 
                             class VlanId(Entity):
@@ -4308,7 +4308,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId, [u'vlan'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId, ['vlan'], name, value)
 
 
                                 class RuleId(Entity):
@@ -4395,7 +4395,7 @@ class Controller(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId, [u'direction', u'match_table', u'match_type', u'match_vlan_id', u'action', u'action_vlan_id'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId, ['direction', 'match_table', 'match_type', 'match_vlan_id', 'action', 'action_vlan_id'], name, value)
 
 
 
@@ -4524,7 +4524,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location, [u'rack', u'card', u'switch_id', u'serial_num'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location, ['rack', 'card', 'switch_id', 'serial_num'], name, value)
 
 
                         class SdrId(Entity):
@@ -4582,7 +4582,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId, [u'sdr', u'esd_sdr_name'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId, ['sdr', 'esd_sdr_name'], name, value)
 
 
                             class VlanId(Entity):
@@ -4644,7 +4644,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId, [u'vlan', u'vlan_hex', u'vlan_use'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId, ['vlan', 'vlan_hex', 'vlan_use'], name, value)
 
 
 
@@ -4744,7 +4744,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId, [u'sdr', u'esd_sdr_name'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId, ['sdr', 'esd_sdr_name'], name, value)
 
 
                             class VlanId(Entity):
@@ -4806,7 +4806,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId, [u'vlan', u'vlan_hex', u'vlan_use'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId, ['vlan', 'vlan_hex', 'vlan_use'], name, value)
 
 
 
@@ -4900,7 +4900,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId, [u'vlan'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId, ['vlan'], name, value)
 
 
                         class Rules(Entity):
@@ -5002,7 +5002,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location, [u'rack', u'card', u'switch_id'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                                 class PortIter(Entity):
@@ -5051,7 +5051,7 @@ class Controller(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter, [u'port'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter, ['port'], name, value)
 
 
                                     class RuleId(Entity):
@@ -5138,7 +5138,7 @@ class Controller(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId, [u'direction', u'match_table', u'match_type', u'match_vlan_id', u'action', u'action_vlan_id'], name, value)
+                                            self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId, ['direction', 'match_table', 'match_type', 'match_vlan_id', 'action', 'action_vlan_id'], name, value)
 
 
 
@@ -5248,7 +5248,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location, [u'rack', u'card', u'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                         class VlanId(Entity):
@@ -5312,7 +5312,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location.VlanId, [u'vlan', u'vlan_hex', u'port'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location.VlanId, ['vlan', 'vlan_hex', 'port'], name, value)
 
 
 
@@ -5402,7 +5402,7 @@ class Controller(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Esd.Instance, [u'process_name'], name, value)
+                        self._perform_setattr(Controller.Switch.Oper.Esd.Instance, ['process_name'], name, value)
 
 
                     class Trace(Entity):
@@ -5449,7 +5449,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace, [u'buffer'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace, ['buffer'], name, value)
 
 
                         class Location(Entity):
@@ -5496,7 +5496,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location, [u'location_name'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location, ['location_name'], name, value)
 
 
                             class AllOptions(Entity):
@@ -5543,7 +5543,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions, [u'option'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions, ['option'], name, value)
 
 
                                 class TraceBlocks(Entity):
@@ -5581,7 +5581,7 @@ class Controller(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 
@@ -5724,7 +5724,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace, [u'buffer'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace, ['buffer'], name, value)
 
 
                         class Location(Entity):
@@ -5771,7 +5771,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location, [u'location_name'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location, ['location_name'], name, value)
 
 
                             class AllOptions(Entity):
@@ -5818,7 +5818,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions, [u'option'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions, ['option'], name, value)
 
 
                                 class TraceBlocks(Entity):
@@ -5856,7 +5856,7 @@ class Controller(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 
@@ -6409,7 +6409,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location, [u'rack', u'card', u'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                         class PortIter(Entity):
@@ -6458,7 +6458,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter, [u'port'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter, ['port'], name, value)
 
 
                             class SdrId(Entity):
@@ -6516,7 +6516,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId, [u'sdr', u'esd_sdr_name'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId, ['sdr', 'esd_sdr_name'], name, value)
 
 
                                 class TrafficTypeId(Entity):
@@ -6563,7 +6563,7 @@ class Controller(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId, [u'traffic_type'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId, ['traffic_type'], name, value)
 
 
                                     class DirectionId(Entity):
@@ -6634,7 +6634,7 @@ class Controller(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId.DirectionId, [u'direction', u'green_packets', u'yellow_packets', u'red_packets'], name, value)
+                                            self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId.DirectionId, ['direction', 'green_packets', 'yellow_packets', 'red_packets'], name, value)
 
 
 
@@ -6744,7 +6744,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location, [u'rack', u'card', u'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                         class SdrId(Entity):
@@ -6802,7 +6802,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId, [u'sdr', u'esd_sdr_name'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId, ['sdr', 'esd_sdr_name'], name, value)
 
 
                             class TrafficTypeId(Entity):
@@ -6849,7 +6849,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId, [u'traffic_type'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId, ['traffic_type'], name, value)
 
 
                                 class TrafficClassId(Entity):
@@ -6922,7 +6922,7 @@ class Controller(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId.TrafficClassId, [u'tc', u'green_packets', u'yellow_packets', u'red_packets'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId.TrafficClassId, ['tc', 'green_packets', 'yellow_packets', 'red_packets'], name, value)
 
 
 
@@ -7042,7 +7042,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location, [u'rack', u'card', u'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                         class EsdPolicerStatus(Entity):
@@ -7194,7 +7194,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus.IndentGroup, [u'esd_port_policing_enabled', u'esd_port_committed_burst_size', u'esd_port_peak_burst_size', u'esd_port_policer_mru', u'esd_global_policing_enabled', u'esd_global_committed_burst_size', u'esd_global_peak_burst_size', u'esd_global_policer_mru'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus.IndentGroup, ['esd_port_policing_enabled', 'esd_port_committed_burst_size', 'esd_port_peak_burst_size', 'esd_port_policer_mru', 'esd_global_policing_enabled', 'esd_global_committed_burst_size', 'esd_global_peak_burst_size', 'esd_global_policer_mru'], name, value)
 
 
 
@@ -7276,7 +7276,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.SdrId, [u'sdr', u'esd_sdr_name', u'esd_sdr_cir', u'esd_sdr_pir'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.SdrId, ['sdr', 'esd_sdr_name', 'esd_sdr_cir', 'esd_sdr_pir'], name, value)
 
 
                             class EsdSdrCosTypeIter(Entity):
@@ -7402,7 +7402,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.SdrId.EsdSdrCosTypeIter, [u'esd_sdr_cos_type', u'esd_sdr_cos_0', u'esd_sdr_cos_1', u'esd_sdr_cos_2', u'esd_sdr_cos_3', u'esd_sdr_cos_4', u'esd_sdr_cos_5', u'esd_sdr_cos_6', u'esd_sdr_cos_7'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.SdrId.EsdSdrCosTypeIter, ['esd_sdr_cos_type', 'esd_sdr_cos_0', 'esd_sdr_cos_1', 'esd_sdr_cos_2', 'esd_sdr_cos_3', 'esd_sdr_cos_4', 'esd_sdr_cos_5', 'esd_sdr_cos_6', 'esd_sdr_cos_7'], name, value)
 
 
 
@@ -7496,7 +7496,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId, [u'sdr'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId, ['sdr'], name, value)
 
 
                         class PortStatistics(Entity):
@@ -7598,7 +7598,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location, [u'rack', u'card', u'switch_id'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                                 class PortIter(Entity):
@@ -7647,7 +7647,7 @@ class Controller(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter, [u'port'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter, ['port'], name, value)
 
 
                                     class TrafficTypeId(Entity):
@@ -7694,7 +7694,7 @@ class Controller(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId, [u'traffic_type'], name, value)
+                                            self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId, ['traffic_type'], name, value)
 
 
                                         class DirectionId(Entity):
@@ -7741,7 +7741,7 @@ class Controller(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId, [u'direction'], name, value)
+                                                self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId, ['direction'], name, value)
 
 
                                             class TrafficClassId(Entity):
@@ -7814,7 +7814,7 @@ class Controller(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId, [u'tc', u'green_packets', u'yellow_packets', u'red_packets'], name, value)
+                                                    self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId, ['tc', 'green_packets', 'yellow_packets', 'red_packets'], name, value)
 
 
 
@@ -7927,7 +7927,7 @@ class Controller(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.PortState.Location, [u'rack', u'card', u'switch_id'], name, value)
+                        self._perform_setattr(Controller.Switch.Oper.PortState.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                     class PortIter(Entity):
@@ -7967,7 +7967,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.PortState.Location.PortIter, [u'port'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.PortState.Location.PortIter, ['port'], name, value)
 
 
 
@@ -8094,7 +8094,7 @@ class Controller(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Trunk.Location, [u'rack', u'card', u'switch_id', u'trunk_member_count', u'trunk_name'], name, value)
+                        self._perform_setattr(Controller.Switch.Oper.Trunk.Location, ['rack', 'card', 'switch_id', 'trunk_member_count', 'trunk_name'], name, value)
 
 
                     class TrunkMemberPortIter(Entity):
@@ -8143,7 +8143,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Trunk.Location.TrunkMemberPortIter, [u'trunk_member_port', u'trunk_member_status'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Trunk.Location.TrunkMemberPortIter, ['trunk_member_port', 'trunk_member_status'], name, value)
 
 
 
@@ -8332,7 +8332,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location, [u'rack', u'card', u'switch_id'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
                             class Counters_(Entity):
@@ -8610,7 +8610,7 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_, [u'phy_polling_enabled', u'tx_thread_wdog_cnt', u'rx_thread_wdog_cnt', u'task_lock_longest_wait_time', u'task_lock_longest_wait_event', u'task_lock_longest_held_time', u'task_lock_longest_held_event', u'task_unlock_longest_wait_time', u'task_unlock_longest_wait_event', u'dma_max_rx_dequeued_per_int', u'dma_rx_packets_dequeued', u'dma_rx_packet_dequeue_errors', u'dma_tx_packets_queued', u'dma_tx_packets_completed', u'dma_tx_packet_no_msg_errors', u'dma_tx_packet_msg_too_big_errors', u'dma_tx_packet_no_buffer_errors', u'dma_tx_packet_queue_errors', u'dma_tx_packet_completion_errors', u'dma_max_tx_freed_per_int', u'dma_tx_buf_alloc_count', u'dma_tx_buf_free_count'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_, ['phy_polling_enabled', 'tx_thread_wdog_cnt', 'rx_thread_wdog_cnt', 'task_lock_longest_wait_time', 'task_lock_longest_wait_event', 'task_lock_longest_held_time', 'task_lock_longest_held_event', 'task_unlock_longest_wait_time', 'task_unlock_longest_wait_event', 'dma_max_rx_dequeued_per_int', 'dma_rx_packets_dequeued', 'dma_rx_packet_dequeue_errors', 'dma_tx_packets_queued', 'dma_tx_packets_completed', 'dma_tx_packet_no_msg_errors', 'dma_tx_packet_msg_too_big_errors', 'dma_tx_packet_no_buffer_errors', 'dma_tx_packet_queue_errors', 'dma_tx_packet_completion_errors', 'dma_max_tx_freed_per_int', 'dma_tx_buf_alloc_count', 'dma_tx_buf_free_count'], name, value)
 
 
                                 class SwitchCore(Entity):
@@ -8727,7 +8727,7 @@ class Controller(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore, [u'core', u'msi_count', u'aer_count', u'hp_count', u'wdog_count', u'core_task_lock_longest_wait_time', u'core_task_lock_longest_held_time', u'core_task_unlock_longest_wait_time'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore, ['core', 'msi_count', 'aer_count', 'hp_count', 'wdog_count', 'core_task_lock_longest_wait_time', 'core_task_lock_longest_held_time', 'core_task_unlock_longest_wait_time'], name, value)
 
 
 

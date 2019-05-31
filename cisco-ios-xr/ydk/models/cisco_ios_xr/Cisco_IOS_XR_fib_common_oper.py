@@ -92,31 +92,31 @@ class FibAdjacencyShow(Enum):
     fib_adjacency_unknown = Enum.YLeaf(9, "fib-adjacency-unknown")
 
 
-class FibFrrProtocolShow(Enum):
+class FibBagProtocol(Enum):
     """
-    FibFrrProtocolShow (Enum Class)
+    FibBagProtocol (Enum Class)
 
-    Fib frr protocol show
+    Protocol definitions for FIB Bags
 
-    .. data:: frr_protocol_ipv4 = 0
+    .. data:: ipv4 = 0
 
-    	frr protocol ipv4
+    	IPv4 Protocol
 
-    .. data:: frr_protocol_ipv6 = 1
+    .. data:: ipv6 = 1
 
-    	frr protocol ipv6
+    	IPv6 Protocol
 
-    .. data:: frr_protocol_mpls = 2
+    .. data:: mpls = 2
 
-    	frr protocol mpls
+    	MPLS Protocol
 
     """
 
-    frr_protocol_ipv4 = Enum.YLeaf(0, "frr-protocol-ipv4")
+    ipv4 = Enum.YLeaf(0, "ipv4")
 
-    frr_protocol_ipv6 = Enum.YLeaf(1, "frr-protocol-ipv6")
+    ipv6 = Enum.YLeaf(1, "ipv6")
 
-    frr_protocol_mpls = Enum.YLeaf(2, "frr-protocol-mpls")
+    mpls = Enum.YLeaf(2, "mpls")
 
 
 class FibLink(Enum):
@@ -322,11 +322,17 @@ class FibNhinfoExtBag(Enum):
 
     	Shared NHINFO
 
+    .. data:: tunnel_endpoint = 2
+
+    	Tunnel Endpoint
+
     """
 
     replicated_nh_info = Enum.YLeaf(0, "replicated-nh-info")
 
     shared_nh_info = Enum.YLeaf(1, "shared-nh-info")
+
+    tunnel_endpoint = Enum.YLeaf(2, "tunnel-endpoint")
 
 
 class FibProtocol(Enum):
@@ -1901,7 +1907,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoIdb.FibCofoIdbTableEntries.FibCofoIdbTableEntry.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoIdb.FibCofoIdbTableEntries.FibCofoIdbTableEntry.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -2307,7 +2313,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoTableId.FibCofoTableIdEntries.FibCofoTableIdEntry.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Global.FibCofo.FibCofoTableId.FibCofoTableIdEntries.FibCofoTableIdEntry.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -3862,7 +3868,7 @@ class Fib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.IssuState, [u'imdr_support', u'slc_support', u'fis_issu_restart', u'imdr_eoc_implicit', u'slc_eoc_implicit', u'eoc_received_imdr_time_stamp', u'eoc_received_slc_time_stamp', u'eod_received_im_time_stamp', u'eod_sent_imdr_time_stamp', u'eod_sent_slc_time_stamp', u'fis_issu_error_ts'], name, value)
+                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.IssuState, ['imdr_support', 'slc_support', 'fis_issu_restart', 'imdr_eoc_implicit', 'slc_eoc_implicit', 'eoc_received_imdr_time_stamp', 'eoc_received_slc_time_stamp', 'eod_received_im_time_stamp', 'eod_sent_imdr_time_stamp', 'eod_sent_slc_time_stamp', 'fis_issu_error_ts'], name, value)
 
 
                         class FisProtoState(Entity):
@@ -4035,7 +4041,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.IssuState.FisProtoState, [u'protocol_name', u'aib_eod_time_stamp', u'rsi_eod_valid', u'rsi_eod_time_stamp', u'lsd_eod_valid', u'lsd_eod_time_stamp', u'lmrib_eod_valid', u'lmrib_eod_time_stamp', u'rib_info_valid', u'bcdl_tables', u'converged_tables', u'rib_tables_converged_time_stamp', u'protocol_eod_valid', u'protocol_eod_time_stamp'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.IssuState.FisProtoState, ['protocol_name', 'aib_eod_time_stamp', 'rsi_eod_valid', 'rsi_eod_time_stamp', 'lsd_eod_valid', 'lsd_eod_time_stamp', 'lmrib_eod_valid', 'lmrib_eod_time_stamp', 'rib_info_valid', 'bcdl_tables', 'converged_tables', 'rib_tables_converged_time_stamp', 'protocol_eod_valid', 'protocol_eod_time_stamp'], name, value)
 
 
 
@@ -4221,7 +4227,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo, [u'sr_curr_mode', u'sr_hwrsrc_info', u'sr_shmwin_oor_count', u'sr_hw_oor_count', u'sr_in_oor_ts', u'sr_out_oor_ts'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo, ['sr_curr_mode', 'sr_hwrsrc_info', 'sr_shmwin_oor_count', 'sr_hw_oor_count', 'sr_in_oor_ts', 'sr_out_oor_ts'], name, value)
 
 
                             class SrHwrsrcMode(Entity):
@@ -4230,7 +4236,7 @@ class Fib(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Hardware resource mode
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -4261,7 +4267,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrHwrsrcMode, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrHwrsrcMode, ['entry'], name, value)
 
 
 
@@ -4328,7 +4334,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrShmState, [u'srs_curr_mode', u'srs_avg_avail', u'srs_max_avail'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrShmState, ['srs_curr_mode', 'srs_avg_avail', 'srs_max_avail'], name, value)
 
 
 
@@ -4442,7 +4448,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo, [u'sr_curr_mode', u'sr_hwrsrc_info', u'sr_shmwin_oor_count', u'sr_hw_oor_count', u'sr_in_oor_ts', u'sr_out_oor_ts'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo, ['sr_curr_mode', 'sr_hwrsrc_info', 'sr_shmwin_oor_count', 'sr_hw_oor_count', 'sr_in_oor_ts', 'sr_out_oor_ts'], name, value)
 
 
                             class SrHwrsrcMode(Entity):
@@ -4451,7 +4457,7 @@ class Fib(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Hardware resource mode
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -4482,7 +4488,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrHwrsrcMode, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrHwrsrcMode, ['entry'], name, value)
 
 
 
@@ -4549,7 +4555,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrShmState, [u'srs_curr_mode', u'srs_avg_avail', u'srs_max_avail'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrShmState, ['srs_curr_mode', 'srs_avg_avail', 'srs_max_avail'], name, value)
 
 
 
@@ -4663,7 +4669,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo, [u'sr_curr_mode', u'sr_hwrsrc_info', u'sr_shmwin_oor_count', u'sr_hw_oor_count', u'sr_in_oor_ts', u'sr_out_oor_ts'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo, ['sr_curr_mode', 'sr_hwrsrc_info', 'sr_shmwin_oor_count', 'sr_hw_oor_count', 'sr_in_oor_ts', 'sr_out_oor_ts'], name, value)
 
 
                             class SrHwrsrcMode(Entity):
@@ -4672,7 +4678,7 @@ class Fib(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Hardware resource mode
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -4703,7 +4709,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrHwrsrcMode, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrHwrsrcMode, ['entry'], name, value)
 
 
 
@@ -4770,7 +4776,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrShmState, [u'srs_curr_mode', u'srs_avg_avail', u'srs_max_avail'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrShmState, ['srs_curr_mode', 'srs_avg_avail', 'srs_max_avail'], name, value)
 
 
 
@@ -4884,7 +4890,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo, [u'sr_curr_mode', u'sr_hwrsrc_info', u'sr_shmwin_oor_count', u'sr_hw_oor_count', u'sr_in_oor_ts', u'sr_out_oor_ts'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo, ['sr_curr_mode', 'sr_hwrsrc_info', 'sr_shmwin_oor_count', 'sr_hw_oor_count', 'sr_in_oor_ts', 'sr_out_oor_ts'], name, value)
 
 
                             class SrHwrsrcMode(Entity):
@@ -4893,7 +4899,7 @@ class Fib(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Hardware resource mode
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -4924,7 +4930,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrHwrsrcMode, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrHwrsrcMode, ['entry'], name, value)
 
 
 
@@ -4991,7 +4997,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrShmState, [u'srs_curr_mode', u'srs_avg_avail', u'srs_max_avail'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrShmState, ['srs_curr_mode', 'srs_avg_avail', 'srs_max_avail'], name, value)
 
 
 
@@ -5428,21 +5434,30 @@ class Fib(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: number_of_sr_labels
+                            .. attribute:: number_routes_srv6_transit
                             
-                            	Number of SR labels
+                            	Number of SRv6 transit routes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             	**config**\: False
                             
-                            .. attribute:: ss_vxlan_ltep_ifh
+                            .. attribute:: number_routes_srv6_end
                             
-                            	VXLAN local Interface handle
-                            	**type**\: str
+                            	Number of SRv6 end routes
+                            	**type**\: int
                             
-                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: number_of_sr_labels
+                            
+                            	Number of SR labels
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
                             
                             	**config**\: False
                             
@@ -5511,8 +5526,9 @@ class Fib(Entity):
                                     ('lisp_eid_prefixes', (YLeaf(YType.uint32, 'lisp-eid-prefixes'), ['int'])),
                                     ('lisp_eid_valid_prefixes', (YLeaf(YType.uint32, 'lisp-eid-valid-prefixes'), ['int'])),
                                     ('lisp_rloc_objects', (YLeaf(YType.uint32, 'lisp-rloc-objects'), ['int'])),
+                                    ('number_routes_srv6_transit', (YLeaf(YType.uint32, 'number-routes-srv6-transit'), ['int'])),
+                                    ('number_routes_srv6_end', (YLeaf(YType.uint32, 'number-routes-srv6-end'), ['int'])),
                                     ('number_of_sr_labels', (YLeaf(YType.uint32, 'number-of-sr-labels'), ['int'])),
-                                    ('ss_vxlan_ltep_ifh', (YLeaf(YType.str, 'ss-vxlan-ltep-ifh'), ['str'])),
                                     ('ss_drop_pl_count', (YLeaf(YType.uint32, 'ss-drop-pl-count'), ['int'])),
                                 ])
                                 self.vrf_name = None
@@ -5554,8 +5570,9 @@ class Fib(Entity):
                                 self.lisp_eid_prefixes = None
                                 self.lisp_eid_valid_prefixes = None
                                 self.lisp_rloc_objects = None
+                                self.number_routes_srv6_transit = None
+                                self.number_routes_srv6_end = None
                                 self.number_of_sr_labels = None
-                                self.ss_vxlan_ltep_ifh = None
                                 self.ss_drop_pl_count = None
 
                                 self.exclusive_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement()
@@ -5581,7 +5598,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary, ['vrf_name', 'table_id', u'prefix', u'ss_tbl_id', u'ss_tbl_id_ptr', u'ss_vrf_id', u'ss_vr_id', u'load_balancing', u'forwarding_elements', u'routes', u'prefix_in_place_modifications', u'stale_prefix_deletes', u'load_sharing_elements', u'load_sharing_references', u'total_load_share_element_bytes', u'leaves_used_bytes', u'reresolve_entries', u'old_unresolve_entries', u'new_unresolve_entries', u'unresolve_entries', u'cef_route_drops', u'cef_version_mismatch_route_drops', u'delete_cache_num_entries', u'existing_leaves_revisions', u'fib_default_prefix', u'fib_default_prefix_mask_length', u'next_hops', u'incomplete_next_hops', u'resolution_timer', u'slow_process_timer', u'max_resolution_timer', u'imposition_prefixes', u'extended_prefixes', u'cefl_bl_recycled_routes', u'ldi_backwalks', u'ss_prot_route_count', u'lisp_eid_prefixes', u'lisp_eid_valid_prefixes', u'lisp_rloc_objects', u'number_of_sr_labels', u'ss_vxlan_ltep_ifh', u'ss_drop_pl_count'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary, ['vrf_name', 'table_id', 'prefix', 'ss_tbl_id', 'ss_tbl_id_ptr', 'ss_vrf_id', 'ss_vr_id', 'load_balancing', 'forwarding_elements', 'routes', 'prefix_in_place_modifications', 'stale_prefix_deletes', 'load_sharing_elements', 'load_sharing_references', 'total_load_share_element_bytes', 'leaves_used_bytes', 'reresolve_entries', 'old_unresolve_entries', 'new_unresolve_entries', 'unresolve_entries', 'cef_route_drops', 'cef_version_mismatch_route_drops', 'delete_cache_num_entries', 'existing_leaves_revisions', 'fib_default_prefix', 'fib_default_prefix_mask_length', 'next_hops', 'incomplete_next_hops', 'resolution_timer', 'slow_process_timer', 'max_resolution_timer', 'imposition_prefixes', 'extended_prefixes', 'cefl_bl_recycled_routes', 'ldi_backwalks', 'ss_prot_route_count', 'lisp_eid_prefixes', 'lisp_eid_valid_prefixes', 'lisp_rloc_objects', 'number_routes_srv6_transit', 'number_routes_srv6_end', 'number_of_sr_labels', 'ss_drop_pl_count'], name, value)
 
 
                             class ExclusiveLoadSharingElement(Entity):
@@ -5722,7 +5739,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement, [u'total_load_sharing_element_bytes', u'total_load_sharing_element_references', u'total_path_list_elements', u'recursive_path_list_elements', u'platform_shared_path_list_elements', u'retry_path_list_elements', u'total_load_info_elements', u'recursive_load_info_elements', u'platform_shared_load_info_elements', u'xpl_load_info_elements'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement, ['total_load_sharing_element_bytes', 'total_load_sharing_element_references', 'total_path_list_elements', 'recursive_path_list_elements', 'platform_shared_path_list_elements', 'retry_path_list_elements', 'total_load_info_elements', 'recursive_load_info_elements', 'platform_shared_load_info_elements', 'xpl_load_info_elements'], name, value)
 
 
 
@@ -5864,7 +5881,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.SharedLoadSharingElement, [u'total_load_sharing_element_bytes', u'total_load_sharing_element_references', u'total_path_list_elements', u'recursive_path_list_elements', u'platform_shared_path_list_elements', u'retry_path_list_elements', u'total_load_info_elements', u'recursive_load_info_elements', u'platform_shared_load_info_elements', u'xpl_load_info_elements'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.SharedLoadSharingElement, ['total_load_sharing_element_bytes', 'total_load_sharing_element_references', 'total_path_list_elements', 'recursive_path_list_elements', 'platform_shared_path_list_elements', 'retry_path_list_elements', 'total_load_info_elements', 'recursive_load_info_elements', 'platform_shared_load_info_elements', 'xpl_load_info_elements'], name, value)
 
 
 
@@ -6006,7 +6023,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.CrossSharedLoadSharingElement, [u'total_load_sharing_element_bytes', u'total_load_sharing_element_references', u'total_path_list_elements', u'recursive_path_list_elements', u'platform_shared_path_list_elements', u'retry_path_list_elements', u'total_load_info_elements', u'recursive_load_info_elements', u'platform_shared_load_info_elements', u'xpl_load_info_elements'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.CrossSharedLoadSharingElement, ['total_load_sharing_element_bytes', 'total_load_sharing_element_references', 'total_path_list_elements', 'recursive_path_list_elements', 'platform_shared_path_list_elements', 'retry_path_list_elements', 'total_load_info_elements', 'recursive_load_info_elements', 'platform_shared_load_info_elements', 'xpl_load_info_elements'], name, value)
 
 
 
@@ -6148,7 +6165,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.EncapSharedLoadSharingElement, [u'total_load_sharing_element_bytes', u'total_load_sharing_element_references', u'total_path_list_elements', u'recursive_path_list_elements', u'platform_shared_path_list_elements', u'retry_path_list_elements', u'total_load_info_elements', u'recursive_load_info_elements', u'platform_shared_load_info_elements', u'xpl_load_info_elements'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.EncapSharedLoadSharingElement, ['total_load_sharing_element_bytes', 'total_load_sharing_element_references', 'total_path_list_elements', 'recursive_path_list_elements', 'platform_shared_path_list_elements', 'retry_path_list_elements', 'total_load_info_elements', 'recursive_load_info_elements', 'platform_shared_load_info_elements', 'xpl_load_info_elements'], name, value)
 
 
 
@@ -6253,7 +6270,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.PrefixMasklenDistribution.UnicastPrefixe, [u'mask_length', u'number_of_prefixes'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.PrefixMasklenDistribution.UnicastPrefixe, ['mask_length', 'number_of_prefixes'], name, value)
 
 
 
@@ -6305,7 +6322,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.PrefixMasklenDistribution.BroadcastPrefixe, [u'mask_length', u'number_of_prefixes'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.PrefixMasklenDistribution.BroadcastPrefixe, ['mask_length', 'number_of_prefixes'], name, value)
 
 
 
@@ -6357,7 +6374,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.PrefixMasklenDistribution.MulticastPrefix, [u'mask_length', u'number_of_prefixes'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.PrefixMasklenDistribution.MulticastPrefix, ['mask_length', 'number_of_prefixes'], name, value)
 
 
 
@@ -6412,7 +6429,7 @@ class Fib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll, [u'sesa_num_client'], name, value)
+                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll, ['sesa_num_client'], name, value)
 
 
                         class SesaPlSum(Entity):
@@ -6472,7 +6489,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum, [u'sep_num_ecd_pathlist', u'sep_num_ecd_pl_unresolved'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum, ['sep_num_ecd_pathlist', 'sep_num_ecd_pl_unresolved'], name, value)
 
 
                             class SepNumEcdPlPerInterest(Entity):
@@ -6481,7 +6498,7 @@ class Fib(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of ECD pathlists per interest
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -6512,7 +6529,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum.SepNumEcdPlPerInterest, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum.SepNumEcdPlPerInterest, ['entry'], name, value)
 
 
 
@@ -6705,7 +6722,7 @@ class Fib(Entity):
                                         .. attribute:: frr_protocol_type
                                         
                                         	FIB Protocol Type
-                                        	**type**\:  :py:class:`FibFrrProtocolShow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibFrrProtocolShow>`
+                                        	**type**\:  :py:class:`FibBagProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibBagProtocol>`
                                         
                                         	**config**\: False
                                         
@@ -6763,7 +6780,7 @@ class Fib(Entity):
                                             self._child_classes = OrderedDict([("frr-timestamp", ("frr_timestamp", Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log.FrrTimestamp))])
                                             self._leafs = OrderedDict([
                                                 ('log_index', (YLeaf(YType.uint32, 'log-index'), ['int'])),
-                                                ('frr_protocol_type', (YLeaf(YType.enumeration, 'frr-protocol-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibFrrProtocolShow', '')])),
+                                                ('frr_protocol_type', (YLeaf(YType.enumeration, 'frr-protocol-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibBagProtocol', '')])),
                                                 ('frr_interface_name', (YLeaf(YType.str, 'frr-interface-name'), ['str'])),
                                                 ('frr_prefix', (YLeaf(YType.str, 'frr-prefix'), ['str'])),
                                                 ('frr_switching_time', (YLeaf(YType.uint32, 'frr-switching-time'), ['int'])),
@@ -6783,7 +6800,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log, ['log_index', u'frr_protocol_type', u'frr_interface_name', u'frr_prefix', u'frr_switching_time', u'bundle_member_interface_name'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log, ['log_index', 'frr_protocol_type', 'frr_interface_name', 'frr_prefix', 'frr_switching_time', 'bundle_member_interface_name'], name, value)
 
 
                                         class FrrTimestamp(Entity):
@@ -6834,7 +6851,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log.FrrTimestamp, [u'seconds', u'nano_seconds'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log.FrrTimestamp, ['seconds', 'nano_seconds'], name, value)
 
 
 
@@ -7468,7 +7485,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -7538,7 +7555,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -7621,7 +7638,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -7629,7 +7646,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -7693,7 +7710,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -7788,7 +7805,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -7938,7 +7955,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -8022,7 +8039,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -8035,6 +8052,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -8060,7 +8084,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -8069,11 +8093,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -8146,7 +8174,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialNullDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -8479,7 +8557,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -8549,7 +8627,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -8632,7 +8710,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -8640,7 +8718,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -8704,7 +8782,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -8799,7 +8877,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -8949,7 +9027,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -9033,7 +9111,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -9046,6 +9124,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -9071,7 +9156,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -9080,11 +9165,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -9157,7 +9246,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialPuntDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -9490,7 +9629,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -9560,7 +9699,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -9643,7 +9782,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -9651,7 +9790,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -9715,7 +9854,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -9810,7 +9949,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -9960,7 +10099,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -10044,7 +10183,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -10057,6 +10196,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -10082,7 +10228,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -10091,11 +10237,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -10168,7 +10318,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDiscardDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -10501,7 +10701,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -10571,7 +10771,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -10654,7 +10854,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -10662,7 +10862,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -10726,7 +10926,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -10821,7 +11021,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -10971,7 +11171,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -11055,7 +11255,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -11068,6 +11268,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -11093,7 +11300,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -11102,11 +11309,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -11179,7 +11390,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoSpecialDetailHardwareEgress.NhInfoSpecialDropDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -11583,7 +11844,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -11653,7 +11914,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -11740,7 +12001,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -11748,7 +12009,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -11816,7 +12077,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', 'si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -11911,7 +12172,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -12061,7 +12322,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -12145,7 +12406,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -12158,6 +12419,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -12183,7 +12451,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -12192,11 +12460,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -12269,7 +12541,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -12674,7 +12996,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -12744,7 +13066,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -12831,7 +13153,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -12839,7 +13161,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -12907,7 +13229,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', 'si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -13002,7 +13324,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -13152,7 +13474,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -13236,7 +13558,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -13249,6 +13571,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -13274,7 +13603,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -13283,11 +13612,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -13360,7 +13693,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareEgress.NhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -13773,6 +14156,27 @@ class Fib(Entity):
                                     
                                     	**config**\: False
                                     
+                                    .. attribute:: route_is_srv6_transit
+                                    
+                                    	This route is SRv6 Transit function
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: route_is_srv6_end
+                                    
+                                    	This route is SRv6 End function
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: srv6_operation_type
+                                    
+                                    	SRv6 Operation Type
+                                    	**type**\: str
+                                    
+                                    	**config**\: False
+                                    
                                     .. attribute:: extension_object
                                     
                                     	Leaf Extension Object List
@@ -13839,6 +14243,9 @@ class Fib(Entity):
                                             ('route_for_external_reach_linecard_flag', (YLeaf(YType.boolean, 'route-for-external-reach-linecard-flag'), ['bool'])),
                                             ('route_source_not_preferred', (YLeaf(YType.boolean, 'route-source-not-preferred'), ['bool'])),
                                             ('route_is_sr_flag', (YLeaf(YType.boolean, 'route-is-sr-flag'), ['bool'])),
+                                            ('route_is_srv6_transit', (YLeaf(YType.boolean, 'route-is-srv6-transit'), ['bool'])),
+                                            ('route_is_srv6_end', (YLeaf(YType.boolean, 'route-is-srv6-end'), ['bool'])),
+                                            ('srv6_operation_type', (YLeaf(YType.str, 'srv6-operation-type'), ['str'])),
                                         ])
                                         self.prefix = None
                                         self.prefix_length = None
@@ -13882,6 +14289,9 @@ class Fib(Entity):
                                         self.route_for_external_reach_linecard_flag = None
                                         self.route_source_not_preferred = None
                                         self.route_is_sr_flag = None
+                                        self.route_is_srv6_transit = None
+                                        self.route_is_srv6_end = None
+                                        self.srv6_operation_type = None
 
                                         self.detail_fib_entry_information = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation()
                                         self.detail_fib_entry_information.parent = self
@@ -13896,7 +14306,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail, ['prefix', 'prefix_length', u'protocol_type_fib_entry', u'platform_hardware', u'number_of_referances_to_path_list', u'path_list_flags', u'path_list_source', u'number_of_referances_to_ldi', u'ldi_flags', u'flags_external_ldi', u'pointer_external_ldi', u'exact_path_interface_handle', u'exact_path_gre_interface_handle', u'exact_route_gre_phys_ifh_avail', u'exact_route_result', u'prefix_is_static_or_connected', u'packet_should_recieve', u'prefix_connected', u'prefix_for_adjancency', u'prefix_for_pic_next_hop', u'purgable_after_purge_interval', u'broadcast_recive_flag', u'broadcast_forward_flag', u'zero_by_zero_route_as_default', u'external_switch_triggered', u'route_attribute_flag', u'dummy_real_zero_route', u'ldi_lw_flag', u'ref_counter_of_ldi_lw_ldi', u'type_of_ldi_lw_ldi', u'lspa_flags', u'version_of_route', u'fib_route_download_priority', u'time_of_last_update_in_msec', u'l2_subscriber_route', u'l2_subscriber_xconnect_id', u'l2_subscriber_flags', u'l2_subscriber_ip_protocol', u'l2tpv3_cookie_length_bits', u'route_for_external_reach_linecard_flag', u'route_source_not_preferred', u'route_is_sr_flag'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail, ['prefix', 'prefix_length', 'protocol_type_fib_entry', 'platform_hardware', 'number_of_referances_to_path_list', 'path_list_flags', 'path_list_source', 'number_of_referances_to_ldi', 'ldi_flags', 'flags_external_ldi', 'pointer_external_ldi', 'exact_path_interface_handle', 'exact_path_gre_interface_handle', 'exact_route_gre_phys_ifh_avail', 'exact_route_result', 'prefix_is_static_or_connected', 'packet_should_recieve', 'prefix_connected', 'prefix_for_adjancency', 'prefix_for_pic_next_hop', 'purgable_after_purge_interval', 'broadcast_recive_flag', 'broadcast_forward_flag', 'zero_by_zero_route_as_default', 'external_switch_triggered', 'route_attribute_flag', 'dummy_real_zero_route', 'ldi_lw_flag', 'ref_counter_of_ldi_lw_ldi', 'type_of_ldi_lw_ldi', 'lspa_flags', 'version_of_route', 'fib_route_download_priority', 'time_of_last_update_in_msec', 'l2_subscriber_route', 'l2_subscriber_xconnect_id', 'l2_subscriber_flags', 'l2_subscriber_ip_protocol', 'l2tpv3_cookie_length_bits', 'route_for_external_reach_linecard_flag', 'route_source_not_preferred', 'route_is_sr_flag', 'route_is_srv6_transit', 'route_is_srv6_end', 'srv6_operation_type'], name, value)
 
 
                                     class DetailFibEntryInformation(Entity):
@@ -14141,8 +14551,6 @@ class Fib(Entity):
                                         	As path string
                                         	**type**\: str
                                         
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
                                         	**config**\: False
                                         
                                         .. attribute:: extcom_string
@@ -14357,7 +14765,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation, [u'fib_entry_version', u'per_prefix_accounting', u'load_sharing_type', u'fib_entry_adjacency_type', u'fib_protocol_type', u'afi_fib_protocol_type', u'aib_l3_address', u'adjacency_address_length', u'adjacency_interface', u'fib_special_nh_information_type', u'fib_entry_adjacency_address', u'fib_entry_adjacency_interface', u'packets_through_fib_entry', u'bytes_through_fib_entry', u'detailed_prefix_length', u'prefix_protocol', u'precedence_forpackets', u'traffic_index_for_packets', u'switch_compontent_id', u'fast_adjacency_flag', u'illegal_fast_adjacency_flag', u'remote_adjacency_flag', u'bgp_attribute_id', u'bgp_local_attribute_id', u'bgp_attribute_origin_as', u'bgp_attribute_next_hop_as', u'path_string', u'extcom_string', u'com_string', u'extended_community', u'qos_group', u'mpls_fec', u'qppb_qos_group_and_ip_precedence', u'flow_tag', u'forward_class', u'pl_time_of_last_update_in_msec', u'ldi_time_of_last_update_in_msec', u'lwldi_time_of_last_update_in_msec', u'pl_time_stamp_type'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation, ['fib_entry_version', 'per_prefix_accounting', 'load_sharing_type', 'fib_entry_adjacency_type', 'fib_protocol_type', 'afi_fib_protocol_type', 'aib_l3_address', 'adjacency_address_length', 'adjacency_interface', 'fib_special_nh_information_type', 'fib_entry_adjacency_address', 'fib_entry_adjacency_interface', 'packets_through_fib_entry', 'bytes_through_fib_entry', 'detailed_prefix_length', 'prefix_protocol', 'precedence_forpackets', 'traffic_index_for_packets', 'switch_compontent_id', 'fast_adjacency_flag', 'illegal_fast_adjacency_flag', 'remote_adjacency_flag', 'bgp_attribute_id', 'bgp_local_attribute_id', 'bgp_attribute_origin_as', 'bgp_attribute_next_hop_as', 'path_string', 'extcom_string', 'com_string', 'extended_community', 'qos_group', 'mpls_fec', 'qppb_qos_group_and_ip_precedence', 'flow_tag', 'forward_class', 'pl_time_of_last_update_in_msec', 'ldi_time_of_last_update_in_msec', 'lwldi_time_of_last_update_in_msec', 'pl_time_stamp_type'], name, value)
 
 
                                         class LoadshareInformation(Entity):
@@ -14514,7 +14922,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation, [u'packets_through_load_information', u'bytes_through_load_information', u'total_packets_through_load_information', u'total_bytes_through_load_information', u'prefix_of_owner', u'mask_length_of_owner', u'load_information_reference_count', u'per_dest_load_sharing_flag', u'load_information_owner_deleted_flag', u'loadinfo_sanity_flag', u'is_owner'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation, ['packets_through_load_information', 'bytes_through_load_information', 'total_packets_through_load_information', 'total_bytes_through_load_information', 'prefix_of_owner', 'mask_length_of_owner', 'load_information_reference_count', 'per_dest_load_sharing_flag', 'load_information_owner_deleted_flag', 'loadinfo_sanity_flag', 'is_owner'], name, value)
 
 
                                             class LoadInformtionInternalData(Entity):
@@ -14761,7 +15169,7 @@ class Fib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData, [u'level_ofldis', u'number_of_ldis', u'maximum_index_arrays', u'path_indices', u'path_ldi_numbers', u'maximum_slots', u'normalized_weights', u'tunnel_class_value', u'is_pbts_info_valid', u'pbts_class_offset', u'pbts_class_num_paths', u'pbts_fallback_mapped_class', u'round_robin_disable', u'ldi_next_hop_buckets', u'platform_hardware_information'], name, value)
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData, ['level_ofldis', 'number_of_ldis', 'maximum_index_arrays', 'path_indices', 'path_ldi_numbers', 'maximum_slots', 'normalized_weights', 'tunnel_class_value', 'is_pbts_info_valid', 'pbts_class_offset', 'pbts_class_num_paths', 'pbts_fallback_mapped_class', 'round_robin_disable', 'ldi_next_hop_buckets', 'platform_hardware_information'], name, value)
 
 
                                                 class SanityFlag(Entity):
@@ -14770,7 +15178,7 @@ class Fib(Entity):
                                                     
                                                     .. attribute:: entry
                                                     
-                                                    	
+                                                    	Sanity flag
                                                     	**type**\: bool
                                                     
                                                     	**config**\: False
@@ -14799,7 +15207,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.SanityFlag, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.SanityFlag, ['entry'], name, value)
 
 
 
@@ -14809,7 +15217,7 @@ class Fib(Entity):
                                                     
                                                     .. attribute:: entry
                                                     
-                                                    	
+                                                    	Interface handle
                                                     	**type**\: str
                                                     
                                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
@@ -14840,7 +15248,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.InterfaceHandle, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.InterfaceHandle, ['entry'], name, value)
 
 
 
@@ -14850,7 +15258,7 @@ class Fib(Entity):
                                                     
                                                     .. attribute:: entry
                                                     
-                                                    	
+                                                    	Weights of paths
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -14881,7 +15289,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.WeightsOfPath, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.WeightsOfPath, ['entry'], name, value)
 
 
 
@@ -14922,7 +15330,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress, [u'address'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress, ['address'], name, value)
 
 
 
@@ -14961,7 +15369,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped, ['entry'], name, value)
 
 
 
@@ -15000,7 +15408,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop, ['entry'], name, value)
 
 
 
@@ -15039,7 +15447,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass, ['entry'], name, value)
 
 
 
@@ -15052,7 +15460,7 @@ class Fib(Entity):
                                         
                                         .. attribute:: fib_sh_tbl_path
                                         
-                                        	fib sh tbl path
+                                        	Next entry in the path
                                         	**type**\: list of  		 :py:class:`FibShTblPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath>`
                                         
                                         	**config**\: False
@@ -15085,7 +15493,14 @@ class Fib(Entity):
 
                                         class FibShTblPath(Entity):
                                             """
-                                            fib sh tbl path
+                                            Next entry in the path
+                                            
+                                            .. attribute:: next_fib_entry_path
+                                            
+                                            	Next entry in the path
+                                            	**type**\:  :py:class:`NextFibEntryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.NextFibEntryPath>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: more_detail_about_path
                                             
@@ -15098,6 +15513,13 @@ class Fib(Entity):
                                             
                                             	mpls info for this path entry
                                             	**type**\:  :py:class:`MplsInformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath>`
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: srv6_information_for_path
+                                            
+                                            	SRv6 info for this path entry
+                                            	**type**\:  :py:class:`Srv6InformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.Srv6InformationForPath>`
                                             
                                             	**config**\: False
                                             
@@ -15296,7 +15718,7 @@ class Fib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_classes = OrderedDict([("more-detail-about-path", ("more_detail_about_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath)), ("mpls-information-for-path", ("mpls_information_for_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath))])
+                                                self._child_classes = OrderedDict([("next-fib-entry-path", ("next_fib_entry_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.NextFibEntryPath)), ("more-detail-about-path", ("more_detail_about_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath)), ("mpls-information-for-path", ("mpls_information_for_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath)), ("srv6-information-for-path", ("srv6_information_for_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.Srv6InformationForPath))])
                                                 self._leafs = OrderedDict([
                                                     ('hardware_information', (YLeaf(YType.str, 'hardware-information'), ['str'])),
                                                     ('brief_interface_handle', (YLeaf(YType.str, 'brief-interface-handle'), ['str'])),
@@ -15344,6 +15766,10 @@ class Fib(Entity):
                                                 self.parent_interface_handle = None
                                                 self.recursionvia_len = None
 
+                                                self.next_fib_entry_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.NextFibEntryPath()
+                                                self.next_fib_entry_path.parent = self
+                                                self._children_name_map["next_fib_entry_path"] = "next-fib-entry-path"
+
                                                 self.more_detail_about_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath()
                                                 self.more_detail_about_path.parent = self
                                                 self._children_name_map["more_detail_about_path"] = "more-detail-about-path"
@@ -15351,11 +15777,41 @@ class Fib(Entity):
                                                 self.mpls_information_for_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath()
                                                 self.mpls_information_for_path.parent = self
                                                 self._children_name_map["mpls_information_for_path"] = "mpls-information-for-path"
+
+                                                self.srv6_information_for_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.Srv6InformationForPath()
+                                                self.srv6_information_for_path.parent = self
+                                                self._children_name_map["srv6_information_for_path"] = "srv6-information-for-path"
                                                 self._segment_path = lambda: "fib-sh-tbl-path"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath, [u'hardware_information', u'brief_interface_handle', u'brief_next_hop_prefix', u'via_label_to_recurse', u'brief_pnode_address', u'brief_qnode_address', u'brief_lfa_protection_type', u'resolved_path', u'recursive_path', u'packets_received_path', u'attached_path', u'backup_path', u'best_external_path', u'protect_ignore', u'path_dlb', u'path_flags', u'path_info_flags', u'path_index', u'backup_index', u'next_hop_index', u'parent_interface_handle', u'recursionvia_len'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath, ['hardware_information', 'brief_interface_handle', 'brief_next_hop_prefix', 'via_label_to_recurse', 'brief_pnode_address', 'brief_qnode_address', 'brief_lfa_protection_type', 'resolved_path', 'recursive_path', 'packets_received_path', 'attached_path', 'backup_path', 'best_external_path', 'protect_ignore', 'path_dlb', 'path_flags', 'path_info_flags', 'path_index', 'backup_index', 'next_hop_index', 'parent_interface_handle', 'recursionvia_len'], name, value)
+
+
+                                            class NextFibEntryPath(Entity):
+                                                """
+                                                Next entry in the path
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'fib-common-oper'
+                                                _revision = '2017-09-07'
+
+                                                def __init__(self):
+                                                    super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.NextFibEntryPath, self).__init__()
+
+                                                    self.yang_name = "next-fib-entry-path"
+                                                    self.yang_parent_name = "fib-sh-tbl-path"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
+                                                    self._segment_path = lambda: "next-fib-entry-path"
+                                                    self._is_frozen = True
+
 
 
                                             class MoreDetailAboutPath(Entity):
@@ -15421,8 +15877,6 @@ class Fib(Entity):
                                                 	Next hop VRF
                                                 	**type**\: str
                                                 
-                                                	**length:** 0..33
-                                                
                                                 	**config**\: False
                                                 
                                                 .. attribute:: tunnle_endpoint_id
@@ -15473,8 +15927,6 @@ class Fib(Entity):
                                                 	Next prefix recursion in the path
                                                 	**type**\: str
                                                 
-                                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                                
                                                 	**config**\: False
                                                 
                                                 .. attribute:: next_prefix_length
@@ -15497,8 +15949,6 @@ class Fib(Entity):
                                                 
                                                 	Next prefix2 recursion in the path
                                                 	**type**\: str
-                                                
-                                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                                 
                                                 	**config**\: False
                                                 
@@ -15669,7 +16119,7 @@ class Fib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath, [u'ip_address_to_recurse', u'label_to_recurse', u'detail_next_hop_prefix', u'next_hop_mask_length', u'interface_associated_path', u'next_hop_interface', u'next_hop_vrf', u'tunnle_endpoint_id', u'lisprlocid', u'number_of_dependencies_this_path', u'robin_reset_value', u'recurse_prefix_object', u'next_prefix_recursion', u'next_prefix_length', u'recurse_prefix_object2', u'next_prefix_recursion2', u'next_prefix_length2', u'detail_fib_adjacency_type', u'current_path_flag', u'recursive_path_information', u'external_adjacency', u'fib_path_nh_information_type', u'fib_path_nh_information_type_special', u'weight_of_path', u'tunnel_class', u'tunnel_is_forward_class'], name, value)
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath, ['ip_address_to_recurse', 'label_to_recurse', 'detail_next_hop_prefix', 'next_hop_mask_length', 'interface_associated_path', 'next_hop_interface', 'next_hop_vrf', 'tunnle_endpoint_id', 'lisprlocid', 'number_of_dependencies_this_path', 'robin_reset_value', 'recurse_prefix_object', 'next_prefix_recursion', 'next_prefix_length', 'recurse_prefix_object2', 'next_prefix_recursion2', 'next_prefix_length2', 'detail_fib_adjacency_type', 'current_path_flag', 'recursive_path_information', 'external_adjacency', 'fib_path_nh_information_type', 'fib_path_nh_information_type_special', 'weight_of_path', 'tunnel_class', 'tunnel_is_forward_class'], name, value)
 
 
                                                 class SpdIpencap(Entity):
@@ -15804,7 +16254,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap, [u'ip_encap_hdr_count', u'ip_encap_locks', u'ip_encap_transport_tbl', u'ipe_transport_vrf_name', u'ip_encap_transport_af', u'ip_encap_payload_af', u'ip_encap_payload_mtu', u'ip_encap_parent', u'ip_encap_parent_type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap, ['ip_encap_hdr_count', 'ip_encap_locks', 'ip_encap_transport_tbl', 'ipe_transport_vrf_name', 'ip_encap_transport_af', 'ip_encap_payload_af', 'ip_encap_payload_mtu', 'ip_encap_parent', 'ip_encap_parent_type'], name, value)
 
 
                                                     class IpEncapHdr(Entity):
@@ -15864,7 +16314,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr, [u'ip_encap_hdr_type', u'ip_encap_hdrp', u'ip_encap_hdr_dyn'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr, ['ip_encap_hdr_type', 'ip_encap_hdrp', 'ip_encap_hdr_dyn'], name, value)
 
 
 
@@ -15928,7 +16378,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.NextNextHop, [u'next_next_hop_index', u'next_next_hop_prefix', u'next_next_hop_interface'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.NextNextHop, ['next_next_hop_index', 'next_next_hop_prefix', 'next_next_hop_interface'], name, value)
 
 
 
@@ -16016,7 +16466,7 @@ class Fib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath, [u'local_lable', u'recursive_fwd_chain', u'number_of_igp_paths', u'remote_backup'], name, value)
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath, ['local_lable', 'recursive_fwd_chain', 'number_of_igp_paths', 'remote_backup'], name, value)
 
 
                                                 class RecursiveLblStack(Entity):
@@ -16025,7 +16475,7 @@ class Fib(Entity):
                                                     
                                                     .. attribute:: entry
                                                     
-                                                    	
+                                                    	Recursive Label(s)
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -16056,7 +16506,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath.RecursiveLblStack, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath.RecursiveLblStack, ['entry'], name, value)
 
 
 
@@ -16128,7 +16578,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray, [u'number_of_labels', u'out_interface', u'nh_address'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray, ['number_of_labels', 'out_interface', 'nh_address'], name, value)
 
 
                                                     class Lstack(Entity):
@@ -16137,7 +16587,7 @@ class Fib(Entity):
                                                         
                                                         .. attribute:: entry
                                                         
-                                                        	
+                                                        	lstack
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
@@ -16168,9 +16618,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray.Lstack, [u'entry'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray.Lstack, ['entry'], name, value)
 
 
+
+
+
+                                            class Srv6InformationForPath(Entity):
+                                                """
+                                                SRv6 info for this path entry
+                                                
+                                                .. attribute:: srv6_encapsulation_behavior
+                                                
+                                                	SRv6 Per\-path Encapsulation Behavior
+                                                	**type**\: str
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: srv6_sid_list
+                                                
+                                                	SRv6 SID list
+                                                	**type**\: str
+                                                
+                                                	**config**\: False
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'fib-common-oper'
+                                                _revision = '2017-09-07'
+
+                                                def __init__(self):
+                                                    super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.Srv6InformationForPath, self).__init__()
+
+                                                    self.yang_name = "srv6-information-for-path"
+                                                    self.yang_parent_name = "fib-sh-tbl-path"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('srv6_encapsulation_behavior', (YLeaf(YType.str, 'srv6-encapsulation-behavior'), ['str'])),
+                                                        ('srv6_sid_list', (YLeaf(YType.str, 'srv6-sid-list'), ['str'])),
+                                                    ])
+                                                    self.srv6_encapsulation_behavior = None
+                                                    self.srv6_sid_list = None
+                                                    self._segment_path = lambda: "srv6-information-for-path"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.Srv6InformationForPath, ['srv6_encapsulation_behavior', 'srv6_sid_list'], name, value)
 
 
 
@@ -16222,7 +16720,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject, [u'type'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject, ['type'], name, value)
 
 
                                         class SfecdLe(Entity):
@@ -16271,7 +16769,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject.SfecdLe, [u'context_label_flag', u'context_label'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject.SfecdLe, ['context_label_flag', 'context_label'], name, value)
 
 
 
@@ -16735,7 +17233,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -16805,7 +17303,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -16892,7 +17390,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -16900,7 +17398,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -16968,7 +17466,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', 'si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -17063,7 +17561,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -17213,7 +17711,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -17297,7 +17795,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -17310,6 +17808,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -17335,7 +17840,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -17344,11 +17849,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -17421,7 +17930,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoLocalDetails.NhInfoLocalDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -17826,7 +18385,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -17896,7 +18455,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -17979,7 +18538,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -17987,7 +18546,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -18051,7 +18610,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -18146,7 +18705,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -18296,7 +18855,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -18380,7 +18939,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -18393,6 +18952,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -18418,7 +18984,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -18427,11 +18993,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -18504,7 +19074,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialPuntDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -18836,7 +19456,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -18906,7 +19526,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -18989,7 +19609,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -18997,7 +19617,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -19061,7 +19681,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -19156,7 +19776,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -19306,7 +19926,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -19390,7 +20010,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -19403,6 +20023,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -19428,7 +20055,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -19437,11 +20064,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -19514,7 +20145,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDropDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -19846,7 +20527,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -19916,7 +20597,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -19999,7 +20680,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -20007,7 +20688,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -20071,7 +20752,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -20166,7 +20847,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -20316,7 +20997,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -20400,7 +21081,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -20413,6 +21094,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -20438,7 +21126,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -20447,11 +21135,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -20524,7 +21216,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialNullDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -20856,7 +21598,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -20926,7 +21668,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -21009,7 +21751,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -21017,7 +21759,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -21081,7 +21823,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -21176,7 +21918,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -21326,7 +22068,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -21410,7 +22152,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -21423,6 +22165,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -21448,7 +22197,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -21457,11 +22206,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -21534,7 +22287,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoSpecialDetail.NhInfoSpecialDiscardDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -21938,7 +22741,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -22008,7 +22811,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -22095,7 +22898,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -22103,7 +22906,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -22171,7 +22974,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', 'si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -22266,7 +23069,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -22416,7 +23219,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -22500,7 +23303,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -22513,6 +23316,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -22538,7 +23348,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -22547,11 +23357,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -22624,7 +23438,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetail.NhInfoRemoteDetails.NhInfoRemoteDetail.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -23010,21 +23874,30 @@ class Fib(Entity):
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: number_of_sr_labels
+                                .. attribute:: number_routes_srv6_transit
                                 
-                                	Number of SR labels
+                                	Number of SRv6 transit routes
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 	**config**\: False
                                 
-                                .. attribute:: ss_vxlan_ltep_ifh
+                                .. attribute:: number_routes_srv6_end
                                 
-                                	VXLAN local Interface handle
-                                	**type**\: str
+                                	Number of SRv6 end routes
+                                	**type**\: int
                                 
-                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: number_of_sr_labels
+                                
+                                	Number of SR labels
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
                                 
                                 	**config**\: False
                                 
@@ -23091,8 +23964,9 @@ class Fib(Entity):
                                         ('lisp_eid_prefixes', (YLeaf(YType.uint32, 'lisp-eid-prefixes'), ['int'])),
                                         ('lisp_eid_valid_prefixes', (YLeaf(YType.uint32, 'lisp-eid-valid-prefixes'), ['int'])),
                                         ('lisp_rloc_objects', (YLeaf(YType.uint32, 'lisp-rloc-objects'), ['int'])),
+                                        ('number_routes_srv6_transit', (YLeaf(YType.uint32, 'number-routes-srv6-transit'), ['int'])),
+                                        ('number_routes_srv6_end', (YLeaf(YType.uint32, 'number-routes-srv6-end'), ['int'])),
                                         ('number_of_sr_labels', (YLeaf(YType.uint32, 'number-of-sr-labels'), ['int'])),
-                                        ('ss_vxlan_ltep_ifh', (YLeaf(YType.str, 'ss-vxlan-ltep-ifh'), ['str'])),
                                         ('ss_drop_pl_count', (YLeaf(YType.uint32, 'ss-drop-pl-count'), ['int'])),
                                     ])
                                     self.prefix = None
@@ -23132,8 +24006,9 @@ class Fib(Entity):
                                     self.lisp_eid_prefixes = None
                                     self.lisp_eid_valid_prefixes = None
                                     self.lisp_rloc_objects = None
+                                    self.number_routes_srv6_transit = None
+                                    self.number_routes_srv6_end = None
                                     self.number_of_sr_labels = None
-                                    self.ss_vxlan_ltep_ifh = None
                                     self.ss_drop_pl_count = None
 
                                     self.exclusive_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.ExclusiveLoadSharingElement()
@@ -23159,7 +24034,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary, [u'prefix', u'ss_tbl_id', u'ss_tbl_id_ptr', u'ss_vrf_id', u'ss_vr_id', u'load_balancing', u'forwarding_elements', u'routes', u'prefix_in_place_modifications', u'stale_prefix_deletes', u'load_sharing_elements', u'load_sharing_references', u'total_load_share_element_bytes', u'leaves_used_bytes', u'reresolve_entries', u'old_unresolve_entries', u'new_unresolve_entries', u'unresolve_entries', u'cef_route_drops', u'cef_version_mismatch_route_drops', u'delete_cache_num_entries', u'existing_leaves_revisions', u'fib_default_prefix', u'fib_default_prefix_mask_length', u'next_hops', u'incomplete_next_hops', u'resolution_timer', u'slow_process_timer', u'max_resolution_timer', u'imposition_prefixes', u'extended_prefixes', u'cefl_bl_recycled_routes', u'ldi_backwalks', u'ss_prot_route_count', u'lisp_eid_prefixes', u'lisp_eid_valid_prefixes', u'lisp_rloc_objects', u'number_of_sr_labels', u'ss_vxlan_ltep_ifh', u'ss_drop_pl_count'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary, ['prefix', 'ss_tbl_id', 'ss_tbl_id_ptr', 'ss_vrf_id', 'ss_vr_id', 'load_balancing', 'forwarding_elements', 'routes', 'prefix_in_place_modifications', 'stale_prefix_deletes', 'load_sharing_elements', 'load_sharing_references', 'total_load_share_element_bytes', 'leaves_used_bytes', 'reresolve_entries', 'old_unresolve_entries', 'new_unresolve_entries', 'unresolve_entries', 'cef_route_drops', 'cef_version_mismatch_route_drops', 'delete_cache_num_entries', 'existing_leaves_revisions', 'fib_default_prefix', 'fib_default_prefix_mask_length', 'next_hops', 'incomplete_next_hops', 'resolution_timer', 'slow_process_timer', 'max_resolution_timer', 'imposition_prefixes', 'extended_prefixes', 'cefl_bl_recycled_routes', 'ldi_backwalks', 'ss_prot_route_count', 'lisp_eid_prefixes', 'lisp_eid_valid_prefixes', 'lisp_rloc_objects', 'number_routes_srv6_transit', 'number_routes_srv6_end', 'number_of_sr_labels', 'ss_drop_pl_count'], name, value)
 
 
                                 class ExclusiveLoadSharingElement(Entity):
@@ -23300,7 +24175,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.ExclusiveLoadSharingElement, [u'total_load_sharing_element_bytes', u'total_load_sharing_element_references', u'total_path_list_elements', u'recursive_path_list_elements', u'platform_shared_path_list_elements', u'retry_path_list_elements', u'total_load_info_elements', u'recursive_load_info_elements', u'platform_shared_load_info_elements', u'xpl_load_info_elements'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.ExclusiveLoadSharingElement, ['total_load_sharing_element_bytes', 'total_load_sharing_element_references', 'total_path_list_elements', 'recursive_path_list_elements', 'platform_shared_path_list_elements', 'retry_path_list_elements', 'total_load_info_elements', 'recursive_load_info_elements', 'platform_shared_load_info_elements', 'xpl_load_info_elements'], name, value)
 
 
 
@@ -23442,7 +24317,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.SharedLoadSharingElement, [u'total_load_sharing_element_bytes', u'total_load_sharing_element_references', u'total_path_list_elements', u'recursive_path_list_elements', u'platform_shared_path_list_elements', u'retry_path_list_elements', u'total_load_info_elements', u'recursive_load_info_elements', u'platform_shared_load_info_elements', u'xpl_load_info_elements'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.SharedLoadSharingElement, ['total_load_sharing_element_bytes', 'total_load_sharing_element_references', 'total_path_list_elements', 'recursive_path_list_elements', 'platform_shared_path_list_elements', 'retry_path_list_elements', 'total_load_info_elements', 'recursive_load_info_elements', 'platform_shared_load_info_elements', 'xpl_load_info_elements'], name, value)
 
 
 
@@ -23584,7 +24459,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.CrossSharedLoadSharingElement, [u'total_load_sharing_element_bytes', u'total_load_sharing_element_references', u'total_path_list_elements', u'recursive_path_list_elements', u'platform_shared_path_list_elements', u'retry_path_list_elements', u'total_load_info_elements', u'recursive_load_info_elements', u'platform_shared_load_info_elements', u'xpl_load_info_elements'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.CrossSharedLoadSharingElement, ['total_load_sharing_element_bytes', 'total_load_sharing_element_references', 'total_path_list_elements', 'recursive_path_list_elements', 'platform_shared_path_list_elements', 'retry_path_list_elements', 'total_load_info_elements', 'recursive_load_info_elements', 'platform_shared_load_info_elements', 'xpl_load_info_elements'], name, value)
 
 
 
@@ -23726,7 +24601,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.EncapSharedLoadSharingElement, [u'total_load_sharing_element_bytes', u'total_load_sharing_element_references', u'total_path_list_elements', u'recursive_path_list_elements', u'platform_shared_path_list_elements', u'retry_path_list_elements', u'total_load_info_elements', u'recursive_load_info_elements', u'platform_shared_load_info_elements', u'xpl_load_info_elements'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.EncapSharedLoadSharingElement, ['total_load_sharing_element_bytes', 'total_load_sharing_element_references', 'total_path_list_elements', 'recursive_path_list_elements', 'platform_shared_path_list_elements', 'retry_path_list_elements', 'total_load_info_elements', 'recursive_load_info_elements', 'platform_shared_load_info_elements', 'xpl_load_info_elements'], name, value)
 
 
 
@@ -23831,7 +24706,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.PrefixMasklenDistribution.UnicastPrefixe, [u'mask_length', u'number_of_prefixes'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.PrefixMasklenDistribution.UnicastPrefixe, ['mask_length', 'number_of_prefixes'], name, value)
 
 
 
@@ -23883,7 +24758,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.PrefixMasklenDistribution.BroadcastPrefixe, [u'mask_length', u'number_of_prefixes'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.PrefixMasklenDistribution.BroadcastPrefixe, ['mask_length', 'number_of_prefixes'], name, value)
 
 
 
@@ -23935,7 +24810,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.PrefixMasklenDistribution.MulticastPrefix, [u'mask_length', u'number_of_prefixes'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.PrefixMasklenDistribution.MulticastPrefix, ['mask_length', 'number_of_prefixes'], name, value)
 
 
 
@@ -24422,7 +25297,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface, ['interface_name', u'per_interface', u'fib_interface_type', u'fib_id_pointer', u'fib_id_flags', u'fib_id_extension_pointer', u'fib_id_extension_flags', u'number_of_dependent_next_hop_information', u'vrf_local_cef_information_pointer', u'reference_count', u'last_modified_time', u'last_operation', u'protocol_enabled', u'referance_count_for_protocol', u'number_of_input_packets', u'number_of_input_bytes', u'number_of_output_packets', u'number_of_output_bytes', u'interface_up_flag', u'per_packet_load_balancing_flag', u'p2p_interface_flag', u'loopback_interface_flag', u'null_interface_flag', u'tunnel_interface_flag', u'gre_tunnel_interface_flag', u'punt_packets_from_fib_switching_flag', u'drop_packets_while_fib_switching_flag', u'punt_packets_from_linecard_flag', u'primary_ipv4_address', u'primary_ipv6_address'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface, ['interface_name', 'per_interface', 'fib_interface_type', 'fib_id_pointer', 'fib_id_flags', 'fib_id_extension_pointer', 'fib_id_extension_flags', 'number_of_dependent_next_hop_information', 'vrf_local_cef_information_pointer', 'reference_count', 'last_modified_time', 'last_operation', 'protocol_enabled', 'referance_count_for_protocol', 'number_of_input_packets', 'number_of_input_bytes', 'number_of_output_packets', 'number_of_output_bytes', 'interface_up_flag', 'per_packet_load_balancing_flag', 'p2p_interface_flag', 'loopback_interface_flag', 'null_interface_flag', 'tunnel_interface_flag', 'gre_tunnel_interface_flag', 'punt_packets_from_fib_switching_flag', 'drop_packets_while_fib_switching_flag', 'punt_packets_from_linecard_flag', 'primary_ipv4_address', 'primary_ipv6_address'], name, value)
 
 
                                             class DetailFibIntInformation(Entity):
@@ -24581,7 +25456,7 @@ class Fib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.DetailFibIntInformation, [u'interface_mtu', u'forwarding_flag', u'rpf_configured_flag', u'rpf_mode', u'default_route_with_rpf', u'self_ping_with_rpf', u'bgp_pa_input_configured_flag', u'source_bgp_pa_input_configured_flag', u'destination_bgp_pa_input_configured_flag', u'bgp_pa_output_configured_flag', u'source_bgp_pa_output_configured_flag', u'destination_bgp_pa_output_configured_flag', u'icmp_flag', u'multi_label_drop_flag'], name, value)
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.DetailFibIntInformation, ['interface_mtu', 'forwarding_flag', 'rpf_configured_flag', 'rpf_mode', 'default_route_with_rpf', 'self_ping_with_rpf', 'bgp_pa_input_configured_flag', 'source_bgp_pa_input_configured_flag', 'destination_bgp_pa_input_configured_flag', 'bgp_pa_output_configured_flag', 'source_bgp_pa_output_configured_flag', 'destination_bgp_pa_output_configured_flag', 'icmp_flag', 'multi_label_drop_flag'], name, value)
 
 
 
@@ -24679,7 +25554,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist, [u'evt_class_name'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist, ['evt_class_name'], name, value)
 
 
                                                     class EvtEntry(Entity):
@@ -24764,7 +25639,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist.EvtEntry, [u'evt_timestamp', u'evt_name', u'evt_type', u'evt_many', u'evt_sticky'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist.EvtEntry, ['evt_timestamp', 'evt_name', 'evt_type', 'evt_many', 'evt_sticky'], name, value)
 
 
                                                         class EvtData(Entity):
@@ -24773,7 +25648,7 @@ class Fib(Entity):
                                                             
                                                             .. attribute:: entry
                                                             
-                                                            	
+                                                            	Optional data
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
@@ -24804,7 +25679,7 @@ class Fib(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist.EvtEntry.EvtData, [u'entry'], name, value)
+                                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist.EvtEntry.EvtData, ['entry'], name, value)
 
 
 
@@ -24854,7 +25729,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist, [u'evt_class_name'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist, ['evt_class_name'], name, value)
 
 
                                                     class EvtEntry(Entity):
@@ -24939,7 +25814,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist.EvtEntry, [u'evt_timestamp', u'evt_name', u'evt_type', u'evt_many', u'evt_sticky'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist.EvtEntry, ['evt_timestamp', 'evt_name', 'evt_type', 'evt_many', 'evt_sticky'], name, value)
 
 
                                                         class EvtData(Entity):
@@ -24948,7 +25823,7 @@ class Fib(Entity):
                                                             
                                                             .. attribute:: entry
                                                             
-                                                            	
+                                                            	Optional data
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
@@ -24979,7 +25854,7 @@ class Fib(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist.EvtEntry.EvtData, [u'entry'], name, value)
+                                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist.EvtEntry.EvtData, ['entry'], name, value)
 
 
 
@@ -25393,6 +26268,27 @@ class Fib(Entity):
                                     
                                     	**config**\: False
                                     
+                                    .. attribute:: route_is_srv6_transit
+                                    
+                                    	This route is SRv6 Transit function
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: route_is_srv6_end
+                                    
+                                    	This route is SRv6 End function
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: srv6_operation_type
+                                    
+                                    	SRv6 Operation Type
+                                    	**type**\: str
+                                    
+                                    	**config**\: False
+                                    
                                     .. attribute:: extension_object
                                     
                                     	Leaf Extension Object List
@@ -25459,6 +26355,9 @@ class Fib(Entity):
                                             ('route_for_external_reach_linecard_flag', (YLeaf(YType.boolean, 'route-for-external-reach-linecard-flag'), ['bool'])),
                                             ('route_source_not_preferred', (YLeaf(YType.boolean, 'route-source-not-preferred'), ['bool'])),
                                             ('route_is_sr_flag', (YLeaf(YType.boolean, 'route-is-sr-flag'), ['bool'])),
+                                            ('route_is_srv6_transit', (YLeaf(YType.boolean, 'route-is-srv6-transit'), ['bool'])),
+                                            ('route_is_srv6_end', (YLeaf(YType.boolean, 'route-is-srv6-end'), ['bool'])),
+                                            ('srv6_operation_type', (YLeaf(YType.str, 'srv6-operation-type'), ['str'])),
                                         ])
                                         self.prefix = None
                                         self.prefix_length = None
@@ -25502,6 +26401,9 @@ class Fib(Entity):
                                         self.route_for_external_reach_linecard_flag = None
                                         self.route_source_not_preferred = None
                                         self.route_is_sr_flag = None
+                                        self.route_is_srv6_transit = None
+                                        self.route_is_srv6_end = None
+                                        self.srv6_operation_type = None
 
                                         self.detail_fib_entry_information = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation()
                                         self.detail_fib_entry_information.parent = self
@@ -25516,7 +26418,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief, ['prefix', 'prefix_length', u'protocol_type_fib_entry', u'platform_hardware', u'number_of_referances_to_path_list', u'path_list_flags', u'path_list_source', u'number_of_referances_to_ldi', u'ldi_flags', u'flags_external_ldi', u'pointer_external_ldi', u'exact_path_interface_handle', u'exact_path_gre_interface_handle', u'exact_route_gre_phys_ifh_avail', u'exact_route_result', u'prefix_is_static_or_connected', u'packet_should_recieve', u'prefix_connected', u'prefix_for_adjancency', u'prefix_for_pic_next_hop', u'purgable_after_purge_interval', u'broadcast_recive_flag', u'broadcast_forward_flag', u'zero_by_zero_route_as_default', u'external_switch_triggered', u'route_attribute_flag', u'dummy_real_zero_route', u'ldi_lw_flag', u'ref_counter_of_ldi_lw_ldi', u'type_of_ldi_lw_ldi', u'lspa_flags', u'version_of_route', u'fib_route_download_priority', u'time_of_last_update_in_msec', u'l2_subscriber_route', u'l2_subscriber_xconnect_id', u'l2_subscriber_flags', u'l2_subscriber_ip_protocol', u'l2tpv3_cookie_length_bits', u'route_for_external_reach_linecard_flag', u'route_source_not_preferred', u'route_is_sr_flag'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief, ['prefix', 'prefix_length', 'protocol_type_fib_entry', 'platform_hardware', 'number_of_referances_to_path_list', 'path_list_flags', 'path_list_source', 'number_of_referances_to_ldi', 'ldi_flags', 'flags_external_ldi', 'pointer_external_ldi', 'exact_path_interface_handle', 'exact_path_gre_interface_handle', 'exact_route_gre_phys_ifh_avail', 'exact_route_result', 'prefix_is_static_or_connected', 'packet_should_recieve', 'prefix_connected', 'prefix_for_adjancency', 'prefix_for_pic_next_hop', 'purgable_after_purge_interval', 'broadcast_recive_flag', 'broadcast_forward_flag', 'zero_by_zero_route_as_default', 'external_switch_triggered', 'route_attribute_flag', 'dummy_real_zero_route', 'ldi_lw_flag', 'ref_counter_of_ldi_lw_ldi', 'type_of_ldi_lw_ldi', 'lspa_flags', 'version_of_route', 'fib_route_download_priority', 'time_of_last_update_in_msec', 'l2_subscriber_route', 'l2_subscriber_xconnect_id', 'l2_subscriber_flags', 'l2_subscriber_ip_protocol', 'l2tpv3_cookie_length_bits', 'route_for_external_reach_linecard_flag', 'route_source_not_preferred', 'route_is_sr_flag', 'route_is_srv6_transit', 'route_is_srv6_end', 'srv6_operation_type'], name, value)
 
 
                                     class DetailFibEntryInformation(Entity):
@@ -25761,8 +26663,6 @@ class Fib(Entity):
                                         	As path string
                                         	**type**\: str
                                         
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
                                         	**config**\: False
                                         
                                         .. attribute:: extcom_string
@@ -25977,7 +26877,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation, [u'fib_entry_version', u'per_prefix_accounting', u'load_sharing_type', u'fib_entry_adjacency_type', u'fib_protocol_type', u'afi_fib_protocol_type', u'aib_l3_address', u'adjacency_address_length', u'adjacency_interface', u'fib_special_nh_information_type', u'fib_entry_adjacency_address', u'fib_entry_adjacency_interface', u'packets_through_fib_entry', u'bytes_through_fib_entry', u'detailed_prefix_length', u'prefix_protocol', u'precedence_forpackets', u'traffic_index_for_packets', u'switch_compontent_id', u'fast_adjacency_flag', u'illegal_fast_adjacency_flag', u'remote_adjacency_flag', u'bgp_attribute_id', u'bgp_local_attribute_id', u'bgp_attribute_origin_as', u'bgp_attribute_next_hop_as', u'path_string', u'extcom_string', u'com_string', u'extended_community', u'qos_group', u'mpls_fec', u'qppb_qos_group_and_ip_precedence', u'flow_tag', u'forward_class', u'pl_time_of_last_update_in_msec', u'ldi_time_of_last_update_in_msec', u'lwldi_time_of_last_update_in_msec', u'pl_time_stamp_type'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation, ['fib_entry_version', 'per_prefix_accounting', 'load_sharing_type', 'fib_entry_adjacency_type', 'fib_protocol_type', 'afi_fib_protocol_type', 'aib_l3_address', 'adjacency_address_length', 'adjacency_interface', 'fib_special_nh_information_type', 'fib_entry_adjacency_address', 'fib_entry_adjacency_interface', 'packets_through_fib_entry', 'bytes_through_fib_entry', 'detailed_prefix_length', 'prefix_protocol', 'precedence_forpackets', 'traffic_index_for_packets', 'switch_compontent_id', 'fast_adjacency_flag', 'illegal_fast_adjacency_flag', 'remote_adjacency_flag', 'bgp_attribute_id', 'bgp_local_attribute_id', 'bgp_attribute_origin_as', 'bgp_attribute_next_hop_as', 'path_string', 'extcom_string', 'com_string', 'extended_community', 'qos_group', 'mpls_fec', 'qppb_qos_group_and_ip_precedence', 'flow_tag', 'forward_class', 'pl_time_of_last_update_in_msec', 'ldi_time_of_last_update_in_msec', 'lwldi_time_of_last_update_in_msec', 'pl_time_stamp_type'], name, value)
 
 
                                         class LoadshareInformation(Entity):
@@ -26134,7 +27034,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation, [u'packets_through_load_information', u'bytes_through_load_information', u'total_packets_through_load_information', u'total_bytes_through_load_information', u'prefix_of_owner', u'mask_length_of_owner', u'load_information_reference_count', u'per_dest_load_sharing_flag', u'load_information_owner_deleted_flag', u'loadinfo_sanity_flag', u'is_owner'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation, ['packets_through_load_information', 'bytes_through_load_information', 'total_packets_through_load_information', 'total_bytes_through_load_information', 'prefix_of_owner', 'mask_length_of_owner', 'load_information_reference_count', 'per_dest_load_sharing_flag', 'load_information_owner_deleted_flag', 'loadinfo_sanity_flag', 'is_owner'], name, value)
 
 
                                             class LoadInformtionInternalData(Entity):
@@ -26381,7 +27281,7 @@ class Fib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData, [u'level_ofldis', u'number_of_ldis', u'maximum_index_arrays', u'path_indices', u'path_ldi_numbers', u'maximum_slots', u'normalized_weights', u'tunnel_class_value', u'is_pbts_info_valid', u'pbts_class_offset', u'pbts_class_num_paths', u'pbts_fallback_mapped_class', u'round_robin_disable', u'ldi_next_hop_buckets', u'platform_hardware_information'], name, value)
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData, ['level_ofldis', 'number_of_ldis', 'maximum_index_arrays', 'path_indices', 'path_ldi_numbers', 'maximum_slots', 'normalized_weights', 'tunnel_class_value', 'is_pbts_info_valid', 'pbts_class_offset', 'pbts_class_num_paths', 'pbts_fallback_mapped_class', 'round_robin_disable', 'ldi_next_hop_buckets', 'platform_hardware_information'], name, value)
 
 
                                                 class SanityFlag(Entity):
@@ -26390,7 +27290,7 @@ class Fib(Entity):
                                                     
                                                     .. attribute:: entry
                                                     
-                                                    	
+                                                    	Sanity flag
                                                     	**type**\: bool
                                                     
                                                     	**config**\: False
@@ -26419,7 +27319,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.SanityFlag, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.SanityFlag, ['entry'], name, value)
 
 
 
@@ -26429,7 +27329,7 @@ class Fib(Entity):
                                                     
                                                     .. attribute:: entry
                                                     
-                                                    	
+                                                    	Interface handle
                                                     	**type**\: str
                                                     
                                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
@@ -26460,7 +27360,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.InterfaceHandle, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.InterfaceHandle, ['entry'], name, value)
 
 
 
@@ -26470,7 +27370,7 @@ class Fib(Entity):
                                                     
                                                     .. attribute:: entry
                                                     
-                                                    	
+                                                    	Weights of paths
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -26501,7 +27401,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.WeightsOfPath, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.WeightsOfPath, ['entry'], name, value)
 
 
 
@@ -26542,7 +27442,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress, [u'address'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress, ['address'], name, value)
 
 
 
@@ -26581,7 +27481,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped, ['entry'], name, value)
 
 
 
@@ -26620,7 +27520,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop, ['entry'], name, value)
 
 
 
@@ -26659,7 +27559,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass, ['entry'], name, value)
 
 
 
@@ -26672,7 +27572,7 @@ class Fib(Entity):
                                         
                                         .. attribute:: fib_sh_tbl_path
                                         
-                                        	fib sh tbl path
+                                        	Next entry in the path
                                         	**type**\: list of  		 :py:class:`FibShTblPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath>`
                                         
                                         	**config**\: False
@@ -26705,7 +27605,14 @@ class Fib(Entity):
 
                                         class FibShTblPath(Entity):
                                             """
-                                            fib sh tbl path
+                                            Next entry in the path
+                                            
+                                            .. attribute:: next_fib_entry_path
+                                            
+                                            	Next entry in the path
+                                            	**type**\:  :py:class:`NextFibEntryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.NextFibEntryPath>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: more_detail_about_path
                                             
@@ -26718,6 +27625,13 @@ class Fib(Entity):
                                             
                                             	mpls info for this path entry
                                             	**type**\:  :py:class:`MplsInformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath>`
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: srv6_information_for_path
+                                            
+                                            	SRv6 info for this path entry
+                                            	**type**\:  :py:class:`Srv6InformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.Srv6InformationForPath>`
                                             
                                             	**config**\: False
                                             
@@ -26916,7 +27830,7 @@ class Fib(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_classes = OrderedDict([("more-detail-about-path", ("more_detail_about_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath)), ("mpls-information-for-path", ("mpls_information_for_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath))])
+                                                self._child_classes = OrderedDict([("next-fib-entry-path", ("next_fib_entry_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.NextFibEntryPath)), ("more-detail-about-path", ("more_detail_about_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath)), ("mpls-information-for-path", ("mpls_information_for_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath)), ("srv6-information-for-path", ("srv6_information_for_path", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.Srv6InformationForPath))])
                                                 self._leafs = OrderedDict([
                                                     ('hardware_information', (YLeaf(YType.str, 'hardware-information'), ['str'])),
                                                     ('brief_interface_handle', (YLeaf(YType.str, 'brief-interface-handle'), ['str'])),
@@ -26964,6 +27878,10 @@ class Fib(Entity):
                                                 self.parent_interface_handle = None
                                                 self.recursionvia_len = None
 
+                                                self.next_fib_entry_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.NextFibEntryPath()
+                                                self.next_fib_entry_path.parent = self
+                                                self._children_name_map["next_fib_entry_path"] = "next-fib-entry-path"
+
                                                 self.more_detail_about_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath()
                                                 self.more_detail_about_path.parent = self
                                                 self._children_name_map["more_detail_about_path"] = "more-detail-about-path"
@@ -26971,11 +27889,41 @@ class Fib(Entity):
                                                 self.mpls_information_for_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath()
                                                 self.mpls_information_for_path.parent = self
                                                 self._children_name_map["mpls_information_for_path"] = "mpls-information-for-path"
+
+                                                self.srv6_information_for_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.Srv6InformationForPath()
+                                                self.srv6_information_for_path.parent = self
+                                                self._children_name_map["srv6_information_for_path"] = "srv6-information-for-path"
                                                 self._segment_path = lambda: "fib-sh-tbl-path"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath, [u'hardware_information', u'brief_interface_handle', u'brief_next_hop_prefix', u'via_label_to_recurse', u'brief_pnode_address', u'brief_qnode_address', u'brief_lfa_protection_type', u'resolved_path', u'recursive_path', u'packets_received_path', u'attached_path', u'backup_path', u'best_external_path', u'protect_ignore', u'path_dlb', u'path_flags', u'path_info_flags', u'path_index', u'backup_index', u'next_hop_index', u'parent_interface_handle', u'recursionvia_len'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath, ['hardware_information', 'brief_interface_handle', 'brief_next_hop_prefix', 'via_label_to_recurse', 'brief_pnode_address', 'brief_qnode_address', 'brief_lfa_protection_type', 'resolved_path', 'recursive_path', 'packets_received_path', 'attached_path', 'backup_path', 'best_external_path', 'protect_ignore', 'path_dlb', 'path_flags', 'path_info_flags', 'path_index', 'backup_index', 'next_hop_index', 'parent_interface_handle', 'recursionvia_len'], name, value)
+
+
+                                            class NextFibEntryPath(Entity):
+                                                """
+                                                Next entry in the path
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'fib-common-oper'
+                                                _revision = '2017-09-07'
+
+                                                def __init__(self):
+                                                    super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.NextFibEntryPath, self).__init__()
+
+                                                    self.yang_name = "next-fib-entry-path"
+                                                    self.yang_parent_name = "fib-sh-tbl-path"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
+                                                    self._segment_path = lambda: "next-fib-entry-path"
+                                                    self._is_frozen = True
+
 
 
                                             class MoreDetailAboutPath(Entity):
@@ -27041,8 +27989,6 @@ class Fib(Entity):
                                                 	Next hop VRF
                                                 	**type**\: str
                                                 
-                                                	**length:** 0..33
-                                                
                                                 	**config**\: False
                                                 
                                                 .. attribute:: tunnle_endpoint_id
@@ -27093,8 +28039,6 @@ class Fib(Entity):
                                                 	Next prefix recursion in the path
                                                 	**type**\: str
                                                 
-                                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                                
                                                 	**config**\: False
                                                 
                                                 .. attribute:: next_prefix_length
@@ -27117,8 +28061,6 @@ class Fib(Entity):
                                                 
                                                 	Next prefix2 recursion in the path
                                                 	**type**\: str
-                                                
-                                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                                 
                                                 	**config**\: False
                                                 
@@ -27289,7 +28231,7 @@ class Fib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath, [u'ip_address_to_recurse', u'label_to_recurse', u'detail_next_hop_prefix', u'next_hop_mask_length', u'interface_associated_path', u'next_hop_interface', u'next_hop_vrf', u'tunnle_endpoint_id', u'lisprlocid', u'number_of_dependencies_this_path', u'robin_reset_value', u'recurse_prefix_object', u'next_prefix_recursion', u'next_prefix_length', u'recurse_prefix_object2', u'next_prefix_recursion2', u'next_prefix_length2', u'detail_fib_adjacency_type', u'current_path_flag', u'recursive_path_information', u'external_adjacency', u'fib_path_nh_information_type', u'fib_path_nh_information_type_special', u'weight_of_path', u'tunnel_class', u'tunnel_is_forward_class'], name, value)
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath, ['ip_address_to_recurse', 'label_to_recurse', 'detail_next_hop_prefix', 'next_hop_mask_length', 'interface_associated_path', 'next_hop_interface', 'next_hop_vrf', 'tunnle_endpoint_id', 'lisprlocid', 'number_of_dependencies_this_path', 'robin_reset_value', 'recurse_prefix_object', 'next_prefix_recursion', 'next_prefix_length', 'recurse_prefix_object2', 'next_prefix_recursion2', 'next_prefix_length2', 'detail_fib_adjacency_type', 'current_path_flag', 'recursive_path_information', 'external_adjacency', 'fib_path_nh_information_type', 'fib_path_nh_information_type_special', 'weight_of_path', 'tunnel_class', 'tunnel_is_forward_class'], name, value)
 
 
                                                 class SpdIpencap(Entity):
@@ -27424,7 +28366,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap, [u'ip_encap_hdr_count', u'ip_encap_locks', u'ip_encap_transport_tbl', u'ipe_transport_vrf_name', u'ip_encap_transport_af', u'ip_encap_payload_af', u'ip_encap_payload_mtu', u'ip_encap_parent', u'ip_encap_parent_type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap, ['ip_encap_hdr_count', 'ip_encap_locks', 'ip_encap_transport_tbl', 'ipe_transport_vrf_name', 'ip_encap_transport_af', 'ip_encap_payload_af', 'ip_encap_payload_mtu', 'ip_encap_parent', 'ip_encap_parent_type'], name, value)
 
 
                                                     class IpEncapHdr(Entity):
@@ -27484,7 +28426,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr, [u'ip_encap_hdr_type', u'ip_encap_hdrp', u'ip_encap_hdr_dyn'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr, ['ip_encap_hdr_type', 'ip_encap_hdrp', 'ip_encap_hdr_dyn'], name, value)
 
 
 
@@ -27548,7 +28490,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.NextNextHop, [u'next_next_hop_index', u'next_next_hop_prefix', u'next_next_hop_interface'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.NextNextHop, ['next_next_hop_index', 'next_next_hop_prefix', 'next_next_hop_interface'], name, value)
 
 
 
@@ -27636,7 +28578,7 @@ class Fib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath, [u'local_lable', u'recursive_fwd_chain', u'number_of_igp_paths', u'remote_backup'], name, value)
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath, ['local_lable', 'recursive_fwd_chain', 'number_of_igp_paths', 'remote_backup'], name, value)
 
 
                                                 class RecursiveLblStack(Entity):
@@ -27645,7 +28587,7 @@ class Fib(Entity):
                                                     
                                                     .. attribute:: entry
                                                     
-                                                    	
+                                                    	Recursive Label(s)
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -27676,7 +28618,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath.RecursiveLblStack, [u'entry'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath.RecursiveLblStack, ['entry'], name, value)
 
 
 
@@ -27748,7 +28690,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray, [u'number_of_labels', u'out_interface', u'nh_address'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray, ['number_of_labels', 'out_interface', 'nh_address'], name, value)
 
 
                                                     class Lstack(Entity):
@@ -27757,7 +28699,7 @@ class Fib(Entity):
                                                         
                                                         .. attribute:: entry
                                                         
-                                                        	
+                                                        	lstack
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
@@ -27788,9 +28730,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray.Lstack, [u'entry'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray.Lstack, ['entry'], name, value)
 
 
+
+
+
+                                            class Srv6InformationForPath(Entity):
+                                                """
+                                                SRv6 info for this path entry
+                                                
+                                                .. attribute:: srv6_encapsulation_behavior
+                                                
+                                                	SRv6 Per\-path Encapsulation Behavior
+                                                	**type**\: str
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: srv6_sid_list
+                                                
+                                                	SRv6 SID list
+                                                	**type**\: str
+                                                
+                                                	**config**\: False
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'fib-common-oper'
+                                                _revision = '2017-09-07'
+
+                                                def __init__(self):
+                                                    super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.Srv6InformationForPath, self).__init__()
+
+                                                    self.yang_name = "srv6-information-for-path"
+                                                    self.yang_parent_name = "fib-sh-tbl-path"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('srv6_encapsulation_behavior', (YLeaf(YType.str, 'srv6-encapsulation-behavior'), ['str'])),
+                                                        ('srv6_sid_list', (YLeaf(YType.str, 'srv6-sid-list'), ['str'])),
+                                                    ])
+                                                    self.srv6_encapsulation_behavior = None
+                                                    self.srv6_sid_list = None
+                                                    self._segment_path = lambda: "srv6-information-for-path"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.Srv6InformationForPath, ['srv6_encapsulation_behavior', 'srv6_sid_list'], name, value)
 
 
 
@@ -27842,7 +28832,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject, [u'type'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject, ['type'], name, value)
 
 
                                         class SfecdLe(Entity):
@@ -27891,7 +28881,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject.SfecdLe, [u'context_label_flag', u'context_label'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject.SfecdLe, ['context_label_flag', 'context_label'], name, value)
 
 
 
@@ -28356,7 +29346,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -28426,7 +29416,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -28513,7 +29503,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -28521,7 +29511,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -28589,7 +29579,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', 'si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -28684,7 +29674,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -28834,7 +29824,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -28918,7 +29908,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -28931,6 +29921,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -28956,7 +29953,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -28965,11 +29962,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -29042,7 +30043,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -29446,7 +30497,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -29516,7 +30567,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -29603,7 +30654,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -29611,7 +30662,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -29679,7 +30730,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', 'si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -29774,7 +30825,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -29924,7 +30975,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -30008,7 +31059,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -30021,6 +31072,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -30046,7 +31104,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -30055,11 +31113,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -30132,7 +31194,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -30538,7 +31650,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -30608,7 +31720,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -30691,7 +31803,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -30699,7 +31811,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -30763,7 +31875,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -30858,7 +31970,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -31008,7 +32120,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -31092,7 +32204,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -31105,6 +32217,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -31130,7 +32249,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -31139,11 +32258,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -31216,7 +32339,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialPuntDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -31549,7 +32722,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -31619,7 +32792,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -31702,7 +32875,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -31710,7 +32883,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -31774,7 +32947,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -31869,7 +33042,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -32019,7 +33192,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -32103,7 +33276,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -32116,6 +33289,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -32141,7 +33321,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -32150,11 +33330,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -32227,7 +33411,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialNullDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -32560,7 +33794,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -32630,7 +33864,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -32713,7 +33947,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -32721,7 +33955,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -32785,7 +34019,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -32880,7 +34114,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -33030,7 +34264,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -33114,7 +34348,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -33127,6 +34361,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -33152,7 +34393,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -33161,11 +34402,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -33238,7 +34483,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDropDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -33571,7 +34866,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -33641,7 +34936,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -33724,7 +35019,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -33732,7 +35027,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -33796,7 +35091,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -33891,7 +35186,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -34041,7 +35336,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -34125,7 +35420,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -34138,6 +35433,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -34163,7 +35465,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -34172,11 +35474,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -34249,7 +35555,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoDetailHardwareIngress.NhInfoSpecialDetailHardwareIngress.NhInfoSpecialDiscardDetailHardwareIngress.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -34717,7 +36073,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -34787,7 +36143,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -34870,7 +36226,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -34878,7 +36234,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -34942,7 +36298,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -35037,7 +36393,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -35187,7 +36543,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -35271,7 +36627,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -35284,6 +36640,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -35309,7 +36672,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -35318,11 +36681,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -35395,7 +36762,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDiscardBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -35727,7 +37144,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -35797,7 +37214,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -35880,7 +37297,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -35888,7 +37305,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -35952,7 +37369,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -36047,7 +37464,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -36197,7 +37614,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -36281,7 +37698,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -36294,6 +37711,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -36319,7 +37743,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -36328,11 +37752,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -36405,7 +37833,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialNullBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -36737,7 +38215,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -36807,7 +38285,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -36890,7 +38368,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -36898,7 +38376,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -36962,7 +38440,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -37057,7 +38535,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -37207,7 +38685,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -37291,7 +38769,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -37304,6 +38782,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -37329,7 +38814,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -37338,11 +38823,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -37415,7 +38904,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialPuntBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -37747,7 +39286,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -37817,7 +39356,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -37900,7 +39439,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -37908,7 +39447,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -37972,7 +39511,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief, [u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief, ['si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -38067,7 +39606,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -38217,7 +39756,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -38301,7 +39840,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -38314,6 +39853,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -38339,7 +39885,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -38348,11 +39894,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -38425,7 +39975,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoSpecialBrief.NhInfoSpecialDropBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -38829,7 +40429,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -38899,7 +40499,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -38986,7 +40586,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -38994,7 +40594,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -39062,7 +40662,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', 'si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -39157,7 +40757,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -39307,7 +40907,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -39391,7 +40991,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -39404,6 +41004,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -39429,7 +41036,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -39438,11 +41045,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -39515,7 +41126,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoRemoteBriefs.NhInfoRemoteBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -39919,7 +41580,7 @@ class Fib(Entity):
                                         	GRE tunnel info
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -39989,7 +41650,7 @@ class Fib(Entity):
                                         	GRE resolving ip\-leaf
                                         	**type**\: int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 0..18446744073709551615
                                         
                                         	**config**\: False
                                         
@@ -40076,7 +41737,7 @@ class Fib(Entity):
                                                 ('si_attr_is_tunnel', (YLeaf(YType.boolean, 'si-attr-is-tunnel'), ['bool'])),
                                                 ('si_attr_is_tunnel_srte', (YLeaf(YType.boolean, 'si-attr-is-tunnel-srte'), ['bool'])),
                                                 ('si_attr_is_gre_tunnel', (YLeaf(YType.boolean, 'si-attr-is-gre-tunnel'), ['bool'])),
-                                                ('si_gre_ti', (YLeaf(YType.uint32, 'si-gre-ti'), ['int'])),
+                                                ('si_gre_ti', (YLeaf(YType.uint64, 'si-gre-ti'), ['int'])),
                                                 ('si_gre_ti_flags', (YLeaf(YType.uint32, 'si-gre-ti-flags'), ['int'])),
                                                 ('si_gre_ti_refcnt', (YLeaf(YType.uint32, 'si-gre-ti-refcnt'), ['int'])),
                                                 ('si_gre_tos_propagate', (YLeaf(YType.boolean, 'si-gre-tos-propagate'), ['bool'])),
@@ -40084,7 +41745,7 @@ class Fib(Entity):
                                                 ('si_nhinfo_ptr', (YLeaf(YType.uint32, 'si-nhinfo-ptr'), ['int'])),
                                                 ('si_fnb_idb_ptr', (YLeaf(YType.uint32, 'si-fnb-idb-ptr'), ['int'])),
                                                 ('si_anc_ifh', (YLeaf(YType.uint32, 'si-anc-ifh'), ['int'])),
-                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint32, 'si-gre-ti-resolving-leafp'), ['int'])),
+                                                ('si_gre_ti_resolving_leafp', (YLeaf(YType.uint64, 'si-gre-ti-resolving-leafp'), ['int'])),
                                                 ('si_gre_dest_addr', (YLeaf(YType.str, 'si-gre-dest-addr'), ['str'])),
                                                 ('si_nhid', (YLeaf(YType.uint32, 'si-nhid'), ['int'])),
                                                 ('si_upd_ts', (YLeaf(YType.uint64, 'si-upd-ts'), ['int'])),
@@ -40152,7 +41813,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', u'si_link_proto', u'si_nhinfo', u'si_nhtype', u'si_ifh', u'si_pfi_interface_type', u'si_adj_ptr', u'si_adj_present', u'si_special_type', u'si_refcount', u'si_flags', u'si_adj_if', u'si_ext_pfx', u'si_ext_pfx_len', u'si_ext_pfx_proto', u'si_adj_address', u'si_adj_addrlen', u'si_adj_addr_proto', u'si_adj_rw_len', u'si_adj_rw', u'si_dep_nhinfo_type', u'si_dep_nhinfo', u'si_dep_nhinfo_ifh', u'si_bkup_frr', u'si_protect_frr', u'si_bkup_nhinfo', u'si_bkup_ifh', u'si_bkup_addr', u'si_bkup_addrlen', u'si_bkup_addr_proto', u'si_frr_active', u'si_attr_is_ext_mgd', u'si_attr_is_incomp', u'si_attr_is_tunnel', u'si_attr_is_tunnel_srte', u'si_attr_is_gre_tunnel', u'si_gre_ti', u'si_gre_ti_flags', u'si_gre_ti_refcnt', u'si_gre_tos_propagate', u'si_hardware', u'si_nhinfo_ptr', u'si_fnb_idb_ptr', u'si_anc_ifh', u'si_gre_ti_resolving_leafp', u'si_gre_dest_addr', u'si_nhid', u'si_upd_ts'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief, ['nh_interface_name', 'nh_proto', 'nh_pfx_length', 'nh_address', 'si_link_proto', 'si_nhinfo', 'si_nhtype', 'si_ifh', 'si_pfi_interface_type', 'si_adj_ptr', 'si_adj_present', 'si_special_type', 'si_refcount', 'si_flags', 'si_adj_if', 'si_ext_pfx', 'si_ext_pfx_len', 'si_ext_pfx_proto', 'si_adj_address', 'si_adj_addrlen', 'si_adj_addr_proto', 'si_adj_rw_len', 'si_adj_rw', 'si_dep_nhinfo_type', 'si_dep_nhinfo', 'si_dep_nhinfo_ifh', 'si_bkup_frr', 'si_protect_frr', 'si_bkup_nhinfo', 'si_bkup_ifh', 'si_bkup_addr', 'si_bkup_addrlen', 'si_bkup_addr_proto', 'si_frr_active', 'si_attr_is_ext_mgd', 'si_attr_is_incomp', 'si_attr_is_tunnel', 'si_attr_is_tunnel_srte', 'si_attr_is_gre_tunnel', 'si_gre_ti', 'si_gre_ti_flags', 'si_gre_ti_refcnt', 'si_gre_tos_propagate', 'si_hardware', 'si_nhinfo_ptr', 'si_fnb_idb_ptr', 'si_anc_ifh', 'si_gre_ti_resolving_leafp', 'si_gre_dest_addr', 'si_nhid', 'si_upd_ts'], name, value)
 
 
                                         class SiPwhe(Entity):
@@ -40247,7 +41908,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.SiPwhe, [u'pwhe_adjacency_client_data', u'vctype', u'vc_internal_label', u'cw_enabled', u'l2_overhead_bytes', u'dot1q_vlan_tag'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.SiPwhe, ['pwhe_adjacency_client_data', 'vctype', 'vc_internal_label', 'cw_enabled', 'l2_overhead_bytes', 'dot1q_vlan_tag'], name, value)
 
 
 
@@ -40397,7 +42058,7 @@ class Fib(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, [u'parent_object_pointer', u'back_object_pointer'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase, ['parent_object_pointer', 'back_object_pointer'], name, value)
 
 
                                                     class ObjectBase(Entity):
@@ -40481,7 +42142,7 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, [u'object_reference_count', u'object_flags', u'object_type', u'object_time_stamp', u'object_pointer'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionBase.ObjectBase, ['object_reference_count', 'object_flags', 'object_type', 'object_time_stamp', 'object_pointer'], name, value)
 
 
 
@@ -40494,6 +42155,13 @@ class Fib(Entity):
                                                     
                                                     	snecd nhr
                                                     	**type**\:  :py:class:`SnecdNhr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr>`
+                                                    
+                                                    	**config**\: False
+                                                    
+                                                    .. attribute:: snecd_tep
+                                                    
+                                                    	snecd tep
+                                                    	**type**\:  :py:class:`SnecdTep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep>`
                                                     
                                                     	**config**\: False
                                                     
@@ -40519,7 +42187,7 @@ class Fib(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr))])
+                                                        self._child_classes = OrderedDict([("snecd-nhr", ("snecd_nhr", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr)), ("snecd-tep", ("snecd_tep", Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep))])
                                                         self._leafs = OrderedDict([
                                                             ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibNhinfoExtBag', '')])),
                                                         ])
@@ -40528,11 +42196,15 @@ class Fib(Entity):
                                                         self.snecd_nhr = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr()
                                                         self.snecd_nhr.parent = self
                                                         self._children_name_map["snecd_nhr"] = "snecd-nhr"
+
+                                                        self.snecd_tep = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep()
+                                                        self.snecd_tep.parent = self
+                                                        self._children_name_map["snecd_tep"] = "snecd-tep"
                                                         self._segment_path = lambda: "nh-info-extension-detail"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, [u'type'], name, value)
+                                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_, ['type'], name, value)
 
 
                                                     class SnecdNhr(Entity):
@@ -40605,7 +42277,57 @@ class Fib(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, [u'nh_info_replicated_type', u'nh_info_replicated_nh_id', u'nh_info_replicated_encap_id', u'nh_info_replicated_interface'], name, value)
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdNhr, ['nh_info_replicated_type', 'nh_info_replicated_nh_id', 'nh_info_replicated_encap_id', 'nh_info_replicated_interface'], name, value)
+
+
+
+                                                    class SnecdTep(Entity):
+                                                        """
+                                                        snecd tep
+                                                        
+                                                        .. attribute:: nh_info_tep_type
+                                                        
+                                                        	TEP type
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        .. attribute:: is_tep_single_pass
+                                                        
+                                                        	Is TEP is Single Pass
+                                                        	**type**\: bool
+                                                        
+                                                        	**config**\: False
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'fib-common-oper'
+                                                        _revision = '2017-09-07'
+
+                                                        def __init__(self):
+                                                            super(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, self).__init__()
+
+                                                            self.yang_name = "snecd-tep"
+                                                            self.yang_parent_name = "nh-info-extension-detail"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self.ylist_key_names = []
+                                                            self._child_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('nh_info_tep_type', (YLeaf(YType.uint8, 'nh-info-tep-type'), ['int'])),
+                                                                ('is_tep_single_pass', (YLeaf(YType.boolean, 'is-tep-single-pass'), ['bool'])),
+                                                            ])
+                                                            self.nh_info_tep_type = None
+                                                            self.is_tep_single_pass = None
+                                                            self._segment_path = lambda: "snecd-tep"
+                                                            self._is_frozen = True
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.NhInfoBrief.NhInfoLocalBriefs.NhInfoLocalBrief.NhInfoExtension.NhInfoExtensionDetail.NhInfoExtensionDetail_.SnecdTep, ['nh_info_tep_type', 'is_tep_single_pass'], name, value)
 
 
 
@@ -41040,6 +42762,27 @@ class Fib(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: route_is_srv6_transit
+                            
+                            	This route is SRv6 Transit function
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: route_is_srv6_end
+                            
+                            	This route is SRv6 End function
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: srv6_operation_type
+                            
+                            	SRv6 Operation Type
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
                             .. attribute:: extension_object
                             
                             	Leaf Extension Object List
@@ -41109,6 +42852,9 @@ class Fib(Entity):
                                     ('route_for_external_reach_linecard_flag', (YLeaf(YType.boolean, 'route-for-external-reach-linecard-flag'), ['bool'])),
                                     ('route_source_not_preferred', (YLeaf(YType.boolean, 'route-source-not-preferred'), ['bool'])),
                                     ('route_is_sr_flag', (YLeaf(YType.boolean, 'route-is-sr-flag'), ['bool'])),
+                                    ('route_is_srv6_transit', (YLeaf(YType.boolean, 'route-is-srv6-transit'), ['bool'])),
+                                    ('route_is_srv6_end', (YLeaf(YType.boolean, 'route-is-srv6-end'), ['bool'])),
+                                    ('srv6_operation_type', (YLeaf(YType.str, 'srv6-operation-type'), ['str'])),
                                 ])
                                 self.protocol_name = None
                                 self.vrf_name = None
@@ -41155,6 +42901,9 @@ class Fib(Entity):
                                 self.route_for_external_reach_linecard_flag = None
                                 self.route_source_not_preferred = None
                                 self.route_is_sr_flag = None
+                                self.route_is_srv6_transit = None
+                                self.route_is_srv6_end = None
+                                self.srv6_operation_type = None
 
                                 self.detail_fib_entry_information = Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation()
                                 self.detail_fib_entry_information.parent = self
@@ -41169,7 +42918,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute, ['protocol_name', 'vrf_name', 'source', 'destination', 'ipv6_flow_label', u'protocol_type_fib_entry', u'platform_hardware', u'number_of_referances_to_path_list', u'path_list_flags', u'path_list_source', u'number_of_referances_to_ldi', u'ldi_flags', u'flags_external_ldi', u'pointer_external_ldi', u'exact_path_interface_handle', u'exact_path_gre_interface_handle', u'exact_route_gre_phys_ifh_avail', u'exact_route_result', u'prefix_is_static_or_connected', u'packet_should_recieve', u'prefix_connected', u'prefix_for_adjancency', u'prefix_for_pic_next_hop', u'purgable_after_purge_interval', u'broadcast_recive_flag', u'broadcast_forward_flag', u'zero_by_zero_route_as_default', u'external_switch_triggered', u'route_attribute_flag', u'dummy_real_zero_route', u'ldi_lw_flag', u'ref_counter_of_ldi_lw_ldi', u'type_of_ldi_lw_ldi', u'lspa_flags', u'version_of_route', u'fib_route_download_priority', u'time_of_last_update_in_msec', u'l2_subscriber_route', u'l2_subscriber_xconnect_id', u'l2_subscriber_flags', u'l2_subscriber_ip_protocol', u'l2tpv3_cookie_length_bits', u'route_for_external_reach_linecard_flag', u'route_source_not_preferred', u'route_is_sr_flag'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute, ['protocol_name', 'vrf_name', 'source', 'destination', 'ipv6_flow_label', 'protocol_type_fib_entry', 'platform_hardware', 'number_of_referances_to_path_list', 'path_list_flags', 'path_list_source', 'number_of_referances_to_ldi', 'ldi_flags', 'flags_external_ldi', 'pointer_external_ldi', 'exact_path_interface_handle', 'exact_path_gre_interface_handle', 'exact_route_gre_phys_ifh_avail', 'exact_route_result', 'prefix_is_static_or_connected', 'packet_should_recieve', 'prefix_connected', 'prefix_for_adjancency', 'prefix_for_pic_next_hop', 'purgable_after_purge_interval', 'broadcast_recive_flag', 'broadcast_forward_flag', 'zero_by_zero_route_as_default', 'external_switch_triggered', 'route_attribute_flag', 'dummy_real_zero_route', 'ldi_lw_flag', 'ref_counter_of_ldi_lw_ldi', 'type_of_ldi_lw_ldi', 'lspa_flags', 'version_of_route', 'fib_route_download_priority', 'time_of_last_update_in_msec', 'l2_subscriber_route', 'l2_subscriber_xconnect_id', 'l2_subscriber_flags', 'l2_subscriber_ip_protocol', 'l2tpv3_cookie_length_bits', 'route_for_external_reach_linecard_flag', 'route_source_not_preferred', 'route_is_sr_flag', 'route_is_srv6_transit', 'route_is_srv6_end', 'srv6_operation_type'], name, value)
 
 
                             class DetailFibEntryInformation(Entity):
@@ -41414,8 +43163,6 @@ class Fib(Entity):
                                 	As path string
                                 	**type**\: str
                                 
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
                                 	**config**\: False
                                 
                                 .. attribute:: extcom_string
@@ -41630,7 +43377,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation, [u'fib_entry_version', u'per_prefix_accounting', u'load_sharing_type', u'fib_entry_adjacency_type', u'fib_protocol_type', u'afi_fib_protocol_type', u'aib_l3_address', u'adjacency_address_length', u'adjacency_interface', u'fib_special_nh_information_type', u'fib_entry_adjacency_address', u'fib_entry_adjacency_interface', u'packets_through_fib_entry', u'bytes_through_fib_entry', u'detailed_prefix_length', u'prefix_protocol', u'precedence_forpackets', u'traffic_index_for_packets', u'switch_compontent_id', u'fast_adjacency_flag', u'illegal_fast_adjacency_flag', u'remote_adjacency_flag', u'bgp_attribute_id', u'bgp_local_attribute_id', u'bgp_attribute_origin_as', u'bgp_attribute_next_hop_as', u'path_string', u'extcom_string', u'com_string', u'extended_community', u'qos_group', u'mpls_fec', u'qppb_qos_group_and_ip_precedence', u'flow_tag', u'forward_class', u'pl_time_of_last_update_in_msec', u'ldi_time_of_last_update_in_msec', u'lwldi_time_of_last_update_in_msec', u'pl_time_stamp_type'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation, ['fib_entry_version', 'per_prefix_accounting', 'load_sharing_type', 'fib_entry_adjacency_type', 'fib_protocol_type', 'afi_fib_protocol_type', 'aib_l3_address', 'adjacency_address_length', 'adjacency_interface', 'fib_special_nh_information_type', 'fib_entry_adjacency_address', 'fib_entry_adjacency_interface', 'packets_through_fib_entry', 'bytes_through_fib_entry', 'detailed_prefix_length', 'prefix_protocol', 'precedence_forpackets', 'traffic_index_for_packets', 'switch_compontent_id', 'fast_adjacency_flag', 'illegal_fast_adjacency_flag', 'remote_adjacency_flag', 'bgp_attribute_id', 'bgp_local_attribute_id', 'bgp_attribute_origin_as', 'bgp_attribute_next_hop_as', 'path_string', 'extcom_string', 'com_string', 'extended_community', 'qos_group', 'mpls_fec', 'qppb_qos_group_and_ip_precedence', 'flow_tag', 'forward_class', 'pl_time_of_last_update_in_msec', 'ldi_time_of_last_update_in_msec', 'lwldi_time_of_last_update_in_msec', 'pl_time_stamp_type'], name, value)
 
 
                                 class LoadshareInformation(Entity):
@@ -41787,7 +43534,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation, [u'packets_through_load_information', u'bytes_through_load_information', u'total_packets_through_load_information', u'total_bytes_through_load_information', u'prefix_of_owner', u'mask_length_of_owner', u'load_information_reference_count', u'per_dest_load_sharing_flag', u'load_information_owner_deleted_flag', u'loadinfo_sanity_flag', u'is_owner'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation, ['packets_through_load_information', 'bytes_through_load_information', 'total_packets_through_load_information', 'total_bytes_through_load_information', 'prefix_of_owner', 'mask_length_of_owner', 'load_information_reference_count', 'per_dest_load_sharing_flag', 'load_information_owner_deleted_flag', 'loadinfo_sanity_flag', 'is_owner'], name, value)
 
 
                                     class LoadInformtionInternalData(Entity):
@@ -42034,7 +43781,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData, [u'level_ofldis', u'number_of_ldis', u'maximum_index_arrays', u'path_indices', u'path_ldi_numbers', u'maximum_slots', u'normalized_weights', u'tunnel_class_value', u'is_pbts_info_valid', u'pbts_class_offset', u'pbts_class_num_paths', u'pbts_fallback_mapped_class', u'round_robin_disable', u'ldi_next_hop_buckets', u'platform_hardware_information'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData, ['level_ofldis', 'number_of_ldis', 'maximum_index_arrays', 'path_indices', 'path_ldi_numbers', 'maximum_slots', 'normalized_weights', 'tunnel_class_value', 'is_pbts_info_valid', 'pbts_class_offset', 'pbts_class_num_paths', 'pbts_fallback_mapped_class', 'round_robin_disable', 'ldi_next_hop_buckets', 'platform_hardware_information'], name, value)
 
 
                                         class SanityFlag(Entity):
@@ -42043,7 +43790,7 @@ class Fib(Entity):
                                             
                                             .. attribute:: entry
                                             
-                                            	
+                                            	Sanity flag
                                             	**type**\: bool
                                             
                                             	**config**\: False
@@ -42072,7 +43819,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.SanityFlag, [u'entry'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.SanityFlag, ['entry'], name, value)
 
 
 
@@ -42082,7 +43829,7 @@ class Fib(Entity):
                                             
                                             .. attribute:: entry
                                             
-                                            	
+                                            	Interface handle
                                             	**type**\: str
                                             
                                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
@@ -42113,7 +43860,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.InterfaceHandle, [u'entry'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.InterfaceHandle, ['entry'], name, value)
 
 
 
@@ -42123,7 +43870,7 @@ class Fib(Entity):
                                             
                                             .. attribute:: entry
                                             
-                                            	
+                                            	Weights of paths
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
@@ -42154,7 +43901,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.WeightsOfPath, [u'entry'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.WeightsOfPath, ['entry'], name, value)
 
 
 
@@ -42195,7 +43942,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress, [u'address'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress, ['address'], name, value)
 
 
 
@@ -42234,7 +43981,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped, [u'entry'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped, ['entry'], name, value)
 
 
 
@@ -42273,7 +44020,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop, [u'entry'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop, ['entry'], name, value)
 
 
 
@@ -42312,7 +44059,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass, [u'entry'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass, ['entry'], name, value)
 
 
 
@@ -42325,7 +44072,7 @@ class Fib(Entity):
                                 
                                 .. attribute:: fib_sh_tbl_path
                                 
-                                	fib sh tbl path
+                                	Next entry in the path
                                 	**type**\: list of  		 :py:class:`FibShTblPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath>`
                                 
                                 	**config**\: False
@@ -42358,7 +44105,14 @@ class Fib(Entity):
 
                                 class FibShTblPath(Entity):
                                     """
-                                    fib sh tbl path
+                                    Next entry in the path
+                                    
+                                    .. attribute:: next_fib_entry_path
+                                    
+                                    	Next entry in the path
+                                    	**type**\:  :py:class:`NextFibEntryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.NextFibEntryPath>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: more_detail_about_path
                                     
@@ -42371,6 +44125,13 @@ class Fib(Entity):
                                     
                                     	mpls info for this path entry
                                     	**type**\:  :py:class:`MplsInformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: srv6_information_for_path
+                                    
+                                    	SRv6 info for this path entry
+                                    	**type**\:  :py:class:`Srv6InformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.Srv6InformationForPath>`
                                     
                                     	**config**\: False
                                     
@@ -42569,7 +44330,7 @@ class Fib(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([("more-detail-about-path", ("more_detail_about_path", Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath)), ("mpls-information-for-path", ("mpls_information_for_path", Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath))])
+                                        self._child_classes = OrderedDict([("next-fib-entry-path", ("next_fib_entry_path", Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.NextFibEntryPath)), ("more-detail-about-path", ("more_detail_about_path", Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath)), ("mpls-information-for-path", ("mpls_information_for_path", Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath)), ("srv6-information-for-path", ("srv6_information_for_path", Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.Srv6InformationForPath))])
                                         self._leafs = OrderedDict([
                                             ('hardware_information', (YLeaf(YType.str, 'hardware-information'), ['str'])),
                                             ('brief_interface_handle', (YLeaf(YType.str, 'brief-interface-handle'), ['str'])),
@@ -42617,6 +44378,10 @@ class Fib(Entity):
                                         self.parent_interface_handle = None
                                         self.recursionvia_len = None
 
+                                        self.next_fib_entry_path = Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.NextFibEntryPath()
+                                        self.next_fib_entry_path.parent = self
+                                        self._children_name_map["next_fib_entry_path"] = "next-fib-entry-path"
+
                                         self.more_detail_about_path = Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath()
                                         self.more_detail_about_path.parent = self
                                         self._children_name_map["more_detail_about_path"] = "more-detail-about-path"
@@ -42624,11 +44389,41 @@ class Fib(Entity):
                                         self.mpls_information_for_path = Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath()
                                         self.mpls_information_for_path.parent = self
                                         self._children_name_map["mpls_information_for_path"] = "mpls-information-for-path"
+
+                                        self.srv6_information_for_path = Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.Srv6InformationForPath()
+                                        self.srv6_information_for_path.parent = self
+                                        self._children_name_map["srv6_information_for_path"] = "srv6-information-for-path"
                                         self._segment_path = lambda: "fib-sh-tbl-path"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath, [u'hardware_information', u'brief_interface_handle', u'brief_next_hop_prefix', u'via_label_to_recurse', u'brief_pnode_address', u'brief_qnode_address', u'brief_lfa_protection_type', u'resolved_path', u'recursive_path', u'packets_received_path', u'attached_path', u'backup_path', u'best_external_path', u'protect_ignore', u'path_dlb', u'path_flags', u'path_info_flags', u'path_index', u'backup_index', u'next_hop_index', u'parent_interface_handle', u'recursionvia_len'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath, ['hardware_information', 'brief_interface_handle', 'brief_next_hop_prefix', 'via_label_to_recurse', 'brief_pnode_address', 'brief_qnode_address', 'brief_lfa_protection_type', 'resolved_path', 'recursive_path', 'packets_received_path', 'attached_path', 'backup_path', 'best_external_path', 'protect_ignore', 'path_dlb', 'path_flags', 'path_info_flags', 'path_index', 'backup_index', 'next_hop_index', 'parent_interface_handle', 'recursionvia_len'], name, value)
+
+
+                                    class NextFibEntryPath(Entity):
+                                        """
+                                        Next entry in the path
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-09-07'
+
+                                        def __init__(self):
+                                            super(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.NextFibEntryPath, self).__init__()
+
+                                            self.yang_name = "next-fib-entry-path"
+                                            self.yang_parent_name = "fib-sh-tbl-path"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
+                                            self._segment_path = lambda: "next-fib-entry-path"
+                                            self._is_frozen = True
+
 
 
                                     class MoreDetailAboutPath(Entity):
@@ -42694,8 +44489,6 @@ class Fib(Entity):
                                         	Next hop VRF
                                         	**type**\: str
                                         
-                                        	**length:** 0..33
-                                        
                                         	**config**\: False
                                         
                                         .. attribute:: tunnle_endpoint_id
@@ -42746,8 +44539,6 @@ class Fib(Entity):
                                         	Next prefix recursion in the path
                                         	**type**\: str
                                         
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
                                         	**config**\: False
                                         
                                         .. attribute:: next_prefix_length
@@ -42770,8 +44561,6 @@ class Fib(Entity):
                                         
                                         	Next prefix2 recursion in the path
                                         	**type**\: str
-                                        
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         	**config**\: False
                                         
@@ -42942,7 +44731,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath, [u'ip_address_to_recurse', u'label_to_recurse', u'detail_next_hop_prefix', u'next_hop_mask_length', u'interface_associated_path', u'next_hop_interface', u'next_hop_vrf', u'tunnle_endpoint_id', u'lisprlocid', u'number_of_dependencies_this_path', u'robin_reset_value', u'recurse_prefix_object', u'next_prefix_recursion', u'next_prefix_length', u'recurse_prefix_object2', u'next_prefix_recursion2', u'next_prefix_length2', u'detail_fib_adjacency_type', u'current_path_flag', u'recursive_path_information', u'external_adjacency', u'fib_path_nh_information_type', u'fib_path_nh_information_type_special', u'weight_of_path', u'tunnel_class', u'tunnel_is_forward_class'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath, ['ip_address_to_recurse', 'label_to_recurse', 'detail_next_hop_prefix', 'next_hop_mask_length', 'interface_associated_path', 'next_hop_interface', 'next_hop_vrf', 'tunnle_endpoint_id', 'lisprlocid', 'number_of_dependencies_this_path', 'robin_reset_value', 'recurse_prefix_object', 'next_prefix_recursion', 'next_prefix_length', 'recurse_prefix_object2', 'next_prefix_recursion2', 'next_prefix_length2', 'detail_fib_adjacency_type', 'current_path_flag', 'recursive_path_information', 'external_adjacency', 'fib_path_nh_information_type', 'fib_path_nh_information_type_special', 'weight_of_path', 'tunnel_class', 'tunnel_is_forward_class'], name, value)
 
 
                                         class SpdIpencap(Entity):
@@ -43077,7 +44866,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap, [u'ip_encap_hdr_count', u'ip_encap_locks', u'ip_encap_transport_tbl', u'ipe_transport_vrf_name', u'ip_encap_transport_af', u'ip_encap_payload_af', u'ip_encap_payload_mtu', u'ip_encap_parent', u'ip_encap_parent_type'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap, ['ip_encap_hdr_count', 'ip_encap_locks', 'ip_encap_transport_tbl', 'ipe_transport_vrf_name', 'ip_encap_transport_af', 'ip_encap_payload_af', 'ip_encap_payload_mtu', 'ip_encap_parent', 'ip_encap_parent_type'], name, value)
 
 
                                             class IpEncapHdr(Entity):
@@ -43137,7 +44926,7 @@ class Fib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr, [u'ip_encap_hdr_type', u'ip_encap_hdrp', u'ip_encap_hdr_dyn'], name, value)
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr, ['ip_encap_hdr_type', 'ip_encap_hdrp', 'ip_encap_hdr_dyn'], name, value)
 
 
 
@@ -43201,7 +44990,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath.NextNextHop, [u'next_next_hop_index', u'next_next_hop_prefix', u'next_next_hop_interface'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MoreDetailAboutPath.NextNextHop, ['next_next_hop_index', 'next_next_hop_prefix', 'next_next_hop_interface'], name, value)
 
 
 
@@ -43289,7 +45078,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath, [u'local_lable', u'recursive_fwd_chain', u'number_of_igp_paths', u'remote_backup'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath, ['local_lable', 'recursive_fwd_chain', 'number_of_igp_paths', 'remote_backup'], name, value)
 
 
                                         class RecursiveLblStack(Entity):
@@ -43298,7 +45087,7 @@ class Fib(Entity):
                                             
                                             .. attribute:: entry
                                             
-                                            	
+                                            	Recursive Label(s)
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
@@ -43329,7 +45118,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath.RecursiveLblStack, [u'entry'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath.RecursiveLblStack, ['entry'], name, value)
 
 
 
@@ -43401,7 +45190,7 @@ class Fib(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray, [u'number_of_labels', u'out_interface', u'nh_address'], name, value)
+                                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray, ['number_of_labels', 'out_interface', 'nh_address'], name, value)
 
 
                                             class Lstack(Entity):
@@ -43410,7 +45199,7 @@ class Fib(Entity):
                                                 
                                                 .. attribute:: entry
                                                 
-                                                	
+                                                	lstack
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
@@ -43441,9 +45230,57 @@ class Fib(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray.Lstack, [u'entry'], name, value)
+                                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray.Lstack, ['entry'], name, value)
 
 
+
+
+
+                                    class Srv6InformationForPath(Entity):
+                                        """
+                                        SRv6 info for this path entry
+                                        
+                                        .. attribute:: srv6_encapsulation_behavior
+                                        
+                                        	SRv6 Per\-path Encapsulation Behavior
+                                        	**type**\: str
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: srv6_sid_list
+                                        
+                                        	SRv6 SID list
+                                        	**type**\: str
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-09-07'
+
+                                        def __init__(self):
+                                            super(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.Srv6InformationForPath, self).__init__()
+
+                                            self.yang_name = "srv6-information-for-path"
+                                            self.yang_parent_name = "fib-sh-tbl-path"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('srv6_encapsulation_behavior', (YLeaf(YType.str, 'srv6-encapsulation-behavior'), ['str'])),
+                                                ('srv6_sid_list', (YLeaf(YType.str, 'srv6-sid-list'), ['str'])),
+                                            ])
+                                            self.srv6_encapsulation_behavior = None
+                                            self.srv6_sid_list = None
+                                            self._segment_path = lambda: "srv6-information-for-path"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.FibEntryPath.FibShTblPath.Srv6InformationForPath, ['srv6_encapsulation_behavior', 'srv6_sid_list'], name, value)
 
 
 
@@ -43495,7 +45332,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.ExtensionObject, [u'type'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.ExtensionObject, ['type'], name, value)
 
 
                                 class SfecdLe(Entity):
@@ -43544,7 +45381,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.ExtensionObject.SfecdLe, [u'context_label_flag', u'context_label'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExactRoutes.ExactRoute.ExtensionObject.SfecdLe, ['context_label_flag', 'context_label'], name, value)
 
 
 
@@ -43634,6 +45471,13 @@ class Fib(Entity):
                                 FIB ipv6 global segment routing srv6
                                 information
                                 
+                                .. attribute:: encap_hop_limit
+                                
+                                	Encap Hop\-limit info
+                                	**type**\:  :py:class:`EncapHopLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6.EncapHopLimit>`
+                                
+                                	**config**\: False
+                                
                                 .. attribute:: srv6_enabled
                                 
                                 	Is SRv6 enabled?
@@ -43681,7 +45525,7 @@ class Fib(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([("locator", ("locator", Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6.Locator))])
+                                    self._child_classes = OrderedDict([("encap-hop-limit", ("encap_hop_limit", Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6.EncapHopLimit)), ("locator", ("locator", Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6.Locator))])
                                     self._leafs = OrderedDict([
                                         ('srv6_enabled', (YLeaf(YType.boolean, 'srv6-enabled'), ['bool'])),
                                         ('encap_source_address', (YLeaf(YType.str, 'encap-source-address'), ['str'])),
@@ -43691,12 +45535,75 @@ class Fib(Entity):
                                     self.encap_source_address = None
                                     self.locator_count = None
 
+                                    self.encap_hop_limit = Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6.EncapHopLimit()
+                                    self.encap_hop_limit.parent = self
+                                    self._children_name_map["encap_hop_limit"] = "encap-hop-limit"
+
                                     self.locator = YList(self)
                                     self._segment_path = lambda: "srv6"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6, [u'srv6_enabled', u'encap_source_address', u'locator_count'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6, ['srv6_enabled', 'encap_source_address', 'locator_count'], name, value)
+
+
+                                class EncapHopLimit(Entity):
+                                    """
+                                    Encap Hop\-limit info
+                                    
+                                    .. attribute:: use_default
+                                    
+                                    	Use default IPv6 hop\-limit value
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: do_propagate
+                                    
+                                    	Propagate IP TTL to Encap IPv6 hop\-limit
+                                    	**type**\: bool
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: value
+                                    
+                                    	Specific value set for hop\-limit count
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6.EncapHopLimit, self).__init__()
+
+                                        self.yang_name = "encap-hop-limit"
+                                        self.yang_parent_name = "srv6"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('use_default', (YLeaf(YType.boolean, 'use-default'), ['bool'])),
+                                            ('do_propagate', (YLeaf(YType.boolean, 'do-propagate'), ['bool'])),
+                                            ('value', (YLeaf(YType.uint8, 'value'), ['int'])),
+                                        ])
+                                        self.use_default = None
+                                        self.do_propagate = None
+                                        self.value = None
+                                        self._segment_path = lambda: "encap-hop-limit"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6.EncapHopLimit, ['use_default', 'do_propagate', 'value'], name, value)
+
 
 
                                 class Locator(Entity):
@@ -43752,7 +45659,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6.Locator, [u'name', u'prefix', u'locator'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ProtocolGlobal.SegmentRouting.Srv6.Locator, ['name', 'prefix', 'locator'], name, value)
 
 
 
@@ -43964,7 +45871,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId, ['nh_id', 'nh_interface_name', 'nh_address', u'nh_interface_name_xr', u'nh_address_xr', u'nh_protocol', u'nh_link_type', u'nh_table_id', u'nh_id_xr', u'nh_id_application', u'version', u'time_of_last_update_in_msec', u'encap_id'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId, ['nh_id', 'nh_interface_name', 'nh_address', 'nh_interface_name_xr', 'nh_address_xr', 'nh_protocol', 'nh_link_type', 'nh_table_id', 'nh_id_xr', 'nh_id_application', 'version', 'time_of_last_update_in_msec', 'encap_id'], name, value)
 
 
 
@@ -44285,7 +46192,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings.FrrNhinfoPending, ['queue_index', 'frr_type', 'link_type', 'prefix_length', 'interface_name', 'main_interface_name', 'next_hop_prefix', 'replicated_nh_type', u'si_frrtype', u'si_refcount', u'si_flags', u'si_ifh', u'si_main_ifh', u'si_linktype', u'si_nh_pfx_proto', u'si_nh_pfx', u'si_nh_pfx_len', u'si_tunid', u'si_frr_ptr', u'si_prot_frr_ptr', u'si_parent_nh_ptr', u'si_repl_parent_type', u'si_upd_ts'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.FrrNhinfoPendings.FrrNhinfoPending, ['queue_index', 'frr_type', 'link_type', 'prefix_length', 'interface_name', 'main_interface_name', 'next_hop_prefix', 'replicated_nh_type', 'si_frrtype', 'si_refcount', 'si_flags', 'si_ifh', 'si_main_ifh', 'si_linktype', 'si_nh_pfx_proto', 'si_nh_pfx', 'si_nh_pfx_len', 'si_tunid', 'si_frr_ptr', 'si_prot_frr_ptr', 'si_parent_nh_ptr', 'si_repl_parent_type', 'si_upd_ts'], name, value)
 
 
 
@@ -44461,7 +46368,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary, ['ecd_ver', 'id', u'ses_client_name', u'ses_feci_fib_proto', u'ses_num_regs', u'ses_num_pending', u'ses_client_pulsed_time', u'ses_comp_id', u'ses_ecd_version'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary, ['ecd_ver', 'id', 'ses_client_name', 'ses_feci_fib_proto', 'ses_num_regs', 'ses_num_pending', 'ses_client_pulsed_time', 'ses_comp_id', 'ses_ecd_version'], name, value)
 
 
                             class SesPlSum(Entity):
@@ -44521,7 +46428,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum, [u'sep_num_ecd_pathlist', u'sep_num_ecd_pl_unresolved'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum, ['sep_num_ecd_pathlist', 'sep_num_ecd_pl_unresolved'], name, value)
 
 
                                 class SepNumEcdPlPerInterest(Entity):
@@ -44530,7 +46437,7 @@ class Fib(Entity):
                                     
                                     .. attribute:: entry
                                     
-                                    	
+                                    	Number of ECD pathlists per interest
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -44561,7 +46468,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum.SepNumEcdPlPerInterest, [u'entry'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum.SepNumEcdPlPerInterest, ['entry'], name, value)
 
 
 
@@ -44760,6 +46667,13 @@ class Fib(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: mi_proactive_arp_nd_enabled
+                        
+                        	Proactive\-ARP\-ND feature
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
                         .. attribute:: mi_xpl_ldi_enabled
                         
                         	XPL loadinfo is enabled
@@ -44909,6 +46823,7 @@ class Fib(Entity):
                                 ('mi_cpuless_count', (YLeaf(YType.uint32, 'mi-cpuless-count'), ['int'])),
                                 ('mi_prefer_aib_routes_over_rib_oper', (YLeaf(YType.boolean, 'mi-prefer-aib-routes-over-rib-oper'), ['bool'])),
                                 ('mi_prefer_aib_routes_over_rib_cfg', (YLeaf(YType.boolean, 'mi-prefer-aib-routes-over-rib-cfg'), ['bool'])),
+                                ('mi_proactive_arp_nd_enabled', (YLeaf(YType.boolean, 'mi-proactive-arp-nd-enabled'), ['bool'])),
                                 ('mi_xpl_ldi_enabled', (YLeaf(YType.boolean, 'mi-xpl-ldi-enabled'), ['bool'])),
                                 ('mi_frr_follow_bgp_pic', (YLeaf(YType.boolean, 'mi-frr-follow-bgp-pic'), ['bool'])),
                                 ('mi_encap_sharing_disable', (YLeaf(YType.boolean, 'mi-encap-sharing-disable'), ['bool'])),
@@ -44934,6 +46849,7 @@ class Fib(Entity):
                             self.mi_cpuless_count = None
                             self.mi_prefer_aib_routes_over_rib_oper = None
                             self.mi_prefer_aib_routes_over_rib_cfg = None
+                            self.mi_proactive_arp_nd_enabled = None
                             self.mi_xpl_ldi_enabled = None
                             self.mi_frr_follow_bgp_pic = None
                             self.mi_encap_sharing_disable = None
@@ -44963,7 +46879,7 @@ class Fib(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc, [u'mi_pfi_ifh_upd', u'mi_pfi_ifh_del', u'mi_pfi_ifh_stale', u'mi_tot_plat_upd_time', u'mi_tot_gtrie_time', u'mi_tot_dnld_time', u'mi_clock_time', u'mi_cpu_time', u'mi_shm_reset_ts', u'mi_idb_recycle_count', u'mi_idb_recycle_cleanup_count', u'mi_num_mgmt_list', u'mi_num_virtual_ll_addresses_added', u'mi_num_virtual_ll_addresses_deleted', u'mi_num_virtual_ll_addresses_dropped', u'mi_num_virtual_ll_addresses_cached', u'mi_cpuless_init', u'mi_cpuless_count', u'mi_prefer_aib_routes_over_rib_oper', u'mi_prefer_aib_routes_over_rib_cfg', u'mi_xpl_ldi_enabled', u'mi_frr_follow_bgp_pic', u'mi_encap_sharing_disable', u'mi_lba_hash_recover'], name, value)
+                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc, ['mi_pfi_ifh_upd', 'mi_pfi_ifh_del', 'mi_pfi_ifh_stale', 'mi_tot_plat_upd_time', 'mi_tot_gtrie_time', 'mi_tot_dnld_time', 'mi_clock_time', 'mi_cpu_time', 'mi_shm_reset_ts', 'mi_idb_recycle_count', 'mi_idb_recycle_cleanup_count', 'mi_num_mgmt_list', 'mi_num_virtual_ll_addresses_added', 'mi_num_virtual_ll_addresses_deleted', 'mi_num_virtual_ll_addresses_dropped', 'mi_num_virtual_ll_addresses_cached', 'mi_cpuless_init', 'mi_cpuless_count', 'mi_prefer_aib_routes_over_rib_oper', 'mi_prefer_aib_routes_over_rib_cfg', 'mi_proactive_arp_nd_enabled', 'mi_xpl_ldi_enabled', 'mi_frr_follow_bgp_pic', 'mi_encap_sharing_disable', 'mi_lba_hash_recover'], name, value)
 
 
                         class MiIssuState(Entity):
@@ -45112,7 +47028,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState, [u'imdr_support', u'slc_support', u'fis_issu_restart', u'imdr_eoc_implicit', u'slc_eoc_implicit', u'eoc_received_imdr_time_stamp', u'eoc_received_slc_time_stamp', u'eod_received_im_time_stamp', u'eod_sent_imdr_time_stamp', u'eod_sent_slc_time_stamp', u'fis_issu_error_ts'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState, ['imdr_support', 'slc_support', 'fis_issu_restart', 'imdr_eoc_implicit', 'slc_eoc_implicit', 'eoc_received_imdr_time_stamp', 'eoc_received_slc_time_stamp', 'eod_received_im_time_stamp', 'eod_sent_imdr_time_stamp', 'eod_sent_slc_time_stamp', 'fis_issu_error_ts'], name, value)
 
 
                             class FisProtoState(Entity):
@@ -45285,7 +47201,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState.FisProtoState, [u'protocol_name', u'aib_eod_time_stamp', u'rsi_eod_valid', u'rsi_eod_time_stamp', u'lsd_eod_valid', u'lsd_eod_time_stamp', u'lmrib_eod_valid', u'lmrib_eod_time_stamp', u'rib_info_valid', u'bcdl_tables', u'converged_tables', u'rib_tables_converged_time_stamp', u'protocol_eod_valid', u'protocol_eod_time_stamp'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState.FisProtoState, ['protocol_name', 'aib_eod_time_stamp', 'rsi_eod_valid', 'rsi_eod_time_stamp', 'lsd_eod_valid', 'lsd_eod_time_stamp', 'lmrib_eod_valid', 'lmrib_eod_time_stamp', 'rib_info_valid', 'bcdl_tables', 'converged_tables', 'rib_tables_converged_time_stamp', 'protocol_eod_valid', 'protocol_eod_time_stamp'], name, value)
 
 
 
@@ -45592,7 +47508,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities, [u'fpc_num_l3_lbl_levels', u'fpc_num_l3_lbl_paths', u'fpc_num_l3_lbl_rec_paths', u'fpc_num_l3_ucmp_paths', u'fpc_num_fwding_stages', u'fpc_local_label_split', u'fpc_stats_support', u'fpc_platf_ready_cb_wait', u'fpc_num_paths_per_pbts_class', u'fpc_platf_v4_upd_disable', u'fpc_platf_v6_upd_disable', u'fpc_lba_tuples_default', u'fpc_mraps_support', u'fpc_pbts_defclass_support', u'fpc_loadinfo_filter_support', u'fpc_nhid', u'fpc_platf_temp_back_walk_reqd', u'fpc_link_mpls_nhinfo_in_ipv6_thread_support', u'fpc_exclude_deag_bkup', u'fpc_dlb_support', u'fpc_prefix_filter_support', u'fpc_slowpath_ingress_inject_reqd', u'fpc_cofo_support', u'fpc_srv6_support', u'fpc_v4v6_ldi_collapse_support'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities, ['fpc_num_l3_lbl_levels', 'fpc_num_l3_lbl_paths', 'fpc_num_l3_lbl_rec_paths', 'fpc_num_l3_ucmp_paths', 'fpc_num_fwding_stages', 'fpc_local_label_split', 'fpc_stats_support', 'fpc_platf_ready_cb_wait', 'fpc_num_paths_per_pbts_class', 'fpc_platf_v4_upd_disable', 'fpc_platf_v6_upd_disable', 'fpc_lba_tuples_default', 'fpc_mraps_support', 'fpc_pbts_defclass_support', 'fpc_loadinfo_filter_support', 'fpc_nhid', 'fpc_platf_temp_back_walk_reqd', 'fpc_link_mpls_nhinfo_in_ipv6_thread_support', 'fpc_exclude_deag_bkup', 'fpc_dlb_support', 'fpc_prefix_filter_support', 'fpc_slowpath_ingress_inject_reqd', 'fpc_cofo_support', 'fpc_srv6_support', 'fpc_v4v6_ldi_collapse_support'], name, value)
 
 
                             class FpcLispDecapOverV4(Entity):
@@ -45630,7 +47546,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispDecapOverV4, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispDecapOverV4, ['entry'], name, value)
 
 
 
@@ -45669,7 +47585,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispDecapOverV6, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispDecapOverV6, ['entry'], name, value)
 
 
 
@@ -45708,7 +47624,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispUcmp, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispUcmp, ['entry'], name, value)
 
 
 
@@ -45747,7 +47663,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcResolveViaTable, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcResolveViaTable, ['entry'], name, value)
 
 
 
@@ -45760,7 +47676,7 @@ class Fib(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Number of recycled idb extensions that failed  cleanup
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -45791,7 +47707,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIdbExtCleanupFailedCount, [u'entry'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIdbExtCleanupFailedCount, ['entry'], name, value)
 
 
 
@@ -45801,7 +47717,7 @@ class Fib(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Per protocol Failure stats for label RPF
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -45832,7 +47748,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiLrpfStatsFail, [u'entry'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiLrpfStatsFail, ['entry'], name, value)
 
 
 
@@ -45842,7 +47758,7 @@ class Fib(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Per protocol actions stats for label RPF
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -45873,7 +47789,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiLrpfStatsAct, [u'entry'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiLrpfStatsAct, ['entry'], name, value)
 
 
 
@@ -45883,7 +47799,7 @@ class Fib(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Per protocol number of label RPFs
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -45914,7 +47830,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiLrpfNum, [u'entry'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiLrpfNum, ['entry'], name, value)
 
 
 
@@ -45926,7 +47842,7 @@ class Fib(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Number of interfaces having label security  enabled
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -45957,7 +47873,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIdbLsecEnabledNum, [u'entry'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIdbLsecEnabledNum, ['entry'], name, value)
 
 
 
@@ -45967,7 +47883,7 @@ class Fib(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	number of LISP EID prefixes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -45998,7 +47914,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiNumLispEid, [u'entry'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiNumLispEid, ['entry'], name, value)
 
 
 
@@ -46010,7 +47926,7 @@ class Fib(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	number of LISP EID prefixes eligible for  forwarding
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -46041,7 +47957,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiNumLispValidEid, [u'entry'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiNumLispValidEid, ['entry'], name, value)
 
 
 
@@ -46051,7 +47967,7 @@ class Fib(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	list of cpuless line cards
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -46082,7 +47998,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiCpulessNode, [u'entry'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiCpulessNode, ['entry'], name, value)
 
 
 
@@ -46538,14 +48454,14 @@ class Fib(Entity):
                             
                             .. attribute:: fpd_gbltbl_src_entry
                             
-                            	Number of global routes from  each route source
+                            	Number of global routes from                      each route source
                             	**type**\: list of  		 :py:class:`FpdGbltblSrcEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGbltblSrcEntry>`
                             
                             	**config**\: False
                             
                             .. attribute:: fpd_vrftbl_src_entry
                             
-                            	Number of vrf routes from  each route source
+                            	Number of vrf routes from                         each route source
                             	**type**\: list of  		 :py:class:`FpdVrftblSrcEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdVrftblSrcEntry>`
                             
                             	**config**\: False
@@ -46687,7 +48603,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat, [u'fpd_gbltbl_entries', u'fpd_gbltbl_rej_entries', u'fpd_vrftbl_entries', u'fpd_vrftbl_rej_entries', u'fpd_num_tbls', u'fpd_bcdl_msgs', u'fpd_route_upd', u'fpd_route_del', u'fpd_route_rcv', u'fpd_route_drops', u'fpd_lbl_recycled', u'fpd_version_mismatch_drops', u'fpd_adj_upd', u'fpd_adj_del', u'fpd_adj_upd_tx', u'fpd_adj_upd_tx_nh_found', u'fpd_adj_upd_tx_retry_created', u'fpd_adj_tx_retry_nh_found', u'fpd_adj_tx_retry_obj_reinit', u'fpd_adj_drops', u'fpd_adj_msg', u'fpd_te_rcv', u'fpd_te_version_mismatch_drops', u'fpd_num_retry_touts', u'fpd_ldi_num_fixedup', u'fpd_ldi_num_correct_fixup', u'fpd_pl_num_queued_fixedup', u'fpd_pl_num_correct_fixup', u'fpd_pl_retry_add_exist', u'fpd_pl_inline_res_q', u'fpd_pl_with_backup_create_count', u'fpd_pl_with_backup_del_count', u'fpd_pl_backup_enable_count', u'fpd_pl_backup_disable_count', u'fpd_pl_fast_nfn_count', u'fpd_ldi_backup_activate_count', u'fpd_ldi_last_backup_activate_time', u'fpd_ldi_max_backup_activate_time', u'fpd_ldi_min_backup_activate_time', u'fpd_ldi_total_backup_activate_time', u'fpd_ldi_avg_backup_activate_time', u'fpd_recursion_constraint_count', u'fpd_ldi_num_del_refcnt', u'fpd_retryq_size', u'fpd_num_allocs', u'fpd_num_frees', u'fpd_retryq_timeout', u'fpd_retryq_sched_time'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat, ['fpd_gbltbl_entries', 'fpd_gbltbl_rej_entries', 'fpd_vrftbl_entries', 'fpd_vrftbl_rej_entries', 'fpd_num_tbls', 'fpd_bcdl_msgs', 'fpd_route_upd', 'fpd_route_del', 'fpd_route_rcv', 'fpd_route_drops', 'fpd_lbl_recycled', 'fpd_version_mismatch_drops', 'fpd_adj_upd', 'fpd_adj_del', 'fpd_adj_upd_tx', 'fpd_adj_upd_tx_nh_found', 'fpd_adj_upd_tx_retry_created', 'fpd_adj_tx_retry_nh_found', 'fpd_adj_tx_retry_obj_reinit', 'fpd_adj_drops', 'fpd_adj_msg', 'fpd_te_rcv', 'fpd_te_version_mismatch_drops', 'fpd_num_retry_touts', 'fpd_ldi_num_fixedup', 'fpd_ldi_num_correct_fixup', 'fpd_pl_num_queued_fixedup', 'fpd_pl_num_correct_fixup', 'fpd_pl_retry_add_exist', 'fpd_pl_inline_res_q', 'fpd_pl_with_backup_create_count', 'fpd_pl_with_backup_del_count', 'fpd_pl_backup_enable_count', 'fpd_pl_backup_disable_count', 'fpd_pl_fast_nfn_count', 'fpd_ldi_backup_activate_count', 'fpd_ldi_last_backup_activate_time', 'fpd_ldi_max_backup_activate_time', 'fpd_ldi_min_backup_activate_time', 'fpd_ldi_total_backup_activate_time', 'fpd_ldi_avg_backup_activate_time', 'fpd_recursion_constraint_count', 'fpd_ldi_num_del_refcnt', 'fpd_retryq_size', 'fpd_num_allocs', 'fpd_num_frees', 'fpd_retryq_timeout', 'fpd_retryq_sched_time'], name, value)
 
 
                             class FpdPlatfUpdStats(Entity):
@@ -46758,7 +48674,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats, [u'fpus_num_success', u'fpus_num_failure', u'fpus_upd_total_time'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats, ['fpus_num_success', 'fpus_num_failure', 'fpus_upd_total_time'], name, value)
 
 
                                 class FpusObjStat(Entity):
@@ -46818,7 +48734,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat, [u'fos_tot_updates', u'fos_tot_upd_time'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat, ['fos_tot_updates', 'fos_tot_upd_time'], name, value)
 
 
                                     class FosObjActStat(Entity):
@@ -46924,7 +48840,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat.FosObjActStat, [u'foas_tot_updates', u'foas_tot_upd_time', u'foas_tot_updates_zero', u'foas_num_success', u'foas_num_failure', u'foas_max_time', u'foas_max_tstamp'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat.FosObjActStat, ['foas_tot_updates', 'foas_tot_upd_time', 'foas_tot_updates_zero', 'foas_num_success', 'foas_num_failure', 'foas_max_time', 'foas_max_tstamp'], name, value)
 
 
 
@@ -46998,7 +48914,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGtrieTiming, [u'fgt_num_success', u'fgt_num_failure', u'fgt_upd_total_time'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGtrieTiming, ['fgt_num_success', 'fgt_num_failure', 'fgt_upd_total_time'], name, value)
 
 
                                 class FgtGtrieFnTiming(Entity):
@@ -47093,20 +49009,20 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGtrieTiming.FgtGtrieFnTiming, [u'fgft_fn', u'fgft_tot_updates', u'fgft_tot_updates_zero', u'fgft_tot_upd_time', u'fgft_max_time', u'fgft_max_tstamp'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGtrieTiming.FgtGtrieFnTiming, ['fgft_fn', 'fgft_tot_updates', 'fgft_tot_updates_zero', 'fgft_tot_upd_time', 'fgft_max_time', 'fgft_max_tstamp'], name, value)
 
 
 
 
                             class FpdGbltblSrcEntry(Entity):
                                 """
-                                Number of global routes from
+                                Number of global routes from                    
                                 
                                 each route source
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of global routes from                      each route source
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
@@ -47137,19 +49053,19 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGbltblSrcEntry, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGbltblSrcEntry, ['entry'], name, value)
 
 
 
                             class FpdVrftblSrcEntry(Entity):
                                 """
-                                Number of vrf routes from
+                                Number of vrf routes from                       
                                 
                                 each route source
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of vrf routes from                         each route source
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
@@ -47180,7 +49096,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdVrftblSrcEntry, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdVrftblSrcEntry, ['entry'], name, value)
 
 
 
@@ -47190,7 +49106,7 @@ class Fib(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	the number of retries of each type
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
@@ -47221,7 +49137,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdNumRetry, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdNumRetry, ['entry'], name, value)
 
 
 
@@ -47270,7 +49186,7 @@ class Fib(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	the number of frees for this proto
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -47301,7 +49217,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIdbPurgeCntr.FppCntr, [u'entry'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiIdbPurgeCntr.FppCntr, ['entry'], name, value)
 
 
 
@@ -47387,7 +49303,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiDel, [u'tableid', u'prfx', u'prfx_len', u'prfx_proto', u'msec_time'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiDel, ['tableid', 'prfx', 'prfx_len', 'prfx_proto', 'msec_time'], name, value)
 
 
 
@@ -47582,7 +49498,7 @@ class Fib(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiFrrStat, [u'mi_num_intf_frr', u'mi_num_parent_intf_frr', u'mi_num_pfi_intf_down', u'mi_num_bfd_down', u'mi_num_prot_frr_objects', u'mi_num_bkup_frr_objects', u'mi_num_tunid_allocs', u'mi_num_tunid_alloc_failures', u'mi_num_tunid_frees', u'mi_num_tunid_free_failures', u'mi_num_frr_reset_queue_adds', u'mi_num_frr_reset_queue_remove', u'mi_num_frr_reset', u'mi_num_frr_proto_events', u'mi_num_frr_logs'], name, value)
+                                self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.Misc.MiFrrStat, ['mi_num_intf_frr', 'mi_num_parent_intf_frr', 'mi_num_pfi_intf_down', 'mi_num_bfd_down', 'mi_num_prot_frr_objects', 'mi_num_bkup_frr_objects', 'mi_num_tunid_allocs', 'mi_num_tunid_alloc_failures', 'mi_num_tunid_frees', 'mi_num_tunid_free_failures', 'mi_num_frr_reset_queue_adds', 'mi_num_frr_reset_queue_remove', 'mi_num_frr_reset', 'mi_num_frr_proto_events', 'mi_num_frr_logs'], name, value)
 
 
 
@@ -47817,7 +49733,7 @@ class Fib(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict, ['label', 'source', 'll_ctype', 'pfx_tbl_id', 'prefix', 'prefix_len', u'local_label', u'source_xr', u'update_ts', u'retry_ts', u'num_retries'], name, value)
+                                    self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict, ['label', 'source', 'll_ctype', 'pfx_tbl_id', 'prefix', 'prefix_len', 'local_label', 'source_xr', 'update_ts', 'retry_ts', 'num_retries'], name, value)
 
 
                                 class Ext(Entity):
@@ -47877,7 +49793,7 @@ class Fib(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext, [u'type'], name, value)
+                                        self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext, ['type'], name, value)
 
 
                                     class Pfx(Entity):
@@ -47928,7 +49844,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Pfx, [u'pfx', u'tbl_id'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Pfx, ['pfx', 'tbl_id'], name, value)
 
 
 
@@ -47980,7 +49896,7 @@ class Fib(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Lsm, [u'nh', u'mcast_id'], name, value)
+                                            self._perform_setattr(Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Lsm, ['nh', 'mcast_id'], name, value)
 
 
 
@@ -48509,7 +50425,7 @@ class OcAftL3(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.State, [u'index', u'weight', u'ip_address', u'network_instance', u'popped_mpls_label_stack', u'pushed_mpls_label_stack'], name, value)
+                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.State, ['index', 'weight', 'ip_address', 'network_instance', 'popped_mpls_label_stack', 'pushed_mpls_label_stack'], name, value)
 
 
 
@@ -48598,7 +50514,7 @@ class OcAftL3(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.NextHops.NextHop.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -48640,7 +50556,7 @@ class OcAftL3(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.State, [u'prefix_index'], name, value)
+                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Mpls.Labels.Label.State, ['prefix_index'], name, value)
 
 
 
@@ -48968,7 +50884,7 @@ class OcAftL3(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.State, [u'index', u'weight', u'ip_address', u'network_instance', u'popped_mpls_label_stack', u'pushed_mpls_label_stack'], name, value)
+                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.State, ['index', 'weight', 'ip_address', 'network_instance', 'popped_mpls_label_stack', 'pushed_mpls_label_stack'], name, value)
 
 
 
@@ -49057,7 +50973,7 @@ class OcAftL3(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -49099,7 +51015,7 @@ class OcAftL3(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.State, [u'prefix_index'], name, value)
+                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv6Unicast.Prefixes.Prefix.State, ['prefix_index'], name, value)
 
 
 
@@ -49427,7 +51343,7 @@ class OcAftL3(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.State, [u'index', u'weight', u'ip_address', u'network_instance', u'popped_mpls_label_stack', u'pushed_mpls_label_stack'], name, value)
+                                            self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.State, ['index', 'weight', 'ip_address', 'network_instance', 'popped_mpls_label_stack', 'pushed_mpls_label_stack'], name, value)
 
 
 
@@ -49516,7 +51432,7 @@ class OcAftL3(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                                self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.NextHops.NextHop.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -49558,7 +51474,7 @@ class OcAftL3(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.State, [u'prefix_index'], name, value)
+                                    self._perform_setattr(OcAftL3.Vrfs.Vrf.AbstractForwardingTables.Ipv4Unicast.Prefixes.Prefix.State, ['prefix_index'], name, value)
 
 
 
@@ -49772,6 +51688,33 @@ class MplsForwarding(Entity):
                 .. attribute:: label_switched_entries
                 
                 	Number of label swap/disposition entries
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: protected_label_switched_entries
+                
+                	Number of FRR protected label swap/disposition entries
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: frr_ready_label_switched_entries
+                
+                	Number of FRR Ready label swap/disposition entries
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: frr_active_label_switched_entries
+                
+                	Number of FRR Active label swap/disposition entries
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -50032,6 +51975,9 @@ class MplsForwarding(Entity):
                         ('ipv4_imposition_entries', (YLeaf(YType.uint32, 'ipv4-imposition-entries'), ['int'])),
                         ('reserved_label_entries', (YLeaf(YType.uint32, 'reserved-label-entries'), ['int'])),
                         ('label_switched_entries', (YLeaf(YType.uint32, 'label-switched-entries'), ['int'])),
+                        ('protected_label_switched_entries', (YLeaf(YType.uint32, 'protected-label-switched-entries'), ['int'])),
+                        ('frr_ready_label_switched_entries', (YLeaf(YType.uint32, 'frr-ready-label-switched-entries'), ['int'])),
+                        ('frr_active_label_switched_entries', (YLeaf(YType.uint32, 'frr-active-label-switched-entries'), ['int'])),
                         ('deleted_stale_entries', (YLeaf(YType.uint32, 'deleted-stale-entries'), ['int'])),
                         ('te_head_entries', (YLeaf(YType.uint32, 'te-head-entries'), ['int'])),
                         ('te_frr_head_entries', (YLeaf(YType.uint32, 'te-frr-head-entries'), ['int'])),
@@ -50062,6 +52008,9 @@ class MplsForwarding(Entity):
                     self.ipv4_imposition_entries = None
                     self.reserved_label_entries = None
                     self.label_switched_entries = None
+                    self.protected_label_switched_entries = None
+                    self.frr_ready_label_switched_entries = None
+                    self.frr_active_label_switched_entries = None
                     self.deleted_stale_entries = None
                     self.te_head_entries = None
                     self.te_frr_head_entries = None
@@ -50092,7 +52041,7 @@ class MplsForwarding(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsForwarding.Nodes.Node.ForwardingSummary, [u'ipv4_imposition_entries', u'reserved_label_entries', u'label_switched_entries', u'deleted_stale_entries', u'te_head_entries', u'te_frr_head_entries', u'te_frr_interface_entries', u'te_frr_next_hop_entries', u'te_mid_points_entries', u'te_frr_mid_points_entries', u'te_internal_entries', u'te_frr_internal_entries', u'total_forwarding_updates', u'total_forwarding_update_messages', u'total_p2mp_forwarding_updates', u'total_p2mp_forwarding_added_or_modify_messages', u'total_p2mp_forwarding_delete_messages', u'total_p2mp_forwarding_drop_messages', u'total_p2mp_iir_forwarding_drop_messages', u'lowest_label', u'highest_label', u'ignore_protect', u'mte_head_entries', u'mte_ll_entries', u'mte_midpoint_entries', u'global_dropped_packets', u'global_fragmented_packets', u'global_failed_lookups', u'lrpf_entries'], name, value)
+                    self._perform_setattr(MplsForwarding.Nodes.Node.ForwardingSummary, ['ipv4_imposition_entries', 'reserved_label_entries', 'label_switched_entries', 'protected_label_switched_entries', 'frr_ready_label_switched_entries', 'frr_active_label_switched_entries', 'deleted_stale_entries', 'te_head_entries', 'te_frr_head_entries', 'te_frr_interface_entries', 'te_frr_next_hop_entries', 'te_mid_points_entries', 'te_frr_mid_points_entries', 'te_internal_entries', 'te_frr_internal_entries', 'total_forwarding_updates', 'total_forwarding_update_messages', 'total_p2mp_forwarding_updates', 'total_p2mp_forwarding_added_or_modify_messages', 'total_p2mp_forwarding_delete_messages', 'total_p2mp_forwarding_drop_messages', 'total_p2mp_iir_forwarding_drop_messages', 'lowest_label', 'highest_label', 'ignore_protect', 'mte_head_entries', 'mte_ll_entries', 'mte_midpoint_entries', 'global_dropped_packets', 'global_fragmented_packets', 'global_failed_lookups', 'lrpf_entries'], name, value)
 
 
 
@@ -50260,7 +52209,7 @@ class MplsForwarding(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrLogs.FrrLog, ['event_id', u'protected_frr_interface_name', u'next_hop', u'number_of_rewrites_affected', u'switching_time_nsecs', u'main_processing', u'fast_bundle_member_down_interface', u'frr_event_node_id'], name, value)
+                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrLogs.FrrLog, ['event_id', 'protected_frr_interface_name', 'next_hop', 'number_of_rewrites_affected', 'switching_time_nsecs', 'main_processing', 'fast_bundle_member_down_interface', 'frr_event_node_id'], name, value)
 
 
                     class StartTime(Entity):
@@ -50316,7 +52265,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime, [u'seconds', u'nanoseconds'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -50728,7 +52677,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail, ['label_value', 'eos', u'leaf_local_label', u'eos_bit', u'hardware_information', u'leaf_referance_count', u'leaf_flags', u'path_list_referance_count', u'path_list_flags', u'ldi_referance_count', u'ldi_flags', u'ldi_type', u'ldi_pointer', u'lw_ldi_type', u'lw_ldi_pointer', u'lw_ldi_refernace_count', u'lw_shared_ldi_pointer', u'lspa_flags', u'afi_table_id', u'multicast_label', u'leaf_time_in_milli_seconds', u'total_number_of_packets_switched', u'total_number_of_bytes_switched'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail, ['label_value', 'eos', 'leaf_local_label', 'eos_bit', 'hardware_information', 'leaf_referance_count', 'leaf_flags', 'path_list_referance_count', 'path_list_flags', 'ldi_referance_count', 'ldi_flags', 'ldi_type', 'ldi_pointer', 'lw_ldi_type', 'lw_ldi_pointer', 'lw_ldi_refernace_count', 'lw_shared_ldi_pointer', 'lspa_flags', 'afi_table_id', 'multicast_label', 'leaf_time_in_milli_seconds', 'total_number_of_packets_switched', 'total_number_of_bytes_switched'], name, value)
 
 
                         class LdiInformation(Entity):
@@ -50768,7 +52717,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation, [u'ldi_hardware_information'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation, ['ldi_hardware_information'], name, value)
 
 
 
@@ -50952,7 +52901,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation, [u'multicast_mol_base_flags', u'multicast_mol_flags', u'multicast_mol_referance_count', u'multicast_tunnel_interface_handler', u'multicast_tunnel_id', u'multicast_tunnel_next_hop_information', u'multicast_tunnel_lspvif', u'multicast_mpls_output_paths', u'multicast_mpls_protocol_output_paths', u'multicast_mpls_local_output_paths', u'multicast_rpf_id', u'multicast_encap_id', u'multicast_platform_data_length', u'multicast_platform_data'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation, ['multicast_mol_base_flags', 'multicast_mol_flags', 'multicast_mol_referance_count', 'multicast_tunnel_interface_handler', 'multicast_tunnel_id', 'multicast_tunnel_next_hop_information', 'multicast_tunnel_lspvif', 'multicast_mpls_output_paths', 'multicast_mpls_protocol_output_paths', 'multicast_mpls_local_output_paths', 'multicast_rpf_id', 'multicast_encap_id', 'multicast_platform_data_length', 'multicast_platform_data'], name, value)
 
 
 
@@ -51195,7 +53144,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation, [u'label_information_type', u'local_label', u'outgoing_label', u'mpls_adjacency_flags', u'tunnel_id_present', u'label_information_path_index', u'label_information_next_hop_type', u'label_information_next_hop_protocol', u'tx_bytes', u'tx_packets', u'outgoing_interface', u'outgoing_physical_interface', u'outgoing_parent_interface', u'tunnel_interface', u'outgoing_label_string', u'prefix_or_id', u'label_information_next_hop_string', u'label_information_route_version', u'label_information_time_in_milli_seconds'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation, ['label_information_type', 'local_label', 'outgoing_label', 'mpls_adjacency_flags', 'tunnel_id_present', 'label_information_path_index', 'label_information_next_hop_type', 'label_information_next_hop_protocol', 'tx_bytes', 'tx_packets', 'outgoing_interface', 'outgoing_physical_interface', 'outgoing_parent_interface', 'tunnel_interface', 'outgoing_label_string', 'prefix_or_id', 'label_information_next_hop_string', 'label_information_route_version', 'label_information_time_in_milli_seconds'], name, value)
 
 
                             class LabelInformationDetail(Entity):
@@ -51330,7 +53279,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail, [u'l3_mtu', u'total_encapsulation_size', u'mac_size', u'transmit_number_of_packets_switched', u'transmit_number_of_bytes_switched', u'status', u'next_hop_interface', u'next_hop_protocol', u'next_hop_string'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail, ['l3_mtu', 'total_encapsulation_size', 'mac_size', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'status', 'next_hop_interface', 'next_hop_protocol', 'next_hop_string'], name, value)
 
 
                                 class LabelStack(Entity):
@@ -51339,7 +53288,7 @@ class MplsForwarding(Entity):
                                     
                                     .. attribute:: entry
                                     
-                                    	
+                                    	Label stack
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -51370,7 +53319,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail.LabelStack, [u'entry'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail.LabelStack, ['entry'], name, value)
 
 
 
@@ -51421,7 +53370,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.ExactRouteHashInfo, [u'hash_index_is_valid', u'hash_index'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.ExactRouteHashInfo, ['hash_index_is_valid', 'hash_index'], name, value)
 
 
 
@@ -51773,7 +53722,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information, ['label_value', 'eos', u'leaf_local_label', u'eos_bit', u'hardware_information', u'leaf_referance_count', u'leaf_flags', u'path_list_referance_count', u'path_list_flags', u'ldi_referance_count', u'ldi_flags', u'ldi_type', u'ldi_pointer', u'lw_ldi_type', u'lw_ldi_pointer', u'lw_ldi_refernace_count', u'lw_shared_ldi_pointer', u'lspa_flags', u'afi_table_id', u'multicast_label', u'leaf_time_in_milli_seconds', u'total_number_of_packets_switched', u'total_number_of_bytes_switched'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information, ['label_value', 'eos', 'leaf_local_label', 'eos_bit', 'hardware_information', 'leaf_referance_count', 'leaf_flags', 'path_list_referance_count', 'path_list_flags', 'ldi_referance_count', 'ldi_flags', 'ldi_type', 'ldi_pointer', 'lw_ldi_type', 'lw_ldi_pointer', 'lw_ldi_refernace_count', 'lw_shared_ldi_pointer', 'lspa_flags', 'afi_table_id', 'multicast_label', 'leaf_time_in_milli_seconds', 'total_number_of_packets_switched', 'total_number_of_bytes_switched'], name, value)
 
 
                         class LdiInformation(Entity):
@@ -51813,7 +53762,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LdiInformation, [u'ldi_hardware_information'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LdiInformation, ['ldi_hardware_information'], name, value)
 
 
 
@@ -51997,7 +53946,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.MulticastInformation, [u'multicast_mol_base_flags', u'multicast_mol_flags', u'multicast_mol_referance_count', u'multicast_tunnel_interface_handler', u'multicast_tunnel_id', u'multicast_tunnel_next_hop_information', u'multicast_tunnel_lspvif', u'multicast_mpls_output_paths', u'multicast_mpls_protocol_output_paths', u'multicast_mpls_local_output_paths', u'multicast_rpf_id', u'multicast_encap_id', u'multicast_platform_data_length', u'multicast_platform_data'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.MulticastInformation, ['multicast_mol_base_flags', 'multicast_mol_flags', 'multicast_mol_referance_count', 'multicast_tunnel_interface_handler', 'multicast_tunnel_id', 'multicast_tunnel_next_hop_information', 'multicast_tunnel_lspvif', 'multicast_mpls_output_paths', 'multicast_mpls_protocol_output_paths', 'multicast_mpls_local_output_paths', 'multicast_rpf_id', 'multicast_encap_id', 'multicast_platform_data_length', 'multicast_platform_data'], name, value)
 
 
 
@@ -52240,7 +54189,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation, [u'label_information_type', u'local_label', u'outgoing_label', u'mpls_adjacency_flags', u'tunnel_id_present', u'label_information_path_index', u'label_information_next_hop_type', u'label_information_next_hop_protocol', u'tx_bytes', u'tx_packets', u'outgoing_interface', u'outgoing_physical_interface', u'outgoing_parent_interface', u'tunnel_interface', u'outgoing_label_string', u'prefix_or_id', u'label_information_next_hop_string', u'label_information_route_version', u'label_information_time_in_milli_seconds'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation, ['label_information_type', 'local_label', 'outgoing_label', 'mpls_adjacency_flags', 'tunnel_id_present', 'label_information_path_index', 'label_information_next_hop_type', 'label_information_next_hop_protocol', 'tx_bytes', 'tx_packets', 'outgoing_interface', 'outgoing_physical_interface', 'outgoing_parent_interface', 'tunnel_interface', 'outgoing_label_string', 'prefix_or_id', 'label_information_next_hop_string', 'label_information_route_version', 'label_information_time_in_milli_seconds'], name, value)
 
 
                             class LabelInformationDetail(Entity):
@@ -52375,7 +54324,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.LabelInformationDetail, [u'l3_mtu', u'total_encapsulation_size', u'mac_size', u'transmit_number_of_packets_switched', u'transmit_number_of_bytes_switched', u'status', u'next_hop_interface', u'next_hop_protocol', u'next_hop_string'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.LabelInformationDetail, ['l3_mtu', 'total_encapsulation_size', 'mac_size', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'status', 'next_hop_interface', 'next_hop_protocol', 'next_hop_string'], name, value)
 
 
                                 class LabelStack(Entity):
@@ -52384,7 +54333,7 @@ class MplsForwarding(Entity):
                                     
                                     .. attribute:: entry
                                     
-                                    	
+                                    	Label stack
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -52415,7 +54364,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.LabelInformationDetail.LabelStack, [u'entry'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.LabelInformationDetail.LabelStack, ['entry'], name, value)
 
 
 
@@ -52466,7 +54415,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.ExactRouteHashInfo, [u'hash_index_is_valid', u'hash_index'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.ExactRouteHashInfo, ['hash_index_is_valid', 'hash_index'], name, value)
 
 
 
@@ -52666,7 +54615,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Interfaces.Interface, ['interface_name', u'rpf_enabled', u'rpf_supported', u'mld_enabled', u'mld_supported', u'rpf_drops', u'multi_label_drops', u'rpfifh'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Interfaces.Interface, ['interface_name', 'rpf_enabled', 'rpf_supported', 'mld_enabled', 'mld_supported', 'rpf_drops', 'multi_label_drops', 'rpfifh'], name, value)
 
 
 
@@ -52719,7 +54668,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Summary, [u'rpf_drops', u'multi_label_drops'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Summary, ['rpf_drops', 'multi_label_drops'], name, value)
 
 
 
@@ -52969,7 +54918,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo, [u'tunnel_interface_name', u'tunnel_local_label', u'tunnel_fwd_class', u'tunnel_load_metric', u'tunnel_is_srte', u'tunnel_resolution_incomplete', u'tunnel_resolution_inconsistent', u'tunnel_is_programmed_to_drop'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo, ['tunnel_interface_name', 'tunnel_local_label', 'tunnel_fwd_class', 'tunnel_load_metric', 'tunnel_is_srte', 'tunnel_resolution_incomplete', 'tunnel_resolution_inconsistent', 'tunnel_is_programmed_to_drop'], name, value)
 
 
 
@@ -53261,7 +55210,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg, [u'leaf_local_label', u'eos_bit', u'hardware_information', u'leaf_referance_count', u'leaf_flags', u'path_list_referance_count', u'path_list_flags', u'ldi_referance_count', u'ldi_flags', u'ldi_type', u'ldi_pointer', u'lw_ldi_type', u'lw_ldi_pointer', u'lw_ldi_refernace_count', u'lw_shared_ldi_pointer', u'lspa_flags', u'afi_table_id', u'multicast_label', u'leaf_time_in_milli_seconds', u'total_number_of_packets_switched', u'total_number_of_bytes_switched'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg, ['leaf_local_label', 'eos_bit', 'hardware_information', 'leaf_referance_count', 'leaf_flags', 'path_list_referance_count', 'path_list_flags', 'ldi_referance_count', 'ldi_flags', 'ldi_type', 'ldi_pointer', 'lw_ldi_type', 'lw_ldi_pointer', 'lw_ldi_refernace_count', 'lw_shared_ldi_pointer', 'lspa_flags', 'afi_table_id', 'multicast_label', 'leaf_time_in_milli_seconds', 'total_number_of_packets_switched', 'total_number_of_bytes_switched'], name, value)
 
 
                             class LdiInformation(Entity):
@@ -53301,7 +55250,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation, [u'ldi_hardware_information'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation, ['ldi_hardware_information'], name, value)
 
 
 
@@ -53485,7 +55434,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation, [u'multicast_mol_base_flags', u'multicast_mol_flags', u'multicast_mol_referance_count', u'multicast_tunnel_interface_handler', u'multicast_tunnel_id', u'multicast_tunnel_next_hop_information', u'multicast_tunnel_lspvif', u'multicast_mpls_output_paths', u'multicast_mpls_protocol_output_paths', u'multicast_mpls_local_output_paths', u'multicast_rpf_id', u'multicast_encap_id', u'multicast_platform_data_length', u'multicast_platform_data'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation, ['multicast_mol_base_flags', 'multicast_mol_flags', 'multicast_mol_referance_count', 'multicast_tunnel_interface_handler', 'multicast_tunnel_id', 'multicast_tunnel_next_hop_information', 'multicast_tunnel_lspvif', 'multicast_mpls_output_paths', 'multicast_mpls_protocol_output_paths', 'multicast_mpls_local_output_paths', 'multicast_rpf_id', 'multicast_encap_id', 'multicast_platform_data_length', 'multicast_platform_data'], name, value)
 
 
 
@@ -53728,7 +55677,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation, [u'label_information_type', u'local_label', u'outgoing_label', u'mpls_adjacency_flags', u'tunnel_id_present', u'label_information_path_index', u'label_information_next_hop_type', u'label_information_next_hop_protocol', u'tx_bytes', u'tx_packets', u'outgoing_interface', u'outgoing_physical_interface', u'outgoing_parent_interface', u'tunnel_interface', u'outgoing_label_string', u'prefix_or_id', u'label_information_next_hop_string', u'label_information_route_version', u'label_information_time_in_milli_seconds'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation, ['label_information_type', 'local_label', 'outgoing_label', 'mpls_adjacency_flags', 'tunnel_id_present', 'label_information_path_index', 'label_information_next_hop_type', 'label_information_next_hop_protocol', 'tx_bytes', 'tx_packets', 'outgoing_interface', 'outgoing_physical_interface', 'outgoing_parent_interface', 'tunnel_interface', 'outgoing_label_string', 'prefix_or_id', 'label_information_next_hop_string', 'label_information_route_version', 'label_information_time_in_milli_seconds'], name, value)
 
 
                                 class LabelInformationDetail(Entity):
@@ -53863,7 +55812,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail, [u'l3_mtu', u'total_encapsulation_size', u'mac_size', u'transmit_number_of_packets_switched', u'transmit_number_of_bytes_switched', u'status', u'next_hop_interface', u'next_hop_protocol', u'next_hop_string'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail, ['l3_mtu', 'total_encapsulation_size', 'mac_size', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'status', 'next_hop_interface', 'next_hop_protocol', 'next_hop_string'], name, value)
 
 
                                     class LabelStack(Entity):
@@ -53872,7 +55821,7 @@ class MplsForwarding(Entity):
                                         
                                         .. attribute:: entry
                                         
-                                        	
+                                        	Label stack
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
@@ -53903,7 +55852,7 @@ class MplsForwarding(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail.LabelStack, [u'entry'], name, value)
+                                            self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail.LabelStack, ['entry'], name, value)
 
 
 
@@ -53954,7 +55903,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.ExactRouteHashInfo, [u'hash_index_is_valid', u'hash_index'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.ExactRouteHashInfo, ['hash_index_is_valid', 'hash_index'], name, value)
 
 
 
@@ -54138,7 +56087,7 @@ class MplsForwarding(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary, [u'active', u'ready', u'partial', u'other'], name, value)
+                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary, ['active', 'ready', 'partial', 'other'], name, value)
 
 
 
@@ -54262,7 +56211,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary, ['interface_name', u'active', u'ready', u'partial', u'other'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary, ['interface_name', 'active', 'ready', 'partial', 'other'], name, value)
 
 
 
@@ -54338,7 +56287,7 @@ class MplsForwarding(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary, [u'active', u'ready', u'partial', u'other'], name, value)
+                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary, ['active', 'ready', 'partial', 'other'], name, value)
 
 
 
@@ -54447,7 +56396,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint, ['local_label', u'outgoing_lable_string', u'frr_lable_string'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint, ['local_label', 'outgoing_lable_string', 'frr_lable_string'], name, value)
 
 
                         class FrrDb(Entity):
@@ -54611,7 +56560,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb, [u'tunnel_interface_name', u'input_label', u'outgoing_interface', u'outgoing_label', u'frr_interface_name', u'frr_label', u'entry_frr_state', u'frr_next_hop_ipv4_address', u'is_mldp_lsp', u'is_multicast_tunnel', u'multicast_tunnel_legs'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb, ['tunnel_interface_name', 'input_label', 'outgoing_interface', 'outgoing_label', 'frr_interface_name', 'frr_label', 'entry_frr_state', 'frr_next_hop_ipv4_address', 'is_mldp_lsp', 'is_multicast_tunnel', 'multicast_tunnel_legs'], name, value)
 
 
                             class FrrEntryId(Entity):
@@ -54671,7 +56620,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId, [u'role'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId, ['role'], name, value)
 
 
                                 class Head(Entity):
@@ -54722,7 +56671,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head, [u'destination_prefix', u'destination_prefix_length'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head, ['destination_prefix', 'destination_prefix_length'], name, value)
 
 
 
@@ -54785,7 +56734,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint, [u'source_address', u'lspid', u'tunnel_id'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint, ['source_address', 'lspid', 'tunnel_id'], name, value)
 
 
 
@@ -54922,7 +56871,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg, [u'tunnel_interface_name', u'input_label', u'outgoing_interface', u'outgoing_label', u'frr_interface_name', u'frr_label', u'entry_frr_state', u'frr_next_hop_ipv4_address', u'is_mldp_lsp'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg, ['tunnel_interface_name', 'input_label', 'outgoing_interface', 'outgoing_label', 'frr_interface_name', 'frr_label', 'entry_frr_state', 'frr_next_hop_ipv4_address', 'is_mldp_lsp'], name, value)
 
 
                                 class FrrEntryId(Entity):
@@ -54982,7 +56931,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId, [u'role'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId, ['role'], name, value)
 
 
                                     class Head(Entity):
@@ -55033,7 +56982,7 @@ class MplsForwarding(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head, [u'destination_prefix', u'destination_prefix_length'], name, value)
+                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head, ['destination_prefix', 'destination_prefix_length'], name, value)
 
 
 
@@ -55096,7 +57045,7 @@ class MplsForwarding(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint, [u'source_address', u'lspid', u'tunnel_id'], name, value)
+                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint, ['source_address', 'lspid', 'tunnel_id'], name, value)
 
 
 
@@ -55210,7 +57159,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead, ['interface_name', u'outgoing_lable_string', u'frr_lable_string'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead, ['interface_name', 'outgoing_lable_string', 'frr_lable_string'], name, value)
 
 
                         class FrrDb(Entity):
@@ -55374,7 +57323,7 @@ class MplsForwarding(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb, [u'tunnel_interface_name', u'input_label', u'outgoing_interface', u'outgoing_label', u'frr_interface_name', u'frr_label', u'entry_frr_state', u'frr_next_hop_ipv4_address', u'is_mldp_lsp', u'is_multicast_tunnel', u'multicast_tunnel_legs'], name, value)
+                                self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb, ['tunnel_interface_name', 'input_label', 'outgoing_interface', 'outgoing_label', 'frr_interface_name', 'frr_label', 'entry_frr_state', 'frr_next_hop_ipv4_address', 'is_mldp_lsp', 'is_multicast_tunnel', 'multicast_tunnel_legs'], name, value)
 
 
                             class FrrEntryId(Entity):
@@ -55434,7 +57383,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId, [u'role'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId, ['role'], name, value)
 
 
                                 class Head(Entity):
@@ -55485,7 +57434,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head, [u'destination_prefix', u'destination_prefix_length'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head, ['destination_prefix', 'destination_prefix_length'], name, value)
 
 
 
@@ -55548,7 +57497,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint, [u'source_address', u'lspid', u'tunnel_id'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint, ['source_address', 'lspid', 'tunnel_id'], name, value)
 
 
 
@@ -55685,7 +57634,7 @@ class MplsForwarding(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg, [u'tunnel_interface_name', u'input_label', u'outgoing_interface', u'outgoing_label', u'frr_interface_name', u'frr_label', u'entry_frr_state', u'frr_next_hop_ipv4_address', u'is_mldp_lsp'], name, value)
+                                    self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg, ['tunnel_interface_name', 'input_label', 'outgoing_interface', 'outgoing_label', 'frr_interface_name', 'frr_label', 'entry_frr_state', 'frr_next_hop_ipv4_address', 'is_mldp_lsp'], name, value)
 
 
                                 class FrrEntryId(Entity):
@@ -55745,7 +57694,7 @@ class MplsForwarding(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId, [u'role'], name, value)
+                                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId, ['role'], name, value)
 
 
                                     class Head(Entity):
@@ -55796,7 +57745,7 @@ class MplsForwarding(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head, [u'destination_prefix', u'destination_prefix_length'], name, value)
+                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head, ['destination_prefix', 'destination_prefix_length'], name, value)
 
 
 
@@ -55859,7 +57808,7 @@ class MplsForwarding(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint, [u'source_address', u'lspid', u'tunnel_id'], name, value)
+                                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint, ['source_address', 'lspid', 'tunnel_id'], name, value)
 
 
 
@@ -55939,7 +57888,7 @@ class MplsForwarding(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary, [u'active', u'ready', u'partial', u'other'], name, value)
+                        self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary, ['active', 'ready', 'partial', 'other'], name, value)
 
 
 
@@ -56063,7 +58012,7 @@ class MplsForwarding(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary, ['interface_name', u'active', u'ready', u'partial', u'other'], name, value)
+                            self._perform_setattr(MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary, ['interface_name', 'active', 'ready', 'partial', 'other'], name, value)
 
 
 

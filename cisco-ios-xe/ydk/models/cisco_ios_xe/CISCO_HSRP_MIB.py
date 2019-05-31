@@ -171,7 +171,7 @@ class CISCOHSRPMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOHSRPMIB.CHsrpGlobalConfig, [u'chsrpconfigtimeout'], name, value)
+            self._perform_setattr(CISCOHSRPMIB.CHsrpGlobalConfig, ['chsrpconfigtimeout'], name, value)
 
 
 
@@ -483,7 +483,7 @@ class CISCOHSRPMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry, [u'ifindex', u'chsrpgrpnumber', u'chsrpgrpauth', u'chsrpgrppriority', u'chsrpgrppreempt', u'chsrpgrppreemptdelay', u'chsrpgrpuseconfiguredtimers', u'chsrpgrpconfiguredhellotime', u'chsrpgrpconfiguredholdtime', u'chsrpgrplearnedhellotime', u'chsrpgrplearnedholdtime', u'chsrpgrpvirtualipaddr', u'chsrpgrpuseconfigvirtualipaddr', u'chsrpgrpactiverouter', u'chsrpgrpstandbyrouter', u'chsrpgrpstandbystate', u'chsrpgrpvirtualmacaddr', u'chsrpgrpentryrowstatus', u'chsrpgrpipnone'], name, value)
+                self._perform_setattr(CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry, ['ifindex', 'chsrpgrpnumber', 'chsrpgrpauth', 'chsrpgrppriority', 'chsrpgrppreempt', 'chsrpgrppreemptdelay', 'chsrpgrpuseconfiguredtimers', 'chsrpgrpconfiguredhellotime', 'chsrpgrpconfiguredholdtime', 'chsrpgrplearnedhellotime', 'chsrpgrplearnedholdtime', 'chsrpgrpvirtualipaddr', 'chsrpgrpuseconfigvirtualipaddr', 'chsrpgrpactiverouter', 'chsrpgrpstandbyrouter', 'chsrpgrpstandbystate', 'chsrpgrpvirtualmacaddr', 'chsrpgrpentryrowstatus', 'chsrpgrpipnone'], name, value)
 
 
 

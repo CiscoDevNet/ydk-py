@@ -6,16 +6,16 @@ module Cisco-IOS-XR-invmgr-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-invmgr-oper-sub4 {
-    revision-date 2017-09-07;
+    revision-date 2018-04-19;
   }
   include Cisco-IOS-XR-invmgr-oper-sub3 {
-    revision-date 2017-09-07;
+    revision-date 2018-04-19;
   }
   include Cisco-IOS-XR-invmgr-oper-sub2 {
-    revision-date 2017-09-07;
+    revision-date 2018-04-19;
   }
   include Cisco-IOS-XR-invmgr-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2018-04-19;
   }
 
   organization
@@ -41,6 +41,10 @@ module Cisco-IOS-XR-invmgr-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-19 {
+    description
+      "Added additional bags";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -58,6 +62,19 @@ module Cisco-IOS-XR-invmgr-oper {
     description
       "Common node of minor-lo, minor-hi, major-lo,
        major-hi, critical-lo, critical-hi";
+    container thresh-bag {
+      description
+        "Environment threshold info";
+      uses ENVMON-THRESHOLD-INFO;
+    }
+  }
+
+  grouping INVMGR-EXT1-OPER-THRESH-BAG {
+    description
+      "Common node of minor-lo, minor-hi, major-lo,
+       major-hi, critical-lo, critical-hiCommon node of
+       minor-lo, minor-hi, major-lo, major-hi,
+       critical-lo, critical-hi";
     container thresh-bag {
       description
         "Environment threshold info";
@@ -336,6 +353,21 @@ module Cisco-IOS-XR-invmgr-oper {
         key "name";
         description
           "Entity name";
+        container subentities {
+          description
+            "SubEntities Table";
+          list subentity {
+            key "name";
+            description
+              "Subentity Bag";
+            leaf name {
+              type string;
+              description
+                "Subentity name";
+            }
+            uses SUBENTITY-INFO;
+          }
+        }
         container attributes {
           description
             "Attributes";
@@ -344,30 +376,79 @@ module Cisco-IOS-XR-invmgr-oper {
               "Inventory Basic Bag";
             uses INV-PHY-ENTITY-BASIC-INFO;
           }
+          container vm-node-id {
+            description
+              "VM Node ID Tuple";
+            uses VM-NODEID-INFO;
+          }
+          container threshold {
+            description
+              "Threshold";
+            container minor-hi {
+              description
+                "Minor High";
+              uses INVMGR-EXT1-OPER-THRESH-BAG;
+            }
+            container major-hi {
+              description
+                "Major High";
+              uses INVMGR-EXT1-OPER-THRESH-BAG;
+            }
+            container minor-lo {
+              description
+                "Minor Low";
+              uses INVMGR-EXT1-OPER-THRESH-BAG;
+            }
+            container major-lo {
+              description
+                "Major Low";
+              uses INVMGR-EXT1-OPER-THRESH-BAG;
+            }
+            container critical-hi {
+              description
+                "Critical High";
+              uses INVMGR-EXT1-OPER-THRESH-BAG;
+            }
+            container critical-lo {
+              description
+                "Critical Low";
+              uses INVMGR-EXT1-OPER-THRESH-BAG;
+            }
+          }
+          container vm-done {
+            description
+              "VM Done Tuple";
+            uses VMDONE-INFO;
+          }
+          container fru-info {
+            description
+              "Inventory EDM FRU info";
+            uses INV-CARD-FRU-INFO;
+          }
+          container env-sensor-info-xml {
+            description
+              "Environment sensor info XML";
+            uses ENVMON-SENSOR-INFO-XML;
+          }
           container inv-asset-bag {
             description
               "Inventory Asset Bag";
             uses INV-PHY-ENTITY-ASSET-INFO;
           }
-        }
-        container subentities {
-          description
-            "SubEntities Table";
-          list subentity {
-            key "name";
+          container env-sensor-info {
             description
-              "Subentity name";
-            leaf name {
-              type string;
-              description
-                "Subentity name";
-            }
-            leaf name-xr {
-              type string;
-              mandatory true;
-              description
-                "Subentity name";
-            }
+              "Environment sensor info";
+            uses ENVMON-SENSOR-INFO;
+          }
+          container node-id {
+            description
+              "Node ID Tuple";
+            uses NODEID-INFO;
+          }
+          container inv-eeprom-info {
+            description
+              "Inventory EDM EEPROM Information Bag";
+            uses INVMGR-EEPROM-OPAQUE-DATA;
           }
         }
         leaf name {

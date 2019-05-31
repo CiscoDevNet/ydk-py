@@ -239,6 +239,11 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
         description
           "Slave Role";
       }
+      enum "active" {
+        value 3;
+        description
+          "Active Role";
+      }
     }
     description
       "SERG Role";
@@ -260,6 +265,11 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
         value 2;
         description
           "Slave Role";
+      }
+      enum "active" {
+        value 3;
+        description
+          "Active Role";
       }
     }
     description
@@ -1402,6 +1412,16 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       description
         "TxListReceiveSessionSessionEODSelected";
     }
+    leaf tx-list-rx-tcp-restart-start-of-download {
+      type uint32;
+      description
+        "TxListRxTCPRestartStartOfDownload";
+    }
+    leaf tx-list-rx-tcp-restart-end-of-download {
+      type uint32;
+      description
+        "TxListRxTCPRestartEndOfDownload";
+    }
     leaf tx-list-receive-session-session-eoms {
       type uint32;
       description
@@ -1574,10 +1594,20 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       description
         "Master Role is Set";
     }
+    leaf role-active {
+      type boolean;
+      description
+        "Active Role is Set";
+    }
     leaf negative-acknowledgement-update-all {
       type boolean;
       description
         "Negative Acknowledgement Update Flag is Set";
+    }
+    leaf entry-type {
+      type boolean;
+      description
+        "Local or Sync Entry";
     }
     list session-detailed-information {
       description
@@ -1659,6 +1689,11 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       description
         "No. of Slave Groups";
     }
+    leaf active-group-count {
+      type uint32;
+      description
+        "No. of Active Groups";
+    }
     leaf interface-count {
       type uint32;
       description
@@ -1673,6 +1708,11 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       type uint32;
       description
         "No. of Slave Interfaces";
+    }
+    leaf active-interface-count {
+      type uint32;
+      description
+        "No. of Active Interfaces";
     }
     leaf pool-count {
       type uint32;

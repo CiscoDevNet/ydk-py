@@ -381,7 +381,7 @@ class PlatformPtp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PlatformPtp.PlatformPtpServo, [u'lock_status', u'running', u'device_status', u'log_level', u'phase_accuracy_last', u'num_sync_timestamp', u'num_delay_timestamp', u'num_set_time', u'num_step_time', u'num_adjust_freq', u'num_adjust_freq_time', u'last_adjust_freq', u'last_step_time', u'num_discard_sync_timestamp', u'num_discard_delay_timestamp', u'flagof_last_set_time', u'offset_from_master', u'mean_path_delay'], name, value)
+            self._perform_setattr(PlatformPtp.PlatformPtpServo, ['lock_status', 'running', 'device_status', 'log_level', 'phase_accuracy_last', 'num_sync_timestamp', 'num_delay_timestamp', 'num_set_time', 'num_step_time', 'num_adjust_freq', 'num_adjust_freq_time', 'last_adjust_freq', 'last_step_time', 'num_discard_sync_timestamp', 'num_discard_delay_timestamp', 'flagof_last_set_time', 'offset_from_master', 'mean_path_delay'], name, value)
 
 
         class LastSetTime(Entity):
@@ -433,7 +433,7 @@ class PlatformPtp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastSetTime, [u'second', u'nano_second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastSetTime, ['second', 'nano_second'], name, value)
 
 
 
@@ -486,7 +486,7 @@ class PlatformPtp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT1, [u'second', u'nano_second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT1, ['second', 'nano_second'], name, value)
 
 
 
@@ -539,7 +539,7 @@ class PlatformPtp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT2, [u'second', u'nano_second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT2, ['second', 'nano_second'], name, value)
 
 
 
@@ -592,7 +592,7 @@ class PlatformPtp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT3, [u'second', u'nano_second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT3, ['second', 'nano_second'], name, value)
 
 
 
@@ -645,7 +645,7 @@ class PlatformPtp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT4, [u'second', u'nano_second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT4, ['second', 'nano_second'], name, value)
 
 
 
@@ -698,7 +698,7 @@ class PlatformPtp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT1, [u'second', u'nano_second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT1, ['second', 'nano_second'], name, value)
 
 
 
@@ -751,7 +751,7 @@ class PlatformPtp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT2, [u'second', u'nano_second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT2, ['second', 'nano_second'], name, value)
 
 
 
@@ -804,7 +804,7 @@ class PlatformPtp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT3, [u'second', u'nano_second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT3, ['second', 'nano_second'], name, value)
 
 
 
@@ -857,7 +857,7 @@ class PlatformPtp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT4, [u'second', u'nano_second'], name, value)
+                self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT4, ['second', 'nano_second'], name, value)
 
 
 

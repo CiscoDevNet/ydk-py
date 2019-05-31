@@ -53,6 +53,23 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Ipv6dhcp-mode {
+    type enumeration {
+      enum "server" {
+        value 1;
+        description
+          "Specify mode-class based Server option";
+      }
+      enum "proxy" {
+        value 2;
+        description
+          "Specify mode-class based Proxy option";
+      }
+    }
+    description
+      "Ipv6dhcp mode";
+  }
+
   typedef Insert {
     type enumeration {
       enum "local" {
@@ -79,6 +96,18 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
     }
     description
       "Insert";
+  }
+
+  typedef Ipv6dhcp-default-mode {
+    type enumeration {
+      enum "server" {
+        value 1;
+        description
+          "Specify mode-class based Server option";
+      }
+    }
+    description
+      "Ipv6dhcp default mode";
   }
 
   typedef Subscriber-id {
@@ -120,33 +149,6 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
     }
     description
       "Link layer addr";
-  }
-
-  grouping PROFILE {
-    description
-      "Common node of mode-class, default";
-    list profile {
-      key "profile-name";
-      description
-        "Enter proxy or server profile";
-      leaf server-mode {
-        type empty;
-        description
-          "Specify mode-class based Server option";
-      }
-      leaf proxy-mode {
-        type empty;
-        description
-          "Specify mode-class based Proxy Option";
-      }
-      leaf profile-name {
-        type xr:Cisco-ios-xr-string {
-          length "1..64";
-        }
-        description
-          "Profile name";
-      }
-    }
   }
 
   container dhcpv6 {
@@ -280,10 +282,49 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
           presence "Indicates a base node is configured.";
           description
             "None";
-          container default {
+          container dhcpv6-to-aaa {
+            description
+              "Enable to provide the list of options need to
+               send to aaa";
+            container base-option {
+              description
+                "option type";
+              container list {
+                description
+                  "List of options";
+                leaf option-all {
+                  type uint32;
+                  description
+                    "Set constant integer";
+                }
+                leaf-list option-number {
+                  type uint32;
+                  max-elements "12";
+                  description
+                    "Option number";
+                }
+              }
+            }
+          }
+          container match-default {
             description
               "Default match option";
-            uses PROFILE;
+            container profile {
+              description
+                "None";
+              leaf profile-name {
+                type xr:Cisco-ios-xr-string {
+                  length "1..64";
+                }
+                description
+                  "Profile name";
+              }
+              leaf default-mode {
+                type Ipv6dhcp-default-mode;
+                description
+                  "Set constant integer";
+              }
+            }
           }
           container match {
             description
@@ -295,14 +336,29 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
                 key "class-name";
                 description
                   "Specify PPP/IPoE class option";
+                container profile {
+                  description
+                    "Enter proxy or server profile";
+                  leaf profile-name {
+                    type xr:Cisco-ios-xr-string {
+                      length "1..64";
+                    }
+                    description
+                      "Profile name";
+                  }
+                  leaf mode {
+                    type Ipv6dhcp-mode;
+                    description
+                      "Set constant integer";
+                  }
+                }
                 leaf class-name {
                   type xr:Cisco-ios-xr-string {
-                    length "1..128";
+                    length "1..64";
                   }
                   description
                     "Class name";
                 }
-                uses PROFILE;
               }
             }
           }
@@ -460,7 +516,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
               }
               leaf class-name {
                 type xr:Cisco-ios-xr-string {
-                  length "1..128";
+                  length "1..64";
                 }
                 description
                   "Class name";
@@ -664,7 +720,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
               }
               leaf class-name {
                 type xr:Cisco-ios-xr-string {
-                  length "1..128";
+                  length "1..64";
                 }
                 description
                   "class name";

@@ -53,6 +53,10 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-27 {
+    description
+      "Made bins-width mandatory";
+  }
   revision 2017-10-06 {
     description
       "SLA thresholds and actions schema/yang added.";
@@ -309,6 +313,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
                   type uint32 {
                     range "1..10000";
                   }
+                  mandatory true;
                   description
                     "Width of each bin";
                 }
@@ -356,7 +361,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
             leaf probe-interval-day {
               type dt2:Sla-probe-interval-day-enum;
               description
-                "Day of week on which to schedule probes.
+                "Day of week on which to schedule probes. 
                  This must be specified if, and only if,
                  ProbeIntervalUnit is 'Week'.";
             }
@@ -420,7 +425,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
             container send {
               presence "Indicates a send node is configured.";
               description
-                "Schedule to use for packets within a burst.
+                "Schedule to use for packets within a burst. 
                  The default value is to send a single packet
                  once.";
               leaf burst-interval {
@@ -519,6 +524,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
           }
           leaf packet-type {
             type string;
+            mandatory true;
             description
               "The possible packet types are cfm-loopback,
                cfm-delay-measurement,
@@ -595,7 +601,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
                 "Properties for this MEP";
               leaf service {
                 type string {
-                  length "1..79";
+                  length "1..127";
                 }
                 mandatory true;
                 description
@@ -669,7 +675,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
           }
           leaf domain {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Maintenance Domain";
@@ -967,7 +973,9 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
                    that have timed out";
               }
               leaf tags {
-                type uint32;
+                type uint32 {
+                  range "1";
+                }
                 description
                   "The number of tags to use when sending CFM
                    packets from up MEPs in this Service";
@@ -1000,7 +1008,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
               }
               leaf service {
                 type string {
-                  length "1..79";
+                  length "1..127";
                 }
                 description
                   "Service (Maintenance Association)";
@@ -1057,7 +1065,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
           }
           leaf domain {
             type string {
-              length "1..79";
+              length "1..127";
             }
             description
               "Maintenance Domain";

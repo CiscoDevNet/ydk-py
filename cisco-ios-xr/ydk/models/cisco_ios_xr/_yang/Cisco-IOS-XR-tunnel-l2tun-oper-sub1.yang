@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-01 {
+    description
+      "Added Yang support show l2tpv2 internal.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -163,7 +167,7 @@ submodule Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
       type uint32;
       units "microsecond";
       description
-        "Average processing time for received packets
+        "Average processing time for received packets 
          (in micro seconds)";
     }
     leaf received-out-of-order-packets {
@@ -227,6 +231,326 @@ submodule Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
       units "byte";
       description
         "Number of bytes sent out";
+    }
+  }
+
+  grouping L2TP-INTERNAL-BAG-DATA {
+    description
+      "L2TP INTERNAL BAG DATA";
+    leaf l2tp-sh-l2x-num-tunnels {
+      type uint32;
+      description
+        "l2tp sh l2x num tunnels";
+    }
+    leaf l2tp-sh-l2x-num-sessions {
+      type uint32;
+      description
+        "l2tp sh l2x num sessions";
+    }
+    leaf l2tp-sh-l2x-rx-high-water-mark {
+      type uint32;
+      description
+        "l2tp sh l2x rx high water mark";
+    }
+    leaf l2tp-sh-l2x-ave-msg-process-usecs {
+      type uint64;
+      description
+        "l2tp sh l2x ave msg process usecs";
+    }
+    leaf l2tp-sh-l2x-num-rx-msgs {
+      type uint32;
+      description
+        "l2tp sh l2x num rx msgs";
+    }
+    leaf l2tp-sh-l2x-num-tx-msgs {
+      type uint32;
+      description
+        "l2tp sh l2x num tx msgs";
+    }
+    leaf l2tp-sh-l2x-num-tx-err-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num tx err drops";
+    }
+    leaf l2tp-sh-l2x-num-tx-conn-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num tx conn drops";
+    }
+    leaf l2tp-sh-l2x-num-reordered-msgs {
+      type uint32;
+      description
+        "l2tp sh l2x num reordered msgs";
+    }
+    leaf l2tp-sh-l2x-max-reorder-deviation {
+      type uint32;
+      description
+        "l2tp sh l2x max reorder deviation";
+    }
+    leaf l2tp-sh-l2x-num-ooo-msgs {
+      type uint32;
+      description
+        "l2tp sh l2x num ooo msgs";
+    }
+    leaf l2tp-sh-l2x-num-rx-path-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num rx path drops";
+    }
+    leaf l2tp-sh-l2x-num-rx-path-data-pkt-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num rx path data pkt drops";
+    }
+    leaf l2tp-sh-l2x-num-rx-queue-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num rx queue drops";
+    }
+    leaf l2tp-sh-l2x-num-rx-ooo-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num rx ooo drops";
+    }
+    leaf l2tp-sh-l2x-num-buffered-msgs {
+      type uint32;
+      description
+        "l2tp sh l2x num buffered msgs";
+    }
+    leaf l2tp-sh-l2x-num-mutex-block {
+      type uint32;
+      description
+        "l2tp sh l2x num mutex block";
+    }
+    leaf l2tp-sh-l2x-num-bad-len-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num bad len drops";
+    }
+    leaf l2tp-sh-l2x-num-bad-avp-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num bad avp drops";
+    }
+    leaf l2tp-sh-l2x-num-missing-cc-id-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num missing cc id drops";
+    }
+    leaf l2tp-sh-l2x-num-missing-sess-id-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num missing sess id drops";
+    }
+    leaf l2tp-sh-l2x-num-mismatch-cc-id-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num mismatch cc id drops";
+    }
+    leaf l2tp-sh-l2x-num-unknown-cc-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num unknown cc drops";
+    }
+    leaf l2tp-sh-l2x-num-unknown-sess-drops {
+      type uint32;
+      description
+        "l2tp sh l2x num unknown sess drops";
+    }
+    leaf l2tp-sh-l2x-num-linear-id-search {
+      type uint32;
+      description
+        "l2tp sh l2x num linear id search";
+    }
+    leaf l2tp-sh-l2x-num-linear-id-search-fail {
+      type uint32;
+      description
+        "l2tp sh l2x num linear id search fail";
+    }
+    leaf l2tp-sh-l2x-num-netio-pkt-rx {
+      type uint32;
+      description
+        "l2tp sh l2x num netio pkt rx";
+    }
+    leaf l2tp-sh-l2tun-ave-msg-process-usecs {
+      type uint64;
+      description
+        "l2tp sh l2tun ave msg process usecs";
+    }
+    leaf l2tp-sh-l2tun-num-rx-msgs {
+      type uint32;
+      description
+        "l2tp sh l2tun num rx msgs";
+    }
+    leaf l2tp-sh-l2tun-num-tx-msgs {
+      type uint32;
+      description
+        "l2tp sh l2tun num tx msgs";
+    }
+    leaf l2tp-l2tun-socket-ens-send-error-cnt {
+      type uint32;
+      description
+        "l2tp l2tun socket ens send error cnt";
+    }
+    leaf l2tp-l2tun-socket-session-accept {
+      type uint64;
+      description
+        "l2tp l2tun socket session accept";
+    }
+    leaf l2tp-l2tun-socket-session-destroy {
+      type uint64;
+      description
+        "l2tp l2tun socket session destroy";
+    }
+    leaf l2tp-l2tun-socket-session-connect {
+      type uint64;
+      description
+        "l2tp l2tun socket session connect";
+    }
+    leaf l2tp-l2tun-socket-session-connect-continue {
+      type uint64;
+      description
+        "l2tp l2tun socket session connect continue";
+    }
+    leaf l2tp-l2tun-session-connecting {
+      type uint64;
+      description
+        "l2tp l2tun session connecting";
+    }
+    leaf l2tp-l2tun-session-connected {
+      type uint64;
+      description
+        "l2tp l2tun session connected";
+    }
+    leaf l2tp-l2tun-session-disconnected {
+      type uint64;
+      description
+        "l2tp l2tun session disconnected";
+    }
+    leaf l2tp-l2tun-session-incoming {
+      type uint64;
+      description
+        "l2tp l2tun session incoming";
+    }
+    leaf l2tp-l2tun-session-updated {
+      type uint64;
+      description
+        "l2tp l2tun session updated";
+    }
+    leaf l2tp-l2tun-session-circuit-status {
+      type uint64;
+      description
+        "l2tp l2tun session circuit status";
+    }
+    leaf l2x-lpts-pa-stats-setup-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats setup cnt";
+    }
+    leaf l2x-lpts-pa-stats-destroy-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats destroy cnt";
+    }
+    leaf l2x-lpts-pa-stats-alloc-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats alloc cnt";
+    }
+    leaf l2x-lpts-pa-stats-alloc-fail-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats alloc fail cnt";
+    }
+    leaf l2x-lpts-pa-stats-init-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats init cnt";
+    }
+    leaf l2x-lpts-pa-stats-init-fail-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats init fail cnt";
+    }
+    leaf l2x-lpts-pa-stats-free-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats free cnt";
+    }
+    leaf l2x-lpts-pa-stats-pulse-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats pulse cnt";
+    }
+    leaf l2x-lpts-pa-stats-pulse-fail-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats pulse fail cnt";
+    }
+    leaf l2x-lpts-pa-stats-bind-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats bind cnt";
+    }
+    leaf l2x-lpts-pa-stats-bind-fail-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats bind fail cnt";
+    }
+    leaf l2x-lpts-pa-stats-bind-batch-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats bind batch cnt";
+    }
+    leaf l2x-lpts-pa-stats-bind-batch-fail-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats bind batch fail cnt";
+    }
+    leaf l2x-lpts-pa-stats-bind-time {
+      type uint32;
+      description
+        "l2x lpts pa stats bind time";
+    }
+    leaf l2x-lpts-pa-stats-expire-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats expire cnt";
+    }
+    leaf l2x-lpts-pa-stats-replay-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats replay cnt";
+    }
+    leaf l2x-lpts-pa-stats-replay-batch-cnt {
+      type uint32;
+      description
+        "l2x lpts pa stats replay batch cnt";
+    }
+    leaf l2x-lpts-pa-stats-replay-time {
+      type uint32;
+      description
+        "l2x lpts pa stats replay time";
+    }
+  }
+
+  grouping L2TP-INTERNAL-STATS-BAG-DATA {
+    description
+      "L2TP INTERNAL STATS BAG DATA";
+    container internal-stats {
+      description
+        "internal stats";
+      uses L2TP-INTERNAL-BAG-DATA;
+    }
+    container internal-stats-last-clear {
+      description
+        "internal stats last clear";
+      uses L2TP-INTERNAL-BAG-DATA;
+    }
+    leaf time-last-clear {
+      type uint32;
+      description
+        "time last clear";
     }
   }
 
@@ -903,6 +1227,8 @@ submodule Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
       leaf entry {
         type uint16;
         units "second";
+        description
+          "Retransmit time distribution in seconds";
       }
     }
   }
@@ -932,6 +1258,8 @@ submodule Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
         "timeout events by packet";
       leaf entry {
         type uint32;
+        description
+          "timeout events by packet";
       }
     }
   }

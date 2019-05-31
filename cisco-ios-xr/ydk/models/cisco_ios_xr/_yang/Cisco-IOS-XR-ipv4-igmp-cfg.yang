@@ -476,7 +476,7 @@ module Cisco-IOS-XR-ipv4-igmp-cfg {
       "Common node of inheritable-defaults, interface";
     leaf query-max-response-time {
       type uint32 {
-        range "1..12";
+        range "1..25";
       }
       units "second";
       default "10";

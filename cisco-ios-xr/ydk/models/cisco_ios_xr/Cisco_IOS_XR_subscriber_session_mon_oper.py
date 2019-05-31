@@ -343,7 +343,7 @@ class SessionMon(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionMon.Nodes.Node.SessionMonStatistics, [u'total', u'pppoe', u'pppoe_ds', u'dhcpv4', u'dhcpv6', u'dhcp_ds', u'ippkt', u'active_sessions', u'standby_sessions', u'peak_active_sessions', u'peak_standby_sessions', u'peak_start_time', u'timeout_value'], name, value)
+                    self._perform_setattr(SessionMon.Nodes.Node.SessionMonStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
 
 
 
@@ -564,7 +564,7 @@ class SessionMon(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', u'total', u'pppoe', u'pppoe_ds', u'dhcpv4', u'dhcpv6', u'dhcp_ds', u'ippkt', u'active_sessions', u'standby_sessions', u'peak_active_sessions', u'peak_standby_sessions', u'peak_start_time', u'timeout_value'], name, value)
+                        self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', 'total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
 
 
 
@@ -738,7 +738,7 @@ class SessionMon(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionMon.Nodes.Node.LicenseStatistics, [u'total', u'pppoe', u'pppoe_ds', u'dhcpv4', u'dhcpv6', u'dhcp_ds', u'ippkt', u'active_sessions', u'standby_sessions', u'peak_active_sessions', u'peak_standby_sessions', u'peak_start_time', u'timeout_value'], name, value)
+                    self._perform_setattr(SessionMon.Nodes.Node.LicenseStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
 
 
 

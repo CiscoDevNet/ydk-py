@@ -267,7 +267,7 @@ class PppoeEa(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, ['parent_interface_name', u'interface', u'is_in_sync'], name, value)
+                        self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, ['parent_interface_name', 'interface', 'is_in_sync'], name, value)
 
 
                     class SrgvMac(Entity):
@@ -307,7 +307,7 @@ class PppoeEa(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, [u'macaddr'], name, value)
+                            self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, ['macaddr'], name, value)
 
 
 
@@ -502,7 +502,7 @@ class PppoeEa(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, ['interface_name', u'interface', u'session_id', u'parent_interface', u'is_priority_set', u'priority', u'is_in_sync', u'is_platform_created', u'vlanid'], name, value)
+                        self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, ['interface_name', 'interface', 'session_id', 'parent_interface', 'is_priority_set', 'priority', 'is_in_sync', 'is_platform_created', 'vlanid'], name, value)
 
 
                     class PeerMac(Entity):
@@ -542,7 +542,7 @@ class PppoeEa(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, [u'macaddr'], name, value)
+                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, ['macaddr'], name, value)
 
 
 
@@ -583,7 +583,7 @@ class PppoeEa(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, [u'macaddr'], name, value)
+                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, ['macaddr'], name, value)
 
 
 
@@ -624,7 +624,7 @@ class PppoeEa(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, [u'macaddr'], name, value)
+                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, ['macaddr'], name, value)
 
 
 

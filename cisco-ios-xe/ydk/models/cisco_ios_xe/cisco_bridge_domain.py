@@ -817,7 +817,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac, [u'learning_enabled'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac, ['learning_enabled'], name, value)
 
 
                         class Limit(Entity):
@@ -869,7 +869,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Limit, [u'maximum', u'action', u'notification'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Limit, ['maximum', 'action', 'notification'], name, value)
 
 
 
@@ -919,7 +919,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Aging, [u'time', u'type'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Aging, ['time', 'type'], name, value)
 
 
 
@@ -958,7 +958,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.PortDown, [u'flush'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.PortDown, ['flush'], name, value)
 
 
 
@@ -1013,7 +1013,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Secure, [u'action', u'logging', 'enabled'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Secure, ['action', 'logging', 'enabled'], name, value)
 
 
 
@@ -1053,7 +1053,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IgmpSnooping, [u'profile_name'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IgmpSnooping, ['profile_name'], name, value)
 
 
 
@@ -1092,7 +1092,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.MldSnooping, [u'profile_name'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.MldSnooping, ['profile_name'], name, value)
 
 
 
@@ -1131,7 +1131,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DhcpIpv4Snooping, [u'profile_name'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DhcpIpv4Snooping, ['profile_name'], name, value)
 
 
 
@@ -1175,7 +1175,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Flooding, [u'disabled', u'disabled_unknown_unicast'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Flooding, ['disabled', 'disabled_unknown_unicast'], name, value)
 
 
 
@@ -1361,7 +1361,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection, [u'logging', 'enable'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection, ['logging', 'enable'], name, value)
 
 
                         class AddressValidation(Entity):
@@ -1414,7 +1414,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection.AddressValidation, [u'dst_mac', u'src_mac', u'ipv4'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection.AddressValidation, ['dst_mac', 'src_mac', 'ipv4'], name, value)
 
 
 
@@ -1461,7 +1461,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IpSourceGuard, [u'logging', 'enable'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IpSourceGuard, ['logging', 'enable'], name, value)
 
 
 
@@ -1759,7 +1759,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec, [u'neighbor_ip_address', u'vc_id', u'pw_class_template', u'encap_type', u'tag_impose_vlan', u'source_ipv6'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec, ['neighbor_ip_address', 'vc_id', 'pw_class_template', 'encap_type', 'tag_impose_vlan', 'source_ipv6'], name, value)
 
 
                         class StaticLabel(Entity):
@@ -1806,7 +1806,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel, [u'local_label', u'remote_label'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel, ['local_label', 'remote_label'], name, value)
 
 
 
@@ -1931,7 +1931,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac, [u'learning_enabled'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac, ['learning_enabled'], name, value)
 
 
                             class Limit(Entity):
@@ -1983,7 +1983,7 @@ class BridgeDomainConfig(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Limit, [u'maximum', u'action', u'notification'], name, value)
+                                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Limit, ['maximum', 'action', 'notification'], name, value)
 
 
 
@@ -2033,7 +2033,7 @@ class BridgeDomainConfig(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Aging, [u'time', u'type'], name, value)
+                                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Aging, ['time', 'type'], name, value)
 
 
 
@@ -2072,7 +2072,7 @@ class BridgeDomainConfig(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.PortDown, [u'flush'], name, value)
+                                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.PortDown, ['flush'], name, value)
 
 
 
@@ -2127,7 +2127,7 @@ class BridgeDomainConfig(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Secure, [u'action', u'logging', 'enabled'], name, value)
+                                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Secure, ['action', 'logging', 'enabled'], name, value)
 
 
 
@@ -2167,7 +2167,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.IgmpSnooping, [u'profile_name'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.IgmpSnooping, ['profile_name'], name, value)
 
 
 
@@ -2206,7 +2206,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.MldSnooping, [u'profile_name'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.MldSnooping, ['profile_name'], name, value)
 
 
 
@@ -2245,7 +2245,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.DhcpIpv4Snooping, [u'profile_name'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.DhcpIpv4Snooping, ['profile_name'], name, value)
 
 
 
@@ -2289,7 +2289,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Flooding, [u'disabled', u'disabled_unknown_unicast'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Flooding, ['disabled', 'disabled_unknown_unicast'], name, value)
 
 
 
@@ -2484,7 +2484,7 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup, [u'neighbor_ip_address', u'vc_id', u'pw_class_template'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup, ['neighbor_ip_address', 'vc_id', 'pw_class_template'], name, value)
 
 
 
@@ -2581,7 +2581,7 @@ class BridgeDomainConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac, [u'learning_enabled'], name, value)
+                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac, ['learning_enabled'], name, value)
 
 
                 class Limit(Entity):
@@ -2633,7 +2633,7 @@ class BridgeDomainConfig(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Limit, [u'maximum', u'action', u'notification'], name, value)
+                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Limit, ['maximum', 'action', 'notification'], name, value)
 
 
 
@@ -2683,7 +2683,7 @@ class BridgeDomainConfig(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Aging, [u'time', u'type'], name, value)
+                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Aging, ['time', 'type'], name, value)
 
 
 
@@ -2722,7 +2722,7 @@ class BridgeDomainConfig(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.PortDown, [u'flush'], name, value)
+                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.PortDown, ['flush'], name, value)
 
 
 
@@ -2766,7 +2766,7 @@ class BridgeDomainConfig(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Flooding, [u'disabled', u'disabled_unknown_unicast'], name, value)
+                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Flooding, ['disabled', 'disabled_unknown_unicast'], name, value)
 
 
 
@@ -2817,7 +2817,7 @@ class BridgeDomainConfig(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Secure, [u'action', u'logging'], name, value)
+                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Secure, ['action', 'logging'], name, value)
 
 
 
@@ -2900,7 +2900,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static.MacAddresses, [u'mac_addr', u'drop'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static.MacAddresses, ['mac_addr', 'drop'], name, value)
 
 
 
@@ -2952,7 +2952,7 @@ class BridgeDomainConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection, [u'logging'], name, value)
+                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection, ['logging'], name, value)
 
 
                 class AddressValidation(Entity):
@@ -3005,7 +3005,7 @@ class BridgeDomainConfig(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection.AddressValidation, [u'dst_mac', u'src_mac', u'ipv4'], name, value)
+                        self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection.AddressValidation, ['dst_mac', 'src_mac', 'ipv4'], name, value)
 
 
 
@@ -3048,7 +3048,7 @@ class BridgeDomainConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.IpSourceGuard, [u'logging'], name, value)
+                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.IpSourceGuard, ['logging'], name, value)
 
 
 
@@ -3224,7 +3224,7 @@ class BridgeDomainConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.IgmpSnooping, [u'profile_name', 'disabled'], name, value)
+                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.IgmpSnooping, ['profile_name', 'disabled'], name, value)
 
 
 
@@ -3263,7 +3263,7 @@ class BridgeDomainConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.MldSnooping, [u'profile_name'], name, value)
+                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.MldSnooping, ['profile_name'], name, value)
 
 
 
@@ -3302,7 +3302,7 @@ class BridgeDomainConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DhcpIpv4Snooping, [u'profile_name'], name, value)
+                    self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DhcpIpv4Snooping, ['profile_name'], name, value)
 
 
 
@@ -4255,7 +4255,7 @@ class BridgeDomainState(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding.Status, [u'traffic_class', u'enabled'], name, value)
+                                self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding.Status, ['traffic_class', 'enabled'], name, value)
 
 
 
@@ -4331,7 +4331,7 @@ class BridgeDomainState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember, [u'vc_peer_address', u'vc_id'], name, value)
+                        self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember, ['vc_peer_address', 'vc_id'], name, value)
 
 
                     class Flooding(Entity):
@@ -4416,7 +4416,7 @@ class BridgeDomainState(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding.Status, [u'traffic_class', u'enabled'], name, value)
+                                self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding.Status, ['traffic_class', 'enabled'], name, value)
 
 
 

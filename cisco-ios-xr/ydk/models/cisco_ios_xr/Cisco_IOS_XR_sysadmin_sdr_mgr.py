@@ -334,13 +334,6 @@ class SdrConfig(Entity):
             	
             	**type**\: list of  		 :py:class:`CardType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Resources.CardType>`
             
-            .. attribute:: disk_space_size
-            
-            	Edit disk space size for a Secure Domain Router, unit in [MB]
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
             
 
             """
@@ -360,18 +353,16 @@ class SdrConfig(Entity):
                 self._leafs = OrderedDict([
                     ('fgid', (YLeaf(YType.uint32, 'fgid'), ['int'])),
                     ('mgmt_ext_vlan', (YLeaf(YType.uint32, 'mgmt_ext_vlan'), ['int'])),
-                    ('disk_space_size', (YLeaf(YType.uint32, 'disk-space-size'), ['int'])),
                 ])
                 self.fgid = None
                 self.mgmt_ext_vlan = None
-                self.disk_space_size = None
 
                 self.card_type = YList(self)
                 self._segment_path = lambda: "resources"
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SdrConfig.Sdr.Resources, ['fgid', 'mgmt_ext_vlan', 'disk_space_size'], name, value)
+                self._perform_setattr(SdrConfig.Sdr.Resources, ['fgid', 'mgmt_ext_vlan'], name, value)
 
 
             class CardType(Entity):
@@ -441,6 +432,13 @@ class SdrConfig(Entity):
             
             	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/(([rR][pP]\|[lL][cC]\|[cC][bB])?\\d{1,2}))(/[cC][pP][uU]0)?\|all
             
+            .. attribute:: slice
+            
+            	Enter list of slices to add to this SDR
+            	**type**\: list of int
+            
+            	**range:** 0..4
+            
             
 
             """
@@ -459,13 +457,15 @@ class SdrConfig(Entity):
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('node_location', (YLeaf(YType.str, 'node-location'), ['str'])),
+                    ('slice', (YLeafList(YType.uint8, 'slice'), ['int'])),
                 ])
                 self.node_location = None
+                self.slice = []
                 self._segment_path = lambda: "location" + "[node-location='" + str(self.node_location) + "']"
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SdrConfig.Sdr.Location, ['node_location'], name, value)
+                self._perform_setattr(SdrConfig.Sdr.Location, ['node_location', 'slice'], name, value)
 
 
 
@@ -698,6 +698,19 @@ class SdrConfig(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: slice
+                
+                	Slice numbers if configured
+                	**type**\: union of the below types:
+                
+                		**type**\: list of int
+                
+                			**range:** 0..255
+                
+                		**type**\: list of str
+                
+                	**config**\: False
+                
                 .. attribute:: chassis_serial
                 
                 	
@@ -788,6 +801,7 @@ class SdrConfig(Entity):
                         ('card_type', (YLeaf(YType.str, 'card-type'), ['str'])),
                         ('card_serial', (YLeaf(YType.str, 'card_serial'), ['str'])),
                         ('rack_type', (YLeaf(YType.str, 'rack-type'), ['str'])),
+                        ('slice', (YLeafList(YType.str, 'slice'), ['int','str'])),
                         ('chassis_serial', (YLeaf(YType.str, 'chassis_serial'), ['str'])),
                         ('hw_version', (YLeaf(YType.str, 'hw_version'), ['str'])),
                         ('mgmt_ext_vlan', (YLeaf(YType.str, 'mgmt_ext_vlan'), ['str'])),
@@ -809,6 +823,7 @@ class SdrConfig(Entity):
                     self.card_type = None
                     self.card_serial = None
                     self.rack_type = None
+                    self.slice = []
                     self.chassis_serial = None
                     self.hw_version = None
                     self.mgmt_ext_vlan = None
@@ -822,7 +837,7 @@ class SdrConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SdrConfig.Sdr.Detail.Location, ['node_location', 'sdr_id', 'ip_addr', 'mac_address', 'boot_part', 'data_part', 'big_disk', 'vm_id', 'vmcpu', 'vmmemory', 'card_type', 'card_serial', 'rack_type', 'chassis_serial', 'hw_version', 'mgmt_ext_vlan', 'state', 'start_time', 'reboot_count', 'rh_count'], name, value)
+                    self._perform_setattr(SdrConfig.Sdr.Detail.Location, ['node_location', 'sdr_id', 'ip_addr', 'mac_address', 'boot_part', 'data_part', 'big_disk', 'vm_id', 'vmcpu', 'vmmemory', 'card_type', 'card_serial', 'rack_type', 'slice', 'chassis_serial', 'hw_version', 'mgmt_ext_vlan', 'state', 'start_time', 'reboot_count', 'rh_count'], name, value)
 
 
                 class RebootHist1(Entity):
@@ -1794,7 +1809,7 @@ class SdrManager(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SdrManager.SdrMgr.Trace, [u'buffer'], name, value)
+                self._perform_setattr(SdrManager.SdrMgr.Trace, ['buffer'], name, value)
 
 
             class Location(Entity):
@@ -1841,7 +1856,7 @@ class SdrManager(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SdrManager.SdrMgr.Trace.Location, [u'location_name'], name, value)
+                    self._perform_setattr(SdrManager.SdrMgr.Trace.Location, ['location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -1888,7 +1903,7 @@ class SdrManager(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions, [u'option'], name, value)
+                        self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions, ['option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -1926,7 +1941,7 @@ class SdrManager(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                            self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 

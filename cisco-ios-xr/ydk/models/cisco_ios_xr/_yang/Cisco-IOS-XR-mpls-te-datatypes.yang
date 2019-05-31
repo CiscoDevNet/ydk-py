@@ -173,7 +173,7 @@ module Cisco-IOS-XR-mpls-te-datatypes {
       enum "lockdown" {
         value 1;
         description
-          "Path is not a canditate forreoptimization";
+          "Path is not a candidate for reoptimization";
       }
       enum "verbatim" {
         value 4;
@@ -190,6 +190,11 @@ module Cisco-IOS-XR-mpls-te-datatypes {
         value 16;
         description
           "Segment Routing path";
+      }
+      enum "sticky" {
+        value 32;
+        description
+          "Force tunnel to remain on same path";
       }
     }
     description

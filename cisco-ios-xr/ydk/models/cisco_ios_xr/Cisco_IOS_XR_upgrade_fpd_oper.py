@@ -770,7 +770,7 @@ class Fpd_(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fpd_.Nodes.Node.Devices.Device, ['fpd_type', 'instance', 'sub_type', u'card_type', u'hardware_version', u'software_version', u'is_upgrade_downgrade'], name, value)
+                        self._perform_setattr(Fpd_.Nodes.Node.Devices.Device, ['fpd_type', 'instance', 'sub_type', 'card_type', 'hardware_version', 'software_version', 'is_upgrade_downgrade'], name, value)
 
 
 
@@ -905,7 +905,7 @@ class Fpd_(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Fpd_.Packages.AllPackage, [u'card_type', u'card_description', u'fpd_type', u'fpd_sub_type', u'software_version', u'minimum_required_software_version', u'minimum_required_hardware_version'], name, value)
+                self._perform_setattr(Fpd_.Packages.AllPackage, ['card_type', 'card_description', 'fpd_type', 'fpd_sub_type', 'software_version', 'minimum_required_software_version', 'minimum_required_hardware_version'], name, value)
 
 
 

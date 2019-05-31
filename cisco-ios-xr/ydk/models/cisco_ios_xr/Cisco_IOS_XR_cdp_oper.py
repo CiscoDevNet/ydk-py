@@ -342,7 +342,7 @@ class Cdp(Entity):
                         
                         .. attribute:: cdp_neighbor
                         
-                        	cdp neighbor
+                        	Next neighbor in the list
                         	**type**\: list of  		 :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor>`
                         
                         	**config**\: False
@@ -380,7 +380,7 @@ class Cdp(Entity):
 
                         class CdpNeighbor(Entity):
                             """
-                            cdp neighbor
+                            Next neighbor in the list
                             
                             .. attribute:: detail
                             
@@ -484,7 +484,7 @@ class Cdp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, [u'receiving_interface_name', u'device_id', u'port_id', u'header_version', u'hold_time', u'capabilities', u'platform'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
                             class Detail_(Entity):
@@ -582,7 +582,7 @@ class Cdp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_, [u'version', u'vtp_domain', u'native_vlan', u'duplex', u'system_name'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -591,7 +591,7 @@ class Cdp(Entity):
                                     
                                     .. attribute:: cdp_addr_entry
                                     
-                                    	cdp addr entry
+                                    	Next address entry in list
                                     	**type**\: list of  		 :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry>`
                                     
                                     	**config**\: False
@@ -624,7 +624,7 @@ class Cdp(Entity):
 
                                     class CdpAddrEntry(Entity):
                                         """
-                                        cdp addr entry
+                                        Next address entry in list
                                         
                                         .. attribute:: address
                                         
@@ -718,7 +718,7 @@ class Cdp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -730,7 +730,7 @@ class Cdp(Entity):
                                     
                                     .. attribute:: cdp_prot_hello_entry
                                     
-                                    	cdp prot hello entry
+                                    	Next protocol hello entry in list
                                     	**type**\: list of  		 :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry>`
                                     
                                     	**config**\: False
@@ -763,7 +763,7 @@ class Cdp(Entity):
 
                                     class CdpProtHelloEntry(Entity):
                                         """
-                                        cdp prot hello entry
+                                        Next protocol hello entry in list
                                         
                                         .. attribute:: hello_message
                                         
@@ -798,7 +798,7 @@ class Cdp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry, [u'hello_message'], name, value)
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
 
 
@@ -858,7 +858,7 @@ class Cdp(Entity):
                         
                         .. attribute:: cdp_neighbor
                         
-                        	cdp neighbor
+                        	Next neighbor in the list
                         	**type**\: list of  		 :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor>`
                         
                         	**config**\: False
@@ -894,7 +894,7 @@ class Cdp(Entity):
 
                         class CdpNeighbor(Entity):
                             """
-                            cdp neighbor
+                            Next neighbor in the list
                             
                             .. attribute:: detail
                             
@@ -998,7 +998,7 @@ class Cdp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, [u'receiving_interface_name', u'device_id', u'port_id', u'header_version', u'hold_time', u'capabilities', u'platform'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -1096,7 +1096,7 @@ class Cdp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, [u'version', u'vtp_domain', u'native_vlan', u'duplex', u'system_name'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -1105,7 +1105,7 @@ class Cdp(Entity):
                                     
                                     .. attribute:: cdp_addr_entry
                                     
-                                    	cdp addr entry
+                                    	Next address entry in list
                                     	**type**\: list of  		 :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
                                     
                                     	**config**\: False
@@ -1138,7 +1138,7 @@ class Cdp(Entity):
 
                                     class CdpAddrEntry(Entity):
                                         """
-                                        cdp addr entry
+                                        Next address entry in list
                                         
                                         .. attribute:: address
                                         
@@ -1232,7 +1232,7 @@ class Cdp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1244,7 +1244,7 @@ class Cdp(Entity):
                                     
                                     .. attribute:: cdp_prot_hello_entry
                                     
-                                    	cdp prot hello entry
+                                    	Next protocol hello entry in list
                                     	**type**\: list of  		 :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
                                     
                                     	**config**\: False
@@ -1277,7 +1277,7 @@ class Cdp(Entity):
 
                                     class CdpProtHelloEntry(Entity):
                                         """
-                                        cdp prot hello entry
+                                        Next protocol hello entry in list
                                         
                                         .. attribute:: hello_message
                                         
@@ -1312,7 +1312,7 @@ class Cdp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, [u'hello_message'], name, value)
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
 
 
@@ -1380,7 +1380,7 @@ class Cdp(Entity):
                         
                         .. attribute:: cdp_neighbor
                         
-                        	cdp neighbor
+                        	Next neighbor in the list
                         	**type**\: list of  		 :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor>`
                         
                         	**config**\: False
@@ -1418,7 +1418,7 @@ class Cdp(Entity):
 
                         class CdpNeighbor(Entity):
                             """
-                            cdp neighbor
+                            Next neighbor in the list
                             
                             .. attribute:: detail
                             
@@ -1522,7 +1522,7 @@ class Cdp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, [u'receiving_interface_name', u'device_id', u'port_id', u'header_version', u'hold_time', u'capabilities', u'platform'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -1620,7 +1620,7 @@ class Cdp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, [u'version', u'vtp_domain', u'native_vlan', u'duplex', u'system_name'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -1629,7 +1629,7 @@ class Cdp(Entity):
                                     
                                     .. attribute:: cdp_addr_entry
                                     
-                                    	cdp addr entry
+                                    	Next address entry in list
                                     	**type**\: list of  		 :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
                                     
                                     	**config**\: False
@@ -1662,7 +1662,7 @@ class Cdp(Entity):
 
                                     class CdpAddrEntry(Entity):
                                         """
-                                        cdp addr entry
+                                        Next address entry in list
                                         
                                         .. attribute:: address
                                         
@@ -1756,7 +1756,7 @@ class Cdp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1768,7 +1768,7 @@ class Cdp(Entity):
                                     
                                     .. attribute:: cdp_prot_hello_entry
                                     
-                                    	cdp prot hello entry
+                                    	Next protocol hello entry in list
                                     	**type**\: list of  		 :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
                                     
                                     	**config**\: False
@@ -1801,7 +1801,7 @@ class Cdp(Entity):
 
                                     class CdpProtHelloEntry(Entity):
                                         """
-                                        cdp prot hello entry
+                                        Next protocol hello entry in list
                                         
                                         .. attribute:: hello_message
                                         
@@ -1836,7 +1836,7 @@ class Cdp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, [u'hello_message'], name, value)
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
 
 
@@ -2026,7 +2026,7 @@ class Cdp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cdp.Nodes.Node.Statistics, [u'received_packets', u'received_packets_v1', u'received_packets_v2', u'transmitted_packets', u'transmitted_packets_v1', u'transmitted_packets_v2', u'header_errors', u'checksum_errors', u'encapsulation_errors', u'bad_packet_errors', u'out_of_memory_errors', u'truncated_packet_errors', u'header_version_errors', u'open_file_errors'], name, value)
+                    self._perform_setattr(Cdp.Nodes.Node.Statistics, ['received_packets', 'received_packets_v1', 'received_packets_v2', 'transmitted_packets', 'transmitted_packets_v1', 'transmitted_packets_v2', 'header_errors', 'checksum_errors', 'encapsulation_errors', 'bad_packet_errors', 'out_of_memory_errors', 'truncated_packet_errors', 'header_version_errors', 'open_file_errors'], name, value)
 
 
 
@@ -2148,7 +2148,7 @@ class Cdp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_handle', u'basecaps_state', u'cdp_protocol_state', u'interface_encaps'], name, value)
+                        self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_handle', 'basecaps_state', 'cdp_protocol_state', 'interface_encaps'], name, value)
 
 
 

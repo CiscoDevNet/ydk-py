@@ -1376,6 +1376,39 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
         container instance-active {
           description
             "Active BGP operational data";
+          container segment-routing {
+            description
+              "Segment Rotuing related Operational Data";
+            container srv6 {
+              description
+                "SRv6 related Operational Data";
+              container summary {
+                description
+                  "BGP SRv6 Summary";
+                uses BGP-SRV6-SUMMARY-BAG;
+              }
+              container locator-entries {
+                description
+                  "BGP SRv6 Locator Table";
+                list locator-entry {
+                  key "locator-name";
+                  description
+                    "BGP SRv6 Locator Table Entry";
+                  leaf locator-name {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "Locator Name";
+                  }
+                  uses BGP-SRV6-LOCATOR-BAG;
+                }
+              }
+              container sid-manager {
+                description
+                  "BGP SRv6 SID Manager";
+                uses BGP-SRV6-SID-MANAGER-BAG;
+              }
+            }
+          }
           container label-entries {
             description
               "BGP Label Table";

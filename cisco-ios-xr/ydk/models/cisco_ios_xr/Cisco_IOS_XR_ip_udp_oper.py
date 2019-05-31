@@ -67,9 +67,9 @@ class AddrFamily(Enum):
 
     	Datakit protocols
 
-    .. data:: ccitt = 10
+    .. data:: inet6 = 10
 
-    	CCITT protocols, X.25 etc
+    	IP version 6
 
     .. data:: sna = 11
 
@@ -131,9 +131,9 @@ class AddrFamily(Enum):
 
     	Help Identify PIP packets
 
-    .. data:: inet6 = 26
+    .. data:: ccitt = 26
 
-    	IP version 6
+    	CCITT protocols, X.25 etc
 
     .. data:: snap = 27
 
@@ -217,7 +217,7 @@ class AddrFamily(Enum):
 
     data_kit = Enum.YLeaf(9, "data-kit")
 
-    ccitt = Enum.YLeaf(10, "ccitt")
+    inet6 = Enum.YLeaf(10, "inet6")
 
     sna = Enum.YLeaf(11, "sna")
 
@@ -249,7 +249,7 @@ class AddrFamily(Enum):
 
     pseudo_pip = Enum.YLeaf(25, "pseudo-pip")
 
-    inet6 = Enum.YLeaf(26, "inet6")
+    ccitt = Enum.YLeaf(26, "ccitt")
 
     snap = Enum.YLeaf(27, "snap")
 
@@ -1308,7 +1308,7 @@ class Udp(Entity):
     """
 
     _prefix = 'ip-udp-oper'
-    _revision = '2018-03-04'
+    _revision = '2018-08-09'
 
     def __init__(self):
         super(Udp, self).__init__()
@@ -1348,7 +1348,7 @@ class Udp(Entity):
         """
 
         _prefix = 'ip-udp-oper'
-        _revision = '2018-03-04'
+        _revision = '2018-08-09'
 
         def __init__(self):
             super(Udp.Nodes, self).__init__()
@@ -1395,7 +1395,7 @@ class Udp(Entity):
             """
 
             _prefix = 'ip-udp-oper'
-            _revision = '2018-03-04'
+            _revision = '2018-08-09'
 
             def __init__(self):
                 super(Udp.Nodes.Node, self).__init__()
@@ -1445,7 +1445,7 @@ class Udp(Entity):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2018-03-04'
+                _revision = '2018-08-09'
 
                 def __init__(self):
                     super(Udp.Nodes.Node.Statistics, self).__init__()
@@ -1535,7 +1535,7 @@ class Udp(Entity):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2018-03-04'
+                    _revision = '2018-08-09'
 
                     def __init__(self):
                         super(Udp.Nodes.Node.Statistics.Ipv4Traffic, self).__init__()
@@ -1631,7 +1631,7 @@ class Udp(Entity):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2018-03-04'
+                    _revision = '2018-08-09'
 
                     def __init__(self):
                         super(Udp.Nodes.Node.Statistics.Ipv6Traffic, self).__init__()
@@ -1688,7 +1688,7 @@ class UdpConnection(Entity):
     """
 
     _prefix = 'ip-udp-oper'
-    _revision = '2018-03-04'
+    _revision = '2018-08-09'
 
     def __init__(self):
         super(UdpConnection, self).__init__()
@@ -1728,7 +1728,7 @@ class UdpConnection(Entity):
         """
 
         _prefix = 'ip-udp-oper'
-        _revision = '2018-03-04'
+        _revision = '2018-08-09'
 
         def __init__(self):
             super(UdpConnection.Nodes, self).__init__()
@@ -1796,7 +1796,7 @@ class UdpConnection(Entity):
             """
 
             _prefix = 'ip-udp-oper'
-            _revision = '2018-03-04'
+            _revision = '2018-08-09'
 
             def __init__(self):
                 super(UdpConnection.Nodes.Node, self).__init__()
@@ -1865,7 +1865,7 @@ class UdpConnection(Entity):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2018-03-04'
+                _revision = '2018-08-09'
 
                 def __init__(self):
                     super(UdpConnection.Nodes.Node.Statistics, self).__init__()
@@ -1912,7 +1912,7 @@ class UdpConnection(Entity):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2018-03-04'
+                    _revision = '2018-08-09'
 
                     def __init__(self):
                         super(UdpConnection.Nodes.Node.Statistics.Clients, self).__init__()
@@ -2005,7 +2005,7 @@ class UdpConnection(Entity):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2018-03-04'
+                        _revision = '2018-08-09'
 
                         def __init__(self):
                             super(UdpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
@@ -2140,7 +2140,7 @@ class UdpConnection(Entity):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2018-03-04'
+                    _revision = '2018-08-09'
 
                     def __init__(self):
                         super(UdpConnection.Nodes.Node.Statistics.Summary, self).__init__()
@@ -2177,7 +2177,7 @@ class UdpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Summary, [u'received_total_packets', u'received_no_port_packets', u'received_bad_checksum_packets', u'received_too_short_packets', u'received_drop_packets', u'sent_total_packets', u'sent_error_packets', u'forward_broadcast_packets', u'cloned_packets', u'failed_clone_packets'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Summary, ['received_total_packets', 'received_no_port_packets', 'received_bad_checksum_packets', 'received_too_short_packets', 'received_drop_packets', 'sent_total_packets', 'sent_error_packets', 'forward_broadcast_packets', 'cloned_packets', 'failed_clone_packets'], name, value)
 
 
 
@@ -2198,7 +2198,7 @@ class UdpConnection(Entity):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2018-03-04'
+                    _revision = '2018-08-09'
 
                     def __init__(self):
                         super(UdpConnection.Nodes.Node.Statistics.PcbStatistics, self).__init__()
@@ -2267,7 +2267,7 @@ class UdpConnection(Entity):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2018-03-04'
+                        _revision = '2018-08-09'
 
                         def __init__(self):
                             super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, self).__init__()
@@ -2298,7 +2298,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', u'vrf_id', u'is_paw_socket'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', 'vrf_id', 'is_paw_socket'], name, value)
 
 
                         class Send(Entity):
@@ -2366,7 +2366,7 @@ class UdpConnection(Entity):
                             """
 
                             _prefix = 'ip-udp-oper'
-                            _revision = '2018-03-04'
+                            _revision = '2018-08-09'
 
                             def __init__(self):
                                 super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, self).__init__()
@@ -2395,7 +2395,7 @@ class UdpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, [u'received_application_bytes', u'received_xipc_pulses', u'sent_network_packets', u'sent_net_io_packets', u'failed_queued_network_packets', u'failed_queued_net_io_packets'], name, value)
+                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, ['received_application_bytes', 'received_xipc_pulses', 'sent_network_packets', 'sent_net_io_packets', 'failed_queued_network_packets', 'failed_queued_net_io_packets'], name, value)
 
 
 
@@ -2453,7 +2453,7 @@ class UdpConnection(Entity):
                             """
 
                             _prefix = 'ip-udp-oper'
-                            _revision = '2018-03-04'
+                            _revision = '2018-08-09'
 
                             def __init__(self):
                                 super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, self).__init__()
@@ -2480,7 +2480,7 @@ class UdpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, [u'received_network_packets', u'failed_queued_application_packets', u'queued_application_packets', u'failed_queued_application_socket_packets', u'queued_application_socket_packets'], name, value)
+                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, ['received_network_packets', 'failed_queued_application_packets', 'queued_application_packets', 'failed_queued_application_socket_packets', 'queued_application_socket_packets'], name, value)
 
 
 
@@ -2503,7 +2503,7 @@ class UdpConnection(Entity):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2018-03-04'
+                _revision = '2018-08-09'
 
                 def __init__(self):
                     super(UdpConnection.Nodes.Node.Lpts, self).__init__()
@@ -2542,7 +2542,7 @@ class UdpConnection(Entity):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2018-03-04'
+                    _revision = '2018-08-09'
 
                     def __init__(self):
                         super(UdpConnection.Nodes.Node.Lpts.Queries, self).__init__()
@@ -2586,7 +2586,7 @@ class UdpConnection(Entity):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2018-03-04'
+                        _revision = '2018-08-09'
 
                         def __init__(self):
                             super(UdpConnection.Nodes.Node.Lpts.Queries.Query, self).__init__()
@@ -2628,7 +2628,7 @@ class UdpConnection(Entity):
                             """
 
                             _prefix = 'ip-udp-oper'
-                            _revision = '2018-03-04'
+                            _revision = '2018-08-09'
 
                             def __init__(self):
                                 super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs, self).__init__()
@@ -2715,7 +2715,7 @@ class UdpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-udp-oper'
-                                _revision = '2018-03-04'
+                                _revision = '2018-08-09'
 
                                 def __init__(self):
                                     super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, self).__init__()
@@ -2789,7 +2789,7 @@ class UdpConnection(Entity):
                                     """
 
                                     _prefix = 'ip-udp-oper'
-                                    _revision = '2018-03-04'
+                                    _revision = '2018-08-09'
 
                                     def __init__(self):
                                         super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, self).__init__()
@@ -2850,7 +2850,7 @@ class UdpConnection(Entity):
                                     """
 
                                     _prefix = 'ip-udp-oper'
-                                    _revision = '2018-03-04'
+                                    _revision = '2018-08-09'
 
                                     def __init__(self):
                                         super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, self).__init__()
@@ -2900,7 +2900,7 @@ class UdpConnection(Entity):
                                     """
 
                                     _prefix = 'ip-udp-oper'
-                                    _revision = '2018-03-04'
+                                    _revision = '2018-08-09'
 
                                     def __init__(self):
                                         super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common, self).__init__()
@@ -2981,7 +2981,7 @@ class UdpConnection(Entity):
                                         """
 
                                         _prefix = 'ip-udp-oper'
-                                        _revision = '2018-03-04'
+                                        _revision = '2018-08-09'
 
                                         def __init__(self):
                                             super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, self).__init__()
@@ -3042,7 +3042,7 @@ class UdpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-udp-oper'
-                                            _revision = '2018-03-04'
+                                            _revision = '2018-08-09'
 
                                             def __init__(self):
                                                 super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, self).__init__()
@@ -3097,7 +3097,7 @@ class UdpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-udp-oper'
-                                            _revision = '2018-03-04'
+                                            _revision = '2018-08-09'
 
                                             def __init__(self):
                                                 super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, self).__init__()
@@ -3175,7 +3175,7 @@ class UdpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-udp-oper'
-                                            _revision = '2018-03-04'
+                                            _revision = '2018-08-09'
 
                                             def __init__(self):
                                                 super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, self).__init__()
@@ -3310,7 +3310,7 @@ class UdpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-udp-oper'
-                                            _revision = '2018-03-04'
+                                            _revision = '2018-08-09'
 
                                             def __init__(self):
                                                 super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, self).__init__()
@@ -3404,7 +3404,7 @@ class UdpConnection(Entity):
                                                 """
 
                                                 _prefix = 'ip-udp-oper'
-                                                _revision = '2018-03-04'
+                                                _revision = '2018-08-09'
 
                                                 def __init__(self):
                                                     super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, self).__init__()
@@ -3469,7 +3469,7 @@ class UdpConnection(Entity):
                                                 """
 
                                                 _prefix = 'ip-udp-oper'
-                                                _revision = '2018-03-04'
+                                                _revision = '2018-08-09'
 
                                                 def __init__(self):
                                                     super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, self).__init__()
@@ -3530,7 +3530,7 @@ class UdpConnection(Entity):
                                                 """
 
                                                 _prefix = 'ip-udp-oper'
-                                                _revision = '2018-03-04'
+                                                _revision = '2018-08-09'
 
                                                 def __init__(self):
                                                     super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, self).__init__()
@@ -3582,7 +3582,7 @@ class UdpConnection(Entity):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2018-03-04'
+                _revision = '2018-08-09'
 
                 def __init__(self):
                     super(UdpConnection.Nodes.Node.PcbDetails, self).__init__()
@@ -3627,6 +3627,13 @@ class UdpConnection(Entity):
                     
                     	Foreign address
                     	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: pcb_flags
+                    
+                    	PCB flags
+                    	**type**\:  :py:class:`PcbFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.PcbFlags>`
                     
                     	**config**\: False
                     
@@ -3696,7 +3703,7 @@ class UdpConnection(Entity):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2018-03-04'
+                    _revision = '2018-08-09'
 
                     def __init__(self):
                         super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, self).__init__()
@@ -3706,7 +3713,7 @@ class UdpConnection(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['pcb_address']
-                        self._child_classes = OrderedDict([("local-address", ("local_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress)), ("foreign-address", ("foreign_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress))])
+                        self._child_classes = OrderedDict([("local-address", ("local_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress)), ("foreign-address", ("foreign_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress)), ("pcb-flags", ("pcb_flags", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.PcbFlags))])
                         self._leafs = OrderedDict([
                             ('pcb_address', (YLeaf(YType.str, 'pcb-address'), ['str'])),
                             ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamily', '')])),
@@ -3733,11 +3740,15 @@ class UdpConnection(Entity):
                         self.foreign_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress()
                         self.foreign_address.parent = self
                         self._children_name_map["foreign_address"] = "foreign-address"
+
+                        self.pcb_flags = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.PcbFlags()
+                        self.pcb_flags.parent = self
+                        self._children_name_map["pcb_flags"] = "pcb-flags"
                         self._segment_path = lambda: "pcb-detail" + "[pcb-address='" + str(self.pcb_address) + "']"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', u'af_name', u'local_process_id', u'local_port', u'foreign_port', u'receive_queue', u'send_queue', u'vrf_id'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', 'af_name', 'local_process_id', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -3774,7 +3785,7 @@ class UdpConnection(Entity):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2018-03-04'
+                        _revision = '2018-08-09'
 
                         def __init__(self):
                             super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, self).__init__()
@@ -3797,7 +3808,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -3835,7 +3846,7 @@ class UdpConnection(Entity):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2018-03-04'
+                        _revision = '2018-08-09'
 
                         def __init__(self):
                             super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, self).__init__()
@@ -3858,7 +3869,226 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+
+
+
+                    class PcbFlags(Entity):
+                        """
+                        PCB flags
+                        
+                        .. attribute:: recv_opts
+                        
+                        	Receive input options
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_ret_opts
+                        
+                        	Receive input source\-route options
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_dest_addr
+                        
+                        	Receive destination address
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: header_include
+                        
+                        	Header include option
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_intf
+                        
+                        	Receive input interface
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_header
+                        
+                        	Receive header
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: mcast_loopback
+                        
+                        	Loopback of multicast packet
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_l2_header
+                        
+                        	Receive L2 header
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_packet_info
+                        
+                        	Receive packet information
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: router_alert
+                        
+                        	Receive router alert packets
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_hop_limit
+                        
+                        	Receive hop limit
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_routing_header
+                        
+                        	Receive routing header
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_hop_header
+                        
+                        	Receive hop by hop option header
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_dest_header
+                        
+                        	Receive destination option header
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_traffic_class
+                        
+                        	Receive traffic class
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_ip_sec
+                        
+                        	Receive IP security information
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_tabel_id
+                        
+                        	Receive table identifier
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: recv_pak_priority
+                        
+                        	Receive packet priority
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: conn_limit
+                        
+                        	Connection limit
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: opt_handled
+                        
+                        	Option handled
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: bind_local
+                        
+                        	Local node packet delivery
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-udp-oper'
+                        _revision = '2018-08-09'
+
+                        def __init__(self):
+                            super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.PcbFlags, self).__init__()
+
+                            self.yang_name = "pcb-flags"
+                            self.yang_parent_name = "pcb-detail"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('recv_opts', (YLeaf(YType.boolean, 'recv-opts'), ['bool'])),
+                                ('recv_ret_opts', (YLeaf(YType.boolean, 'recv-ret-opts'), ['bool'])),
+                                ('recv_dest_addr', (YLeaf(YType.boolean, 'recv-dest-addr'), ['bool'])),
+                                ('header_include', (YLeaf(YType.boolean, 'header-include'), ['bool'])),
+                                ('recv_intf', (YLeaf(YType.boolean, 'recv-intf'), ['bool'])),
+                                ('recv_header', (YLeaf(YType.boolean, 'recv-header'), ['bool'])),
+                                ('mcast_loopback', (YLeaf(YType.boolean, 'mcast-loopback'), ['bool'])),
+                                ('recv_l2_header', (YLeaf(YType.boolean, 'recv-l2-header'), ['bool'])),
+                                ('recv_packet_info', (YLeaf(YType.boolean, 'recv-packet-info'), ['bool'])),
+                                ('router_alert', (YLeaf(YType.boolean, 'router-alert'), ['bool'])),
+                                ('recv_hop_limit', (YLeaf(YType.boolean, 'recv-hop-limit'), ['bool'])),
+                                ('recv_routing_header', (YLeaf(YType.boolean, 'recv-routing-header'), ['bool'])),
+                                ('recv_hop_header', (YLeaf(YType.boolean, 'recv-hop-header'), ['bool'])),
+                                ('recv_dest_header', (YLeaf(YType.boolean, 'recv-dest-header'), ['bool'])),
+                                ('recv_traffic_class', (YLeaf(YType.boolean, 'recv-traffic-class'), ['bool'])),
+                                ('recv_ip_sec', (YLeaf(YType.boolean, 'recv-ip-sec'), ['bool'])),
+                                ('recv_tabel_id', (YLeaf(YType.boolean, 'recv-tabel-id'), ['bool'])),
+                                ('recv_pak_priority', (YLeaf(YType.boolean, 'recv-pak-priority'), ['bool'])),
+                                ('conn_limit', (YLeaf(YType.boolean, 'conn-limit'), ['bool'])),
+                                ('opt_handled', (YLeaf(YType.boolean, 'opt-handled'), ['bool'])),
+                                ('bind_local', (YLeaf(YType.boolean, 'bind-local'), ['bool'])),
+                            ])
+                            self.recv_opts = None
+                            self.recv_ret_opts = None
+                            self.recv_dest_addr = None
+                            self.header_include = None
+                            self.recv_intf = None
+                            self.recv_header = None
+                            self.mcast_loopback = None
+                            self.recv_l2_header = None
+                            self.recv_packet_info = None
+                            self.router_alert = None
+                            self.recv_hop_limit = None
+                            self.recv_routing_header = None
+                            self.recv_hop_header = None
+                            self.recv_dest_header = None
+                            self.recv_traffic_class = None
+                            self.recv_ip_sec = None
+                            self.recv_tabel_id = None
+                            self.recv_pak_priority = None
+                            self.conn_limit = None
+                            self.opt_handled = None
+                            self.bind_local = None
+                            self._segment_path = lambda: "pcb-flags"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.PcbFlags, ['recv_opts', 'recv_ret_opts', 'recv_dest_addr', 'header_include', 'recv_intf', 'recv_header', 'mcast_loopback', 'recv_l2_header', 'recv_packet_info', 'router_alert', 'recv_hop_limit', 'recv_routing_header', 'recv_hop_header', 'recv_dest_header', 'recv_traffic_class', 'recv_ip_sec', 'recv_tabel_id', 'recv_pak_priority', 'conn_limit', 'opt_handled', 'bind_local'], name, value)
 
 
 
@@ -3880,7 +4110,7 @@ class UdpConnection(Entity):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2018-03-04'
+                _revision = '2018-08-09'
 
                 def __init__(self):
                     super(UdpConnection.Nodes.Node.PcbBriefs, self).__init__()
@@ -3985,7 +4215,7 @@ class UdpConnection(Entity):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2018-03-04'
+                    _revision = '2018-08-09'
 
                     def __init__(self):
                         super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, self).__init__()
@@ -4024,7 +4254,7 @@ class UdpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', u'af_name', u'local_port', u'foreign_port', u'receive_queue', u'send_queue', u'vrf_id'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', 'af_name', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -4061,7 +4291,7 @@ class UdpConnection(Entity):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2018-03-04'
+                        _revision = '2018-08-09'
 
                         def __init__(self):
                             super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, self).__init__()
@@ -4084,7 +4314,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -4122,7 +4352,7 @@ class UdpConnection(Entity):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2018-03-04'
+                        _revision = '2018-08-09'
 
                         def __init__(self):
                             super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, self).__init__()
@@ -4145,7 +4375,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 

@@ -40,10 +40,10 @@ class IfDirection(Enum):
 
 
 
-class DiffServTBParamTrTCMBlind(ObjectIdentity):
+class DiffServTBParamSimpleTokenBucket(ObjectIdentity):
     """
-    Two Rate Three Color Marker Metering as defined by RFC 2698, in
-    the `Color Blind' mode as described by the RFC.
+    Two Parameter Token Bucket Meter as described in the Informal
+    Differentiated Services Model section 5.2.3.
     
     
 
@@ -52,46 +52,8 @@ class DiffServTBParamTrTCMBlind(ObjectIdentity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamTrTCMBlind"):
-        super(DiffServTBParamTrTCMBlind, self).__init__(ns, pref, tag)
-
-
-
-class DiffServSchedulerWFQ(ObjectIdentity):
-    """
-    For use with diffServSchedulerMethod to indicate the Weighted
-    Fair Queuing scheduling method, defined as any algorithm in which
-    a set of queues are conceptually visited in some order, to
-    implement an average output rate by class. Notice attributes from
-    diffServMinRateEntry of the queues/schedulers feeding this
-    scheduler are used when determining the next packet to schedule.
-    
-    
-
-    """
-
-    _prefix = 'DIFFSERV-MIB'
-    _revision = '2002-02-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServSchedulerWFQ"):
-        super(DiffServSchedulerWFQ, self).__init__(ns, pref, tag)
-
-
-
-class DiffServTBParamTswTCM(ObjectIdentity):
-    """
-    Time Sliding Window Three Color Marker Metering as defined by
-    RFC 2859.
-    
-    
-
-    """
-
-    _prefix = 'DIFFSERV-MIB'
-    _revision = '2002-02-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamTswTCM"):
-        super(DiffServTBParamTswTCM, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamSimpleTokenBucket"):
+        super(DiffServTBParamSimpleTokenBucket, self).__init__(ns, pref, tag)
 
 
 
@@ -112,15 +74,10 @@ class DiffServTBParamAvgRate(ObjectIdentity):
 
 
 
-class DiffServSchedulerWRR(ObjectIdentity):
+class DiffServTBParamSrTCMBlind(ObjectIdentity):
     """
-    For use with diffServSchedulerMethod to indicate the Weighted
-    Round Robin scheduling method, defined as any algorithm in which
-    a set of queues are visited in a fixed order, and varying amounts
-    of traffic are removed from each queue in turn to implement an
-    average output rate by class. Notice attributes from
-    diffServMinRateEntry of the queues/schedulers feeding this
-    scheduler are used when determining the next packet to schedule.
+    Single Rate Three Color Marker Metering as defined by RFC 2697,
+    in the `Color Blind' mode as described by the RFC.
     
     
 
@@ -129,8 +86,8 @@ class DiffServSchedulerWRR(ObjectIdentity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServSchedulerWRR"):
-        super(DiffServSchedulerWRR, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamSrTCMBlind"):
+        super(DiffServTBParamSrTCMBlind, self).__init__(ns, pref, tag)
 
 
 
@@ -151,10 +108,10 @@ class DiffServTBParamSrTCMAware(ObjectIdentity):
 
 
 
-class DiffServTBParamSrTCMBlind(ObjectIdentity):
+class DiffServTBParamTrTCMBlind(ObjectIdentity):
     """
-    Single Rate Three Color Marker Metering as defined by RFC 2697,
-    in the `Color Blind' mode as described by the RFC.
+    Two Rate Three Color Marker Metering as defined by RFC 2698, in
+    the `Color Blind' mode as described by the RFC.
     
     
 
@@ -163,15 +120,15 @@ class DiffServTBParamSrTCMBlind(ObjectIdentity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamSrTCMBlind"):
-        super(DiffServTBParamSrTCMBlind, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamTrTCMBlind"):
+        super(DiffServTBParamTrTCMBlind, self).__init__(ns, pref, tag)
 
 
 
-class DiffServTBParamSimpleTokenBucket(ObjectIdentity):
+class DiffServTBParamTrTCMAware(ObjectIdentity):
     """
-    Two Parameter Token Bucket Meter as described in the Informal
-    Differentiated Services Model section 5.2.3.
+    Two Rate Three Color Marker Metering as defined by RFC 2698, in
+    the `Color Aware' mode as described by the RFC.
     
     
 
@@ -180,8 +137,25 @@ class DiffServTBParamSimpleTokenBucket(ObjectIdentity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamSimpleTokenBucket"):
-        super(DiffServTBParamSimpleTokenBucket, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamTrTCMAware"):
+        super(DiffServTBParamTrTCMAware, self).__init__(ns, pref, tag)
+
+
+
+class DiffServTBParamTswTCM(ObjectIdentity):
+    """
+    Time Sliding Window Three Color Marker Metering as defined by
+    RFC 2859.
+    
+    
+
+    """
+
+    _prefix = 'DIFFSERV-MIB'
+    _revision = '2002-02-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamTswTCM"):
+        super(DiffServTBParamTswTCM, self).__init__(ns, pref, tag)
 
 
 
@@ -207,10 +181,15 @@ class DiffServSchedulerPriority(ObjectIdentity):
 
 
 
-class DiffServTBParamTrTCMAware(ObjectIdentity):
+class DiffServSchedulerWRR(ObjectIdentity):
     """
-    Two Rate Three Color Marker Metering as defined by RFC 2698, in
-    the `Color Aware' mode as described by the RFC.
+    For use with diffServSchedulerMethod to indicate the Weighted
+    Round Robin scheduling method, defined as any algorithm in which
+    a set of queues are visited in a fixed order, and varying amounts
+    of traffic are removed from each queue in turn to implement an
+    average output rate by class. Notice attributes from
+    diffServMinRateEntry of the queues/schedulers feeding this
+    scheduler are used when determining the next packet to schedule.
     
     
 
@@ -219,8 +198,29 @@ class DiffServTBParamTrTCMAware(ObjectIdentity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamTrTCMAware"):
-        super(DiffServTBParamTrTCMAware, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServSchedulerWRR"):
+        super(DiffServSchedulerWRR, self).__init__(ns, pref, tag)
+
+
+
+class DiffServSchedulerWFQ(ObjectIdentity):
+    """
+    For use with diffServSchedulerMethod to indicate the Weighted
+    Fair Queuing scheduling method, defined as any algorithm in which
+    a set of queues are conceptually visited in some order, to
+    implement an average output rate by class. Notice attributes from
+    diffServMinRateEntry of the queues/schedulers feeding this
+    scheduler are used when determining the next packet to schedule.
+    
+    
+
+    """
+
+    _prefix = 'DIFFSERV-MIB'
+    _revision = '2002-02-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServSchedulerWFQ"):
+        super(DiffServSchedulerWFQ, self).__init__(ns, pref, tag)
 
 
 

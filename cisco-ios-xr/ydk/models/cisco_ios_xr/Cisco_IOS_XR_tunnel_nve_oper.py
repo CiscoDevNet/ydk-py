@@ -362,7 +362,7 @@ class Nve(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Nve.Vnis.Vni, ['vni', u'interface_name', u'vni_xr', u'state', u'mcast_ipv4_address', u'flags', u'vni_min', u'vni_max', u'mcast_flags', u'udp_port', u'bvi_ifh', u'bvi_state', u'bvi_mac', u'vrf_name', u'vrf_id', u'ipv4_tbl_id', u'ipv6_tbl_id', u'vrf_vni', u'topo_valid', u'topo_id', u'topo_name'], name, value)
+                self._perform_setattr(Nve.Vnis.Vni, ['vni', 'interface_name', 'vni_xr', 'state', 'mcast_ipv4_address', 'flags', 'vni_min', 'vni_max', 'mcast_flags', 'udp_port', 'bvi_ifh', 'bvi_state', 'bvi_mac', 'vrf_name', 'vrf_id', 'ipv4_tbl_id', 'ipv6_tbl_id', 'vrf_vni', 'topo_valid', 'topo_id', 'topo_name'], name, value)
 
 
 
@@ -602,7 +602,7 @@ class Nve(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Nve.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'state', u'admin_state', u'flags', u'encap', u'source_interface_name', u'source_ipv4_address', u'if_handle', u'source_state', u'udp_port', u'any_cast_source_interface_name', u'any_cast_source_ipv4_address', u'any_cast_source_state', u'sync_mcast_ipv4_address', u'sync_mcast_flags'], name, value)
+                self._perform_setattr(Nve.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'state', 'admin_state', 'flags', 'encap', 'source_interface_name', 'source_ipv4_address', 'if_handle', 'source_state', 'udp_port', 'any_cast_source_interface_name', 'any_cast_source_ipv4_address', 'any_cast_source_state', 'sync_mcast_ipv4_address', 'sync_mcast_flags'], name, value)
 
 
 

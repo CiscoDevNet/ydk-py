@@ -16,27 +16,6 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class BandwidthNotificationState(Enum):
-    """
-    BandwidthNotificationState (Enum Class)
-
-    Bandwidth notification state
-
-    .. data:: ok = 1
-
-    	Link is not degraded
-
-    .. data:: degraded = 2
-
-    	Link is in degraded state
-
-    """
-
-    ok = Enum.YLeaf(1, "ok")
-
-    degraded = Enum.YLeaf(2, "degraded")
-
-
 class CfmAisInterval(Enum):
     """
     CfmAisInterval (Enum Class)
@@ -56,6 +35,27 @@ class CfmAisInterval(Enum):
     Y_1s = Enum.YLeaf(4, "1s")
 
     Y_1m = Enum.YLeaf(6, "1m")
+
+
+class CfmBandwidthNotificationState(Enum):
+    """
+    CfmBandwidthNotificationState (Enum Class)
+
+    Cfm bandwidth notification state
+
+    .. data:: ok = 1
+
+    	Link is not degraded
+
+    .. data:: degraded = 2
+
+    	Link is in degraded state
+
+    """
+
+    ok = Enum.YLeaf(1, "ok")
+
+    degraded = Enum.YLeaf(2, "degraded")
 
 
 class CfmCcmInterval(Enum):

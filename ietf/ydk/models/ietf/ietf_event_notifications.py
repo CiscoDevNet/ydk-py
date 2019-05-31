@@ -58,39 +58,6 @@ class Stream(Identity):
 
 
 
-class Encodings(Identity):
-    """
-    Base identity to represent data encodings
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encodings"):
-        super(Encodings, self).__init__(ns, pref, tag)
-
-
-
-class Transport(Identity):
-    """
-    An identity that represents a transport protocol for
-    event notifications
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:transport"):
-        super(Transport, self).__init__(ns, pref, tag)
-
-
-
 class SubscriptionResult(Identity):
     """
     Base identity for RPC responses to requests surrounding
@@ -141,6 +108,39 @@ class SubscriptionErrors(Identity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-errors"):
         super(SubscriptionErrors, self).__init__(ns, pref, tag)
+
+
+
+class Encodings(Identity):
+    """
+    Base identity to represent data encodings
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encodings"):
+        super(Encodings, self).__init__(ns, pref, tag)
+
+
+
+class Transport(Identity):
+    """
+    An identity that represents a transport protocol for
+    event notifications
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:transport"):
+        super(Transport, self).__init__(ns, pref, tag)
 
 
 
@@ -364,7 +364,7 @@ class EstablishSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Input, [u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Input, ['stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
 
@@ -553,7 +553,7 @@ class EstablishSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
     def clone_ptr(self):
@@ -673,7 +673,7 @@ class CreateSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CreateSubscription.Input, [u'stream', u'encoding', u'filter', u'starttime', u'stoptime'], name, value)
+            self._perform_setattr(CreateSubscription.Input, ['stream', 'encoding', 'filter', 'starttime', 'stoptime'], name, value)
 
 
     def clone_ptr(self):
@@ -869,7 +869,7 @@ class ModifySubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Input, [u'subscription_id', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
+            self._perform_setattr(ModifySubscription.Input, ['subscription_id', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
 
 
 
@@ -1058,7 +1058,7 @@ class ModifySubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(ModifySubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
     def clone_ptr(self):
@@ -1150,7 +1150,7 @@ class DeleteSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Input, [u'subscription_id'], name, value)
+            self._perform_setattr(DeleteSubscription.Input, ['subscription_id'], name, value)
 
 
 
@@ -1190,7 +1190,7 @@ class DeleteSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Output, [u'subscription_result'], name, value)
+            self._perform_setattr(DeleteSubscription.Output, ['subscription_result'], name, value)
 
 
     def clone_ptr(self):
@@ -1236,7 +1236,7 @@ class Streams(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Streams, [u'stream'], name, value)
+        self._perform_setattr(Streams, ['stream'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Streams()
@@ -1340,7 +1340,7 @@ class Filters(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Filters.Filter, [u'filter_id', u'filter', 'subtree_filter', 'xpath_filter'], name, value)
+            self._perform_setattr(Filters.Filter, ['filter_id', 'filter', 'subtree_filter', 'xpath_filter'], name, value)
 
 
     def clone_ptr(self):
@@ -1604,7 +1604,7 @@ class SubscriptionConfig(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SubscriptionConfig.Subscription, [u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(SubscriptionConfig.Subscription, ['subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -1710,7 +1710,7 @@ class SubscriptionConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
+                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
 
 
 
@@ -2046,7 +2046,7 @@ class Subscriptions(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Subscriptions.Subscription, [u'subscription_id', u'configured_subscription', u'subscription_status', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(Subscriptions.Subscription, ['subscription_id', 'configured_subscription', 'subscription_status', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -2160,7 +2160,7 @@ class Subscriptions(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
+                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
 
 
 
@@ -2171,9 +2171,11 @@ class Subscriptions(Entity):
 
 
 
-class NoResources(SubscriptionErrors):
+class NETCONF(Stream):
     """
-    Lack of resources, e.g. CPU, memory, bandwidth
+    Default NETCONF event stream, containing events based on
+    notifications defined as YANG modules that are supported
+    by the system.
     
     
 
@@ -2182,8 +2184,140 @@ class NoResources(SubscriptionErrors):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:no-resources"):
-        super(NoResources, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:NETCONF"):
+        super(NETCONF, self).__init__(ns, pref, tag)
+
+
+
+class Ok(SubscriptionResult):
+    """
+    OK \- RPC was successful and was performed as requested.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:ok"):
+        super(Ok, self).__init__(ns, pref, tag)
+
+
+
+class Error(SubscriptionResult):
+    """
+    RPC was not successful.
+    Base identity for error return codes.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error"):
+        super(Error, self).__init__(ns, pref, tag)
+
+
+
+class ErrorNoSuchSubscription(Error):
+    """
+    A subscription with the requested subscription ID
+    does not exist.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-no-such-subscription"):
+        super(ErrorNoSuchSubscription, self).__init__(ns, pref, tag)
+
+
+
+class ErrorNoSuchOption(Error):
+    """
+    A requested parameter setting is not supported.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-no-such-option"):
+        super(ErrorNoSuchOption, self).__init__(ns, pref, tag)
+
+
+
+class ErrorInsufficientResources(Error):
+    """
+    The publisher has insufficient resources to support the
+    subscription as requested.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-insufficient-resources"):
+        super(ErrorInsufficientResources, self).__init__(ns, pref, tag)
+
+
+
+class ErrorConfiguredSubscription(Error):
+    """
+    Cannot apply RPC to a configured subscription, i.e.
+    to a subscription that was not established via RPC.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-configured-subscription"):
+        super(ErrorConfiguredSubscription, self).__init__(ns, pref, tag)
+
+
+
+class ErrorOther(Error):
+    """
+    An unspecified error has occurred (catch all).
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-other"):
+        super(ErrorOther, self).__init__(ns, pref, tag)
+
+
+
+class Active(SubscriptionStreamStatus):
+    """
+    Status is active and healthy.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:active"):
+        super(Active, self).__init__(ns, pref, tag)
 
 
 
@@ -2222,9 +2356,11 @@ class Suspended(SubscriptionStreamStatus):
 
 
 
-class EncodeJson(Encodings):
+class InError(SubscriptionStreamStatus):
     """
-    Encode data using JSON
+    The status is in error or degraded, meaning that
+    stream and/or subscription is currently unable to provide
+    the negotiated notifications.
     
     
 
@@ -2233,8 +2369,8 @@ class EncodeJson(Encodings):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-json"):
-        super(EncodeJson, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:in-error"):
+        super(InError, self).__init__(ns, pref, tag)
 
 
 
@@ -2254,9 +2390,9 @@ class InternalError(SubscriptionErrors):
 
 
 
-class Other(SubscriptionErrors):
+class NoResources(SubscriptionErrors):
     """
-    Fallback reason \- any other reason
+    Lack of resources, e.g. CPU, memory, bandwidth
     
     
 
@@ -2265,125 +2401,8 @@ class Other(SubscriptionErrors):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:other"):
-        super(Other, self).__init__(ns, pref, tag)
-
-
-
-class InError(SubscriptionStreamStatus):
-    """
-    The status is in error or degraded, meaning that
-    stream and/or subscription is currently unable to provide
-    the negotiated notifications.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:in-error"):
-        super(InError, self).__init__(ns, pref, tag)
-
-
-
-class Netconf(Transport):
-    """
-    Netconf notifications as a transport.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:netconf"):
-        super(Netconf, self).__init__(ns, pref, tag)
-
-
-
-class Error(SubscriptionResult):
-    """
-    RPC was not successful.
-    Base identity for error return codes.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error"):
-        super(Error, self).__init__(ns, pref, tag)
-
-
-
-class Active(SubscriptionStreamStatus):
-    """
-    Status is active and healthy.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:active"):
-        super(Active, self).__init__(ns, pref, tag)
-
-
-
-class NETCONF(Stream):
-    """
-    Default NETCONF event stream, containing events based on
-    notifications defined as YANG modules that are supported
-    by the system.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:NETCONF"):
-        super(NETCONF, self).__init__(ns, pref, tag)
-
-
-
-class Ok(SubscriptionResult):
-    """
-    OK \- RPC was successful and was performed as requested.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:ok"):
-        super(Ok, self).__init__(ns, pref, tag)
-
-
-
-class EncodeXml(Encodings):
-    """
-    Encode data using XML
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-xml"):
-        super(EncodeXml, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:no-resources"):
+        super(NoResources, self).__init__(ns, pref, tag)
 
 
 
@@ -2404,9 +2423,9 @@ class SubscriptionDeleted(SubscriptionErrors):
 
 
 
-class ErrorNoSuchOption(Error):
+class Other(SubscriptionErrors):
     """
-    A requested parameter setting is not supported.
+    Fallback reason \- any other reason
     
     
 
@@ -2415,15 +2434,14 @@ class ErrorNoSuchOption(Error):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-no-such-option"):
-        super(ErrorNoSuchOption, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:other"):
+        super(Other, self).__init__(ns, pref, tag)
 
 
 
-class ErrorNoSuchSubscription(Error):
+class EncodeXml(Encodings):
     """
-    A subscription with the requested subscription ID
-    does not exist.
+    Encode data using XML
     
     
 
@@ -2432,14 +2450,14 @@ class ErrorNoSuchSubscription(Error):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-no-such-subscription"):
-        super(ErrorNoSuchSubscription, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-xml"):
+        super(EncodeXml, self).__init__(ns, pref, tag)
 
 
 
-class ErrorOther(Error):
+class EncodeJson(Encodings):
     """
-    An unspecified error has occurred (catch all).
+    Encode data using JSON
     
     
 
@@ -2448,15 +2466,14 @@ class ErrorOther(Error):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-other"):
-        super(ErrorOther, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-json"):
+        super(EncodeJson, self).__init__(ns, pref, tag)
 
 
 
-class ErrorInsufficientResources(Error):
+class Netconf(Transport):
     """
-    The publisher has insufficient resources to support the
-    subscription as requested.
+    Netconf notifications as a transport.
     
     
 
@@ -2465,25 +2482,8 @@ class ErrorInsufficientResources(Error):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-insufficient-resources"):
-        super(ErrorInsufficientResources, self).__init__(ns, pref, tag)
-
-
-
-class ErrorConfiguredSubscription(Error):
-    """
-    Cannot apply RPC to a configured subscription, i.e.
-    to a subscription that was not established via RPC.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-configured-subscription"):
-        super(ErrorConfiguredSubscription, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:netconf"):
+        super(Netconf, self).__init__(ns, pref, tag)
 
 
 

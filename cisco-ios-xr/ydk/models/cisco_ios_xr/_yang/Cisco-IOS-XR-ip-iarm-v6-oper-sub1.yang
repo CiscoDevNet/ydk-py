@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-ip-iarm-v6-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-01-22 {
+    description
+      "Fixing yang usability issues.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -119,7 +123,7 @@ submodule Cisco-IOS-XR-ip-iarm-v6-oper-sub1 {
 
   grouping ARM-ADDRTYPE {
     description
-      "ARM ADDRTYPE";
+      "Union representing an address";
     leaf afi {
       type int32;
       description
@@ -147,16 +151,17 @@ submodule Cisco-IOS-XR-ip-iarm-v6-oper-sub1 {
 
   grouping IP-ARM-EDM-ADDR-TYPE {
     description
-      "IP ARM EDM ADDR TYPE";
+      "IP ARM collective address and other attribute
+       info";
     container address {
       description
-        "Address";
+        "IPv4/IPv6 address";
       uses ARM-ADDRTYPE;
     }
     leaf prefix-length {
       type uint32;
       description
-        "Prefix length";
+        "Prefix length of theIPv4/IPv6 Address";
     }
     leaf route-tag {
       type uint32;
@@ -199,7 +204,8 @@ submodule Cisco-IOS-XR-ip-iarm-v6-oper-sub1 {
     leaf interface-name {
       type string;
       description
-        "Interface name";
+        "Ingress/Egress Interface name for this address
+         in the Network";
     }
     leaf referenced-interface {
       type String1;

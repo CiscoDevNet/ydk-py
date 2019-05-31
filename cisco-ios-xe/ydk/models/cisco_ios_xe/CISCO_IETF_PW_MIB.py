@@ -210,7 +210,7 @@ class CISCOIETFPWMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMIB.CpwVcObjects, [u'cpwvcindexnext', u'cpwvcperftotalerrorpackets', u'cpwvcupdownnotifenable', u'cpwvcnotifrate'], name, value)
+            self._perform_setattr(CISCOIETFPWMIB.CpwVcObjects, ['cpwvcindexnext', 'cpwvcperftotalerrorpackets', 'cpwvcupdownnotifenable', 'cpwvcnotifrate'], name, value)
 
 
 
@@ -603,7 +603,7 @@ class CISCOIETFPWMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.CpwVcTable.CpwVcEntry, [u'cpwvcindex', u'cpwvctype', u'cpwvcowner', u'cpwvcpsntype', u'cpwvcsetuppriority', u'cpwvcholdingpriority', u'cpwvcinboundmode', u'cpwvcpeeraddrtype', u'cpwvcpeeraddr', u'cpwvcid', u'cpwvclocalgroupid', u'cpwvccontrolword', u'cpwvclocalifmtu', u'cpwvclocalifstring', u'cpwvcremotegroupid', u'cpwvcremotecontrolword', u'cpwvcremoteifmtu', u'cpwvcremoteifstring', u'cpwvcoutboundvclabel', u'cpwvcinboundvclabel', u'cpwvcname', u'cpwvcdescr', u'cpwvccreatetime', u'cpwvcuptime', u'cpwvcadminstatus', u'cpwvcoperstatus', u'cpwvcinboundoperstatus', u'cpwvcoutboundoperstatus', u'cpwvctimeelapsed', u'cpwvcvalidintervals', u'cpwvcrowstatus', u'cpwvcstoragetype'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcTable.CpwVcEntry, ['cpwvcindex', 'cpwvctype', 'cpwvcowner', 'cpwvcpsntype', 'cpwvcsetuppriority', 'cpwvcholdingpriority', 'cpwvcinboundmode', 'cpwvcpeeraddrtype', 'cpwvcpeeraddr', 'cpwvcid', 'cpwvclocalgroupid', 'cpwvccontrolword', 'cpwvclocalifmtu', 'cpwvclocalifstring', 'cpwvcremotegroupid', 'cpwvcremotecontrolword', 'cpwvcremoteifmtu', 'cpwvcremoteifstring', 'cpwvcoutboundvclabel', 'cpwvcinboundvclabel', 'cpwvcname', 'cpwvcdescr', 'cpwvccreatetime', 'cpwvcuptime', 'cpwvcadminstatus', 'cpwvcoperstatus', 'cpwvcinboundoperstatus', 'cpwvcoutboundoperstatus', 'cpwvctimeelapsed', 'cpwvcvalidintervals', 'cpwvcrowstatus', 'cpwvcstoragetype'], name, value)
 
             class CpwVcAdminStatus(Enum):
                 """
@@ -917,7 +917,7 @@ class CISCOIETFPWMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfCurrentTable.CpwVcPerfCurrentEntry, [u'cpwvcindex', u'cpwvcperfcurrentinhcpackets', u'cpwvcperfcurrentinhcbytes', u'cpwvcperfcurrentouthcpackets', u'cpwvcperfcurrentouthcbytes'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfCurrentTable.CpwVcPerfCurrentEntry, ['cpwvcindex', 'cpwvcperfcurrentinhcpackets', 'cpwvcperfcurrentinhcbytes', 'cpwvcperfcurrentouthcpackets', 'cpwvcperfcurrentouthcbytes'], name, value)
 
 
 
@@ -1076,7 +1076,7 @@ class CISCOIETFPWMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfIntervalTable.CpwVcPerfIntervalEntry, [u'cpwvcindex', u'cpwvcperfintervalnumber', u'cpwvcperfintervalvaliddata', u'cpwvcperfintervaltimeelapsed', u'cpwvcperfintervalinhcpackets', u'cpwvcperfintervalinhcbytes', u'cpwvcperfintervalouthcpackets', u'cpwvcperfintervalouthcbytes'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfIntervalTable.CpwVcPerfIntervalEntry, ['cpwvcindex', 'cpwvcperfintervalnumber', 'cpwvcperfintervalvaliddata', 'cpwvcperfintervaltimeelapsed', 'cpwvcperfintervalinhcpackets', 'cpwvcperfintervalinhcbytes', 'cpwvcperfintervalouthcpackets', 'cpwvcperfintervalouthcbytes'], name, value)
 
 
 
@@ -1215,7 +1215,7 @@ class CISCOIETFPWMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfTotalTable.CpwVcPerfTotalEntry, [u'cpwvcindex', u'cpwvcperftotalinhcpackets', u'cpwvcperftotalinhcbytes', u'cpwvcperftotalouthcpackets', u'cpwvcperftotalouthcbytes', u'cpwvcperftotaldiscontinuitytime'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfTotalTable.CpwVcPerfTotalEntry, ['cpwvcindex', 'cpwvcperftotalinhcpackets', 'cpwvcperftotalinhcbytes', 'cpwvcperftotalouthcpackets', 'cpwvcperftotalouthcbytes', 'cpwvcperftotaldiscontinuitytime'], name, value)
 
 
 
@@ -1339,7 +1339,7 @@ class CISCOIETFPWMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.CpwVcIdMappingTable.CpwVcIdMappingEntry, [u'cpwvcidmappingvctype', u'cpwvcidmappingvcid', u'cpwvcidmappingpeeraddrtype', u'cpwvcidmappingpeeraddr', u'cpwvcidmappingvcindex'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcIdMappingTable.CpwVcIdMappingEntry, ['cpwvcidmappingvctype', 'cpwvcidmappingvcid', 'cpwvcidmappingpeeraddrtype', 'cpwvcidmappingpeeraddr', 'cpwvcidmappingvcindex'], name, value)
 
 
 
@@ -1463,7 +1463,7 @@ class CISCOIETFPWMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMIB.CpwVcPeerMappingTable.CpwVcPeerMappingEntry, [u'cpwvcpeermappingpeeraddrtype', u'cpwvcpeermappingpeeraddr', u'cpwvcpeermappingvctype', u'cpwvcpeermappingvcid', u'cpwvcpeermappingvcindex'], name, value)
+                self._perform_setattr(CISCOIETFPWMIB.CpwVcPeerMappingTable.CpwVcPeerMappingEntry, ['cpwvcpeermappingpeeraddrtype', 'cpwvcpeermappingpeeraddr', 'cpwvcpeermappingvctype', 'cpwvcpeermappingvcid', 'cpwvcpeermappingvcindex'], name, value)
 
 
 

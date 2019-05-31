@@ -657,6 +657,10 @@ class FsyncSource(Enum):
 
     	An NTP clock
 
+    .. data:: gnss = 8
+
+    	A GNSS receiver
+
     """
 
     ethernet = Enum.YLeaf(1, "ethernet")
@@ -672,6 +676,8 @@ class FsyncSource(Enum):
     satellite_access = Enum.YLeaf(6, "satellite-access")
 
     ntp = Enum.YLeaf(7, "ntp")
+
+    gnss = Enum.YLeaf(8, "gnss")
 
 
 class FsyncStream(Enum):
@@ -1270,7 +1276,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -1332,7 +1338,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -1395,7 +1401,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -1458,7 +1464,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -1520,7 +1526,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
 
@@ -1720,7 +1726,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, [u'node_type'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
                             class SelectionPoint(Entity):
@@ -1780,7 +1786,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
 
@@ -1907,7 +1913,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                                 class ClockId(Entity):
@@ -1969,7 +1975,7 @@ class FrequencySynchronization(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -2032,7 +2038,7 @@ class FrequencySynchronization(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -2095,7 +2101,7 @@ class FrequencySynchronization(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -2276,7 +2282,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                     class ClockId(Entity):
@@ -2338,7 +2344,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -2401,7 +2407,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -2464,7 +2470,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -2526,7 +2532,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
+                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
 
@@ -2666,7 +2672,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, [u'node_type'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
                         class SelectionPoint(Entity):
@@ -2726,7 +2732,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
 
@@ -2853,7 +2859,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -2915,7 +2921,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -2978,7 +2984,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -3041,7 +3047,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -3184,7 +3190,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, [u'node_type'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
                         class SelectionPoint(Entity):
@@ -3244,7 +3250,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
 
@@ -3371,7 +3377,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -3433,7 +3439,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -3496,7 +3502,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -3559,7 +3565,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -3806,7 +3812,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, [u'node_type'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
                         class SelectionPoint(Entity):
@@ -3866,7 +3872,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
 
@@ -3993,7 +3999,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -4055,7 +4061,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -4118,7 +4124,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -4181,7 +4187,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -4361,7 +4367,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                     class ClockId(Entity):
@@ -4423,7 +4429,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -4486,7 +4492,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -4549,7 +4555,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -4611,7 +4617,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
+                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
 
@@ -4735,7 +4741,7 @@ class FrequencySynchronization(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary, [u'clock_count', u'ethernet_count', u'sonet_count'], name, value)
+                self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary, ['clock_count', 'ethernet_count', 'sonet_count'], name, value)
 
 
             class Source(Entity):
@@ -4863,7 +4869,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -4926,7 +4932,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -4990,7 +4996,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -5054,7 +5060,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -5109,7 +5115,7 @@ class FrequencySynchronization(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary, [u'node_count'], name, value)
+                self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary, ['node_count'], name, value)
 
 
             class Source(Entity):
@@ -5237,7 +5243,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -5300,7 +5306,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -5364,7 +5370,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -5428,7 +5434,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -5743,7 +5749,7 @@ class FrequencySynchronization(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData, ['interface_name', u'name', u'state', u'ssm_enabled', u'squelched', u'selection_input', u'priority', u'time_of_day_priority', u'damping_state', u'damping_time', u'wait_to_restore_time', u'supports_frequency', u'supports_time_of_day'], name, value)
+                self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData, ['interface_name', 'name', 'state', 'ssm_enabled', 'squelched', 'selection_input', 'priority', 'time_of_day_priority', 'damping_state', 'damping_time', 'wait_to_restore_time', 'supports_frequency', 'supports_time_of_day'], name, value)
 
 
             class Source(Entity):
@@ -5869,7 +5875,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -5931,7 +5937,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -5994,7 +6000,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -6057,7 +6063,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -6185,7 +6191,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -6247,7 +6253,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -6310,7 +6316,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -6373,7 +6379,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -6440,7 +6446,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelReceived, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelReceived, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -6506,7 +6512,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelDamped, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelDamped, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -6572,7 +6578,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -6638,7 +6644,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveOutput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveOutput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -6705,7 +6711,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelSelectedSource, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelSelectedSource, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -6788,7 +6794,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation, [u'peer_state', u'peer_up_count', u'peer_timeout_count'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation, ['peer_state', 'peer_up_count', 'peer_timeout_count'], name, value)
 
 
                 class PeerStateTime(Entity):
@@ -6843,7 +6849,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.PeerStateTime, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.PeerStateTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -6899,7 +6905,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.LastSsm, [u'seconds', u'nanoseconds'], name, value)
+                        self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.LastSsm, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -7018,7 +7024,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EsmcStatistics, [u'esmc_events_sent', u'esmc_events_received', u'esmc_infos_sent', u'esmc_infos_received', u'esmc_dn_us_sent', u'esmc_dn_us_received', u'esmc_malformed_received', u'esmc_received_error'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EsmcStatistics, ['esmc_events_sent', 'esmc_events_received', 'esmc_infos_sent', 'esmc_infos_received', 'esmc_dn_us_sent', 'esmc_dn_us_received', 'esmc_malformed_received', 'esmc_received_error'], name, value)
 
 
 
@@ -7068,7 +7074,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -7118,7 +7124,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                    self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -7394,7 +7400,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData, [u'state', u'supports_frequency', u'supports_time_of_day', u'frequency_priority', u'time_of_day_priority'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData, ['state', 'supports_frequency', 'supports_time_of_day', 'frequency_priority', 'time_of_day_priority'], name, value)
 
 
                 class QualityLevelEffectiveInput(Entity):
@@ -7459,7 +7465,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -7509,7 +7515,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -7559,7 +7565,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -7722,7 +7728,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData, ['selection_point', u'selection_point_type', u'description', u'inputs', u'inputs_selected', u'time_of_day_selection'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData, ['selection_point', 'selection_point_type', 'description', 'inputs', 'inputs_selected', 'time_of_day_selection'], name, value)
 
 
                     class Output(Entity):
@@ -7812,7 +7818,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output, [u'local_clock_ouput', u'local_line_output', u'local_time_of_day_output'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output, ['local_clock_ouput', 'local_line_output', 'local_time_of_day_output'], name, value)
 
 
                         class SpaSelectionPoint(Entity):
@@ -7861,7 +7867,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -7911,7 +7917,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -7961,7 +7967,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.ChassisSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.ChassisSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -8011,7 +8017,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.RouterSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.RouterSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -8068,7 +8074,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastProgrammed, [u'seconds', u'nanoseconds'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastProgrammed, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -8124,7 +8130,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastSelection, [u'seconds', u'nanoseconds'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastSelection, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -8342,7 +8348,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource, [u'enable_error', u'input_min_error', u'input_exact_error', u'input_max_error', u'ouput_min_error', u'output_exact_error', u'output_max_error', u'input_output_mismatch'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource, ['enable_error', 'input_min_error', 'input_exact_error', 'input_max_error', 'ouput_min_error', 'output_exact_error', 'output_max_error', 'input_output_mismatch'], name, value)
 
 
                     class Source(Entity):
@@ -8468,7 +8474,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -8530,7 +8536,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -8593,7 +8599,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -8656,7 +8662,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -8723,7 +8729,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -8789,7 +8795,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -8855,7 +8861,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -8921,7 +8927,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -8987,7 +8993,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -9053,7 +9059,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -9162,7 +9168,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData, [u'state', u'supports_frequency', u'supports_time_of_day', u'frequency_priority', u'time_of_day_priority'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData, ['state', 'supports_frequency', 'supports_time_of_day', 'frequency_priority', 'time_of_day_priority'], name, value)
 
 
                 class QualityLevelEffectiveInput(Entity):
@@ -9227,7 +9233,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -9277,7 +9283,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -9327,7 +9333,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -9490,7 +9496,7 @@ class FrequencySynchronization(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SsmSummary, [u'ethernet_sources', u'ethernet_sources_select', u'ethernet_sources_enabled', u'sonet_sources', u'sonet_sources_select', u'sonet_sources_enabled', u'events_sent', u'events_received', u'infos_sent', u'infos_received', u'dn_us_sent', u'dn_us_received'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SsmSummary, ['ethernet_sources', 'ethernet_sources_select', 'ethernet_sources_enabled', 'sonet_sources', 'sonet_sources_select', 'sonet_sources_enabled', 'events_sent', 'events_received', 'infos_sent', 'infos_received', 'dn_us_sent', 'dn_us_received'], name, value)
 
 
 
@@ -9842,7 +9848,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData, ['clock_type', 'id', u'state', u'down_reason', u'description', u'priority', u'time_of_day_priority', u'ssm_support', u'ssm_enabled', u'loopback', u'selection_input', u'squelched', u'damping_state', u'damping_time', u'input_disabled', u'output_disabled', u'wait_to_restore_time', u'clock_type_xr', u'supports_frequency', u'supports_time_of_day'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData, ['clock_type', 'id', 'state', 'down_reason', 'description', 'priority', 'time_of_day_priority', 'ssm_support', 'ssm_enabled', 'loopback', 'selection_input', 'squelched', 'damping_state', 'damping_time', 'input_disabled', 'output_disabled', 'wait_to_restore_time', 'clock_type_xr', 'supports_frequency', 'supports_time_of_day'], name, value)
 
 
                     class Source(Entity):
@@ -9968,7 +9974,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -10030,7 +10036,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -10093,7 +10099,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -10156,7 +10162,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -10284,7 +10290,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -10346,7 +10352,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -10409,7 +10415,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -10472,7 +10478,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -10539,7 +10545,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelReceived, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelReceived, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -10605,7 +10611,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelDamped, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelDamped, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -10671,7 +10677,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -10737,7 +10743,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveOutput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveOutput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -10804,7 +10810,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelSelectedSource, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelSelectedSource, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -10854,7 +10860,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -10904,7 +10910,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -11257,7 +11263,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData, ['clock_type', 'id', u'state', u'down_reason', u'description', u'priority', u'time_of_day_priority', u'ssm_support', u'ssm_enabled', u'loopback', u'selection_input', u'squelched', u'damping_state', u'damping_time', u'input_disabled', u'output_disabled', u'wait_to_restore_time', u'clock_type_xr', u'supports_frequency', u'supports_time_of_day'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData, ['clock_type', 'id', 'state', 'down_reason', 'description', 'priority', 'time_of_day_priority', 'ssm_support', 'ssm_enabled', 'loopback', 'selection_input', 'squelched', 'damping_state', 'damping_time', 'input_disabled', 'output_disabled', 'wait_to_restore_time', 'clock_type_xr', 'supports_frequency', 'supports_time_of_day'], name, value)
 
 
                     class Source(Entity):
@@ -11383,7 +11389,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -11445,7 +11451,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -11508,7 +11514,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -11571,7 +11577,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -11699,7 +11705,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -11761,7 +11767,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -11824,7 +11830,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -11887,7 +11893,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -11954,7 +11960,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelReceived, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelReceived, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -12020,7 +12026,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelDamped, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelDamped, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -12086,7 +12092,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -12152,7 +12158,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveOutput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveOutput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -12219,7 +12225,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelSelectedSource, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelSelectedSource, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 
@@ -12269,7 +12275,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -12319,7 +12325,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
 
 
@@ -12596,7 +12602,7 @@ class FrequencySynchronization(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput, ['selection_point', 'stream_type', 'source_type', 'interface', 'clock_port', 'last_node', 'last_selection_point', 'output_id', u'supports_frequency', u'supports_time_of_day', u'priority', u'time_of_day_priority', u'selected', u'output_id_xr', u'platform_status', u'platform_failed_reason'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput, ['selection_point', 'stream_type', 'source_type', 'interface', 'clock_port', 'last_node', 'last_selection_point', 'output_id', 'supports_frequency', 'supports_time_of_day', 'priority', 'time_of_day_priority', 'selected', 'output_id_xr', 'platform_status', 'platform_failed_reason'], name, value)
 
 
                     class InputSelectionPoint(Entity):
@@ -12656,7 +12662,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
 
@@ -12717,7 +12723,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream, [u'stream_input'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream, ['stream_input'], name, value)
 
 
                         class SourceId(Entity):
@@ -12843,7 +12849,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -12905,7 +12911,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -12968,7 +12974,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -13031,7 +13037,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -13084,7 +13090,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId, [u'output_id'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId, ['output_id'], name, value)
 
 
                             class SelectionPoint(Entity):
@@ -13144,7 +13150,7 @@ class FrequencySynchronization(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
 
@@ -13273,7 +13279,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, [u'source_class', u'ethernet_interface', u'sonet_interface', u'ptp_node', u'satellite_access_interface', u'ntp_node'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -13335,7 +13341,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -13398,7 +13404,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -13461,7 +13467,7 @@ class FrequencySynchronization(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
 
 
@@ -13528,7 +13534,7 @@ class FrequencySynchronization(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
 

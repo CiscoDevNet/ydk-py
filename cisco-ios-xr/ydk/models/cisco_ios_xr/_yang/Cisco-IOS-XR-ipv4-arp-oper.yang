@@ -161,6 +161,11 @@ module Cisco-IOS-XR-ipv4-arp-oper {
              history data";
           uses ARP-RESHIST;
         }
+        container arp-status-info {
+          description
+            "Per node ARP status information";
+          uses ARP-STATUS-INFO;
+        }
         container traffic-vrfs {
           description
             "ARP Traffic information per VRF";

@@ -10,7 +10,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     prefix xr;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub6 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
 
   organization
@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -1541,6 +1545,29 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       "BFD session down action";
   }
 
+  typedef Te-lsp-path-protection-role {
+    type enumeration {
+      enum "protection-role-not-set" {
+        description
+          "Protection role not set";
+      }
+      enum "protection-role-working" {
+        description
+          "Working";
+      }
+      enum "protection-role-protecting" {
+        description
+          "Protecting";
+      }
+      enum "protection-role-pending" {
+        description
+          "Pending";
+      }
+    }
+    description
+      "Protection Role";
+  }
+
   typedef Mte-reopt-trigger {
     type enumeration {
       enum "no-trigger" {
@@ -1605,6 +1632,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       enum "path-protection-switchover-trigger" {
         description
           "Path Protection Switchover Trigger";
+      }
+      enum "reroute-sticky-path-trigger" {
+        description
+          "Reroute Sticky Path trigger";
       }
       enum "iep-enable-reoptimization-trigger" {
         description
@@ -1699,11 +1730,6 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         description
           "Segment-Routing IGP Area SPF Support Change
            Trigger";
-      }
-      enum "path-protection-non-revertive-config-change" {
-        description
-          "Path Protection Non-revertive Configuration
-           changed";
       }
       enum "trigger-not-used" {
         description
@@ -1980,8 +2006,14 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
           "Reopt LSP is signalled because it has better
            intra-areaness";
       }
-      enum "not-used" {
+      enum "clear-sticky" {
         value 44;
+        description
+          "Reopt LSP is signalled because clear sticky
+           command";
+      }
+      enum "not-used" {
+        value 45;
         description
           "Not used, must be last entry";
       }
@@ -3281,6 +3313,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "The link's extended attribute bit map";
       leaf entry {
         type uint32;
+        description
+          "The link's extended attribute bit map";
       }
     }
     list link-forwad-ref-value {
@@ -3288,6 +3322,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Reference bits for undefined affinity names";
       leaf entry {
         type uint32;
+        description
+          "Reference bits for undefined affinity names";
       }
     }
     list affinity-map {
@@ -4065,6 +4101,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Flooding up-thresholds";
       leaf entry {
         type uint8;
+        description
+          "Flooding up-thresholds";
       }
     }
     list flooding-down-threshold {
@@ -4072,6 +4110,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Flooding down-thresholds";
       leaf entry {
         type uint8;
+        description
+          "Flooding down-thresholds";
       }
     }
   }
@@ -4416,6 +4456,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "The link's extended affinity bits";
       leaf entry {
         type uint32;
+        description
+          "The link's extended affinity bits";
       }
     }
     list shared-risk-link-group {
@@ -5329,6 +5371,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Outgoing Labels Stack";
       leaf entry {
         type uint32;
+        description
+          "Outgoing Labels Stack";
       }
     }
   }
@@ -5538,6 +5582,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Segment-Routing labels stack";
       leaf entry {
         type uint32;
+        description
+          "Segment-Routing labels stack";
       }
     }
   }
@@ -6028,44 +6074,9 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     }
   }
 
-  grouping TE-TABLE-DATAPOINT-INFO {
-    description
-      "Convergence table bag entry";
-  }
-
   grouping TE-CONV-TBL-SUMMARY-BAG {
     description
       "TE tunnels convergence summary information bag";
-    container table-path-out {
-      description
-        "Table path-out entry";
-      uses TE-TABLE-DATAPOINT-INFO;
-    }
-    container table-resv-in {
-      description
-        "Table resv-in entry";
-      uses TE-TABLE-DATAPOINT-INFO;
-    }
-    container table-label-rewrite {
-      description
-        "Table label rewrite entry";
-      uses TE-TABLE-DATAPOINT-INFO;
-    }
-    container table-pcalc {
-      description
-        "Table PCALC entry";
-      uses TE-TABLE-DATAPOINT-INFO;
-    }
-    container table-tunnel-rewrite {
-      description
-        "Table Tunnel rewrite entry";
-      uses TE-TABLE-DATAPOINT-INFO;
-    }
-    container table-frr-trigger {
-      description
-        "Table FRR trigger entry";
-      uses TE-TABLE-DATAPOINT-INFO;
-    }
     leaf tunnel-frr-active-count {
       type uint32;
       description
@@ -7791,6 +7802,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "The path's array of hops";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "The path's array of hops";
       }
     }
     list shared-risk-link-group {
@@ -8291,6 +8304,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Secondary router-ids";
       leaf entry {
         type inet:ipv4-address;
+        description
+          "Secondary router-ids";
       }
     }
     list area {
@@ -9097,6 +9112,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Link's allocated bandwidth per class";
       leaf entry {
         type uint32;
+        description
+          "Link's allocated bandwidth per class";
       }
     }
     list topo-link-std-bw-available {
@@ -9105,6 +9122,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Link's available bandwidth per class";
       leaf entry {
         type uint32;
+        description
+          "Link's available bandwidth per class";
       }
     }
   }
@@ -9152,6 +9171,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
          (priority 0 to priority 7)";
       leaf entry {
         type uint32;
+        description
+          "Link's allocated bandwidth at priority levels
+           
+           (priority 0 to priority 7)";
       }
     }
     list topology-link-prestandard-bandwidth-available-global {
@@ -9162,6 +9185,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
          priority levels (priority 0 to priority 7)";
       leaf entry {
         type uint32;
+        description
+          "Link's available global-pool bandwidth at
+           
+           priority levels (priority 0 to priority 7)";
       }
     }
     list topology-link-prestandard-bandwidth-available-subpool {
@@ -9172,6 +9199,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
          levels (priority 0 to priority 7)";
       leaf entry {
         type uint32;
+        description
+          "Link's available sub-pool bandwidth at priority
+           
+           levels (priority 0 to priority 7)";
       }
     }
   }
@@ -9364,6 +9395,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "The link's affinity bits (colors)";
       leaf entry {
         type uint32;
+        description
+          "The link's affinity bits (colors)";
       }
     }
     list shared-risk-link-group {
@@ -9437,6 +9470,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Outgoing Label Stack";
       leaf entry {
         type uint32;
+        description
+          "Outgoing Label Stack";
       }
     }
   }
@@ -9557,6 +9592,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Outgoing Labels Stack";
       leaf entry {
         type uint32;
+        description
+          "Outgoing Labels Stack";
       }
     }
     list outgoing-strict-labels-stack {
@@ -9564,6 +9601,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Outgoing Labels Stack for Strict SPF";
       leaf entry {
         type uint32;
+        description
+          "Outgoing Labels Stack for Strict SPF";
       }
     }
   }
@@ -9841,6 +9880,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "The link's affinity bits (colors)";
       leaf entry {
         type uint32;
+        description
+          "The link's affinity bits (colors)";
       }
     }
     list shared-risk-link-group {
@@ -10791,6 +10832,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
          interface";
       leaf entry {
         type uint32;
+        description
+          "Common SRLG between this hop and the protected
+           
+           interface";
       }
     }
   }
@@ -11072,6 +11117,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Time in seconds until the next attempt to
          connect this setup";
     }
+    leaf protection-role {
+      type Te-lsp-path-protection-role;
+      description
+        "Path Protection Role";
+    }
   }
 
   grouping MPLS-TE-TUNNELS-HISTORY-OTHER-SETUP {
@@ -11186,6 +11236,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "The last error for the reopt setup";
     }
+    leaf protection-role {
+      type Te-lsp-path-protection-role;
+      description
+        "Path Protection Role";
+    }
   }
 
   grouping MPLS-TE-TUNNELS-HISTORY-CURRENT-CONNECTED {
@@ -11230,6 +11285,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       type string;
       description
         "The last error for the current setup";
+    }
+    leaf protection-role {
+      type Te-lsp-path-protection-role;
+      description
+        "Path Protection Role";
     }
   }
 
@@ -12218,6 +12278,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "PBTS policy classes";
       leaf entry {
         type uint8;
+        description
+          "PBTS policy classes";
       }
     }
     list autoroute-destination {
@@ -12682,6 +12744,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Indicates whether this tunnel is autoroute
          announced with exclude segment-routing option";
     }
+    leaf last-working-lsp-id {
+      type uint16;
+      description
+        "LSP-id of last working LSP";
+    }
     list destination {
       description
         "Destinations array";
@@ -12971,7 +13038,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     leaf s2l-association-type {
       type uint16;
       description
-        "S2L Association Type
+        "S2L Association Type                         
          (draft-ietf-ccamp-mpls-tp-rsvpte-ext-associated-lsp)";
     }
     leaf s2l-association-tie-role {
@@ -12999,6 +13066,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "S2L Extended ID Array";
       leaf entry {
         type uint32;
+        description
+          "S2L Extended ID Array";
       }
     }
   }
@@ -13016,6 +13085,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Discovered SRLGs";
       leaf entry {
         type uint32;
+        description
+          "Discovered SRLGs";
       }
     }
   }
@@ -13152,6 +13223,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "BFD reverse path labels";
       leaf entry {
         type uint32;
+        description
+          "BFD reverse path labels";
       }
     }
   }
@@ -13437,6 +13510,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Bit Map";
       leaf entry {
         type uint8;
+        description
+          "Bit Map";
       }
     }
   }
@@ -13758,6 +13833,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Hop affinity";
       leaf entry {
         type uint32;
+        description
+          "Hop affinity";
       }
     }
   }
@@ -13770,6 +13847,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "The RRO Subobject SRLGs";
       leaf entry {
         type uint32;
+        description
+          "The RRO Subobject SRLGs";
       }
     }
   }
@@ -13857,6 +13936,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "The RRO Subobject Variable Length Label";
       leaf entry {
         type uint32;
+        description
+          "The RRO Subobject Variable Length Label";
       }
     }
   }
@@ -14282,6 +14363,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Tunnel ID";
       leaf entry {
         type uint16;
+        description
+          "Tunnel ID";
       }
     }
   }
@@ -14395,6 +14478,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Tunnel ID";
       leaf entry {
         type uint16;
+        description
+          "Tunnel ID";
       }
     }
   }
@@ -14533,6 +14618,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "PBTS policy classes";
       leaf entry {
         type uint8;
+        description
+          "PBTS policy classes";
       }
     }
     list mesh-group-id {
@@ -14540,6 +14627,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Meshgroup ID";
       leaf entry {
         type uint32;
+        description
+          "Meshgroup ID";
       }
     }
     list tunnel-id {
@@ -14547,6 +14636,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Tunnel ID";
       leaf entry {
         type uint16;
+        description
+          "Tunnel ID";
       }
     }
   }
@@ -14702,6 +14793,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "PBTS policy classes";
       leaf entry {
         type uint8;
+        description
+          "PBTS policy classes";
       }
     }
     list tunnel-id {
@@ -14709,6 +14802,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Tunnel ID";
       leaf entry {
         type uint16;
+        description
+          "Tunnel ID";
       }
     }
     list protected-interface {
@@ -14913,6 +15008,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Tunnel ID";
       leaf entry {
         type uint16;
+        description
+          "Tunnel ID";
       }
     }
     list version-info {
@@ -15547,6 +15644,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Reverse LSP Sub Objects";
       leaf entry {
         type uint8;
+        description
+          "Reverse LSP Sub Objects";
       }
     }
     list shared-risk-link-group {
@@ -15716,6 +15815,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Persistent forwarding statistics for Number of
          packets. Clear counters will not reset the
          counter";
+    }
+    leaf protection-role {
+      type Te-lsp-path-protection-role;
+      description
+        "Path Protection Role";
     }
     list s2l {
       description

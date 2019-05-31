@@ -373,7 +373,7 @@ class Netconf(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Netconf.Agent.Tty.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
+                        self._perform_setattr(Netconf.Agent.Tty.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
 
 
 
@@ -716,7 +716,7 @@ class XrXml(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(XrXml.Agent.Tty.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
+                        self._perform_setattr(XrXml.Agent.Tty.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
 
 
 
@@ -951,7 +951,7 @@ class XrXml(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(XrXml.Agent.Default.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
+                        self._perform_setattr(XrXml.Agent.Default.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
 
 
 
@@ -1186,7 +1186,7 @@ class XrXml(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(XrXml.Agent.Ssl.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
+                        self._perform_setattr(XrXml.Agent.Ssl.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
 
 
 

@@ -869,7 +869,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, [u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd', u'term_req_sent', u'term_req_rcvd', u'term_ack_sent', u'term_ack_rcvd', u'code_rej_sent', u'code_rej_rcvd', u'proto_rej_sent', u'proto_rej_rcvd', u'echo_req_sent', u'echo_req_rcvd', u'echo_rep_sent', u'echo_rep_rcvd', u'disc_req_sent', u'disc_req_rcvd', u'link_up', u'link_error'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'code_rej_sent', 'code_rej_rcvd', 'proto_rej_sent', 'proto_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
 
 
 
@@ -1064,7 +1064,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, [u'pap_req_sent', u'pap_req_rcvd', u'pap_ack_sent', u'pap_ack_rcvd', u'pap_nak_sent', u'pap_nak_rcvd', u'chap_chall_sent', u'chap_chall_rcvd', u'chap_resp_sent', u'chap_resp_rcvd', u'chap_rep_succ_sent', u'chap_rep_succ_rcvd', u'chap_rep_fail_sent', u'chap_rep_fail_rcvd', u'auth_timeout_count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
 
 
 
@@ -1257,7 +1257,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, [u'ncp_identifier', u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd', u'term_req_sent', u'term_req_rcvd', u'term_ack_sent', u'term_ack_rcvd', u'proto_rej_sent', u'proto_rej_rcvd'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'proto_rej_sent', 'proto_rej_rcvd'], name, value)
 
 
 
@@ -1656,7 +1656,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface', u'parent_state', u'line_state', u'is_loopback_detected', u'caps_idb_srg_role', u'session_srg_role', u'keepalive_period', u'keepalive_retry_count', u'is_ssrp_configured', u'is_l2ac', u'provisioned', u'ip_interworking_enabled', u'xconnect_id', u'is_tunneled_session', u'ssrp_peer_id', u'lcp_state', u'lcpsso_state', u'is_lcp_delayed', u'local_mru', u'peer_mru', u'local_mrru', u'peer_mrru', u'local_ed', u'peer_ed', u'is_mcmp_enabled', u'local_mcmp_classes', u'peer_mcmp_classes', u'session_expires'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface', 'parent_state', 'line_state', 'is_loopback_detected', 'caps_idb_srg_role', 'session_srg_role', 'keepalive_period', 'keepalive_retry_count', 'is_ssrp_configured', 'is_l2ac', 'provisioned', 'ip_interworking_enabled', 'xconnect_id', 'is_tunneled_session', 'ssrp_peer_id', 'lcp_state', 'lcpsso_state', 'is_lcp_delayed', 'local_mru', 'peer_mru', 'local_mrru', 'peer_mrru', 'local_ed', 'peer_ed', 'is_mcmp_enabled', 'local_mcmp_classes', 'peer_mcmp_classes', 'session_expires'], name, value)
 
 
                     class MpInfo(Entity):
@@ -1776,7 +1776,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, [u'is_mp_bundle', u'mp_bundle_interface', u'is_mp_bundle_member', u'mp_group', u'active_links', u'inactive_links', u'minimum_active_links', u'mp_state'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, ['is_mp_bundle', 'mp_bundle_interface', 'is_mp_bundle_member', 'mp_group', 'active_links', 'inactive_links', 'minimum_active_links', 'mp_state'], name, value)
 
 
                         class MpMemberInfoArray(Entity):
@@ -1825,7 +1825,7 @@ class Ppp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, [u'interface', u'state'], name, value)
+                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, ['interface', 'state'], name, value)
 
 
 
@@ -1882,7 +1882,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout, [u'minutes', u'seconds'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout, ['minutes', 'seconds'], name, value)
 
 
 
@@ -1988,7 +1988,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, [u'is_authenticated', u'is_sso_authenticated', u'of_us_auth', u'of_peer_auth', u'of_us_name', u'of_peer_name', u'of_us_sso_state', u'of_peer_sso_state'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, ['is_authenticated', 'is_sso_authenticated', 'of_us_auth', 'of_peer_auth', 'of_us_name', 'of_peer_name', 'of_us_sso_state', 'of_peer_sso_state'], name, value)
 
 
 
@@ -2065,7 +2065,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, [u'ncp_state', u'ncpsso_state', u'is_passive', u'ncp_identifier'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, ['ncp_state', 'ncpsso_state', 'is_passive', 'ncp_identifier'], name, value)
 
 
                         class NcpInfo(Entity):
@@ -2136,7 +2136,7 @@ class Ppp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo, [u'type'], name, value)
+                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo, ['type'], name, value)
 
 
                             class IpcpInfo(Entity):
@@ -2273,7 +2273,7 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, [u'local_address', u'peer_address', u'peer_netmask', u'dns_primary', u'dns_secondary', u'wins_primary', u'wins_secondary', u'is_iphc_configured'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, ['local_address', 'peer_address', 'peer_netmask', 'dns_primary', 'dns_secondary', 'wins_primary', 'wins_secondary', 'is_iphc_configured'], name, value)
 
 
                                 class LocalIphcOptions(Entity):
@@ -2384,7 +2384,7 @@ class Ppp(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, [u'compression_type', u'tcp_space', u'non_tcp_space', u'max_period', u'max_time', u'max_header', u'rtp_compression', u'ec_rtp_compression'], name, value)
+                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
 
 
 
@@ -2496,7 +2496,7 @@ class Ppp(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, [u'compression_type', u'tcp_space', u'non_tcp_space', u'max_period', u'max_time', u'max_header', u'rtp_compression', u'ec_rtp_compression'], name, value)
+                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
 
 
 
@@ -2549,7 +2549,7 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo, [u'local_address', u'peer_address'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo, ['local_address', 'peer_address'], name, value)
 
 
 
@@ -2601,7 +2601,7 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, [u'local_address', u'peer_address'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, ['local_address', 'peer_address'], name, value)
 
 
 
@@ -3287,7 +3287,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, [u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd', u'echo_req_sent', u'echo_req_rcvd', u'echo_rep_sent', u'echo_rep_rcvd', u'disc_req_sent', u'disc_req_rcvd', u'link_up', u'link_error'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
 
 
 
@@ -3482,7 +3482,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, [u'pap_req_sent', u'pap_req_rcvd', u'pap_ack_sent', u'pap_ack_rcvd', u'pap_nak_sent', u'pap_nak_rcvd', u'chap_chall_sent', u'chap_chall_rcvd', u'chap_resp_sent', u'chap_resp_rcvd', u'chap_rep_succ_sent', u'chap_rep_succ_rcvd', u'chap_rep_fail_sent', u'chap_rep_fail_rcvd', u'auth_timeout_count'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
 
 
 
@@ -3609,7 +3609,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, [u'ncp_identifier', u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd'], name, value)
 
 
 

@@ -76,6 +76,42 @@ class Insert(Enum):
     received_nodefault = Enum.YLeaf(3, "received-nodefault")
 
 
+class Ipv6dhcpDefaultMode(Enum):
+    """
+    Ipv6dhcpDefaultMode (Enum Class)
+
+    Ipv6dhcp default mode
+
+    .. data:: server = 1
+
+    	Specify mode-class based Server option
+
+    """
+
+    server = Enum.YLeaf(1, "server")
+
+
+class Ipv6dhcpMode(Enum):
+    """
+    Ipv6dhcpMode (Enum Class)
+
+    Ipv6dhcp mode
+
+    .. data:: server = 1
+
+    	Specify mode-class based Server option
+
+    .. data:: proxy = 2
+
+    	Specify mode-class based Proxy option
+
+    """
+
+    server = Enum.YLeaf(1, "server")
+
+    proxy = Enum.YLeaf(2, "proxy")
+
+
 class LinkLayerAddr(Enum):
     """
     LinkLayerAddr (Enum Class)
@@ -634,10 +670,15 @@ class Dhcpv6(Entity):
                 """
                 None
                 
-                .. attribute:: default
+                .. attribute:: dhcpv6_to_aaa
+                
+                	Enable to provide the list of options need to send to aaa
+                	**type**\:  :py:class:`Dhcpv6ToAaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa>`
+                
+                .. attribute:: match_default
                 
                 	Default match option
-                	**type**\:  :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Default>`
+                	**type**\:  :py:class:`MatchDefault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.MatchDefault>`
                 
                 .. attribute:: match
                 
@@ -668,16 +709,20 @@ class Dhcpv6(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("default", ("default", Dhcpv6.Profiles.Profile.Base.Default)), ("match", ("match", Dhcpv6.Profiles.Profile.Base.Match))])
+                    self._child_classes = OrderedDict([("dhcpv6-to-aaa", ("dhcpv6_to_aaa", Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa)), ("match-default", ("match_default", Dhcpv6.Profiles.Profile.Base.MatchDefault)), ("match", ("match", Dhcpv6.Profiles.Profile.Base.Match))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.enable = None
 
-                    self.default = Dhcpv6.Profiles.Profile.Base.Default()
-                    self.default.parent = self
-                    self._children_name_map["default"] = "default"
+                    self.dhcpv6_to_aaa = Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa()
+                    self.dhcpv6_to_aaa.parent = self
+                    self._children_name_map["dhcpv6_to_aaa"] = "dhcpv6-to-aaa"
+
+                    self.match_default = Dhcpv6.Profiles.Profile.Base.MatchDefault()
+                    self.match_default.parent = self
+                    self._children_name_map["match_default"] = "match-default"
 
                     self.match = Dhcpv6.Profiles.Profile.Base.Match()
                     self.match.parent = self
@@ -689,14 +734,15 @@ class Dhcpv6(Entity):
                     self._perform_setattr(Dhcpv6.Profiles.Profile.Base, ['enable'], name, value)
 
 
-                class Default(Entity):
+                class Dhcpv6ToAaa(Entity):
                     """
-                    Default match option
+                    Enable to provide the list of options need to
+                    send to aaa
                     
-                    .. attribute:: profile
+                    .. attribute:: base_option
                     
-                    	Enter proxy or server profile
-                    	**type**\: list of  		 :py:class:`Profile_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Default.Profile_>`
+                    	option type
+                    	**type**\:  :py:class:`BaseOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption>`
                     
                     
 
@@ -706,44 +752,34 @@ class Dhcpv6(Entity):
                     _revision = '2017-09-12'
 
                     def __init__(self):
-                        super(Dhcpv6.Profiles.Profile.Base.Default, self).__init__()
+                        super(Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa, self).__init__()
 
-                        self.yang_name = "default"
+                        self.yang_name = "dhcpv6-to-aaa"
                         self.yang_parent_name = "base"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("profile", ("profile", Dhcpv6.Profiles.Profile.Base.Default.Profile_))])
+                        self._child_classes = OrderedDict([("base-option", ("base_option", Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption))])
                         self._leafs = OrderedDict()
 
-                        self.profile = YList(self)
-                        self._segment_path = lambda: "default"
+                        self.base_option = Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption()
+                        self.base_option.parent = self
+                        self._children_name_map["base_option"] = "base-option"
+                        self._segment_path = lambda: "dhcpv6-to-aaa"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Default, [], name, value)
+                        self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa, [], name, value)
 
 
-                    class Profile_(Entity):
+                    class BaseOption(Entity):
                         """
-                        Enter proxy or server profile
+                        option type
                         
-                        .. attribute:: profile_name  (key)
+                        .. attribute:: list
                         
-                        	Profile name
-                        	**type**\: str
-                        
-                        	**length:** 1..64
-                        
-                        .. attribute:: server_mode
-                        
-                        	Specify mode\-class based Server option
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
-                        .. attribute:: proxy_mode
-                        
-                        	Specify mode\-class based Proxy Option
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        	List of options
+                        	**type**\:  :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption.List>`
                         
                         
 
@@ -753,27 +789,156 @@ class Dhcpv6(Entity):
                         _revision = '2017-09-12'
 
                         def __init__(self):
-                            super(Dhcpv6.Profiles.Profile.Base.Default.Profile_, self).__init__()
+                            super(Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption, self).__init__()
 
-                            self.yang_name = "profile"
-                            self.yang_parent_name = "default"
+                            self.yang_name = "base-option"
+                            self.yang_parent_name = "dhcpv6-to-aaa"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self.ylist_key_names = ['profile_name']
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
-                                ('server_mode', (YLeaf(YType.empty, 'server-mode'), ['Empty'])),
-                                ('proxy_mode', (YLeaf(YType.empty, 'proxy-mode'), ['Empty'])),
-                            ])
-                            self.profile_name = None
-                            self.server_mode = None
-                            self.proxy_mode = None
-                            self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("list", ("list", Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption.List))])
+                            self._leafs = OrderedDict()
+
+                            self.list = Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption.List()
+                            self.list.parent = self
+                            self._children_name_map["list"] = "list"
+                            self._segment_path = lambda: "base-option"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Default.Profile_, ['profile_name', 'server_mode', 'proxy_mode'], name, value)
+                            self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption, [], name, value)
+
+
+                        class List(Entity):
+                            """
+                            List of options
+                            
+                            .. attribute:: option_all
+                            
+                            	Set constant integer
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: option_number
+                            
+                            	Option number
+                            	**type**\: list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-new-dhcpv6d-cfg'
+                            _revision = '2017-09-12'
+
+                            def __init__(self):
+                                super(Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption.List, self).__init__()
+
+                                self.yang_name = "list"
+                                self.yang_parent_name = "base-option"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('option_all', (YLeaf(YType.uint32, 'option-all'), ['int'])),
+                                    ('option_number', (YLeafList(YType.uint32, 'option-number'), ['int'])),
+                                ])
+                                self.option_all = None
+                                self.option_number = []
+                                self._segment_path = lambda: "list"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Dhcpv6ToAaa.BaseOption.List, ['option_all', 'option_number'], name, value)
+
+
+
+
+
+                class MatchDefault(Entity):
+                    """
+                    Default match option
+                    
+                    .. attribute:: profile
+                    
+                    	None
+                    	**type**\:  :py:class:`Profile_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.MatchDefault.Profile_>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2017-09-12'
+
+                    def __init__(self):
+                        super(Dhcpv6.Profiles.Profile.Base.MatchDefault, self).__init__()
+
+                        self.yang_name = "match-default"
+                        self.yang_parent_name = "base"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("profile", ("profile", Dhcpv6.Profiles.Profile.Base.MatchDefault.Profile_))])
+                        self._leafs = OrderedDict()
+
+                        self.profile = Dhcpv6.Profiles.Profile.Base.MatchDefault.Profile_()
+                        self.profile.parent = self
+                        self._children_name_map["profile"] = "profile"
+                        self._segment_path = lambda: "match-default"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dhcpv6.Profiles.Profile.Base.MatchDefault, [], name, value)
+
+
+                    class Profile_(Entity):
+                        """
+                        None
+                        
+                        .. attribute:: profile_name
+                        
+                        	Profile name
+                        	**type**\: str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: default_mode
+                        
+                        	Set constant integer
+                        	**type**\:  :py:class:`Ipv6dhcpDefaultMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Ipv6dhcpDefaultMode>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-cfg'
+                        _revision = '2017-09-12'
+
+                        def __init__(self):
+                            super(Dhcpv6.Profiles.Profile.Base.MatchDefault.Profile_, self).__init__()
+
+                            self.yang_name = "profile"
+                            self.yang_parent_name = "match-default"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                ('default_mode', (YLeaf(YType.enumeration, 'default-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Ipv6dhcpDefaultMode', '')])),
+                            ])
+                            self.profile_name = None
+                            self.default_mode = None
+                            self._segment_path = lambda: "profile"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Dhcpv6.Profiles.Profile.Base.MatchDefault.Profile_, ['profile_name', 'default_mode'], name, value)
 
 
 
@@ -859,12 +1024,12 @@ class Dhcpv6(Entity):
                             	Class name
                             	**type**\: str
                             
-                            	**length:** 1..128
+                            	**length:** 1..64
                             
                             .. attribute:: profile
                             
                             	Enter proxy or server profile
-                            	**type**\: list of  		 :py:class:`Profile_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile_>`
+                            	**type**\:  :py:class:`Profile_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile_>`
                             
                             
 
@@ -887,7 +1052,9 @@ class Dhcpv6(Entity):
                                 ])
                                 self.class_name = None
 
-                                self.profile = YList(self)
+                                self.profile = Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile_()
+                                self.profile.parent = self
+                                self._children_name_map["profile"] = "profile"
                                 self._segment_path = lambda: "mode-class" + "[class-name='" + str(self.class_name) + "']"
                                 self._is_frozen = True
 
@@ -899,22 +1066,17 @@ class Dhcpv6(Entity):
                                 """
                                 Enter proxy or server profile
                                 
-                                .. attribute:: profile_name  (key)
+                                .. attribute:: profile_name
                                 
                                 	Profile name
                                 	**type**\: str
                                 
                                 	**length:** 1..64
                                 
-                                .. attribute:: server_mode
+                                .. attribute:: mode
                                 
-                                	Specify mode\-class based Server option
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
-                                .. attribute:: proxy_mode
-                                
-                                	Specify mode\-class based Proxy Option
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	Set constant integer
+                                	**type**\:  :py:class:`Ipv6dhcpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Ipv6dhcpMode>`
                                 
                                 
 
@@ -930,21 +1092,19 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "mode-class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self.ylist_key_names = ['profile_name']
+                                    self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
-                                        ('server_mode', (YLeaf(YType.empty, 'server-mode'), ['Empty'])),
-                                        ('proxy_mode', (YLeaf(YType.empty, 'proxy-mode'), ['Empty'])),
+                                        ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Ipv6dhcpMode', '')])),
                                     ])
                                     self.profile_name = None
-                                    self.server_mode = None
-                                    self.proxy_mode = None
-                                    self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
+                                    self.mode = None
+                                    self._segment_path = lambda: "profile"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile_, ['profile_name', 'server_mode', 'proxy_mode'], name, value)
+                                    self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile_, ['profile_name', 'mode'], name, value)
 
 
 
@@ -1569,7 +1729,7 @@ class Dhcpv6(Entity):
                         	Class name
                         	**type**\: str
                         
-                        	**length:** 1..128
+                        	**length:** 1..64
                         
                         .. attribute:: helper_addresses
                         
@@ -2239,7 +2399,7 @@ class Dhcpv6(Entity):
                         	class name
                         	**type**\: str
                         
-                        	**length:** 1..128
+                        	**length:** 1..64
                         
                         .. attribute:: dns_servers
                         

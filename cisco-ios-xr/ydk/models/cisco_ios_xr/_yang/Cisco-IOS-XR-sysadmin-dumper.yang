@@ -1,7 +1,9 @@
 module Cisco-IOS-XR-sysadmin-dumper {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-dumper";
   prefix dumper;
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -12,20 +14,20 @@ module Cisco-IOS-XR-sysadmin-dumper {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR SysAdmin dumper to
-configure file path options to copy the core files to.
-
-Copyright(c) 2015-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR SysAdmin dumper to
+     configure file path options to copy the core files to.
+     
+     Copyright(c) 2015-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2017-05-09 {
     description
       "Modified module name, namespace and filename 

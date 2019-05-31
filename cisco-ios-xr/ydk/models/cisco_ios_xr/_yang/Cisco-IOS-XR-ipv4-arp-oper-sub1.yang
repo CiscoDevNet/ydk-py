@@ -196,8 +196,18 @@ submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
         description
           "Geo-redundancy sync'ed";
       }
-      enum "state-max" {
+      enum "state-drop-adj" {
         value 16;
+        description
+          "Drop adjacency";
+      }
+      enum "state-stale" {
+        value 17;
+        description
+          "Stale";
+      }
+      enum "state-max" {
+        value 18;
         description
           "Maximum state number";
       }
@@ -226,6 +236,72 @@ submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
     }
     description
       "ARP media type";
+  }
+
+  typedef Arp-issu-version {
+    type enumeration {
+      enum "version1" {
+        value 0;
+        description
+          "Version 1";
+      }
+      enum "version2" {
+        value 1;
+        description
+          "Version 2";
+      }
+    }
+    description
+      "Arp issu version";
+  }
+
+  typedef Arp-issu-phase {
+    type enumeration {
+      enum "phase-not-started" {
+        value 0;
+        description
+          "An ISSU event has not started";
+      }
+      enum "phase-load" {
+        value 1;
+        description
+          "ISSU Load Phase";
+      }
+      enum "phase-run" {
+        value 2;
+        description
+          "ISSU Run Phase";
+      }
+      enum "phase-completed" {
+        value 3;
+        description
+          "An ISSU event has completed successfully";
+      }
+      enum "phase-aborted" {
+        value 4;
+        description
+          "An ISSU event has aborted";
+      }
+    }
+    description
+      "Arp issu phase";
+  }
+
+  typedef Arp-issu-role {
+    type enumeration {
+      enum "role-primary" {
+        value 0;
+        description
+          "Primary role";
+      }
+      enum "role-secondary" {
+        value 1;
+        description
+          "Secondary role";
+      }
+    }
+    description
+      "Arp issu role";
   }
 
   typedef Arp-resolution-history-status {
@@ -351,6 +427,11 @@ submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
         description
           "Learning unsolicited ARP packets is disabled on
            this Interface";
+      }
+      enum "status-drop-adjacency-added" {
+        value 23;
+        description
+          "Adding drop adjacency entry for the address";
       }
     }
     description
@@ -517,6 +598,11 @@ submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
       description
         "Total VXLAN entries in the cache";
     }
+    leaf drop-adjacency-entries {
+      type uint32;
+      description
+        "Total drop adjacency entries in the cache";
+    }
     leaf ip-packets-dropped-node {
       type uint32;
       description
@@ -547,6 +633,110 @@ submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
       type uint32;
       description
         "Total idb structures on this node";
+    }
+  }
+
+  grouping ARP-STATUS-INFO {
+    description
+      "ARP Status";
+    leaf process-start-time {
+      type uint64;
+      units "nanosecond";
+      description
+        "Timestamp for the process start time in
+         nanoseconds since Epoch, i.e. since 00:00:00 UTC
+         , January 1, 1970";
+    }
+    leaf issu-sync-complete-time {
+      type uint64;
+      units "nanosecond";
+      description
+        "Timestamp for the ISSU sync complete in
+         nanoseconds since Epoch, i.e. since 00:00:00 UTC
+         , January 1, 1970";
+    }
+    leaf issu-ready-time {
+      type uint64;
+      units "nanosecond";
+      description
+        "Timestamp for the ISSU ready declaration in
+         nanoseconds since Epoch, i.e. since 00:00:00 UTC
+         , January 1, 1970";
+    }
+    leaf big-bang-time {
+      type uint64;
+      units "nanosecond";
+      description
+        "Timestamp for the Big Bang notification time in
+         nanoseconds since Epoch, i.e. since 00:00:00 UTC
+         , January 1, 1970";
+    }
+    leaf primary-role-time {
+      type uint64;
+      units "nanosecond";
+      description
+        "Timestamp for the change to Primary role
+         notification time in nanoseconds since Epoch, i
+         .e. since 00:00:00 UTC, January 1, 1970";
+    }
+    leaf role {
+      type Arp-issu-role;
+      description
+        "The current role of the ARP process";
+    }
+    leaf phase {
+      type Arp-issu-phase;
+      description
+        "The current ISSU phase of the ARP process";
+    }
+    leaf version {
+      type Arp-issu-version;
+      description
+        "The current version of the ARP process in the
+         context of an ISSU";
+    }
+    leaf dynamic-entries-recovered-count {
+      type uint32;
+      description
+        "The number of entries that have been recovered
+         during ISSU V1 and V2 synchronisation";
+    }
+    leaf non-operational-entries-count {
+      type uint32;
+      description
+        "The number of entries that are currently
+         non-operational in the shadow database";
+    }
+    leaf interface-handle-translation-failure-count {
+      type uint32;
+      description
+        "The number of interface handle translation
+         failures that occurred during the ISSU V1 and V2
+         synchronisation";
+    }
+    leaf issu-ready-issu-mgr-connection {
+      type boolean;
+      description
+        "Whether or not ARP is currently connected to
+         ISSU Manager during the ISSU Load Phase";
+    }
+    leaf issu-ready-im {
+      type boolean;
+      description
+        "Whether or not ARP is in sync with IM during the
+         ISSU Load Phase";
+    }
+    leaf issu-ready-dagr-rib {
+      type boolean;
+      description
+        "Whether or not the ARP DAGR system is in sync
+         with the RIB during the ISSU Load Phase";
+    }
+    leaf issu-ready-entries-replicate {
+      type boolean;
+      description
+        "Whether or not ARP has received all replicated
+         entries during the ISSU Load Phase";
     }
   }
 

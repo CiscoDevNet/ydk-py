@@ -2153,7 +2153,7 @@ class Cfm(Entity):
     """
 
     _prefix = 'ethernet-cfm-oper'
-    _revision = '2017-10-06'
+    _revision = '2018-12-20'
 
     def __init__(self):
         super(Cfm, self).__init__()
@@ -2197,7 +2197,7 @@ class Cfm(Entity):
         """
 
         _prefix = 'ethernet-cfm-oper'
-        _revision = '2017-10-06'
+        _revision = '2018-12-20'
 
         def __init__(self):
             super(Cfm.Nodes, self).__init__()
@@ -2265,7 +2265,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2017-10-06'
+            _revision = '2018-12-20'
 
             def __init__(self):
                 super(Cfm.Nodes.Node, self).__init__()
@@ -2320,7 +2320,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Nodes.Node.InterfaceAises, self).__init__()
@@ -2345,7 +2345,7 @@ class Cfm(Entity):
                     """
                     AIS statistics for a particular interface
                     
-                    .. attribute:: interface_name  (key)
+                    .. attribute:: interface  (key)
                     
                     	Interface
                     	**type**\: str
@@ -2368,7 +2368,7 @@ class Cfm(Entity):
                     
                     	**config**\: False
                     
-                    .. attribute:: interface
+                    .. attribute:: interface_xr
                     
                     	Interface
                     	**type**\: str
@@ -2403,7 +2403,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, self).__init__()
@@ -2412,19 +2412,19 @@ class Cfm(Entity):
                         self.yang_parent_name = "interface-aises"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self.ylist_key_names = ['interface_name','direction']
+                        self.ylist_key_names = ['interface','direction']
                         self._child_classes = OrderedDict([("statistics", ("statistics", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics))])
                         self._leafs = OrderedDict([
-                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
-                            ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmAisDir', '')])),
                             ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmAisDir', '')])),
+                            ('interface_xr', (YLeaf(YType.str, 'interface-xr'), ['str'])),
                             ('interface_state', (YLeaf(YType.str, 'interface-state'), ['str'])),
                             ('interworking_state', (YLeaf(YType.enumeration, 'interworking-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIwState', '')])),
                             ('stp_state', (YLeaf(YType.enumeration, 'stp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpState', '')])),
                         ])
-                        self.interface_name = None
-                        self.direction = None
                         self.interface = None
+                        self.direction = None
+                        self.interface_xr = None
                         self.interface_state = None
                         self.interworking_state = None
                         self.stp_state = None
@@ -2432,11 +2432,11 @@ class Cfm(Entity):
                         self.statistics = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics()
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
-                        self._segment_path = lambda: "interface-ais" + "[interface-name='" + str(self.interface_name) + "']" + "[direction='" + str(self.direction) + "']"
+                        self._segment_path = lambda: "interface-ais" + "[interface='" + str(self.interface) + "']" + "[direction='" + str(self.direction) + "']"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, ['interface_name', 'direction', u'interface', u'interface_state', u'interworking_state', u'stp_state'], name, value)
+                        self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, ['interface', 'direction', 'interface_xr', 'interface_state', 'interworking_state', 'stp_state'], name, value)
 
 
                     class Statistics(Entity):
@@ -2506,7 +2506,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, self).__init__()
@@ -2543,7 +2543,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, [u'direction', u'lowest_level', u'transmission_level', u'transmission_interval', u'sent_packets', u'via_level'], name, value)
+                            self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, ['direction', 'lowest_level', 'transmission_level', 'transmission_interval', 'sent_packets', 'via_level'], name, value)
 
 
                         class Defects(Entity):
@@ -2619,7 +2619,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, self).__init__()
@@ -2654,7 +2654,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, [u'ais_received', u'peer_meps_that_timed_out', u'missing', u'auto_missing', u'unexpected', u'local_port_status', u'peer_port_status'], name, value)
+                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
 
 
                             class RemoteMepsDefects(Entity):
@@ -2715,7 +2715,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, self).__init__()
@@ -2746,7 +2746,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, [u'loss_threshold_exceeded', u'invalid_level', u'invalid_maid', u'invalid_ccm_interval', u'received_our_mac', u'received_our_mep_id', u'received_rdi'], name, value)
+                                    self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
 
 
 
@@ -2782,7 +2782,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, self).__init__()
@@ -2803,7 +2803,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, [u'seconds', u'nanoseconds'], name, value)
+                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -2826,7 +2826,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Nodes.Node.InterfaceStatistics, self).__init__()
@@ -2881,7 +2881,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, self).__init__()
@@ -2906,7 +2906,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, ['interface', u'interface_xr'], name, value)
+                        self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, ['interface', 'interface_xr'], name, value)
 
 
                     class Statistics(Entity):
@@ -2950,7 +2950,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, self).__init__()
@@ -2975,7 +2975,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, [u'malformed_packets', u'dropped_packets', u'last_malformed_opcode', u'last_malformed_reason'], name, value)
+                            self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, ['malformed_packets', 'dropped_packets', 'last_malformed_opcode', 'last_malformed_reason'], name, value)
 
 
 
@@ -3222,7 +3222,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Nodes.Node.Summary, self).__init__()
@@ -3291,7 +3291,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Nodes.Node.Summary, [u'domains', u'services', u'ccm_rate', u'local_meps', u'operational_local_meps', u'down_meps', u'up_meps', u'offloaded', u'offloaded_at3_3ms', u'offloaded_at10ms', u'disabled_misconfigured', u'disabled_out_of_resources', u'disabled_operational_error', u'peer_meps', u'operational_peer_meps', u'peer_meps_with_defects', u'peer_meps_without_defects', u'peer_meps_timed_out', u'mips', u'interfaces', u'bridge_domains_and_xconnects', u'traceroute_cache_entries', u'traceroute_cache_replies', u'ccm_learning_db_entries', u'issu_role', u'bnm_enabled_links'], name, value)
+                    self._perform_setattr(Cfm.Nodes.Node.Summary, ['domains', 'services', 'ccm_rate', 'local_meps', 'operational_local_meps', 'down_meps', 'up_meps', 'offloaded', 'offloaded_at3_3ms', 'offloaded_at10ms', 'disabled_misconfigured', 'disabled_out_of_resources', 'disabled_operational_error', 'peer_meps', 'operational_peer_meps', 'peer_meps_with_defects', 'peer_meps_without_defects', 'peer_meps_timed_out', 'mips', 'interfaces', 'bridge_domains_and_xconnects', 'traceroute_cache_entries', 'traceroute_cache_replies', 'ccm_learning_db_entries', 'issu_role', 'bnm_enabled_links'], name, value)
 
 
 
@@ -3311,7 +3311,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Nodes.Node.CcmLearningDatabases, self).__init__()
@@ -3341,7 +3341,7 @@ class Cfm(Entity):
                     	Maintenance Domain
                     	**type**\: str
                     
-                    	**length:** 1..79
+                    	**length:** 1..127
                     
                     	**config**\: False
                     
@@ -3350,7 +3350,7 @@ class Cfm(Entity):
                     	Service (Maintenance Association)
                     	**type**\: str
                     
-                    	**length:** 1..79
+                    	**length:** 1..127
                     
                     	**config**\: False
                     
@@ -3421,7 +3421,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, self).__init__()
@@ -3458,7 +3458,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, ['domain', 'service', 'mac_address', u'domain_xr', u'level', u'service_xr', u'source_mac_address', u'ingress_interface', u'stale', u'ingress_interface_string'], name, value)
+                        self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, ['domain', 'service', 'mac_address', 'domain_xr', 'level', 'service_xr', 'source_mac_address', 'ingress_interface', 'stale', 'ingress_interface_string'], name, value)
 
 
 
@@ -3523,7 +3523,7 @@ class Cfm(Entity):
         """
 
         _prefix = 'ethernet-cfm-oper'
-        _revision = '2017-10-06'
+        _revision = '2018-12-20'
 
         def __init__(self):
             super(Cfm.Global, self).__init__()
@@ -3587,7 +3587,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2017-10-06'
+            _revision = '2018-12-20'
 
             def __init__(self):
                 super(Cfm.Global.IncompleteTraceroutes, self).__init__()
@@ -3619,7 +3619,7 @@ class Cfm(Entity):
                 	Maintenance Domain
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -3628,7 +3628,7 @@ class Cfm(Entity):
                 	Service (Maintenance Association)
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -3682,7 +3682,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, self).__init__()
@@ -3716,7 +3716,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', u'time_left'], name, value)
+                    self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', 'time_left'], name, value)
 
 
                 class TracerouteInformation(Entity):
@@ -3839,7 +3839,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, self).__init__()
@@ -3884,7 +3884,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, [u'domain', u'service', u'level', u'source_mep_id', u'source_interface', u'source_mac_address', u'target_mac_address', u'directed_mac_address', u'target_mep_id', u'timestamp', u'ttl', u'transaction_id'], name, value)
+                        self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
 
 
                     class Options(Entity):
@@ -3917,7 +3917,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, self).__init__()
@@ -3944,7 +3944,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, [u'mode'], name, value)
+                            self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, ['mode'], name, value)
 
 
                         class BasicOptions(Entity):
@@ -3970,7 +3970,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, self).__init__()
@@ -3991,7 +3991,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, [u'is_auto', u'fdb_only'], name, value)
+                                self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
 
 
 
@@ -4027,7 +4027,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, self).__init__()
@@ -4050,7 +4050,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, [u'delay_model', u'delay_constant_factor', u'reply_filter'], name, value)
+                                self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
 
 
 
@@ -4074,7 +4074,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2017-10-06'
+            _revision = '2018-12-20'
 
             def __init__(self):
                 super(Cfm.Global.MaintenancePoints, self).__init__()
@@ -4106,7 +4106,7 @@ class Cfm(Entity):
                 	Maintenance Domain
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -4115,7 +4115,7 @@ class Cfm(Entity):
                 	Service (Maintenance Association)
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -4156,7 +4156,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Global.MaintenancePoints.MaintenancePoint, self).__init__()
@@ -4188,7 +4188,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint, ['domain', 'service', 'interface', u'mep_has_error', u'mac_address'], name, value)
+                    self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint, ['domain', 'service', 'interface', 'mep_has_error', 'mac_address'], name, value)
 
 
                 class MaintenancePoint_(Entity):
@@ -4246,7 +4246,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, self).__init__()
@@ -4275,7 +4275,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, [u'domain_name', u'level', u'service_name', u'interface', u'maintenance_point_type', u'mep_id'], name, value)
+                        self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, ['domain_name', 'level', 'service_name', 'interface', 'maintenance_point_type', 'mep_id'], name, value)
 
 
 
@@ -4297,7 +4297,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2017-10-06'
+            _revision = '2018-12-20'
 
             def __init__(self):
                 super(Cfm.Global.GlobalConfigurationErrors, self).__init__()
@@ -4329,7 +4329,7 @@ class Cfm(Entity):
                 	Maintenance Domain
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -4338,7 +4338,7 @@ class Cfm(Entity):
                 	Service (Maintenance Association)
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -4389,7 +4389,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, self).__init__()
@@ -4425,7 +4425,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', u'domain_name', u'level', u'service_name', u'bridge_domain_is_configured', u'l2_fib_download_error'], name, value)
+                    self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', 'domain_name', 'level', 'service_name', 'bridge_domain_is_configured', 'l2_fib_download_error'], name, value)
 
 
                 class BridgeDomainId(Entity):
@@ -4486,7 +4486,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, self).__init__()
@@ -4515,7 +4515,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
+                        self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
 
 
 
@@ -4537,7 +4537,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2017-10-06'
+            _revision = '2018-12-20'
 
             def __init__(self):
                 super(Cfm.Global.MepConfigurationErrors, self).__init__()
@@ -4569,7 +4569,7 @@ class Cfm(Entity):
                 	Maintenance Domain
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -4578,7 +4578,7 @@ class Cfm(Entity):
                 	Service (Maintenance Association)
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -4822,7 +4822,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Global.MepConfigurationErrors.MepConfigurationError, self).__init__()
@@ -4918,7 +4918,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError, ['domain', 'service', 'interface', u'ccm_interval', u'no_domain', u'no_service', u'bridge_domain_mismatch', u'level_conflict', u'ccm_interval_not_supported', u'offload_out_of_resources', u'offload_multiple_local_mep', u'offload_no_cross_check', u'offload_multiple_peer_meps', u'offload_mep_direction_not_supported', u'ais_configured', u'bundle_level0', u'bridge_domain_not_in_bd_infra', u'maid_format_not_supported', u'sman_format_not_supported', u'mdid_format_not_supported', u'fatal_offload_error', u'satellite_limitation', u'sla_loopback_operations_disabled', u'sla_synthetic_loss_operations_disabled', u'sla_delay_measurement_operations_disabled', u'no_valid_mac_address', u'no_interface_type', u'not_in_im', u'no_mlacp', u'satellite_error_string', u'satellite_id'], name, value)
+                    self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError, ['domain', 'service', 'interface', 'ccm_interval', 'no_domain', 'no_service', 'bridge_domain_mismatch', 'level_conflict', 'ccm_interval_not_supported', 'offload_out_of_resources', 'offload_multiple_local_mep', 'offload_no_cross_check', 'offload_multiple_peer_meps', 'offload_mep_direction_not_supported', 'ais_configured', 'bundle_level0', 'bridge_domain_not_in_bd_infra', 'maid_format_not_supported', 'sman_format_not_supported', 'mdid_format_not_supported', 'fatal_offload_error', 'satellite_limitation', 'sla_loopback_operations_disabled', 'sla_synthetic_loss_operations_disabled', 'sla_delay_measurement_operations_disabled', 'no_valid_mac_address', 'no_interface_type', 'not_in_im', 'no_mlacp', 'satellite_error_string', 'satellite_id'], name, value)
 
 
                 class Mep(Entity):
@@ -4976,7 +4976,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, self).__init__()
@@ -5005,7 +5005,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, [u'domain_name', u'level', u'service_name', u'interface', u'maintenance_point_type', u'mep_id'], name, value)
+                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, ['domain_name', 'level', 'service_name', 'interface', 'maintenance_point_type', 'mep_id'], name, value)
 
 
 
@@ -5067,7 +5067,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, self).__init__()
@@ -5096,7 +5096,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
+                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
 
 
 
@@ -5157,7 +5157,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, self).__init__()
@@ -5186,7 +5186,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
+                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
 
 
 
@@ -5220,7 +5220,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities, self).__init__()
@@ -5274,7 +5274,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, self).__init__()
@@ -5295,7 +5295,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, [u'responder', u'controller'], name, value)
+                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, ['responder', 'controller'], name, value)
 
 
 
@@ -5322,7 +5322,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, self).__init__()
@@ -5343,7 +5343,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, [u'responder', u'controller'], name, value)
+                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, ['responder', 'controller'], name, value)
 
 
 
@@ -5370,7 +5370,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, self).__init__()
@@ -5391,7 +5391,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, [u'responder', u'controller'], name, value)
+                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, ['responder', 'controller'], name, value)
 
 
 
@@ -5414,7 +5414,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2017-10-06'
+            _revision = '2018-12-20'
 
             def __init__(self):
                 super(Cfm.Global.TracerouteCaches, self).__init__()
@@ -5446,7 +5446,7 @@ class Cfm(Entity):
                 	Maintenance Domain
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -5455,7 +5455,7 @@ class Cfm(Entity):
                 	Service (Maintenance Association)
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -5521,7 +5521,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Global.TracerouteCaches.TracerouteCache, self).__init__()
@@ -5558,7 +5558,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', u'replies_dropped'], name, value)
+                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', 'replies_dropped'], name, value)
 
 
                 class TracerouteInformation(Entity):
@@ -5681,7 +5681,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, self).__init__()
@@ -5726,7 +5726,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, [u'domain', u'service', u'level', u'source_mep_id', u'source_interface', u'source_mac_address', u'target_mac_address', u'directed_mac_address', u'target_mep_id', u'timestamp', u'ttl', u'transaction_id'], name, value)
+                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
 
 
                     class Options(Entity):
@@ -5759,7 +5759,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, self).__init__()
@@ -5786,7 +5786,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, [u'mode'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, ['mode'], name, value)
 
 
                         class BasicOptions(Entity):
@@ -5812,7 +5812,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, self).__init__()
@@ -5833,7 +5833,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, [u'is_auto', u'fdb_only'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
 
 
 
@@ -5869,7 +5869,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, self).__init__()
@@ -5892,7 +5892,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, [u'delay_model', u'delay_constant_factor', u'reply_filter'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
 
 
 
@@ -5972,7 +5972,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, self).__init__()
@@ -6018,7 +6018,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, [u'raw_data'], name, value)
+                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, ['raw_data'], name, value)
 
 
                     class Header(Entity):
@@ -6092,7 +6092,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, self).__init__()
@@ -6125,7 +6125,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, [u'level', u'version', u'use_fdb_only', u'forwarded', u'terminal_mep', u'transaction_id', u'ttl', u'relay_action'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, ['level', 'version', 'use_fdb_only', 'forwarded', 'terminal_mep', 'transaction_id', 'ttl', 'relay_action'], name, value)
 
 
 
@@ -6163,7 +6163,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, self).__init__()
@@ -6188,7 +6188,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, [u'management_address_domain', u'management_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
 
 
                         class ChassisId(Entity):
@@ -6232,7 +6232,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, self).__init__()
@@ -6259,7 +6259,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, [u'chassis_id_type', u'chassis_id_type_value', u'chassis_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
 
 
                             class ChassisIdValue(Entity):
@@ -6303,7 +6303,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
@@ -6328,7 +6328,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, [u'chassis_id_format', u'chassis_id_string', u'chassis_id_mac', u'chassis_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
 
 
 
@@ -6357,7 +6357,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId, self).__init__()
@@ -6411,7 +6411,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, self).__init__()
@@ -6432,7 +6432,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, [u'unique_id', u'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, ['unique_id', 'mac_address'], name, value)
 
 
 
@@ -6463,7 +6463,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, self).__init__()
@@ -6484,7 +6484,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, [u'unique_id', u'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, ['unique_id', 'mac_address'], name, value)
 
 
 
@@ -6521,7 +6521,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, self).__init__()
@@ -6546,7 +6546,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, [u'action', u'mac_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
 
 
                         class PortId(Entity):
@@ -6590,7 +6590,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, self).__init__()
@@ -6617,7 +6617,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, [u'port_id_type', u'port_id_type_value', u'port_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
 
 
                             class PortIdValue(Entity):
@@ -6661,7 +6661,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
@@ -6686,7 +6686,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, [u'port_id_format', u'port_id_string', u'port_id_mac', u'port_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
 
 
 
@@ -6724,7 +6724,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, self).__init__()
@@ -6749,7 +6749,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, [u'action', u'mac_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
 
 
                         class PortId(Entity):
@@ -6793,7 +6793,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, self).__init__()
@@ -6820,7 +6820,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, [u'port_id_type', u'port_id_type_value', u'port_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
 
 
                             class PortIdValue(Entity):
@@ -6864,7 +6864,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
@@ -6889,7 +6889,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, [u'port_id_format', u'port_id_string', u'port_id_mac', u'port_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
 
 
 
@@ -6925,7 +6925,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, self).__init__()
@@ -6950,7 +6950,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, [u'last_hop_format', u'host_name'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
 
 
                         class EgressId(Entity):
@@ -6980,7 +6980,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, self).__init__()
@@ -7001,7 +7001,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, [u'unique_id', u'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
 
 
 
@@ -7042,7 +7042,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, self).__init__()
@@ -7065,7 +7065,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, [u'oui', u'subtype', u'value'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
 
 
 
@@ -7096,7 +7096,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, self).__init__()
@@ -7117,7 +7117,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, [u'typecode', u'value'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
 
 
 
@@ -7189,7 +7189,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, self).__init__()
@@ -7231,7 +7231,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, [u'raw_data'], name, value)
+                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, ['raw_data'], name, value)
 
 
                     class Header(Entity):
@@ -7323,7 +7323,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, self).__init__()
@@ -7360,7 +7360,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, [u'level', u'version', u'forwarded', u'terminal_mep', u'reply_filter_unknown', u'transaction_id', u'ttl', u'relay_action', u'next_hop_timeout', u'delay_model'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, ['level', 'version', 'forwarded', 'terminal_mep', 'reply_filter_unknown', 'transaction_id', 'ttl', 'relay_action', 'next_hop_timeout', 'delay_model'], name, value)
 
 
 
@@ -7398,7 +7398,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, self).__init__()
@@ -7423,7 +7423,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, [u'management_address_domain', u'management_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
 
 
                         class ChassisId(Entity):
@@ -7467,7 +7467,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, self).__init__()
@@ -7494,7 +7494,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, [u'chassis_id_type', u'chassis_id_type_value', u'chassis_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
 
 
                             class ChassisIdValue(Entity):
@@ -7538,7 +7538,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
@@ -7563,7 +7563,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, [u'chassis_id_format', u'chassis_id_string', u'chassis_id_mac', u'chassis_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
 
 
 
@@ -7615,7 +7615,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, self).__init__()
@@ -7648,7 +7648,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, [u'action', u'mac_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
 
 
                         class LastEgressId(Entity):
@@ -7678,7 +7678,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, self).__init__()
@@ -7699,7 +7699,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, [u'unique_id', u'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, ['unique_id', 'mac_address'], name, value)
 
 
 
@@ -7730,7 +7730,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, self).__init__()
@@ -7751,7 +7751,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, [u'unique_id', u'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, ['unique_id', 'mac_address'], name, value)
 
 
 
@@ -7796,7 +7796,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, self).__init__()
@@ -7823,7 +7823,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, [u'port_id_type', u'port_id_type_value', u'port_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
 
 
                             class PortIdValue(Entity):
@@ -7867,7 +7867,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
@@ -7892,7 +7892,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, [u'port_id_format', u'port_id_string', u'port_id_mac', u'port_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
 
 
 
@@ -7944,7 +7944,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, self).__init__()
@@ -7977,7 +7977,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, [u'action', u'mac_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
 
 
                         class LastEgressId(Entity):
@@ -8007,7 +8007,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, self).__init__()
@@ -8028,7 +8028,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, [u'unique_id', u'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, ['unique_id', 'mac_address'], name, value)
 
 
 
@@ -8059,7 +8059,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, self).__init__()
@@ -8080,7 +8080,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, [u'unique_id', u'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, ['unique_id', 'mac_address'], name, value)
 
 
 
@@ -8125,7 +8125,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, self).__init__()
@@ -8152,7 +8152,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, [u'port_id_type', u'port_id_type_value', u'port_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
 
 
                             class PortIdValue(Entity):
@@ -8196,7 +8196,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
@@ -8221,7 +8221,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, [u'port_id_format', u'port_id_string', u'port_id_mac', u'port_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
 
 
 
@@ -8257,7 +8257,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, self).__init__()
@@ -8282,7 +8282,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, [u'last_hop_format', u'host_name'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
 
 
                         class EgressId(Entity):
@@ -8312,7 +8312,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, self).__init__()
@@ -8333,7 +8333,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, [u'unique_id', u'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
 
 
 
@@ -8374,7 +8374,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, self).__init__()
@@ -8397,7 +8397,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, [u'oui', u'subtype', u'value'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
 
 
 
@@ -8428,7 +8428,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, self).__init__()
@@ -8449,7 +8449,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, [u'typecode', u'value'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
 
 
 
@@ -8472,7 +8472,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2017-10-06'
+            _revision = '2018-12-20'
 
             def __init__(self):
                 super(Cfm.Global.LocalMeps, self).__init__()
@@ -8503,7 +8503,7 @@ class Cfm(Entity):
                 	Maintenance Domain
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -8512,7 +8512,7 @@ class Cfm(Entity):
                 	Service (Maintenance Association)
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -8786,7 +8786,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Global.LocalMeps.LocalMep, self).__init__()
@@ -8884,7 +8884,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.LocalMeps.LocalMep, ['domain', 'service', 'mep_id', 'interface', u'domain_xr', u'service_xr', u'level', u'mep_id_xr', u'interface_xr', u'interface_state', u'interworking_state', u'stp_state', u'mep_direction', u'mac_address', u'peer_meps_detected', u'peer_meps_with_errors_detected', u'remote_defect', u'fault_notification_state', u'ccm_generation_enabled', u'ccm_interval', u'ccm_offload', u'highest_defect', u'rdi_defect', u'mac_status_defect', u'peer_mep_ccm_defect', u'error_ccm_defect', u'cross_connect_ccm_defect', u'next_lbm_id', u'next_ltm_id', u'cos', u'efd_triggered', u'standby', u'hairpin', u'defects_ignored'], name, value)
+                    self._perform_setattr(Cfm.Global.LocalMeps.LocalMep, ['domain', 'service', 'mep_id', 'interface', 'domain_xr', 'service_xr', 'level', 'mep_id_xr', 'interface_xr', 'interface_state', 'interworking_state', 'stp_state', 'mep_direction', 'mac_address', 'peer_meps_detected', 'peer_meps_with_errors_detected', 'remote_defect', 'fault_notification_state', 'ccm_generation_enabled', 'ccm_interval', 'ccm_offload', 'highest_defect', 'rdi_defect', 'mac_status_defect', 'peer_mep_ccm_defect', 'error_ccm_defect', 'cross_connect_ccm_defect', 'next_lbm_id', 'next_ltm_id', 'cos', 'efd_triggered', 'standby', 'hairpin', 'defects_ignored'], name, value)
 
 
                 class Statistics(Entity):
@@ -9148,7 +9148,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.LocalMeps.LocalMep.Statistics, self).__init__()
@@ -9221,7 +9221,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Statistics, [u'ccms_sent', u'ccms_received', u'ccms_out_of_sequence', u'ccms_discarded', u'lb_ms_sent', u'lb_rs_sent', u'lb_rs_received', u'lb_rs_out_of_sequence', u'lb_rs_bad_data', u'lb_ms_received', u'lt_rs_received_unexpected', u'ai_ss_sent', u'ai_ss_received', u'lc_ks_received', u'dm_ms_sent', u'dm_ms_received', u'dm_rs_sent', u'dm_rs_received', u'sl_ms_sent', u'sl_ms_received', u'sl_rs_sent', u'sl_rs_received', u'lm_ms_sent', u'lm_ms_received', u'lm_rs_sent', u'lm_rs_received', u'bn_ms_received', u'bn_ms_discarded'], name, value)
+                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Statistics, ['ccms_sent', 'ccms_received', 'ccms_out_of_sequence', 'ccms_discarded', 'lb_ms_sent', 'lb_rs_sent', 'lb_rs_received', 'lb_rs_out_of_sequence', 'lb_rs_bad_data', 'lb_ms_received', 'lt_rs_received_unexpected', 'ai_ss_sent', 'ai_ss_received', 'lc_ks_received', 'dm_ms_sent', 'dm_ms_received', 'dm_rs_sent', 'dm_rs_received', 'sl_ms_sent', 'sl_ms_received', 'sl_rs_sent', 'sl_rs_received', 'lm_ms_sent', 'lm_ms_received', 'lm_rs_sent', 'lm_rs_received', 'bn_ms_received', 'bn_ms_discarded'], name, value)
 
 
 
@@ -9292,7 +9292,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.LocalMeps.LocalMep.AisStatistics, self).__init__()
@@ -9329,7 +9329,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics, [u'level', u'interval', u'sending_ais', u'receiving_ais', u'last_interval', u'last_mac_address'], name, value)
+                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics, ['level', 'interval', 'sending_ais', 'receiving_ais', 'last_interval', 'last_mac_address'], name, value)
 
 
                     class SendingStart(Entity):
@@ -9363,7 +9363,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, self).__init__()
@@ -9384,7 +9384,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, [u'seconds', u'nanoseconds'], name, value)
+                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -9419,7 +9419,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, self).__init__()
@@ -9440,7 +9440,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, [u'seconds', u'nanoseconds'], name, value)
+                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -9518,7 +9518,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.LocalMeps.LocalMep.Defects, self).__init__()
@@ -9553,7 +9553,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects, [u'ais_received', u'peer_meps_that_timed_out', u'missing', u'auto_missing', u'unexpected', u'local_port_status', u'peer_port_status'], name, value)
+                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
 
 
                     class RemoteMepsDefects(Entity):
@@ -9614,7 +9614,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, self).__init__()
@@ -9645,7 +9645,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, [u'loss_threshold_exceeded', u'invalid_level', u'invalid_maid', u'invalid_ccm_interval', u'received_our_mac', u'received_our_mep_id', u'received_rdi'], name, value)
+                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
 
 
 
@@ -9668,7 +9668,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2017-10-06'
+            _revision = '2018-12-20'
 
             def __init__(self):
                 super(Cfm.Global.PeerMePv2s, self).__init__()
@@ -9700,7 +9700,7 @@ class Cfm(Entity):
                 	Maintenance Domain
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -9709,7 +9709,7 @@ class Cfm(Entity):
                 	Service (Maintenance Association)
                 	**type**\: str
                 
-                	**length:** 1..79
+                	**length:** 1..127
                 
                 	**config**\: False
                 
@@ -9814,7 +9814,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2017-10-06'
+                _revision = '2018-12-20'
 
                 def __init__(self):
                     super(Cfm.Global.PeerMePv2s.PeerMePv2, self).__init__()
@@ -9862,7 +9862,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', u'domain_xr', u'service_xr', u'level', u'mep_id', u'interface_xr', u'mep_direction', u'standby'], name, value)
+                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', 'domain_xr', 'service_xr', 'level', 'mep_id', 'interface_xr', 'mep_direction', 'standby'], name, value)
 
 
                 class PeerMep(Entity):
@@ -9941,7 +9941,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2017-10-06'
+                    _revision = '2018-12-20'
 
                     def __init__(self):
                         super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, self).__init__()
@@ -9984,7 +9984,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, [u'mep_id', u'mac_address', u'cross_check_state', u'peer_mep_state', u'ccm_offload'], name, value)
+                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, ['mep_id', 'mac_address', 'cross_check_state', 'peer_mep_state', 'ccm_offload'], name, value)
 
 
                     class ErrorState(Entity):
@@ -10045,7 +10045,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, self).__init__()
@@ -10076,7 +10076,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, [u'loss_threshold_exceeded', u'invalid_level', u'invalid_maid', u'invalid_ccm_interval', u'received_our_mac', u'received_our_mep_id', u'received_rdi'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
 
 
 
@@ -10112,7 +10112,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, self).__init__()
@@ -10133,7 +10133,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, [u'seconds', u'nanoseconds'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, ['seconds', 'nanoseconds'], name, value)
 
 
 
@@ -10211,7 +10211,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, self).__init__()
@@ -10251,7 +10251,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, [u'port_status', u'interface_status', u'additional_interface_status', u'raw_data'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, ['port_status', 'interface_status', 'additional_interface_status', 'raw_data'], name, value)
 
 
                         class Header(Entity):
@@ -10343,7 +10343,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, self).__init__()
@@ -10384,7 +10384,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, [u'level', u'version', u'interval', u'rdi', u'sequence_number', u'mep_id', u'mdid_format', u'short_ma_name_format'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, ['level', 'version', 'interval', 'rdi', 'sequence_number', 'mep_id', 'mdid_format', 'short_ma_name_format'], name, value)
 
 
                             class Mdid(Entity):
@@ -10433,7 +10433,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, self).__init__()
@@ -10462,7 +10462,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, [u'mdid_format_value', u'dns_like_name', u'string_name', u'mdid_data'], name, value)
+                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, ['mdid_format_value', 'dns_like_name', 'string_name', 'mdid_data'], name, value)
 
 
                                 class MacName(Entity):
@@ -10492,7 +10492,7 @@ class Cfm(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, self).__init__()
@@ -10513,7 +10513,7 @@ class Cfm(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, [u'mac_address', u'integer'], name, value)
+                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, ['mac_address', 'integer'], name, value)
 
 
 
@@ -10582,7 +10582,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, self).__init__()
@@ -10615,7 +10615,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, [u'short_ma_name_format_value', u'vlan_id_name', u'string_name', u'integer_name', u'icc_based', u'short_ma_name_data'], name, value)
+                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, ['short_ma_name_format_value', 'vlan_id_name', 'string_name', 'integer_name', 'icc_based', 'short_ma_name_data'], name, value)
 
 
                                 class VpnIdName(Entity):
@@ -10645,7 +10645,7 @@ class Cfm(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, self).__init__()
@@ -10666,7 +10666,7 @@ class Cfm(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, [u'oui', u'index'], name, value)
+                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, ['oui', 'index'], name, value)
 
 
 
@@ -10706,7 +10706,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, self).__init__()
@@ -10731,7 +10731,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, [u'management_address_domain', u'management_address'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, ['management_address_domain', 'management_address'], name, value)
 
 
                             class ChassisId(Entity):
@@ -10775,7 +10775,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2017-10-06'
+                                _revision = '2018-12-20'
 
                                 def __init__(self):
                                     super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, self).__init__()
@@ -10802,7 +10802,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, [u'chassis_id_type', u'chassis_id_type_value', u'chassis_id'], name, value)
+                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
 
 
                                 class ChassisIdValue(Entity):
@@ -10846,7 +10846,7 @@ class Cfm(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2017-10-06'
+                                    _revision = '2018-12-20'
 
                                     def __init__(self):
                                         super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, self).__init__()
@@ -10871,7 +10871,7 @@ class Cfm(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, [u'chassis_id_format', u'chassis_id_string', u'chassis_id_mac', u'chassis_id_raw'], name, value)
+                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
 
 
 
@@ -10893,7 +10893,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, self).__init__()
@@ -10912,7 +10912,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, [u'name'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, ['name'], name, value)
 
 
 
@@ -10952,7 +10952,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, self).__init__()
@@ -10975,7 +10975,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, [u'oui', u'subtype', u'value'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
 
 
 
@@ -11006,7 +11006,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, self).__init__()
@@ -11027,7 +11027,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, [u'typecode', u'value'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, ['typecode', 'value'], name, value)
 
 
 
@@ -11129,7 +11129,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2017-10-06'
+                        _revision = '2018-12-20'
 
                         def __init__(self):
                             super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, self).__init__()
@@ -11168,7 +11168,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, [u'ccms_received', u'ccms_wrong_level', u'ccms_invalid_maid', u'ccms_invalid_interval', u'ccms_invalid_source_mac_address', u'ccms_our_mep_id', u'ccms_rdi', u'ccms_out_of_sequence', u'last_ccm_sequence_number'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, ['ccms_received', 'ccms_wrong_level', 'ccms_invalid_maid', 'ccms_invalid_interval', 'ccms_invalid_source_mac_address', 'ccms_our_mep_id', 'ccms_rdi', 'ccms_out_of_sequence', 'last_ccm_sequence_number'], name, value)
 
 
                         class LastCcmReceivedTime(Entity):
@@ -11202,7 +11202,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2017-10-06'
+                            _revision = '2018-12-20'
 
                             def __init__(self):
                                 super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, self).__init__()
@@ -11223,7 +11223,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, [u'seconds', u'nanoseconds'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
 
 

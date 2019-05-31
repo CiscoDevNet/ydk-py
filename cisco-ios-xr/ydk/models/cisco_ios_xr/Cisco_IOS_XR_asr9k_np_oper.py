@@ -201,6 +201,13 @@ class HardwareModuleNp(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: np_uidb
+                    
+                    	Hardware np uidb
+                    	**type**\:  :py:class:`NpUidb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.NpUidb>`
+                    
+                    	**config**\: False
+                    
                     .. attribute:: chn_load
                     
                     	prm channel load info
@@ -219,6 +226,20 @@ class HardwareModuleNp(Entity):
                     
                     	prm tcam summary info
                     	**type**\:  :py:class:`TcamSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: l2rm_hw_resource
+                    
+                    	L2rm Hardware Resources
+                    	**type**\:  :py:class:`L2rmHwResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: profile
+                    
+                    	Hardware Profile
+                    	**type**\:  :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.Profile>`
                     
                     	**config**\: False
                     
@@ -258,11 +279,15 @@ class HardwareModuleNp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['np_name']
-                        self._child_classes = OrderedDict([("chn-load", ("chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad)), ("load-utilization", ("load_utilization", HardwareModuleNp.Nodes.Node.Nps.Np.LoadUtilization)), ("tcam-summary", ("tcam_summary", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary)), ("counters", ("counters", HardwareModuleNp.Nodes.Node.Nps.Np.Counters)), ("fast-drop", ("fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop)), ("efd", ("efd", HardwareModuleNp.Nodes.Node.Nps.Np.Efd))])
+                        self._child_classes = OrderedDict([("np-uidb", ("np_uidb", HardwareModuleNp.Nodes.Node.Nps.Np.NpUidb)), ("chn-load", ("chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad)), ("load-utilization", ("load_utilization", HardwareModuleNp.Nodes.Node.Nps.Np.LoadUtilization)), ("tcam-summary", ("tcam_summary", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary)), ("l2rm-hw-resource", ("l2rm_hw_resource", HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource)), ("profile", ("profile", HardwareModuleNp.Nodes.Node.Nps.Np.Profile)), ("counters", ("counters", HardwareModuleNp.Nodes.Node.Nps.Np.Counters)), ("fast-drop", ("fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop)), ("efd", ("efd", HardwareModuleNp.Nodes.Node.Nps.Np.Efd))])
                         self._leafs = OrderedDict([
                             ('np_name', (YLeaf(YType.str, 'np-name'), ['str'])),
                         ])
                         self.np_name = None
+
+                        self.np_uidb = HardwareModuleNp.Nodes.Node.Nps.Np.NpUidb()
+                        self.np_uidb.parent = self
+                        self._children_name_map["np_uidb"] = "np-uidb"
 
                         self.chn_load = HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad()
                         self.chn_load.parent = self
@@ -275,6 +300,14 @@ class HardwareModuleNp(Entity):
                         self.tcam_summary = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary()
                         self.tcam_summary.parent = self
                         self._children_name_map["tcam_summary"] = "tcam-summary"
+
+                        self.l2rm_hw_resource = HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource()
+                        self.l2rm_hw_resource.parent = self
+                        self._children_name_map["l2rm_hw_resource"] = "l2rm-hw-resource"
+
+                        self.profile = HardwareModuleNp.Nodes.Node.Nps.Np.Profile()
+                        self.profile.parent = self
+                        self._children_name_map["profile"] = "profile"
 
                         self.counters = HardwareModuleNp.Nodes.Node.Nps.Np.Counters()
                         self.counters.parent = self
@@ -292,6 +325,114 @@ class HardwareModuleNp(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np, ['np_name'], name, value)
+
+
+                    class NpUidb(Entity):
+                        """
+                        Hardware np uidb
+                        
+                        .. attribute:: uidb_index
+                        
+                        	Array of NP UIDB Index
+                        	**type**\: list of  		 :py:class:`UidbIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.NpUidb.UidbIndex>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'asr9k-np-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(HardwareModuleNp.Nodes.Node.Nps.Np.NpUidb, self).__init__()
+
+                            self.yang_name = "np-uidb"
+                            self.yang_parent_name = "np"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("uidb-index", ("uidb_index", HardwareModuleNp.Nodes.Node.Nps.Np.NpUidb.UidbIndex))])
+                            self._leafs = OrderedDict()
+
+                            self.uidb_index = YList(self)
+                            self._segment_path = lambda: "np-uidb"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np.NpUidb, [], name, value)
+
+
+                        class UidbIndex(Entity):
+                            """
+                            Array of NP UIDB Index
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: interface_handle
+                            
+                            	Interface handle
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: index
+                            
+                            	UIDB Index
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: interface_type
+                            
+                            	Interface type
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'asr9k-np-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(HardwareModuleNp.Nodes.Node.Nps.Np.NpUidb.UidbIndex, self).__init__()
+
+                                self.yang_name = "uidb-index"
+                                self.yang_parent_name = "np-uidb"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('interface_handle', (YLeaf(YType.uint32, 'interface-handle'), ['int'])),
+                                    ('index', (YLeaf(YType.uint16, 'index'), ['int'])),
+                                    ('interface_type', (YLeaf(YType.str, 'interface-type'), ['str'])),
+                                ])
+                                self.interface_name = None
+                                self.interface_handle = None
+                                self.index = None
+                                self.interface_type = None
+                                self._segment_path = lambda: "uidb-index"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np.NpUidb.UidbIndex, ['interface_name', 'interface_handle', 'index', 'interface_type'], name, value)
+
+
 
 
                     class ChnLoad(Entity):
@@ -364,7 +505,7 @@ class HardwareModuleNp(Entity):
                             
                             .. attribute:: avg_guar_rfd_usage
                             
-                            	Average of garanteed RFD usage
+                            	Average of guaranteed RFD usage
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -373,7 +514,7 @@ class HardwareModuleNp(Entity):
                             
                             .. attribute:: peak_guar_rfd_usage
                             
-                            	Peak of garanteed RFD usage
+                            	Peak of guaranteed RFD usage
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -3191,6 +3332,291 @@ class HardwareModuleNp(Entity):
                                     self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtL2, ['partition_id', 'priority', 'valid_entries', 'free_entries'], name, value)
 
 
+
+
+
+                    class L2rmHwResource(Entity):
+                        """
+                        L2rm Hardware Resources
+                        
+                        .. attribute:: hw_resource
+                        
+                        	resources per hw blk
+                        	**type**\:  :py:class:`HwResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ppt_alloc
+                        
+                        	ppt allocated
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ppt_write
+                        
+                        	ppt write
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ppt_free
+                        
+                        	ppt free
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'asr9k-np-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource, self).__init__()
+
+                            self.yang_name = "l2rm-hw-resource"
+                            self.yang_parent_name = "np"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("hw-resource", ("hw_resource", HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource))])
+                            self._leafs = OrderedDict([
+                                ('ppt_alloc', (YLeaf(YType.uint64, 'ppt-alloc'), ['int'])),
+                                ('ppt_write', (YLeaf(YType.uint64, 'ppt-write'), ['int'])),
+                                ('ppt_free', (YLeaf(YType.uint64, 'ppt-free'), ['int'])),
+                            ])
+                            self.ppt_alloc = None
+                            self.ppt_write = None
+                            self.ppt_free = None
+
+                            self.hw_resource = HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource()
+                            self.hw_resource.parent = self
+                            self._children_name_map["hw_resource"] = "hw-resource"
+                            self._segment_path = lambda: "l2rm-hw-resource"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource, ['ppt_alloc', 'ppt_write', 'ppt_free'], name, value)
+
+
+                        class HwResource(Entity):
+                            """
+                            resources per hw blk
+                            
+                            .. attribute:: hash_block
+                            
+                            	Hash Block hw blk
+                            	**type**\: list of  		 :py:class:`HashBlock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource.HashBlock>`
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: tcam_partition
+                            
+                            	TCAM partition per hw blk
+                            	**type**\: list of  		 :py:class:`TcamPartition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper.HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource.TcamPartition>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'asr9k-np-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource, self).__init__()
+
+                                self.yang_name = "hw-resource"
+                                self.yang_parent_name = "l2rm-hw-resource"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("hash-block", ("hash_block", HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource.HashBlock)), ("tcam-partition", ("tcam_partition", HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource.TcamPartition))])
+                                self._leafs = OrderedDict()
+
+                                self.hash_block = YList(self)
+                                self.tcam_partition = YList(self)
+                                self._segment_path = lambda: "hw-resource"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource, [], name, value)
+
+
+                            class HashBlock(Entity):
+                                """
+                                Hash Block hw blk
+                                
+                                .. attribute:: hash_blk
+                                
+                                	hash block
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: total
+                                
+                                	total
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: free
+                                
+                                	free
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'asr9k-np-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource.HashBlock, self).__init__()
+
+                                    self.yang_name = "hash-block"
+                                    self.yang_parent_name = "hw-resource"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('hash_blk', (YLeaf(YType.uint32, 'hash-blk'), ['int'])),
+                                        ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
+                                        ('free', (YLeaf(YType.uint32, 'free'), ['int'])),
+                                    ])
+                                    self.hash_blk = None
+                                    self.total = None
+                                    self.free = None
+                                    self._segment_path = lambda: "hash-block"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource.HashBlock, ['hash_blk', 'total', 'free'], name, value)
+
+
+
+                            class TcamPartition(Entity):
+                                """
+                                TCAM partition per hw blk
+                                
+                                .. attribute:: tcam_par
+                                
+                                	tcam par
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: total
+                                
+                                	total
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: free
+                                
+                                	free
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'asr9k-np-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource.TcamPartition, self).__init__()
+
+                                    self.yang_name = "tcam-partition"
+                                    self.yang_parent_name = "hw-resource"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('tcam_par', (YLeaf(YType.uint32, 'tcam-par'), ['int'])),
+                                        ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
+                                        ('free', (YLeaf(YType.uint32, 'free'), ['int'])),
+                                    ])
+                                    self.tcam_par = None
+                                    self.total = None
+                                    self.free = None
+                                    self._segment_path = lambda: "tcam-partition"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np.L2rmHwResource.HwResource.TcamPartition, ['tcam_par', 'total', 'free'], name, value)
+
+
+
+
+
+                    class Profile(Entity):
+                        """
+                        Hardware Profile
+                        
+                        .. attribute:: scale
+                        
+                        	Scale
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'asr9k-np-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(HardwareModuleNp.Nodes.Node.Nps.Np.Profile, self).__init__()
+
+                            self.yang_name = "profile"
+                            self.yang_parent_name = "np"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('scale', (YLeaf(YType.str, 'scale'), ['str'])),
+                            ])
+                            self.scale = None
+                            self._segment_path = lambda: "profile"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np.Profile, ['scale'], name, value)
 
 
 

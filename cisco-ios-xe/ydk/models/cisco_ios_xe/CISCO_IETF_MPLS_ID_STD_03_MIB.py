@@ -68,7 +68,7 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
         	This object allows the administrator to assign a unique operator identifier also called MPLS\-TP Global\_ID
         	**type**\: str
         
-        	**length:** 4
+        	**length:** 4..4
         
         	**config**\: False
         

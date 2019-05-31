@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-ip-udp-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-09 {
+    description
+      "bind_local field is added to PCB_DETAIL output";
+  }
   revision 2018-03-04 {
     description
       "PCB_ID argument is passed in string format.";
@@ -111,6 +115,116 @@ submodule Cisco-IOS-XR-ip-udp-oper-sub1 {
     }
   }
 
+  grouping UDP-PCB-FLAGS-BAG {
+    description
+      "UDP PCB flags";
+    leaf recv-opts {
+      type boolean;
+      description
+        "Receive input options";
+    }
+    leaf recv-ret-opts {
+      type boolean;
+      description
+        "Receive input source-route options";
+    }
+    leaf recv-dest-addr {
+      type boolean;
+      description
+        "Receive destination address";
+    }
+    leaf header-include {
+      type boolean;
+      description
+        "Header include option";
+    }
+    leaf recv-intf {
+      type boolean;
+      description
+        "Receive input interface";
+    }
+    leaf recv-header {
+      type boolean;
+      description
+        "Receive header";
+    }
+    leaf mcast-loopback {
+      type boolean;
+      description
+        "Loopback of multicast packet";
+    }
+    leaf recv-l2-header {
+      type boolean;
+      description
+        "Receive L2 header";
+    }
+    leaf recv-packet-info {
+      type boolean;
+      description
+        "Receive packet information";
+    }
+    leaf router-alert {
+      type boolean;
+      description
+        "Receive router alert packets";
+    }
+    leaf recv-hop-limit {
+      type boolean;
+      description
+        "Receive hop limit";
+    }
+    leaf recv-routing-header {
+      type boolean;
+      description
+        "Receive routing header";
+    }
+    leaf recv-hop-header {
+      type boolean;
+      description
+        "Receive hop by hop option header";
+    }
+    leaf recv-dest-header {
+      type boolean;
+      description
+        "Receive destination option header";
+    }
+    leaf recv-traffic-class {
+      type boolean;
+      description
+        "Receive traffic class";
+    }
+    leaf recv-ip-sec {
+      type boolean;
+      description
+        "Receive IP security information";
+    }
+    leaf recv-tabel-id {
+      type boolean;
+      description
+        "Receive table identifier";
+    }
+    leaf recv-pak-priority {
+      type boolean;
+      description
+        "Receive packet priority";
+    }
+    leaf conn-limit {
+      type boolean;
+      description
+        "Connection limit";
+    }
+    leaf opt-handled {
+      type boolean;
+      description
+        "Option handled";
+    }
+    leaf bind-local {
+      type boolean;
+      description
+        "Local node packet delivery";
+    }
+  }
+
   grouping UDP-ADDRESS-TYPE {
     description
       "UDP ADDRESS TYPE";
@@ -151,6 +265,11 @@ submodule Cisco-IOS-XR-ip-udp-oper-sub1 {
       description
         "Foreign address";
       uses UDP-ADDRESS-TYPE;
+    }
+    container pcb-flags {
+      description
+        "PCB flags";
+      uses UDP-PCB-FLAGS-BAG;
     }
     leaf af-name {
       type Udp-address-family;

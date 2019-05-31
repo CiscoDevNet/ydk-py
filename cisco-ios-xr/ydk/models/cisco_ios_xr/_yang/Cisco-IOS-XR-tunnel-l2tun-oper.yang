@@ -6,7 +6,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2018-11-01;
   }
 
   organization
@@ -33,6 +33,10 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-01 {
+    description
+      "Added Yang support show l2tpv2 internal.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -82,7 +86,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
 
   grouping SESSION-TABLE {
     description
-      "Common node of l2tp, l2tpv2";
+      "Common node of node, node";
     container sessions {
       description
         "List of session IDs";
@@ -107,7 +111,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
 
   grouping SESSION {
     description
-      "Common node of l2tp, l2tpv2";
+      "Common node of node, node";
     container session {
       description
         "L2TP control messages counters";
@@ -121,7 +125,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
 
   grouping TUNNEL-CONFIGURATION-TABLE {
     description
-      "Common node of l2tp, l2tpv2";
+      "Common node of node, node";
     container tunnel-configurations {
       description
         "List of tunnel IDs";
@@ -141,7 +145,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
 
   grouping TUNNEL-TABLE {
     description
-      "Common node of l2tp, l2tpv2";
+      "Common node of node, node";
     container tunnels {
       description
         "List of tunnel IDs";
@@ -159,9 +163,19 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
     }
   }
 
+  grouping INTERNAL {
+    description
+      "Common node of node, node";
+    container internal {
+      description
+        "L2TP v2/v3 internal information";
+      uses L2TP-INTERNAL-STATS-BAG-DATA;
+    }
+  }
+
   grouping COUNTER-HIST-FAIL {
     description
-      "Common node of l2tp, l2tpv2";
+      "Common node of node, node";
     container counter-hist-fail {
       description
         "Failure events leading to disconnection";
@@ -171,7 +185,7 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
 
   grouping CLASS-TABLE {
     description
-      "Common node of l2tp, l2tpv2";
+      "Common node of node, node";
     container classes {
       description
         "List of L2TP class names";
@@ -195,74 +209,106 @@ module Cisco-IOS-XR-tunnel-l2tun-oper {
     config false;
     description
       "L2TP operational data";
-    container counters {
+    container nodes {
       description
-        "L2TP control messages counters";
-      uses CONTROL;
+        "List of nodes for which subscriber data is
+         collected";
+      list node {
+        key "node-name";
+        description
+          "Subscriber data for a particular node";
+        container counters {
+          description
+            "L2TP control messages counters";
+          uses CONTROL;
+        }
+        leaf node-name {
+          type xr:Node-id;
+          description
+            "Node name";
+        }
+        uses TUNNEL-CONFIGURATION-TABLE;
+        uses COUNTER-HIST-FAIL;
+        uses CLASS-TABLE;
+        uses TUNNEL-TABLE;
+        uses SESSION-TABLE;
+        uses SESSION;
+        uses INTERNAL;
+      }
     }
-    uses TUNNEL-CONFIGURATION-TABLE;
-    uses COUNTER-HIST-FAIL;
-    uses CLASS-TABLE;
-    uses TUNNEL-TABLE;
-    uses SESSION-TABLE;
-    uses SESSION;
   }
   container l2tpv2 {
     config false;
     description
       "l2tpv2";
-    container counters {
+    container nodes {
       description
-        "L2TP control messages counters";
-      container forwarding {
+        "List of nodes for which subscriber data is
+         collected";
+      list node {
+        key "node-name";
         description
-          "L2TP forwarding messages counters";
-        container sessions {
+          "Subscriber data for a particular node";
+        container counters {
           description
-            "List of class and session IDs";
-          list session {
-            key "tunnel-id session-id";
+            "L2TP control messages counters";
+          container forwarding {
             description
-              "L2TP information for a particular session";
-            leaf tunnel-id {
-              type uint32;
+              "L2TP forwarding messages counters";
+            container sessions {
               description
-                "Local tunnel ID";
+                "List of class and session IDs";
+              list session {
+                key "tunnel-id session-id";
+                description
+                  "L2TP information for a particular session";
+                leaf tunnel-id {
+                  type uint32;
+                  description
+                    "Local tunnel ID";
+                }
+                leaf session-id {
+                  type uint32;
+                  description
+                    "Local session ID";
+                }
+                uses L2TP-SESS-FWD-STATS;
+              }
             }
-            leaf session-id {
-              type uint32;
-              description
-                "Local session ID";
-            }
-            uses L2TP-SESS-FWD-STATS;
           }
+          uses CONTROL;
         }
-      }
-      uses CONTROL;
-    }
-    container statistics {
-      description
-        "L2TP v2 statistics information";
-      uses L2TPV2-STATS-DATA;
-    }
-    container tunnel {
-      description
-        "L2TPv2 tunnel ";
-      container accounting {
-        description
-          "Tunnel accounting counters";
         container statistics {
           description
-            "Tunnel accounting statistics";
-          uses L2TPV2-CC-ACCT-STATS-DATA;
+            "L2TP v2 statistics information";
+          uses L2TPV2-STATS-DATA;
         }
+        container tunnel {
+          description
+            "L2TPv2 tunnel ";
+          container accounting {
+            description
+              "Tunnel accounting counters";
+            container statistics {
+              description
+                "Tunnel accounting statistics";
+              uses L2TPV2-CC-ACCT-STATS-DATA;
+            }
+          }
+        }
+        leaf node-name {
+          type xr:Node-id;
+          description
+            "Node name";
+        }
+        uses TUNNEL-CONFIGURATION-TABLE;
+        uses COUNTER-HIST-FAIL;
+        uses CLASS-TABLE;
+        uses TUNNEL-TABLE;
+        uses SESSION-TABLE;
+        uses SESSION;
+        uses INTERNAL;
       }
     }
-    uses TUNNEL-CONFIGURATION-TABLE;
-    uses COUNTER-HIST-FAIL;
-    uses CLASS-TABLE;
-    uses TUNNEL-TABLE;
-    uses SESSION-TABLE;
-    uses SESSION;
   }
 }

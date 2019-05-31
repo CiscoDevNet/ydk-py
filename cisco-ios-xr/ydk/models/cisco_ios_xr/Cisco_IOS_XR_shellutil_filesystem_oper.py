@@ -184,7 +184,7 @@ class FileSystem(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FileSystem.Node.FileSystem_, [u'size', u'free', u'type', u'flags', u'prefixes'], name, value)
+                self._perform_setattr(FileSystem.Node.FileSystem_, ['size', 'free', 'type', 'flags', 'prefixes'], name, value)
 
 
 

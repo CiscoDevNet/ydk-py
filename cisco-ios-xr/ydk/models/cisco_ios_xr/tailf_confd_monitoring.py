@@ -70,6 +70,13 @@ class ConfdState(Entity):
     
     	**config**\: False
     
+    .. attribute:: loaded_data_models
+    
+    	
+    	**type**\:  :py:class:`LoadedDataModels <ydk.models.cisco_ios_xr.tailf_confd_monitoring.ConfdState.LoadedDataModels>`
+    
+    	**config**\: False
+    
     .. attribute:: netconf
     
     	
@@ -97,6 +104,15 @@ class ConfdState(Entity):
     
     	**config**\: False
     
+    .. attribute:: rest
+    
+    	
+    	**type**\:  :py:class:`Rest <ydk.models.cisco_ios_xr.tailf_confd_monitoring.ConfdState.Rest>`
+    
+    	**presence node**\: True
+    
+    	**config**\: False
+    
     .. attribute:: snmp
     
     	
@@ -118,7 +134,7 @@ class ConfdState(Entity):
     """
 
     _prefix = 'tfcm'
-    _revision = '2012-03-08'
+    _revision = '2013-06-14'
 
     def __init__(self):
         super(ConfdState, self).__init__()
@@ -129,7 +145,7 @@ class ConfdState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("smp", ("smp", ConfdState.Smp)), ("ha", ("ha", ConfdState.Ha)), ("netconf", ("netconf", ConfdState.Netconf)), ("cli", ("cli", ConfdState.Cli)), ("webui", ("webui", ConfdState.Webui)), ("snmp", ("snmp", ConfdState.Snmp)), ("internal", ("internal", ConfdState.Internal))])
+        self._child_classes = OrderedDict([("smp", ("smp", ConfdState.Smp)), ("ha", ("ha", ConfdState.Ha)), ("loaded-data-models", ("loaded_data_models", ConfdState.LoadedDataModels)), ("netconf", ("netconf", ConfdState.Netconf)), ("cli", ("cli", ConfdState.Cli)), ("webui", ("webui", ConfdState.Webui)), ("rest", ("rest", ConfdState.Rest)), ("snmp", ("snmp", ConfdState.Snmp)), ("internal", ("internal", ConfdState.Internal))])
         self._leafs = OrderedDict([
             ('version', (YLeaf(YType.str, 'version'), ['str'])),
             ('epoll', (YLeaf(YType.boolean, 'epoll'), ['bool'])),
@@ -149,6 +165,10 @@ class ConfdState(Entity):
         self.ha = None
         self._children_name_map["ha"] = "ha"
 
+        self.loaded_data_models = ConfdState.LoadedDataModels()
+        self.loaded_data_models.parent = self
+        self._children_name_map["loaded_data_models"] = "loaded-data-models"
+
         self.netconf = None
         self._children_name_map["netconf"] = "netconf"
 
@@ -157,6 +177,9 @@ class ConfdState(Entity):
 
         self.webui = None
         self._children_name_map["webui"] = "webui"
+
+        self.rest = None
+        self._children_name_map["rest"] = "rest"
 
         self.snmp = None
         self._children_name_map["snmp"] = "snmp"
@@ -168,7 +191,7 @@ class ConfdState(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(ConfdState, [u'version', u'epoll', u'daemon_status', u'read_only_mode', u'upgrade_mode'], name, value)
+        self._perform_setattr(ConfdState, ['version', 'epoll', 'daemon_status', 'read_only_mode', 'upgrade_mode'], name, value)
 
     class DaemonStatus(Enum):
         """
@@ -228,7 +251,7 @@ class ConfdState(Entity):
         """
 
         _prefix = 'tfcm'
-        _revision = '2012-03-08'
+        _revision = '2013-06-14'
 
         def __init__(self):
             super(ConfdState.Smp, self).__init__()
@@ -249,7 +272,7 @@ class ConfdState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Smp, [u'number_of_threads'], name, value)
+            self._perform_setattr(ConfdState.Smp, ['number_of_threads'], name, value)
 
 
 
@@ -273,7 +296,7 @@ class ConfdState(Entity):
         
         .. attribute:: master_node_id
         
-        	The node identifier of the HA cluster's master node
+        	The node identifier of this node's parent node. This is the HA cluster's master node unless relay slaves are used
         	**type**\: str
         
         	**config**\: False
@@ -287,7 +310,7 @@ class ConfdState(Entity):
         
         .. attribute:: pending_slave
         
-        	The node identifiers of slaves not yet connected
+        	The node identifiers of slaves with pending acknowledgement of synchronous replication
         	**type**\: list of str
         
         	**config**\: False
@@ -299,7 +322,7 @@ class ConfdState(Entity):
         """
 
         _prefix = 'tfcm'
-        _revision = '2012-03-08'
+        _revision = '2013-06-14'
 
         def __init__(self):
             super(ConfdState.Ha, self).__init__()
@@ -328,7 +351,7 @@ class ConfdState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Ha, [u'mode', u'node_id', u'master_node_id', u'connected_slave', u'pending_slave'], name, value)
+            self._perform_setattr(ConfdState.Ha, ['mode', 'node_id', 'master_node_id', 'connected_slave', 'pending_slave'], name, value)
 
         class Mode(Enum):
             """
@@ -342,6 +365,8 @@ class ConfdState(Entity):
 
             .. data:: master = 2
 
+            .. data:: relay_slave = 3
+
             """
 
             none = Enum.YLeaf(0, "none")
@@ -349,6 +374,171 @@ class ConfdState(Entity):
             slave = Enum.YLeaf(1, "slave")
 
             master = Enum.YLeaf(2, "master")
+
+            relay_slave = Enum.YLeaf(3, "relay-slave")
+
+
+
+
+    class LoadedDataModels(Entity):
+        """
+        
+        
+        .. attribute:: data_model
+        
+        	This list contains all loaded YANG data modules.  This list is a superset of the 'schema' list defined in ietf\-netconf\-monitoring, which only lists modules exported through NETCONF
+        	**type**\: list of  		 :py:class:`DataModel <ydk.models.cisco_ios_xr.tailf_confd_monitoring.ConfdState.LoadedDataModels.DataModel>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'tfcm'
+        _revision = '2013-06-14'
+
+        def __init__(self):
+            super(ConfdState.LoadedDataModels, self).__init__()
+
+            self.yang_name = "loaded-data-models"
+            self.yang_parent_name = "confd-state"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("data-model", ("data_model", ConfdState.LoadedDataModels.DataModel))])
+            self._leafs = OrderedDict()
+
+            self.data_model = YList(self)
+            self._segment_path = lambda: "loaded-data-models"
+            self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ConfdState.LoadedDataModels, [], name, value)
+
+
+        class DataModel(Entity):
+            """
+            This list contains all loaded YANG data modules.
+            
+            This list is a superset of the 'schema' list defined in
+            ietf\-netconf\-monitoring, which only lists modules exported
+            through NETCONF.
+            
+            .. attribute:: name  (key)
+            
+            	The YANG module name
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: revision
+            
+            	The YANG module revision
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: namespace
+            
+            	The YANG module namespace
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: prefix
+            
+            	The prefix defined in the YANG module
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: exported_to_all
+            
+            	This leaf is present if the module is exported to all northbound interfaces
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**config**\: False
+            
+            .. attribute:: exported_to
+            
+            	A list of the contexts (northbound interfaces) this module is exported to
+            	**type**\: union of the below types:
+            
+            		**type**\: list of   :py:class:`ExportedTo <ydk.models.cisco_ios_xr.tailf_confd_monitoring.ConfdState.LoadedDataModels.DataModel.ExportedTo>`
+            
+            		**type**\: list of str
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'tfcm'
+            _revision = '2013-06-14'
+
+            def __init__(self):
+                super(ConfdState.LoadedDataModels.DataModel, self).__init__()
+
+                self.yang_name = "data-model"
+                self.yang_parent_name = "loaded-data-models"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['name']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('revision', (YLeaf(YType.str, 'revision'), ['str'])),
+                    ('namespace', (YLeaf(YType.str, 'namespace'), ['str'])),
+                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                    ('exported_to_all', (YLeaf(YType.empty, 'exported-to-all'), ['Empty'])),
+                    ('exported_to', (YLeafList(YType.str, 'exported-to'), [('ydk.models.cisco_ios_xr.tailf_confd_monitoring', 'ConfdState', 'LoadedDataModels.DataModel.ExportedTo'),'str'])),
+                ])
+                self.name = None
+                self.revision = None
+                self.namespace = None
+                self.prefix = None
+                self.exported_to_all = None
+                self.exported_to = []
+                self._segment_path = lambda: "data-model" + "[name='" + str(self.name) + "']"
+                self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/loaded-data-models/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ConfdState.LoadedDataModels.DataModel, ['name', 'revision', 'namespace', 'prefix', 'exported_to_all', 'exported_to'], name, value)
+
+            class ExportedTo(Enum):
+                """
+                ExportedTo (Enum Class)
+
+                A list of the contexts (northbound interfaces) this module
+
+                is exported to.
+
+                .. data:: netconf = 0
+
+                .. data:: cli = 1
+
+                .. data:: webui = 2
+
+                .. data:: rest = 3
+
+                .. data:: snmp = 4
+
+                """
+
+                netconf = Enum.YLeaf(0, "netconf")
+
+                cli = Enum.YLeaf(1, "cli")
+
+                webui = Enum.YLeaf(2, "webui")
+
+                rest = Enum.YLeaf(3, "rest")
+
+                snmp = Enum.YLeaf(4, "snmp")
+
 
 
 
@@ -371,7 +561,7 @@ class ConfdState(Entity):
         """
 
         _prefix = 'tfcm'
-        _revision = '2012-03-08'
+        _revision = '2013-06-14'
 
         def __init__(self):
             super(ConfdState.Netconf, self).__init__()
@@ -423,7 +613,7 @@ class ConfdState(Entity):
             """
 
             _prefix = 'tfcm'
-            _revision = '2012-03-08'
+            _revision = '2013-06-14'
 
             def __init__(self):
                 super(ConfdState.Netconf.Listen, self).__init__()
@@ -479,7 +669,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Netconf.Listen.Tcp, self).__init__()
@@ -501,7 +691,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Netconf.Listen.Tcp, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Netconf.Listen.Tcp, ['ip', 'port'], name, value)
 
 
 
@@ -538,7 +728,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Netconf.Listen.Ssh, self).__init__()
@@ -560,7 +750,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Netconf.Listen.Ssh, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Netconf.Listen.Ssh, ['ip', 'port'], name, value)
 
 
 
@@ -584,7 +774,7 @@ class ConfdState(Entity):
         """
 
         _prefix = 'tfcm'
-        _revision = '2012-03-08'
+        _revision = '2013-06-14'
 
         def __init__(self):
             super(ConfdState.Cli, self).__init__()
@@ -632,7 +822,7 @@ class ConfdState(Entity):
             """
 
             _prefix = 'tfcm'
-            _revision = '2012-03-08'
+            _revision = '2013-06-14'
 
             def __init__(self):
                 super(ConfdState.Cli.Listen, self).__init__()
@@ -687,7 +877,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Cli.Listen.Ssh, self).__init__()
@@ -709,7 +899,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Cli.Listen.Ssh, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Cli.Listen.Ssh, ['ip', 'port'], name, value)
 
 
 
@@ -733,7 +923,7 @@ class ConfdState(Entity):
         """
 
         _prefix = 'tfcm'
-        _revision = '2012-03-08'
+        _revision = '2013-06-14'
 
         def __init__(self):
             super(ConfdState.Webui, self).__init__()
@@ -781,7 +971,7 @@ class ConfdState(Entity):
             """
 
             _prefix = 'tfcm'
-            _revision = '2012-03-08'
+            _revision = '2013-06-14'
 
             def __init__(self):
                 super(ConfdState.Webui.Listen, self).__init__()
@@ -837,7 +1027,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Webui.Listen.Tcp, self).__init__()
@@ -859,7 +1049,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Webui.Listen.Tcp, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Webui.Listen.Tcp, ['ip', 'port'], name, value)
 
 
 
@@ -896,7 +1086,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Webui.Listen.Ssl, self).__init__()
@@ -918,7 +1108,216 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Webui.Listen.Ssl, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Webui.Listen.Ssl, ['ip', 'port'], name, value)
+
+
+
+
+
+    class Rest(Entity):
+        """
+        
+        
+        .. attribute:: listen
+        
+        	The transport addresses the REST server is listening on
+        	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xr.tailf_confd_monitoring.ConfdState.Rest.Listen>`
+        
+        	**config**\: False
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'tfcm'
+        _revision = '2013-06-14'
+
+        def __init__(self):
+            super(ConfdState.Rest, self).__init__()
+
+            self.yang_name = "rest"
+            self.yang_parent_name = "confd-state"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("listen", ("listen", ConfdState.Rest.Listen))])
+            self.is_presence_container = True
+            self._leafs = OrderedDict()
+
+            self.listen = ConfdState.Rest.Listen()
+            self.listen.parent = self
+            self._children_name_map["listen"] = "listen"
+            self._segment_path = lambda: "rest"
+            self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ConfdState.Rest, [], name, value)
+
+
+        class Listen(Entity):
+            """
+            The transport addresses the REST server is listening on.
+            
+            .. attribute:: tcp
+            
+            	
+            	**type**\: list of  		 :py:class:`Tcp <ydk.models.cisco_ios_xr.tailf_confd_monitoring.ConfdState.Rest.Listen.Tcp>`
+            
+            	**config**\: False
+            
+            .. attribute:: ssl
+            
+            	
+            	**type**\: list of  		 :py:class:`Ssl <ydk.models.cisco_ios_xr.tailf_confd_monitoring.ConfdState.Rest.Listen.Ssl>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'tfcm'
+            _revision = '2013-06-14'
+
+            def __init__(self):
+                super(ConfdState.Rest.Listen, self).__init__()
+
+                self.yang_name = "listen"
+                self.yang_parent_name = "rest"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("tcp", ("tcp", ConfdState.Rest.Listen.Tcp)), ("ssl", ("ssl", ConfdState.Rest.Listen.Ssl))])
+                self._leafs = OrderedDict()
+
+                self.tcp = YList(self)
+                self.ssl = YList(self)
+                self._segment_path = lambda: "listen"
+                self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/rest/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ConfdState.Rest.Listen, [], name, value)
+
+
+            class Tcp(Entity):
+                """
+                
+                
+                .. attribute:: ip
+                
+                	
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: port
+                
+                	
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'tfcm'
+                _revision = '2013-06-14'
+
+                def __init__(self):
+                    super(ConfdState.Rest.Listen.Tcp, self).__init__()
+
+                    self.yang_name = "tcp"
+                    self.yang_parent_name = "listen"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                    ])
+                    self.ip = None
+                    self.port = None
+                    self._segment_path = lambda: "tcp"
+                    self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/rest/listen/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ConfdState.Rest.Listen.Tcp, ['ip', 'port'], name, value)
+
+
+
+            class Ssl(Entity):
+                """
+                
+                
+                .. attribute:: ip
+                
+                	
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: port
+                
+                	
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'tfcm'
+                _revision = '2013-06-14'
+
+                def __init__(self):
+                    super(ConfdState.Rest.Listen.Ssl, self).__init__()
+
+                    self.yang_name = "ssl"
+                    self.yang_parent_name = "listen"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                    ])
+                    self.ip = None
+                    self.port = None
+                    self._segment_path = lambda: "ssl"
+                    self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/rest/listen/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ConfdState.Rest.Listen.Ssl, ['ip', 'port'], name, value)
 
 
 
@@ -965,7 +1364,7 @@ class ConfdState(Entity):
         """
 
         _prefix = 'tfcm'
-        _revision = '2012-03-08'
+        _revision = '2013-06-14'
 
         def __init__(self):
             super(ConfdState.Snmp, self).__init__()
@@ -996,7 +1395,7 @@ class ConfdState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Snmp, [u'mib', u'engine_id'], name, value)
+            self._perform_setattr(ConfdState.Snmp, ['mib', 'engine_id'], name, value)
 
 
         class Listen(Entity):
@@ -1015,7 +1414,7 @@ class ConfdState(Entity):
             """
 
             _prefix = 'tfcm'
-            _revision = '2012-03-08'
+            _revision = '2013-06-14'
 
             def __init__(self):
                 super(ConfdState.Snmp.Listen, self).__init__()
@@ -1070,7 +1469,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Snmp.Listen.Udp, self).__init__()
@@ -1092,7 +1491,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Snmp.Listen.Udp, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Snmp.Listen.Udp, ['ip', 'port'], name, value)
 
 
 
@@ -1127,7 +1526,7 @@ class ConfdState(Entity):
             """
 
             _prefix = 'tfcm'
-            _revision = '2012-03-08'
+            _revision = '2013-06-14'
 
             def __init__(self):
                 super(ConfdState.Snmp.Version, self).__init__()
@@ -1151,7 +1550,7 @@ class ConfdState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ConfdState.Snmp.Version, [u'v1', u'v2c', u'v3'], name, value)
+                self._perform_setattr(ConfdState.Snmp.Version, ['v1', 'v2c', 'v3'], name, value)
 
 
 
@@ -1179,7 +1578,7 @@ class ConfdState(Entity):
         """
 
         _prefix = 'tfcm'
-        _revision = '2012-03-08'
+        _revision = '2013-06-14'
 
         def __init__(self):
             super(ConfdState.Internal, self).__init__()
@@ -1311,7 +1710,7 @@ class ConfdState(Entity):
             """
 
             _prefix = 'tfcm'
-            _revision = '2012-03-08'
+            _revision = '2013-06-14'
 
             def __init__(self):
                 super(ConfdState.Internal.Callpoints, self).__init__()
@@ -1397,7 +1796,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.Callpoint, self).__init__()
@@ -1429,7 +1828,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -1491,7 +1890,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.Callpoint.Daemon, self).__init__()
@@ -1514,7 +1913,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -1574,7 +1973,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.Callpoint.Range, self).__init__()
@@ -1601,7 +2000,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -1636,7 +2035,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, self).__init__()
@@ -1659,7 +2058,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -1735,7 +2134,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.Validationpoint, self).__init__()
@@ -1767,7 +2166,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -1829,7 +2228,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.Validationpoint.Daemon, self).__init__()
@@ -1852,7 +2251,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -1912,7 +2311,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.Validationpoint.Range, self).__init__()
@@ -1939,7 +2338,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -1974,7 +2373,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, self).__init__()
@@ -1997,7 +2396,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -2073,7 +2472,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.Actionpoint, self).__init__()
@@ -2105,7 +2504,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -2167,7 +2566,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.Actionpoint.Daemon, self).__init__()
@@ -2190,7 +2589,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2250,7 +2649,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.Actionpoint.Range, self).__init__()
@@ -2277,7 +2676,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -2312,7 +2711,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, self).__init__()
@@ -2335,7 +2734,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -2411,7 +2810,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.SnmpInformCallback, self).__init__()
@@ -2443,7 +2842,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -2505,7 +2904,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, self).__init__()
@@ -2528,7 +2927,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2588,7 +2987,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, self).__init__()
@@ -2615,7 +3014,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -2650,7 +3049,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, self).__init__()
@@ -2673,7 +3072,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -2749,7 +3148,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, self).__init__()
@@ -2781,7 +3180,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -2843,7 +3242,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, self).__init__()
@@ -2866,7 +3265,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2926,7 +3325,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, self).__init__()
@@ -2953,7 +3352,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -2988,7 +3387,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, self).__init__()
@@ -3011,7 +3410,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -3087,7 +3486,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.ErrorFormattingCallback, self).__init__()
@@ -3119,7 +3518,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -3181,7 +3580,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, self).__init__()
@@ -3204,7 +3603,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -3264,7 +3663,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, self).__init__()
@@ -3291,7 +3690,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -3326,7 +3725,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, self).__init__()
@@ -3349,7 +3748,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -3425,7 +3824,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.Typepoint, self).__init__()
@@ -3457,7 +3856,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -3519,7 +3918,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.Typepoint.Daemon, self).__init__()
@@ -3542,7 +3941,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -3602,7 +4001,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.Typepoint.Range, self).__init__()
@@ -3629,7 +4028,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -3664,7 +4063,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, self).__init__()
@@ -3687,7 +4086,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -3770,7 +4169,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.NotificationStreamReplay, self).__init__()
@@ -3804,7 +4203,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay, [u'name', u'replay_support', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay, ['name', 'replay_support', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -3885,7 +4284,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, self).__init__()
@@ -3908,7 +4307,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -3968,7 +4367,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, self).__init__()
@@ -3995,7 +4394,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -4030,7 +4429,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, self).__init__()
@@ -4053,7 +4452,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -4131,7 +4530,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.AuthenticationCallback, self).__init__()
@@ -4164,7 +4563,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback, [u'enabled', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback, ['enabled', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -4226,7 +4625,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, self).__init__()
@@ -4250,7 +4649,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -4310,7 +4709,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, self).__init__()
@@ -4338,7 +4737,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -4373,7 +4772,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, self).__init__()
@@ -4397,7 +4796,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -4475,7 +4874,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Callpoints.AuthorizationCallbacks, self).__init__()
@@ -4508,7 +4907,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks, [u'enabled', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks, ['enabled', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -4570,7 +4969,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, self).__init__()
@@ -4594,7 +4993,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -4654,7 +5053,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, self).__init__()
@@ -4682,7 +5081,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -4717,7 +5116,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, self).__init__()
@@ -4741,7 +5140,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -4790,7 +5189,7 @@ class ConfdState(Entity):
             """
 
             _prefix = 'tfcm'
-            _revision = '2012-03-08'
+            _revision = '2013-06-14'
 
             def __init__(self):
                 super(ConfdState.Internal.Cdb, self).__init__()
@@ -4916,7 +5315,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Cdb.Datastore, self).__init__()
@@ -4959,7 +5358,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Cdb.Datastore, [u'name', u'transaction_id', u'write_queue', u'filename', u'disk_size', u'ram_size', u'read_locks', u'write_lock_set', u'subscription_lock_set', u'waiting_for_replication_sync'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Cdb.Datastore, ['name', 'transaction_id', 'write_queue', 'filename', 'disk_size', 'ram_size', 'read_locks', 'write_lock_set', 'subscription_lock_set', 'waiting_for_replication_sync'], name, value)
 
 
                 class PendingSubscriptionSync(Entity):
@@ -5004,7 +5403,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, self).__init__()
@@ -5028,7 +5427,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, [u'priority', u'time_remaining'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, ['priority', 'time_remaining'], name, value)
 
                     class TimeRemaining(Enum):
                         """
@@ -5079,7 +5478,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, self).__init__()
@@ -5100,7 +5499,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, [u'client_name', u'subscription_ids'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, ['client_name', 'subscription_ids'], name, value)
 
 
 
@@ -5123,7 +5522,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue, self).__init__()
@@ -5178,7 +5577,7 @@ class ConfdState(Entity):
                         """
 
                         _prefix = 'tfcm'
-                        _revision = '2012-03-08'
+                        _revision = '2013-06-14'
 
                         def __init__(self):
                             super(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, self).__init__()
@@ -5201,7 +5600,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, [u'priority', u'client_name', u'subscription_ids'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, ['priority', 'client_name', 'subscription_ids'], name, value)
 
 
 
@@ -5262,7 +5661,7 @@ class ConfdState(Entity):
                 """
 
                 _prefix = 'tfcm'
-                _revision = '2012-03-08'
+                _revision = '2013-06-14'
 
                 def __init__(self):
                     super(ConfdState.Internal.Cdb.Client, self).__init__()
@@ -5292,7 +5691,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Cdb.Client, [u'name', u'info', u'type', u'datastore', u'lock'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Cdb.Client, ['name', 'info', 'type', 'datastore', 'lock'], name, value)
 
                 class Datastore(Enum):
                     """
@@ -5437,7 +5836,7 @@ class ConfdState(Entity):
                     """
 
                     _prefix = 'tfcm'
-                    _revision = '2012-03-08'
+                    _revision = '2013-06-14'
 
                     def __init__(self):
                         super(ConfdState.Internal.Cdb.Client.Subscription, self).__init__()
@@ -5467,7 +5866,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Cdb.Client.Subscription, [u'datastore', u'twophase', u'priority', u'id', u'path', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Cdb.Client.Subscription, ['datastore', 'twophase', 'priority', 'id', 'path', 'error'], name, value)
 
                     class Error(Enum):
                         """

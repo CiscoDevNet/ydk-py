@@ -40,30 +40,6 @@ from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentity
 
 
 
-class Dot3ErrorInitError(ObjectIdentity):
-    """
-    \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
-    
-    Couldn't initialize MAC chip for test.
-    
-    This object identity has been deprecated, since
-    the ifTestTable in the IF\-MIB was deprecated,
-    and there is no longer a standard mechanism for
-    initiating an interface test.  This left no
-    standard way of using this object identity.
-    
-    
-
-    """
-
-    _prefix = 'EtherLike-MIB'
-    _revision = '2003-09-19'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", pref="EtherLike-MIB", tag="EtherLike-MIB:dot3ErrorInitError"):
-        super(Dot3ErrorInitError, self).__init__(ns, pref, tag)
-
-
-
 class Dot3TestTdr(ObjectIdentity):
     """
     \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
@@ -108,31 +84,6 @@ class Dot3TestTdr(ObjectIdentity):
 
 
 
-class Dot3ErrorLoopbackError(ObjectIdentity):
-    """
-    \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
-    
-    Expected data not received (or not received
-    correctly) in loopback test.
-    
-    This object identity has been deprecated, since
-    the ifTestTable in the IF\-MIB was deprecated,
-    and there is no longer a standard mechanism for
-    initiating an interface test.  This left no
-    standard way of using this object identity.
-    
-    
-
-    """
-
-    _prefix = 'EtherLike-MIB'
-    _revision = '2003-09-19'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", pref="EtherLike-MIB", tag="EtherLike-MIB:dot3ErrorLoopbackError"):
-        super(Dot3ErrorLoopbackError, self).__init__(ns, pref, tag)
-
-
-
 class Dot3TestLoopBack(ObjectIdentity):
     """
     \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
@@ -168,6 +119,55 @@ class Dot3TestLoopBack(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", pref="EtherLike-MIB", tag="EtherLike-MIB:dot3TestLoopBack"):
         super(Dot3TestLoopBack, self).__init__(ns, pref, tag)
+
+
+
+class Dot3ErrorInitError(ObjectIdentity):
+    """
+    \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
+    
+    Couldn't initialize MAC chip for test.
+    
+    This object identity has been deprecated, since
+    the ifTestTable in the IF\-MIB was deprecated,
+    and there is no longer a standard mechanism for
+    initiating an interface test.  This left no
+    standard way of using this object identity.
+    
+    
+
+    """
+
+    _prefix = 'EtherLike-MIB'
+    _revision = '2003-09-19'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", pref="EtherLike-MIB", tag="EtherLike-MIB:dot3ErrorInitError"):
+        super(Dot3ErrorInitError, self).__init__(ns, pref, tag)
+
+
+
+class Dot3ErrorLoopbackError(ObjectIdentity):
+    """
+    \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
+    
+    Expected data not received (or not received
+    correctly) in loopback test.
+    
+    This object identity has been deprecated, since
+    the ifTestTable in the IF\-MIB was deprecated,
+    and there is no longer a standard mechanism for
+    initiating an interface test.  This left no
+    standard way of using this object identity.
+    
+    
+
+    """
+
+    _prefix = 'EtherLike-MIB'
+    _revision = '2003-09-19'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", pref="EtherLike-MIB", tag="EtherLike-MIB:dot3ErrorLoopbackError"):
+        super(Dot3ErrorLoopbackError, self).__init__(ns, pref, tag)
 
 
 
@@ -518,7 +518,7 @@ class EtherLikeMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry, [u'dot3statsindex', u'dot3statsalignmenterrors', u'dot3statsfcserrors', u'dot3statssinglecollisionframes', u'dot3statsmultiplecollisionframes', u'dot3statssqetesterrors', u'dot3statsdeferredtransmissions', u'dot3statslatecollisions', u'dot3statsexcessivecollisions', u'dot3statsinternalmactransmiterrors', u'dot3statscarriersenseerrors', u'dot3statsframetoolongs', u'dot3statsinternalmacreceiveerrors', u'dot3statsetherchipset', u'dot3statssymbolerrors', u'dot3statsduplexstatus', u'dot3statsratecontrolability', u'dot3statsratecontrolstatus'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry, ['dot3statsindex', 'dot3statsalignmenterrors', 'dot3statsfcserrors', 'dot3statssinglecollisionframes', 'dot3statsmultiplecollisionframes', 'dot3statssqetesterrors', 'dot3statsdeferredtransmissions', 'dot3statslatecollisions', 'dot3statsexcessivecollisions', 'dot3statsinternalmactransmiterrors', 'dot3statscarriersenseerrors', 'dot3statsframetoolongs', 'dot3statsinternalmacreceiveerrors', 'dot3statsetherchipset', 'dot3statssymbolerrors', 'dot3statsduplexstatus', 'dot3statsratecontrolability', 'dot3statsratecontrolstatus'], name, value)
 
             class Dot3StatsDuplexStatus(Enum):
                 """
@@ -714,7 +714,7 @@ class EtherLikeMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3CollTable.Dot3CollEntry, [u'ifindex', u'dot3collcount', u'dot3collfrequencies'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3CollTable.Dot3CollEntry, ['ifindex', 'dot3collcount', 'dot3collfrequencies'], name, value)
 
 
 
@@ -839,7 +839,7 @@ class EtherLikeMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry, [u'dot3statsindex', u'dot3controlfunctionssupported', u'dot3controlinunknownopcodes', u'dot3hccontrolinunknownopcodes'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry, ['dot3statsindex', 'dot3controlfunctionssupported', 'dot3controlinunknownopcodes', 'dot3hccontrolinunknownopcodes'], name, value)
 
 
 
@@ -999,7 +999,7 @@ class EtherLikeMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry, [u'dot3statsindex', u'dot3pauseadminmode', u'dot3pauseopermode', u'dot3inpauseframes', u'dot3outpauseframes', u'dot3hcinpauseframes', u'dot3hcoutpauseframes'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry, ['dot3statsindex', 'dot3pauseadminmode', 'dot3pauseopermode', 'dot3inpauseframes', 'dot3outpauseframes', 'dot3hcinpauseframes', 'dot3hcoutpauseframes'], name, value)
 
             class Dot3PauseAdminMode(Enum):
                 """
@@ -1304,7 +1304,7 @@ class EtherLikeMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLikeMIB.Dot3HCStatsTable.Dot3HCStatsEntry, [u'dot3statsindex', u'dot3hcstatsalignmenterrors', u'dot3hcstatsfcserrors', u'dot3hcstatsinternalmactransmiterrors', u'dot3hcstatsframetoolongs', u'dot3hcstatsinternalmacreceiveerrors', u'dot3hcstatssymbolerrors'], name, value)
+                self._perform_setattr(EtherLikeMIB.Dot3HCStatsTable.Dot3HCStatsEntry, ['dot3statsindex', 'dot3hcstatsalignmenterrors', 'dot3hcstatsfcserrors', 'dot3hcstatsinternalmactransmiterrors', 'dot3hcstatsframetoolongs', 'dot3hcstatsinternalmacreceiveerrors', 'dot3hcstatssymbolerrors'], name, value)
 
 
 

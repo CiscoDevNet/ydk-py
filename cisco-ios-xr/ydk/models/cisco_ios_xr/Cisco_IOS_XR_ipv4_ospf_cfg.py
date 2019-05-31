@@ -971,7 +971,7 @@ class Ospf(Entity):
     """
 
     _prefix = 'ipv4-ospf-cfg'
-    _revision = '2018-01-31'
+    _revision = '2018-05-14'
 
     def __init__(self):
         super(Ospf, self).__init__()
@@ -1013,7 +1013,7 @@ class Ospf(Entity):
         """
 
         _prefix = 'ipv4-ospf-cfg'
-        _revision = '2018-01-31'
+        _revision = '2018-05-14'
 
         def __init__(self):
             super(Ospf.Processes, self).__init__()
@@ -1079,11 +1079,6 @@ class Ospf(Entity):
             	Default VRF related configuration
             	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf>`
             
-            .. attribute:: start
-            
-            	Start OSPF configuration
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: nsr
             
             	Enable non\-stop routing
@@ -1096,17 +1091,12 @@ class Ospf(Entity):
             	Type of protocol shutdown
             	**type**\:  :py:class:`OspfShutdown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfShutdown>`
             
-            .. attribute:: running
-            
-            	Enable routing on an IP network
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
             
 
             """
 
             _prefix = 'ipv4-ospf-cfg'
-            _revision = '2018-01-31'
+            _revision = '2018-05-14'
 
             def __init__(self):
                 super(Ospf.Processes.Process, self).__init__()
@@ -1119,16 +1109,12 @@ class Ospf(Entity):
                 self._child_classes = OrderedDict([("snmp", ("snmp", Ospf.Processes.Process.Snmp)), ("distribute", ("distribute", Ospf.Processes.Process.Distribute)), ("vrfs", ("vrfs", Ospf.Processes.Process.Vrfs)), ("trace-bufs", ("trace_bufs", Ospf.Processes.Process.TraceBufs)), ("graceful-shutdown-timers", ("graceful_shutdown_timers", Ospf.Processes.Process.GracefulShutdownTimers)), ("default-vrf", ("default_vrf", Ospf.Processes.Process.DefaultVrf))])
                 self._leafs = OrderedDict([
                     ('process_name', (YLeaf(YType.str, 'process-name'), ['str'])),
-                    ('start', (YLeaf(YType.empty, 'start'), ['Empty'])),
                     ('nsr', (YLeaf(YType.enumeration, 'nsr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'Nsr', '')])),
                     ('protocol_shutdown', (YLeaf(YType.enumeration, 'protocol-shutdown'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfShutdown', '')])),
-                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                 ])
                 self.process_name = None
-                self.start = None
                 self.nsr = None
                 self.protocol_shutdown = None
-                self.running = None
 
                 self.snmp = Ospf.Processes.Process.Snmp()
                 self.snmp.parent = self
@@ -1157,7 +1143,7 @@ class Ospf(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ospf.Processes.Process, ['process_name', 'start', 'nsr', 'protocol_shutdown', 'running'], name, value)
+                self._perform_setattr(Ospf.Processes.Process, ['process_name', 'nsr', 'protocol_shutdown'], name, value)
 
 
             class Snmp(Entity):
@@ -1176,7 +1162,7 @@ class Ospf(Entity):
                 """
 
                 _prefix = 'ipv4-ospf-cfg'
-                _revision = '2018-01-31'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospf.Processes.Process.Snmp, self).__init__()
@@ -1227,7 +1213,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.Snmp.TrapRateLimit, self).__init__()
@@ -1282,7 +1268,7 @@ class Ospf(Entity):
                 """
 
                 _prefix = 'ipv4-ospf-cfg'
-                _revision = '2018-01-31'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospf.Processes.Process.Distribute, self).__init__()
@@ -1322,7 +1308,7 @@ class Ospf(Entity):
                 """
 
                 _prefix = 'ipv4-ospf-cfg'
-                _revision = '2018-01-31'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospf.Processes.Process.Vrfs, self).__init__()
@@ -1358,11 +1344,6 @@ class Ospf(Entity):
                     
                     	OSPF Domain ID
                     	**type**\:  :py:class:`DomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.DomainId>`
-                    
-                    .. attribute:: vrf_start
-                    
-                    	Start OSPF VRF configuration
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: snmp_trap_enabled
                     
@@ -1498,6 +1479,13 @@ class Ospf(Entity):
                     	Unequal Cost Multi\-ptah configuration
                     	**type**\:  :py:class:`Ucmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.Ucmp>`
                     
+                    .. attribute:: apply_weight
+                    
+                    	Apply weights feature enable configuration
+                    	**type**\:  :py:class:`ApplyWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ApplyWeight>`
+                    
+                    	**presence node**\: True
+                    
                     .. attribute:: maximum_paths
                     
                     	Forward packets over multiple paths (number of paths)
@@ -1554,7 +1542,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.Vrfs.Vrf, self).__init__()
@@ -1564,10 +1552,9 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['vrf_name']
-                        self._child_classes = OrderedDict([("domain-id", ("domain_id", Ospf.Processes.Process.Vrfs.Vrf.DomainId)), ("microloop", ("microloop", Ospf.Processes.Process.Vrfs.Vrf.Microloop)), ("maximum-redistribute-prefix", ("maximum_redistribute_prefix", Ospf.Processes.Process.Vrfs.Vrf.MaximumRedistributePrefix)), ("default-information", ("default_information", Ospf.Processes.Process.Vrfs.Vrf.DefaultInformation)), ("af", ("af", Ospf.Processes.Process.Vrfs.Vrf.Af)), ("queue", ("queue", Ospf.Processes.Process.Vrfs.Vrf.Queue)), ("max-metric", ("max_metric", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric)), ("nsf", ("nsf", Ospf.Processes.Process.Vrfs.Vrf.Nsf)), ("process-scope", ("process_scope", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope)), ("redistribution", ("redistribution", Ospf.Processes.Process.Vrfs.Vrf.Redistribution)), ("adjacency-stagger", ("adjacency_stagger", Ospf.Processes.Process.Vrfs.Vrf.AdjacencyStagger)), ("max-lsa", ("max_lsa", Ospf.Processes.Process.Vrfs.Vrf.MaxLsa)), ("auto-cost", ("auto_cost", Ospf.Processes.Process.Vrfs.Vrf.AutoCost)), ("ucmp", ("ucmp", Ospf.Processes.Process.Vrfs.Vrf.Ucmp)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.FastReroute)), ("summary-prefixes", ("summary_prefixes", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes)), ("outgoing-route-updates", ("outgoing_route_updates", Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates)), ("distance", ("distance", Ospf.Processes.Process.Vrfs.Vrf.Distance)), ("area-addresses", ("area_addresses", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses)), ("timers", ("timers", Ospf.Processes.Process.Vrfs.Vrf.Timers))])
+                        self._child_classes = OrderedDict([("domain-id", ("domain_id", Ospf.Processes.Process.Vrfs.Vrf.DomainId)), ("microloop", ("microloop", Ospf.Processes.Process.Vrfs.Vrf.Microloop)), ("maximum-redistribute-prefix", ("maximum_redistribute_prefix", Ospf.Processes.Process.Vrfs.Vrf.MaximumRedistributePrefix)), ("default-information", ("default_information", Ospf.Processes.Process.Vrfs.Vrf.DefaultInformation)), ("af", ("af", Ospf.Processes.Process.Vrfs.Vrf.Af)), ("queue", ("queue", Ospf.Processes.Process.Vrfs.Vrf.Queue)), ("max-metric", ("max_metric", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric)), ("nsf", ("nsf", Ospf.Processes.Process.Vrfs.Vrf.Nsf)), ("process-scope", ("process_scope", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope)), ("redistribution", ("redistribution", Ospf.Processes.Process.Vrfs.Vrf.Redistribution)), ("adjacency-stagger", ("adjacency_stagger", Ospf.Processes.Process.Vrfs.Vrf.AdjacencyStagger)), ("max-lsa", ("max_lsa", Ospf.Processes.Process.Vrfs.Vrf.MaxLsa)), ("auto-cost", ("auto_cost", Ospf.Processes.Process.Vrfs.Vrf.AutoCost)), ("ucmp", ("ucmp", Ospf.Processes.Process.Vrfs.Vrf.Ucmp)), ("apply-weight", ("apply_weight", Ospf.Processes.Process.Vrfs.Vrf.ApplyWeight)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.FastReroute)), ("summary-prefixes", ("summary_prefixes", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes)), ("outgoing-route-updates", ("outgoing_route_updates", Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates)), ("distance", ("distance", Ospf.Processes.Process.Vrfs.Vrf.Distance)), ("area-addresses", ("area_addresses", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses)), ("timers", ("timers", Ospf.Processes.Process.Vrfs.Vrf.Timers))])
                         self._leafs = OrderedDict([
                             ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                            ('vrf_start', (YLeaf(YType.empty, 'vrf-start'), ['Empty'])),
                             ('snmp_trap_enabled', (YLeaf(YType.boolean, 'snmp-trap-enabled'), ['bool'])),
                             ('domain_tag', (YLeaf(YType.uint32, 'domain-tag'), ['int'])),
                             ('vrf_lite', (YLeaf(YType.empty, 'vrf-lite'), ['Empty'])),
@@ -1584,7 +1571,6 @@ class Ospf(Entity):
                             ('default_metric', (YLeaf(YType.uint32, 'default-metric'), ['int'])),
                         ])
                         self.vrf_name = None
-                        self.vrf_start = None
                         self.snmp_trap_enabled = None
                         self.domain_tag = None
                         self.vrf_lite = None
@@ -1654,6 +1640,9 @@ class Ospf(Entity):
                         self.ucmp.parent = self
                         self._children_name_map["ucmp"] = "ucmp"
 
+                        self.apply_weight = None
+                        self._children_name_map["apply_weight"] = "apply-weight"
+
                         self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.FastReroute()
                         self.fast_reroute.parent = self
                         self._children_name_map["fast_reroute"] = "fast-reroute"
@@ -1681,7 +1670,7 @@ class Ospf(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf, ['vrf_name', 'vrf_start', 'snmp_trap_enabled', 'domain_tag', 'vrf_lite', 'disable_dn_bit_check', 'ignore_mospf', 'router_id', 'type7', 'snmp_context', 'maximum_interfaces', 'no_opaque', 'spf_prefix_priority', 'maximum_paths', 'adjacency_changes', 'default_metric'], name, value)
+                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf, ['vrf_name', 'snmp_trap_enabled', 'domain_tag', 'vrf_lite', 'disable_dn_bit_check', 'ignore_mospf', 'router_id', 'type7', 'snmp_context', 'maximum_interfaces', 'no_opaque', 'spf_prefix_priority', 'maximum_paths', 'adjacency_changes', 'default_metric'], name, value)
 
 
                     class DomainId(Entity):
@@ -1703,7 +1692,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.DomainId, self).__init__()
@@ -1749,7 +1738,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId, self).__init__()
@@ -1788,7 +1777,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds, self).__init__()
@@ -1830,7 +1819,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId, self).__init__()
@@ -1871,7 +1860,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.Microloop, self).__init__()
@@ -1921,7 +1910,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.Microloop.Avoidance, self).__init__()
@@ -1976,7 +1965,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.MaximumRedistributePrefix, self).__init__()
@@ -2040,7 +2029,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.DefaultInformation, self).__init__()
@@ -2092,7 +2081,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.Af, self).__init__()
@@ -2191,7 +2180,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.Queue, self).__init__()
@@ -2265,7 +2254,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric, self).__init__()
@@ -2362,7 +2351,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcRestart, self).__init__()
@@ -2451,7 +2440,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnStartup, self).__init__()
@@ -2541,7 +2530,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcMigration, self).__init__()
@@ -2616,7 +2605,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricAlways, self).__init__()
@@ -2701,7 +2690,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnSwitchover, self).__init__()
@@ -2799,7 +2788,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.Nsf, self).__init__()
@@ -2868,6 +2857,13 @@ class Ospf(Entity):
                         
                         	BFD configuration
                         	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Bfd>`
+                        
+                        .. attribute:: weight
+                        
+                        	Interface weight
+                        	**type**\: int
+                        
+                        	**range:** 1..16777214
                         
                         .. attribute:: external_out
                         
@@ -3044,7 +3040,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope, self).__init__()
@@ -3057,6 +3053,7 @@ class Ospf(Entity):
                             self._child_classes = OrderedDict([("srgb", ("srgb", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Srgb)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DeadIntervalMinimal)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.CostFallback))])
                             self._leafs = OrderedDict([
                                 ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                                ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                                 ('external_out', (YLeaf(YType.boolean, 'external-out'), ['bool'])),
                                 ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                                 ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
@@ -3081,6 +3078,7 @@ class Ospf(Entity):
                                 ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
                             ])
                             self.cost = None
+                            self.weight = None
                             self.external_out = None
                             self.prefix_suppression_primary = None
                             self.mtu_ignore = None
@@ -3137,7 +3135,7 @@ class Ospf(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope, ['cost', 'external_out', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'summary_in', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'segment_routing', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope, ['cost', 'weight', 'external_out', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'summary_in', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'segment_routing', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
 
 
                         class Srgb(Entity):
@@ -3169,7 +3167,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Srgb, self).__init__()
@@ -3219,7 +3217,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute, self).__init__()
@@ -3275,7 +3273,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink, self).__init__()
@@ -3320,7 +3318,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -3357,7 +3355,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -3396,7 +3394,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -3434,7 +3432,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3495,7 +3493,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
@@ -3552,7 +3550,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -3592,7 +3590,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -3629,7 +3627,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -3668,7 +3666,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -3706,7 +3704,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3754,7 +3752,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DistributeList, self).__init__()
@@ -3810,7 +3808,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Bfd, self).__init__()
@@ -3863,7 +3861,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication, self).__init__()
@@ -3917,7 +3915,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.Type, self).__init__()
@@ -3959,7 +3957,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.MessageDigestKeys, self).__init__()
@@ -4006,7 +4004,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -4048,7 +4046,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security, self).__init__()
@@ -4092,7 +4090,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security.Ttl, self).__init__()
@@ -4143,7 +4141,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DeadIntervalMinimal, self).__init__()
@@ -4191,7 +4189,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.CostFallback, self).__init__()
@@ -4231,7 +4229,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.Redistribution, self).__init__()
@@ -4269,7 +4267,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes, self).__init__()
@@ -4327,7 +4325,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute, self).__init__()
@@ -4451,7 +4449,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip, self).__init__()
@@ -4602,7 +4600,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf, self).__init__()
@@ -4768,7 +4766,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Bgp, self).__init__()
@@ -4931,7 +4929,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Eigrp, self).__init__()
@@ -5021,7 +5019,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.AdjacencyStagger, self).__init__()
@@ -5103,7 +5101,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.MaxLsa, self).__init__()
@@ -5164,7 +5162,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.AutoCost, self).__init__()
@@ -5219,7 +5217,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.Ucmp, self).__init__()
@@ -5272,7 +5270,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.Ucmp.Enable, self).__init__()
@@ -5312,7 +5310,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.Ucmp.ExcludeInterfaces, self).__init__()
@@ -5350,7 +5348,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -5375,6 +5373,72 @@ class Ospf(Entity):
 
 
 
+                    class ApplyWeight(Entity):
+                        """
+                        Apply weights feature enable configuration
+                        
+                        .. attribute:: bandwidth
+                        
+                        	Use interface bandwidth when calculating weights
+                        	**type**\: bool
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: reference_bandwidth
+                        
+                        	Reference bandwidth to use for calculation (Mbits/sec)
+                        	**type**\: int
+                        
+                        	**range:** 1..4294967
+                        
+                        	**units**\: Mbit/s
+                        
+                        	**default value**\: 100
+                        
+                        .. attribute:: default_weight
+                        
+                        	Default weight to use when weight not configured under interface
+                        	**type**\: int
+                        
+                        	**range:** 1..16777214
+                        
+                        	**default value**\: 1
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-ospf-cfg'
+                        _revision = '2018-05-14'
+
+                        def __init__(self):
+                            super(Ospf.Processes.Process.Vrfs.Vrf.ApplyWeight, self).__init__()
+
+                            self.yang_name = "apply-weight"
+                            self.yang_parent_name = "vrf"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('bandwidth', (YLeaf(YType.boolean, 'bandwidth'), ['bool'])),
+                                ('reference_bandwidth', (YLeaf(YType.uint32, 'reference-bandwidth'), ['int'])),
+                                ('default_weight', (YLeaf(YType.uint32, 'default-weight'), ['int'])),
+                            ])
+                            self.bandwidth = None
+                            self.reference_bandwidth = None
+                            self.default_weight = None
+                            self._segment_path = lambda: "apply-weight"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ApplyWeight, ['bandwidth', 'reference_bandwidth', 'default_weight'], name, value)
+
+
+
                     class FastReroute(Entity):
                         """
                         Fast\-reroute instance scoped parameters
@@ -5394,7 +5458,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.FastReroute, self).__init__()
@@ -5435,7 +5499,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerLink, self).__init__()
@@ -5482,7 +5546,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix, self).__init__()
@@ -5524,7 +5588,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -5568,7 +5632,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -5625,7 +5689,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes, self).__init__()
@@ -5675,7 +5739,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefixData, self).__init__()
@@ -5737,7 +5801,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.PrefixAndNetmask, self).__init__()
@@ -5796,7 +5860,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Prefix, self).__init__()
@@ -5853,7 +5917,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Netmask, self).__init__()
@@ -5895,7 +5959,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates, self).__init__()
@@ -5933,7 +5997,7 @@ class Ospf(Entity):
                             
                             .. attribute:: as_xx
                             
-                            	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
+                            	First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
                             	**type**\: int
                             
                             	**range:** 0..65535
@@ -5955,7 +6019,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates.OutgoingRouteUpdate, self).__init__()
@@ -6015,7 +6079,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.Distance, self).__init__()
@@ -6081,7 +6145,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.Distance.OspfDistance, self).__init__()
@@ -6123,7 +6187,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.Distance.IpDistances, self).__init__()
@@ -6182,7 +6246,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.Distance.IpDistances.IpDistance, self).__init__()
@@ -6232,7 +6296,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses, self).__init__()
@@ -6349,17 +6413,12 @@ class Ospf(Entity):
                             	segment\-routing configuration Applicable only in Default VRF
                             	**type**\:  :py:class:`OspfSegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting>`
                             
-                            .. attribute:: running
-                            
-                            	Enable routing on an IP network
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
                             
 
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, self).__init__()
@@ -6381,7 +6440,6 @@ class Ospf(Entity):
                                     ('external_out', (YLeaf(YType.boolean, 'external-out'), ['bool'])),
                                     ('summary_in', (YLeaf(YType.boolean, 'summary-in'), ['bool'])),
                                     ('segment_routing', (YLeaf(YType.enumeration, 'segment-routing'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting', '')])),
-                                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                 ])
                                 self.address = None
                                 self.route_policy_in = None
@@ -6393,7 +6451,6 @@ class Ospf(Entity):
                                 self.external_out = None
                                 self.summary_in = None
                                 self.segment_routing = None
-                                self.running = None
 
                                 self.virtual_link_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes()
                                 self.virtual_link_scopes.parent = self
@@ -6426,7 +6483,7 @@ class Ospf(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, ['address', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
+                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, ['address', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing'], name, value)
 
 
                             class VirtualLinkScopes(Entity):
@@ -6443,7 +6500,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes, self).__init__()
@@ -6516,17 +6573,12 @@ class Ospf(Entity):
                                     
                                     	**default value**\: 5
                                     
-                                    .. attribute:: running
-                                    
-                                    	Enable routing on an IP network
-                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                    
                                     
 
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope, self).__init__()
@@ -6542,13 +6594,11 @@ class Ospf(Entity):
                                             ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
                                             ('transmit_delay', (YLeaf(YType.uint32, 'transmit-delay'), ['int'])),
                                             ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                            ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                         ])
                                         self.address = None
                                         self.hello_interval = None
                                         self.transmit_delay = None
                                         self.retransmit_interval = None
-                                        self.running = None
 
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication()
                                         self.authentication.parent = self
@@ -6561,7 +6611,7 @@ class Ospf(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope, ['address', 'hello_interval', 'transmit_delay', 'retransmit_interval', 'running'], name, value)
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope, ['address', 'hello_interval', 'transmit_delay', 'retransmit_interval'], name, value)
 
 
                                     class Authentication(Entity):
@@ -6590,7 +6640,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication, self).__init__()
@@ -6644,7 +6694,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type, self).__init__()
@@ -6686,7 +6736,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys, self).__init__()
@@ -6733,7 +6783,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -6785,7 +6835,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal, self).__init__()
@@ -6826,7 +6876,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes, self).__init__()
@@ -6920,17 +6970,12 @@ class Ospf(Entity):
                                     
                                     	**default value**\: 5
                                     
-                                    .. attribute:: running
-                                    
-                                    	Enable routing on an IP network
-                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                    
                                     
 
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope, self).__init__()
@@ -6949,7 +6994,6 @@ class Ospf(Entity):
                                             ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
                                             ('transmit_delay', (YLeaf(YType.uint32, 'transmit-delay'), ['int'])),
                                             ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                            ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                         ])
                                         self.source_address = None
                                         self.destination_address = None
@@ -6958,7 +7002,6 @@ class Ospf(Entity):
                                         self.hello_interval = None
                                         self.transmit_delay = None
                                         self.retransmit_interval = None
-                                        self.running = None
 
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication()
                                         self.authentication.parent = self
@@ -6971,7 +7014,7 @@ class Ospf(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope, ['source_address', 'destination_address', 'source', 'cost', 'hello_interval', 'transmit_delay', 'retransmit_interval', 'running'], name, value)
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope, ['source_address', 'destination_address', 'source', 'cost', 'hello_interval', 'transmit_delay', 'retransmit_interval'], name, value)
 
 
                                     class Authentication(Entity):
@@ -7000,7 +7043,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication, self).__init__()
@@ -7054,7 +7097,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type, self).__init__()
@@ -7096,7 +7139,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys, self).__init__()
@@ -7143,7 +7186,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -7195,7 +7238,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal, self).__init__()
@@ -7244,6 +7287,13 @@ class Ospf(Entity):
                                 
                                 	BFD configuration
                                 	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Bfd>`
+                                
+                                .. attribute:: weight
+                                
+                                	Interface weight
+                                	**type**\: int
+                                
+                                	**range:** 1..16777214
                                 
                                 .. attribute:: prefix_suppression_primary
                                 
@@ -7410,7 +7460,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
@@ -7423,6 +7473,7 @@ class Ospf(Entity):
                                     self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                                        ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                                         ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                                         ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
                                         ('ldp_sync_igp_shortcuts', (YLeaf(YType.boolean, 'ldp-sync-igp-shortcuts'), ['bool'])),
@@ -7444,6 +7495,7 @@ class Ospf(Entity):
                                         ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
                                     ])
                                     self.cost = None
+                                    self.weight = None
                                     self.prefix_suppression_primary = None
                                     self.mtu_ignore = None
                                     self.ldp_sync_igp_shortcuts = None
@@ -7494,7 +7546,7 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope, ['cost', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope, ['cost', 'weight', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
 
 
                                 class DistributeList(Entity):
@@ -7519,7 +7571,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DistributeList, self).__init__()
@@ -7575,7 +7627,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Bfd, self).__init__()
@@ -7628,7 +7680,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication, self).__init__()
@@ -7682,7 +7734,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type, self).__init__()
@@ -7724,7 +7776,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeys, self).__init__()
@@ -7771,7 +7823,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -7813,7 +7865,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security, self).__init__()
@@ -7857,7 +7909,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl, self).__init__()
@@ -7908,7 +7960,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal, self).__init__()
@@ -7957,7 +8009,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
@@ -8013,7 +8065,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
@@ -8058,7 +8110,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -8095,7 +8147,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -8134,7 +8186,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -8172,7 +8224,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -8238,7 +8290,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -8299,7 +8351,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -8338,7 +8390,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -8382,7 +8434,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -8423,7 +8475,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -8460,7 +8512,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -8499,7 +8551,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -8537,7 +8589,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -8586,7 +8638,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.CostFallback, self).__init__()
@@ -8626,7 +8678,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes, self).__init__()
@@ -8657,6 +8709,11 @@ class Ospf(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                    
+                                    .. attribute:: adjacency_sids
+                                    
+                                    	Configured Adjacency SID information
+                                    	**type**\:  :py:class:`AdjacencySids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids>`
                                     
                                     .. attribute:: prefix_sid
                                     
@@ -8690,6 +8747,13 @@ class Ospf(Entity):
                                     
                                     	BFD configuration
                                     	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd>`
+                                    
+                                    .. attribute:: weight
+                                    
+                                    	Interface weight
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..16777214
                                     
                                     .. attribute:: prefix_suppression_primary
                                     
@@ -8856,17 +8920,12 @@ class Ospf(Entity):
                                     	Interface fallback cost
                                     	**type**\:  :py:class:`CostFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback>`
                                     
-                                    .. attribute:: running
-                                    
-                                    	Enable routing on an IP network
-                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                    
                                     
 
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope, self).__init__()
@@ -8876,10 +8935,11 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback))])
+                                        self._child_classes = OrderedDict([("adjacency-sids", ("adjacency_sids", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids)), ("prefix-sid", ("prefix_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback))])
                                         self._leafs = OrderedDict([
                                             ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                             ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                                             ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                                             ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
                                             ('ldp_sync_igp_shortcuts', (YLeaf(YType.boolean, 'ldp-sync-igp-shortcuts'), ['bool'])),
@@ -8899,10 +8959,10 @@ class Ospf(Entity):
                                             ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
                                             ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                                             ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
-                                            ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                         ])
                                         self.interface_name = None
                                         self.cost = None
+                                        self.weight = None
                                         self.prefix_suppression_primary = None
                                         self.mtu_ignore = None
                                         self.ldp_sync_igp_shortcuts = None
@@ -8922,7 +8982,10 @@ class Ospf(Entity):
                                         self.retransmit_interval = None
                                         self.priority = None
                                         self.flood_reduction = None
-                                        self.running = None
+
+                                        self.adjacency_sids = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids()
+                                        self.adjacency_sids.parent = self
+                                        self._children_name_map["adjacency_sids"] = "adjacency-sids"
 
                                         self.prefix_sid = None
                                         self._children_name_map["prefix_sid"] = "prefix-sid"
@@ -8964,7 +9027,109 @@ class Ospf(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope, ['interface_name', 'cost', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction', 'running'], name, value)
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope, ['interface_name', 'cost', 'weight', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+
+
+                                    class AdjacencySids(Entity):
+                                        """
+                                        Configured Adjacency SID information
+                                        
+                                        .. attribute:: adjacency_sid
+                                        
+                                        	Configured Adjacency SID
+                                        	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids.AdjacencySid>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2018-05-14'
+
+                                        def __init__(self):
+                                            super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids, self).__init__()
+
+                                            self.yang_name = "adjacency-sids"
+                                            self.yang_parent_name = "name-scope"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids.AdjacencySid))])
+                                            self._leafs = OrderedDict()
+
+                                            self.adjacency_sid = YList(self)
+                                            self._segment_path = lambda: "adjacency-sids"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids, [], name, value)
+
+
+                                        class AdjacencySid(Entity):
+                                            """
+                                            Configured Adjacency SID
+                                            
+                                            .. attribute:: sid_type  (key)
+                                            
+                                            	OSPF Adj SID Type
+                                            	**type**\:  :py:class:`OspfSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSid>`
+                                            
+                                            .. attribute:: sid_value  (key)
+                                            
+                                            	SID Value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..1048575
+                                            
+                                            .. attribute:: protected
+                                            
+                                            	Adj SID eligible for protection
+                                            	**type**\: bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Neighbor IP address
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**default value**\: 0.0.0.0
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2018-05-14'
+
+                                            def __init__(self):
+                                                super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids.AdjacencySid, self).__init__()
+
+                                                self.yang_name = "adjacency-sid"
+                                                self.yang_parent_name = "adjacency-sids"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['sid_type','sid_value']
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSid', '')])),
+                                                    ('sid_value', (YLeaf(YType.uint32, 'sid-value'), ['int'])),
+                                                    ('protected', (YLeaf(YType.boolean, 'protected'), ['bool'])),
+                                                    ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
+                                                ])
+                                                self.sid_type = None
+                                                self.sid_value = None
+                                                self.protected = None
+                                                self.neighbor_address = None
+                                                self._segment_path = lambda: "adjacency-sid" + "[sid-type='" + str(self.sid_type) + "']" + "[sid-value='" + str(self.sid_value) + "']"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids.AdjacencySid, ['sid_type', 'sid_value', 'protected', 'neighbor_address'], name, value)
+
+
 
 
                                     class PrefixSid(Entity):
@@ -9008,7 +9173,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid, self).__init__()
@@ -9079,7 +9244,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict, self).__init__()
@@ -9131,7 +9296,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList, self).__init__()
@@ -9187,7 +9352,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd, self).__init__()
@@ -9240,7 +9405,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication, self).__init__()
@@ -9294,7 +9459,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type, self).__init__()
@@ -9336,7 +9501,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeys, self).__init__()
@@ -9383,7 +9548,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -9425,7 +9590,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security, self).__init__()
@@ -9469,7 +9634,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl, self).__init__()
@@ -9509,7 +9674,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors, self).__init__()
@@ -9583,7 +9748,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors.Neighbor, self).__init__()
@@ -9640,7 +9805,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal, self).__init__()
@@ -9689,7 +9854,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute, self).__init__()
@@ -9745,7 +9910,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink, self).__init__()
@@ -9790,7 +9955,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -9827,7 +9992,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -9866,7 +10031,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -9904,7 +10069,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -9970,7 +10135,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix, self).__init__()
@@ -10031,7 +10196,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -10070,7 +10235,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -10114,7 +10279,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -10155,7 +10320,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -10192,7 +10357,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -10231,7 +10396,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -10269,7 +10434,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -10318,7 +10483,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback, self).__init__()
@@ -10359,7 +10524,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes, self).__init__()
@@ -10489,17 +10654,12 @@ class Ospf(Entity):
                                     	Interface fallback cost
                                     	**type**\:  :py:class:`CostFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback>`
                                     
-                                    .. attribute:: running
-                                    
-                                    	Enable routing on an IP network
-                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                    
                                     
 
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, self).__init__()
@@ -10520,7 +10680,6 @@ class Ospf(Entity):
                                             ('packet_size', (YLeaf(YType.uint32, 'packet-size'), ['int'])),
                                             ('database_filter', (YLeaf(YType.boolean, 'database-filter'), ['bool'])),
                                             ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                            ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                         ])
                                         self.interface_name = None
                                         self.cost = None
@@ -10531,7 +10690,6 @@ class Ospf(Entity):
                                         self.packet_size = None
                                         self.database_filter = None
                                         self.retransmit_interval = None
-                                        self.running = None
 
                                         self.distribute_list = None
                                         self._children_name_map["distribute_list"] = "distribute-list"
@@ -10559,7 +10717,7 @@ class Ospf(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, ['interface_name', 'cost', 'mtu_ignore', 'hello_interval', 'passive', 'transmit_delay', 'packet_size', 'database_filter', 'retransmit_interval', 'running'], name, value)
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, ['interface_name', 'cost', 'mtu_ignore', 'hello_interval', 'passive', 'transmit_delay', 'packet_size', 'database_filter', 'retransmit_interval'], name, value)
 
 
                                     class DistributeList(Entity):
@@ -10584,7 +10742,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList, self).__init__()
@@ -10636,7 +10794,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication, self).__init__()
@@ -10690,7 +10848,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type, self).__init__()
@@ -10732,7 +10890,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys, self).__init__()
@@ -10779,7 +10937,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -10820,7 +10978,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors, self).__init__()
@@ -10894,7 +11052,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor, self).__init__()
@@ -10951,7 +11109,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal, self).__init__()
@@ -11000,7 +11158,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute, self).__init__()
@@ -11056,7 +11214,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink, self).__init__()
@@ -11101,7 +11259,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -11138,7 +11296,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -11177,7 +11335,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -11215,7 +11373,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -11281,7 +11439,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix, self).__init__()
@@ -11342,7 +11500,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -11381,7 +11539,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -11425,7 +11583,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -11466,7 +11624,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -11503,7 +11661,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -11542,7 +11700,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -11580,7 +11738,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -11629,7 +11787,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback, self).__init__()
@@ -11671,7 +11829,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges, self).__init__()
@@ -11720,7 +11878,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges.AreaRange, self).__init__()
@@ -11792,7 +11950,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
@@ -11919,17 +12077,12 @@ class Ospf(Entity):
                             	segment\-routing configuration Applicable only in Default VRF
                             	**type**\:  :py:class:`OspfSegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting>`
                             
-                            .. attribute:: running
-                            
-                            	Enable routing on an IP network
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
                             
 
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, self).__init__()
@@ -11951,7 +12104,6 @@ class Ospf(Entity):
                                     ('external_out', (YLeaf(YType.boolean, 'external-out'), ['bool'])),
                                     ('summary_in', (YLeaf(YType.boolean, 'summary-in'), ['bool'])),
                                     ('segment_routing', (YLeaf(YType.enumeration, 'segment-routing'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting', '')])),
-                                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                 ])
                                 self.area_id = None
                                 self.route_policy_in = None
@@ -11963,7 +12115,6 @@ class Ospf(Entity):
                                 self.external_out = None
                                 self.summary_in = None
                                 self.segment_routing = None
-                                self.running = None
 
                                 self.virtual_link_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes()
                                 self.virtual_link_scopes.parent = self
@@ -11996,7 +12147,7 @@ class Ospf(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, ['area_id', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
+                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, ['area_id', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing'], name, value)
 
 
                             class VirtualLinkScopes(Entity):
@@ -12013,7 +12164,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes, self).__init__()
@@ -12086,17 +12237,12 @@ class Ospf(Entity):
                                     
                                     	**default value**\: 5
                                     
-                                    .. attribute:: running
-                                    
-                                    	Enable routing on an IP network
-                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                    
                                     
 
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope, self).__init__()
@@ -12112,13 +12258,11 @@ class Ospf(Entity):
                                             ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
                                             ('transmit_delay', (YLeaf(YType.uint32, 'transmit-delay'), ['int'])),
                                             ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                            ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                         ])
                                         self.address = None
                                         self.hello_interval = None
                                         self.transmit_delay = None
                                         self.retransmit_interval = None
-                                        self.running = None
 
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication()
                                         self.authentication.parent = self
@@ -12131,7 +12275,7 @@ class Ospf(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope, ['address', 'hello_interval', 'transmit_delay', 'retransmit_interval', 'running'], name, value)
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope, ['address', 'hello_interval', 'transmit_delay', 'retransmit_interval'], name, value)
 
 
                                     class Authentication(Entity):
@@ -12160,7 +12304,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication, self).__init__()
@@ -12214,7 +12358,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type, self).__init__()
@@ -12256,7 +12400,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys, self).__init__()
@@ -12303,7 +12447,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -12355,7 +12499,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal, self).__init__()
@@ -12396,7 +12540,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes, self).__init__()
@@ -12490,17 +12634,12 @@ class Ospf(Entity):
                                     
                                     	**default value**\: 5
                                     
-                                    .. attribute:: running
-                                    
-                                    	Enable routing on an IP network
-                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                    
                                     
 
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope, self).__init__()
@@ -12519,7 +12658,6 @@ class Ospf(Entity):
                                             ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
                                             ('transmit_delay', (YLeaf(YType.uint32, 'transmit-delay'), ['int'])),
                                             ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                            ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                         ])
                                         self.source_address = None
                                         self.destination_address = None
@@ -12528,7 +12666,6 @@ class Ospf(Entity):
                                         self.hello_interval = None
                                         self.transmit_delay = None
                                         self.retransmit_interval = None
-                                        self.running = None
 
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication()
                                         self.authentication.parent = self
@@ -12541,7 +12678,7 @@ class Ospf(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope, ['source_address', 'destination_address', 'source', 'cost', 'hello_interval', 'transmit_delay', 'retransmit_interval', 'running'], name, value)
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope, ['source_address', 'destination_address', 'source', 'cost', 'hello_interval', 'transmit_delay', 'retransmit_interval'], name, value)
 
 
                                     class Authentication(Entity):
@@ -12570,7 +12707,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication, self).__init__()
@@ -12624,7 +12761,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type, self).__init__()
@@ -12666,7 +12803,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys, self).__init__()
@@ -12713,7 +12850,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -12765,7 +12902,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal, self).__init__()
@@ -12814,6 +12951,13 @@ class Ospf(Entity):
                                 
                                 	BFD configuration
                                 	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Bfd>`
+                                
+                                .. attribute:: weight
+                                
+                                	Interface weight
+                                	**type**\: int
+                                
+                                	**range:** 1..16777214
                                 
                                 .. attribute:: prefix_suppression_primary
                                 
@@ -12980,7 +13124,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
@@ -12993,6 +13137,7 @@ class Ospf(Entity):
                                     self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                                        ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                                         ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                                         ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
                                         ('ldp_sync_igp_shortcuts', (YLeaf(YType.boolean, 'ldp-sync-igp-shortcuts'), ['bool'])),
@@ -13014,6 +13159,7 @@ class Ospf(Entity):
                                         ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
                                     ])
                                     self.cost = None
+                                    self.weight = None
                                     self.prefix_suppression_primary = None
                                     self.mtu_ignore = None
                                     self.ldp_sync_igp_shortcuts = None
@@ -13064,7 +13210,7 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope, ['cost', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope, ['cost', 'weight', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
 
 
                                 class DistributeList(Entity):
@@ -13089,7 +13235,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList, self).__init__()
@@ -13145,7 +13291,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Bfd, self).__init__()
@@ -13198,7 +13344,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication, self).__init__()
@@ -13252,7 +13398,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type, self).__init__()
@@ -13294,7 +13440,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeys, self).__init__()
@@ -13341,7 +13487,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -13383,7 +13529,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security, self).__init__()
@@ -13427,7 +13573,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl, self).__init__()
@@ -13478,7 +13624,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal, self).__init__()
@@ -13527,7 +13673,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
@@ -13583,7 +13729,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
@@ -13628,7 +13774,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -13665,7 +13811,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -13704,7 +13850,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -13742,7 +13888,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -13808,7 +13954,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -13869,7 +14015,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -13908,7 +14054,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -13952,7 +14098,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -13993,7 +14139,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -14030,7 +14176,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -14069,7 +14215,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -14107,7 +14253,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -14156,7 +14302,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback, self).__init__()
@@ -14196,7 +14342,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes, self).__init__()
@@ -14227,6 +14373,11 @@ class Ospf(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                    
+                                    .. attribute:: adjacency_sids
+                                    
+                                    	Configured Adjacency SID information
+                                    	**type**\:  :py:class:`AdjacencySids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids>`
                                     
                                     .. attribute:: prefix_sid
                                     
@@ -14260,6 +14411,13 @@ class Ospf(Entity):
                                     
                                     	BFD configuration
                                     	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd>`
+                                    
+                                    .. attribute:: weight
+                                    
+                                    	Interface weight
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..16777214
                                     
                                     .. attribute:: prefix_suppression_primary
                                     
@@ -14426,17 +14584,12 @@ class Ospf(Entity):
                                     	Interface fallback cost
                                     	**type**\:  :py:class:`CostFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback>`
                                     
-                                    .. attribute:: running
-                                    
-                                    	Enable routing on an IP network
-                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                    
                                     
 
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope, self).__init__()
@@ -14446,10 +14599,11 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback))])
+                                        self._child_classes = OrderedDict([("adjacency-sids", ("adjacency_sids", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids)), ("prefix-sid", ("prefix_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback))])
                                         self._leafs = OrderedDict([
                                             ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                             ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                                             ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                                             ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
                                             ('ldp_sync_igp_shortcuts', (YLeaf(YType.boolean, 'ldp-sync-igp-shortcuts'), ['bool'])),
@@ -14469,10 +14623,10 @@ class Ospf(Entity):
                                             ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
                                             ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                                             ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
-                                            ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                         ])
                                         self.interface_name = None
                                         self.cost = None
+                                        self.weight = None
                                         self.prefix_suppression_primary = None
                                         self.mtu_ignore = None
                                         self.ldp_sync_igp_shortcuts = None
@@ -14492,7 +14646,10 @@ class Ospf(Entity):
                                         self.retransmit_interval = None
                                         self.priority = None
                                         self.flood_reduction = None
-                                        self.running = None
+
+                                        self.adjacency_sids = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids()
+                                        self.adjacency_sids.parent = self
+                                        self._children_name_map["adjacency_sids"] = "adjacency-sids"
 
                                         self.prefix_sid = None
                                         self._children_name_map["prefix_sid"] = "prefix-sid"
@@ -14534,7 +14691,109 @@ class Ospf(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope, ['interface_name', 'cost', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction', 'running'], name, value)
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope, ['interface_name', 'cost', 'weight', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+
+
+                                    class AdjacencySids(Entity):
+                                        """
+                                        Configured Adjacency SID information
+                                        
+                                        .. attribute:: adjacency_sid
+                                        
+                                        	Configured Adjacency SID
+                                        	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids.AdjacencySid>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2018-05-14'
+
+                                        def __init__(self):
+                                            super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids, self).__init__()
+
+                                            self.yang_name = "adjacency-sids"
+                                            self.yang_parent_name = "name-scope"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids.AdjacencySid))])
+                                            self._leafs = OrderedDict()
+
+                                            self.adjacency_sid = YList(self)
+                                            self._segment_path = lambda: "adjacency-sids"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids, [], name, value)
+
+
+                                        class AdjacencySid(Entity):
+                                            """
+                                            Configured Adjacency SID
+                                            
+                                            .. attribute:: sid_type  (key)
+                                            
+                                            	OSPF Adj SID Type
+                                            	**type**\:  :py:class:`OspfSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSid>`
+                                            
+                                            .. attribute:: sid_value  (key)
+                                            
+                                            	SID Value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..1048575
+                                            
+                                            .. attribute:: protected
+                                            
+                                            	Adj SID eligible for protection
+                                            	**type**\: bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Neighbor IP address
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**default value**\: 0.0.0.0
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2018-05-14'
+
+                                            def __init__(self):
+                                                super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids.AdjacencySid, self).__init__()
+
+                                                self.yang_name = "adjacency-sid"
+                                                self.yang_parent_name = "adjacency-sids"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['sid_type','sid_value']
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSid', '')])),
+                                                    ('sid_value', (YLeaf(YType.uint32, 'sid-value'), ['int'])),
+                                                    ('protected', (YLeaf(YType.boolean, 'protected'), ['bool'])),
+                                                    ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
+                                                ])
+                                                self.sid_type = None
+                                                self.sid_value = None
+                                                self.protected = None
+                                                self.neighbor_address = None
+                                                self._segment_path = lambda: "adjacency-sid" + "[sid-type='" + str(self.sid_type) + "']" + "[sid-value='" + str(self.sid_value) + "']"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids.AdjacencySid, ['sid_type', 'sid_value', 'protected', 'neighbor_address'], name, value)
+
+
 
 
                                     class PrefixSid(Entity):
@@ -14578,7 +14837,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid, self).__init__()
@@ -14649,7 +14908,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict, self).__init__()
@@ -14701,7 +14960,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList, self).__init__()
@@ -14757,7 +15016,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd, self).__init__()
@@ -14810,7 +15069,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication, self).__init__()
@@ -14864,7 +15123,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type, self).__init__()
@@ -14906,7 +15165,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeys, self).__init__()
@@ -14953,7 +15212,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -14995,7 +15254,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security, self).__init__()
@@ -15039,7 +15298,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl, self).__init__()
@@ -15079,7 +15338,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors, self).__init__()
@@ -15153,7 +15412,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors.Neighbor, self).__init__()
@@ -15210,7 +15469,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal, self).__init__()
@@ -15259,7 +15518,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute, self).__init__()
@@ -15315,7 +15574,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink, self).__init__()
@@ -15360,7 +15619,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -15397,7 +15656,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -15436,7 +15695,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -15474,7 +15733,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -15540,7 +15799,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix, self).__init__()
@@ -15601,7 +15860,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -15640,7 +15899,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -15684,7 +15943,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -15725,7 +15984,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -15762,7 +16021,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -15801,7 +16060,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -15839,7 +16098,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -15888,7 +16147,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback, self).__init__()
@@ -15929,7 +16188,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes, self).__init__()
@@ -16059,17 +16318,12 @@ class Ospf(Entity):
                                     	Interface fallback cost
                                     	**type**\:  :py:class:`CostFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback>`
                                     
-                                    .. attribute:: running
-                                    
-                                    	Enable routing on an IP network
-                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                    
                                     
 
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, self).__init__()
@@ -16090,7 +16344,6 @@ class Ospf(Entity):
                                             ('packet_size', (YLeaf(YType.uint32, 'packet-size'), ['int'])),
                                             ('database_filter', (YLeaf(YType.boolean, 'database-filter'), ['bool'])),
                                             ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                            ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                         ])
                                         self.interface_name = None
                                         self.cost = None
@@ -16101,7 +16354,6 @@ class Ospf(Entity):
                                         self.packet_size = None
                                         self.database_filter = None
                                         self.retransmit_interval = None
-                                        self.running = None
 
                                         self.distribute_list = None
                                         self._children_name_map["distribute_list"] = "distribute-list"
@@ -16129,7 +16381,7 @@ class Ospf(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, ['interface_name', 'cost', 'mtu_ignore', 'hello_interval', 'passive', 'transmit_delay', 'packet_size', 'database_filter', 'retransmit_interval', 'running'], name, value)
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, ['interface_name', 'cost', 'mtu_ignore', 'hello_interval', 'passive', 'transmit_delay', 'packet_size', 'database_filter', 'retransmit_interval'], name, value)
 
 
                                     class DistributeList(Entity):
@@ -16154,7 +16406,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList, self).__init__()
@@ -16206,7 +16458,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication, self).__init__()
@@ -16260,7 +16512,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type, self).__init__()
@@ -16302,7 +16554,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys, self).__init__()
@@ -16349,7 +16601,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -16390,7 +16642,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors, self).__init__()
@@ -16464,7 +16716,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor, self).__init__()
@@ -16521,7 +16773,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal, self).__init__()
@@ -16570,7 +16822,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute, self).__init__()
@@ -16626,7 +16878,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink, self).__init__()
@@ -16671,7 +16923,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -16708,7 +16960,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -16747,7 +16999,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -16785,7 +17037,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -16851,7 +17103,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix, self).__init__()
@@ -16912,7 +17164,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -16951,7 +17203,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -16995,7 +17247,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -17036,7 +17288,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -17073,7 +17325,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -17112,7 +17364,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -17150,7 +17402,7 @@ class Ospf(Entity):
                                                     """
 
                                                     _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2018-01-31'
+                                                    _revision = '2018-05-14'
 
                                                     def __init__(self):
                                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -17199,7 +17451,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback, self).__init__()
@@ -17241,7 +17493,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges, self).__init__()
@@ -17290,7 +17542,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges.AreaRange, self).__init__()
@@ -17362,7 +17614,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
@@ -17467,7 +17719,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.Vrfs.Vrf.Timers, self).__init__()
@@ -17547,7 +17799,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.Timers.SpfTimer, self).__init__()
@@ -17616,7 +17868,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.Vrfs.Vrf.Timers.LsaGenerationTimer, self).__init__()
@@ -17660,7 +17912,7 @@ class Ospf(Entity):
                 """
 
                 _prefix = 'ipv4-ospf-cfg'
-                _revision = '2018-01-31'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospf.Processes.Process.TraceBufs, self).__init__()
@@ -17705,7 +17957,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.TraceBufs.TraceBuf, self).__init__()
@@ -17762,7 +18014,7 @@ class Ospf(Entity):
                 """
 
                 _prefix = 'ipv4-ospf-cfg'
-                _revision = '2018-01-31'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospf.Processes.Process.GracefulShutdownTimers, self).__init__()
@@ -17916,6 +18168,13 @@ class Ospf(Entity):
                 	Unequal Cost Multi\-ptah configuration
                 	**type**\:  :py:class:`Ucmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.Ucmp>`
                 
+                .. attribute:: apply_weight
+                
+                	Apply weights feature enable configuration
+                	**type**\:  :py:class:`ApplyWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ApplyWeight>`
+                
+                	**presence node**\: True
+                
                 .. attribute:: maximum_paths
                 
                 	Forward packets over multiple paths (number of paths)
@@ -17972,7 +18231,7 @@ class Ospf(Entity):
                 """
 
                 _prefix = 'ipv4-ospf-cfg'
-                _revision = '2018-01-31'
+                _revision = '2018-05-14'
 
                 def __init__(self):
                     super(Ospf.Processes.Process.DefaultVrf, self).__init__()
@@ -17982,7 +18241,7 @@ class Ospf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("monitor-convergence", ("monitor_convergence", Ospf.Processes.Process.DefaultVrf.MonitorConvergence)), ("segment-routing", ("segment_routing", Ospf.Processes.Process.DefaultVrf.SegmentRouting)), ("mpls", ("mpls", Ospf.Processes.Process.DefaultVrf.Mpls)), ("microloop", ("microloop", Ospf.Processes.Process.DefaultVrf.Microloop)), ("maximum-redistribute-prefix", ("maximum_redistribute_prefix", Ospf.Processes.Process.DefaultVrf.MaximumRedistributePrefix)), ("default-information", ("default_information", Ospf.Processes.Process.DefaultVrf.DefaultInformation)), ("af", ("af", Ospf.Processes.Process.DefaultVrf.Af)), ("queue", ("queue", Ospf.Processes.Process.DefaultVrf.Queue)), ("max-metric", ("max_metric", Ospf.Processes.Process.DefaultVrf.MaxMetric)), ("nsf", ("nsf", Ospf.Processes.Process.DefaultVrf.Nsf)), ("process-scope", ("process_scope", Ospf.Processes.Process.DefaultVrf.ProcessScope)), ("redistribution", ("redistribution", Ospf.Processes.Process.DefaultVrf.Redistribution)), ("adjacency-stagger", ("adjacency_stagger", Ospf.Processes.Process.DefaultVrf.AdjacencyStagger)), ("max-lsa", ("max_lsa", Ospf.Processes.Process.DefaultVrf.MaxLsa)), ("auto-cost", ("auto_cost", Ospf.Processes.Process.DefaultVrf.AutoCost)), ("ucmp", ("ucmp", Ospf.Processes.Process.DefaultVrf.Ucmp)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.FastReroute)), ("summary-prefixes", ("summary_prefixes", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes)), ("outgoing-route-updates", ("outgoing_route_updates", Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates)), ("distance", ("distance", Ospf.Processes.Process.DefaultVrf.Distance)), ("area-addresses", ("area_addresses", Ospf.Processes.Process.DefaultVrf.AreaAddresses)), ("timers", ("timers", Ospf.Processes.Process.DefaultVrf.Timers))])
+                    self._child_classes = OrderedDict([("monitor-convergence", ("monitor_convergence", Ospf.Processes.Process.DefaultVrf.MonitorConvergence)), ("segment-routing", ("segment_routing", Ospf.Processes.Process.DefaultVrf.SegmentRouting)), ("mpls", ("mpls", Ospf.Processes.Process.DefaultVrf.Mpls)), ("microloop", ("microloop", Ospf.Processes.Process.DefaultVrf.Microloop)), ("maximum-redistribute-prefix", ("maximum_redistribute_prefix", Ospf.Processes.Process.DefaultVrf.MaximumRedistributePrefix)), ("default-information", ("default_information", Ospf.Processes.Process.DefaultVrf.DefaultInformation)), ("af", ("af", Ospf.Processes.Process.DefaultVrf.Af)), ("queue", ("queue", Ospf.Processes.Process.DefaultVrf.Queue)), ("max-metric", ("max_metric", Ospf.Processes.Process.DefaultVrf.MaxMetric)), ("nsf", ("nsf", Ospf.Processes.Process.DefaultVrf.Nsf)), ("process-scope", ("process_scope", Ospf.Processes.Process.DefaultVrf.ProcessScope)), ("redistribution", ("redistribution", Ospf.Processes.Process.DefaultVrf.Redistribution)), ("adjacency-stagger", ("adjacency_stagger", Ospf.Processes.Process.DefaultVrf.AdjacencyStagger)), ("max-lsa", ("max_lsa", Ospf.Processes.Process.DefaultVrf.MaxLsa)), ("auto-cost", ("auto_cost", Ospf.Processes.Process.DefaultVrf.AutoCost)), ("ucmp", ("ucmp", Ospf.Processes.Process.DefaultVrf.Ucmp)), ("apply-weight", ("apply_weight", Ospf.Processes.Process.DefaultVrf.ApplyWeight)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.FastReroute)), ("summary-prefixes", ("summary_prefixes", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes)), ("outgoing-route-updates", ("outgoing_route_updates", Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates)), ("distance", ("distance", Ospf.Processes.Process.DefaultVrf.Distance)), ("area-addresses", ("area_addresses", Ospf.Processes.Process.DefaultVrf.AreaAddresses)), ("timers", ("timers", Ospf.Processes.Process.DefaultVrf.Timers))])
                     self._leafs = OrderedDict([
                         ('ignore_mospf', (YLeaf(YType.empty, 'ignore-mospf'), ['Empty'])),
                         ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
@@ -18068,6 +18327,9 @@ class Ospf(Entity):
                     self.ucmp.parent = self
                     self._children_name_map["ucmp"] = "ucmp"
 
+                    self.apply_weight = None
+                    self._children_name_map["apply_weight"] = "apply-weight"
+
                     self.fast_reroute = Ospf.Processes.Process.DefaultVrf.FastReroute()
                     self.fast_reroute.parent = self
                     self._children_name_map["fast_reroute"] = "fast-reroute"
@@ -18132,7 +18394,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.MonitorConvergence, self).__init__()
@@ -18192,7 +18454,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.SegmentRouting, self).__init__()
@@ -18242,7 +18504,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.SegmentRouting.SrPrefer, self).__init__()
@@ -18302,7 +18564,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.Mpls, self).__init__()
@@ -18360,7 +18622,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.Mpls.MplsRouterId, self).__init__()
@@ -18400,7 +18662,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.Microloop, self).__init__()
@@ -18450,7 +18712,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.Microloop.Avoidance, self).__init__()
@@ -18505,7 +18767,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.MaximumRedistributePrefix, self).__init__()
@@ -18569,7 +18831,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.DefaultInformation, self).__init__()
@@ -18621,7 +18883,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.Af, self).__init__()
@@ -18720,7 +18982,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.Queue, self).__init__()
@@ -18794,7 +19056,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.MaxMetric, self).__init__()
@@ -18891,7 +19153,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcRestart, self).__init__()
@@ -18980,7 +19242,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnStartup, self).__init__()
@@ -19070,7 +19332,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcMigration, self).__init__()
@@ -19145,7 +19407,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricAlways, self).__init__()
@@ -19230,7 +19492,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnSwitchover, self).__init__()
@@ -19328,7 +19590,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.Nsf, self).__init__()
@@ -19397,6 +19659,13 @@ class Ospf(Entity):
                     
                     	BFD configuration
                     	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.Bfd>`
+                    
+                    .. attribute:: weight
+                    
+                    	Interface weight
+                    	**type**\: int
+                    
+                    	**range:** 1..16777214
                     
                     .. attribute:: external_out
                     
@@ -19573,7 +19842,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.ProcessScope, self).__init__()
@@ -19586,6 +19855,7 @@ class Ospf(Entity):
                         self._child_classes = OrderedDict([("srgb", ("srgb", Ospf.Processes.Process.DefaultVrf.ProcessScope.Srgb)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.ProcessScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.ProcessScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.ProcessScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.ProcessScope.DeadIntervalMinimal)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.ProcessScope.CostFallback))])
                         self._leafs = OrderedDict([
                             ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                             ('external_out', (YLeaf(YType.boolean, 'external-out'), ['bool'])),
                             ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                             ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
@@ -19610,6 +19880,7 @@ class Ospf(Entity):
                             ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
                         ])
                         self.cost = None
+                        self.weight = None
                         self.external_out = None
                         self.prefix_suppression_primary = None
                         self.mtu_ignore = None
@@ -19666,7 +19937,7 @@ class Ospf(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope, ['cost', 'external_out', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'summary_in', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'segment_routing', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope, ['cost', 'weight', 'external_out', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'summary_in', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'segment_routing', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
 
 
                     class Srgb(Entity):
@@ -19698,7 +19969,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.ProcessScope.Srgb, self).__init__()
@@ -19748,7 +20019,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute, self).__init__()
@@ -19804,7 +20075,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink, self).__init__()
@@ -19849,7 +20120,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -19886,7 +20157,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -19925,7 +20196,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -19963,7 +20234,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -20024,7 +20295,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
@@ -20081,7 +20352,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -20121,7 +20392,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -20158,7 +20429,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -20197,7 +20468,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -20235,7 +20506,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -20283,7 +20554,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.ProcessScope.DistributeList, self).__init__()
@@ -20339,7 +20610,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.ProcessScope.Bfd, self).__init__()
@@ -20392,7 +20663,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication, self).__init__()
@@ -20446,7 +20717,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.Type, self).__init__()
@@ -20488,7 +20759,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.MessageDigestKeys, self).__init__()
@@ -20535,7 +20806,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -20577,7 +20848,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.ProcessScope.Security, self).__init__()
@@ -20621,7 +20892,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.ProcessScope.Security.Ttl, self).__init__()
@@ -20672,7 +20943,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.ProcessScope.DeadIntervalMinimal, self).__init__()
@@ -20720,7 +20991,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.ProcessScope.CostFallback, self).__init__()
@@ -20760,7 +21031,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.Redistribution, self).__init__()
@@ -20798,7 +21069,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes, self).__init__()
@@ -20856,7 +21127,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute, self).__init__()
@@ -20980,7 +21251,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip, self).__init__()
@@ -21131,7 +21402,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf, self).__init__()
@@ -21297,7 +21568,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Bgp, self).__init__()
@@ -21460,7 +21731,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Eigrp, self).__init__()
@@ -21550,7 +21821,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.AdjacencyStagger, self).__init__()
@@ -21632,7 +21903,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.MaxLsa, self).__init__()
@@ -21693,7 +21964,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.AutoCost, self).__init__()
@@ -21748,7 +22019,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.Ucmp, self).__init__()
@@ -21801,7 +22072,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.Ucmp.Enable, self).__init__()
@@ -21841,7 +22112,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.Ucmp.ExcludeInterfaces, self).__init__()
@@ -21879,7 +22150,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -21904,6 +22175,72 @@ class Ospf(Entity):
 
 
 
+                class ApplyWeight(Entity):
+                    """
+                    Apply weights feature enable configuration
+                    
+                    .. attribute:: bandwidth
+                    
+                    	Use interface bandwidth when calculating weights
+                    	**type**\: bool
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: reference_bandwidth
+                    
+                    	Reference bandwidth to use for calculation (Mbits/sec)
+                    	**type**\: int
+                    
+                    	**range:** 1..4294967
+                    
+                    	**units**\: Mbit/s
+                    
+                    	**default value**\: 100
+                    
+                    .. attribute:: default_weight
+                    
+                    	Default weight to use when weight not configured under interface
+                    	**type**\: int
+                    
+                    	**range:** 1..16777214
+                    
+                    	**default value**\: 1
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-ospf-cfg'
+                    _revision = '2018-05-14'
+
+                    def __init__(self):
+                        super(Ospf.Processes.Process.DefaultVrf.ApplyWeight, self).__init__()
+
+                        self.yang_name = "apply-weight"
+                        self.yang_parent_name = "default-vrf"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('bandwidth', (YLeaf(YType.boolean, 'bandwidth'), ['bool'])),
+                            ('reference_bandwidth', (YLeaf(YType.uint32, 'reference-bandwidth'), ['int'])),
+                            ('default_weight', (YLeaf(YType.uint32, 'default-weight'), ['int'])),
+                        ])
+                        self.bandwidth = None
+                        self.reference_bandwidth = None
+                        self.default_weight = None
+                        self._segment_path = lambda: "apply-weight"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ApplyWeight, ['bandwidth', 'reference_bandwidth', 'default_weight'], name, value)
+
+
+
                 class FastReroute(Entity):
                     """
                     Fast\-reroute instance scoped parameters
@@ -21923,7 +22260,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.FastReroute, self).__init__()
@@ -21964,7 +22301,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.FastReroute.PerLink, self).__init__()
@@ -22011,7 +22348,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix, self).__init__()
@@ -22053,7 +22390,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -22097,7 +22434,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -22154,7 +22491,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.SummaryPrefixes, self).__init__()
@@ -22204,7 +22541,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefixData, self).__init__()
@@ -22266,7 +22603,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.PrefixAndNetmask, self).__init__()
@@ -22325,7 +22662,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Prefix, self).__init__()
@@ -22382,7 +22719,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Netmask, self).__init__()
@@ -22424,7 +22761,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates, self).__init__()
@@ -22462,7 +22799,7 @@ class Ospf(Entity):
                         
                         .. attribute:: as_xx
                         
-                        	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
+                        	First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
                         	**type**\: int
                         
                         	**range:** 0..65535
@@ -22484,7 +22821,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates.OutgoingRouteUpdate, self).__init__()
@@ -22544,7 +22881,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.Distance, self).__init__()
@@ -22610,7 +22947,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.Distance.OspfDistance, self).__init__()
@@ -22652,7 +22989,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.Distance.IpDistances, self).__init__()
@@ -22711,7 +23048,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.Distance.IpDistances.IpDistance, self).__init__()
@@ -22761,7 +23098,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses, self).__init__()
@@ -22878,17 +23215,12 @@ class Ospf(Entity):
                         	segment\-routing configuration Applicable only in Default VRF
                         	**type**\:  :py:class:`OspfSegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting>`
                         
-                        .. attribute:: running
-                        
-                        	Enable routing on an IP network
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         
 
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, self).__init__()
@@ -22910,7 +23242,6 @@ class Ospf(Entity):
                                 ('external_out', (YLeaf(YType.boolean, 'external-out'), ['bool'])),
                                 ('summary_in', (YLeaf(YType.boolean, 'summary-in'), ['bool'])),
                                 ('segment_routing', (YLeaf(YType.enumeration, 'segment-routing'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting', '')])),
-                                ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                             ])
                             self.address = None
                             self.route_policy_in = None
@@ -22922,7 +23253,6 @@ class Ospf(Entity):
                             self.external_out = None
                             self.summary_in = None
                             self.segment_routing = None
-                            self.running = None
 
                             self.virtual_link_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes()
                             self.virtual_link_scopes.parent = self
@@ -22955,7 +23285,7 @@ class Ospf(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, ['address', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
+                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, ['address', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing'], name, value)
 
 
                         class VirtualLinkScopes(Entity):
@@ -22972,7 +23302,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes, self).__init__()
@@ -23045,17 +23375,12 @@ class Ospf(Entity):
                                 
                                 	**default value**\: 5
                                 
-                                .. attribute:: running
-                                
-                                	Enable routing on an IP network
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
                                 
 
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope, self).__init__()
@@ -23071,13 +23396,11 @@ class Ospf(Entity):
                                         ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
                                         ('transmit_delay', (YLeaf(YType.uint32, 'transmit-delay'), ['int'])),
                                         ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                     ])
                                     self.address = None
                                     self.hello_interval = None
                                     self.transmit_delay = None
                                     self.retransmit_interval = None
-                                    self.running = None
 
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication()
                                     self.authentication.parent = self
@@ -23090,7 +23413,7 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope, ['address', 'hello_interval', 'transmit_delay', 'retransmit_interval', 'running'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope, ['address', 'hello_interval', 'transmit_delay', 'retransmit_interval'], name, value)
 
 
                                 class Authentication(Entity):
@@ -23119,7 +23442,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication, self).__init__()
@@ -23173,7 +23496,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type, self).__init__()
@@ -23215,7 +23538,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys, self).__init__()
@@ -23262,7 +23585,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -23314,7 +23637,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal, self).__init__()
@@ -23355,7 +23678,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes, self).__init__()
@@ -23449,17 +23772,12 @@ class Ospf(Entity):
                                 
                                 	**default value**\: 5
                                 
-                                .. attribute:: running
-                                
-                                	Enable routing on an IP network
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
                                 
 
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope, self).__init__()
@@ -23478,7 +23796,6 @@ class Ospf(Entity):
                                         ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
                                         ('transmit_delay', (YLeaf(YType.uint32, 'transmit-delay'), ['int'])),
                                         ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                     ])
                                     self.source_address = None
                                     self.destination_address = None
@@ -23487,7 +23804,6 @@ class Ospf(Entity):
                                     self.hello_interval = None
                                     self.transmit_delay = None
                                     self.retransmit_interval = None
-                                    self.running = None
 
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication()
                                     self.authentication.parent = self
@@ -23500,7 +23816,7 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope, ['source_address', 'destination_address', 'source', 'cost', 'hello_interval', 'transmit_delay', 'retransmit_interval', 'running'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope, ['source_address', 'destination_address', 'source', 'cost', 'hello_interval', 'transmit_delay', 'retransmit_interval'], name, value)
 
 
                                 class Authentication(Entity):
@@ -23529,7 +23845,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication, self).__init__()
@@ -23583,7 +23899,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type, self).__init__()
@@ -23625,7 +23941,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys, self).__init__()
@@ -23672,7 +23988,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -23724,7 +24040,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal, self).__init__()
@@ -23773,6 +24089,13 @@ class Ospf(Entity):
                             
                             	BFD configuration
                             	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Bfd>`
+                            
+                            .. attribute:: weight
+                            
+                            	Interface weight
+                            	**type**\: int
+                            
+                            	**range:** 1..16777214
                             
                             .. attribute:: prefix_suppression_primary
                             
@@ -23939,7 +24262,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
@@ -23952,6 +24275,7 @@ class Ospf(Entity):
                                 self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.CostFallback))])
                                 self._leafs = OrderedDict([
                                     ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                                    ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                                     ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                                     ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
                                     ('ldp_sync_igp_shortcuts', (YLeaf(YType.boolean, 'ldp-sync-igp-shortcuts'), ['bool'])),
@@ -23973,6 +24297,7 @@ class Ospf(Entity):
                                     ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
                                 ])
                                 self.cost = None
+                                self.weight = None
                                 self.prefix_suppression_primary = None
                                 self.mtu_ignore = None
                                 self.ldp_sync_igp_shortcuts = None
@@ -24023,7 +24348,7 @@ class Ospf(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope, ['cost', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+                                self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope, ['cost', 'weight', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
 
 
                             class DistributeList(Entity):
@@ -24048,7 +24373,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DistributeList, self).__init__()
@@ -24104,7 +24429,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Bfd, self).__init__()
@@ -24157,7 +24482,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication, self).__init__()
@@ -24211,7 +24536,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type, self).__init__()
@@ -24253,7 +24578,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeys, self).__init__()
@@ -24300,7 +24625,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -24342,7 +24667,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security, self).__init__()
@@ -24386,7 +24711,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl, self).__init__()
@@ -24437,7 +24762,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal, self).__init__()
@@ -24486,7 +24811,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
@@ -24542,7 +24867,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
@@ -24587,7 +24912,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -24624,7 +24949,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -24663,7 +24988,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -24701,7 +25026,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -24767,7 +25092,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -24828,7 +25153,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -24867,7 +25192,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -24911,7 +25236,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -24952,7 +25277,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -24989,7 +25314,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -25028,7 +25353,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -25066,7 +25391,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -25115,7 +25440,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.CostFallback, self).__init__()
@@ -25155,7 +25480,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes, self).__init__()
@@ -25186,6 +25511,11 @@ class Ospf(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                .. attribute:: adjacency_sids
+                                
+                                	Configured Adjacency SID information
+                                	**type**\:  :py:class:`AdjacencySids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids>`
                                 
                                 .. attribute:: prefix_sid
                                 
@@ -25219,6 +25549,13 @@ class Ospf(Entity):
                                 
                                 	BFD configuration
                                 	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd>`
+                                
+                                .. attribute:: weight
+                                
+                                	Interface weight
+                                	**type**\: int
+                                
+                                	**range:** 1..16777214
                                 
                                 .. attribute:: prefix_suppression_primary
                                 
@@ -25385,17 +25722,12 @@ class Ospf(Entity):
                                 	Interface fallback cost
                                 	**type**\:  :py:class:`CostFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback>`
                                 
-                                .. attribute:: running
-                                
-                                	Enable routing on an IP network
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
                                 
 
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope, self).__init__()
@@ -25405,10 +25737,11 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback))])
+                                    self._child_classes = OrderedDict([("adjacency-sids", ("adjacency_sids", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids)), ("prefix-sid", ("prefix_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                         ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                                        ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                                         ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                                         ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
                                         ('ldp_sync_igp_shortcuts', (YLeaf(YType.boolean, 'ldp-sync-igp-shortcuts'), ['bool'])),
@@ -25428,10 +25761,10 @@ class Ospf(Entity):
                                         ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
                                         ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                                         ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
-                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                     ])
                                     self.interface_name = None
                                     self.cost = None
+                                    self.weight = None
                                     self.prefix_suppression_primary = None
                                     self.mtu_ignore = None
                                     self.ldp_sync_igp_shortcuts = None
@@ -25451,7 +25784,10 @@ class Ospf(Entity):
                                     self.retransmit_interval = None
                                     self.priority = None
                                     self.flood_reduction = None
-                                    self.running = None
+
+                                    self.adjacency_sids = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids()
+                                    self.adjacency_sids.parent = self
+                                    self._children_name_map["adjacency_sids"] = "adjacency-sids"
 
                                     self.prefix_sid = None
                                     self._children_name_map["prefix_sid"] = "prefix-sid"
@@ -25493,7 +25829,109 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope, ['interface_name', 'cost', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction', 'running'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope, ['interface_name', 'cost', 'weight', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+
+
+                                class AdjacencySids(Entity):
+                                    """
+                                    Configured Adjacency SID information
+                                    
+                                    .. attribute:: adjacency_sid
+                                    
+                                    	Configured Adjacency SID
+                                    	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids.AdjacencySid>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2018-05-14'
+
+                                    def __init__(self):
+                                        super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids, self).__init__()
+
+                                        self.yang_name = "adjacency-sids"
+                                        self.yang_parent_name = "name-scope"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids.AdjacencySid))])
+                                        self._leafs = OrderedDict()
+
+                                        self.adjacency_sid = YList(self)
+                                        self._segment_path = lambda: "adjacency-sids"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids, [], name, value)
+
+
+                                    class AdjacencySid(Entity):
+                                        """
+                                        Configured Adjacency SID
+                                        
+                                        .. attribute:: sid_type  (key)
+                                        
+                                        	OSPF Adj SID Type
+                                        	**type**\:  :py:class:`OspfSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSid>`
+                                        
+                                        .. attribute:: sid_value  (key)
+                                        
+                                        	SID Value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..1048575
+                                        
+                                        .. attribute:: protected
+                                        
+                                        	Adj SID eligible for protection
+                                        	**type**\: bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: neighbor_address
+                                        
+                                        	Neighbor IP address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**default value**\: 0.0.0.0
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2018-05-14'
+
+                                        def __init__(self):
+                                            super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids.AdjacencySid, self).__init__()
+
+                                            self.yang_name = "adjacency-sid"
+                                            self.yang_parent_name = "adjacency-sids"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['sid_type','sid_value']
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSid', '')])),
+                                                ('sid_value', (YLeaf(YType.uint32, 'sid-value'), ['int'])),
+                                                ('protected', (YLeaf(YType.boolean, 'protected'), ['bool'])),
+                                                ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
+                                            ])
+                                            self.sid_type = None
+                                            self.sid_value = None
+                                            self.protected = None
+                                            self.neighbor_address = None
+                                            self._segment_path = lambda: "adjacency-sid" + "[sid-type='" + str(self.sid_type) + "']" + "[sid-value='" + str(self.sid_value) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.AdjacencySids.AdjacencySid, ['sid_type', 'sid_value', 'protected', 'neighbor_address'], name, value)
+
+
 
 
                                 class PrefixSid(Entity):
@@ -25537,7 +25975,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid, self).__init__()
@@ -25608,7 +26046,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict, self).__init__()
@@ -25660,7 +26098,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList, self).__init__()
@@ -25716,7 +26154,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd, self).__init__()
@@ -25769,7 +26207,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication, self).__init__()
@@ -25823,7 +26261,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type, self).__init__()
@@ -25865,7 +26303,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeys, self).__init__()
@@ -25912,7 +26350,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -25954,7 +26392,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security, self).__init__()
@@ -25998,7 +26436,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl, self).__init__()
@@ -26038,7 +26476,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors, self).__init__()
@@ -26112,7 +26550,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors.Neighbor, self).__init__()
@@ -26169,7 +26607,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal, self).__init__()
@@ -26218,7 +26656,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute, self).__init__()
@@ -26274,7 +26712,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink, self).__init__()
@@ -26319,7 +26757,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -26356,7 +26794,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -26395,7 +26833,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -26433,7 +26871,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -26499,7 +26937,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix, self).__init__()
@@ -26560,7 +26998,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -26599,7 +27037,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -26643,7 +27081,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -26684,7 +27122,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -26721,7 +27159,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -26760,7 +27198,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -26798,7 +27236,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -26847,7 +27285,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback, self).__init__()
@@ -26888,7 +27326,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes, self).__init__()
@@ -27018,17 +27456,12 @@ class Ospf(Entity):
                                 	Interface fallback cost
                                 	**type**\:  :py:class:`CostFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback>`
                                 
-                                .. attribute:: running
-                                
-                                	Enable routing on an IP network
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
                                 
 
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, self).__init__()
@@ -27049,7 +27482,6 @@ class Ospf(Entity):
                                         ('packet_size', (YLeaf(YType.uint32, 'packet-size'), ['int'])),
                                         ('database_filter', (YLeaf(YType.boolean, 'database-filter'), ['bool'])),
                                         ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                     ])
                                     self.interface_name = None
                                     self.cost = None
@@ -27060,7 +27492,6 @@ class Ospf(Entity):
                                     self.packet_size = None
                                     self.database_filter = None
                                     self.retransmit_interval = None
-                                    self.running = None
 
                                     self.distribute_list = None
                                     self._children_name_map["distribute_list"] = "distribute-list"
@@ -27088,7 +27519,7 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, ['interface_name', 'cost', 'mtu_ignore', 'hello_interval', 'passive', 'transmit_delay', 'packet_size', 'database_filter', 'retransmit_interval', 'running'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, ['interface_name', 'cost', 'mtu_ignore', 'hello_interval', 'passive', 'transmit_delay', 'packet_size', 'database_filter', 'retransmit_interval'], name, value)
 
 
                                 class DistributeList(Entity):
@@ -27113,7 +27544,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList, self).__init__()
@@ -27165,7 +27596,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication, self).__init__()
@@ -27219,7 +27650,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type, self).__init__()
@@ -27261,7 +27692,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys, self).__init__()
@@ -27308,7 +27739,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -27349,7 +27780,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors, self).__init__()
@@ -27423,7 +27854,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor, self).__init__()
@@ -27480,7 +27911,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal, self).__init__()
@@ -27529,7 +27960,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute, self).__init__()
@@ -27585,7 +28016,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink, self).__init__()
@@ -27630,7 +28061,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -27667,7 +28098,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -27706,7 +28137,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -27744,7 +28175,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -27810,7 +28241,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix, self).__init__()
@@ -27871,7 +28302,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -27910,7 +28341,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -27954,7 +28385,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -27995,7 +28426,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -28032,7 +28463,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -28071,7 +28502,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -28109,7 +28540,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -28158,7 +28589,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback, self).__init__()
@@ -28200,7 +28631,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges, self).__init__()
@@ -28249,7 +28680,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges.AreaRange, self).__init__()
@@ -28321,7 +28752,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
@@ -28448,17 +28879,12 @@ class Ospf(Entity):
                         	segment\-routing configuration Applicable only in Default VRF
                         	**type**\:  :py:class:`OspfSegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting>`
                         
-                        .. attribute:: running
-                        
-                        	Enable routing on an IP network
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         
 
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, self).__init__()
@@ -28480,7 +28906,6 @@ class Ospf(Entity):
                                 ('external_out', (YLeaf(YType.boolean, 'external-out'), ['bool'])),
                                 ('summary_in', (YLeaf(YType.boolean, 'summary-in'), ['bool'])),
                                 ('segment_routing', (YLeaf(YType.enumeration, 'segment-routing'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting', '')])),
-                                ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                             ])
                             self.area_id = None
                             self.route_policy_in = None
@@ -28492,7 +28917,6 @@ class Ospf(Entity):
                             self.external_out = None
                             self.summary_in = None
                             self.segment_routing = None
-                            self.running = None
 
                             self.virtual_link_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes()
                             self.virtual_link_scopes.parent = self
@@ -28525,7 +28949,7 @@ class Ospf(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, ['area_id', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
+                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, ['area_id', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing'], name, value)
 
 
                         class VirtualLinkScopes(Entity):
@@ -28542,7 +28966,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes, self).__init__()
@@ -28615,17 +29039,12 @@ class Ospf(Entity):
                                 
                                 	**default value**\: 5
                                 
-                                .. attribute:: running
-                                
-                                	Enable routing on an IP network
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
                                 
 
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope, self).__init__()
@@ -28641,13 +29060,11 @@ class Ospf(Entity):
                                         ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
                                         ('transmit_delay', (YLeaf(YType.uint32, 'transmit-delay'), ['int'])),
                                         ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                     ])
                                     self.address = None
                                     self.hello_interval = None
                                     self.transmit_delay = None
                                     self.retransmit_interval = None
-                                    self.running = None
 
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication()
                                     self.authentication.parent = self
@@ -28660,7 +29077,7 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope, ['address', 'hello_interval', 'transmit_delay', 'retransmit_interval', 'running'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope, ['address', 'hello_interval', 'transmit_delay', 'retransmit_interval'], name, value)
 
 
                                 class Authentication(Entity):
@@ -28689,7 +29106,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication, self).__init__()
@@ -28743,7 +29160,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type, self).__init__()
@@ -28785,7 +29202,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys, self).__init__()
@@ -28832,7 +29249,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -28884,7 +29301,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal, self).__init__()
@@ -28925,7 +29342,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes, self).__init__()
@@ -29019,17 +29436,12 @@ class Ospf(Entity):
                                 
                                 	**default value**\: 5
                                 
-                                .. attribute:: running
-                                
-                                	Enable routing on an IP network
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
                                 
 
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope, self).__init__()
@@ -29048,7 +29460,6 @@ class Ospf(Entity):
                                         ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
                                         ('transmit_delay', (YLeaf(YType.uint32, 'transmit-delay'), ['int'])),
                                         ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                     ])
                                     self.source_address = None
                                     self.destination_address = None
@@ -29057,7 +29468,6 @@ class Ospf(Entity):
                                     self.hello_interval = None
                                     self.transmit_delay = None
                                     self.retransmit_interval = None
-                                    self.running = None
 
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication()
                                     self.authentication.parent = self
@@ -29070,7 +29480,7 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope, ['source_address', 'destination_address', 'source', 'cost', 'hello_interval', 'transmit_delay', 'retransmit_interval', 'running'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope, ['source_address', 'destination_address', 'source', 'cost', 'hello_interval', 'transmit_delay', 'retransmit_interval'], name, value)
 
 
                                 class Authentication(Entity):
@@ -29099,7 +29509,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication, self).__init__()
@@ -29153,7 +29563,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type, self).__init__()
@@ -29195,7 +29605,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys, self).__init__()
@@ -29242,7 +29652,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -29294,7 +29704,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal, self).__init__()
@@ -29343,6 +29753,13 @@ class Ospf(Entity):
                             
                             	BFD configuration
                             	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Bfd>`
+                            
+                            .. attribute:: weight
+                            
+                            	Interface weight
+                            	**type**\: int
+                            
+                            	**range:** 1..16777214
                             
                             .. attribute:: prefix_suppression_primary
                             
@@ -29509,7 +29926,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
@@ -29522,6 +29939,7 @@ class Ospf(Entity):
                                 self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback))])
                                 self._leafs = OrderedDict([
                                     ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                                    ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                                     ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                                     ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
                                     ('ldp_sync_igp_shortcuts', (YLeaf(YType.boolean, 'ldp-sync-igp-shortcuts'), ['bool'])),
@@ -29543,6 +29961,7 @@ class Ospf(Entity):
                                     ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
                                 ])
                                 self.cost = None
+                                self.weight = None
                                 self.prefix_suppression_primary = None
                                 self.mtu_ignore = None
                                 self.ldp_sync_igp_shortcuts = None
@@ -29593,7 +30012,7 @@ class Ospf(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope, ['cost', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+                                self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope, ['cost', 'weight', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
 
 
                             class DistributeList(Entity):
@@ -29618,7 +30037,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList, self).__init__()
@@ -29674,7 +30093,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Bfd, self).__init__()
@@ -29727,7 +30146,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication, self).__init__()
@@ -29781,7 +30200,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type, self).__init__()
@@ -29823,7 +30242,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeys, self).__init__()
@@ -29870,7 +30289,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -29912,7 +30331,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security, self).__init__()
@@ -29956,7 +30375,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl, self).__init__()
@@ -30007,7 +30426,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal, self).__init__()
@@ -30056,7 +30475,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
@@ -30112,7 +30531,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
@@ -30157,7 +30576,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -30194,7 +30613,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -30233,7 +30652,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -30271,7 +30690,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -30337,7 +30756,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -30398,7 +30817,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -30437,7 +30856,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -30481,7 +30900,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -30522,7 +30941,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -30559,7 +30978,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -30598,7 +31017,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -30636,7 +31055,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -30685,7 +31104,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback, self).__init__()
@@ -30725,7 +31144,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes, self).__init__()
@@ -30756,6 +31175,11 @@ class Ospf(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                .. attribute:: adjacency_sids
+                                
+                                	Configured Adjacency SID information
+                                	**type**\:  :py:class:`AdjacencySids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids>`
                                 
                                 .. attribute:: prefix_sid
                                 
@@ -30789,6 +31213,13 @@ class Ospf(Entity):
                                 
                                 	BFD configuration
                                 	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd>`
+                                
+                                .. attribute:: weight
+                                
+                                	Interface weight
+                                	**type**\: int
+                                
+                                	**range:** 1..16777214
                                 
                                 .. attribute:: prefix_suppression_primary
                                 
@@ -30955,17 +31386,12 @@ class Ospf(Entity):
                                 	Interface fallback cost
                                 	**type**\:  :py:class:`CostFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback>`
                                 
-                                .. attribute:: running
-                                
-                                	Enable routing on an IP network
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
                                 
 
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope, self).__init__()
@@ -30975,10 +31401,11 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback))])
+                                    self._child_classes = OrderedDict([("adjacency-sids", ("adjacency_sids", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids)), ("prefix-sid", ("prefix_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                         ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
+                                        ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                                         ('prefix_suppression_primary', (YLeaf(YType.boolean, 'prefix-suppression-primary'), ['bool'])),
                                         ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
                                         ('ldp_sync_igp_shortcuts', (YLeaf(YType.boolean, 'ldp-sync-igp-shortcuts'), ['bool'])),
@@ -30998,10 +31425,10 @@ class Ospf(Entity):
                                         ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
                                         ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                                         ('flood_reduction', (YLeaf(YType.boolean, 'flood-reduction'), ['bool'])),
-                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                     ])
                                     self.interface_name = None
                                     self.cost = None
+                                    self.weight = None
                                     self.prefix_suppression_primary = None
                                     self.mtu_ignore = None
                                     self.ldp_sync_igp_shortcuts = None
@@ -31021,7 +31448,10 @@ class Ospf(Entity):
                                     self.retransmit_interval = None
                                     self.priority = None
                                     self.flood_reduction = None
-                                    self.running = None
+
+                                    self.adjacency_sids = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids()
+                                    self.adjacency_sids.parent = self
+                                    self._children_name_map["adjacency_sids"] = "adjacency-sids"
 
                                     self.prefix_sid = None
                                     self._children_name_map["prefix_sid"] = "prefix-sid"
@@ -31063,7 +31493,109 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope, ['interface_name', 'cost', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction', 'running'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope, ['interface_name', 'cost', 'weight', 'prefix_suppression_primary', 'mtu_ignore', 'ldp_sync_igp_shortcuts', 'ldp_auto_config', 'network_type', 'hello_interval', 'loopback_stub_network', 'prefix_suppression_secondary', 'demand_circuit', 'passive', 'transmit_delay', 'packet_size', 'ldp_sync', 'database_filter', 'link_down_fast_detect', 'segment_routing_forwarding', 'retransmit_interval', 'priority', 'flood_reduction'], name, value)
+
+
+                                class AdjacencySids(Entity):
+                                    """
+                                    Configured Adjacency SID information
+                                    
+                                    .. attribute:: adjacency_sid
+                                    
+                                    	Configured Adjacency SID
+                                    	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids.AdjacencySid>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2018-05-14'
+
+                                    def __init__(self):
+                                        super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids, self).__init__()
+
+                                        self.yang_name = "adjacency-sids"
+                                        self.yang_parent_name = "name-scope"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids.AdjacencySid))])
+                                        self._leafs = OrderedDict()
+
+                                        self.adjacency_sid = YList(self)
+                                        self._segment_path = lambda: "adjacency-sids"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids, [], name, value)
+
+
+                                    class AdjacencySid(Entity):
+                                        """
+                                        Configured Adjacency SID
+                                        
+                                        .. attribute:: sid_type  (key)
+                                        
+                                        	OSPF Adj SID Type
+                                        	**type**\:  :py:class:`OspfSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSid>`
+                                        
+                                        .. attribute:: sid_value  (key)
+                                        
+                                        	SID Value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..1048575
+                                        
+                                        .. attribute:: protected
+                                        
+                                        	Adj SID eligible for protection
+                                        	**type**\: bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: neighbor_address
+                                        
+                                        	Neighbor IP address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**default value**\: 0.0.0.0
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2018-05-14'
+
+                                        def __init__(self):
+                                            super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids.AdjacencySid, self).__init__()
+
+                                            self.yang_name = "adjacency-sid"
+                                            self.yang_parent_name = "adjacency-sids"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['sid_type','sid_value']
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSid', '')])),
+                                                ('sid_value', (YLeaf(YType.uint32, 'sid-value'), ['int'])),
+                                                ('protected', (YLeaf(YType.boolean, 'protected'), ['bool'])),
+                                                ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
+                                            ])
+                                            self.sid_type = None
+                                            self.sid_value = None
+                                            self.protected = None
+                                            self.neighbor_address = None
+                                            self._segment_path = lambda: "adjacency-sid" + "[sid-type='" + str(self.sid_type) + "']" + "[sid-value='" + str(self.sid_value) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.AdjacencySids.AdjacencySid, ['sid_type', 'sid_value', 'protected', 'neighbor_address'], name, value)
+
+
 
 
                                 class PrefixSid(Entity):
@@ -31107,7 +31639,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid, self).__init__()
@@ -31178,7 +31710,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict, self).__init__()
@@ -31230,7 +31762,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList, self).__init__()
@@ -31286,7 +31818,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd, self).__init__()
@@ -31339,7 +31871,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication, self).__init__()
@@ -31393,7 +31925,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type, self).__init__()
@@ -31435,7 +31967,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeys, self).__init__()
@@ -31482,7 +32014,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -31524,7 +32056,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security, self).__init__()
@@ -31568,7 +32100,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl, self).__init__()
@@ -31608,7 +32140,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors, self).__init__()
@@ -31682,7 +32214,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors.Neighbor, self).__init__()
@@ -31739,7 +32271,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal, self).__init__()
@@ -31788,7 +32320,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute, self).__init__()
@@ -31844,7 +32376,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink, self).__init__()
@@ -31889,7 +32421,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -31926,7 +32458,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -31965,7 +32497,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -32003,7 +32535,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -32069,7 +32601,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix, self).__init__()
@@ -32130,7 +32662,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -32169,7 +32701,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -32213,7 +32745,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -32254,7 +32786,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -32291,7 +32823,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -32330,7 +32862,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -32368,7 +32900,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -32417,7 +32949,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback, self).__init__()
@@ -32458,7 +32990,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes, self).__init__()
@@ -32588,17 +33120,12 @@ class Ospf(Entity):
                                 	Interface fallback cost
                                 	**type**\:  :py:class:`CostFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback>`
                                 
-                                .. attribute:: running
-                                
-                                	Enable routing on an IP network
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
                                 
 
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, self).__init__()
@@ -32619,7 +33146,6 @@ class Ospf(Entity):
                                         ('packet_size', (YLeaf(YType.uint32, 'packet-size'), ['int'])),
                                         ('database_filter', (YLeaf(YType.boolean, 'database-filter'), ['bool'])),
                                         ('retransmit_interval', (YLeaf(YType.uint32, 'retransmit-interval'), ['int'])),
-                                        ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                                     ])
                                     self.interface_name = None
                                     self.cost = None
@@ -32630,7 +33156,6 @@ class Ospf(Entity):
                                     self.packet_size = None
                                     self.database_filter = None
                                     self.retransmit_interval = None
-                                    self.running = None
 
                                     self.distribute_list = None
                                     self._children_name_map["distribute_list"] = "distribute-list"
@@ -32658,7 +33183,7 @@ class Ospf(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, ['interface_name', 'cost', 'mtu_ignore', 'hello_interval', 'passive', 'transmit_delay', 'packet_size', 'database_filter', 'retransmit_interval', 'running'], name, value)
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope, ['interface_name', 'cost', 'mtu_ignore', 'hello_interval', 'passive', 'transmit_delay', 'packet_size', 'database_filter', 'retransmit_interval'], name, value)
 
 
                                 class DistributeList(Entity):
@@ -32683,7 +33208,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList, self).__init__()
@@ -32735,7 +33260,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication, self).__init__()
@@ -32789,7 +33314,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type, self).__init__()
@@ -32831,7 +33356,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys, self).__init__()
@@ -32878,7 +33403,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys.MessageDigestKey, self).__init__()
@@ -32919,7 +33444,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors, self).__init__()
@@ -32993,7 +33518,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor, self).__init__()
@@ -33050,7 +33575,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal, self).__init__()
@@ -33099,7 +33624,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute, self).__init__()
@@ -33155,7 +33680,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink, self).__init__()
@@ -33200,7 +33725,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -33237,7 +33762,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -33276,7 +33801,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -33314,7 +33839,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -33380,7 +33905,7 @@ class Ospf(Entity):
                                         """
 
                                         _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2018-01-31'
+                                        _revision = '2018-05-14'
 
                                         def __init__(self):
                                             super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix, self).__init__()
@@ -33441,7 +33966,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa, self).__init__()
@@ -33480,7 +34005,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -33524,7 +34049,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -33565,7 +34090,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -33602,7 +34127,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -33641,7 +34166,7 @@ class Ospf(Entity):
                                             """
 
                                             _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2018-01-31'
+                                            _revision = '2018-05-14'
 
                                             def __init__(self):
                                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -33679,7 +34204,7 @@ class Ospf(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2018-01-31'
+                                                _revision = '2018-05-14'
 
                                                 def __init__(self):
                                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -33728,7 +34253,7 @@ class Ospf(Entity):
                                     """
 
                                     _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2018-01-31'
+                                    _revision = '2018-05-14'
 
                                     def __init__(self):
                                         super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback, self).__init__()
@@ -33770,7 +34295,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges, self).__init__()
@@ -33819,7 +34344,7 @@ class Ospf(Entity):
                                 """
 
                                 _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2018-01-31'
+                                _revision = '2018-05-14'
 
                                 def __init__(self):
                                     super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges.AreaRange, self).__init__()
@@ -33891,7 +34416,7 @@ class Ospf(Entity):
                             """
 
                             _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2018-01-31'
+                            _revision = '2018-05-14'
 
                             def __init__(self):
                                 super(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
@@ -33996,7 +34521,7 @@ class Ospf(Entity):
                     """
 
                     _prefix = 'ipv4-ospf-cfg'
-                    _revision = '2018-01-31'
+                    _revision = '2018-05-14'
 
                     def __init__(self):
                         super(Ospf.Processes.Process.DefaultVrf.Timers, self).__init__()
@@ -34076,7 +34601,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.Timers.SpfTimer, self).__init__()
@@ -34145,7 +34670,7 @@ class Ospf(Entity):
                         """
 
                         _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2018-01-31'
+                        _revision = '2018-05-14'
 
                         def __init__(self):
                             super(Ospf.Processes.Process.DefaultVrf.Timers.LsaGenerationTimer, self).__init__()
@@ -34190,7 +34715,7 @@ class Ospf(Entity):
         """
 
         _prefix = 'ipv4-ospf-cfg'
-        _revision = '2018-01-31'
+        _revision = '2018-05-14'
 
         def __init__(self):
             super(Ospf.Global, self).__init__()

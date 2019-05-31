@@ -240,10 +240,10 @@ class Aaa(Entity):
     	
     	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.Authorization>`
     
-    .. attribute:: tailf_aaa_accounting
+    .. attribute:: accounting
     
     	
-    	**type**\:  :py:class:`TailfAaaAccounting <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.TailfAaaAccounting>`
+    	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.Accounting>`
     
     .. attribute:: ios
     
@@ -252,11 +252,6 @@ class Aaa(Entity):
     
     	**presence node**\: True
     
-    .. attribute:: disaster_recovery
-    
-    	
-    	**type**\:  :py:class:`DisasterRecovery <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.DisasterRecovery>`
-    
     .. attribute:: privileged_access
     
     	
@@ -264,7 +259,7 @@ class Aaa(Entity):
     
     	**config**\: False
     
-    .. attribute:: cisco_ios_xr_sysadmin_aaa_aaa_show_accounting_
+    .. attribute:: cisco_ios_xr_sysadmin_aaa_aaa_show_accounting
     
     	
     	**type**\:  :py:class:`CiscoIOSXRSysadminAaaAaaShowAccounting <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting>`
@@ -277,6 +272,11 @@ class Aaa(Entity):
     	**type**\:  :py:class:`UserGroup <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.UserGroup>`
     
     	**config**\: False
+    
+    .. attribute:: disaster_recovery
+    
+    	
+    	**type**\:  :py:class:`DisasterRecovery <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.DisasterRecovery>`
     
     
 
@@ -294,7 +294,7 @@ class Aaa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("authentication", ("authentication", Aaa.Authentication)), ("authorization", ("authorization", Aaa.Authorization)), ("accounting", ("tailf_aaa_accounting", Aaa.TailfAaaAccounting)), ("ios", ("ios", Aaa.Ios)), ("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", ("disaster_recovery", Aaa.DisasterRecovery)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", ("privileged_access", Aaa.PrivilegedAccess)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", ("cisco_ios_xr_sysadmin_aaa_aaa_show_accounting_", Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", ("user_group", Aaa.UserGroup))])
+        self._child_classes = OrderedDict([("authentication", ("authentication", Aaa.Authentication)), ("authorization", ("authorization", Aaa.Authorization)), ("accounting", ("accounting", Aaa.Accounting)), ("ios", ("ios", Aaa.Ios)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", ("privileged_access", Aaa.PrivilegedAccess)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", ("cisco_ios_xr_sysadmin_aaa_aaa_show_accounting", Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", ("user_group", Aaa.UserGroup)), ("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", ("disaster_recovery", Aaa.DisasterRecovery))])
         self._leafs = OrderedDict()
 
         self.authentication = Aaa.Authentication()
@@ -305,28 +305,28 @@ class Aaa(Entity):
         self.authorization.parent = self
         self._children_name_map["authorization"] = "authorization"
 
-        self.tailf_aaa_accounting = Aaa.TailfAaaAccounting()
-        self.tailf_aaa_accounting.parent = self
-        self._children_name_map["tailf_aaa_accounting"] = "accounting"
+        self.accounting = Aaa.Accounting()
+        self.accounting.parent = self
+        self._children_name_map["accounting"] = "accounting"
 
         self.ios = None
         self._children_name_map["ios"] = "ios"
-
-        self.disaster_recovery = Aaa.DisasterRecovery()
-        self.disaster_recovery.parent = self
-        self._children_name_map["disaster_recovery"] = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
 
         self.privileged_access = Aaa.PrivilegedAccess()
         self.privileged_access.parent = self
         self._children_name_map["privileged_access"] = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access"
 
-        self.cisco_ios_xr_sysadmin_aaa_aaa_show_accounting_ = Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting()
-        self.cisco_ios_xr_sysadmin_aaa_aaa_show_accounting_.parent = self
-        self._children_name_map["cisco_ios_xr_sysadmin_aaa_aaa_show_accounting_"] = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting"
+        self.cisco_ios_xr_sysadmin_aaa_aaa_show_accounting = Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting()
+        self.cisco_ios_xr_sysadmin_aaa_aaa_show_accounting.parent = self
+        self._children_name_map["cisco_ios_xr_sysadmin_aaa_aaa_show_accounting"] = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting"
 
         self.user_group = Aaa.UserGroup()
         self.user_group.parent = self
         self._children_name_map["user_group"] = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group"
+
+        self.disaster_recovery = Aaa.DisasterRecovery()
+        self.disaster_recovery.parent = self
+        self._children_name_map["disaster_recovery"] = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
         self._segment_path = lambda: "tailf-aaa:aaa"
         self._is_frozen = True
 
@@ -509,7 +509,7 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authentication.Users.User, [u'name', u'uid', u'gid', u'password', u'ssh_keydir', u'homedir'], name, value)
+                    self._perform_setattr(Aaa.Authentication.Users.User, ['name', 'uid', 'gid', 'password', 'ssh_keydir', 'homedir'], name, value)
 
 
 
@@ -604,7 +604,7 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authentication.Groups.Group, [u'name', u'gid', u'users'], name, value)
+                    self._perform_setattr(Aaa.Authentication.Groups.Group, ['name', 'gid', 'users'], name, value)
 
 
 
@@ -681,7 +681,7 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authentication.Login.Group, [u'tacacs'], name, value)
+                    self._perform_setattr(Aaa.Authentication.Login.Group, ['tacacs'], name, value)
 
 
 
@@ -860,7 +860,7 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authorization.Cmdrules.Cmdrule, [u'index', u'context', u'command', u'group', u'ops', u'action'], name, value)
+                    self._perform_setattr(Aaa.Authorization.Cmdrules.Cmdrule, ['index', 'context', 'command', 'group', 'ops', 'action'], name, value)
 
 
 
@@ -991,7 +991,7 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authorization.Datarules.Datarule, [u'index', u'namespace', u'context', u'keypath', u'group', u'ops', u'action'], name, value)
+                    self._perform_setattr(Aaa.Authorization.Datarules.Datarule, ['index', 'namespace', 'context', 'keypath', 'group', 'ops', 'action'], name, value)
 
 
 
@@ -1075,20 +1075,20 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Authorization.Commands.Group, [u'tacacs', u'none'], name, value)
+                    self._perform_setattr(Aaa.Authorization.Commands.Group, ['tacacs', 'none'], name, value)
 
 
 
 
 
-    class TailfAaaAccounting(Entity):
+    class Accounting(Entity):
         """
         
         
         .. attribute:: commands
         
         	
-        	**type**\:  :py:class:`Commands <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.TailfAaaAccounting.Commands>`
+        	**type**\:  :py:class:`Commands <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.Accounting.Commands>`
         
         
 
@@ -1098,17 +1098,17 @@ class Aaa(Entity):
         _revision = '2011-09-22'
 
         def __init__(self):
-            super(Aaa.TailfAaaAccounting, self).__init__()
+            super(Aaa.Accounting, self).__init__()
 
             self.yang_name = "accounting"
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("commands", ("commands", Aaa.TailfAaaAccounting.Commands))])
+            self._child_classes = OrderedDict([("commands", ("commands", Aaa.Accounting.Commands))])
             self._leafs = OrderedDict()
 
-            self.commands = Aaa.TailfAaaAccounting.Commands()
+            self.commands = Aaa.Accounting.Commands()
             self.commands.parent = self
             self._children_name_map["commands"] = "commands"
             self._segment_path = lambda: "accounting"
@@ -1116,7 +1116,7 @@ class Aaa(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Aaa.TailfAaaAccounting, [], name, value)
+            self._perform_setattr(Aaa.Accounting, [], name, value)
 
 
         class Commands(Entity):
@@ -1126,7 +1126,7 @@ class Aaa(Entity):
             .. attribute:: group
             
             	
-            	**type**\:  :py:class:`Group <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.TailfAaaAccounting.Commands.Group>`
+            	**type**\:  :py:class:`Group <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.Accounting.Commands.Group>`
             
             
 
@@ -1136,17 +1136,17 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.TailfAaaAccounting.Commands, self).__init__()
+                super(Aaa.Accounting.Commands, self).__init__()
 
                 self.yang_name = "commands"
                 self.yang_parent_name = "accounting"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("group", ("group", Aaa.TailfAaaAccounting.Commands.Group))])
+                self._child_classes = OrderedDict([("group", ("group", Aaa.Accounting.Commands.Group))])
                 self._leafs = OrderedDict()
 
-                self.group = Aaa.TailfAaaAccounting.Commands.Group()
+                self.group = Aaa.Accounting.Commands.Group()
                 self.group.parent = self
                 self._children_name_map["group"] = "group"
                 self._segment_path = lambda: "commands"
@@ -1154,7 +1154,7 @@ class Aaa(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.TailfAaaAccounting.Commands, [], name, value)
+                self._perform_setattr(Aaa.Accounting.Commands, [], name, value)
 
 
             class Group(Entity):
@@ -1174,7 +1174,7 @@ class Aaa(Entity):
                 _revision = '2011-09-22'
 
                 def __init__(self):
-                    super(Aaa.TailfAaaAccounting.Commands.Group, self).__init__()
+                    super(Aaa.Accounting.Commands.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "commands"
@@ -1191,7 +1191,7 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.TailfAaaAccounting.Commands.Group, [u'tacacs'], name, value)
+                    self._perform_setattr(Aaa.Accounting.Commands.Group, ['tacacs'], name, value)
 
 
 
@@ -1301,7 +1301,7 @@ class Aaa(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Ios.Level, [u'nr', u'secret', u'password', u'prompt'], name, value)
+                self._perform_setattr(Aaa.Ios.Level, ['nr', 'secret', 'password', 'prompt'], name, value)
 
 
 
@@ -1350,7 +1350,7 @@ class Aaa(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Ios.Privilege, [u'mode'], name, value)
+                self._perform_setattr(Aaa.Ios.Privilege, ['mode'], name, value)
 
 
             class Level(Entity):
@@ -1395,7 +1395,7 @@ class Aaa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Ios.Privilege.Level, [u'nr'], name, value)
+                    self._perform_setattr(Aaa.Ios.Privilege.Level, ['nr'], name, value)
 
 
                 class Command(Entity):
@@ -1431,57 +1431,10 @@ class Aaa(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Ios.Privilege.Level.Command, [u'name'], name, value)
+                        self._perform_setattr(Aaa.Ios.Privilege.Level.Command, ['name'], name, value)
 
 
 
-
-
-
-    class DisasterRecovery(Entity):
-        """
-        
-        
-        .. attribute:: username
-        
-        	
-        	**type**\: str
-        
-        	**refers to**\:  :py:class:`name <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.Authentication.Users.User>`
-        
-        .. attribute:: password
-        
-        	
-        	**type**\: str
-        
-        
-
-        """
-
-        _prefix = 'disaster-recovery'
-        _revision = '2017-05-10'
-
-        def __init__(self):
-            super(Aaa.DisasterRecovery, self).__init__()
-
-            self.yang_name = "disaster-recovery"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('username', (YLeaf(YType.str, 'username'), ['str'])),
-                ('password', (YLeaf(YType.str, 'password'), ['str'])),
-            ])
-            self.username = None
-            self.password = None
-            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
-            self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Aaa.DisasterRecovery, ['username', 'password'], name, value)
 
 
 
@@ -1631,6 +1584,53 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.UserGroup, ['grp_data'], name, value)
 
 
+
+    class DisasterRecovery(Entity):
+        """
+        
+        
+        .. attribute:: username
+        
+        	
+        	**type**\: str
+        
+        	**refers to**\:  :py:class:`name <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.Authentication.Users.User>`
+        
+        .. attribute:: password
+        
+        	
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'disaster-recovery'
+        _revision = '2017-05-10'
+
+        def __init__(self):
+            super(Aaa.DisasterRecovery, self).__init__()
+
+            self.yang_name = "disaster-recovery"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                ('password', (YLeaf(YType.str, 'password'), ['str'])),
+            ])
+            self.username = None
+            self.password = None
+            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
+            self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.DisasterRecovery, ['username', 'password'], name, value)
+
+
     def clone_ptr(self):
         self._top_entity = Aaa()
         return self._top_entity
@@ -1680,7 +1680,7 @@ class Alias(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Alias, [u'name', u'expansion'], name, value)
+        self._perform_setattr(Alias, ['name', 'expansion'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Alias()
@@ -1794,7 +1794,7 @@ class Session(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Session, [u'complete_on_space', u'ignore_leading_space', u'idle_timeout', u'paginate', u'history', u'autowizard', u'show_defaults', u'display_level', u'prompt1', u'prompt2'], name, value)
+        self._perform_setattr(Session, ['complete_on_space', 'ignore_leading_space', 'idle_timeout', 'paginate', 'history', 'autowizard', 'show_defaults', 'display_level', 'prompt1', 'prompt2'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Session()
@@ -1859,7 +1859,7 @@ class User(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(User, [u'name', u'description'], name, value)
+        self._perform_setattr(User, ['name', 'description'], name, value)
 
 
     class Alias(Entity):
@@ -1904,7 +1904,7 @@ class User(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(User.Alias, [u'name', u'expansion'], name, value)
+            self._perform_setattr(User.Alias, ['name', 'expansion'], name, value)
 
 
 
@@ -2010,7 +2010,7 @@ class User(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(User.Session, [u'complete_on_space', u'ignore_leading_space', u'idle_timeout', u'paginate', u'history', u'autowizard', u'show_defaults', u'display_level', u'prompt1', u'prompt2'], name, value)
+            self._perform_setattr(User.Session, ['complete_on_space', 'ignore_leading_space', 'idle_timeout', 'paginate', 'history', 'autowizard', 'show_defaults', 'display_level', 'prompt1', 'prompt2'], name, value)
 
 
     def clone_ptr(self):

@@ -6,10 +6,10 @@ module Cisco-IOS-XR-ipv4-io-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-io-oper-sub2 {
-    revision-date 2015-10-20;
+    revision-date 2018-08-01;
   }
   include Cisco-IOS-XR-ipv4-io-oper-sub1 {
-    revision-date 2015-10-20;
+    revision-date 2018-08-01;
   }
 
   organization
@@ -35,6 +35,10 @@ module Cisco-IOS-XR-ipv4-io-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2015-10-20 {
     description
       "this schema file has all the latest changes.";

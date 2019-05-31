@@ -5,9 +5,6 @@ module Cisco-IOS-XR-atm-vcm-oper {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
-  import Cisco-IOS-XR-atm-common-datatypes {
-    prefix dt1;
-  }
   include Cisco-IOS-XR-atm-vcm-oper-sub4 {
     revision-date 2017-09-07;
   }

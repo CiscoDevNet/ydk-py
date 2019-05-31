@@ -39,38 +39,6 @@ class Marking(ActionType):
 
 
 
-class DropType(Identity):
-    """
-    drop algorithm
-    
-    
-
-    """
-
-    _prefix = 'action'
-    _revision = '2015-04-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:drop-type"):
-        super(DropType, self).__init__(ns, pref, tag)
-
-
-
-class MinRate(ActionType):
-    """
-    min\-rate action type
-    
-    
-
-    """
-
-    _prefix = 'action'
-    _revision = '2015-04-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:min-rate"):
-        super(MinRate, self).__init__(ns, pref, tag)
-
-
-
 class Meter(ActionType):
     """
     meter action type
@@ -103,6 +71,22 @@ class Priority(ActionType):
 
 
 
+class MinRate(ActionType):
+    """
+    min\-rate action type
+    
+    
+
+    """
+
+    _prefix = 'action'
+    _revision = '2015-04-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:min-rate"):
+        super(MinRate, self).__init__(ns, pref, tag)
+
+
+
 class MaxRate(ActionType):
     """
     max\-rate action type
@@ -119,22 +103,6 @@ class MaxRate(ActionType):
 
 
 
-class MeterActionType(Identity):
-    """
-    action type in a meter
-    
-    
-
-    """
-
-    _prefix = 'action'
-    _revision = '2015-04-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter-action-type"):
-        super(MeterActionType, self).__init__(ns, pref, tag)
-
-
-
 class AlgorithmicDrop(ActionType):
     """
     algorithmic\-drop action type
@@ -148,6 +116,38 @@ class AlgorithmicDrop(ActionType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:algorithmic-drop"):
         super(AlgorithmicDrop, self).__init__(ns, pref, tag)
+
+
+
+class DropType(Identity):
+    """
+    drop algorithm
+    
+    
+
+    """
+
+    _prefix = 'action'
+    _revision = '2015-04-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:drop-type"):
+        super(DropType, self).__init__(ns, pref, tag)
+
+
+
+class MeterActionType(Identity):
+    """
+    action type in a meter
+    
+    
+
+    """
+
+    _prefix = 'action'
+    _revision = '2015-04-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter-action-type"):
+        super(MeterActionType, self).__init__(ns, pref, tag)
 
 
 
@@ -183,6 +183,22 @@ class TailDrop(DropType):
 
 
 
+class RandomDetect(DropType):
+    """
+    random detect algorithm
+    
+    
+
+    """
+
+    _prefix = 'action'
+    _revision = '2015-04-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:random-detect"):
+        super(RandomDetect, self).__init__(ns, pref, tag)
+
+
+
 class MeterActionDrop(MeterActionType):
     """
     drop action type in a meter
@@ -212,22 +228,6 @@ class MeterActionSet(MeterActionType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter-action-set"):
         super(MeterActionSet, self).__init__(ns, pref, tag)
-
-
-
-class RandomDetect(DropType):
-    """
-    random detect algorithm
-    
-    
-
-    """
-
-    _prefix = 'action'
-    _revision = '2015-04-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:random-detect"):
-        super(RandomDetect, self).__init__(ns, pref, tag)
 
 
 

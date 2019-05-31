@@ -39,6 +39,10 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-05-14 {
+    description
+      "Removed all start and running leaf nodes that are implicitly set with CLI";
+  }
   revision 2018-01-31 {
     description
       "Fixed incorrect plural rendering.";
@@ -1241,18 +1245,6 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
     }
   }
 
-  grouping RUNNING {
-    description
-      "Common node of process, area, name-scope,
-       virtual-link-scope, sham-link-scope,
-       multi-area-interface-scope";
-    leaf running {
-      type empty;
-      description
-        "Enable routing on an IP network";
-    }
-  }
-
   grouping TRANSMIT-DELAY {
     description
       "Common node of process-scope, area-scope,
@@ -1378,7 +1370,6 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             uses TRANSMIT-DELAY;
             uses DEAD-INTERVAL-MINIMAL;
             uses RETRANSMIT-INTERVAL;
-            uses RUNNING;
           }
         }
         container sham-link-scopes {
@@ -1410,7 +1401,6 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             uses TRANSMIT-DELAY;
             uses DEAD-INTERVAL-MINIMAL;
             uses RETRANSMIT-INTERVAL;
-            uses RUNNING;
           }
         }
         container area-scope {
@@ -1419,6 +1409,7 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
           uses DISTRIBUTE-LIST;
           uses COST;
           uses BFD;
+          uses WEIGHT;
           uses PREFIX-SUPPRESSION-PRIMARY;
           uses MTU-IGNORE;
           uses AUTHENTICATION;
@@ -1451,6 +1442,39 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             key "interface-name";
             description
               "Name scope configuration";
+            container adjacency-sids {
+              description
+                "Configured Adjacency SID information";
+              list adjacency-sid {
+                key "sid-type sid-value";
+                description
+                  "Configured Adjacency SID";
+                leaf sid-type {
+                  type Ospf-sid;
+                  description
+                    "OSPF Adj SID Type";
+                }
+                leaf sid-value {
+                  type uint32 {
+                    range "0..1048575";
+                  }
+                  description
+                    "SID Value";
+                }
+                leaf protected {
+                  type boolean;
+                  default "false";
+                  description
+                    "Adj SID eligible for protection";
+                }
+                leaf neighbor-address {
+                  type inet:ipv4-address-no-zone;
+                  default "0.0.0.0";
+                  description
+                    "Neighbor IP address";
+                }
+              }
+            }
             container prefix-sid {
               presence "Indicates a prefix-sid node is configured.";
               description
@@ -1523,6 +1547,7 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             uses DISTRIBUTE-LIST;
             uses COST;
             uses BFD;
+            uses WEIGHT;
             uses PREFIX-SUPPRESSION-PRIMARY;
             uses MTU-IGNORE;
             uses AUTHENTICATION;
@@ -1548,7 +1573,6 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             uses IPV4-OSPF-CFG-PRIORITY;
             uses FLOOD-REDUCTION;
             uses COST-FALLBACK;
-            uses RUNNING;
           }
         }
         container multi-area-interface-scopes {
@@ -1577,7 +1601,6 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             uses IPV4-OSPF-FRR-CFG-FAST-REROUTE;
             uses RETRANSMIT-INTERVAL;
             uses COST-FALLBACK;
-            uses RUNNING;
           }
         }
         container area-ranges {
@@ -1682,7 +1705,6 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
         uses EXTERNAL-OUT;
         uses SUMMARY-IN;
         uses SEGMENT-ROUTING;
-        uses RUNNING;
       }
       list area-address {
         key "address";
@@ -1869,6 +1891,19 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
       type Ospf-network;
       description
         "Type of attached network";
+    }
+  }
+
+  grouping WEIGHT {
+    description
+      "Common node of process-scope, area-scope,
+       name-scope";
+    leaf weight {
+      type uint32 {
+        range "1..16777214";
+      }
+      description
+        "Interface weight";
     }
   }
 
@@ -2855,6 +2890,7 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
       uses DISTRIBUTE-LIST;
       uses COST;
       uses BFD;
+      uses WEIGHT;
       uses EXTERNAL-OUT;
       uses PREFIX-SUPPRESSION-PRIMARY;
       uses MTU-IGNORE;
@@ -2990,6 +3026,42 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
       default "false";
       description
         "Enable/Disable ignoring of MTU in DBD packets";
+    }
+  }
+
+  grouping APPLY-WEIGHT {
+    description
+      "Common node of default-vrf, vrf";
+    container apply-weight {
+      presence "Indicates a apply-weight node is configured.";
+      description
+        "Apply weights feature enable configuration";
+      leaf bandwidth {
+        type boolean;
+        mandatory true;
+        description
+          "Use interface bandwidth when calculating
+           weights";
+      }
+      leaf reference-bandwidth {
+        type uint32 {
+          range "1..4294967";
+        }
+        units "Mbit/s";
+        default "100";
+        description
+          "Reference bandwidth to use for calculation
+           (Mbits/sec)";
+      }
+      leaf default-weight {
+        type uint32 {
+          range "1..16777214";
+        }
+        default "1";
+        description
+          "Default weight to use when weight not
+           configured under interface";
+      }
     }
   }
 
@@ -3171,7 +3243,7 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             range "0..65535";
           }
           description
-            "First half of BGP AS number in XX.YY format.
+            "First half of BGP AS number in XX.YY format. 
              Mandatory if Protocol is BGP and must not be
              specified otherwise. Must be a non-zero value
              if second half is zero.";
@@ -3596,11 +3668,6 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
                 }
               }
             }
-            leaf vrf-start {
-              type empty;
-              description
-                "Start OSPF VRF configuration";
-            }
             leaf snmp-trap-enabled {
               type boolean;
               default "false";
@@ -3649,6 +3716,7 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             uses MAX-LSA;
             uses AUTO-COST;
             uses UCMP;
+            uses APPLY-WEIGHT;
             uses MAXIMUM-PATHS;
             uses FAST-REROUTE;
             uses SUMMARY-PREFIX-TABLE;
@@ -3837,6 +3905,7 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
           uses MAX-LSA;
           uses AUTO-COST;
           uses UCMP;
+          uses APPLY-WEIGHT;
           uses MAXIMUM-PATHS;
           uses FAST-REROUTE;
           uses SUMMARY-PREFIX-TABLE;
@@ -3846,11 +3915,6 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
           uses AREA-TABLE;
           uses TIMERS;
           uses DEFAULT-METRIC;
-        }
-        leaf start {
-          type empty;
-          description
-            "Start OSPF configuration";
         }
         leaf nsr {
           type Nsr;
@@ -3870,7 +3934,6 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
           description
             "Name for this OSPF process";
         }
-        uses RUNNING;
       }
     }
     container global {

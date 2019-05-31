@@ -503,7 +503,7 @@ class DRAFTMSDPMIB(Entity):
             	Time interval in seconds for the Hold Timer configured for this MSDP speaker with this peer
             	**type**\: int
             
-            	**range:** 0..None \| 3..65535
+            	**range:** 0..0 \| 3..65535
             
             	**config**\: False
             
@@ -607,7 +607,7 @@ class DRAFTMSDPMIB(Entity):
             	The last error code and subcode seen by this peer on this connection.  If no error has occurred, this field is zero.  Otherwise, the first byte of this two byte OCTET STRING contains the error code, and the second byte contains the subcode
             	**type**\: str
             
-            	**length:** 2
+            	**length:** 2..2
             
             	**config**\: False
             

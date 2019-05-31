@@ -1278,7 +1278,7 @@ class CISCOIPSECMIB(Entity):
             	The IP address of the current peer associated with  this IPSec policy item. Traffic that is protected by this cryptomap is protected by a tunnel that terminates at the device whose IP address is specified by this object
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -1303,7 +1303,7 @@ class CISCOIPSECMIB(Entity):
             	This object identifies the lifetime of the IPSec Security Associations (SA) created using this IPSec policy entry. If this value is zero, the lifetime assumes the  value specified by the global lifetime parameter
             	**type**\: int
             
-            	**range:** 0..None \| 120..86400
+            	**range:** 0..0 \| 120..86400
             
             	**config**\: False
             
@@ -1312,7 +1312,7 @@ class CISCOIPSECMIB(Entity):
             	This object identifies the lifesize (maximum traffic in bytes that may be carried) of the IPSec SAs created using this IPSec policy entry.  If this value is zero, the lifetime assumes the  value specified by the global lifesize parameter
             	**type**\: int
             
-            	**range:** 0..None \| 2560..536870912
+            	**range:** 0..0 \| 2560..536870912
             
             	**config**\: False
             

@@ -560,7 +560,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', u'pool_name', u'vrf_name', u'allocated_addresses', u'free_addresses', u'excluded_addresses', u'network_blocked_status', u'network_blocked_status_trp'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'pool_name', 'vrf_name', 'allocated_addresses', 'free_addresses', 'excluded_addresses', 'network_blocked_status', 'network_blocked_status_trp'], name, value)
 
 
                             class StartAddressXr(Entity):
@@ -659,7 +659,7 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -760,7 +760,7 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -861,7 +861,7 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1040,7 +1040,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, [u'vrf_name', u'used', u'excluded', u'free', u'total', u'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, ['vrf_name', 'used', 'excluded', 'free', 'total', 'utilization'], name, value)
 
 
                             class HighThreshold(Entity):
@@ -1102,7 +1102,7 @@ class AddressPoolService(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, [u'threshold', u'triggers', u'time_last_crossed'], name, value)
+                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
 
 
 
@@ -1165,7 +1165,7 @@ class AddressPoolService(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, [u'threshold', u'triggers', u'time_last_crossed'], name, value)
+                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
 
 
 
@@ -1251,7 +1251,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, [u'used', u'excluded', u'free'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, ['used', 'excluded', 'free'], name, value)
 
 
                             class StartAddress(Entity):
@@ -1350,7 +1350,7 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1451,7 +1451,7 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1503,7 +1503,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress, [u'client_type'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress, ['client_type'], name, value)
 
 
                             class Address(Entity):
@@ -1602,7 +1602,7 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
 
@@ -1756,7 +1756,7 @@ class AddressPoolService(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, [u'pool_name', u'pool_id', u'vrf_name', u'pool_scope', u'pool_prefix_length', u'high_utilization_mark', u'low_utilization_mark', u'current_utilization', u'utilization_high_count', u'utilization_low_count'], name, value)
+                            self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, ['pool_name', 'pool_id', 'vrf_name', 'pool_scope', 'pool_prefix_length', 'high_utilization_mark', 'low_utilization_mark', 'current_utilization', 'utilization_high_count', 'utilization_low_count'], name, value)
 
 
                         class SergInfo(Entity):
@@ -1812,7 +1812,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo, [u'preferred_role', u'peer_down', u'verify_pend'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo, ['preferred_role', 'peer_down', 'verify_pend'], name, value)
 
 
 
@@ -1878,7 +1878,7 @@ class AddressPoolService(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AddressPoolService.Nodes.Node.TotalUtilization, [u'total_utilization_high_mark', u'total_utilization_low_mark', u'current_total_utilization'], name, value)
+                    self._perform_setattr(AddressPoolService.Nodes.Node.TotalUtilization, ['total_utilization_high_mark', 'total_utilization_low_mark', 'current_total_utilization'], name, value)
 
 
 
@@ -2138,7 +2138,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, [u'used', u'excluded', u'free', u'total', u'high_utilization_threshold', u'low_utilization_threshold', u'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
 
 
 
@@ -2234,7 +2234,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, [u'pool_name', u'vrf_name', u'used', u'excluded', u'free', u'total'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
 
 
 
@@ -2396,7 +2396,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, [u'used', u'excluded', u'free', u'total', u'high_utilization_threshold', u'low_utilization_threshold', u'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
 
 
 
@@ -2492,7 +2492,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, [u'pool_name', u'vrf_name', u'used', u'excluded', u'free', u'total'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
 
 
 

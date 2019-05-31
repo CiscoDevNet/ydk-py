@@ -30,7 +30,7 @@ module Cisco-IOS-XR-asr9k-qos-oper {
      
      This module contains definitions
      for the following management objects:
-       platform-qos: QoS ASR9K platform operational data
+       platform-qos: QoS ASR9K platform operational data 
      
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";

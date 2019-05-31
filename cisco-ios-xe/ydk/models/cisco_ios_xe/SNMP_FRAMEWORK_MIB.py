@@ -61,23 +61,6 @@ class SnmpSecurityLevel(Enum):
 
 
 
-class SnmpPrivProtocols(ObjectIdentity):
-    """
-    Registration point for standards\-track privacy
-    protocols used in SNMP Management Frameworks.
-    
-    
-
-    """
-
-    _prefix = 'SNMP-FRAMEWORK-MIB'
-    _revision = '2002-10-14'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", pref="SNMP-FRAMEWORK-MIB", tag="SNMP-FRAMEWORK-MIB:snmpPrivProtocols"):
-        super(SnmpPrivProtocols, self).__init__(ns, pref, tag)
-
-
-
 class SnmpAuthProtocols(ObjectIdentity):
     """
     Registration point for standards\-track
@@ -93,6 +76,23 @@ class SnmpAuthProtocols(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", pref="SNMP-FRAMEWORK-MIB", tag="SNMP-FRAMEWORK-MIB:snmpAuthProtocols"):
         super(SnmpAuthProtocols, self).__init__(ns, pref, tag)
+
+
+
+class SnmpPrivProtocols(ObjectIdentity):
+    """
+    Registration point for standards\-track privacy
+    protocols used in SNMP Management Frameworks.
+    
+    
+
+    """
+
+    _prefix = 'SNMP-FRAMEWORK-MIB'
+    _revision = '2002-10-14'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", pref="SNMP-FRAMEWORK-MIB", tag="SNMP-FRAMEWORK-MIB:snmpPrivProtocols"):
+        super(SnmpPrivProtocols, self).__init__(ns, pref, tag)
 
 
 
@@ -209,7 +209,7 @@ class SNMPFRAMEWORKMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, [u'snmpengineid', u'snmpengineboots', u'snmpenginetime', u'snmpenginemaxmessagesize'], name, value)
+            self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, ['snmpengineid', 'snmpengineboots', 'snmpenginetime', 'snmpenginemaxmessagesize'], name, value)
 
 
     def clone_ptr(self):

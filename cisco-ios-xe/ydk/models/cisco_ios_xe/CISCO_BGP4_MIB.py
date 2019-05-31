@@ -1259,7 +1259,7 @@ class CISCOBGP4MIB(Entity):
             	The last error code and subcode seen by this peer on this connection.  If no error has occurred, this field is zero.  Otherwise, the first byte of this two byte OCTET STRING contains the error code, and the second byte contains the subcode
             	**type**\: str
             
-            	**length:** 2
+            	**length:** 2..2
             
             	**config**\: False
             
@@ -1299,7 +1299,7 @@ class CISCOBGP4MIB(Entity):
             	Time interval (in seconds) for the Hold Timer established with the peer.  The value of this object is calculated by this BGP speaker, using the smaller of the values in cbgpPeer2HoldTimeConfigured and the Hold Time received in the OPEN message.  This value must be at least three seconds if it is not zero (0).  If the Hold Timer has not been established with the peer this object MUST have a value of zero (0).  If the cbgpPeer2HoldTimeConfigured object has a value of (0), then this object MUST have a value of (0)
             	**type**\: int
             
-            	**range:** 0..None \| 3..65535
+            	**range:** 0..0 \| 3..65535
             
             	**config**\: False
             
@@ -1321,7 +1321,7 @@ class CISCOBGP4MIB(Entity):
             	Time interval (in seconds) for the Hold Time configured for this BGP speaker with this peer.  This value is placed in an OPEN message sent to this peer by this BGP speaker, and is compared with the Hold Time field in an OPEN message received from the peer when determining the Hold Time (cbgpPeer2HoldTime) with the peer. This value must not be less than three seconds if it is not zero (0).  If it is zero (0), the Hold Time is NOT to be established with the peer.  The suggested value for this timer is 90 seconds
             	**type**\: int
             
-            	**range:** 0..None \| 3..65535
+            	**range:** 0..0 \| 3..65535
             
             	**config**\: False
             

@@ -208,13 +208,28 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         description
           "100GBASE PL";
       }
-      enum "optics-eth-100gbase-srbd" {
+      enum "optics-eth-400gbase-fr4" {
         value 29;
+        description
+          "400GBASE FR4";
+      }
+      enum "optics-eth-400gbase-dr4" {
+        value 30;
+        description
+          "400GBASE DR4";
+      }
+      enum "optics-eth-400gbase-cr8" {
+        value 31;
+        description
+          "400GBASE CR8";
+      }
+      enum "optics-eth-100gbase-srbd" {
+        value 32;
         description
           "100GBASE SRBD";
       }
       enum "optics-eth-undefined" {
-        value 30;
+        value 33;
         description
           "Eth Undefined";
       }
@@ -818,8 +833,38 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         description
           "OneGig CSFP optics";
       }
-      enum "short-reach-bd" {
+      enum "four-hundred-gig-fr4-four-lanes" {
         value 67;
+        description
+          "400G FR4";
+      }
+      enum "four-hundred-gig-dr4-four-lanes" {
+        value 68;
+        description
+          "400G DR4";
+      }
+      enum "four-x-hundred-gig-fr-four-lanes" {
+        value 69;
+        description
+          "4x100G FR breakout";
+      }
+      enum "four-hundred-gig-aoc-four-lanes" {
+        value 70;
+        description
+          "400G AOC";
+      }
+      enum "four-hundred-gig-cu-four-lanes" {
+        value 71;
+        description
+          "400G Copper cable";
+      }
+      enum "eight-x-fifty-gig-cu-four-lanes" {
+        value 72;
+        description
+          "8x50G Copper breakout";
+      }
+      enum "short-reach-bd" {
+        value 73;
         description
           "Short reach Bi-Directional";
       }
@@ -910,13 +955,18 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         description
           "X2";
       }
-      enum "non-pluggable" {
+      enum "qsfpdd" {
         value 16;
+        description
+          "QSFP DD";
+      }
+      enum "non-pluggable" {
+        value 17;
         description
           "Non pluggable";
       }
       enum "other" {
-        value 17;
+        value 18;
         description
           "Other";
       }
@@ -991,6 +1041,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
 
   typedef Optics-modulation {
     type enumeration {
+      enum "mod-none" {
+        value 0;
+        description
+          "NONE";
+      }
       enum "mod-bpsk" {
         value 1;
         description
@@ -2816,6 +2871,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       description
         "rx config val";
     }
+    leaf rx-thr-fail-low-delta-val {
+      type int32;
+      description
+        "rx thr fail low delta val";
+    }
     leaf safety-control-mode-config-val {
       type Optics-amplifier-safety-control-mode;
       description
@@ -2972,6 +3032,18 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       type string;
       description
         "Bits per Symbol";
+    }
+    leaf rx-low-threshold-delta {
+      type int32;
+      description
+        "Rx Low threshold delta value in units of 0.1dB";
+    }
+    leaf wait-to-restore {
+      type uint32;
+      units "second";
+      description
+        "elapse time to trigger psm revert in units of
+         seconds";
     }
     list lane-data {
       description

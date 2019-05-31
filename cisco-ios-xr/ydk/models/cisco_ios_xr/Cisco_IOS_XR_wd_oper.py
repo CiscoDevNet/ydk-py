@@ -398,7 +398,7 @@ class Watchdog(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, [u'minor', u'severe', u'critical'], name, value)
+                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, ['minor', 'severe', 'critical'], name, value)
 
 
 
@@ -463,7 +463,7 @@ class Watchdog(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, [u'physical_memory', u'free_memory', u'memory_state'], name, value)
+                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, ['physical_memory', 'free_memory', 'memory_state'], name, value)
 
 
 
@@ -533,7 +533,7 @@ class Watchdog(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Configured, [u'minor', u'severe', u'critical'], name, value)
+                        self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Configured, ['minor', 'severe', 'critical'], name, value)
 
 
 
@@ -599,7 +599,7 @@ class Watchdog(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Watchdog.Nodes.Node.MemoryState, [u'physical_memory', u'free_memory', u'memory_state'], name, value)
+                    self._perform_setattr(Watchdog.Nodes.Node.MemoryState, ['physical_memory', 'free_memory', 'memory_state'], name, value)
 
 
 
@@ -680,7 +680,7 @@ class Watchdog(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Watchdog.Nodes.Node.OverloadState, [u'overload_control_notification', u'default_wdsysmon_throttle', u'configured_wdsysmon_throttle'], name, value)
+                    self._perform_setattr(Watchdog.Nodes.Node.OverloadState, ['overload_control_notification', 'default_wdsysmon_throttle', 'configured_wdsysmon_throttle'], name, value)
 
 
                 class CurrentThrottle(Entity):
@@ -700,7 +700,7 @@ class Watchdog(Entity):
                     
                     .. attribute:: start_time
                     
-                    	Current throttle start time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
+                    	Current throttle start time in format  \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
                     	**type**\: str
                     
                     	**length:** 0..25
@@ -733,7 +733,7 @@ class Watchdog(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, [u'throttle_duration', u'start_time'], name, value)
+                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, ['throttle_duration', 'start_time'], name, value)
 
 
 
@@ -798,7 +798,7 @@ class Watchdog(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.LastThrottle, [u'throttle_duration', u'start_time', u'stop_time'], name, value)
+                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.LastThrottle, ['throttle_duration', 'start_time', 'stop_time'], name, value)
 
 
 

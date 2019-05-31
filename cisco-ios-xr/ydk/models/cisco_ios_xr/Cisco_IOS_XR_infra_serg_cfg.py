@@ -263,6 +263,11 @@ class SessionRedundancy(Entity):
             
             	**units**\: minute
             
+            .. attribute:: mode_active
+            
+            	Set operation mode
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
             
 
             """
@@ -289,6 +294,7 @@ class SessionRedundancy(Entity):
                     ('access_tracking_object', (YLeaf(YType.str, 'access-tracking-object'), ['str'])),
                     ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg', 'SessionRedundancyGroupRole', '')])),
                     ('hold_timer', (YLeaf(YType.uint32, 'hold-timer'), ['int'])),
+                    ('mode_active', (YLeaf(YType.empty, 'mode-active'), ['Empty'])),
                 ])
                 self.group_id = None
                 self.core_tracking_object = None
@@ -299,6 +305,7 @@ class SessionRedundancy(Entity):
                 self.access_tracking_object = None
                 self.preferred_role = None
                 self.hold_timer = None
+                self.mode_active = None
 
                 self.peer = SessionRedundancy.Groups.Group.Peer()
                 self.peer.parent = self
@@ -320,7 +327,7 @@ class SessionRedundancy(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SessionRedundancy.Groups.Group, ['group_id', 'core_tracking_object', 'disable_tracking_object', 'redundancy_disable', 'enable', 'description', 'access_tracking_object', 'preferred_role', 'hold_timer'], name, value)
+                self._perform_setattr(SessionRedundancy.Groups.Group, ['group_id', 'core_tracking_object', 'disable_tracking_object', 'redundancy_disable', 'enable', 'description', 'access_tracking_object', 'preferred_role', 'hold_timer', 'mode_active'], name, value)
 
 
             class Peer(Entity):

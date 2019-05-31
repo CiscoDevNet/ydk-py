@@ -48,6 +48,10 @@ module Cisco-IOS-XR-l2vpn-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-15 {
+    description
+      "Allow min..max in range when min == max.";
+  }
   revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
@@ -128,14 +132,6 @@ module Cisco-IOS-XR-l2vpn-cfg {
     }
     description
       "Evpn side";
-  }
-
-  typedef Move-interval-range {
-    type uint32 {
-      range "5..3600";
-    }
-    description
-      "Move interval range";
   }
 
   typedef Vpls-id-addr-index {
@@ -220,6 +216,11 @@ module Cisco-IOS-XR-l2vpn-cfg {
         description
           "SR TE Policy";
       }
+      enum "named-te-tunnel" {
+        value 8;
+        description
+          "Named TE Tunnel";
+      }
     }
     description
       "Preferred path";
@@ -256,6 +257,14 @@ module Cisco-IOS-XR-l2vpn-cfg {
     }
     description
       "L2vpn mtu range";
+  }
+
+  typedef Mac-secure-shutdown-recovery-time-range {
+    type uint32 {
+      range "10..3600";
+    }
+    description
+      "Mac secure shutdown recovery time range";
   }
 
   typedef Mac-withdraw-behavior {
@@ -360,6 +369,11 @@ module Cisco-IOS-XR-l2vpn-cfg {
         value 1;
         description
           "Single Active";
+      }
+      enum "port-active" {
+        value 2;
+        description
+          "Port Active";
       }
     }
     description
@@ -671,7 +685,9 @@ module Cisco-IOS-XR-l2vpn-cfg {
   }
 
   typedef Evpn-esi-type-range {
-    type uint32;
+    type uint32 {
+      range "1";
+    }
     description
       "Evpn esi type range";
   }
@@ -708,6 +724,16 @@ module Cisco-IOS-XR-l2vpn-cfg {
 
   typedef Ethernet-segment-service-carving {
     type enumeration {
+      enum "mod-n" {
+        value 0;
+        description
+          "MOD N";
+      }
+      enum "manual" {
+        value 1;
+        description
+          "Manual";
+      }
       enum "hrw" {
         value 2;
         description
@@ -804,22 +830,6 @@ module Cisco-IOS-XR-l2vpn-cfg {
       "L2tp signaling protocol";
   }
 
-  typedef Move-count-range {
-    type uint32 {
-      range "1..1000";
-    }
-    description
-      "Move count range";
-  }
-
-  typedef Retry-count-range {
-    type uint32 {
-      range "0..1000";
-    }
-    description
-      "Retry count range";
-  }
-
   typedef Bdmac-learn {
     type enumeration {
       enum "disable-learning" {
@@ -830,6 +840,33 @@ module Cisco-IOS-XR-l2vpn-cfg {
     }
     description
       "Bdmac learn";
+  }
+
+  typedef L2mc-src-traffic-enabled {
+    type enumeration {
+      enum "l2mc-none" {
+        value 0;
+        description
+          "NONE";
+      }
+      enum "l2mc-ipv4" {
+        value 1;
+        description
+          "Multicast Source - IPv4";
+      }
+      enum "l2mc-ipv6" {
+        value 2;
+        description
+          "Multicast Source - IPv6";
+      }
+      enum "l2mc-ipv4-ipv6" {
+        value 3;
+        description
+          "Multicast Source - IPv4 IPv6";
+      }
+    }
+    description
+      "L2mc src traffic enabled";
   }
 
   typedef L2vpn-verification {
@@ -1054,6 +1091,28 @@ module Cisco-IOS-XR-l2vpn-cfg {
       "Rdas range";
   }
 
+  typedef Ethernet-segment-service-carving-mcast {
+    type enumeration {
+      enum "disabled" {
+        value 0;
+        description
+          "Disabled";
+      }
+      enum "hrw-s-g" {
+        value 1;
+        description
+          "HRW S G";
+      }
+      enum "hrw-g" {
+        value 2;
+        description
+          "HRW G";
+      }
+    }
+    description
+      "Ethernet segment service carving mcast";
+  }
+
   typedef Bridge-bd-mtu-range {
     type uint32 {
       range "46..65535";
@@ -1257,14 +1316,6 @@ module Cisco-IOS-XR-l2vpn-cfg {
       "Vpnid range";
   }
 
-  typedef Freeze-time-range {
-    type uint32 {
-      range "5..3600";
-    }
-    description
-      "Freeze time range";
-  }
-
   typedef Ldp-vpls-id {
     type enumeration {
       enum "two-byte-as" {
@@ -1462,6 +1513,28 @@ module Cisco-IOS-XR-l2vpn-cfg {
     }
   }
 
+  grouping SERVICE-CARVING-MCAST-TYPE {
+    description
+      "Common node of ethernet-segment,
+       evpn-virtual-ethernet-segment";
+    leaf service-carving-mcast-type {
+      type Ethernet-segment-service-carving-mcast;
+      description
+        "Ethernet-Segment Service Carving multicast mode";
+    }
+  }
+
+  grouping ACTION {
+    description
+      "Common node of mac-secure, pbb-edge-mac-secure,
+       interface-mac-secure, pseudowire-mac-secure";
+    leaf action {
+      type Mac-secure-action;
+      description
+        "MAC secure enforcement action";
+    }
+  }
+
   grouping EVPN-ROUTE-DISTINGUISHER {
     description
       "Common node of evpn-bgp-auto-discovery,
@@ -1526,10 +1599,22 @@ module Cisco-IOS-XR-l2vpn-cfg {
         description
           "Enable Ethernet Segment";
       }
+      uses SERVICE-CARVING-MCAST-TYPE;
       uses ES-IMPORT-ROUTE-TARGET;
       uses SERVICE-CARVING-TYPE;
       uses IDENTIFIER;
       uses MANUAL-SERVICE-CARVING;
+    }
+  }
+
+  grouping LOGGING {
+    description
+      "Common node of pbb-edge-mac-secure,
+       interface-mac-secure, pseudowire-mac-secure";
+    leaf logging {
+      type L2vpn-logging;
+      description
+        "MAC Secure Logging";
     }
   }
 
@@ -1846,11 +1931,6 @@ module Cisco-IOS-XR-l2vpn-cfg {
               description
                 "MAC Secure Logging";
             }
-            leaf action {
-              type Mac-secure-action;
-              description
-                "MAC secure enforcement action";
-            }
             leaf enable {
               type empty;
               description
@@ -1861,6 +1941,8 @@ module Cisco-IOS-XR-l2vpn-cfg {
               description
                 "MAC Secure Threshold";
             }
+            uses ACTION;
+            uses SHUTDOWN-RECOVERY-TIMER;
           }
           container bd-mac-aging {
             description
@@ -2016,21 +2098,6 @@ module Cisco-IOS-XR-l2vpn-cfg {
                 container pbb-edge-mac-secure {
                   description
                     "MAC Secure";
-                  leaf logging {
-                    type L2vpn-logging;
-                    description
-                      "MAC Secure Logging";
-                  }
-                  leaf disable {
-                    type empty;
-                    description
-                      "Disable Virtual instance port MAC Secure";
-                  }
-                  leaf action {
-                    type Mac-secure-action;
-                    description
-                      "MAC secure enforcement action";
-                  }
                   leaf enable {
                     type empty;
                     description
@@ -2042,6 +2109,9 @@ module Cisco-IOS-XR-l2vpn-cfg {
                       "Accept Virtual instance port to be
                        shutdown on mac violation";
                   }
+                  uses LOGGING;
+                  uses DISABLE;
+                  uses ACTION;
                 }
                 leaf pbb-edge-mac-learning {
                   type Mac-learn;
@@ -2369,26 +2439,15 @@ module Cisco-IOS-XR-l2vpn-cfg {
               container pseudowire-mac-secure {
                 description
                   "MAC Secure";
-                leaf logging {
-                  type L2vpn-logging;
-                  description
-                    "MAC Secure Logging";
-                }
-                leaf disable {
-                  type empty;
-                  description
-                    "Disable L2 Pseudowire MAC Secure";
-                }
-                leaf action {
-                  type Mac-secure-action;
-                  description
-                    "MAC secure enforcement action";
-                }
                 leaf enable {
                   type empty;
                   description
                     "Enable MAC Secure";
                 }
+                uses LOGGING;
+                uses DISABLE;
+                uses ACTION;
+                uses SHUTDOWN-RECOVERY-TIMER;
               }
               container pseudowire-mac-aging {
                 description
@@ -3105,26 +3164,15 @@ module Cisco-IOS-XR-l2vpn-cfg {
               container interface-mac-secure {
                 description
                   "MAC Secure";
-                leaf logging {
-                  type L2vpn-logging;
-                  description
-                    "MAC Secure Logging";
-                }
-                leaf disable {
-                  type empty;
-                  description
-                    "Disable L2 Interface MAC Secure";
-                }
-                leaf action {
-                  type Mac-secure-action;
-                  description
-                    "MAC secure enforcement action";
-                }
                 leaf enable {
                   type empty;
                   description
                     "Enable MAC Secure";
                 }
+                uses LOGGING;
+                uses DISABLE;
+                uses ACTION;
+                uses SHUTDOWN-RECOVERY-TIMER;
               }
               container interface-mac-limit {
                 description
@@ -3300,6 +3348,17 @@ module Cisco-IOS-XR-l2vpn-cfg {
           description
             "Disable Unknown Unicast flooding";
         }
+        leaf efp-visibility {
+          type empty;
+          description
+            "Enable multicast for multiple VLANs in the
+             bridge of a BVI";
+        }
+        leaf l2-multicast-source {
+          type L2mc-src-traffic-enabled;
+          description
+            "L2MC Source Traffic Enabled";
+        }
         leaf igmp-snooping-disable {
           type empty;
           description
@@ -3382,6 +3441,17 @@ module Cisco-IOS-XR-l2vpn-cfg {
     }
   }
 
+  grouping SHUTDOWN-RECOVERY-TIMER {
+    description
+      "Common node of mac-secure, interface-mac-secure,
+       pseudowire-mac-secure";
+    leaf shutdown-recovery-timer {
+      type Mac-secure-shutdown-recovery-time-range;
+      description
+        "MAC Secure Shutdown Recovery Timer";
+    }
+  }
+
   grouping EVI-ADVERTISE-MAC-BVI {
     description
       "Common node of evi-advertise-mac,
@@ -3390,6 +3460,17 @@ module Cisco-IOS-XR-l2vpn-cfg {
       type empty;
       description
         "Advertise local MAC-only and BVI MAC routes";
+    }
+  }
+
+  grouping DISABLE {
+    description
+      "Common node of pbb-edge-mac-secure,
+       interface-mac-secure, pseudowire-mac-secure";
+    leaf disable {
+      type empty;
+      description
+        "Disable MAC Secure";
     }
   }
 
@@ -4606,26 +4687,28 @@ module Cisco-IOS-XR-l2vpn-cfg {
                   "Interface Tunnel number for preferred path";
               }
               leaf fallback-disable {
-                when "../type = 'te-tunnel' or ../type = 'ip-tunnel' or ../type = 'tp-tunnel' or ../type = 'sr-te-policy'" {
+                when "../type = 'te-tunnel' or ../type = 'ip-tunnel' or ../type = 'tp-tunnel' or ../type = 'sr-te-policy' or ../type = 'named-te-tunnel'" {
                   description
                     "../Type = TE-Tunnel or ../Type =
                      IP-Tunnel or ../Type = TP-Tunnel or .
-                     ./Type = SR-TE-Policy";
+                     ./Type = SR-TE-Policy or ../Type =
+                     Named-TE-Tunnel";
                 }
                 type empty;
                 description
                   "Fallback disable";
               }
-              leaf srte-policy {
-                when "../type = 'sr-te-policy'" {
+              leaf path-name {
+                when "../type = 'sr-te-policy' or ../type = 'named-te-tunnel'" {
                   description
-                    "../Type = SR-TE-Policy";
+                    "../Type = SR-TE-Policy or ../Type =
+                     Named-TE-Tunnel";
                 }
-                type string {
+                type xr:Cisco-ios-xr-string {
                   length "1..60";
                 }
                 description
-                  "Name of the SR TE Policy";
+                  "Name of the SR TE Policy or IFName";
               }
             }
             container load-balance-group {
@@ -5421,48 +5504,6 @@ module Cisco-IOS-XR-l2vpn-cfg {
             "Global Peering timer";
         }
       }
-      container evpnmac {
-        description
-          "EVPN MAC Configuration";
-        container evpnmac-secure {
-          description
-            "EVPN MAC Secure Configuration";
-          leaf evpnmac-secure-freeze-time {
-            type Freeze-time-range;
-            description
-              "Length of time to lock the MAC after a MAC
-               security violation";
-          }
-          leaf enable {
-            type empty;
-            description
-              "Enable EVPN MAC Secure Configuration";
-          }
-          leaf evpnmac-secure-retry-count {
-            type Retry-count-range;
-            description
-              "Number of times to unfreeze a MAC before
-               permanently freezing it";
-          }
-          leaf evpnmac-secure-move-count {
-            type Move-count-range;
-            description
-              "Number of moves to occur within the move
-               interval before locking the MAC";
-          }
-          leaf evpnmac-secure-move-interval {
-            type Move-interval-range;
-            description
-              "Interval to watch for subsequent MAC moves
-               before locking the MAC";
-          }
-        }
-        leaf enable {
-          type empty;
-          description
-            "Enable EVPN MAC Configuration";
-        }
-      }
       container evpn-evis {
         description
           "Enter EVPN Instance configuration submode";
@@ -5653,6 +5694,20 @@ module Cisco-IOS-XR-l2vpn-cfg {
             uses IMPLICIT-IMPORT-DISABLE;
             uses EVPN-ROUTE-TARGET-TABLE;
           }
+          container evpn-instance-etree {
+            description
+              "Enter EVPN E-Tree configuration submode";
+            leaf evpn-instance-etree-leaf {
+              type empty;
+              description
+                "Configure E-Tree as leaf";
+            }
+            leaf enable {
+              type empty;
+              description
+                "Enable EVPN E-Tree";
+            }
+          }
           container evpn-instance-advertise-mac {
             description
               "Enter Advertise local MAC-only routes
@@ -5786,6 +5841,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
               description
                 "Backbone Source MAC";
             }
+            uses SERVICE-CARVING-MCAST-TYPE;
             uses ES-IMPORT-ROUTE-TARGET;
             uses SERVICE-CARVING-TYPE;
             uses IDENTIFIER;

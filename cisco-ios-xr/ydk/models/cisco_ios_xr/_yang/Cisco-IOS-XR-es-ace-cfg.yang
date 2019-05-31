@@ -86,7 +86,7 @@ submodule Cisco-IOS-XR-es-ace-cfg {
     leaf grant {
       type es-acl-grant-enum;
       description
-        "Forwarding action for the packet. This is required
+        "Forwarding action for the packet. This is required 
          for any non-remark ACE. Leave unspecified otherwise.";
     }
     container source-network {
@@ -144,14 +144,14 @@ submodule Cisco-IOS-XR-es-ace-cfg {
     leaf cos {
       type es-acl-dt:Es-acl-cos-range;
       description
-        "Class of Service value. Any value not in the
+        "Class of Service value. Any value not in the 
          permissible range will be rejected.";
       reference "IEEE 802.1p";
     }
     leaf dei {
       type es-acl-dt:Es-acl-dei-range;
       description
-        "Discard Eligibility Indication bit. User can specify
+        "Discard Eligibility Indication bit. User can specify 
          1 to indicate the bit is set. Leave unspecified
          otherwise.";
       reference "RFC 7180 Section 7";
@@ -160,14 +160,14 @@ submodule Cisco-IOS-XR-es-ace-cfg {
       type es-acl-dt:Es-acl-vlan-range;
       description
         "This represents the QinQ vlan identifier. It can be used for
-         the lower bound (in range) or single value. Any value not
+         the lower bound (in range) or single value. Any value not 
          in the permissible range will be rejected.";
       reference "IEEE 802.1Q";
     }
     leaf inner-vlan2 {
       type es-acl-dt:Es-acl-vlan-range;
       description
-        "This represents the QinQ vlan identifier. It is used in
+        "This represents the QinQ vlan identifier. It is used in 
          the upper bound (in range). Any value not in the permissible
          range will be rejected.";
       reference "IEEE 802.1Q";
@@ -182,8 +182,8 @@ submodule Cisco-IOS-XR-es-ace-cfg {
     leaf inner-dei {
       type es-acl-dt:Es-acl-dei-range;
       description
-        "Discard Eligibility Indication for Inner Header. User
-         can specify 1 to indicate the bit is set. Leave
+        "Discard Eligibility Indication for Inner Header. User 
+         can specify 1 to indicate the bit is set. Leave 
          unspecified otherwise.";
       reference "RFC 7180 Section 7";
     }

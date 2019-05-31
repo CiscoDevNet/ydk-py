@@ -185,7 +185,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFATM2PVCTRAPMIB.AtmCurrentlyFailingPVclTable.AtmCurrentlyFailingPVclEntry, [u'ifindex', u'atmvclvpi', u'atmvclvci', u'atmcurrentlyfailingpvcltimestamp', u'atmpreviouslyfailedpvcltimestamp'], name, value)
+                self._perform_setattr(CISCOIETFATM2PVCTRAPMIB.AtmCurrentlyFailingPVclTable.AtmCurrentlyFailingPVclEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'atmcurrentlyfailingpvcltimestamp', 'atmpreviouslyfailedpvcltimestamp'], name, value)
 
 
 

@@ -571,7 +571,7 @@ class MplsTePathOptionProperty(Enum):
 
     .. data:: lockdown = 1
 
-    	Path is not a canditate forreoptimization
+    	Path is not a candidate for reoptimization
 
     .. data:: verbatim = 4
 
@@ -587,6 +587,10 @@ class MplsTePathOptionProperty(Enum):
 
     	Segment Routing path
 
+    .. data:: sticky = 32
+
+    	Force tunnel to remain on same path
+
     """
 
     none = Enum.YLeaf(0, "none")
@@ -598,6 +602,8 @@ class MplsTePathOptionProperty(Enum):
     pce = Enum.YLeaf(8, "pce")
 
     segment_routing = Enum.YLeaf(16, "segment-routing")
+
+    sticky = Enum.YLeaf(32, "sticky")
 
 
 class MplsTePathOptionProtection(Enum):

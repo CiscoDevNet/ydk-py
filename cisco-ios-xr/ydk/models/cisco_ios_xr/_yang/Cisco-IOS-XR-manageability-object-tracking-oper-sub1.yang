@@ -251,6 +251,13 @@ submodule Cisco-IOS-XR-manageability-object-tracking-oper-sub1 {
       description
         "Latest Return Code";
     }
+    leaf return-code-string {
+      type string {
+        length "0..120";
+      }
+      description
+        "Latest Ret Code String";
+    }
   }
 
   grouping ROUTE-TRACK-INFO {

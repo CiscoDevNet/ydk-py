@@ -1525,7 +1525,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	tx String 
                             	**type**\: int
                             
                             	**range:** 0..255
@@ -1566,7 +1566,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	exp String 
                             	**type**\: int
                             
                             	**range:** 0..255
@@ -1607,7 +1607,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	rec String 
                             	**type**\: int
                             
                             	**range:** 0..255
@@ -1712,7 +1712,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	tx String 
                             	**type**\: int
                             
                             	**range:** 0..255
@@ -1753,7 +1753,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	exp String 
                             	**type**\: int
                             
                             	**range:** 0..255
@@ -1794,7 +1794,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	rec String 
                             	**type**\: int
                             
                             	**range:** 0..255
@@ -1899,7 +1899,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	tx String 
                             	**type**\: int
                             
                             	**range:** 0..255
@@ -1940,7 +1940,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	exp String 
                             	**type**\: int
                             
                             	**range:** 0..255
@@ -1981,7 +1981,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	rec String 
                             	**type**\: int
                             
                             	**range:** 0..255
@@ -2113,7 +2113,7 @@ class Otu(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Shared Risk Link Group information expressed in  integer format
                             	**type**\: int
                             
                             	**range:** 0..4294967295

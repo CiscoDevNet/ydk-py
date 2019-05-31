@@ -97,6 +97,10 @@ class PmAdvertReason(Enum):
 
     	from the responder
 
+    .. data:: link_is_down = 14
+
+    	Link is in down state
+
     """
 
     periodic_timer_expired_no_advertisements = Enum.YLeaf(0, "periodic-timer-expired-no-advertisements")
@@ -126,6 +130,8 @@ class PmAdvertReason(Enum):
     advertise_delay_unconfig = Enum.YLeaf(12, "advertise-delay-unconfig")
 
     received_control_code_error = Enum.YLeaf(13, "received-control-code-error")
+
+    link_is_down = Enum.YLeaf(14, "link-is-down")
 
 
 class PmDelayMode(Enum):
@@ -4000,7 +4006,7 @@ class PerformanceMeasurementResponder(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Summary, [u'total_interfaces', u'packet_rate', u'packet_rate_high_water_mark'], name, value)
+                    self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Summary, ['total_interfaces', 'packet_rate', 'packet_rate_high_water_mark'], name, value)
 
 
                 class ResponderCounters(Entity):
@@ -4161,7 +4167,7 @@ class PerformanceMeasurementResponder(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Summary.ResponderCounters, [u'reply_packet_sent', u'reply_packet_sent_error', u'query_packet_received', u'received_packet_error_urotlv_not_present', u'received_packet_error_invalid_source_port_number', u'received_packet_error_no_source_address', u'received_packet_error_no_return_path', u'received_packet_error_invalid_querier_control_code', u'received_packet_error_unsupported_timestamp_format', u'received_packet_error_timestamp_not_available', u'received_packet_error_unsupported_mandatory_tlv', u'received_packet_error_invalid_packet'], name, value)
+                        self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Summary.ResponderCounters, ['reply_packet_sent', 'reply_packet_sent_error', 'query_packet_received', 'received_packet_error_urotlv_not_present', 'received_packet_error_invalid_source_port_number', 'received_packet_error_no_source_address', 'received_packet_error_no_return_path', 'received_packet_error_invalid_querier_control_code', 'received_packet_error_unsupported_timestamp_format', 'received_packet_error_timestamp_not_available', 'received_packet_error_unsupported_mandatory_tlv', 'received_packet_error_invalid_packet'], name, value)
 
 
 
@@ -4328,7 +4334,7 @@ class PerformanceMeasurementResponder(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'interface_handle', u'source_address', u'source_v6_address', u'packet_rate', u'packet_rate_high_water_mark', u'cleanup_time_remaining'], name, value)
+                        self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'interface_handle', 'source_address', 'source_v6_address', 'packet_rate', 'packet_rate_high_water_mark', 'cleanup_time_remaining'], name, value)
 
 
                     class InterfaceCounters(Entity):
@@ -4489,7 +4495,7 @@ class PerformanceMeasurementResponder(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface.InterfaceCounters, [u'reply_packet_sent', u'reply_packet_sent_error', u'query_packet_received', u'received_packet_error_urotlv_not_present', u'received_packet_error_invalid_source_port_number', u'received_packet_error_no_source_address', u'received_packet_error_no_return_path', u'received_packet_error_invalid_querier_control_code', u'received_packet_error_unsupported_timestamp_format', u'received_packet_error_timestamp_not_available', u'received_packet_error_unsupported_mandatory_tlv', u'received_packet_error_invalid_packet'], name, value)
+                            self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface.InterfaceCounters, ['reply_packet_sent', 'reply_packet_sent_error', 'query_packet_received', 'received_packet_error_urotlv_not_present', 'received_packet_error_invalid_source_port_number', 'received_packet_error_no_source_address', 'received_packet_error_no_return_path', 'received_packet_error_invalid_querier_control_code', 'received_packet_error_unsupported_timestamp_format', 'received_packet_error_timestamp_not_available', 'received_packet_error_unsupported_mandatory_tlv', 'received_packet_error_invalid_packet'], name, value)
 
 
 

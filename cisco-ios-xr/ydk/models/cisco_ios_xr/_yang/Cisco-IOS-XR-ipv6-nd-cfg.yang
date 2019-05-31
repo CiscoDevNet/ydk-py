@@ -533,5 +533,13 @@ module Cisco-IOS-XR-ipv6-nd-cfg {
       description
         "Set lifetime for stale neighbor";
     }
+    leaf cos {
+      type uint32 {
+        range "0..7";
+      }
+      description
+        "Set cos value for both outer vlan and inner vlan
+         (if present) in all ougoing ND control packets";
+    }
   }
 }

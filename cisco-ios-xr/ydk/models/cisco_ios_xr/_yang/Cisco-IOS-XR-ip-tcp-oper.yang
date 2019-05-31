@@ -6,19 +6,19 @@ module Cisco-IOS-XR-ip-tcp-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ip-tcp-oper-sub5 {
-    revision-date 2018-02-14;
+    revision-date 2018-11-01;
   }
   include Cisco-IOS-XR-ip-tcp-oper-sub4 {
-    revision-date 2018-02-14;
+    revision-date 2018-11-01;
   }
   include Cisco-IOS-XR-ip-tcp-oper-sub3 {
-    revision-date 2018-02-14;
+    revision-date 2018-11-01;
   }
   include Cisco-IOS-XR-ip-tcp-oper-sub2 {
-    revision-date 2018-02-14;
+    revision-date 2018-11-01;
   }
   include Cisco-IOS-XR-ip-tcp-oper-sub1 {
-    revision-date 2018-02-14;
+    revision-date 2018-11-01;
   }
 
   organization
@@ -46,6 +46,10 @@ module Cisco-IOS-XR-ip-tcp-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-01 {
+    description
+      "Added socket async double free prevention count in tcp statistics summary";
+  }
   revision 2018-02-14 {
     description
       "PCB_ID argument is passed in string format.";

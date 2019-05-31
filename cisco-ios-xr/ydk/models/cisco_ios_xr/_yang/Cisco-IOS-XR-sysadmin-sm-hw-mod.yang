@@ -1,13 +1,16 @@
 module Cisco-IOS-XR-sysadmin-sm-hw-mod {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-sm-hw-mod";
   prefix shelf_sm_hw_mod;
+
   import tailf-common {
     prefix tailf;
   }
   import Cisco-IOS-XR-sysadmin-types {
     prefix calvados;
   }
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -18,26 +21,25 @@ module Cisco-IOS-XR-sysadmin-sm-hw-mod {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR SysAdmin configuration.
-
-This module holds Shelf Management HW module data.
-
-Copyright(c) 2012-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR SysAdmin configuration.
+     
+     This module holds Shelf Management HW module data.
+     
+     Copyright(c) 2012-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2017-04-12 {
     description
       "Changed namespace and module name";
   }
-
 
   grouping hw-module-config-group {
     uses hw-module-shutdown-config-group;

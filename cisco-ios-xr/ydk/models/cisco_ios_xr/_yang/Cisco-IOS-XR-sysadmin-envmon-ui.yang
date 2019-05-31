@@ -1,6 +1,7 @@
 module Cisco-IOS-XR-sysadmin-envmon-ui {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-envmon-ui";
   prefix envmon;
+
   import Cisco-IOS-XR-sysadmin-show-trace {
     prefix show_trace;
   }
@@ -13,32 +14,32 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
   import Cisco-IOS-XR-sysadmin-envmon-types {
     prefix envmon-types;
   }
-  organization "Cisco Systems Inc.";
 
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module holds chassis, cards Enviroment data.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module holds chassis, cards Enviroment data.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
-  revision 2018-02-06 {
-    description
-      "Adding CLI input validation for LC priority shutdown feature";
-  }
 
+  revision 2018-04-09 {
+    description
+      "Required changes for ConfD 6.4.5";
+  }
 
   grouping temp-data {
     container temperatures {
@@ -48,15 +49,19 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         leaf location {
           type string;
         }
-        leaf loc_header {
-          type uint32;
-        }
-        leaf print_header {
-          type boolean;
-          default "false";
-        }
         list sensor_attributes {
           key "sensor";
+          leaf loc_header {
+            type boolean;
+            default "false";
+          }
+          leaf print_header {
+            type boolean;
+            default "false";
+          }
+          leaf location {
+            type string;
+          }
           leaf sensor {
             type string;
           }
@@ -97,8 +102,8 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
 
   grouping all-temp-data {
     list temperatures {
-      config false;
       key "loc_iden";
+      config false;
       leaf loc_iden {
         type string;
       }
@@ -153,15 +158,19 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         leaf location {
           type string;
         }
-        leaf print_header {
-          type boolean;
-          default "false";
-        }
-        leaf loc_header {
-          type uint32;
-        }
         list sensor_attributes {
           key "sensor";
+          leaf loc_header {
+            type boolean;
+            default "false";
+          }
+          leaf print_header {
+            type boolean;
+            default "false";
+          }
+          leaf location {
+            type string;
+          }
           leaf sensor {
             type string;
           }
@@ -202,8 +211,8 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
 
   grouping all-volt-data {
     list voltages {
-      config false;
       key "loc_iden";
+      config false;
       leaf loc_iden {
         type string;
       }
@@ -258,15 +267,19 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         leaf location {
           type string;
         }
-        leaf print_header {
-          type boolean;
-          default "false";
-        }
-        leaf loc_header {
-          type uint32;
-        }
         list sensor_attributes {
           key "sensor";
+          leaf loc_header {
+            type boolean;
+            default "false";
+          }
+          leaf print_header {
+            type boolean;
+            default "false";
+          }
+          leaf location {
+            type string;
+          }
           leaf sensor {
             type string;
           }
@@ -289,8 +302,8 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
 
   grouping all-current-data {
     list current {
-      config false;
       key "loc_iden";
+      config false;
       leaf loc_iden {
         type string;
       }
@@ -358,8 +371,8 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
 
   grouping all-fan-data {
     list fan {
-      config false;
       key "loc_iden";
+      config false;
       leaf loc_iden {
         type string;
       }
@@ -491,8 +504,8 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
 
   grouping all-power-data {
     list power {
-      config false;
       key "loc_iden";
+      config false;
       leaf loc_iden {
         type string;
       }
@@ -619,8 +632,8 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
 
   grouping all-altitude-data {
     list altitude {
-      config false;
       key "loc_iden";
+      config false;
       leaf loc_iden {
         type string;
       }
@@ -783,8 +796,7 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         key "enabled";
         leaf enabled {
           type enumeration {
-            enum "enable" {
-            }
+            enum "enable";
           }
           config true;
         }
@@ -859,6 +871,7 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
       uses envmon-types:vin-uv-shut-group;
     }
   }
+
   container environment {
     uses cmd_types;
     uses show_trace:traceable;

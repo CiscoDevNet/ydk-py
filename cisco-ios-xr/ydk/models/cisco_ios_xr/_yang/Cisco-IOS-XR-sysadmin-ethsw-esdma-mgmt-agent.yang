@@ -1,6 +1,7 @@
 module Cisco-IOS-XR-sysadmin-ethsw-esdma-mgmt-agent {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-ethsw-esdma-mgmt-agent";
   prefix esdma_mgmt_agent;
+
   import ietf-inet-types {
     prefix inet;
   }
@@ -10,7 +11,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-mgmt-agent {
   import Cisco-IOS-XR-sysadmin-ethsw-esdma-trace {
     prefix esdma_trace;
   }
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -21,25 +24,24 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-mgmt-agent {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains the YANG definitions
-for the Cisco IOS-XR SysAdmin
-'show controller switch mgmt-agent' commands.
-
-Copyright(c) 2011-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains the YANG definitions
+     for the Cisco IOS-XR SysAdmin
+     'show controller switch mgmt-agent' commands.
+     
+     Copyright(c) 2011-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2017-05-01 {
     description
       "Namespace change to comply with Cisco guidelines on namespace";
   }
-
 
   grouping esdma-debug {
     container connections {

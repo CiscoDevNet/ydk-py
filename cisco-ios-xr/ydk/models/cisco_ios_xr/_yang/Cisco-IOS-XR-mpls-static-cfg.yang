@@ -358,7 +358,6 @@ module Cisco-IOS-XR-mpls-static-cfg {
           description
             "LSP Name";
         }
-        uses ENABLE;
         uses PATH-TABLE;
       }
     }
@@ -371,17 +370,6 @@ module Cisco-IOS-XR-mpls-static-cfg {
       description
         "Forward Path Parameters";
       uses PATH;
-    }
-  }
-
-  grouping ENABLE {
-    description
-      "Common node of mpls-static, af, default-vrf, vrf,
-       label-switched-path";
-    leaf enable {
-      type empty;
-      description
-        "MPLS Static Apply Enable";
     }
   }
 
@@ -406,12 +394,12 @@ module Cisco-IOS-XR-mpls-static-cfg {
             "Address Family";
         }
         uses LOCAL-LABEL-TABLE;
-        uses ENABLE;
       }
     }
   }
 
   container mpls-static {
+    presence "CLI submode compatibility.";
     description
       "MPLS Static Configuration Data";
     container vrfs {
@@ -428,7 +416,6 @@ module Cisco-IOS-XR-mpls-static-cfg {
         }
         uses LABEL-SWITCHED-PATH-TABLE;
         uses AF-TABLE;
-        uses ENABLE;
       }
     }
     container interfaces {
@@ -450,8 +437,6 @@ module Cisco-IOS-XR-mpls-static-cfg {
         "Default VRF";
       uses LABEL-SWITCHED-PATH-TABLE;
       uses AF-TABLE;
-      uses ENABLE;
     }
-    uses ENABLE;
   }
 }

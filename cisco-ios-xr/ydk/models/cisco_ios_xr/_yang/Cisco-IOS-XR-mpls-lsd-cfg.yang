@@ -25,6 +25,10 @@ module Cisco-IOS-XR-mpls-lsd-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-15 {
+    description
+      "Allow min..max in range when min == max.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -119,7 +123,9 @@ module Cisco-IOS-XR-mpls-lsd-cfg {
           }
         }
         leaf label-database-id {
-          type uint32;
+          type uint32 {
+            range "0";
+          }
           description
             "Label database identifier";
         }

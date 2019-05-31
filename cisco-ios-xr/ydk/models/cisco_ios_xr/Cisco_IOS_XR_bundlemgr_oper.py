@@ -151,6 +151,10 @@ class BmBdlState(Enum):
 
     	The bundle has been disabled by EFD
 
+    .. data:: bm_bdl_state_lacp_oos = 14
+
+    	The bundle has been OOS (Out of Service)
+
     """
 
     bm_bdl_state_admin_down = Enum.YLeaf(0, "bm-bdl-state-admin-down")
@@ -180,6 +184,8 @@ class BmBdlState(Enum):
     bm_bdl_state_error_disabled = Enum.YLeaf(12, "bm-bdl-state-error-disabled")
 
     bm_bdl_state_efd_disabled = Enum.YLeaf(13, "bm-bdl-state-efd-disabled")
+
+    bm_bdl_state_lacp_oos = Enum.YLeaf(14, "bm-bdl-state-lacp-oos")
 
 
 class BmFeatureStatus(Enum):
@@ -577,7 +583,19 @@ class BmMbrStateReason(Enum):
 
     	Client has configured the bundle state Down
 
-    .. data:: bm_mbr_state_reason_count = 75
+    .. data:: bm_mbr_state_reason_lacp_oos = 75
+
+    	Link is in standby due to bundle out of service
+
+    	state
+
+    .. data:: bm_mbr_state_reason_errdis_bundle_oos = 76
+
+    	Link is error-disabled due to bundle out of
+
+    	service state
+
+    .. data:: bm_mbr_state_reason_count = 77
 
     	Enumeration maximum value
 
@@ -733,7 +751,11 @@ class BmMbrStateReason(Enum):
 
     bm_mbr_state_reason_client_bundle_ctrl = Enum.YLeaf(74, "bm-mbr-state-reason-client-bundle-ctrl")
 
-    bm_mbr_state_reason_count = Enum.YLeaf(75, "bm-mbr-state-reason-count")
+    bm_mbr_state_reason_lacp_oos = Enum.YLeaf(75, "bm-mbr-state-reason-lacp-oos")
+
+    bm_mbr_state_reason_errdis_bundle_oos = Enum.YLeaf(76, "bm-mbr-state-reason-errdis-bundle-oos")
+
+    bm_mbr_state_reason_count = Enum.YLeaf(77, "bm-mbr-state-reason-count")
 
 
 class BmMuxreason(Enum):
@@ -1372,6 +1394,39 @@ class BmdBfdBdlState(Enum):
     bmd_bfd_bdl_up = Enum.YLeaf(2, "bmd-bfd-bdl-up")
 
     bmd_bfd_bdl_count = Enum.YLeaf(3, "bmd-bfd-bdl-count")
+
+
+class BmdLacpMode(Enum):
+    """
+    BmdLacpMode (Enum Class)
+
+    Bmd lacp mode
+
+    .. data:: bmd_mode_on = 0
+
+    	bmd mode on
+
+    .. data:: bmd_mode_active = 1
+
+    	bmd mode active
+
+    .. data:: bmd_mode_passive = 2
+
+    	bmd mode passive
+
+    .. data:: bmd_mode_count = 3
+
+    	bmd mode count
+
+    """
+
+    bmd_mode_on = Enum.YLeaf(0, "bmd-mode-on")
+
+    bmd_mode_active = Enum.YLeaf(1, "bmd-mode-active")
+
+    bmd_mode_passive = Enum.YLeaf(2, "bmd-mode-passive")
+
+    bmd_mode_count = Enum.YLeaf(3, "bmd-mode-count")
 
 
 class BmdMemberState(Enum):
@@ -2061,7 +2116,7 @@ class LacpBundles(Entity):
     """
 
     _prefix = 'bundlemgr-oper'
-    _revision = '2018-04-30'
+    _revision = '2018-08-18'
 
     def __init__(self):
         super(LacpBundles, self).__init__()
@@ -2101,7 +2156,7 @@ class LacpBundles(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(LacpBundles.Bundles, self).__init__()
@@ -2155,7 +2210,7 @@ class LacpBundles(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(LacpBundles.Bundles.Bundle, self).__init__()
@@ -2240,12 +2295,19 @@ class LacpBundles(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: applied_lacp_mode
+                
+                	Applied LACP Mode
+                	**type**\:  :py:class:`BmdLacpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdLacpMode>`
+                
+                	**config**\: False
+                
                 
 
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(LacpBundles.Bundles.Bundle.Data, self).__init__()
@@ -2261,11 +2323,13 @@ class LacpBundles(Entity):
                         ('partner_system_priority', (YLeaf(YType.uint16, 'partner-system-priority'), ['int'])),
                         ('partner_system_mac_address', (YLeaf(YType.str, 'partner-system-mac-address'), ['str'])),
                         ('partner_operational_key', (YLeaf(YType.uint16, 'partner-operational-key'), ['int'])),
+                        ('applied_lacp_mode', (YLeaf(YType.enumeration, 'applied-lacp-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdLacpMode', '')])),
                     ])
                     self.actor_operational_key = None
                     self.partner_system_priority = None
                     self.partner_system_mac_address = None
                     self.partner_operational_key = None
+                    self.applied_lacp_mode = None
 
                     self.actor_bundle_data = LacpBundles.Bundles.Bundle.Data.ActorBundleData()
                     self.actor_bundle_data.parent = self
@@ -2278,7 +2342,7 @@ class LacpBundles(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LacpBundles.Bundles.Bundle.Data, ['actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key'], name, value)
+                    self._perform_setattr(LacpBundles.Bundles.Bundle.Data, ['actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key', 'applied_lacp_mode'], name, value)
 
 
                 class ActorBundleData(Entity):
@@ -2624,7 +2688,7 @@ class LacpBundles(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(LacpBundles.Bundles.Bundle.Data.ActorBundleData, self).__init__()
@@ -2744,7 +2808,7 @@ class LacpBundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress, self).__init__()
@@ -2851,7 +2915,7 @@ class LacpBundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig, self).__init__()
@@ -2925,7 +2989,7 @@ class LacpBundles(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig.DestinationAddress, self).__init__()
@@ -2979,7 +3043,7 @@ class LacpBundles(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(LacpBundles.Bundles.Bundle.Data.BundleSystemId, self).__init__()
@@ -3023,7 +3087,7 @@ class LacpBundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(LacpBundles.Bundles.Bundle.Data.BundleSystemId.SystemMacAddr, self).__init__()
@@ -3064,7 +3128,7 @@ class LacpBundles(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(LacpBundles.Bundles.Bundle.Members, self).__init__()
@@ -3212,12 +3276,21 @@ class LacpBundles(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: replication_error
+                    
+                    	Error from final replication attempt
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(LacpBundles.Bundles.Bundle.Members.Member, self).__init__()
@@ -3240,6 +3313,7 @@ class LacpBundles(Entity):
                             ('lacp_enabled', (YLeaf(YType.str, 'lacp-enabled'), ['str'])),
                             ('member_type', (YLeaf(YType.enumeration, 'member-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum', '')])),
                             ('member_name', (YLeaf(YType.str, 'member-name'), ['str'])),
+                            ('replication_error', (YLeaf(YType.uint32, 'replication-error'), ['int'])),
                         ])
                         self.member_interface = None
                         self.interface_name = None
@@ -3252,6 +3326,7 @@ class LacpBundles(Entity):
                         self.lacp_enabled = None
                         self.member_type = None
                         self.member_name = None
+                        self.replication_error = None
 
                         self.counters = LacpBundles.Bundles.Bundle.Members.Member.Counters()
                         self.counters.parent = self
@@ -3272,7 +3347,7 @@ class LacpBundles(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(LacpBundles.Bundles.Bundle.Members.Member, ['member_interface', 'interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
+                        self._perform_setattr(LacpBundles.Bundles.Bundle.Members.Member, ['member_interface', 'interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name', 'replication_error'], name, value)
 
 
                     class Counters(Entity):
@@ -3383,7 +3458,7 @@ class LacpBundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(LacpBundles.Bundles.Bundle.Members.Member.Counters, self).__init__()
@@ -3570,7 +3645,7 @@ class LacpBundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(LacpBundles.Bundles.Bundle.Members.Member.LinkData, self).__init__()
@@ -3674,7 +3749,7 @@ class LacpBundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData, self).__init__()
@@ -3732,7 +3807,7 @@ class LacpBundles(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData, self).__init__()
@@ -3776,7 +3851,7 @@ class LacpBundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(LacpBundles.Bundles.Bundle.Members.Member.MacAddress, self).__init__()
@@ -3936,7 +4011,7 @@ class BundleInformation(Entity):
     """
 
     _prefix = 'bundlemgr-oper'
-    _revision = '2018-04-30'
+    _revision = '2018-08-18'
 
     def __init__(self):
         super(BundleInformation, self).__init__()
@@ -4047,7 +4122,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.BfdCounters, self).__init__()
@@ -4091,7 +4166,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.BfdCounters.BfdCountersBundles, self).__init__()
@@ -4152,7 +4227,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle, self).__init__()
@@ -4210,7 +4285,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant, self).__init__()
@@ -4251,7 +4326,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BundleName, self).__init__()
@@ -4364,7 +4439,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BfdCounter, self).__init__()
@@ -4421,7 +4496,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleChildrenMembers, self).__init__()
@@ -4540,7 +4615,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleChildrenMembers.BfdCountersBundleChildrenMember, self).__init__()
@@ -4598,7 +4673,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleItem, self).__init__()
@@ -4639,7 +4714,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.BfdCounters.BfdCountersMembers, self).__init__()
@@ -4684,7 +4759,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.BfdCounters.BfdCountersMembers.BfdCountersMember, self).__init__()
@@ -4801,7 +4876,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.BfdCounters.BfdCountersMembers.BfdCountersMember.BfdCountersMemberItem, self).__init__()
@@ -4859,7 +4934,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.ScheduledActions, self).__init__()
@@ -4899,7 +4974,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.ScheduledActions.ScheduledActionsBundles, self).__init__()
@@ -4946,7 +5021,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle, self).__init__()
@@ -4996,7 +5071,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle.ScheduledActionsBundleItem, self).__init__()
@@ -5054,7 +5129,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle.ScheduledActionsBundleItem.ScheduledAction, self).__init__()
@@ -5108,7 +5183,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.Bundle, self).__init__()
@@ -5153,7 +5228,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.Bundle.BundleBundles, self).__init__()
@@ -5214,7 +5289,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.Bundle.BundleBundles.BundleBundle, self).__init__()
@@ -5272,7 +5347,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant, self).__init__()
@@ -5640,7 +5715,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData, self).__init__()
@@ -5760,7 +5835,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.MacAddress, self).__init__()
@@ -5867,7 +5942,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig, self).__init__()
@@ -5941,7 +6016,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig.DestinationAddress, self).__init__()
@@ -6088,12 +6163,21 @@ class BundleInformation(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: replication_error
+                        
+                        	Error from final replication attempt
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData, self).__init__()
@@ -6115,6 +6199,7 @@ class BundleInformation(Entity):
                                 ('lacp_enabled', (YLeaf(YType.str, 'lacp-enabled'), ['str'])),
                                 ('member_type', (YLeaf(YType.enumeration, 'member-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum', '')])),
                                 ('member_name', (YLeaf(YType.str, 'member-name'), ['str'])),
+                                ('replication_error', (YLeaf(YType.uint32, 'replication-error'), ['int'])),
                             ])
                             self.interface_name = None
                             self.port_priority = None
@@ -6126,6 +6211,7 @@ class BundleInformation(Entity):
                             self.lacp_enabled = None
                             self.member_type = None
                             self.member_name = None
+                            self.replication_error = None
 
                             self.counters = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.Counters()
                             self.counters.parent = self
@@ -6146,7 +6232,7 @@ class BundleInformation(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
+                            self._perform_setattr(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name', 'replication_error'], name, value)
 
 
                         class Counters(Entity):
@@ -6257,7 +6343,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.Counters, self).__init__()
@@ -6444,7 +6530,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.LinkData, self).__init__()
@@ -6548,7 +6634,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData, self).__init__()
@@ -6606,7 +6692,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData.MemberMuxStateReasonData, self).__init__()
@@ -6650,7 +6736,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MacAddress, self).__init__()
@@ -6692,7 +6778,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers, self).__init__()
@@ -6839,12 +6925,21 @@ class BundleInformation(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: replication_error
+                        
+                        	Error from final replication attempt
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember, self).__init__()
@@ -6867,6 +6962,7 @@ class BundleInformation(Entity):
                                 ('lacp_enabled', (YLeaf(YType.str, 'lacp-enabled'), ['str'])),
                                 ('member_type', (YLeaf(YType.enumeration, 'member-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum', '')])),
                                 ('member_name', (YLeaf(YType.str, 'member-name'), ['str'])),
+                                ('replication_error', (YLeaf(YType.uint32, 'replication-error'), ['int'])),
                             ])
                             self.member_interface = None
                             self.interface_name = None
@@ -6879,6 +6975,7 @@ class BundleInformation(Entity):
                             self.lacp_enabled = None
                             self.member_type = None
                             self.member_name = None
+                            self.replication_error = None
 
                             self.counters = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.Counters()
                             self.counters.parent = self
@@ -6899,7 +6996,7 @@ class BundleInformation(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember, ['member_interface', 'interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
+                            self._perform_setattr(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember, ['member_interface', 'interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name', 'replication_error'], name, value)
 
 
                         class Counters(Entity):
@@ -7010,7 +7107,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.Counters, self).__init__()
@@ -7197,7 +7294,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.LinkData, self).__init__()
@@ -7301,7 +7398,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData, self).__init__()
@@ -7359,7 +7456,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData.MemberMuxStateReasonData, self).__init__()
@@ -7403,7 +7500,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MacAddress, self).__init__()
@@ -7771,7 +7868,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem, self).__init__()
@@ -7891,7 +7988,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.MacAddress, self).__init__()
@@ -7998,7 +8095,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig, self).__init__()
@@ -8072,7 +8169,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig.DestinationAddress, self).__init__()
@@ -8120,7 +8217,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.Bundle.BundleMembers, self).__init__()
@@ -8172,7 +8269,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.Bundle.BundleMembers.BundleMember, self).__init__()
@@ -8226,7 +8323,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor, self).__init__()
@@ -8594,7 +8691,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData, self).__init__()
@@ -8714,7 +8811,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.MacAddress, self).__init__()
@@ -8821,7 +8918,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig, self).__init__()
@@ -8895,7 +8992,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig.DestinationAddress, self).__init__()
@@ -9042,12 +9139,21 @@ class BundleInformation(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: replication_error
+                        
+                        	Error from final replication attempt
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         
 
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData, self).__init__()
@@ -9069,6 +9175,7 @@ class BundleInformation(Entity):
                                 ('lacp_enabled', (YLeaf(YType.str, 'lacp-enabled'), ['str'])),
                                 ('member_type', (YLeaf(YType.enumeration, 'member-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum', '')])),
                                 ('member_name', (YLeaf(YType.str, 'member-name'), ['str'])),
+                                ('replication_error', (YLeaf(YType.uint32, 'replication-error'), ['int'])),
                             ])
                             self.interface_name = None
                             self.port_priority = None
@@ -9080,6 +9187,7 @@ class BundleInformation(Entity):
                             self.lacp_enabled = None
                             self.member_type = None
                             self.member_name = None
+                            self.replication_error = None
 
                             self.counters = BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.Counters()
                             self.counters.parent = self
@@ -9100,7 +9208,7 @@ class BundleInformation(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
+                            self._perform_setattr(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name', 'replication_error'], name, value)
 
 
                         class Counters(Entity):
@@ -9211,7 +9319,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.Counters, self).__init__()
@@ -9398,7 +9506,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.LinkData, self).__init__()
@@ -9502,7 +9610,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData, self).__init__()
@@ -9560,7 +9668,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData.MemberMuxStateReasonData, self).__init__()
@@ -9604,7 +9712,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MacAddress, self).__init__()
@@ -9747,12 +9855,21 @@ class BundleInformation(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: replication_error
+                    
+                    	Error from final replication attempt
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem, self).__init__()
@@ -9774,6 +9891,7 @@ class BundleInformation(Entity):
                             ('lacp_enabled', (YLeaf(YType.str, 'lacp-enabled'), ['str'])),
                             ('member_type', (YLeaf(YType.enumeration, 'member-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum', '')])),
                             ('member_name', (YLeaf(YType.str, 'member-name'), ['str'])),
+                            ('replication_error', (YLeaf(YType.uint32, 'replication-error'), ['int'])),
                         ])
                         self.interface_name = None
                         self.port_priority = None
@@ -9785,6 +9903,7 @@ class BundleInformation(Entity):
                         self.lacp_enabled = None
                         self.member_type = None
                         self.member_name = None
+                        self.replication_error = None
 
                         self.counters = BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.Counters()
                         self.counters.parent = self
@@ -9805,7 +9924,7 @@ class BundleInformation(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
+                        self._perform_setattr(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name', 'replication_error'], name, value)
 
 
                     class Counters(Entity):
@@ -9916,7 +10035,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.Counters, self).__init__()
@@ -10103,7 +10222,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.LinkData, self).__init__()
@@ -10207,7 +10326,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData, self).__init__()
@@ -10265,7 +10384,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData.MemberMuxStateReasonData, self).__init__()
@@ -10309,7 +10428,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MacAddress, self).__init__()
@@ -10367,7 +10486,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.EventsRg, self).__init__()
@@ -10416,7 +10535,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.EventsRg.EventsRgMembers, self).__init__()
@@ -10461,7 +10580,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.EventsRg.EventsRgMembers.EventsRgMember, self).__init__()
@@ -10511,7 +10630,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor, self).__init__()
@@ -10572,7 +10691,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items, self).__init__()
@@ -10638,7 +10757,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.MemberEvtInfo, self).__init__()
@@ -10707,7 +10826,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.MemberEvtInfo.Data, self).__init__()
@@ -10769,7 +10888,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo, self).__init__()
@@ -10838,7 +10957,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo.Data, self).__init__()
@@ -10900,7 +11019,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.RgEvtInfo, self).__init__()
@@ -10969,7 +11088,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.RgEvtInfo.Data, self).__init__()
@@ -11019,7 +11138,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.EventsRg.EventsRgIccpGroups, self).__init__()
@@ -11066,7 +11185,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup, self).__init__()
@@ -11116,7 +11235,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup, self).__init__()
@@ -11177,7 +11296,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items, self).__init__()
@@ -11243,7 +11362,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.MemberEvtInfo, self).__init__()
@@ -11312,7 +11431,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.MemberEvtInfo.Data, self).__init__()
@@ -11374,7 +11493,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo, self).__init__()
@@ -11443,7 +11562,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo.Data, self).__init__()
@@ -11505,7 +11624,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.RgEvtInfo, self).__init__()
@@ -11574,7 +11693,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.RgEvtInfo.Data, self).__init__()
@@ -11624,7 +11743,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.EventsRg.EventsRgBundles, self).__init__()
@@ -11671,7 +11790,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle, self).__init__()
@@ -11721,7 +11840,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor, self).__init__()
@@ -11782,7 +11901,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items, self).__init__()
@@ -11848,7 +11967,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.MemberEvtInfo, self).__init__()
@@ -11917,7 +12036,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.MemberEvtInfo.Data, self).__init__()
@@ -11979,7 +12098,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo, self).__init__()
@@ -12048,7 +12167,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo.Data, self).__init__()
@@ -12110,7 +12229,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.RgEvtInfo, self).__init__()
@@ -12179,7 +12298,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.RgEvtInfo.Data, self).__init__()
@@ -12237,7 +12356,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.Lacp, self).__init__()
@@ -12281,7 +12400,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.Lacp.LacpBundles, self).__init__()
@@ -12342,7 +12461,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.Lacp.LacpBundles.LacpBundle, self).__init__()
@@ -12431,12 +12550,19 @@ class BundleInformation(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: applied_lacp_mode
+                    
+                    	Applied LACP Mode
+                    	**type**\:  :py:class:`BmdLacpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdLacpMode>`
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem, self).__init__()
@@ -12452,11 +12578,13 @@ class BundleInformation(Entity):
                             ('partner_system_priority', (YLeaf(YType.uint16, 'partner-system-priority'), ['int'])),
                             ('partner_system_mac_address', (YLeaf(YType.str, 'partner-system-mac-address'), ['str'])),
                             ('partner_operational_key', (YLeaf(YType.uint16, 'partner-operational-key'), ['int'])),
+                            ('applied_lacp_mode', (YLeaf(YType.enumeration, 'applied-lacp-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdLacpMode', '')])),
                         ])
                         self.actor_operational_key = None
                         self.partner_system_priority = None
                         self.partner_system_mac_address = None
                         self.partner_operational_key = None
+                        self.applied_lacp_mode = None
 
                         self.actor_bundle_data = BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData()
                         self.actor_bundle_data.parent = self
@@ -12469,7 +12597,7 @@ class BundleInformation(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem, ['actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key'], name, value)
+                        self._perform_setattr(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem, ['actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key', 'applied_lacp_mode'], name, value)
 
 
                     class ActorBundleData(Entity):
@@ -12815,7 +12943,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData, self).__init__()
@@ -12935,7 +13063,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.MacAddress, self).__init__()
@@ -13042,7 +13170,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig, self).__init__()
@@ -13116,7 +13244,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig.DestinationAddress, self).__init__()
@@ -13170,7 +13298,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.BundleSystemId, self).__init__()
@@ -13214,7 +13342,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.BundleSystemId.SystemMacAddr, self).__init__()
@@ -13262,7 +13390,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant, self).__init__()
@@ -13341,12 +13469,19 @@ class BundleInformation(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: applied_lacp_mode
+                        
+                        	Applied LACP Mode
+                        	**type**\:  :py:class:`BmdLacpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdLacpMode>`
+                        
+                        	**config**\: False
+                        
                         
 
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData, self).__init__()
@@ -13362,11 +13497,13 @@ class BundleInformation(Entity):
                                 ('partner_system_priority', (YLeaf(YType.uint16, 'partner-system-priority'), ['int'])),
                                 ('partner_system_mac_address', (YLeaf(YType.str, 'partner-system-mac-address'), ['str'])),
                                 ('partner_operational_key', (YLeaf(YType.uint16, 'partner-operational-key'), ['int'])),
+                                ('applied_lacp_mode', (YLeaf(YType.enumeration, 'applied-lacp-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdLacpMode', '')])),
                             ])
                             self.actor_operational_key = None
                             self.partner_system_priority = None
                             self.partner_system_mac_address = None
                             self.partner_operational_key = None
+                            self.applied_lacp_mode = None
 
                             self.actor_bundle_data = BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData()
                             self.actor_bundle_data.parent = self
@@ -13379,7 +13516,7 @@ class BundleInformation(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData, ['actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key'], name, value)
+                            self._perform_setattr(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData, ['actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key', 'applied_lacp_mode'], name, value)
 
 
                         class ActorBundleData(Entity):
@@ -13725,7 +13862,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData, self).__init__()
@@ -13845,7 +13982,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.MacAddress, self).__init__()
@@ -13952,7 +14089,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig, self).__init__()
@@ -14026,7 +14163,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig.DestinationAddress, self).__init__()
@@ -14080,7 +14217,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.BundleSystemId, self).__init__()
@@ -14124,7 +14261,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.BundleSystemId.SystemMacAddr, self).__init__()
@@ -14248,7 +14385,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData, self).__init__()
@@ -14323,7 +14460,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo, self).__init__()
@@ -14390,7 +14527,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo, self).__init__()
@@ -14447,7 +14584,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.System, self).__init__()
@@ -14491,7 +14628,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.System.SystemMacAddr, self).__init__()
@@ -14542,7 +14679,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.Port, self).__init__()
@@ -14594,7 +14731,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo, self).__init__()
@@ -14661,7 +14798,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo, self).__init__()
@@ -14718,7 +14855,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.System, self).__init__()
@@ -14762,7 +14899,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.System.SystemMacAddr, self).__init__()
@@ -14813,7 +14950,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.Port, self).__init__()
@@ -14870,7 +15007,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo, self).__init__()
@@ -14918,7 +15055,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Local, self).__init__()
@@ -14966,7 +15103,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Foreign, self).__init__()
@@ -15010,7 +15147,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers, self).__init__()
@@ -15137,7 +15274,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember, self).__init__()
@@ -15214,7 +15351,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo, self).__init__()
@@ -15281,7 +15418,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo, self).__init__()
@@ -15338,7 +15475,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.System, self).__init__()
@@ -15382,7 +15519,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.System.SystemMacAddr, self).__init__()
@@ -15433,7 +15570,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.Port, self).__init__()
@@ -15485,7 +15622,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo, self).__init__()
@@ -15552,7 +15689,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo, self).__init__()
@@ -15609,7 +15746,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.System, self).__init__()
@@ -15653,7 +15790,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.System.SystemMacAddr, self).__init__()
@@ -15704,7 +15841,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.Port, self).__init__()
@@ -15761,7 +15898,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo, self).__init__()
@@ -15809,7 +15946,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Local, self).__init__()
@@ -15857,7 +15994,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Foreign, self).__init__()
@@ -15903,7 +16040,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.Lacp.LacpMembers, self).__init__()
@@ -15955,7 +16092,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.Lacp.LacpMembers.LacpMember, self).__init__()
@@ -16009,7 +16146,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor, self).__init__()
@@ -16088,12 +16225,19 @@ class BundleInformation(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: applied_lacp_mode
+                        
+                        	Applied LACP Mode
+                        	**type**\:  :py:class:`BmdLacpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdLacpMode>`
+                        
+                        	**config**\: False
+                        
                         
 
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData, self).__init__()
@@ -16109,11 +16253,13 @@ class BundleInformation(Entity):
                                 ('partner_system_priority', (YLeaf(YType.uint16, 'partner-system-priority'), ['int'])),
                                 ('partner_system_mac_address', (YLeaf(YType.str, 'partner-system-mac-address'), ['str'])),
                                 ('partner_operational_key', (YLeaf(YType.uint16, 'partner-operational-key'), ['int'])),
+                                ('applied_lacp_mode', (YLeaf(YType.enumeration, 'applied-lacp-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdLacpMode', '')])),
                             ])
                             self.actor_operational_key = None
                             self.partner_system_priority = None
                             self.partner_system_mac_address = None
                             self.partner_operational_key = None
+                            self.applied_lacp_mode = None
 
                             self.actor_bundle_data = BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData()
                             self.actor_bundle_data.parent = self
@@ -16126,7 +16272,7 @@ class BundleInformation(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData, ['actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key'], name, value)
+                            self._perform_setattr(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData, ['actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key', 'applied_lacp_mode'], name, value)
 
 
                         class ActorBundleData(Entity):
@@ -16472,7 +16618,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData, self).__init__()
@@ -16592,7 +16738,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.MacAddress, self).__init__()
@@ -16699,7 +16845,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig, self).__init__()
@@ -16773,7 +16919,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig.DestinationAddress, self).__init__()
@@ -16827,7 +16973,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.BundleSystemId, self).__init__()
@@ -16871,7 +17017,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.BundleSystemId.SystemMacAddr, self).__init__()
@@ -16995,7 +17141,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData, self).__init__()
@@ -17070,7 +17216,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo, self).__init__()
@@ -17137,7 +17283,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo, self).__init__()
@@ -17194,7 +17340,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.System, self).__init__()
@@ -17238,7 +17384,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.System.SystemMacAddr, self).__init__()
@@ -17289,7 +17435,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.Port, self).__init__()
@@ -17341,7 +17487,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo, self).__init__()
@@ -17408,7 +17554,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo, self).__init__()
@@ -17465,7 +17611,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.System, self).__init__()
@@ -17509,7 +17655,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.System.SystemMacAddr, self).__init__()
@@ -17560,7 +17706,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.Port, self).__init__()
@@ -17617,7 +17763,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo, self).__init__()
@@ -17665,7 +17811,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Local, self).__init__()
@@ -17713,7 +17859,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Foreign, self).__init__()
@@ -17840,7 +17986,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem, self).__init__()
@@ -17915,7 +18061,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo, self).__init__()
@@ -17982,7 +18128,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo, self).__init__()
@@ -18039,7 +18185,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.System, self).__init__()
@@ -18083,7 +18229,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.System.SystemMacAddr, self).__init__()
@@ -18134,7 +18280,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.Port, self).__init__()
@@ -18186,7 +18332,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo, self).__init__()
@@ -18253,7 +18399,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo, self).__init__()
@@ -18310,7 +18456,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.System, self).__init__()
@@ -18354,7 +18500,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.System.SystemMacAddr, self).__init__()
@@ -18405,7 +18551,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.Port, self).__init__()
@@ -18462,7 +18608,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo, self).__init__()
@@ -18510,7 +18656,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Local, self).__init__()
@@ -18558,7 +18704,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Foreign, self).__init__()
@@ -18618,7 +18764,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.MlacpBundleCounters, self).__init__()
@@ -18667,7 +18813,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpBundleCounters.IccpGroups, self).__init__()
@@ -18714,7 +18860,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup, self).__init__()
@@ -18764,7 +18910,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem, self).__init__()
@@ -18828,7 +18974,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData, self).__init__()
@@ -18898,7 +19044,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts, self).__init__()
@@ -18962,7 +19108,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests, self).__init__()
@@ -19028,7 +19174,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles, self).__init__()
@@ -19092,7 +19238,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests, self).__init__()
@@ -19143,7 +19289,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData, self).__init__()
@@ -19263,7 +19409,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters, self).__init__()
@@ -19339,7 +19485,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -19392,7 +19538,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData, self).__init__()
@@ -19449,7 +19595,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_, self).__init__()
@@ -19517,7 +19663,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts, self).__init__()
@@ -19581,7 +19727,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests, self).__init__()
@@ -19647,7 +19793,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles, self).__init__()
@@ -19711,7 +19857,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests, self).__init__()
@@ -19763,7 +19909,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData, self).__init__()
@@ -19883,7 +20029,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters, self).__init__()
@@ -19959,7 +20105,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -20008,7 +20154,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpBundleCounters.Bundles, self).__init__()
@@ -20055,7 +20201,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpBundleCounters.Bundles.Bundle, self).__init__()
@@ -20098,7 +20244,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem, self).__init__()
@@ -20142,7 +20288,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup, self).__init__()
@@ -20206,7 +20352,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData, self).__init__()
@@ -20276,7 +20422,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts, self).__init__()
@@ -20340,7 +20486,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests, self).__init__()
@@ -20406,7 +20552,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles, self).__init__()
@@ -20470,7 +20616,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests, self).__init__()
@@ -20521,7 +20667,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData, self).__init__()
@@ -20641,7 +20787,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters, self).__init__()
@@ -20717,7 +20863,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -20770,7 +20916,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData, self).__init__()
@@ -20827,7 +20973,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_, self).__init__()
@@ -20895,7 +21041,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts, self).__init__()
@@ -20959,7 +21105,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests, self).__init__()
@@ -21025,7 +21171,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles, self).__init__()
@@ -21089,7 +21235,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests, self).__init__()
@@ -21141,7 +21287,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData, self).__init__()
@@ -21261,7 +21407,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters, self).__init__()
@@ -21337,7 +21483,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -21388,7 +21534,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpBundleCounters.Nodes, self).__init__()
@@ -21433,7 +21579,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpBundleCounters.Nodes.Node, self).__init__()
@@ -21483,7 +21629,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem, self).__init__()
@@ -21547,7 +21693,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData, self).__init__()
@@ -21617,7 +21763,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts, self).__init__()
@@ -21681,7 +21827,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests, self).__init__()
@@ -21747,7 +21893,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles, self).__init__()
@@ -21811,7 +21957,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests, self).__init__()
@@ -21862,7 +22008,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData, self).__init__()
@@ -21982,7 +22128,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters, self).__init__()
@@ -22058,7 +22204,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -22111,7 +22257,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData, self).__init__()
@@ -22168,7 +22314,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_, self).__init__()
@@ -22236,7 +22382,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts, self).__init__()
@@ -22300,7 +22446,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests, self).__init__()
@@ -22366,7 +22512,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles, self).__init__()
@@ -22430,7 +22576,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests, self).__init__()
@@ -22482,7 +22628,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData, self).__init__()
@@ -22602,7 +22748,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters, self).__init__()
@@ -22678,7 +22824,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -22729,7 +22875,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.Protect, self).__init__()
@@ -22770,7 +22916,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.Protect.ProtectBundles, self).__init__()
@@ -22817,7 +22963,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.Protect.ProtectBundles.ProtectBundle, self).__init__()
@@ -22931,7 +23077,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Protect.ProtectBundles.ProtectBundle.ProtectBundleItem, self).__init__()
@@ -23055,7 +23201,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Protect.ProtectBundles.ProtectBundle.ProtectBundleItem.MemberInfo, self).__init__()
@@ -23122,7 +23268,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.MlacpBrief, self).__init__()
@@ -23166,7 +23312,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpBrief.MlacpBundleBriefs, self).__init__()
@@ -23213,7 +23359,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief, self).__init__()
@@ -23256,7 +23402,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief, self).__init__()
@@ -23300,7 +23446,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData, self).__init__()
@@ -23368,7 +23514,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData, self).__init__()
@@ -23454,7 +23600,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData, self).__init__()
@@ -23513,7 +23659,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData.SystemId, self).__init__()
@@ -23557,7 +23703,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData.SystemId.SystemMacAddr, self).__init__()
@@ -23631,7 +23777,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData, self).__init__()
@@ -23717,7 +23863,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData, self).__init__()
@@ -23769,7 +23915,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData.MacAddress, self).__init__()
@@ -23861,7 +24007,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpMemberData, self).__init__()
@@ -23917,7 +24063,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups, self).__init__()
@@ -23964,7 +24110,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup, self).__init__()
@@ -24014,7 +24160,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem, self).__init__()
@@ -24082,7 +24228,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData, self).__init__()
@@ -24168,7 +24314,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData, self).__init__()
@@ -24227,7 +24373,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData.SystemId, self).__init__()
@@ -24271,7 +24417,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData.SystemId.SystemMacAddr, self).__init__()
@@ -24345,7 +24491,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData, self).__init__()
@@ -24431,7 +24577,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData, self).__init__()
@@ -24483,7 +24629,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData.MacAddress, self).__init__()
@@ -24575,7 +24721,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpMemberData, self).__init__()
@@ -24639,7 +24785,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.Mlacp, self).__init__()
@@ -24683,7 +24829,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.Mlacp.MlacpBundles, self).__init__()
@@ -24730,7 +24876,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle, self).__init__()
@@ -24773,7 +24919,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem, self).__init__()
@@ -24817,7 +24963,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData, self).__init__()
@@ -24885,7 +25031,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData, self).__init__()
@@ -24971,7 +25117,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData, self).__init__()
@@ -25030,7 +25176,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData.SystemId, self).__init__()
@@ -25074,7 +25220,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData.SystemId.SystemMacAddr, self).__init__()
@@ -25148,7 +25294,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData, self).__init__()
@@ -25234,7 +25380,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData, self).__init__()
@@ -25286,7 +25432,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData.MacAddress, self).__init__()
@@ -25378,7 +25524,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpMemberData, self).__init__()
@@ -25434,7 +25580,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.Mlacp.MlacpIccpGroups, self).__init__()
@@ -25481,7 +25627,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup, self).__init__()
@@ -25531,7 +25677,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem, self).__init__()
@@ -25599,7 +25745,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData, self).__init__()
@@ -25685,7 +25831,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData, self).__init__()
@@ -25744,7 +25890,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData.SystemId, self).__init__()
@@ -25788,7 +25934,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData.SystemId.SystemMacAddr, self).__init__()
@@ -25862,7 +26008,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData, self).__init__()
@@ -25948,7 +26094,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData, self).__init__()
@@ -26000,7 +26146,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData.MacAddress, self).__init__()
@@ -26092,7 +26238,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpMemberData, self).__init__()
@@ -26149,7 +26295,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.MacAllocation, self).__init__()
@@ -26190,7 +26336,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MacAllocation.MacAllocationGlobal, self).__init__()
@@ -26230,7 +26376,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MacAllocation.MacAllocationGlobal.MacAllocationGlobalItem, self).__init__()
@@ -26270,7 +26416,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MacAllocation.MacAllocationGlobal.MacAllocationGlobalItem.MacAddress, self).__init__()
@@ -26320,7 +26466,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.Events, self).__init__()
@@ -26364,7 +26510,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.Events.EventsMembers, self).__init__()
@@ -26416,7 +26562,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.Events.EventsMembers.EventsMember, self).__init__()
@@ -26470,7 +26616,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem, self).__init__()
@@ -26531,7 +26677,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items, self).__init__()
@@ -26597,7 +26743,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.MemberEvtInfo, self).__init__()
@@ -26666,7 +26812,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.MemberEvtInfo.Data, self).__init__()
@@ -26728,7 +26874,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo, self).__init__()
@@ -26797,7 +26943,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo.Data, self).__init__()
@@ -26859,7 +27005,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.RgEvtInfo, self).__init__()
@@ -26928,7 +27074,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.RgEvtInfo.Data, self).__init__()
@@ -26983,7 +27129,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor, self).__init__()
@@ -27044,7 +27190,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items, self).__init__()
@@ -27110,7 +27256,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.MemberEvtInfo, self).__init__()
@@ -27179,7 +27325,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.MemberEvtInfo.Data, self).__init__()
@@ -27241,7 +27387,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo, self).__init__()
@@ -27310,7 +27456,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo.Data, self).__init__()
@@ -27372,7 +27518,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.RgEvtInfo, self).__init__()
@@ -27441,7 +27587,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.RgEvtInfo.Data, self).__init__()
@@ -27491,7 +27637,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.Events.EventsBundles, self).__init__()
@@ -27559,7 +27705,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.Events.EventsBundles.EventsBundle, self).__init__()
@@ -27621,7 +27767,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor, self).__init__()
@@ -27682,7 +27828,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items, self).__init__()
@@ -27748,7 +27894,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.MemberEvtInfo, self).__init__()
@@ -27817,7 +27963,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.MemberEvtInfo.Data, self).__init__()
@@ -27879,7 +28025,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo, self).__init__()
@@ -27948,7 +28094,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo.Data, self).__init__()
@@ -28010,7 +28156,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.RgEvtInfo, self).__init__()
@@ -28079,7 +28225,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.RgEvtInfo.Data, self).__init__()
@@ -28134,7 +28280,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem, self).__init__()
@@ -28195,7 +28341,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items, self).__init__()
@@ -28261,7 +28407,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.MemberEvtInfo, self).__init__()
@@ -28330,7 +28476,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.MemberEvtInfo.Data, self).__init__()
@@ -28392,7 +28538,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo, self).__init__()
@@ -28461,7 +28607,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo.Data, self).__init__()
@@ -28523,7 +28669,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.RgEvtInfo, self).__init__()
@@ -28592,7 +28738,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.RgEvtInfo.Data, self).__init__()
@@ -28640,7 +28786,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant, self).__init__()
@@ -28684,7 +28830,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem, self).__init__()
@@ -28745,7 +28891,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items, self).__init__()
@@ -28811,7 +28957,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.MemberEvtInfo, self).__init__()
@@ -28880,7 +29026,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.MemberEvtInfo.Data, self).__init__()
@@ -28942,7 +29088,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo, self).__init__()
@@ -29011,7 +29157,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo.Data, self).__init__()
@@ -29073,7 +29219,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.RgEvtInfo, self).__init__()
@@ -29142,7 +29288,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.RgEvtInfo.Data, self).__init__()
@@ -29191,7 +29337,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers, self).__init__()
@@ -29242,7 +29388,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember, self).__init__()
@@ -29305,7 +29451,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items, self).__init__()
@@ -29371,7 +29517,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.MemberEvtInfo, self).__init__()
@@ -29440,7 +29586,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.MemberEvtInfo.Data, self).__init__()
@@ -29502,7 +29648,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo, self).__init__()
@@ -29571,7 +29717,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo.Data, self).__init__()
@@ -29633,7 +29779,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.RgEvtInfo, self).__init__()
@@ -29702,7 +29848,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.RgEvtInfo.Data, self).__init__()
@@ -29769,7 +29915,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.EventsBdl, self).__init__()
@@ -29818,7 +29964,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.EventsBdl.EventsBdlMembers, self).__init__()
@@ -29863,7 +30009,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember, self).__init__()
@@ -29913,7 +30059,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor, self).__init__()
@@ -29974,7 +30120,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items, self).__init__()
@@ -30040,7 +30186,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.MemberEvtInfo, self).__init__()
@@ -30109,7 +30255,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.MemberEvtInfo.Data, self).__init__()
@@ -30171,7 +30317,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo, self).__init__()
@@ -30240,7 +30386,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo.Data, self).__init__()
@@ -30302,7 +30448,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.RgEvtInfo, self).__init__()
@@ -30371,7 +30517,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.RgEvtInfo.Data, self).__init__()
@@ -30422,7 +30568,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.EventsBdl.EventsBdlBundles, self).__init__()
@@ -30469,7 +30615,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle, self).__init__()
@@ -30519,7 +30665,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem, self).__init__()
@@ -30580,7 +30726,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items, self).__init__()
@@ -30646,7 +30792,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.MemberEvtInfo, self).__init__()
@@ -30715,7 +30861,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.MemberEvtInfo.Data, self).__init__()
@@ -30777,7 +30923,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo, self).__init__()
@@ -30846,7 +30992,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo.Data, self).__init__()
@@ -30908,7 +31054,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.RgEvtInfo, self).__init__()
@@ -30977,7 +31123,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.RgEvtInfo.Data, self).__init__()
@@ -31027,7 +31173,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.EventsBdl.EventsBdlIccpGroups, self).__init__()
@@ -31074,7 +31220,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup, self).__init__()
@@ -31117,7 +31263,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup, self).__init__()
@@ -31161,7 +31307,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem, self).__init__()
@@ -31222,7 +31368,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items, self).__init__()
@@ -31288,7 +31434,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo, self).__init__()
@@ -31357,7 +31503,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo.Data, self).__init__()
@@ -31419,7 +31565,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo, self).__init__()
@@ -31488,7 +31634,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data, self).__init__()
@@ -31550,7 +31696,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo, self).__init__()
@@ -31619,7 +31765,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo.Data, self).__init__()
@@ -31671,7 +31817,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.BundleBriefs, self).__init__()
@@ -31718,7 +31864,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.BundleBriefs.BundleBrief, self).__init__()
@@ -32088,7 +32234,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem, self).__init__()
@@ -32208,7 +32354,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.MacAddress, self).__init__()
@@ -32315,7 +32461,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig, self).__init__()
@@ -32389,7 +32535,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig.DestinationAddress, self).__init__()
@@ -32451,7 +32597,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.EventsMbr, self).__init__()
@@ -32500,7 +32646,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.EventsMbr.EventsMbrBundles, self).__init__()
@@ -32554,7 +32700,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle, self).__init__()
@@ -32602,7 +32748,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers, self).__init__()
@@ -32654,7 +32800,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember, self).__init__()
@@ -32717,7 +32863,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items, self).__init__()
@@ -32783,7 +32929,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.MemberEvtInfo, self).__init__()
@@ -32852,7 +32998,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.MemberEvtInfo.Data, self).__init__()
@@ -32914,7 +33060,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo, self).__init__()
@@ -32983,7 +33129,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo.Data, self).__init__()
@@ -33045,7 +33191,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.RgEvtInfo, self).__init__()
@@ -33114,7 +33260,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.RgEvtInfo.Data, self).__init__()
@@ -33163,7 +33309,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant, self).__init__()
@@ -33207,7 +33353,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem, self).__init__()
@@ -33268,7 +33414,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items, self).__init__()
@@ -33334,7 +33480,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.MemberEvtInfo, self).__init__()
@@ -33403,7 +33549,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.MemberEvtInfo.Data, self).__init__()
@@ -33465,7 +33611,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo, self).__init__()
@@ -33534,7 +33680,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo.Data, self).__init__()
@@ -33596,7 +33742,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.RgEvtInfo, self).__init__()
@@ -33665,7 +33811,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.RgEvtInfo.Data, self).__init__()
@@ -33717,7 +33863,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.EventsMbr.EventsMbrMembers, self).__init__()
@@ -33762,7 +33908,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember, self).__init__()
@@ -33812,7 +33958,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem, self).__init__()
@@ -33873,7 +34019,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items, self).__init__()
@@ -33939,7 +34085,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.MemberEvtInfo, self).__init__()
@@ -34008,7 +34154,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.MemberEvtInfo.Data, self).__init__()
@@ -34070,7 +34216,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo, self).__init__()
@@ -34139,7 +34285,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo.Data, self).__init__()
@@ -34201,7 +34347,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.RgEvtInfo, self).__init__()
@@ -34270,7 +34416,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.RgEvtInfo.Data, self).__init__()
@@ -34320,7 +34466,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.EventsMbr.EventsMbrIccpGroups, self).__init__()
@@ -34374,7 +34520,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup, self).__init__()
@@ -34422,7 +34568,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups, self).__init__()
@@ -34474,7 +34620,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup, self).__init__()
@@ -34537,7 +34683,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items, self).__init__()
@@ -34603,7 +34749,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.MemberEvtInfo, self).__init__()
@@ -34672,7 +34818,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.MemberEvtInfo.Data, self).__init__()
@@ -34734,7 +34880,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo, self).__init__()
@@ -34803,7 +34949,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo.Data, self).__init__()
@@ -34865,7 +35011,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.RgEvtInfo, self).__init__()
@@ -34934,7 +35080,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.RgEvtInfo.Data, self).__init__()
@@ -34983,7 +35129,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup, self).__init__()
@@ -35027,7 +35173,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem, self).__init__()
@@ -35088,7 +35234,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items, self).__init__()
@@ -35154,7 +35300,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo, self).__init__()
@@ -35223,7 +35369,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo.Data, self).__init__()
@@ -35285,7 +35431,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo, self).__init__()
@@ -35354,7 +35500,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data, self).__init__()
@@ -35416,7 +35562,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo, self).__init__()
@@ -35485,7 +35631,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo.Data, self).__init__()
@@ -35537,7 +35683,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.MlacpIccpGroupCounters, self).__init__()
@@ -35577,7 +35723,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups, self).__init__()
@@ -35645,7 +35791,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup, self).__init__()
@@ -35709,7 +35855,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle, self).__init__()
@@ -35812,7 +35958,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters, self).__init__()
@@ -35957,7 +36103,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.Connection, self).__init__()
@@ -36151,7 +36297,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.TlVs, self).__init__()
@@ -36258,7 +36404,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.InvalidTlVs, self).__init__()
@@ -36334,7 +36480,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpMessages, self).__init__()
@@ -36471,7 +36617,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpEvents, self).__init__()
@@ -36541,7 +36687,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember, self).__init__()
@@ -36644,7 +36790,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters, self).__init__()
@@ -36789,7 +36935,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.Connection, self).__init__()
@@ -36983,7 +37129,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.TlVs, self).__init__()
@@ -37090,7 +37236,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.InvalidTlVs, self).__init__()
@@ -37166,7 +37312,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpMessages, self).__init__()
@@ -37303,7 +37449,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpEvents, self).__init__()
@@ -37373,7 +37519,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode, self).__init__()
@@ -37476,7 +37622,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters, self).__init__()
@@ -37621,7 +37767,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.Connection, self).__init__()
@@ -37815,7 +37961,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.TlVs, self).__init__()
@@ -37922,7 +38068,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.InvalidTlVs, self).__init__()
@@ -37998,7 +38144,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpMessages, self).__init__()
@@ -38135,7 +38281,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpEvents, self).__init__()
@@ -38205,7 +38351,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem, self).__init__()
@@ -38308,7 +38454,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters, self).__init__()
@@ -38453,7 +38599,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.Connection, self).__init__()
@@ -38647,7 +38793,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.TlVs, self).__init__()
@@ -38754,7 +38900,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.InvalidTlVs, self).__init__()
@@ -38830,7 +38976,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpMessages, self).__init__()
@@ -38967,7 +39113,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpEvents, self).__init__()
@@ -39039,7 +39185,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.SystemId, self).__init__()
@@ -39083,7 +39229,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.SystemId.SystemIdGlobal, self).__init__()
@@ -39150,7 +39296,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem, self).__init__()
@@ -39206,7 +39352,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_, self).__init__()
@@ -39251,7 +39397,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_.SystemMacAddr, self).__init__()
@@ -39294,7 +39440,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.SystemId.SystemIdIccpGroups, self).__init__()
@@ -39341,7 +39487,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup, self).__init__()
@@ -39411,7 +39557,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem, self).__init__()
@@ -39466,7 +39612,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_, self).__init__()
@@ -39510,7 +39656,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_.SystemMacAddr, self).__init__()
@@ -39575,7 +39721,7 @@ class BundleInformation(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundleInformation.MlacpMemberCounters, self).__init__()
@@ -39628,7 +39774,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpMemberCounters.IccpGroups, self).__init__()
@@ -39675,7 +39821,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup, self).__init__()
@@ -39718,7 +39864,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem, self).__init__()
@@ -39769,7 +39915,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items, self).__init__()
@@ -39827,7 +39973,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData, self).__init__()
@@ -39893,7 +40039,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts, self).__init__()
@@ -39957,7 +40103,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests, self).__init__()
@@ -40016,7 +40162,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData, self).__init__()
@@ -40072,7 +40218,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData_, self).__init__()
@@ -40135,7 +40281,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts, self).__init__()
@@ -40199,7 +40345,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests, self).__init__()
@@ -40250,7 +40396,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData, self).__init__()
@@ -40370,7 +40516,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters, self).__init__()
@@ -40446,7 +40592,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -40499,7 +40645,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData, self).__init__()
@@ -40619,7 +40765,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters, self).__init__()
@@ -40695,7 +40841,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -40744,7 +40890,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpMemberCounters.Members, self).__init__()
@@ -40789,7 +40935,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpMemberCounters.Members.Member, self).__init__()
@@ -40832,7 +40978,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem, self).__init__()
@@ -40883,7 +41029,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items, self).__init__()
@@ -40941,7 +41087,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData, self).__init__()
@@ -41007,7 +41153,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts, self).__init__()
@@ -41071,7 +41217,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests, self).__init__()
@@ -41130,7 +41276,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData, self).__init__()
@@ -41186,7 +41332,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData_, self).__init__()
@@ -41249,7 +41395,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts, self).__init__()
@@ -41313,7 +41459,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests, self).__init__()
@@ -41364,7 +41510,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData, self).__init__()
@@ -41484,7 +41630,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters, self).__init__()
@@ -41560,7 +41706,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -41613,7 +41759,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData, self).__init__()
@@ -41733,7 +41879,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters, self).__init__()
@@ -41809,7 +41955,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -41859,7 +42005,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpMemberCounters.Bundles, self).__init__()
@@ -41906,7 +42052,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpMemberCounters.Bundles.Bundle, self).__init__()
@@ -41963,7 +42109,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem, self).__init__()
@@ -42021,7 +42167,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData, self).__init__()
@@ -42087,7 +42233,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts, self).__init__()
@@ -42151,7 +42297,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests, self).__init__()
@@ -42210,7 +42356,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData, self).__init__()
@@ -42266,7 +42412,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData_, self).__init__()
@@ -42329,7 +42475,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts, self).__init__()
@@ -42393,7 +42539,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests, self).__init__()
@@ -42444,7 +42590,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData, self).__init__()
@@ -42564,7 +42710,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters, self).__init__()
@@ -42640,7 +42786,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -42693,7 +42839,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData, self).__init__()
@@ -42813,7 +42959,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters, self).__init__()
@@ -42889,7 +43035,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -42938,7 +43084,7 @@ class BundleInformation(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundleInformation.MlacpMemberCounters.Nodes, self).__init__()
@@ -42983,7 +43129,7 @@ class BundleInformation(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundleInformation.MlacpMemberCounters.Nodes.Node, self).__init__()
@@ -43026,7 +43172,7 @@ class BundleInformation(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem, self).__init__()
@@ -43077,7 +43223,7 @@ class BundleInformation(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items, self).__init__()
@@ -43135,7 +43281,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData, self).__init__()
@@ -43201,7 +43347,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts, self).__init__()
@@ -43265,7 +43411,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests, self).__init__()
@@ -43324,7 +43470,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData, self).__init__()
@@ -43380,7 +43526,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData_, self).__init__()
@@ -43443,7 +43589,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts, self).__init__()
@@ -43507,7 +43653,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests, self).__init__()
@@ -43558,7 +43704,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData, self).__init__()
@@ -43678,7 +43824,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters, self).__init__()
@@ -43754,7 +43900,7 @@ class BundleInformation(Entity):
                                         """
 
                                         _prefix = 'bundlemgr-oper'
-                                        _revision = '2018-04-30'
+                                        _revision = '2018-08-18'
 
                                         def __init__(self):
                                             super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -43807,7 +43953,7 @@ class BundleInformation(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData, self).__init__()
@@ -43927,7 +44073,7 @@ class BundleInformation(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters, self).__init__()
@@ -44003,7 +44149,7 @@ class BundleInformation(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests, self).__init__()
@@ -44058,7 +44204,7 @@ class LacpData(Entity):
     """
 
     _prefix = 'bundlemgr-oper'
-    _revision = '2018-04-30'
+    _revision = '2018-08-18'
 
     def __init__(self):
         super(LacpData, self).__init__()
@@ -44098,7 +44244,7 @@ class LacpData(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(LacpData.Global, self).__init__()
@@ -44165,7 +44311,7 @@ class LacpData(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(LacpData.Global.SystemId, self).__init__()
@@ -44221,7 +44367,7 @@ class LacpData(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(LacpData.Global.SystemId.SystemId_, self).__init__()
@@ -44266,7 +44412,7 @@ class LacpData(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(LacpData.Global.SystemId.SystemId_.SystemMacAddr, self).__init__()
@@ -44314,7 +44460,7 @@ class Bundles(Entity):
     """
 
     _prefix = 'bundlemgr-oper'
-    _revision = '2018-04-30'
+    _revision = '2018-08-18'
 
     def __init__(self):
         super(Bundles, self).__init__()
@@ -44354,7 +44500,7 @@ class Bundles(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(Bundles.Bundles_, self).__init__()
@@ -44389,6 +44535,13 @@ class Bundles(Entity):
             
             	**config**\: False
             
+            .. attribute:: applied_lacp_mode
+            
+            	Applied LACP Mode for each Bundle
+            	**type**\:  :py:class:`AppliedLacpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.AppliedLacpMode>`
+            
+            	**config**\: False
+            
             .. attribute:: data
             
             	Data for each Bundle
@@ -44408,7 +44561,7 @@ class Bundles(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(Bundles.Bundles_.Bundle, self).__init__()
@@ -44418,11 +44571,15 @@ class Bundles(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['bundle_interface']
-                self._child_classes = OrderedDict([("data", ("data", Bundles.Bundles_.Bundle.Data)), ("members", ("members", Bundles.Bundles_.Bundle.Members))])
+                self._child_classes = OrderedDict([("applied-lacp-mode", ("applied_lacp_mode", Bundles.Bundles_.Bundle.AppliedLacpMode)), ("data", ("data", Bundles.Bundles_.Bundle.Data)), ("members", ("members", Bundles.Bundles_.Bundle.Members))])
                 self._leafs = OrderedDict([
                     ('bundle_interface', (YLeaf(YType.str, 'bundle-interface'), ['str'])),
                 ])
                 self.bundle_interface = None
+
+                self.applied_lacp_mode = Bundles.Bundles_.Bundle.AppliedLacpMode()
+                self.applied_lacp_mode.parent = self
+                self._children_name_map["applied_lacp_mode"] = "applied-lacp-mode"
 
                 self.data = Bundles.Bundles_.Bundle.Data()
                 self.data.parent = self
@@ -44437,6 +44594,45 @@ class Bundles(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bundles.Bundles_.Bundle, ['bundle_interface'], name, value)
+
+
+            class AppliedLacpMode(Entity):
+                """
+                Applied LACP Mode for each Bundle
+                
+                .. attribute:: applied_lacp_mode
+                
+                	Applied LACP Mode
+                	**type**\:  :py:class:`BmdLacpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdLacpMode>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'bundlemgr-oper'
+                _revision = '2018-08-18'
+
+                def __init__(self):
+                    super(Bundles.Bundles_.Bundle.AppliedLacpMode, self).__init__()
+
+                    self.yang_name = "applied-lacp-mode"
+                    self.yang_parent_name = "bundle"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('applied_lacp_mode', (YLeaf(YType.enumeration, 'applied-lacp-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdLacpMode', '')])),
+                    ])
+                    self.applied_lacp_mode = None
+                    self._segment_path = lambda: "applied-lacp-mode"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Bundles.Bundles_.Bundle.AppliedLacpMode, ['applied_lacp_mode'], name, value)
+
 
 
             class Data(Entity):
@@ -44782,7 +44978,7 @@ class Bundles(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(Bundles.Bundles_.Bundle.Data, self).__init__()
@@ -44902,7 +45098,7 @@ class Bundles(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(Bundles.Bundles_.Bundle.Data.MacAddress, self).__init__()
@@ -45009,7 +45205,7 @@ class Bundles(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(Bundles.Bundles_.Bundle.Data.BfdConfig, self).__init__()
@@ -45083,7 +45279,7 @@ class Bundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(Bundles.Bundles_.Bundle.Data.BfdConfig.DestinationAddress, self).__init__()
@@ -45128,7 +45324,7 @@ class Bundles(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(Bundles.Bundles_.Bundle.Members, self).__init__()
@@ -45276,12 +45472,21 @@ class Bundles(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: replication_error
+                    
+                    	Error from final replication attempt
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(Bundles.Bundles_.Bundle.Members.Member, self).__init__()
@@ -45304,6 +45509,7 @@ class Bundles(Entity):
                             ('lacp_enabled', (YLeaf(YType.str, 'lacp-enabled'), ['str'])),
                             ('member_type', (YLeaf(YType.enumeration, 'member-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum', '')])),
                             ('member_name', (YLeaf(YType.str, 'member-name'), ['str'])),
+                            ('replication_error', (YLeaf(YType.uint32, 'replication-error'), ['int'])),
                         ])
                         self.member_interface = None
                         self.interface_name = None
@@ -45316,6 +45522,7 @@ class Bundles(Entity):
                         self.lacp_enabled = None
                         self.member_type = None
                         self.member_name = None
+                        self.replication_error = None
 
                         self.counters = Bundles.Bundles_.Bundle.Members.Member.Counters()
                         self.counters.parent = self
@@ -45336,7 +45543,7 @@ class Bundles(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bundles.Bundles_.Bundle.Members.Member, ['member_interface', 'interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
+                        self._perform_setattr(Bundles.Bundles_.Bundle.Members.Member, ['member_interface', 'interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name', 'replication_error'], name, value)
 
 
                     class Counters(Entity):
@@ -45447,7 +45654,7 @@ class Bundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(Bundles.Bundles_.Bundle.Members.Member.Counters, self).__init__()
@@ -45634,7 +45841,7 @@ class Bundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(Bundles.Bundles_.Bundle.Members.Member.LinkData, self).__init__()
@@ -45738,7 +45945,7 @@ class Bundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(Bundles.Bundles_.Bundle.Members.Member.MemberMuxData, self).__init__()
@@ -45796,7 +46003,7 @@ class Bundles(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(Bundles.Bundles_.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData, self).__init__()
@@ -45840,7 +46047,7 @@ class Bundles(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(Bundles.Bundles_.Bundle.Members.Member.MacAddress, self).__init__()
@@ -45895,7 +46102,7 @@ class LacpBundleMembers(Entity):
     """
 
     _prefix = 'bundlemgr-oper'
-    _revision = '2018-04-30'
+    _revision = '2018-08-18'
 
     def __init__(self):
         super(LacpBundleMembers, self).__init__()
@@ -45940,7 +46147,7 @@ class LacpBundleMembers(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(LacpBundleMembers.Nodes, self).__init__()
@@ -45985,7 +46192,7 @@ class LacpBundleMembers(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(LacpBundleMembers.Nodes.Node, self).__init__()
@@ -46090,7 +46297,7 @@ class LacpBundleMembers(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(LacpBundleMembers.Nodes.Node.Counters, self).__init__()
@@ -46143,7 +46350,7 @@ class LacpBundleMembers(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(LacpBundleMembers.Members, self).__init__()
@@ -46197,7 +46404,7 @@ class LacpBundleMembers(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(LacpBundleMembers.Members.Member, self).__init__()
@@ -46372,7 +46579,7 @@ class LacpBundleMembers(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(LacpBundleMembers.Members.Member.Data, self).__init__()
@@ -46558,7 +46765,7 @@ class LacpBundleMembers(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(LacpBundleMembers.Members.Member.Counters, self).__init__()
@@ -46630,7 +46837,7 @@ class BundlesAdjacency(Entity):
     """
 
     _prefix = 'bundlemgr-oper'
-    _revision = '2018-04-30'
+    _revision = '2018-08-18'
 
     def __init__(self):
         super(BundlesAdjacency, self).__init__()
@@ -46670,7 +46877,7 @@ class BundlesAdjacency(Entity):
         """
 
         _prefix = 'bundlemgr-oper'
-        _revision = '2018-04-30'
+        _revision = '2018-08-18'
 
         def __init__(self):
             super(BundlesAdjacency.Nodes, self).__init__()
@@ -46724,7 +46931,7 @@ class BundlesAdjacency(Entity):
             """
 
             _prefix = 'bundlemgr-oper'
-            _revision = '2018-04-30'
+            _revision = '2018-08-18'
 
             def __init__(self):
                 super(BundlesAdjacency.Nodes.Node, self).__init__()
@@ -46771,7 +46978,7 @@ class BundlesAdjacency(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundlesAdjacency.Nodes.Node.Brief, self).__init__()
@@ -46844,7 +47051,7 @@ class BundlesAdjacency(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundlesAdjacency.Nodes.Node.Brief.BundleData, self).__init__()
@@ -46871,7 +47078,7 @@ class BundlesAdjacency(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BundlesAdjacency.Nodes.Node.Brief.BundleData, [u'interface_name', u'sub_interface_count', u'member_count', u'total_weight'], name, value)
+                        self._perform_setattr(BundlesAdjacency.Nodes.Node.Brief.BundleData, ['interface_name', 'sub_interface_count', 'member_count', 'total_weight'], name, value)
 
 
                     class SubInterface(Entity):
@@ -46899,7 +47106,7 @@ class BundlesAdjacency(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface, self).__init__()
@@ -46922,7 +47129,7 @@ class BundlesAdjacency(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface, [u'interface_name'], name, value)
+                            self._perform_setattr(BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface, ['interface_name'], name, value)
 
 
                         class LoadBalanceData(Entity):
@@ -46959,7 +47166,7 @@ class BundlesAdjacency(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface.LoadBalanceData, self).__init__()
@@ -46982,7 +47189,7 @@ class BundlesAdjacency(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface.LoadBalanceData, [u'type', u'value', u'local_link_threshold'], name, value)
+                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface.LoadBalanceData, ['type', 'value', 'local_link_threshold'], name, value)
 
 
 
@@ -47005,7 +47212,7 @@ class BundlesAdjacency(Entity):
                 """
 
                 _prefix = 'bundlemgr-oper'
-                _revision = '2018-04-30'
+                _revision = '2018-08-18'
 
                 def __init__(self):
                     super(BundlesAdjacency.Nodes.Node.Bundles, self).__init__()
@@ -47051,7 +47258,7 @@ class BundlesAdjacency(Entity):
                     """
 
                     _prefix = 'bundlemgr-oper'
-                    _revision = '2018-04-30'
+                    _revision = '2018-08-18'
 
                     def __init__(self):
                         super(BundlesAdjacency.Nodes.Node.Bundles.Bundle, self).__init__()
@@ -47137,7 +47344,7 @@ class BundlesAdjacency(Entity):
                         """
 
                         _prefix = 'bundlemgr-oper'
-                        _revision = '2018-04-30'
+                        _revision = '2018-08-18'
 
                         def __init__(self):
                             super(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo, self).__init__()
@@ -47171,7 +47378,7 @@ class BundlesAdjacency(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo, [u'media', u'max_member_count', u'avoid_rebalance'], name, value)
+                            self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo, ['media', 'max_member_count', 'avoid_rebalance'], name, value)
 
 
                         class Brief(Entity):
@@ -47226,7 +47433,7 @@ class BundlesAdjacency(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief, self).__init__()
@@ -47253,7 +47460,7 @@ class BundlesAdjacency(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief, [u'interface_name', u'sub_interface_count', u'member_count', u'total_weight'], name, value)
+                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief, ['interface_name', 'sub_interface_count', 'member_count', 'total_weight'], name, value)
 
 
                             class SubInterface(Entity):
@@ -47281,7 +47488,7 @@ class BundlesAdjacency(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface, self).__init__()
@@ -47304,7 +47511,7 @@ class BundlesAdjacency(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface, [u'interface_name'], name, value)
+                                    self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface, ['interface_name'], name, value)
 
 
                                 class LoadBalanceData(Entity):
@@ -47341,7 +47548,7 @@ class BundlesAdjacency(Entity):
                                     """
 
                                     _prefix = 'bundlemgr-oper'
-                                    _revision = '2018-04-30'
+                                    _revision = '2018-08-18'
 
                                     def __init__(self):
                                         super(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface.LoadBalanceData, self).__init__()
@@ -47364,7 +47571,7 @@ class BundlesAdjacency(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface.LoadBalanceData, [u'type', u'value', u'local_link_threshold'], name, value)
+                                        self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface.LoadBalanceData, ['type', 'value', 'local_link_threshold'], name, value)
 
 
 
@@ -47404,7 +47611,7 @@ class BundlesAdjacency(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.LoadBalanceData, self).__init__()
@@ -47427,7 +47634,7 @@ class BundlesAdjacency(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.LoadBalanceData, [u'type', u'value', u'local_link_threshold'], name, value)
+                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.LoadBalanceData, ['type', 'value', 'local_link_threshold'], name, value)
 
 
 
@@ -47476,7 +47683,7 @@ class BundlesAdjacency(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Member, self).__init__()
@@ -47501,7 +47708,7 @@ class BundlesAdjacency(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Member, [u'interface_name', u'link_id', u'link_order_number', u'bandwidth'], name, value)
+                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Member, ['interface_name', 'link_id', 'link_order_number', 'bandwidth'], name, value)
 
 
 
@@ -47530,7 +47737,7 @@ class BundlesAdjacency(Entity):
                             """
 
                             _prefix = 'bundlemgr-oper'
-                            _revision = '2018-04-30'
+                            _revision = '2018-08-18'
 
                             def __init__(self):
                                 super(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface, self).__init__()
@@ -47553,7 +47760,7 @@ class BundlesAdjacency(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface, [u'interface_name'], name, value)
+                                self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface, ['interface_name'], name, value)
 
 
                             class LoadBalanceData(Entity):
@@ -47590,7 +47797,7 @@ class BundlesAdjacency(Entity):
                                 """
 
                                 _prefix = 'bundlemgr-oper'
-                                _revision = '2018-04-30'
+                                _revision = '2018-08-18'
 
                                 def __init__(self):
                                     super(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface.LoadBalanceData, self).__init__()
@@ -47613,7 +47820,7 @@ class BundlesAdjacency(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface.LoadBalanceData, [u'type', u'value', u'local_link_threshold'], name, value)
+                                    self._perform_setattr(BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface.LoadBalanceData, ['type', 'value', 'local_link_threshold'], name, value)
 
 
 

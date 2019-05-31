@@ -49,13 +49,11 @@ class INGRESS(OPTICALLINEPORTTYPE):
 
 
 
-class MONITOR(OPTICALLINEPORTTYPE):
+class EGRESS(OPTICALLINEPORTTYPE):
     """
-    Monitor port, corresponding to a signal used by an optical
-    channel monitor. This is used to represent the connection
-    that a channel monitor port is connected to. This
-    connection may be via physical cable and faceplate ports or
-    internal to the device
+    Egress port, corresponding to a signal exiting
+    a line device such as an amplifier or wavelength
+    router.
     
     
 
@@ -64,25 +62,8 @@ class MONITOR(OPTICALLINEPORTTYPE):
     _prefix = 'oc-line-com'
     _revision = '2017-07-08'
 
-    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:MONITOR"):
-        super(MONITOR, self).__init__(ns, pref, tag)
-
-
-
-class DROP(OPTICALLINEPORTTYPE):
-    """
-    Drop port, corresponding to a signal dropped
-    at a wavelength router.
-    
-    
-
-    """
-
-    _prefix = 'oc-line-com'
-    _revision = '2017-07-08'
-
-    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:DROP"):
-        super(DROP, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:EGRESS"):
+        super(EGRESS, self).__init__(ns, pref, tag)
 
 
 
@@ -103,11 +84,10 @@ class ADD(OPTICALLINEPORTTYPE):
 
 
 
-class EGRESS(OPTICALLINEPORTTYPE):
+class DROP(OPTICALLINEPORTTYPE):
     """
-    Egress port, corresponding to a signal exiting
-    a line device such as an amplifier or wavelength
-    router.
+    Drop port, corresponding to a signal dropped
+    at a wavelength router.
     
     
 
@@ -116,8 +96,28 @@ class EGRESS(OPTICALLINEPORTTYPE):
     _prefix = 'oc-line-com'
     _revision = '2017-07-08'
 
-    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:EGRESS"):
-        super(EGRESS, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:DROP"):
+        super(DROP, self).__init__(ns, pref, tag)
+
+
+
+class MONITOR(OPTICALLINEPORTTYPE):
+    """
+    Monitor port, corresponding to a signal used by an optical
+    channel monitor. This is used to represent the connection
+    that a channel monitor port is connected to. This
+    connection may be via physical cable and faceplate ports or
+    internal to the device
+    
+    
+
+    """
+
+    _prefix = 'oc-line-com'
+    _revision = '2017-07-08'
+
+    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:MONITOR"):
+        super(MONITOR, self).__init__(ns, pref, tag)
 
 
 

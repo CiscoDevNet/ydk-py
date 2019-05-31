@@ -202,7 +202,7 @@ module Cisco-IOS-XR-drivers-media-eth-cfg {
         }
         leaf signal-fail-threshold {
           type uint32 {
-            range "4..12";
+            range "4..15";
           }
           default "4";
           description
@@ -234,7 +234,7 @@ module Cisco-IOS-XR-drivers-media-eth-cfg {
           "Signal Degrade Bit Error Rate handling options";
         leaf signal-degrade-threshold {
           type uint32 {
-            range "3..12";
+            range "3..15";
           }
           default "6";
           description

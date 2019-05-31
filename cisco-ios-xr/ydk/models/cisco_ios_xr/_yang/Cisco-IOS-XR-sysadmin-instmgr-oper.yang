@@ -1,10 +1,13 @@
 module Cisco-IOS-XR-sysadmin-instmgr-oper {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-instmgr-oper";
   prefix install;
+
   import tailf-common {
     prefix tailf;
   }
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -14,61 +17,52 @@ module Cisco-IOS-XR-sysadmin-instmgr-oper {
      
      Tel: +1 800 553-NETS
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR sysadmin-instmgr 
-operational model
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR sysadmin-instmgr 
+     operational model
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
-  revision 2017-10-13 {
+
+  revision 2018-04-09 {
     description
-      "Changed file name's suffix from -cfg.yang to -oper.yang";
+      "Required changes for ConfD 6.4.5";
   }
 
-
   typedef install_add_pkg_type {
-    type string {
-    }
+    type string;
   }
 
   typedef install_add_source_type {
-    type string {
-    }
+    type string;
   }
 
   typedef install_backup_zipfile {
-    type string {
-    }
+    type string;
   }
 
   typedef install_pkg_type {
-    type string {
-    }
+    type string;
   }
 
   typedef install_node_type {
-    type string {
-    }
+    type string;
   }
 
   typedef install_node_wildcard_type {
-    type string {
-    }
+    type string;
   }
 
   typedef install_id_type {
-    type uint32 {
-    }
+    type uint32;
   }
 
   typedef install_log_id_type {
-    type uint32 {
-    }
+    type uint32;
   }
 
   typedef node_location_type {
@@ -80,9 +74,9 @@ operational model
   }
 
   typedef install_which_file {
-    type string {
-    }
+    type string;
   }
+
   container install {
     config false;
     container version {
@@ -225,8 +219,7 @@ operational model
       list file_list {
         key "file_name";
         leaf file_name {
-          type string {
-          }
+          type string;
         }
         container detail {
           leaf-list si_which_detail_output {
@@ -260,8 +253,8 @@ operational model
           mandatory false;
           case noprompt_choice {
             leaf noprompt {
-              mandatory false;
               type empty;
+              mandatory false;
             }
           }
         }
@@ -280,8 +273,8 @@ operational model
           mandatory false;
           case noprompt_choice {
             leaf noprompt {
-              mandatory false;
               type empty;
+              mandatory false;
             }
           }
         }
@@ -402,8 +395,8 @@ operational model
           mandatory false;
           case noprompt_choice {
             leaf noprompt {
-              mandatory false;
               type empty;
+              mandatory false;
             }
           }
         }

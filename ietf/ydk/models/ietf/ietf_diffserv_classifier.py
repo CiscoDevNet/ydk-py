@@ -152,7 +152,7 @@ class Classifiers(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Classifiers.ClassifierEntry, [u'classifier_entry_name', u'classifier_entry_descr', u'classifier_entry_filter_operation'], name, value)
+            self._perform_setattr(Classifiers.ClassifierEntry, ['classifier_entry_name', 'classifier_entry_descr', 'classifier_entry_filter_operation'], name, value)
 
 
         class FilterEntry(Entity):
@@ -232,7 +232,7 @@ class Classifiers(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry, [u'filter_type', u'filter_logical_not'], name, value)
+                self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry, ['filter_type', 'filter_logical_not'], name, value)
 
 
             class DscpCfg(Entity):
@@ -279,7 +279,7 @@ class Classifiers(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, [u'dscp_min', u'dscp_max'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, ['dscp_min', 'dscp_max'], name, value)
 
 
 
@@ -324,7 +324,7 @@ class Classifiers(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, [u'source_ip_addr'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, ['source_ip_addr'], name, value)
 
 
 
@@ -369,7 +369,7 @@ class Classifiers(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, [u'destination_ip_addr'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, ['destination_ip_addr'], name, value)
 
 
 
@@ -417,7 +417,7 @@ class Classifiers(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, [u'source_port_min', u'source_port_max'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, ['source_port_min', 'source_port_max'], name, value)
 
 
 
@@ -465,7 +465,7 @@ class Classifiers(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, [u'destination_port_min', u'destination_port_max'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, ['destination_port_min', 'destination_port_max'], name, value)
 
 
 
@@ -513,7 +513,7 @@ class Classifiers(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, [u'protocol_min', u'protocol_max'], name, value)
+                    self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, ['protocol_min', 'protocol_max'], name, value)
 
 
 
@@ -521,6 +521,70 @@ class Classifiers(Entity):
     def clone_ptr(self):
         self._top_entity = Classifiers()
         return self._top_entity
+
+
+
+class Dscp(FilterType):
+    """
+    DSCP filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:dscp"):
+        super(Dscp, self).__init__(ns, pref, tag)
+
+
+
+class SourceIpAddress(FilterType):
+    """
+    source\-ip\-address filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:source-ip-address"):
+        super(SourceIpAddress, self).__init__(ns, pref, tag)
+
+
+
+class DestinationIpAddress(FilterType):
+    """
+    destination\-ip\-address filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:destination-ip-address"):
+        super(DestinationIpAddress, self).__init__(ns, pref, tag)
+
+
+
+class SourcePort(FilterType):
+    """
+    source\-port filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:source-port"):
+        super(SourcePort, self).__init__(ns, pref, tag)
 
 
 
@@ -556,70 +620,6 @@ class Protocol(FilterType):
 
 
 
-class DestinationIpAddress(FilterType):
-    """
-    destination\-ip\-address filter\-type
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:destination-ip-address"):
-        super(DestinationIpAddress, self).__init__(ns, pref, tag)
-
-
-
-class Dscp(FilterType):
-    """
-    DSCP filter\-type
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:dscp"):
-        super(Dscp, self).__init__(ns, pref, tag)
-
-
-
-class MatchAllFilter(ClassifierEntryFilterOperationType):
-    """
-    Classifier entry filter logical AND operation
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:match-all-filter"):
-        super(MatchAllFilter, self).__init__(ns, pref, tag)
-
-
-
-class SourceIpAddress(FilterType):
-    """
-    source\-ip\-address filter\-type
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:source-ip-address"):
-        super(SourceIpAddress, self).__init__(ns, pref, tag)
-
-
-
 class MatchAnyFilter(ClassifierEntryFilterOperationType):
     """
     Classifier entry filter logical OR operation
@@ -636,9 +636,9 @@ class MatchAnyFilter(ClassifierEntryFilterOperationType):
 
 
 
-class SourcePort(FilterType):
+class MatchAllFilter(ClassifierEntryFilterOperationType):
     """
-    source\-port filter\-type
+    Classifier entry filter logical AND operation
     
     
 
@@ -647,8 +647,8 @@ class SourcePort(FilterType):
     _prefix = 'classifier'
     _revision = '2015-04-07'
 
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:source-port"):
-        super(SourcePort, self).__init__(ns, pref, tag)
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:match-all-filter"):
+        super(MatchAllFilter, self).__init__(ns, pref, tag)
 
 
 

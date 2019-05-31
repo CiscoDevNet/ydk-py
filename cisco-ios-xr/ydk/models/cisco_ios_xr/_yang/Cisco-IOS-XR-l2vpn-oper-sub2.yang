@@ -13,7 +13,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
     prefix xr;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2018-08-01;
   }
 
   organization
@@ -35,6 +35,10 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -729,6 +733,33 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       "L2vpn bridge state";
   }
 
+  typedef L2vpn-bag-l2mc-src-traffic {
+    type enumeration {
+      enum "l2mc-none" {
+        value 0;
+        description
+          "L2MC Source Traffic None";
+      }
+      enum "l2mcipv4" {
+        value 1;
+        description
+          "L2MC Source Traffic:IPv4";
+      }
+      enum "l2mcipv6" {
+        value 2;
+        description
+          "L2MC Source Traffic:IPv6";
+      }
+      enum "l2mcipv4ipv6" {
+        value 3;
+        description
+          "L2MC Source Traffic:IPv4/IPv6";
+      }
+    }
+    description
+      "L2vpn bag l2mc src traffic";
+  }
+
   typedef L2vpn-bag-storm-control-rate-unit {
     type enumeration {
       enum "pps" {
@@ -1054,28 +1085,39 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
   typedef L2vpn-prefpath-option {
     type enumeration {
       enum "l2vpn-pw-mpls-pref-path-not-specified" {
+        value 0;
         description
           "Not Secified";
       }
       enum "l2vpn-pw-mpls-pref-path-next-hop-ip" {
+        value 1;
         description
           "Next Hop IP";
       }
       enum "l2vpn-pw-mpls-pref-path-te-tunnel" {
+        value 2;
         description
           "TE Tunnel";
       }
       enum "l2vpn-pw-mpls-pref-path-ip-tunnel" {
+        value 3;
         description
           "IP Tunnel";
       }
       enum "l2vpn-pw-mpls-pref-path-tp-tunnel" {
+        value 4;
         description
           "TP Tunnel";
       }
       enum "l2vpn-pw-mpls-pref-path-sr-te" {
+        value 5;
         description
           "SR TE Policy";
+      }
+      enum "l2vpn-pw-mpls-pref-path-te-named-tunnel" {
+        value 8;
+        description
+          "Named TE Tunnel";
       }
     }
     description
@@ -1834,28 +1876,39 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
   typedef L2vpn-preferred {
     type enumeration {
       enum "te-tunnel" {
+        value 0;
         description
           "TE Tunnel";
       }
       enum "ip-tunnel" {
+        value 1;
         description
           "IP Tunnel";
       }
       enum "tp-tunnel" {
+        value 2;
         description
           "TP Tunnel";
       }
       enum "mte-tunnel" {
+        value 3;
         description
           "mTE";
       }
       enum "mldp-tunnel" {
+        value 4;
         description
           "mLDP";
       }
       enum "sr-te-policy" {
+        value 5;
         description
           "SR TE Policy";
+      }
+      enum "te-named-tunnel" {
+        value 8;
+        description
+          "Named TE Tunnel";
       }
     }
     description
@@ -1973,6 +2026,10 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       enum "l2vpn-id-mgr-app-bag-type-evpn-tep" {
         description
           "EVPN TEP";
+      }
+      enum "l2vpn-id-mgr-app-bag-type-evpn-es" {
+        description
+          "EVPN ES";
       }
       enum "l2vpn-id-mgr-app-bag-type-count" {
         description
@@ -2241,13 +2298,19 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
     list up-count {
       max-elements "4";
       description
-        "Number of active cross-connections array -
+        "Number of active cross-connections array - 
          
          Index 0 is LikeToLike, 1 is IPInterworking, 2 is
          
          EthernetInterworking, 3 is Total";
       leaf entry {
         type uint32;
+        description
+          "Number of active cross-connections array - 
+           
+           Index 0 is LikeToLike, 1 is IPInterworking, 2 is
+           
+           EthernetInterworking, 3 is Total";
       }
     }
     list down-count {
@@ -2260,6 +2323,12 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
          EthernetInterworking, 3 is Total";
       leaf entry {
         type uint32;
+        description
+          "Number of non-active cross-connections array -
+           
+           Index 0 is LikeToLike, 1 is IPInterworking, 2 is
+           
+           EthernetInterworking, 3 is Total";
       }
     }
     list unresolved-count {
@@ -2272,6 +2341,12 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
          EthernetInterworking, 3 is Total";
       leaf entry {
         type uint32;
+        description
+          "Number of unresolved cross-connections array -
+           
+           Index 0 is LikeToLike, 1 is IPInterworking, 2 is
+           
+           EthernetInterworking, 3 is Total";
       }
     }
   }
@@ -2791,6 +2866,8 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "Inclusion list Vlan Ids";
       leaf entry {
         type uint16;
+        description
+          "Inclusion list Vlan Ids";
       }
     }
   }
@@ -2843,6 +2920,8 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "Inclusion list Vlan Ids";
       leaf entry {
         type uint16;
+        description
+          "Inclusion list Vlan Ids";
       }
     }
   }
@@ -2895,6 +2974,8 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "Exclusion Vlan ids list ";
       leaf entry {
         type uint16;
+        description
+          "Exclusion Vlan ids list ";
       }
     }
   }
@@ -3838,6 +3919,21 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       description
         "Split Horizon Group ID";
     }
+    leaf split-horizon-group-inherited {
+      type boolean;
+      description
+        "Is Split Horizon Group Inherited";
+    }
+    leaf etree-leaf {
+      type boolean;
+      description
+        "E-Tree Leaf Indication";
+    }
+    leaf etree-leaf-inherited {
+      type boolean;
+      description
+        "Is E-Tree Leaf Indication Inherited";
+    }
     leaf is-ip-source-guard-enabled {
       type boolean;
       description
@@ -3897,6 +3993,17 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       type boolean;
       description
         "Is MAC Secure Threshold Enabled";
+    }
+    leaf mac-secure-shutdown-recovery-time {
+      type uint16;
+      description
+        "MAC Secure Shutdown Action Recovery Timer";
+    }
+    leaf mac-secure-shutdown-recovery-time-remaining {
+      type uint16;
+      description
+        "Remaining time for MAC Secure shutdown Action
+         Recovery Timer";
     }
     leaf dai-address-validation-mask {
       type uint8;
@@ -3980,6 +4087,11 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       units "kbit/s";
       description
         "Broadcast Storm Control KbPS";
+    }
+    leaf l2mc-src-traffic-enabled {
+      type L2vpn-bag-l2mc-src-traffic;
+      description
+        "L2MC Src Traffic Enabled";
     }
   }
 
@@ -4912,9 +5024,19 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
     }
   }
 
-  grouping L2VPN-MPLS-PREFPATH {
+  grouping L2VPN-TE-NAMED-TUN-PREFPATH {
     description
-      "L2VPN MPLS PREFPATH";
+      "L2VPN TE NAMED TUN PREFPATH";
+    leaf te-named-tunnel {
+      type string;
+      description
+        "TE Tunnel Name";
+    }
+  }
+
+  grouping L2VPN-SR-TE-PREFPATH {
+    description
+      "L2VPN SR TE PREFPATH";
     leaf policy-name {
       type string;
       description
@@ -4932,7 +5054,17 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       }
       description
         "srte policy";
-      uses L2VPN-MPLS-PREFPATH;
+      uses L2VPN-SR-TE-PREFPATH;
+    }
+    container te-named-tunnel {
+      when "../option = 'l2vpn-pw-mpls-pref-path-te-named-tunnel'" {
+        description
+          "../Option =
+           'L2VPN_PW_MPLS_PREFPATH_TE_NAMED_TUNNEL'";
+      }
+      description
+        "te named tunnel";
+      uses L2VPN-TE-NAMED-TUN-PREFPATH;
     }
     leaf option {
       type L2vpn-prefpath-option;
@@ -6251,6 +6383,8 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "Rewrite Tags";
       leaf entry {
         type uint16;
+        description
+          "Rewrite Tags";
       }
     }
     list vlan-range {
@@ -7666,6 +7800,8 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "Status Vector";
       leaf entry {
         type uint8;
+        description
+          "Status Vector";
       }
     }
   }

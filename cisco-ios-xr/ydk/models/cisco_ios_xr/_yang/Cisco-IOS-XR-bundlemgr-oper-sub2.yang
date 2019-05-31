@@ -13,7 +13,7 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
     prefix xr;
   }
   include Cisco-IOS-XR-bundlemgr-oper-sub1 {
-    revision-date 2018-04-30;
+    revision-date 2018-08-18;
   }
 
   organization
@@ -35,6 +35,14 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-18 {
+    description
+      "Added a new leaf";
+  }
+  revision 2018-07-25 {
+    description
+      "Added a new leaf";
+  }
   revision 2018-04-30 {
     description
       "Description updated.";
@@ -1265,8 +1273,20 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
         description
           "Client has configured the bundle state Down";
       }
-      enum "bm-mbr-state-reason-count" {
+      enum "bm-mbr-state-reason-lacp-oos" {
         value 75;
+        description
+          "Link is in standby due to bundle out of service
+           state";
+      }
+      enum "bm-mbr-state-reason-errdis-bundle-oos" {
+        value 76;
+        description
+          "Link is error-disabled due to bundle out of
+           service state";
+      }
+      enum "bm-mbr-state-reason-count" {
+        value 77;
         description
           "Enumeration maximum value";
       }
@@ -1310,6 +1330,33 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
     }
     description
       "Bm muxstate";
+  }
+
+  typedef Bmd-lacp-mode {
+    type enumeration {
+      enum "bmd-mode-on" {
+        value 0;
+        description
+          "bmd mode on";
+      }
+      enum "bmd-mode-active" {
+        value 1;
+        description
+          "bmd mode active";
+      }
+      enum "bmd-mode-passive" {
+        value 2;
+        description
+          "bmd mode passive";
+      }
+      enum "bmd-mode-count" {
+        value 3;
+        description
+          "bmd mode count";
+      }
+    }
+    description
+      "Bmd lacp mode";
   }
 
   typedef Bmd-mlacp-switchover {
@@ -1444,6 +1491,10 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
       enum "bm-bdl-state-efd-disabled" {
         description
           "The bundle has been disabled by EFD";
+      }
+      enum "bm-bdl-state-lacp-oos" {
+        description
+          "The bundle has been OOS (Out of Service)";
       }
     }
     description
@@ -1721,6 +1772,16 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
       description
         "Time elapsed since statistics were last updated
          (in nanoseconds)";
+    }
+  }
+
+  grouping BM-BUNDLE-APPLIED-LACP-MODE {
+    description
+      "Applied LACP Mode for bundle interface";
+    leaf applied-lacp-mode {
+      type Bmd-lacp-mode;
+      description
+        "Applied LACP Mode";
     }
   }
 
@@ -3448,6 +3509,11 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
       description
         "Member's (short form) name";
     }
+    leaf replication-error {
+      type uint32;
+      description
+        "Error from final replication attempt";
+    }
   }
 
   grouping ETHER-MACADDR-TYPE {
@@ -3833,6 +3899,11 @@ submodule Cisco-IOS-XR-bundlemgr-oper-sub2 {
       type uint16;
       description
         "Operational key of the partner";
+    }
+    leaf applied-lacp-mode {
+      type Bmd-lacp-mode;
+      description
+        "Applied LACP Mode";
     }
   }
 }

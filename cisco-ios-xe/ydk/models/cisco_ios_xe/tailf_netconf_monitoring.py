@@ -15,9 +15,9 @@ from ydk.models.ietf.ietf_netconf_monitoring import Transport
 
 
 
-class RestHttps(Transport):
+class CliConsole(Transport):
     """
-    REST over HTTPS.
+    CLI on the console.
     
     
 
@@ -26,8 +26,8 @@ class RestHttps(Transport):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:rest-https"):
-        super(RestHttps, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:cli-console"):
+        super(CliConsole, self).__init__(ns, pref, tag)
 
 
 
@@ -47,9 +47,9 @@ class CliSsh(Transport):
 
 
 
-class CliConsole(Transport):
+class CliTcp(Transport):
     """
-    CLI on the console.
+    CLI over TCP.
     
     
 
@@ -58,40 +58,8 @@ class CliConsole(Transport):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:cli-console"):
-        super(CliConsole, self).__init__(ns, pref, tag)
-
-
-
-class WebuiHttps(Transport):
-    """
-    WebUI over HTTPS.
-    
-    
-
-    """
-
-    _prefix = 'tncm'
-    _revision = '2016-11-24'
-
-    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:webui-https"):
-        super(WebuiHttps, self).__init__(ns, pref, tag)
-
-
-
-class SnmpUdp(Transport):
-    """
-    SNMP over UDP.
-    
-    
-
-    """
-
-    _prefix = 'tncm'
-    _revision = '2016-11-24'
-
-    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:snmp-udp"):
-        super(SnmpUdp, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:cli-tcp"):
+        super(CliTcp, self).__init__(ns, pref, tag)
 
 
 
@@ -111,9 +79,9 @@ class WebuiHttp(Transport):
 
 
 
-class RestHttp(Transport):
+class WebuiHttps(Transport):
     """
-    REST over HTTP.
+    WebUI over HTTPS.
     
     
 
@@ -122,8 +90,8 @@ class RestHttp(Transport):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:rest-http"):
-        super(RestHttp, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:webui-https"):
+        super(WebuiHttps, self).__init__(ns, pref, tag)
 
 
 
@@ -143,9 +111,9 @@ class NetconfTcp(Transport):
 
 
 
-class CliTcp(Transport):
+class SnmpUdp(Transport):
     """
-    CLI over TCP.
+    SNMP over UDP.
     
     
 
@@ -154,8 +122,40 @@ class CliTcp(Transport):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:cli-tcp"):
-        super(CliTcp, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:snmp-udp"):
+        super(SnmpUdp, self).__init__(ns, pref, tag)
+
+
+
+class RestHttp(Transport):
+    """
+    REST over HTTP.
+    
+    
+
+    """
+
+    _prefix = 'tncm'
+    _revision = '2016-11-24'
+
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:rest-http"):
+        super(RestHttp, self).__init__(ns, pref, tag)
+
+
+
+class RestHttps(Transport):
+    """
+    REST over HTTPS.
+    
+    
+
+    """
+
+    _prefix = 'tncm'
+    _revision = '2016-11-24'
+
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:rest-https"):
+        super(RestHttps, self).__init__(ns, pref, tag)
 
 
 

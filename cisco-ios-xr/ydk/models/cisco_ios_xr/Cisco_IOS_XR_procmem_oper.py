@@ -333,7 +333,7 @@ class ProcessesMemory(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ProcessesMemory.Nodes.Node.ProcessIds.ProcessId, ['process_id', u'name', u'jid', u'pid', u'text_seg_size', u'data_seg_size', u'stack_seg_size', u'malloc_size', u'dyn_limit', u'shared_mem', u'physical_mem'], name, value)
+                        self._perform_setattr(ProcessesMemory.Nodes.Node.ProcessIds.ProcessId, ['process_id', 'name', 'jid', 'pid', 'text_seg_size', 'data_seg_size', 'stack_seg_size', 'malloc_size', 'dyn_limit', 'shared_mem', 'physical_mem'], name, value)
 
 
 

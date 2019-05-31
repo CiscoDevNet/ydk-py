@@ -321,7 +321,7 @@ class RFC1213MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.System, [u'sysdescr', u'sysobjectid', u'sysuptime', u'syscontact', u'sysname', u'syslocation', u'sysservices'], name, value)
+            self._perform_setattr(RFC1213MIB.System, ['sysdescr', 'sysobjectid', 'sysuptime', 'syscontact', 'sysname', 'syslocation', 'sysservices'], name, value)
 
 
 
@@ -362,7 +362,7 @@ class RFC1213MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Interfaces, [u'ifnumber'], name, value)
+            self._perform_setattr(RFC1213MIB.Interfaces, ['ifnumber'], name, value)
 
 
 
@@ -610,7 +610,7 @@ class RFC1213MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Ip, [u'ipforwarding', u'ipdefaultttl', u'ipinreceives', u'ipinhdrerrors', u'ipinaddrerrors', u'ipforwdatagrams', u'ipinunknownprotos', u'ipindiscards', u'ipindelivers', u'ipoutrequests', u'ipoutdiscards', u'ipoutnoroutes', u'ipreasmtimeout', u'ipreasmreqds', u'ipreasmoks', u'ipreasmfails', u'ipfragoks', u'ipfragfails', u'ipfragcreates', u'iproutingdiscards'], name, value)
+            self._perform_setattr(RFC1213MIB.Ip, ['ipforwarding', 'ipdefaultttl', 'ipinreceives', 'ipinhdrerrors', 'ipinaddrerrors', 'ipforwdatagrams', 'ipinunknownprotos', 'ipindiscards', 'ipindelivers', 'ipoutrequests', 'ipoutdiscards', 'ipoutnoroutes', 'ipreasmtimeout', 'ipreasmreqds', 'ipreasmoks', 'ipreasmfails', 'ipfragoks', 'ipfragfails', 'ipfragcreates', 'iproutingdiscards'], name, value)
 
         class IpForwarding(Enum):
             """
@@ -963,7 +963,7 @@ class RFC1213MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Icmp, [u'icmpinmsgs', u'icmpinerrors', u'icmpindestunreachs', u'icmpintimeexcds', u'icmpinparmprobs', u'icmpinsrcquenchs', u'icmpinredirects', u'icmpinechos', u'icmpinechoreps', u'icmpintimestamps', u'icmpintimestampreps', u'icmpinaddrmasks', u'icmpinaddrmaskreps', u'icmpoutmsgs', u'icmpouterrors', u'icmpoutdestunreachs', u'icmpouttimeexcds', u'icmpoutparmprobs', u'icmpoutsrcquenchs', u'icmpoutredirects', u'icmpoutechos', u'icmpoutechoreps', u'icmpouttimestamps', u'icmpouttimestampreps', u'icmpoutaddrmasks', u'icmpoutaddrmaskreps'], name, value)
+            self._perform_setattr(RFC1213MIB.Icmp, ['icmpinmsgs', 'icmpinerrors', 'icmpindestunreachs', 'icmpintimeexcds', 'icmpinparmprobs', 'icmpinsrcquenchs', 'icmpinredirects', 'icmpinechos', 'icmpinechoreps', 'icmpintimestamps', 'icmpintimestampreps', 'icmpinaddrmasks', 'icmpinaddrmaskreps', 'icmpoutmsgs', 'icmpouterrors', 'icmpoutdestunreachs', 'icmpouttimeexcds', 'icmpoutparmprobs', 'icmpoutsrcquenchs', 'icmpoutredirects', 'icmpoutechos', 'icmpoutechoreps', 'icmpouttimestamps', 'icmpouttimestampreps', 'icmpoutaddrmasks', 'icmpoutaddrmaskreps'], name, value)
 
 
 
@@ -1145,7 +1145,7 @@ class RFC1213MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Tcp, [u'tcprtoalgorithm', u'tcprtomin', u'tcprtomax', u'tcpmaxconn', u'tcpactiveopens', u'tcppassiveopens', u'tcpattemptfails', u'tcpestabresets', u'tcpcurrestab', u'tcpinsegs', u'tcpoutsegs', u'tcpretranssegs', u'tcpinerrs', u'tcpoutrsts'], name, value)
+            self._perform_setattr(RFC1213MIB.Tcp, ['tcprtoalgorithm', 'tcprtomin', 'tcprtomax', 'tcpmaxconn', 'tcpactiveopens', 'tcppassiveopens', 'tcpattemptfails', 'tcpestabresets', 'tcpcurrestab', 'tcpinsegs', 'tcpoutsegs', 'tcpretranssegs', 'tcpinerrs', 'tcpoutrsts'], name, value)
 
         class TcpRtoAlgorithm(Enum):
             """
@@ -1250,7 +1250,7 @@ class RFC1213MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Udp, [u'udpindatagrams', u'udpnoports', u'udpinerrors', u'udpoutdatagrams'], name, value)
+            self._perform_setattr(RFC1213MIB.Udp, ['udpindatagrams', 'udpnoports', 'udpinerrors', 'udpoutdatagrams'], name, value)
 
 
 
@@ -1335,7 +1335,7 @@ class RFC1213MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Egp, [u'egpinmsgs', u'egpinerrors', u'egpoutmsgs', u'egpouterrors', u'egpas'], name, value)
+            self._perform_setattr(RFC1213MIB.Egp, ['egpinmsgs', 'egpinerrors', 'egpoutmsgs', 'egpouterrors', 'egpas'], name, value)
 
 
 
@@ -1671,7 +1671,7 @@ class RFC1213MIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Snmp, [u'snmpinpkts', u'snmpoutpkts', u'snmpinbadversions', u'snmpinbadcommunitynames', u'snmpinbadcommunityuses', u'snmpinasnparseerrs', u'snmpintoobigs', u'snmpinnosuchnames', u'snmpinbadvalues', u'snmpinreadonlys', u'snmpingenerrs', u'snmpintotalreqvars', u'snmpintotalsetvars', u'snmpingetrequests', u'snmpingetnexts', u'snmpinsetrequests', u'snmpingetresponses', u'snmpintraps', u'snmpouttoobigs', u'snmpoutnosuchnames', u'snmpoutbadvalues', u'snmpoutgenerrs', u'snmpoutgetrequests', u'snmpoutgetnexts', u'snmpoutsetrequests', u'snmpoutgetresponses', u'snmpouttraps', u'snmpenableauthentraps'], name, value)
+            self._perform_setattr(RFC1213MIB.Snmp, ['snmpinpkts', 'snmpoutpkts', 'snmpinbadversions', 'snmpinbadcommunitynames', 'snmpinbadcommunityuses', 'snmpinasnparseerrs', 'snmpintoobigs', 'snmpinnosuchnames', 'snmpinbadvalues', 'snmpinreadonlys', 'snmpingenerrs', 'snmpintotalreqvars', 'snmpintotalsetvars', 'snmpingetrequests', 'snmpingetnexts', 'snmpinsetrequests', 'snmpingetresponses', 'snmpintraps', 'snmpouttoobigs', 'snmpoutnosuchnames', 'snmpoutbadvalues', 'snmpoutgenerrs', 'snmpoutgetrequests', 'snmpoutgetnexts', 'snmpoutsetrequests', 'snmpoutgetresponses', 'snmpouttraps', 'snmpenableauthentraps'], name, value)
 
         class SnmpEnableAuthenTraps(Enum):
             """
@@ -2010,7 +2010,7 @@ class RFC1213MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.IfTable.IfEntry, [u'ifindex', u'ifdescr', u'iftype', u'ifmtu', u'ifspeed', u'ifphysaddress', u'ifadminstatus', u'ifoperstatus', u'iflastchange', u'ifinoctets', u'ifinucastpkts', u'ifinnucastpkts', u'ifindiscards', u'ifinerrors', u'ifinunknownprotos', u'ifoutoctets', u'ifoutucastpkts', u'ifoutnucastpkts', u'ifoutdiscards', u'ifouterrors', u'ifoutqlen', u'ifspecific'], name, value)
+                self._perform_setattr(RFC1213MIB.IfTable.IfEntry, ['ifindex', 'ifdescr', 'iftype', 'ifmtu', 'ifspeed', 'ifphysaddress', 'ifadminstatus', 'ifoperstatus', 'iflastchange', 'ifinoctets', 'ifinucastpkts', 'ifinnucastpkts', 'ifindiscards', 'ifinerrors', 'ifinunknownprotos', 'ifoutoctets', 'ifoutucastpkts', 'ifoutnucastpkts', 'ifoutdiscards', 'ifouterrors', 'ifoutqlen', 'ifspecific'], name, value)
 
             class IfAdminStatus(Enum):
                 """
@@ -2195,7 +2195,7 @@ class RFC1213MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.AtTable.AtEntry, [u'atifindex', u'atifindex_2', u'atnetaddress', u'atphysaddress'], name, value)
+                self._perform_setattr(RFC1213MIB.AtTable.AtEntry, ['atifindex', 'atifindex_2', 'atnetaddress', 'atphysaddress'], name, value)
 
 
 
@@ -2320,7 +2320,7 @@ class RFC1213MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.IpAddrTable.IpAddrEntry, [u'ipadentaddr', u'ipadentifindex', u'ipadentnetmask', u'ipadentbcastaddr', u'ipadentreasmmaxsize'], name, value)
+                self._perform_setattr(RFC1213MIB.IpAddrTable.IpAddrEntry, ['ipadentaddr', 'ipadentifindex', 'ipadentnetmask', 'ipadentbcastaddr', 'ipadentreasmmaxsize'], name, value)
 
 
 
@@ -2527,7 +2527,7 @@ class RFC1213MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.IpRouteTable.IpRouteEntry, [u'iproutedest', u'iprouteifindex', u'iproutemetric1', u'iproutemetric2', u'iproutemetric3', u'iproutemetric4', u'iproutenexthop', u'iproutetype', u'iprouteproto', u'iprouteage', u'iproutemask', u'iproutemetric5', u'iprouteinfo'], name, value)
+                self._perform_setattr(RFC1213MIB.IpRouteTable.IpRouteEntry, ['iproutedest', 'iprouteifindex', 'iproutemetric1', 'iproutemetric2', 'iproutemetric3', 'iproutemetric4', 'iproutenexthop', 'iproutetype', 'iprouteproto', 'iprouteage', 'iproutemask', 'iproutemetric5', 'iprouteinfo'], name, value)
 
             class IpRouteProto(Enum):
                 """
@@ -2765,7 +2765,7 @@ class RFC1213MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.IpNetToMediaTable.IpNetToMediaEntry, [u'ipnettomediaifindex', u'ipnettomedianetaddress', u'ipnettomediaphysaddress', u'ipnettomediatype'], name, value)
+                self._perform_setattr(RFC1213MIB.IpNetToMediaTable.IpNetToMediaEntry, ['ipnettomediaifindex', 'ipnettomedianetaddress', 'ipnettomediaphysaddress', 'ipnettomediatype'], name, value)
 
             class IpNetToMediaType(Enum):
                 """
@@ -2942,7 +2942,7 @@ class RFC1213MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.TcpConnTable.TcpConnEntry, [u'tcpconnlocaladdress', u'tcpconnlocalport', u'tcpconnremaddress', u'tcpconnremport', u'tcpconnstate'], name, value)
+                self._perform_setattr(RFC1213MIB.TcpConnTable.TcpConnEntry, ['tcpconnlocaladdress', 'tcpconnlocalport', 'tcpconnremaddress', 'tcpconnremport', 'tcpconnstate'], name, value)
 
             class TcpConnState(Enum):
                 """
@@ -3120,7 +3120,7 @@ class RFC1213MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.UdpTable.UdpEntry, [u'udplocaladdress', u'udplocalport'], name, value)
+                self._perform_setattr(RFC1213MIB.UdpTable.UdpEntry, ['udplocaladdress', 'udplocalport'], name, value)
 
 
 
@@ -3348,7 +3348,7 @@ class RFC1213MIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.EgpNeighTable.EgpNeighEntry, [u'egpneighaddr', u'egpneighstate', u'egpneighas', u'egpneighinmsgs', u'egpneighinerrs', u'egpneighoutmsgs', u'egpneighouterrs', u'egpneighinerrmsgs', u'egpneighouterrmsgs', u'egpneighstateups', u'egpneighstatedowns', u'egpneighintervalhello', u'egpneighintervalpoll', u'egpneighmode', u'egpneigheventtrigger'], name, value)
+                self._perform_setattr(RFC1213MIB.EgpNeighTable.EgpNeighEntry, ['egpneighaddr', 'egpneighstate', 'egpneighas', 'egpneighinmsgs', 'egpneighinerrs', 'egpneighoutmsgs', 'egpneighouterrs', 'egpneighinerrmsgs', 'egpneighouterrmsgs', 'egpneighstateups', 'egpneighstatedowns', 'egpneighintervalhello', 'egpneighintervalpoll', 'egpneighmode', 'egpneigheventtrigger'], name, value)
 
             class EgpNeighEventTrigger(Enum):
                 """

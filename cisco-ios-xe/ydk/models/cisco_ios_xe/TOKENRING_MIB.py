@@ -14,54 +14,6 @@ from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentity
 
 
 
-class Dot5ChipSetTItms380(ObjectIdentity):
-    """
-    Texas Instruments' TMS 380 4Mbs chip\-set
-    
-    
-
-    """
-
-    _prefix = 'TOKENRING-MIB'
-    _revision = '1994-10-23'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", pref="TOKENRING-MIB", tag="TOKENRING-MIB:dot5ChipSetTItms380"):
-        super(Dot5ChipSetTItms380, self).__init__(ns, pref, tag)
-
-
-
-class Dot5ChipSetTItms380c16(ObjectIdentity):
-    """
-    Texas Instruments' TMS 380C16 16/4 Mbs chip\-set
-    
-    
-
-    """
-
-    _prefix = 'TOKENRING-MIB'
-    _revision = '1994-10-23'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", pref="TOKENRING-MIB", tag="TOKENRING-MIB:dot5ChipSetTItms380c16"):
-        super(Dot5ChipSetTItms380c16, self).__init__(ns, pref, tag)
-
-
-
-class Dot5ChipSetIBM16(ObjectIdentity):
-    """
-    IBM's 16/4 Mbs chip set.
-    
-    
-
-    """
-
-    _prefix = 'TOKENRING-MIB'
-    _revision = '1994-10-23'
-
-    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", pref="TOKENRING-MIB", tag="TOKENRING-MIB:dot5ChipSetIBM16"):
-        super(Dot5ChipSetIBM16, self).__init__(ns, pref, tag)
-
-
-
 class Dot5TestInsertFunc(ObjectIdentity):
     """
     Invoking this test causes the station to test the insert
@@ -100,6 +52,54 @@ class Dot5TestFullDuplexLoopBack(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", pref="TOKENRING-MIB", tag="TOKENRING-MIB:dot5TestFullDuplexLoopBack"):
         super(Dot5TestFullDuplexLoopBack, self).__init__(ns, pref, tag)
+
+
+
+class Dot5ChipSetIBM16(ObjectIdentity):
+    """
+    IBM's 16/4 Mbs chip set.
+    
+    
+
+    """
+
+    _prefix = 'TOKENRING-MIB'
+    _revision = '1994-10-23'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", pref="TOKENRING-MIB", tag="TOKENRING-MIB:dot5ChipSetIBM16"):
+        super(Dot5ChipSetIBM16, self).__init__(ns, pref, tag)
+
+
+
+class Dot5ChipSetTItms380(ObjectIdentity):
+    """
+    Texas Instruments' TMS 380 4Mbs chip\-set
+    
+    
+
+    """
+
+    _prefix = 'TOKENRING-MIB'
+    _revision = '1994-10-23'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", pref="TOKENRING-MIB", tag="TOKENRING-MIB:dot5ChipSetTItms380"):
+        super(Dot5ChipSetTItms380, self).__init__(ns, pref, tag)
+
+
+
+class Dot5ChipSetTItms380c16(ObjectIdentity):
+    """
+    Texas Instruments' TMS 380C16 16/4 Mbs chip\-set
+    
+    
+
+    """
+
+    _prefix = 'TOKENRING-MIB'
+    _revision = '1994-10-23'
+
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", pref="TOKENRING-MIB", tag="TOKENRING-MIB:dot5ChipSetTItms380c16"):
+        super(Dot5ChipSetTItms380c16, self).__init__(ns, pref, tag)
 
 
 

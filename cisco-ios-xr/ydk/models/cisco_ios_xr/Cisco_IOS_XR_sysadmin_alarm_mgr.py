@@ -252,7 +252,7 @@ class AlarmMgr(Entity):
     """
 
     _prefix = 'alarms'
-    _revision = '2017-04-12'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(AlarmMgr, self).__init__()
@@ -305,7 +305,7 @@ class AlarmMgr(Entity):
         """
 
         _prefix = 'alarms'
-        _revision = '2017-04-12'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(AlarmMgr.Trace, self).__init__()
@@ -327,7 +327,7 @@ class AlarmMgr(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(AlarmMgr.Trace, [u'buffer'], name, value)
+            self._perform_setattr(AlarmMgr.Trace, ['buffer'], name, value)
 
 
         class Location(Entity):
@@ -353,7 +353,7 @@ class AlarmMgr(Entity):
             """
 
             _prefix = 'alarms'
-            _revision = '2017-04-12'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(AlarmMgr.Trace.Location, self).__init__()
@@ -374,7 +374,7 @@ class AlarmMgr(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AlarmMgr.Trace.Location, [u'location_name'], name, value)
+                self._perform_setattr(AlarmMgr.Trace.Location, ['location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -400,7 +400,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Trace.Location.AllOptions, self).__init__()
@@ -421,7 +421,7 @@ class AlarmMgr(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AlarmMgr.Trace.Location.AllOptions, [u'option'], name, value)
+                    self._perform_setattr(AlarmMgr.Trace.Location.AllOptions, ['option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -440,7 +440,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
@@ -459,7 +459,7 @@ class AlarmMgr(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                        self._perform_setattr(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 
@@ -496,7 +496,7 @@ class AlarmMgr(Entity):
         """
 
         _prefix = 'alarms'
-        _revision = '2017-04-12'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(AlarmMgr.Brief, self).__init__()
@@ -545,7 +545,7 @@ class AlarmMgr(Entity):
             """
 
             _prefix = 'alarms'
-            _revision = '2017-04-12'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(AlarmMgr.Brief.Card, self).__init__()
@@ -606,7 +606,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Brief.Card.Location, self).__init__()
@@ -705,7 +705,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Brief.Card.Location.Active, self).__init__()
@@ -823,7 +823,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Brief.Card.Location.History, self).__init__()
@@ -943,7 +943,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Brief.Card.Location.Suppressed, self).__init__()
@@ -1003,7 +1003,7 @@ class AlarmMgr(Entity):
             """
 
             _prefix = 'alarms'
-            _revision = '2017-04-12'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(AlarmMgr.Brief.Rack, self).__init__()
@@ -1064,7 +1064,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Brief.Rack.RackLocations, self).__init__()
@@ -1163,7 +1163,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Brief.Rack.RackLocations.Active, self).__init__()
@@ -1281,7 +1281,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Brief.Rack.RackLocations.History, self).__init__()
@@ -1401,7 +1401,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Brief.Rack.RackLocations.Suppressed, self).__init__()
@@ -1474,7 +1474,7 @@ class AlarmMgr(Entity):
             """
 
             _prefix = 'alarms'
-            _revision = '2017-04-12'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(AlarmMgr.Brief.System, self).__init__()
@@ -1570,7 +1570,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Brief.System.Active, self).__init__()
@@ -1689,7 +1689,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Brief.System.History, self).__init__()
@@ -1810,7 +1810,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Brief.System.Suppressed, self).__init__()
@@ -1884,7 +1884,7 @@ class AlarmMgr(Entity):
         """
 
         _prefix = 'alarms'
-        _revision = '2017-04-12'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(AlarmMgr.Detail, self).__init__()
@@ -1933,7 +1933,7 @@ class AlarmMgr(Entity):
             """
 
             _prefix = 'alarms'
-            _revision = '2017-04-12'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(AlarmMgr.Detail.Card, self).__init__()
@@ -2008,7 +2008,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Detail.Card.Location, self).__init__()
@@ -2148,7 +2148,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Card.Location.Active, self).__init__()
@@ -2308,7 +2308,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Card.Location.History, self).__init__()
@@ -2481,7 +2481,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Card.Location.Stats, self).__init__()
@@ -2670,7 +2670,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Card.Location.Clients, self).__init__()
@@ -2836,7 +2836,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Card.Location.Suppressed, self).__init__()
@@ -2904,7 +2904,7 @@ class AlarmMgr(Entity):
             """
 
             _prefix = 'alarms'
-            _revision = '2017-04-12'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(AlarmMgr.Detail.Rack, self).__init__()
@@ -2979,7 +2979,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Detail.Rack.RackLocations, self).__init__()
@@ -3119,7 +3119,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Rack.RackLocations.Active, self).__init__()
@@ -3279,7 +3279,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Rack.RackLocations.History, self).__init__()
@@ -3452,7 +3452,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Rack.RackLocations.Stats, self).__init__()
@@ -3641,7 +3641,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Rack.RackLocations.Clients, self).__init__()
@@ -3807,7 +3807,7 @@ class AlarmMgr(Entity):
                     """
 
                     _prefix = 'alarms'
-                    _revision = '2017-04-12'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(AlarmMgr.Detail.Rack.RackLocations.Suppressed, self).__init__()
@@ -3903,7 +3903,7 @@ class AlarmMgr(Entity):
             """
 
             _prefix = 'alarms'
-            _revision = '2017-04-12'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(AlarmMgr.Detail.System, self).__init__()
@@ -4040,7 +4040,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Detail.System.Active, self).__init__()
@@ -4201,7 +4201,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Detail.System.History, self).__init__()
@@ -4375,7 +4375,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Detail.System.Stats, self).__init__()
@@ -4565,7 +4565,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Detail.System.Clients, self).__init__()
@@ -4732,7 +4732,7 @@ class AlarmMgr(Entity):
                 """
 
                 _prefix = 'alarms'
-                _revision = '2017-04-12'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(AlarmMgr.Detail.System.Suppressed, self).__init__()

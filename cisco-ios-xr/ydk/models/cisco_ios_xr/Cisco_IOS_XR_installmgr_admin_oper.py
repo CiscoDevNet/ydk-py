@@ -1791,7 +1791,7 @@ class Install(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Install.RequestStatuses.RequestStatus, ['request_id', u'percentage', u'abort_state', u'downloaded_bytes', u'unanswered_query', u'operation_phase'], name, value)
+                self._perform_setattr(Install.RequestStatuses.RequestStatus, ['request_id', 'percentage', 'abort_state', 'downloaded_bytes', 'unanswered_query', 'operation_phase'], name, value)
 
 
             class RequestInformation(Entity):
@@ -1878,7 +1878,7 @@ class Install(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.RequestStatuses.RequestStatus.RequestInformation, [u'request_id', u'user_id', u'trigger_type', u'request_option', u'operation_type', u'operation_detail'], name, value)
+                    self._perform_setattr(Install.RequestStatuses.RequestStatus.RequestInformation, ['request_id', 'user_id', 'trigger_type', 'request_option', 'operation_type', 'operation_detail'], name, value)
 
 
 
@@ -1926,7 +1926,7 @@ class Install(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.RequestStatuses.RequestStatus.AbortStatus, [u'abort_method', u'abort_impact'], name, value)
+                    self._perform_setattr(Install.RequestStatuses.RequestStatus.AbortStatus, ['abort_method', 'abort_impact'], name, value)
 
 
 
@@ -1983,7 +1983,7 @@ class Install(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation, [u'direction', u'ii_error'], name, value)
+                    self._perform_setattr(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation, ['direction', 'ii_error'], name, value)
 
 
                 class Nodes(Entity):
@@ -2032,7 +2032,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes, [u'node_name', u'state'], name, value)
+                        self._perform_setattr(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes, ['node_name', 'state'], name, value)
 
 
 
@@ -2092,7 +2092,7 @@ class Install(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.RequestStatuses.RequestStatus.IssuMessage, [u'category', u'message'], name, value)
+                    self._perform_setattr(Install.RequestStatuses.RequestStatus.IssuMessage, ['category', 'message'], name, value)
 
 
                 class Scope(Entity):
@@ -2141,7 +2141,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.RequestStatuses.RequestStatus.IssuMessage.Scope, [u'admin_read', u'affected_sd_rs'], name, value)
+                        self._perform_setattr(Install.RequestStatuses.RequestStatus.IssuMessage.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
 
@@ -2201,7 +2201,7 @@ class Install(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.RequestStatuses.RequestStatus.Message, [u'category', u'message'], name, value)
+                    self._perform_setattr(Install.RequestStatuses.RequestStatus.Message, ['category', 'message'], name, value)
 
 
                 class Scope(Entity):
@@ -2250,7 +2250,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.RequestStatuses.RequestStatus.Message.Scope, [u'admin_read', u'affected_sd_rs'], name, value)
+                        self._perform_setattr(Install.RequestStatuses.RequestStatus.Message.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
 
@@ -2921,7 +2921,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package, ['package_name', u'name', u'version', u'description', u'release', u'vendor', u'date', u'source', u'base', u'bootable', u'composite', u'restart_info', u'package_type', u'group_type', u'depth', u'uncompressed_size', u'compressed_size', u'cards'], name, value)
+                            self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package, ['package_name', 'name', 'version', 'description', 'release', 'vendor', 'date', 'source', 'base', 'bootable', 'composite', 'restart_info', 'package_type', 'group_type', 'depth', 'uncompressed_size', 'compressed_size', 'cards'], name, value)
 
 
                         class SubPkg(Entity):
@@ -2970,7 +2970,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg, [u'name', u'node_types'], name, value)
+                                self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg, ['name', 'node_types'], name, value)
 
 
 
@@ -3232,7 +3232,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component, ['component_name', u'name', u'version', u'release', u'description', u'files'], name, value)
+                                self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component, ['component_name', 'name', 'version', 'release', 'description', 'files'], name, value)
 
 
 
@@ -3506,7 +3506,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath, [u'request_id', u'admin_match', u'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath, ['request_id', 'admin_match', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -3565,7 +3565,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -3613,7 +3613,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -3674,7 +3674,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -3722,7 +3722,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -3783,7 +3783,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath, [u'request_id'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath, ['request_id'], name, value)
 
 
                     class LoadPath(Entity):
@@ -3842,7 +3842,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -3890,7 +3890,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -3951,7 +3951,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -3999,7 +3999,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -4069,7 +4069,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath, [u'request_id', u'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath, ['request_id', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -4128,7 +4128,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -4176,7 +4176,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -4237,7 +4237,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -4285,7 +4285,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -4366,7 +4366,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath, [u'request_id', u'secure_domain_router_name', u'node_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath, ['request_id', 'secure_domain_router_name', 'node_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -4425,7 +4425,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -4473,7 +4473,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -4534,7 +4534,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -4582,7 +4582,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -4725,7 +4725,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory, ['node_name', u'major', u'minor', u'boot_image_name', u'node_type', u'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -4783,7 +4783,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -4830,7 +4830,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -5030,7 +5030,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath, [u'request_id', u'admin_match', u'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath, ['request_id', 'admin_match', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -5089,7 +5089,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -5137,7 +5137,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -5198,7 +5198,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -5246,7 +5246,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -5307,7 +5307,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath, [u'request_id'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath, ['request_id'], name, value)
 
 
                     class LoadPath(Entity):
@@ -5366,7 +5366,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -5414,7 +5414,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -5475,7 +5475,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -5523,7 +5523,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -5593,7 +5593,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath, [u'request_id', u'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath, ['request_id', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -5652,7 +5652,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -5700,7 +5700,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -5761,7 +5761,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -5809,7 +5809,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -5890,7 +5890,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath, [u'request_id', u'secure_domain_router_name', u'node_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath, ['request_id', 'secure_domain_router_name', 'node_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -5949,7 +5949,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -5997,7 +5997,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -6058,7 +6058,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -6106,7 +6106,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -6249,7 +6249,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory, ['node_name', u'major', u'minor', u'boot_image_name', u'node_type', u'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -6307,7 +6307,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -6354,7 +6354,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -6627,7 +6627,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory, ['node_name', u'major', u'minor', u'boot_image_name', u'node_type', u'secure_domain_router_name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
                             class LoadPath(Entity):
@@ -6685,7 +6685,7 @@ class Install(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath, [u'version', u'build_information'], name, value)
+                                    self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
                                 class Package(Entity):
@@ -6732,7 +6732,7 @@ class Install(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                        self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -6934,7 +6934,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath, [u'request_id', u'admin_match', u'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath, ['request_id', 'admin_match', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -6993,7 +6993,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7041,7 +7041,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -7102,7 +7102,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7150,7 +7150,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -7211,7 +7211,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath, [u'request_id'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath, ['request_id'], name, value)
 
 
                     class LoadPath(Entity):
@@ -7270,7 +7270,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7318,7 +7318,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -7379,7 +7379,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7427,7 +7427,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -7497,7 +7497,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath, [u'request_id', u'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath, ['request_id', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -7556,7 +7556,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7604,7 +7604,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -7665,7 +7665,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7713,7 +7713,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -7794,7 +7794,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath, [u'request_id', u'secure_domain_router_name', u'node_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath, ['request_id', 'secure_domain_router_name', 'node_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -7853,7 +7853,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7901,7 +7901,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -7962,7 +7962,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -8010,7 +8010,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -8153,7 +8153,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory, ['node_name', u'major', u'minor', u'boot_image_name', u'node_type', u'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
@@ -8211,7 +8211,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath, [u'version', u'build_information'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -8258,7 +8258,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package, [u'device_name', u'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
 
@@ -8545,7 +8545,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Issu.CardInventories.CardInventory.Summary, [u'node_name', u'partner_node_name', u'node_state', u'node_role', u'node_type_pi', u'node_type_issu', u'node_current_state', u'node_expected_state', u'node_failure_reason', u'is_conforming_node', u'attempts', u'is_node_upgraded'], name, value)
+                        self._perform_setattr(Install.Issu.CardInventories.CardInventory.Summary, ['node_name', 'partner_node_name', 'node_state', 'node_role', 'node_type_pi', 'node_type_issu', 'node_current_state', 'node_expected_state', 'node_failure_reason', 'is_conforming_node', 'attempts', 'is_node_upgraded'], name, value)
 
 
 
@@ -8737,7 +8737,7 @@ class Install(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Install.Issu.Stage, [u'issu_state', u'issu_op_id', u'percentage', u'is_issu_aborted', u'is_issu_aborted_by_ism', u'issu_manager_fsm_state', u'participating_node_all', u'num_nodes_in_progress', u'num_of_nodes_in_load', u'num_of_nodes_in_run', u'numof_nc_nodes'], name, value)
+                self._perform_setattr(Install.Issu.Stage, ['issu_state', 'issu_op_id', 'percentage', 'is_issu_aborted', 'is_issu_aborted_by_ism', 'issu_manager_fsm_state', 'participating_node_all', 'num_nodes_in_progress', 'num_of_nodes_in_load', 'num_of_nodes_in_run', 'numof_nc_nodes'], name, value)
 
 
             class NodeInProgress(Entity):
@@ -8778,7 +8778,7 @@ class Install(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Issu.Stage.NodeInProgress, [u'node'], name, value)
+                    self._perform_setattr(Install.Issu.Stage.NodeInProgress, ['node'], name, value)
 
 
 
@@ -8820,7 +8820,7 @@ class Install(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Issu.Stage.NodesInLoad, [u'node'], name, value)
+                    self._perform_setattr(Install.Issu.Stage.NodesInLoad, ['node'], name, value)
 
 
 
@@ -8862,7 +8862,7 @@ class Install(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Issu.Stage.NodesInRun, [u'node'], name, value)
+                    self._perform_setattr(Install.Issu.Stage.NodesInRun, ['node'], name, value)
 
 
 
@@ -8904,7 +8904,7 @@ class Install(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Issu.Stage.NcNodes, [u'node'], name, value)
+                    self._perform_setattr(Install.Issu.Stage.NcNodes, ['node'], name, value)
 
 
 
@@ -8946,7 +8946,7 @@ class Install(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Install.BootImage, [u'system_image_file'], name, value)
+            self._perform_setattr(Install.BootImage, ['system_image_file'], name, value)
 
 
 
@@ -9165,7 +9165,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Header.LogContents, [u'version'], name, value)
+                        self._perform_setattr(Install.Logs.Log.Header.LogContents, ['version'], name, value)
 
 
                     class V3(Entity):
@@ -9223,7 +9223,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Header.LogContents.V3, [u'category', u'message'], name, value)
+                            self._perform_setattr(Install.Logs.Log.Header.LogContents.V3, ['category', 'message'], name, value)
 
 
                         class Scope(Entity):
@@ -9272,7 +9272,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Header.LogContents.V3.Scope, [u'admin_read', u'affected_sd_rs'], name, value)
+                                self._perform_setattr(Install.Logs.Log.Header.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
 
@@ -9366,7 +9366,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Summary.LogContents, [u'version'], name, value)
+                        self._perform_setattr(Install.Logs.Log.Summary.LogContents, ['version'], name, value)
 
 
                     class V3(Entity):
@@ -9424,7 +9424,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3, [u'category', u'message'], name, value)
+                            self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3, ['category', 'message'], name, value)
 
 
                         class Scope(Entity):
@@ -9473,7 +9473,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3.Scope, [u'admin_read', u'affected_sd_rs'], name, value)
+                                self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
 
@@ -9567,7 +9567,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Message.LogContents, [u'version'], name, value)
+                        self._perform_setattr(Install.Logs.Log.Message.LogContents, ['version'], name, value)
 
 
                     class V3(Entity):
@@ -9625,7 +9625,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Message.LogContents.V3, [u'category', u'message'], name, value)
+                            self._perform_setattr(Install.Logs.Log.Message.LogContents.V3, ['category', 'message'], name, value)
 
 
                         class Scope(Entity):
@@ -9674,7 +9674,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Message.LogContents.V3.Scope, [u'admin_read', u'affected_sd_rs'], name, value)
+                                self._perform_setattr(Install.Logs.Log.Message.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
 
@@ -9768,7 +9768,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Change.LogContents, [u'version'], name, value)
+                        self._perform_setattr(Install.Logs.Log.Change.LogContents, ['version'], name, value)
 
 
                     class V3(Entity):
@@ -9826,7 +9826,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Change.LogContents.V3, [u'category', u'message'], name, value)
+                            self._perform_setattr(Install.Logs.Log.Change.LogContents.V3, ['category', 'message'], name, value)
 
 
                         class Scope(Entity):
@@ -9875,7 +9875,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Change.LogContents.V3.Scope, [u'admin_read', u'affected_sd_rs'], name, value)
+                                self._perform_setattr(Install.Logs.Log.Change.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
 
@@ -9969,7 +9969,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Detail.LogContents, [u'version'], name, value)
+                        self._perform_setattr(Install.Logs.Log.Detail.LogContents, ['version'], name, value)
 
 
                     class V3(Entity):
@@ -10027,7 +10027,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3, [u'category', u'message'], name, value)
+                            self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3, ['category', 'message'], name, value)
 
 
                         class Scope(Entity):
@@ -10076,7 +10076,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3.Scope, [u'admin_read', u'affected_sd_rs'], name, value)
+                                self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
 
@@ -10170,7 +10170,7 @@ class Install(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Communication.LogContents, [u'version'], name, value)
+                        self._perform_setattr(Install.Logs.Log.Communication.LogContents, ['version'], name, value)
 
 
                     class V3(Entity):
@@ -10228,7 +10228,7 @@ class Install(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3, [u'category', u'message'], name, value)
+                            self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3, ['category', 'message'], name, value)
 
 
                         class Scope(Entity):
@@ -10277,7 +10277,7 @@ class Install(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3.Scope, [u'admin_read', u'affected_sd_rs'], name, value)
+                                self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
 

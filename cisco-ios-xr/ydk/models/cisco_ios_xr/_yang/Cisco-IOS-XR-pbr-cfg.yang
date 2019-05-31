@@ -29,6 +29,10 @@ module Cisco-IOS-XR-pbr-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-05-17 {
+    description
+      "CSCvi93168 PBR commit replace feature.";
+  }
   revision 2016-03-08 {
     description
       "Moved augment statement to a separate file";
@@ -45,13 +49,20 @@ module Cisco-IOS-XR-pbr-cfg {
     container pbr {
       description
         "Interface PBR configuration";
-      container service-policy {
+      container service-policies {
         description
-          "PBR service policy configuration";
-        leaf input {
-          type string;
+          "Ingress service policy";
+        list service-policy {
+          key "service-policy";
           description
-            "Ingress service policy";
+            "Service policy details";
+          leaf service-policy {
+            type string {
+              length "1..64";
+            }
+            description
+              "Name of policy-map";
+          }
         }
       }
       leaf service-policy-in {

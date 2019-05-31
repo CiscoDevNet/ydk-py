@@ -32,7 +32,8 @@ class _MetaInfoClassMember(object):
                  pmodule_name, clazz_name,
                  prange, pattern, doc,
                  presentation_name, module_name, is_key,
-                 members=None, max_elements=None, min_elements=None, default_value=None, is_config=True):
+                 members=None, max_elements=None, min_elements=None, default_value=None,
+                 is_config=True, is_presence=False, is_mandatory=False):
         self._name = name
         self._mtype = mtype
         self._ptype = ptype
@@ -54,6 +55,8 @@ class _MetaInfoClassMember(object):
         self._min_elements = min_elements
         self._default_value = default_value
         self._is_config = is_config
+        self._is_presence = is_presence
+        self._is_mandatory = is_mandatory
 
     @property
     def members(self):
@@ -106,6 +109,14 @@ class _MetaInfoClassMember(object):
     @property
     def default_value(self):
         return self._default_value
+
+    @property
+    def is_mandatory(self):
+        return self._is_mandatory
+
+    @property
+    def is_presence(self):
+        return self._is_presence
 
     def union_list(self):
         _list = []

@@ -1075,8 +1075,20 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
         description
           "Client has configured the bundle state Down";
       }
-      enum "bm-mbr-state-reason-count" {
+      enum "bm-mbr-state-reason-lacp-oos" {
         value 75;
+        description
+          "Link is in standby due to bundle out of service
+           state";
+      }
+      enum "bm-mbr-state-reason-errdis-bundle-oos" {
+        value 76;
+        description
+          "Link is error-disabled due to bundle out of
+           service state";
+      }
+      enum "bm-mbr-state-reason-count" {
+        value 77;
         description
           "Enumeration maximum value";
       }
@@ -3734,6 +3746,26 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
         description
           "im attr media 100gbase sr bd";
       }
+      enum "im-attr-media-1000base-2bx-d" {
+        value 383;
+        description
+          "im attr media 1000base 2bx d";
+      }
+      enum "im-attr-media-1000base-2bx-d-i" {
+        value 384;
+        description
+          "im attr media 1000base 2bx d i";
+      }
+      enum "im-attr-media-1000base-2bx-u" {
+        value 385;
+        description
+          "im attr media 1000base 2bx u";
+      }
+      enum "im-attr-media-1000base-2bx-u-i" {
+        value 386;
+        description
+          "im attr media 1000base 2bx u i";
+      }
     }
     description
       "Im attr media";
@@ -4771,6 +4803,11 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       type string;
       description
         "Member's (short form) name";
+    }
+    leaf replication-error {
+      type uint32;
+      description
+        "Error from final replication attempt";
     }
   }
 

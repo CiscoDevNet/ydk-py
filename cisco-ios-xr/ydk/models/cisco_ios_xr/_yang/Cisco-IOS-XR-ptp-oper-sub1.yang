@@ -1169,15 +1169,10 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       description
         "The PTP domain of the local clock";
     }
-    leaf holdover {
+    leaf grandmaster {
       type boolean;
       description
-        "Is the local clock in holdover?";
-    }
-    leaf holdover-clock-class {
-      type Ptp-clock-class;
-      description
-        "The holdover clock class (if it is valid)";
+        "Whether the local clock is the grandmaster";
     }
   }
 
@@ -1701,15 +1696,15 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       description
         "Illegal clock class (255) in announce messages";
     }
-    leaf steps-removed {
-      type uint32;
-      description
-        "Steps removed too high";
-    }
     leaf reserved-clock-id {
       type uint32;
       description
         "Reserved Clock ID";
+    }
+    leaf steps-removed {
+      type uint32;
+      description
+        "Steps removed too high";
     }
     leaf g8265-1-incompatible {
       type uint32;
@@ -2679,6 +2674,12 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       description
         "Sync messages are not being received from the
          master";
+    }
+    leaf is-dnu {
+      type boolean;
+      description
+        "The clock has clock class corresponding to
+         QL-DNU";
     }
   }
 

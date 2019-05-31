@@ -276,7 +276,7 @@ class Ping(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ping.Input.Destination, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', 'type_of_service', 'do_not_frag', 'validate', u'priority', u'outgoing_interface'], name, value)
+                self._perform_setattr(Ping.Input.Destination, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', 'type_of_service', 'do_not_frag', 'validate', 'priority', 'outgoing_interface'], name, value)
 
 
 
@@ -560,7 +560,7 @@ class Ping(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ping.Input.Ipv6, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', u'priority', u'outgoing_interface'], name, value)
+                self._perform_setattr(Ping.Input.Ipv6, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
 
@@ -1202,7 +1202,7 @@ class Ping(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ping.Output.PingResponse.Ipv6, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', u'sweep_min', u'sweep_max', u'rotate_pattern', u'hits', u'total', u'success_rate', u'rtt_min', u'rtt_avg', u'rtt_max'], name, value)
+                    self._perform_setattr(Ping.Output.PingResponse.Ipv6, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'sweep_min', 'sweep_max', 'rotate_pattern', 'hits', 'total', 'success_rate', 'rtt_min', 'rtt_avg', 'rtt_max'], name, value)
 
 
                 class Replies(Entity):
@@ -1284,7 +1284,7 @@ class Ping(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ping.Output.PingResponse.Ipv6.Replies.Reply, [u'reply_index', u'result'], name, value)
+                            self._perform_setattr(Ping.Output.PingResponse.Ipv6.Replies.Reply, ['reply_index', 'result'], name, value)
 
 
 

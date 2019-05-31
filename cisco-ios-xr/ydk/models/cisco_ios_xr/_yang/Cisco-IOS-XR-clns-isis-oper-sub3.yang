@@ -26,6 +26,26 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-02-23 {
+    description
+      "Added is_srv6 flag to ISIS IPv6 route";
+  }
+  revision 2019-02-16 {
+    description
+      "Added interface link-group name";
+  }
+  revision 2018-10-15 {
+    description
+      "Add SRv6 configured locators";
+  }
+  revision 2018-10-04 {
+    description
+      "Update SRv6 locator table";
+  }
+  revision 2018-05-17 {
+    description
+      "Update opencfg isis model";
+  }
   revision 2018-04-07 {
     description
       "Update SRv6 definitions to draft-filsfils-spring-srv6-network-programming-04";
@@ -289,7 +309,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
            the N-Flag is set on Prefix-SIDs attached to a
            router loopback address.";
       }
-      enum "php" {
+      enum "no-php" {
         value 2;
         description
           "Penultimate-Hop-Popping flag. When set, then
@@ -362,8 +382,8 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
           "Shortest Path First (SPF) algorithm based on
            link metric.  This is the well-known shortest
            path algorithm as computed by the IS-IS
-           Decision process.  Consistent with the deployed
-           practice for link- state protocols, algorithm 0
+           Decision process. Consistent with the deployed
+           practice for link-state protocols, algorithm 0
            permits any node to overwrite the SPF path with
            a different path based on local policy.";
       }
@@ -384,7 +404,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "Openconfig isis lsp algorithm enum";
   }
 
-  typedef Openconfig-isis-lsp-router-capability-state-flags-enum {
+  typedef Openconfig-isis-lsp-capability-state-flags-enum {
     type enumeration {
       enum "flood" {
         value 0;
@@ -408,8 +428,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       }
     }
     description
-      "Openconfig isis lsp router capability state flags
-       enum";
+      "Openconfig isis lsp capability state flags enum";
   }
 
   typedef Openconfig-isis-lsp-crypto-type-enum {
@@ -738,7 +757,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE {
+  grouping OVERLAY-OCNI-ISIS-MT-IPV6-REACHABILITY-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE {
     description
       "State parameters for a prefix";
     leaf type {
@@ -776,7 +795,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The type of subTLV being described";
     }
-    leaf ipv6-source-router-id {
+    leaf router-id {
       type Yang2bag-string;
       description
         "IPv6 Source router ID address";
@@ -821,7 +840,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The type of subTLV being described";
     }
-    leaf ipv4-source-router-id {
+    leaf router-id {
       type Yang2bag-string;
       description
         "IPv4 Source router ID address";
@@ -931,9 +950,9 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-PREFIXES-ERROR-METRIC-STATE {
+  grouping PREFIXES-PREFIX-ERROR-METRIC-STATE {
     description
-      "PREFIXES PREFIXES ERROR METRIC STATE";
+      "PREFIXES PREFIX ERROR METRIC STATE";
     leaf metric {
       type uint8;
       description
@@ -946,19 +965,19 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-PREFIXES-ERROR-METRIC {
+  grouping PREFIXES-PREFIX-ERROR-METRIC {
     description
-      "PREFIXES PREFIXES ERROR METRIC";
+      "PREFIXES PREFIX ERROR METRIC";
     container state {
       description
         "State parameters of error-metric";
-      uses PREFIXES-PREFIXES-ERROR-METRIC-STATE;
+      uses PREFIXES-PREFIX-ERROR-METRIC-STATE;
     }
   }
 
-  grouping PREFIXES-PREFIXES-EXPENSE-METRIC-STATE {
+  grouping PREFIXES-PREFIX-EXPENSE-METRIC-STATE {
     description
-      "PREFIXES PREFIXES EXPENSE METRIC STATE";
+      "PREFIXES PREFIX EXPENSE METRIC STATE";
     leaf metric {
       type uint8;
       description
@@ -971,19 +990,19 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-PREFIXES-EXPENSE-METRIC {
+  grouping PREFIXES-PREFIX-EXPENSE-METRIC {
     description
-      "PREFIXES PREFIXES EXPENSE METRIC";
+      "PREFIXES PREFIX EXPENSE METRIC";
     container state {
       description
         "State parameters of expense-metric";
-      uses PREFIXES-PREFIXES-EXPENSE-METRIC-STATE;
+      uses PREFIXES-PREFIX-EXPENSE-METRIC-STATE;
     }
   }
 
-  grouping PREFIXES-PREFIXES-DELAY-METRIC-STATE {
+  grouping PREFIXES-PREFIX-DELAY-METRIC-STATE {
     description
-      "PREFIXES PREFIXES DELAY METRIC STATE";
+      "PREFIXES PREFIX DELAY METRIC STATE";
     leaf metric {
       type uint8;
       description
@@ -996,44 +1015,44 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-PREFIXES-DELAY-METRIC {
+  grouping PREFIXES-PREFIX-DELAY-METRIC {
     description
-      "PREFIXES PREFIXES DELAY METRIC";
+      "PREFIXES PREFIX DELAY METRIC";
     container state {
       description
         "State parameters of delay-metric";
-      uses PREFIXES-PREFIXES-DELAY-METRIC-STATE;
+      uses PREFIXES-PREFIX-DELAY-METRIC-STATE;
     }
   }
 
-  grouping PREFIXES-PREFIXES-DEFAULT-METRIC-STATE {
+  grouping PREFIXES-PREFIX-DEFAULT-METRIC-STATE {
     description
-      "PREFIXES PREFIXES DEFAULT METRIC STATE";
+      "PREFIXES PREFIX DEFAULT METRIC STATE";
     leaf flags {
       type Openconfig-isis-lsp-default-metric-state-flags-enum;
       description
         "ISIS Default-Metric Flags";
     }
-    leaf default-metric {
+    leaf metric {
       type uint8;
       description
         "ISIS default metric value";
     }
   }
 
-  grouping PREFIXES-PREFIXES-DEFAULT-METRIC {
+  grouping PREFIXES-PREFIX-DEFAULT-METRIC {
     description
-      "PREFIXES PREFIXES DEFAULT METRIC";
+      "PREFIXES PREFIX DEFAULT METRIC";
     container state {
       description
         "State parameters for default-metric";
-      uses PREFIXES-PREFIXES-DEFAULT-METRIC-STATE;
+      uses PREFIXES-PREFIX-DEFAULT-METRIC-STATE;
     }
   }
 
-  grouping PREFIXES-PREFIXES-STATE {
+  grouping PREFIXES-PREFIX-STATE {
     description
-      "PREFIXES PREFIXES STATE";
+      "PREFIXES PREFIX STATE";
     leaf up-down {
       type boolean;
       description
@@ -1046,34 +1065,34 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIXES {
+  grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX {
     description
       "IPv4 external prefixes and reachability
        attributes";
     container state {
       description
         "State parameters of IPv4 standard prefix";
-      uses PREFIXES-PREFIXES-STATE;
+      uses PREFIXES-PREFIX-STATE;
     }
     container default-metric {
       description
         "This container defines ISIS Default Metric";
-      uses PREFIXES-PREFIXES-DEFAULT-METRIC;
+      uses PREFIXES-PREFIX-DEFAULT-METRIC;
     }
     container delay-metric {
       description
         "This container defines the ISIS delay metric";
-      uses PREFIXES-PREFIXES-DELAY-METRIC;
+      uses PREFIXES-PREFIX-DELAY-METRIC;
     }
     container expense-metric {
       description
         "This container defines the ISIS expense metric";
-      uses PREFIXES-PREFIXES-EXPENSE-METRIC;
+      uses PREFIXES-PREFIX-EXPENSE-METRIC;
     }
     container error-metric {
       description
         "This container defines the ISIS error metric";
-      uses PREFIXES-PREFIXES-ERROR-METRIC;
+      uses PREFIXES-PREFIX-ERROR-METRIC;
     }
   }
 
@@ -1210,7 +1229,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-STATE {
+  grouping OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-STATE {
     description
       "State parameters for a prefix";
     leaf type {
@@ -1228,7 +1247,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The type of subTLV being described";
     }
-    leaf ipv6-source-router-id {
+    leaf router-id {
       type Yang2bag-string;
       description
         "IPv6 Source router ID address";
@@ -1253,7 +1272,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The type of subTLV being described";
     }
-    leaf ipv4-source-router-id {
+    leaf router-id {
       type Yang2bag-string;
       description
         "IPv4 Source router ID address";
@@ -1439,7 +1458,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "ISIS Default-Metric Flags";
     }
-    leaf default-metric {
+    leaf metric {
       type uint8;
       description
         "ISIS default metric value";
@@ -1456,9 +1475,9 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping NEIGHBORS-STATE {
+  grouping NEIGHBOR-STATE {
     description
-      "NEIGHBORS STATE";
+      "NEIGHBOR STATE";
     leaf system-id {
       type Yang2bag-string;
       description
@@ -1466,13 +1485,13 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-NEIGHBORS {
+  grouping OVERLAY-OCNI-ISIS-NEIGHBOR {
     description
       "IS reachability neighbor attributes";
     container state {
       description
         "State parameters of IS standard neighbor";
-      uses NEIGHBORS-STATE;
+      uses NEIGHBOR-STATE;
     }
     container default-metric {
       description
@@ -1575,7 +1594,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-NEIGHBORS-STATE {
+  grouping OVERLAY-OCNI-ISIS-NEIGHBOR-STATE {
     description
       "State parameters of extended neighbor";
     leaf system-id {
@@ -1618,6 +1637,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "State parameters of the undefined sub-TLV";
       uses UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-STATE {
+    description
+      "State parameters of IS neighbor state";
+    leaf type {
+      type Yang2bag-string;
+      description
+        "The type of subTLV being described";
     }
   }
 
@@ -1667,7 +1696,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping IPV4-NEIGHBOR-ADDRESS-STATE {
     description
       "IPV4 NEIGHBOR ADDRESS STATE";
-    leaf-list ipv4-neighbor-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "A single IPv4 address for a neighboring router
@@ -1688,7 +1717,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping IPV4-INTERFACE-ADDRESS-STATE {
     description
       "IPV4 INTERFACE ADDRESS STATE";
-    leaf-list ipv4-interface-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "A 4-octet IPv4 address for the interface
@@ -1715,7 +1744,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
         "Setup priority level of 0 through 7 to be used
          by Unreserved Bandwidth sub-TLV 11";
     }
-    leaf unreserved-bandwidth {
+    leaf bandwidth {
       type Yang2bag-string;
       description
         "The amount of bandwidth reservable in this
@@ -1761,7 +1790,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping MAX-RESERVABLE-LINK-BANDWIDTH-STATE {
     description
       "MAX RESERVABLE LINK BANDWIDTH STATE";
-    leaf max-reservable-link-bandwidth {
+    leaf bandwidth {
       type Yang2bag-string;
       description
         "The maximum amount of bandwidth that can be
@@ -1804,7 +1833,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping TE-DEFAULT-METRIC-STATE {
     description
       "TE DEFAULT METRIC STATE";
-    leaf te-default-metric {
+    leaf metric {
       type uint32;
       description
         "This metric is administratively assigned and can
@@ -1894,7 +1923,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping IPV6-INTERFACE-ADDRESS-STATE {
     description
       "IPV6 INTERFACE ADDRESS STATE";
-    leaf-list ipv6-interface-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "Contains a 16-octet IPv6 address for the
@@ -1916,7 +1945,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping IPV6-NEIGHBOR-ADDRESS-STATE {
     description
       "IPV6 NEIGHBOR ADDRESS STATE";
-    leaf-list ipv6-neighbor-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "Contains a 16-octet IPv6 address for a
@@ -1938,7 +1967,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping MAX-LINK-BANDWIDTH-STATE {
     description
       "MAX LINK BANDWIDTH STATE";
-    leaf max-link-bandwidth {
+    leaf bandwidth {
       type Yang2bag-string;
       description
         "The maximum bandwidth that can be used on this
@@ -1960,7 +1989,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping IPV6-INTERFACE-ADDRESSES-STATE {
     description
       "IPV6 INTERFACE ADDRESSES STATE";
-    leaf-list ipv6-interface-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "IPv6 interface addresses of the node";
@@ -1977,9 +2006,9 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-ERROR-METRIC-STATE {
+  grouping PREFIX-ERROR-METRIC-STATE {
     description
-      "PREFIXES ERROR METRIC STATE";
+      "PREFIX ERROR METRIC STATE";
     leaf metric {
       type uint8;
       description
@@ -1992,19 +2021,19 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-ERROR-METRIC {
+  grouping PREFIX-ERROR-METRIC {
     description
-      "PREFIXES ERROR METRIC";
+      "PREFIX ERROR METRIC";
     container state {
       description
         "State parameters of error-metric";
-      uses PREFIXES-ERROR-METRIC-STATE;
+      uses PREFIX-ERROR-METRIC-STATE;
     }
   }
 
-  grouping PREFIXES-EXPENSE-METRIC-STATE {
+  grouping PREFIX-EXPENSE-METRIC-STATE {
     description
-      "PREFIXES EXPENSE METRIC STATE";
+      "PREFIX EXPENSE METRIC STATE";
     leaf metric {
       type uint8;
       description
@@ -2017,19 +2046,19 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-EXPENSE-METRIC {
+  grouping PREFIX-EXPENSE-METRIC {
     description
-      "PREFIXES EXPENSE METRIC";
+      "PREFIX EXPENSE METRIC";
     container state {
       description
         "State parameters of expense-metric";
-      uses PREFIXES-EXPENSE-METRIC-STATE;
+      uses PREFIX-EXPENSE-METRIC-STATE;
     }
   }
 
-  grouping PREFIXES-DELAY-METRIC-STATE {
+  grouping PREFIX-DELAY-METRIC-STATE {
     description
-      "PREFIXES DELAY METRIC STATE";
+      "PREFIX DELAY METRIC STATE";
     leaf metric {
       type uint8;
       description
@@ -2042,44 +2071,44 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-DELAY-METRIC {
+  grouping PREFIX-DELAY-METRIC {
     description
-      "PREFIXES DELAY METRIC";
+      "PREFIX DELAY METRIC";
     container state {
       description
         "State parameters of delay-metric";
-      uses PREFIXES-DELAY-METRIC-STATE;
+      uses PREFIX-DELAY-METRIC-STATE;
     }
   }
 
-  grouping PREFIXES-DEFAULT-METRIC-STATE {
+  grouping PREFIX-DEFAULT-METRIC-STATE {
     description
-      "PREFIXES DEFAULT METRIC STATE";
+      "PREFIX DEFAULT METRIC STATE";
     leaf flags {
       type Openconfig-isis-lsp-default-metric-state-flags-enum;
       description
         "ISIS Default-Metric Flags";
     }
-    leaf default-metric {
+    leaf metric {
       type uint8;
       description
         "ISIS default metric value";
     }
   }
 
-  grouping PREFIXES-DEFAULT-METRIC {
+  grouping PREFIX-DEFAULT-METRIC {
     description
-      "PREFIXES DEFAULT METRIC";
+      "PREFIX DEFAULT METRIC";
     container state {
       description
         "State parameters for default-metric";
-      uses PREFIXES-DEFAULT-METRIC-STATE;
+      uses PREFIX-DEFAULT-METRIC-STATE;
     }
   }
 
-  grouping PREFIXES-STATE {
+  grouping PREFIX-STATE {
     description
-      "PREFIXES STATE";
+      "PREFIX STATE";
     leaf up-down {
       type boolean;
       description
@@ -2092,34 +2121,34 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-PREFIXES {
+  grouping OVERLAY-OCNI-ISIS-PREFIX {
     description
       "IPv4 prefixes and internal reachability
        attributes";
     container state {
       description
         "State parameters of IPv4 standard prefix";
-      uses PREFIXES-STATE;
+      uses PREFIX-STATE;
     }
     container default-metric {
       description
         "This container defines ISIS Default Metric";
-      uses PREFIXES-DEFAULT-METRIC;
+      uses PREFIX-DEFAULT-METRIC;
     }
     container delay-metric {
       description
         "This container defines the ISIS delay metric";
-      uses PREFIXES-DELAY-METRIC;
+      uses PREFIX-DELAY-METRIC;
     }
     container expense-metric {
       description
         "This container defines the ISIS expense metric";
-      uses PREFIXES-EXPENSE-METRIC;
+      uses PREFIX-EXPENSE-METRIC;
     }
     container error-metric {
       description
         "This container defines the ISIS error metric";
-      uses PREFIXES-ERROR-METRIC;
+      uses PREFIX-ERROR-METRIC;
     }
   }
 
@@ -2143,9 +2172,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE {
+  grouping PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE {
     description
-      "PREFIXES UNDEFINED SUBTLVS UNDEFINED SUBTLV STATE";
+      "PREFIXES PREFIX UNDEFINED SUBTLVS UNDEFINED
+       SUBTLV STATE";
     leaf type {
       type uint8;
       description
@@ -2163,14 +2193,14 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-PREFIXES-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
+  grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
     description
       "Sub-TLVs that are not defined in the model or not
        recognised by system";
     container state {
       description
         "State parameters of the undefined sub-TLV";
-      uses PREFIXES-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
+      uses PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
     }
   }
 
@@ -2207,7 +2237,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The type of subTLV being described";
     }
-    leaf ipv6-source-router-id {
+    leaf router-id {
       type Yang2bag-string;
       description
         "IPv6 Source router ID address";
@@ -2224,7 +2254,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-PREFIXES-SUBTLVS-SUBTLV-STATE {
+  grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE {
     description
       "State parameters for a prefix";
     leaf type {
@@ -2242,7 +2272,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The type of subTLV being described";
     }
-    leaf ipv4-source-router-id {
+    leaf router-id {
       type Yang2bag-string;
       description
         "IPv4 Source router ID address";
@@ -2330,7 +2360,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-PREFIXES-STATE {
+  grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-STATE {
     description
       "State parameters of IPv6 prefix attributes";
     leaf up-down {
@@ -2338,15 +2368,20 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The up/down bit";
     }
+    leaf xbit {
+      type boolean;
+      description
+        "The external bit";
+    }
     leaf sbit {
       type boolean;
       description
-        "The Sub-TLV present bit";
+        "The sub-tlv present bit";
     }
     leaf prefix {
       type Yang2bag-string;
       description
-        "IPv4 prefix contained within extended
+        "IPv6 prefix contained within extended
          reachability TLVs";
     }
     leaf metric {
@@ -2502,7 +2537,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-NEIGHBOR-STATE {
+  grouping OVERLAY-OCNI-ISIS-NEIGHBORS-NEIGHBOR-STATE {
     description
       "State parameters of MT neighbor";
     leaf mt-id {
@@ -2582,6 +2617,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
+  grouping OVERLAY-OCNI-ISIS-NEIGHBOR-SUBTLVS-SUBTLV-STATE {
+    description
+      "State parameters of IS neighbor state";
+    leaf type {
+      type Yang2bag-string;
+      description
+        "The type of subTLV being described";
+    }
+  }
+
   grouping SUBTLV-ADMIN-GROUP-STATE {
     description
       "SUBTLV ADMIN GROUP STATE";
@@ -2607,7 +2652,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping SUBTLV-IPV6-INTERFACE-ADDRESS-STATE {
     description
       "SUBTLV IPV6 INTERFACE ADDRESS STATE";
-    leaf-list ipv6-interface-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "Contains a 16-octet IPv6 address for the
@@ -2629,7 +2674,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping SUBTLV-TE-DEFAULT-METRIC-STATE {
     description
       "SUBTLV TE DEFAULT METRIC STATE";
-    leaf te-default-metric {
+    leaf metric {
       type uint32;
       description
         "This metric is administratively assigned and can
@@ -2651,7 +2696,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping SUBTLV-IPV4-NEIGHBOR-ADDRESS-STATE {
     description
       "SUBTLV IPV4 NEIGHBOR ADDRESS STATE";
-    leaf-list ipv4-neighbor-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "A single IPv4 address for a neighboring router
@@ -2678,7 +2723,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
         "Setup priority level of 0 through 7 to be used
          by Unreserved Bandwidth sub-TLV 11";
     }
-    leaf unreserved-bandwidth {
+    leaf bandwidth {
       type Yang2bag-string;
       description
         "The amount of bandwidth reservable in this
@@ -2775,7 +2820,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping SUBTLV-MAX-LINK-BANDWIDTH-STATE {
     description
       "SUBTLV MAX LINK BANDWIDTH STATE";
-    leaf max-link-bandwidth {
+    leaf bandwidth {
       type Yang2bag-string;
       description
         "The maximum bandwidth that can be used on this
@@ -2797,7 +2842,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping SUBTLV-MAX-RESERVABLE-LINK-BANDWIDTH-STATE {
     description
       "SUBTLV MAX RESERVABLE LINK BANDWIDTH STATE";
-    leaf max-reservable-link-bandwidth {
+    leaf bandwidth {
       type Yang2bag-string;
       description
         "The maximum amount of bandwidth that can be
@@ -2818,7 +2863,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping SUBTLV-IPV4-INTERFACE-ADDRESS-STATE {
     description
       "SUBTLV IPV4 INTERFACE ADDRESS STATE";
-    leaf-list ipv4-interface-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "A 4-octet IPv4 address for the interface
@@ -2839,7 +2884,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping SUBTLV-IPV6-NEIGHBOR-ADDRESS-STATE {
     description
       "SUBTLV IPV6 NEIGHBOR ADDRESS STATE";
-    leaf-list ipv6-neighbor-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "Contains a 16-octet IPv6 address for a
@@ -2922,7 +2967,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The type of subTLV being described";
     }
-    leaf ipv6-source-router-id {
+    leaf router-id {
       type Yang2bag-string;
       description
         "IPv6 Source router ID address";
@@ -2947,7 +2992,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The type of subTLV being described";
     }
-    leaf ipv4-source-router-id {
+    leaf router-id {
       type Yang2bag-string;
       description
         "IPv4 Source router ID address";
@@ -2964,7 +3009,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-STATE {
+  grouping OVERLAY-OCNI-ISIS-MT-IPV4-REACHABILITY-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE {
     description
       "State parameters for a prefix";
     leaf type {
@@ -3014,10 +3059,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE {
+  grouping MT-IPV4-REACHABILITY-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE {
     description
-      "PREFIXES PREFIX UNDEFINED SUBTLVS UNDEFINED
-       SUBTLV STATE";
+      "MT IPV4 REACHABILITY PREFIXES PREFIX UNDEFINED
+       SUBTLVS UNDEFINED SUBTLV STATE";
     leaf type {
       type uint8;
       description
@@ -3035,18 +3080,18 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
+  grouping OVERLAY-OCNI-ISIS-MT-IPV4-REACHABILITY-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
     description
       "Sub-TLVs that are not defined in the model or not
        recognised by system";
     container state {
       description
         "State parameters of the undefined sub-TLV";
-      uses PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
+      uses MT-IPV4-REACHABILITY-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-STATE {
+  grouping OVERLAY-OCNI-ISIS-MT-IPV4-REACHABILITY-PREFIXES-PREFIX-STATE {
     description
       "State parameters of an IPv4 extended prefix";
     leaf up-down {
@@ -3093,9 +3138,9 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping SRGB-DESCRIPTOR {
+  grouping OVERLAY-OCNI-ISIS-SRGB-DESCRIPTOR {
     description
-      "SRGB DESCRIPTOR";
+      "Descriptor entry within the SR capabilty sub-TLV";
     container state {
       description
         "State parameters of the SR range";
@@ -3103,19 +3148,9 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping SRGB-DESCRIPTORS {
+  grouping OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-CAPABILITY-STATE {
     description
-      "SRGB DESCRIPTORS";
-    list srgb-descriptor {
-      description
-        "Descriptor entry within the SR capabilty sub-TLV";
-      uses SRGB-DESCRIPTOR;
-    }
-  }
-
-  grouping SEGMENT-ROUTING-CAPABILITY-STATE {
-    description
-      "SEGMENT ROUTING CAPABILITY STATE";
+      "State parameters of IS SR Router Capability";
     leaf-list flags {
       type Openconfig-isis-lsp-segment-routing-capability-state-flags-enum;
       description
@@ -3123,26 +3158,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-CAPABILITY {
+  grouping SEGMENT-ROUTING-ALGORITHMS-STATE {
     description
-      "This container defines SR Capability sub-TLV 2";
-    container state {
-      description
-        "State parameters of IS SR Router Capability";
-      uses SEGMENT-ROUTING-CAPABILITY-STATE;
-    }
-    container srgb-descriptors {
-      description
-        "SRGB Descriptors included within the SR
-         capability sub-TLV";
-      uses SRGB-DESCRIPTORS;
-    }
-  }
-
-  grouping SEGMENT-ROUTING-ALGORITHM-STATE {
-    description
-      "SEGMENT ROUTING ALGORITHM STATE";
-    leaf algorithm {
+      "SEGMENT ROUTING ALGORITHMS STATE";
+    leaf-list algorithm {
       type Openconfig-isis-lsp-algorithm-enum;
       description
         "The Segment Routing algorithm that is described
@@ -3150,15 +3169,14 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-ALGORITHM {
+  grouping OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-ALGORITHMS {
     description
-      "List of the segment routing algorithsm advertised
-       within the TLV";
+      "This container defines SR algorithm sub-TLV 19";
     container state {
       description
         "State parameters of sub-TLV 19 - Segment Routing
          Algorithm";
-      uses SEGMENT-ROUTING-ALGORITHM-STATE;
+      uses SEGMENT-ROUTING-ALGORITHMS-STATE;
     }
   }
 
@@ -3203,7 +3221,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping OVERLAY-OCNI-ISIS-ROUTER-CAPABILITY-STATE {
+  grouping OVERLAY-OCNI-ISIS-CAPABILITY-STATE {
     description
       "State parameters of TLV 242";
     leaf instance-number {
@@ -3218,7 +3236,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
         "IPv4 router-id";
     }
     leaf-list flags {
-      type Openconfig-isis-lsp-router-capability-state-flags-enum;
+      type Openconfig-isis-lsp-capability-state-flags-enum;
       description
         "Router capability flags";
     }
@@ -3227,7 +3245,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping IPV4-INTERFACE-ADDRESSES-STATE {
     description
       "IPV4 INTERFACE ADDRESSES STATE";
-    leaf-list ipv4-interface-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "IPv4 address(es) of the interface corresponding
@@ -3275,7 +3293,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping AREA-ADDRESS-STATE {
     description
       "AREA ADDRESS STATE";
-    leaf-list area-address {
+    leaf-list address {
       type Yang2bag-string;
       description
         "Area adress(es) of the IS";
@@ -4390,9 +4408,9 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping CNSP-STATE {
+  grouping CSNP-STATE {
     description
-      "CNSP STATE";
+      "CSNP STATE";
     leaf received {
       type uint32;
       description
@@ -4415,13 +4433,13 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     }
   }
 
-  grouping CNSP {
+  grouping CSNP {
     description
-      "CNSP";
+      "CSNP";
     container state {
       description
-        "Packet counters relating to CNSPs";
-      uses CNSP-STATE;
+        "Packet counters relating to CSNPs";
+      uses CSNP-STATE;
     }
   }
 
@@ -4549,10 +4567,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
         "This container defines PSNP packet counters";
       uses PSNP;
     }
-    container cnsp {
+    container csnp {
       description
-        "Operational state parameters relating to CNSPs";
-      uses CNSP;
+        "Operational state parameters relating to CSNPs";
+      uses CSNP;
     }
   }
 

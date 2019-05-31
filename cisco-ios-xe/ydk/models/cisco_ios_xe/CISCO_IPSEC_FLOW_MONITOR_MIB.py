@@ -1781,7 +1781,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the local peer
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -1790,7 +1790,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the remote peer
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -1931,7 +1931,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the local endpoint for the IPsec Phase\-1 IKE Tunnel
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -1961,7 +1961,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the remote endpoint for the IPsec Phase\-1 IKE Tunnel
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -2975,7 +2975,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the local endpoint for the IPsec Phase\-2 Tunnel
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -2984,7 +2984,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the remote endpoint for the IPsec Phase\-2 Tunnel
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -3646,7 +3646,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The local Endpoint's first IP address specification.  If the local Endpoint type is single IP address,  then this is the value of the IP address.  If the local Endpoint type is IP subnet, then this is the value of the subnet.  If the local Endpoint type is IP address range,  then this is the value of beginning IP address  of the range
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -3655,7 +3655,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The local Endpoint's second IP address specification.  If the local Endpoint type is single IP address,  then this is the value of the IP address.  If the local Endpoint type is IP subnet, then this is the value of the subnet mask.  If the local Endpoint type is IP address range,  then this is the value of ending IP address  of the range
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -3696,7 +3696,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The remote Endpoint's first IP address specification.  If the remote Endpoint type is single IP address,  then this is the value of the IP address.  If the remote Endpoint type is IP subnet, then this is the value of the subnet.  If the remote Endpoint type is IP address range,  then this is the value of beginning IP address  of the range
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -3705,7 +3705,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The remote Endpoint's second IP address specification.  If the remote Endpoint type is single IP address,  then this is the value of the IP address.  If the remote Endpoint type is IP subnet, then this is the value of the subnet mask.  If the remote Endpoint type is IP address range,  then this is the value of ending IP address of  the range
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -4515,7 +4515,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the local endpoint for the IPsec Phase\-1 IKE Tunnel
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -4531,7 +4531,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the remote endpoint for the IPsec Phase\-1 IKE Tunnel
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -5046,7 +5046,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the local endpoint for the IPsec Phase\-2 Tunnel
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -5055,7 +5055,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the remote endpoint for the IPsec Phase\-2 Tunnel
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -5747,7 +5747,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The local Endpoint's first IP address specification.  If the local Endpoint type is single IP address,  then this is the value of the IP address.  If the local Endpoint type is IP subnet, then this is the value of the subnet.  If the local Endpoint type is IP address range,  then this is the value of beginning IP address of  the range
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -5756,7 +5756,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The local Endpoint's second IP address specification.  If the local Endpoint type is single IP address,  then this is the value of the IP address.  If the local Endpoint type is IP subnet, then this is the value of the subnet mask.  If the local Endpoint type is IP address range,  then this is the value of ending IP address of the range
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -5797,7 +5797,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The remote Endpoint's first IP address specification.  If the remote Endpoint type is single IP address,  then this is the value of the IP address.  If the remote Endpoint type is IP subnet, then this is the value of the subnet.  If the remote Endpoint type is IP address range,  then this is the value of beginning IP address of the range
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -5806,7 +5806,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The remote Endpoint's second IP address specification.  If the remote Endpoint type is single IP address,  then this is the value of the IP address.  If the remote Endpoint type is IP subnet, then this is the value of the subnet mask.  If the remote Endpoint type is IP address range,  then this is the value of ending IP address of the range
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -5992,7 +5992,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the local peer
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -6001,7 +6001,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The IP address of the remote peer
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -6257,7 +6257,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The packet's source IP address
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             
@@ -6266,7 +6266,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             	The packet's destination IP address
             	**type**\: str
             
-            	**length:** 4 \| 16
+            	**length:** 4..4 \| 16..16
             
             	**config**\: False
             

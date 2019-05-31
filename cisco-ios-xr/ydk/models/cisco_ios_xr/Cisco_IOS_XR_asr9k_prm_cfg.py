@@ -6,8 +6,10 @@ for Cisco IOS\-XR asr9k\-prm package configuration.
 This module contains definitions
 for the following management objects\:
   hardware\-module\-qos\-mode\: QoS mode in hardware module port(s)
+  hardware\-module\-processor\: hardware module processor
   hardware\-module\-tcp\-mss\-adjust\: hardware module tcp mss adjust
   hardware\-module\-tcam\: hardware module tcam
+  hardware\-module\-profile\: hardware module profile
   hardware\-module\-efd\: hardware module efd
   hardware\-module\-all\-qos\-mode\: hardware module all qos mode
 
@@ -22,6 +24,169 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+
+
+class AdminPrmConfigFeatureProfile(Enum):
+    """
+    AdminPrmConfigFeatureProfile (Enum Class)
+
+    Admin prm config feature profile
+
+    .. data:: default = 0
+
+    	Default feature profile
+
+    .. data:: l2 = 8
+
+    	L2 feature profile
+
+    """
+
+    default = Enum.YLeaf(0, "default")
+
+    l2 = Enum.YLeaf(8, "l2")
+
+
+class AdminPrmConfigInternalTcamPartProfile(Enum):
+    """
+    AdminPrmConfigInternalTcamPartProfile (Enum Class)
+
+    Admin prm config internal tcam part profile
+
+    .. data:: to_default = 0
+
+    	default internal tcam partitions (L2 1k, V4 24k
+
+    	, V6 1.75k entries): Tomahawk
+
+    .. data:: to_profile_se1 = 1
+
+    	Set internal tcam partitions for service edge
+
+    	(L2 4k, V4 15k, V6 3.25k entries): Tomahawk
+
+    """
+
+    to_default = Enum.YLeaf(0, "to-default")
+
+    to_profile_se1 = Enum.YLeaf(1, "to-profile-se1")
+
+
+class AdminPrmConfigPackageBundle(Enum):
+    """
+    AdminPrmConfigPackageBundle (Enum Class)
+
+    Admin prm config package bundle
+
+    .. data:: default = 0
+
+    	Default Package
+
+    .. data:: services = 9
+
+    	Services Package
+
+    """
+
+    default = Enum.YLeaf(0, "default")
+
+    services = Enum.YLeaf(9, "services")
+
+
+class AdminPrmConfigScaleProfile(Enum):
+    """
+    AdminPrmConfigScaleProfile (Enum Class)
+
+    Admin prm config scale profile
+
+    .. data:: default = 0
+
+    	Default scale profile
+
+    .. data:: l2 = 1
+
+    	L2 scale profile
+
+    .. data:: l3 = 2
+
+    	L3 scale profile
+
+    .. data:: l3xl = 3
+
+    	L3XL scale profile
+
+    .. data:: bng = 4
+
+    	BNG scale profile
+
+    .. data:: lsr = 5
+
+    	LSR scale profile
+
+    .. data:: sat = 6
+
+    	SAT scale profile
+
+    .. data:: sfp = 7
+
+    	Single-flow perf scale profile
+
+    """
+
+    default = Enum.YLeaf(0, "default")
+
+    l2 = Enum.YLeaf(1, "l2")
+
+    l3 = Enum.YLeaf(2, "l3")
+
+    l3xl = Enum.YLeaf(3, "l3xl")
+
+    bng = Enum.YLeaf(4, "bng")
+
+    lsr = Enum.YLeaf(5, "lsr")
+
+    sat = Enum.YLeaf(6, "sat")
+
+    sfp = Enum.YLeaf(7, "sfp")
+
+
+class AdminPrmConfigTcamPartProfile(Enum):
+    """
+    AdminPrmConfigTcamPartProfile (Enum Class)
+
+    Admin prm config tcam part profile
+
+    .. data:: default = 0
+
+    	Default tcam partition ods2:ods8 60:40
+
+    .. data:: ods2_30_ods8_70 = 1
+
+    	Tcam Partition ods2:ods8 30:70
+
+    .. data:: ods2_40_ods8_60 = 2
+
+    	Tcam Partition ods2:ods8 40:60
+
+    .. data:: ods2_50_ods8_50 = 3
+
+    	Tcam Partition ods2:ods8 50:50
+
+    .. data:: ods2_70_ods8_30 = 4
+
+    	Tcam Partition ods2:ods8 70:30
+
+    """
+
+    default = Enum.YLeaf(0, "default")
+
+    ods2_30_ods8_70 = Enum.YLeaf(1, "ods2-30-ods8-70")
+
+    ods2_40_ods8_60 = Enum.YLeaf(2, "ods2-40-ods8-60")
+
+    ods2_50_ods8_50 = Enum.YLeaf(3, "ods2-50-ods8-50")
+
+    ods2_70_ods8_30 = Enum.YLeaf(4, "ods2-70-ods8-30")
 
 
 class Asr9kEfdMode(Enum):
@@ -64,6 +229,27 @@ class Asr9kEfdOperation(Enum):
     less_than = Enum.YLeaf(2, "less-than")
 
     greater_than_or_equal = Enum.YLeaf(3, "greater-than-or-equal")
+
+
+class PrmProcessorConfig(Enum):
+    """
+    PrmProcessorConfig (Enum Class)
+
+    Prm processor config
+
+    .. data:: mode_default = 0
+
+    	Default cluster setting
+
+    .. data:: mode_full = 1
+
+    	Full cluster setting
+
+    """
+
+    mode_default = Enum.YLeaf(0, "mode-default")
+
+    mode_full = Enum.YLeaf(1, "mode-full")
 
 
 class PrmTcamProfile(Enum):
@@ -224,6 +410,133 @@ class HardwareModuleQosMode(Entity):
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleQosMode()
+        return self._top_entity
+
+
+
+class HardwareModuleProcessor(Entity):
+    """
+    hardware module processor
+    
+    .. attribute:: nodes
+    
+    	applicable nodeTable
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleProcessor.Nodes>`
+    
+    
+
+    """
+
+    _prefix = 'asr9k-prm-cfg'
+    _revision = '2017-11-29'
+
+    def __init__(self):
+        super(HardwareModuleProcessor, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "hardware-module-processor"
+        self.yang_parent_name = "Cisco-IOS-XR-asr9k-prm-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([("nodes", ("nodes", HardwareModuleProcessor.Nodes))])
+        self._leafs = OrderedDict()
+
+        self.nodes = HardwareModuleProcessor.Nodes()
+        self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._segment_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-processor"
+        self._is_frozen = True
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(HardwareModuleProcessor, [], name, value)
+
+
+    class Nodes(Entity):
+        """
+        applicable nodeTable
+        
+        .. attribute:: node
+        
+        	applicable node
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleProcessor.Nodes.Node>`
+        
+        
+
+        """
+
+        _prefix = 'asr9k-prm-cfg'
+        _revision = '2017-11-29'
+
+        def __init__(self):
+            super(HardwareModuleProcessor.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "hardware-module-processor"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("node", ("node", HardwareModuleProcessor.Nodes.Node))])
+            self._leafs = OrderedDict()
+
+            self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-processor/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(HardwareModuleProcessor.Nodes, [], name, value)
+
+
+        class Node(Entity):
+            """
+            applicable node
+            
+            .. attribute:: node_name  (key)
+            
+            	Node ID
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            .. attribute:: mode
+            
+            	Processor mode setting
+            	**type**\:  :py:class:`PrmProcessorConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.PrmProcessorConfig>`
+            
+            
+
+            """
+
+            _prefix = 'asr9k-prm-cfg'
+            _revision = '2017-11-29'
+
+            def __init__(self):
+                super(HardwareModuleProcessor.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['node_name']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'PrmProcessorConfig', '')])),
+                ])
+                self.node_name = None
+                self.mode = None
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-processor/nodes/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(HardwareModuleProcessor.Nodes.Node, ['node_name', 'mode'], name, value)
+
+
+
+    def clone_ptr(self):
+        self._top_entity = HardwareModuleProcessor()
         return self._top_entity
 
 
@@ -578,6 +891,190 @@ class HardwareModuleTcam(Entity):
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleTcam()
+        return self._top_entity
+
+
+
+class HardwareModuleProfile(Entity):
+    """
+    hardware module profile
+    
+    .. attribute:: nodes
+    
+    	TCAM partition sizing applicable nodes
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleProfile.Nodes>`
+    
+    .. attribute:: feature
+    
+    	Memory resource profile feature
+    	**type**\:  :py:class:`AdminPrmConfigFeatureProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.AdminPrmConfigFeatureProfile>`
+    
+    	**default value**\: default
+    
+    .. attribute:: scale_active
+    
+    	Memory resource profile scale active
+    	**type**\:  :py:class:`AdminPrmConfigScaleProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.AdminPrmConfigScaleProfile>`
+    
+    	**default value**\: default
+    
+    .. attribute:: package_bundle
+    
+    	Services Package
+    	**type**\:  :py:class:`AdminPrmConfigPackageBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.AdminPrmConfigPackageBundle>`
+    
+    	**default value**\: default
+    
+    .. attribute:: feature_active
+    
+    	Memory resource profile feature active
+    	**type**\:  :py:class:`AdminPrmConfigFeatureProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.AdminPrmConfigFeatureProfile>`
+    
+    	**default value**\: default
+    
+    .. attribute:: scale
+    
+    	Memory resource profile scale
+    	**type**\:  :py:class:`AdminPrmConfigScaleProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.AdminPrmConfigScaleProfile>`
+    
+    	**default value**\: default
+    
+    
+
+    """
+
+    _prefix = 'asr9k-prm-cfg'
+    _revision = '2017-11-29'
+
+    def __init__(self):
+        super(HardwareModuleProfile, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "hardware-module-profile"
+        self.yang_parent_name = "Cisco-IOS-XR-asr9k-prm-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([("nodes", ("nodes", HardwareModuleProfile.Nodes))])
+        self._leafs = OrderedDict([
+            ('feature', (YLeaf(YType.enumeration, 'feature'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'AdminPrmConfigFeatureProfile', '')])),
+            ('scale_active', (YLeaf(YType.enumeration, 'scale-active'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'AdminPrmConfigScaleProfile', '')])),
+            ('package_bundle', (YLeaf(YType.enumeration, 'package-bundle'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'AdminPrmConfigPackageBundle', '')])),
+            ('feature_active', (YLeaf(YType.enumeration, 'feature-active'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'AdminPrmConfigFeatureProfile', '')])),
+            ('scale', (YLeaf(YType.enumeration, 'scale'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'AdminPrmConfigScaleProfile', '')])),
+        ])
+        self.feature = None
+        self.scale_active = None
+        self.package_bundle = None
+        self.feature_active = None
+        self.scale = None
+
+        self.nodes = HardwareModuleProfile.Nodes()
+        self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._segment_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-profile"
+        self._is_frozen = True
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(HardwareModuleProfile, ['feature', 'scale_active', 'package_bundle', 'feature_active', 'scale'], name, value)
+
+
+    class Nodes(Entity):
+        """
+        TCAM partition sizing applicable nodes
+        
+        .. attribute:: node
+        
+        	A TCAM partition sizing applicable node
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleProfile.Nodes.Node>`
+        
+        
+
+        """
+
+        _prefix = 'asr9k-prm-cfg'
+        _revision = '2017-11-29'
+
+        def __init__(self):
+            super(HardwareModuleProfile.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "hardware-module-profile"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("node", ("node", HardwareModuleProfile.Nodes.Node))])
+            self._leafs = OrderedDict()
+
+            self.node = YList(self)
+            self._segment_path = lambda: "nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-profile/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(HardwareModuleProfile.Nodes, [], name, value)
+
+
+        class Node(Entity):
+            """
+            A TCAM partition sizing applicable node
+            
+            .. attribute:: node_name  (key)
+            
+            	Node ID
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            .. attribute:: tcam_partition
+            
+            	Tcam partition profile
+            	**type**\:  :py:class:`AdminPrmConfigTcamPartProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.AdminPrmConfigTcamPartProfile>`
+            
+            	**default value**\: default
+            
+            .. attribute:: internal_tcam_partition
+            
+            	Internal Tcam partition profile
+            	**type**\:  :py:class:`AdminPrmConfigInternalTcamPartProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.AdminPrmConfigInternalTcamPartProfile>`
+            
+            	**default value**\: to-default
+            
+            
+
+            """
+
+            _prefix = 'asr9k-prm-cfg'
+            _revision = '2017-11-29'
+
+            def __init__(self):
+                super(HardwareModuleProfile.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['node_name']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                    ('tcam_partition', (YLeaf(YType.enumeration, 'tcam-partition'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'AdminPrmConfigTcamPartProfile', '')])),
+                    ('internal_tcam_partition', (YLeaf(YType.enumeration, 'internal-tcam-partition'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'AdminPrmConfigInternalTcamPartProfile', '')])),
+                ])
+                self.node_name = None
+                self.tcam_partition = None
+                self.internal_tcam_partition = None
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-profile/nodes/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(HardwareModuleProfile.Nodes.Node, ['node_name', 'tcam_partition', 'internal_tcam_partition'], name, value)
+
+
+
+    def clone_ptr(self):
+        self._top_entity = HardwareModuleProfile()
         return self._top_entity
 
 

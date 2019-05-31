@@ -2,11 +2,11 @@ module Cisco-IOS-XR-kim-tpa-cfg {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-kim-tpa-cfg";
   prefix kim-tpa-cfg;
 
-  import ietf-inet-types {
-    prefix inet;
-  }
   import Cisco-IOS-XR-types {
     prefix xr;
+  }
+  import ietf-inet-types {
+    prefix inet;
   }
 
   organization

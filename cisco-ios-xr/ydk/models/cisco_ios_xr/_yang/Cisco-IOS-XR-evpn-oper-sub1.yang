@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-26 {
+    description
+      "Duplicate detection parameters config moved from l2vpn to l2rib.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -43,6 +47,26 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef L2vpn-evpn-sc-mcast-mode {
+    type enumeration {
+      enum "disabled" {
+        description
+          "multicast service carving is disabled";
+      }
+      enum "hrw-s-g" {
+        description
+          "Multicast HRW S,G";
+      }
+      enum "hrw-g" {
+        description
+          "Multicast HRW *,G";
+      }
+    }
+    description
+      "EVPN Ethernet-Segment service multicast carving
+       mode";
   }
 
   typedef L2vpn-evpn-sc-mode {
@@ -131,6 +155,14 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
           "Multi-homed access network active/active per
            service";
       }
+      enum "multi-homed-single-flow-active" {
+        description
+          "Multi-homed access network single-flow-active";
+      }
+      enum "multi-homed-port-active" {
+        description
+          "Multi-homed access network port-active";
+      }
     }
     description
       "L2VPN EVPN load balancing mode";
@@ -195,6 +227,33 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     }
     description
       "L2vpn rg role";
+  }
+
+  typedef L2vpn-evpn-es-state {
+    type enumeration {
+      enum "not-ready" {
+        description
+          "Not Ready";
+      }
+      enum "peering" {
+        description
+          "Peering";
+      }
+      enum "up" {
+        description
+          "Up";
+      }
+      enum "down" {
+        description
+          "Down";
+      }
+      enum "standby" {
+        description
+          "Standby";
+      }
+    }
+    description
+      "L2vpn evpn es state";
   }
 
   typedef L2vpn-evpn-esi {
@@ -383,15 +442,15 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
 
   typedef Evpn-igmp-version {
     type enumeration {
-      enum "version1" {
+      enum "v1" {
         description
           "Version 1";
       }
-      enum "version2" {
+      enum "v2" {
         description
           "Version 2";
       }
-      enum "version3" {
+      enum "v3" {
         description
           "Version 3";
       }
@@ -404,204 +463,6 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     type inet:ipv6-address;
     description
       "L2vpn bag in6 addr";
-  }
-
-  typedef Iflist-rep-status {
-    type enumeration {
-      enum "invalid" {
-        value 0;
-        description
-          "Invalid";
-      }
-      enum "pending" {
-        value 1;
-        description
-          "Pending";
-      }
-      enum "done" {
-        value 2;
-        description
-          "Done";
-      }
-      enum "not-supported" {
-        value 3;
-        description
-          "Not supported";
-      }
-      enum "failed" {
-        value 4;
-        description
-          "Failed";
-      }
-    }
-    description
-      "Interface list replication status";
-  }
-
-  typedef L2vpn-fr-mode {
-    type enumeration {
-      enum "l2vpn-fr-port-mode" {
-        description
-          "Frame Relay port mode";
-      }
-      enum "l2vpn-fr-dlci-mode" {
-        description
-          "Frame Relay DLCI mode";
-      }
-    }
-    description
-      "L2vpn fr mode";
-  }
-
-  typedef L2vpn-atm-mode {
-    type enumeration {
-      enum "l2vpn-atm-port-mode" {
-        description
-          "ATM port mode";
-      }
-      enum "l2vpn-atm-vp-mode" {
-        description
-          "ATM Virtual Path mode";
-      }
-      enum "l2vpn-atm-vc-mode" {
-        description
-          "ATM Virtual Channel mode";
-      }
-    }
-    description
-      "L2vpn atm mode";
-  }
-
-  typedef L2vpn-time-stamp-mode {
-    type enumeration {
-      enum "unknown" {
-        description
-          "Unknown time stamp mode";
-      }
-      enum "differential" {
-        description
-          "Differential time stamp mode";
-      }
-      enum "absolute" {
-        description
-          "Absolute Time Stamp mode";
-      }
-      enum "none" {
-        description
-          "time stamp mode none";
-      }
-    }
-    description
-      "L2VPN TDM Time stamp modes";
-  }
-
-  typedef L2vpn-tdm-rtp-option {
-    type enumeration {
-      enum "unknown" {
-        description
-          "Unknown RTP option";
-      }
-      enum "present" {
-        description
-          "RTP option present";
-      }
-      enum "absent" {
-        description
-          "RTP option absent";
-      }
-    }
-    description
-      "L2VPN TDM RTP option";
-  }
-
-  typedef L2vpn-tdm-mode {
-    type enumeration {
-      enum "unknown" {
-        description
-          "Unknown mode";
-      }
-      enum "ce-so-psn" {
-        description
-          "CESoPSN mode";
-      }
-      enum "sa-to-p-e1" {
-        description
-          "SAToP E1 mode";
-      }
-      enum "sa-to-p-t1" {
-        description
-          "SAToP T1 mode";
-      }
-      enum "sa-to-p-e3" {
-        description
-          "SAToP E3 mode";
-      }
-      enum "sa-to-p-t3" {
-        description
-          "SAToP T3 mode";
-      }
-    }
-    description
-      "L2VPN TDM modes";
-  }
-
-  typedef L2vpn-interface {
-    type enumeration {
-      enum "l2vpn-intf-type-unknown" {
-        description
-          "Unknown";
-      }
-      enum "l2vpn-intf-type-ethernet" {
-        description
-          "Ethernet";
-      }
-      enum "l2vpn-intf-type-vlan" {
-        description
-          "Ethernet Vlan";
-      }
-      enum "l2vpn-intf-type-atm" {
-        description
-          "ATM";
-      }
-      enum "l2vpn-intf-type-frame-relay" {
-        description
-          "Frame Relay";
-      }
-      enum "l2vpn-intf-type-hdlc" {
-        description
-          "HDLC";
-      }
-      enum "l2vpn-intf-type-ppp" {
-        description
-          "PPP";
-      }
-      enum "l2vpn-intf-type-span" {
-        description
-          "SPAN";
-      }
-      enum "l2vpn-intf-type-bvi" {
-        description
-          "BVI";
-      }
-      enum "l2vpn-intf-type-cem" {
-        description
-          "CEM";
-      }
-      enum "l2vpn-intf-type-pw-ether" {
-        description
-          "PsuedowireEther";
-      }
-      enum "l2vpn-intf-type-pw-iw" {
-        description
-          "PsuedowireIW";
-      }
-      enum "l2vpn-intf-type-vni" {
-        description
-          "VXLAN";
-      }
-    }
-    description
-      "L2vpn interface";
   }
 
   typedef Evpn-igmp-source {
@@ -760,6 +621,32 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     }
   }
 
+  grouping L2VPN-EVPN-ES-NH-BUFFER {
+    description
+      "L2VPN EVPN Ethernet Segment (ES) nexthops
+       information";
+    leaf next-hop {
+      type inet:ipv6-address;
+      description
+        "Next-hop IP address (v6 format)";
+    }
+    leaf df-dont-prempt {
+      type boolean;
+      description
+        "DF Dont Premption";
+    }
+    leaf df-type {
+      type uint8;
+      description
+        "DF Election Mode Configured";
+    }
+    leaf df-pref {
+      type uint16;
+      description
+        "DF Election Preference Set";
+    }
+  }
+
   grouping L2VPN-EVPN-ES {
     description
       "EVPN Ethernet Segment (ES) database information";
@@ -789,7 +676,7 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Ethernet Segment Name";
     }
     leaf ethernet-segment-state {
-      type uint32;
+      type L2vpn-evpn-es-state;
       description
         "State of the ethernet segment";
     }
@@ -911,6 +798,11 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       description
         "Service carving mode";
     }
+    leaf service-carving-mcast-mode {
+      type L2vpn-evpn-sc-mcast-mode;
+      description
+        "Service carving multicast mode";
+    }
     leaf primary-services-input {
       type string;
       description
@@ -977,6 +869,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Ethernet Segment id";
       leaf entry {
         type uint8;
+        description
+          "Ethernet Segment id";
       }
     }
     list primary-service {
@@ -984,6 +878,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "List of Primary services ESI/I-SIDs";
       leaf entry {
         type uint32;
+        description
+          "List of Primary services ESI/I-SIDs";
       }
     }
     list secondary-service {
@@ -991,6 +887,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "List of Secondary services ESI/I-SIDs";
       leaf entry {
         type uint32;
+        description
+          "List of Secondary services ESI/I-SIDs";
       }
     }
     list service-carving-i-sidelected-result {
@@ -998,6 +896,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Elected ISID service carving results";
       leaf entry {
         type uint32;
+        description
+          "Elected ISID service carving results";
       }
     }
     list service-carving-isid-not-elected-result {
@@ -1005,6 +905,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Not elected ISID service carving results";
       leaf entry {
         type uint32;
+        description
+          "Not elected ISID service carving results";
       }
     }
     list service-carving-evi-elected-result {
@@ -1012,6 +914,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Elected EVI service carving results";
       leaf entry {
         type uint32;
+        description
+          "Elected EVI service carving results";
       }
     }
     list service-carving-evi-not-elected-result {
@@ -1019,6 +923,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Not elected EVI service carving results";
       leaf entry {
         type uint32;
+        description
+          "Not elected EVI service carving results";
       }
     }
     list service-carving-vni-elected-result {
@@ -1026,6 +932,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Elected VNI service carving results";
       leaf entry {
         type uint32;
+        description
+          "Elected VNI service carving results";
       }
     }
     list service-carving-vni-not-elected-result {
@@ -1033,6 +941,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Not elected VNI service carving results";
       leaf entry {
         type uint32;
+        description
+          "Not elected VNI service carving results";
       }
     }
     list next-hop {
@@ -1340,11 +1250,35 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Indication if Remote MAC is statically
          configured";
     }
+    leaf local-etree-leaf {
+      type boolean;
+      description
+        "Local E-Tree Leaf Indication";
+    }
+    leaf remote-etree-leaf {
+      type boolean;
+      description
+        "Remote E-Tree Leaf Indication";
+    }
+    leaf local-attachment-circuit-id {
+      type uint32;
+      description
+        "Local Attachement Circuit ID used in
+         ac-aware-vlan-bundling";
+    }
+    leaf remote-attachment-circuit-id {
+      type uint32;
+      description
+        "Remote Attachement Circuit ID used in
+         ac-aware-vlan-bundling";
+    }
     list local-ethernet-segment-identifier {
       description
         "Local Ethernet Segment id";
       leaf entry {
         type uint8;
+        description
+          "Local Ethernet Segment id";
       }
     }
     list remote-ethernet-segment-identifier {
@@ -1352,6 +1286,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Remote Ethernet Segment id";
       leaf entry {
         type uint8;
+        description
+          "Remote Ethernet Segment id";
       }
     }
     list path-buffer {
@@ -1410,6 +1346,11 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       description
         "Tunnel Endpoint ID";
     }
+    leaf pmsi-tunnel-type {
+      type uint32;
+      description
+        "PMSI Tunnel Type";
+    }
     leaf next-hop {
       type inet:ipv6-address;
       description
@@ -1434,6 +1375,11 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       type xr:Interface-name;
       description
         "SR-TE Policy";
+    }
+    leaf etree-leaf {
+      type boolean;
+      description
+        "E-Tree Leaf Indication";
     }
   }
 
@@ -1514,6 +1460,8 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Ethernet Segment id";
       leaf entry {
         type uint8;
+        description
+          "Ethernet Segment id";
       }
     }
     list path-buffer {
@@ -1535,6 +1483,15 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       type inet:ipv6-address;
       description
         "Neighbor IP";
+    }
+    list leaf-evis {
+      description
+        "Leaf EVIs";
+      leaf entry {
+        type uint32;
+        description
+          "Leaf EVIs";
+      }
     }
   }
 
@@ -1858,6 +1815,11 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       description
         "Advertise MAC-only routes on this EVI";
     }
+    leaf etree-leaf {
+      type boolean;
+      description
+        "E-Tree Leaf Indication";
+    }
     leaf advertise-bvi-mac {
       type boolean;
       description
@@ -2021,29 +1983,6 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       description
         "EVPN ES Carving Time (seconds)";
     }
-    leaf mac-secure-move-count {
-      type uint32;
-      description
-        "Number of moves within the move interval before
-         locking the MAC";
-    }
-    leaf mac-secure-move-interval {
-      type uint32;
-      description
-        "Interval to watch for subsequent mac moves
-         before locking the MAC";
-    }
-    leaf mac-secure-freeze-time {
-      type uint32;
-      description
-        "Length of time to lock the mac after a MAC
-         security violation";
-    }
-    leaf mac-secure-retry-count {
-      type uint32;
-      description
-        "Number of times to retry after a MAC un-freezes";
-    }
     leaf cost-out {
       type boolean;
       description
@@ -2093,381 +2032,15 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     }
   }
 
-  grouping L2VPN-EVPN-ES-NH-BUFFER {
+  grouping L2VPN-EVPN-IGMP-LOCAL-INFO {
     description
-      "L2VPN EVPN Ethernet Segment (ES) nexthops
-       information";
-    leaf next-hop {
-      type inet:ipv6-address;
-      description
-        "Next-hop IP address (v6 format)";
-    }
-    leaf df-dont-prempt {
-      type boolean;
-      description
-        "DF Dont Premption";
-    }
-    leaf df-type {
-      type uint8;
-      description
-        "DF Election Mode Configured";
-    }
-    leaf df-pref {
-      type uint16;
-      description
-        "DF Election Preference Set";
-    }
-  }
-
-  grouping ITEM-IFLIST-IF {
-    description
-      "Interface info for Generic interface list";
-    leaf interface-name {
-      type string;
-      description
-        "Interface name";
-    }
-    leaf replicate-status {
-      type Iflist-rep-status;
-      description
-        "Replicate status";
-    }
-  }
-
-  grouping ITEM-IFLIST-IFL {
-    description
-      "Generic interface list info";
-    leaf interface-list-name {
+      "L2VPN EVPN IGMP LOCAL INFO";
+    leaf if-name {
       type string {
-        length "0..33";
+        length "0..65";
       }
       description
-        "Interface-list name";
-    }
-    leaf interface-list-id {
-      type uint32;
-      description
-        "Interface internal ID";
-    }
-    list interface {
-      max-elements "8";
-      description
-        "Interfaces";
-      uses ITEM-IFLIST-IF;
-    }
-  }
-
-  grouping L2VPN-PWHE {
-    description
-      "L2VPN PWHE";
-    container interface-list {
-      description
-        "Interface list data";
-      uses ITEM-IFLIST-IFL;
-    }
-    leaf is-valid {
-      type boolean;
-      description
-        "Is this Interface list valid";
-    }
-    leaf internal-label {
-      type uint32;
-      description
-        "Internal Label";
-    }
-  }
-
-  grouping L2VPN-FR {
-    description
-      "L2VPN FR";
-    leaf fr-mode {
-      type L2vpn-fr-mode;
-      description
-        "Frame Relay mode";
-    }
-    leaf dlci {
-      type uint32;
-      description
-        "Data-link connection identifier";
-    }
-  }
-
-  grouping L2VPN-ATM {
-    description
-      "L2VPN ATM";
-    leaf maximum-number-cells-packed {
-      type uint16;
-      description
-        "Max number of cells packed";
-    }
-    leaf maximum-number-cells-un-packed {
-      type uint16;
-      description
-        "Max number of cells unpacked";
-    }
-    leaf atm-mode {
-      type L2vpn-atm-mode;
-      description
-        "ATM mode";
-    }
-    leaf vpi {
-      type uint16;
-      description
-        "Virtual path identifier";
-    }
-    leaf vci {
-      type uint16;
-      description
-        "Virtual channel identifier";
-    }
-  }
-
-  grouping L2VPN-TDM-OPTION {
-    description
-      "L2VPN TDM options";
-    leaf payload-bytes {
-      type uint16;
-      units "byte";
-      description
-        "TDM payload bytes";
-    }
-    leaf bit-rate {
-      type uint32;
-      units "kbit/s";
-      description
-        "TDM bit rate in units of Kbps";
-    }
-    leaf rtp {
-      type L2vpn-tdm-rtp-option;
-      description
-        "RTP header";
-    }
-    leaf timestamp-mode {
-      type L2vpn-time-stamp-mode;
-      description
-        "TDM Timestamping mode";
-    }
-    leaf signalling-packets {
-      type uint8;
-      description
-        "Signalling packets";
-    }
-    leaf cas {
-      type uint8;
-      description
-        "CAS";
-    }
-    leaf rtp-header-payload-type {
-      type uint8;
-      description
-        "RTP header payload type";
-    }
-    leaf timestamp-clock-freq {
-      type uint16;
-      description
-        "Timestamping clock frequency in units of 8Khz";
-    }
-    leaf ssrc {
-      type uint32;
-      description
-        "Synchronization Source identifier";
-    }
-  }
-
-  grouping L2VPN-TDM {
-    description
-      "L2VPN TDM parameters";
-    container tdm-options {
-      description
-        "TDM options";
-      uses L2VPN-TDM-OPTION;
-    }
-    leaf timeslot-group {
-      type string;
-      description
-        "Timeslots separated by , or - from 1 to 31. :
-         indicates individual timeslot and - represents a
-         range.E.g. 1-3,5 represents timeslots 1, 2, 3,
-         and 5.";
-    }
-    leaf timeslot-rate {
-      type uint8;
-      units "kbit/s";
-      description
-        "Timeslot rate in units of Kbps";
-    }
-    leaf tdm-mode {
-      type L2vpn-tdm-mode;
-      description
-        "TDM mode";
-    }
-  }
-
-  grouping L2VPN-EFP-RANGE {
-    description
-      "EFP range";
-    leaf lower {
-      type uint16;
-      description
-        "Lower";
-    }
-    leaf upper {
-      type uint16;
-      description
-        "Upper";
-    }
-  }
-
-  grouping L2VPN-VLAN {
-    description
-      "L2VPN VLAN";
-    leaf xconnect-tags {
-      type uint8;
-      description
-        "XConnect tags";
-    }
-    leaf vlan-rewrite-tag {
-      type uint16;
-      description
-        "VLAN rewrite tag";
-    }
-    leaf simple-efp {
-      type uint8;
-      description
-        "Simple EFP";
-    }
-    leaf encapsulation-type {
-      type uint8;
-      description
-        "Encapsulation Type";
-    }
-    leaf outer-tag {
-      type uint16;
-      description
-        "Outer Tag";
-    }
-    list rewrite-tag {
-      description
-        "Rewrite Tags";
-      leaf entry {
-        type uint16;
-      }
-    }
-    list vlan-range {
-      description
-        "vlan range";
-      uses L2VPN-EFP-RANGE;
-    }
-  }
-
-  grouping L2VPN-ETHERNET {
-    description
-      "L2VPN ETHERNET";
-    leaf xconnect-tags {
-      type uint8;
-      description
-        "XConnect tags";
-    }
-  }
-
-  grouping L2VPN-INTERFACE-PARAMS {
-    description
-      "L2VPN INTERFACE PARAMS";
-    container ethernet {
-      when "../type = 'l2vpn-intf-type-ethernet'" {
-        description
-          "../Type = 'L2VPN_INTF_TYPE_ETHERNET'";
-      }
-      description
-        "Ethernet";
-      uses L2VPN-ETHERNET;
-    }
-    container vlan {
-      when "../type = 'l2vpn-intf-type-vlan'" {
-        description
-          "../Type = 'L2VPN_INTF_TYPE_VLAN'";
-      }
-      description
-        "VLAN";
-      uses L2VPN-VLAN;
-    }
-    container tdm {
-      when "../type = 'l2vpn-intf-type-cem'" {
-        description
-          "../Type = 'L2VPN_INTF_TYPE_CEM'";
-      }
-      description
-        "TDM";
-      uses L2VPN-TDM;
-    }
-    container atm {
-      when "../type = 'l2vpn-intf-type-atm'" {
-        description
-          "../Type = 'L2VPN_INTF_TYPE_ATM'";
-      }
-      description
-        "ATM";
-      uses L2VPN-ATM;
-    }
-    container fr {
-      when "../type = 'l2vpn-intf-type-frame-relay'" {
-        description
-          "../Type = 'L2VPN_INTF_TYPE_FRAME_RELAY'";
-      }
-      description
-        "Frame Relay";
-      uses L2VPN-FR;
-    }
-    container pseudowire-ether {
-      when "../type = 'l2vpn-intf-type-pw-ether'" {
-        description
-          "../Type = 'L2VPN_INTF_TYPE_PW_ETHER'";
-      }
-      description
-        "PW Ether";
-      uses L2VPN-PWHE;
-    }
-    container pseudowire-iw {
-      when "../type = 'l2vpn-intf-type-pw-iw'" {
-        description
-          "../Type = 'L2VPN_INTF_TYPE_PW_IW'";
-      }
-      description
-        "PW IW";
-      uses L2VPN-PWHE;
-    }
-    leaf type {
-      type L2vpn-interface;
-      description
-        "Type";
-    }
-  }
-
-  grouping L2VPN-INTERFACE {
-    description
-      "L2VPN INTERFACE";
-    container parameters {
-      description
-        "Interface parameters";
-      uses L2VPN-INTERFACE-PARAMS;
-    }
-    leaf name {
-      type string {
-        length "0..81";
-      }
-      description
-        "Interface name";
-    }
-    leaf mtu {
-      type uint32;
-      description
-        "Interface MTU";
-    }
-    leaf payload-bytes {
-      type uint16;
-      units "byte";
-      description
-        "Payload bytes";
+        "Interface name internal format";
     }
   }
 
@@ -2481,7 +2054,7 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       }
       description
         "local info";
-      uses L2VPN-INTERFACE;
+      uses L2VPN-EVPN-IGMP-LOCAL-INFO;
     }
     leaf type {
       type Evpn-igmp-source;
@@ -2512,12 +2085,12 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       description
         "Ethernet Segment Name";
     }
-    leaf evi {
+    leaf evi-xr {
       type uint32;
       description
         "E-VPN id";
     }
-    leaf bd-id {
+    leaf bd-id-xr {
       type uint32;
       description
         "BD id";
@@ -2552,7 +2125,7 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
       description
         "IGMP Group Type";
     }
-    leaf ma-x-response-time {
+    leaf max-response-time {
       type uint8;
       description
         "Max Response Time";
@@ -2567,12 +2140,9 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
         "Ethernet Segment id";
       leaf entry {
         type uint8;
+        description
+          "Ethernet Segment id";
       }
-    }
-    list next-hop {
-      description
-        "List of nexthop IPv6 addresses";
-      uses L2VPN-EVPN-ES-NH-BUFFER;
     }
   }
 
@@ -2600,11 +2170,23 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
   grouping L2VPN-EVPN-REMOTE-SHG {
     description
       "EVPN Remote SHG object";
+    leaf ethernet-vpn-id {
+      type uint32;
+      description
+        "Ethernet VPN id";
+    }
+    leaf encapsulation {
+      type uint8;
+      description
+        "EVPN Instance transport encapsulation";
+    }
     list ethernet-segment-identifier {
       description
         "Ethernet Segment id";
       leaf entry {
         type uint8;
+        description
+          "Ethernet Segment id";
       }
     }
     list remote-split-horizon-group-label {

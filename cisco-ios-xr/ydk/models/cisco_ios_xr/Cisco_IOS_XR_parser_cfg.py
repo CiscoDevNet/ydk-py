@@ -35,6 +35,11 @@ class Parser(Entity):
     	Alias for command mapping
     	**type**\:  :py:class:`Alias <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias>`
     
+    .. attribute:: logging_suppress
+    
+    	logging suppress deprecated
+    	**type**\:  :py:class:`LoggingSuppress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.LoggingSuppress>`
+    
     .. attribute:: history
     
     	cli commands history
@@ -91,7 +96,7 @@ class Parser(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("indentation", ("indentation", Parser.Indentation)), ("alias", ("alias", Parser.Alias)), ("history", ("history", Parser.History)), ("interactive", ("interactive", Parser.Interactive)), ("commit-optimized", ("commit_optimized", Parser.CommitOptimized)), ("sysadmin-login-banner", ("sysadmin_login_banner", Parser.SysadminLoginBanner)), ("interface-display", ("interface_display", Parser.InterfaceDisplay)), ("netmask-format", ("netmask_format", Parser.NetmaskFormat)), ("configuration", ("configuration", Parser.Configuration)), ("submode-exit", ("submode_exit", Parser.SubmodeExit))])
+        self._child_classes = OrderedDict([("indentation", ("indentation", Parser.Indentation)), ("alias", ("alias", Parser.Alias)), ("logging-suppress", ("logging_suppress", Parser.LoggingSuppress)), ("history", ("history", Parser.History)), ("interactive", ("interactive", Parser.Interactive)), ("commit-optimized", ("commit_optimized", Parser.CommitOptimized)), ("sysadmin-login-banner", ("sysadmin_login_banner", Parser.SysadminLoginBanner)), ("interface-display", ("interface_display", Parser.InterfaceDisplay)), ("netmask-format", ("netmask_format", Parser.NetmaskFormat)), ("configuration", ("configuration", Parser.Configuration)), ("submode-exit", ("submode_exit", Parser.SubmodeExit))])
         self._leafs = OrderedDict()
 
         self.indentation = Parser.Indentation()
@@ -101,6 +106,10 @@ class Parser(Entity):
         self.alias = Parser.Alias()
         self.alias.parent = self
         self._children_name_map["alias"] = "alias"
+
+        self.logging_suppress = Parser.LoggingSuppress()
+        self.logging_suppress.parent = self
+        self._children_name_map["logging_suppress"] = "logging-suppress"
 
         self.history = Parser.History()
         self.history.parent = self
@@ -490,6 +499,44 @@ class Parser(Entity):
                     self._perform_setattr(Parser.Alias.Alls.All, ['identifier', 'identifier_xr'], name, value)
 
 
+
+
+
+    class LoggingSuppress(Entity):
+        """
+        logging suppress deprecated
+        
+        .. attribute:: deprecated
+        
+        	deprecating the logging suppress
+        	**type**\: bool
+        
+        
+
+        """
+
+        _prefix = 'parser-cfg'
+        _revision = '2017-05-09'
+
+        def __init__(self):
+            super(Parser.LoggingSuppress, self).__init__()
+
+            self.yang_name = "logging-suppress"
+            self.yang_parent_name = "parser"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('deprecated', (YLeaf(YType.boolean, 'deprecated'), ['bool'])),
+            ])
+            self.deprecated = None
+            self._segment_path = lambda: "logging-suppress"
+            self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Parser.LoggingSuppress, ['deprecated'], name, value)
 
 
 

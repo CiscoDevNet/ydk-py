@@ -363,10 +363,15 @@ module Cisco-IOS-XR-controller-optics-cfg {
       }
       leaf optics-transmit-power {
         type int32 {
-          range "-190..20";
+          range "-190..30";
         }
         description
           "Select power level (in units of 0.1dBm)";
+      }
+      leaf optics-ots-rx-enable {
+        type boolean;
+        description
+          "Select Rx Enable as True or False";
       }
       leaf optics-ots-channel-power-max-delta {
         type int32 {
@@ -430,6 +435,13 @@ module Cisco-IOS-XR-controller-optics-cfg {
         description
           "Configure amplifier working mode";
       }
+      leaf optics-ots-rx-low-threshold-delta {
+        type uint32 {
+          range "0..300";
+        }
+        description
+          "Rx Low threshold delta value in units of 0.1dB";
+      }
       leaf optics-ots-amplifier-gain {
         type uint32 {
           range "0..500";
@@ -462,6 +474,11 @@ module Cisco-IOS-XR-controller-optics-cfg {
         description
           "Select TX Voa Attenuation Setpoint(in units of
            0.1dBm)";
+      }
+      leaf optics-ots-tx-enable {
+        type boolean;
+        description
+          "Select Tx Enable as True or False";
       }
       leaf optics-ots-amplifier-tilt {
         type int32 {

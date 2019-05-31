@@ -1884,7 +1884,7 @@ class AtmVcm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink, ['vpi', 'vci', u'sub_interface_name'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink, ['vpi', 'vci', 'sub_interface_name'], name, value)
 
 
                     class VcClassNotSupported(Entity):
@@ -1931,7 +1931,7 @@ class AtmVcm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported, [u'encapsulation_not_supported', u'not_supported_inherit_level'], name, value)
+                            self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported, ['encapsulation_not_supported', 'not_supported_inherit_level'], name, value)
 
 
 
@@ -2097,7 +2097,7 @@ class AtmVcm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, [u'shaping_type', u'peak_output_rate', u'average_output_rate', u'burst_output_rate', u'shaping_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, ['shaping_type', 'peak_output_rate', 'average_output_rate', 'burst_output_rate', 'shaping_inherit_level'], name, value)
 
 
 
@@ -2145,7 +2145,7 @@ class AtmVcm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, [u'encapsulation_type', u'encapsulation_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, ['encapsulation_type', 'encapsulation_inherit_level'], name, value)
 
 
 
@@ -2222,7 +2222,7 @@ class AtmVcm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, [u'manage_level', u'pvc_frequency', u'keep_vc_up', u'ais_rdi_failure', u'manage_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, ['manage_level', 'pvc_frequency', 'keep_vc_up', 'ais_rdi_failure', 'manage_inherit_level'], name, value)
 
 
 
@@ -2294,7 +2294,7 @@ class AtmVcm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, [u'retry_up_count', u'down_count', u'retry_frequency', u'retry_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, ['retry_up_count', 'down_count', 'retry_frequency', 'retry_inherit_level'], name, value)
 
 
 
@@ -2357,7 +2357,7 @@ class AtmVcm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, [u'ais_rdi_up_count', u'ais_rdi_up_time', u'ais_rdi_inherit_level'], name, value)
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, ['ais_rdi_up_count', 'ais_rdi_up_time', 'ais_rdi_inherit_level'], name, value)
 
 
 
@@ -2621,7 +2621,7 @@ class AtmVcm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface, ['interface_name', u'ilmi_vpi', u'ilmi_vci', u'pvc_failures', u'currently_failing_layer2pv_ps', u'currently_failing_layer2pv_cs', u'currently_failing_layer3vp_tunnels', u'currently_failing_layer3pv_cs', u'pvc_failures_trap_enable', u'pvc_notification_interval', u'configured_layer2pv_ps', u'configured_layer2pv_cs', u'configured_layer3vp_tunnels', u'configured_layer3pv_cs', u'port_type', u'main_interface', u'l2_cell_packing_count'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface, ['interface_name', 'ilmi_vpi', 'ilmi_vci', 'pvc_failures', 'currently_failing_layer2pv_ps', 'currently_failing_layer2pv_cs', 'currently_failing_layer3vp_tunnels', 'currently_failing_layer3pv_cs', 'pvc_failures_trap_enable', 'pvc_notification_interval', 'configured_layer2pv_ps', 'configured_layer2pv_cs', 'configured_layer3vp_tunnels', 'configured_layer3pv_cs', 'port_type', 'main_interface', 'l2_cell_packing_count'], name, value)
 
 
                     class CellPackingData(Entity):

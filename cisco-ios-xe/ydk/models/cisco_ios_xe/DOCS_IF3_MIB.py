@@ -1033,7 +1033,7 @@ class DOCSIF3MIB(Entity):
         	This attribute contains the TLV encoding for TLV\-5 sent in a REG\-REQ.  The first byte of this encoding is expected to be '05'H
         	**type**\: str
         
-        	**length:** 0 \| 2..255
+        	**length:** 0..0 \| 2..255
         
         	**config**\: False
         
@@ -1042,7 +1042,7 @@ class DOCSIF3MIB(Entity):
         	This attribute contains the TLV encoding for TLV\-5 received in a REG\-RSP. The first byte of this encoding is expected to be '05'H
         	**type**\: str
         
-        	**length:** 0 \| 2..255
+        	**length:** 0..0 \| 2..255
         
         	**config**\: False
         
@@ -1450,7 +1450,7 @@ class DOCSIF3MIB(Entity):
             	This attribute denotes the status code for CM as defined in the OSSI Specification. The status code consists of a single character indicating error groups, followed by a two\- or three\-digit number indicating the status condition, followed by a decimal. An example of a returned value could be 'T101.0'. The zero\-length hex string indicates no status code yet registered
             	**type**\: str
             
-            	**length:** 0 \| 5..7
+            	**length:** 0..0 \| 5..7
             
             	**config**\: False
             
@@ -1747,7 +1747,7 @@ class DOCSIF3MIB(Entity):
             	This attribute indicates the pre\-equalization data for the specified upstream Channel on this CM after convolution with data indicated in the RNG\-RSP. This data is valid when docsIfUpChannelPreEqEnable RFC 4546 is set to true
             	**type**\: str
             
-            	**length:** 0 \| 36..260
+            	**length:** 0..0 \| 36..260
             
             	**config**\: False
             
@@ -1938,7 +1938,7 @@ class DOCSIF3MIB(Entity):
             	This attribute represents the RCP\-ID associated with the CM if the CM is in DOCSIS 3.0 mode. If the  RCP\-ID is unknown or the CM is in DOCSIS 3.1 mode, the CMTS returns a five octet long string of zeros
             	**type**\: str
             
-            	**length:** 5
+            	**length:** 5..5
             
             	**config**\: False
             
@@ -2177,7 +2177,7 @@ class DOCSIF3MIB(Entity):
             	This attribute represents the equalization data for the CM on this upstream channel
             	**type**\: str
             
-            	**length:** 0 \| 36..260
+            	**length:** 0..0 \| 36..260
             
             	**config**\: False
             
@@ -2509,7 +2509,7 @@ class DOCSIF3MIB(Entity):
             	This key represents the 'Receive Channel Profile Identifier' (RCP\-ID) configured for the MAC Domain indicated by this instance
             	**type**\: str
             
-            	**length:** 5
+            	**length:** 5..5
             
             	**config**\: False
             
@@ -2662,7 +2662,7 @@ class DOCSIF3MIB(Entity):
             	This key represents the RCP\-ID to which this instance applies
             	**type**\: str
             
-            	**length:** 5
+            	**length:** 5..5
             
             	**config**\: False
             
@@ -2877,7 +2877,7 @@ class DOCSIF3MIB(Entity):
             	
             	**type**\: str
             
-            	**length:** 5
+            	**length:** 5..5
             
             	**refers to**\:  :py:class:`docsif3rcccfgrcpid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry>`
             
@@ -3056,7 +3056,7 @@ class DOCSIF3MIB(Entity):
             	
             	**type**\: str
             
-            	**length:** 5
+            	**length:** 5..5
             
             	**refers to**\:  :py:class:`docsif3rccstatusrcpid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry>`
             
@@ -3235,7 +3235,7 @@ class DOCSIF3MIB(Entity):
             	
             	**type**\: str
             
-            	**length:** 5
+            	**length:** 5..5
             
             	**refers to**\:  :py:class:`docsif3rcccfgrcpid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry>`
             
@@ -3405,7 +3405,7 @@ class DOCSIF3MIB(Entity):
             	
             	**type**\: str
             
-            	**length:** 5
+            	**length:** 5..5
             
             	**refers to**\:  :py:class:`docsif3rccstatusrcpid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry>`
             
@@ -4533,7 +4533,7 @@ class DOCSIF3MIB(Entity):
             	For a Downstream Bonding Group, this attribute provides the DSID Resequencing Wait Time that is to be used for all DSIDs associated with this Downstream Bonding Group.  The value of 255 indicates that the DSID Resequencing Wait Time is determined by the CMTS. The value zero in not supported for downstream  bonding groups. For an Upstream Bonding Group, this attribute has no meaning and returns the value 0
             	**type**\: int
             
-            	**range:** 0..180 \| 255..None
+            	**range:** 0..180 \| 255..255
             
             	**config**\: False
             
@@ -4544,7 +4544,7 @@ class DOCSIF3MIB(Entity):
             	For a Downstream Bonding Group, this attribute provides the DSID Resequencing Warning Threshold that is to be used for all DSIDs associated with this Downstream Bonding Group. The value of 255 indicates that the DSID Resequencing Warning Threshold is determined by the CMTS.  The value of 0 indicates that the threshold warnings are disabled.  When  the value of DsidReseqWaitTime is not equal to 0 or 255, the CMTS must ensure that the value of this object is either  255 or less than the value of DsidReseqWaitTime
             	**type**\: int
             
-            	**range:** 0..179 \| 255..None
+            	**range:** 0..179 \| 255..255
             
             	**config**\: False
             
@@ -4907,7 +4907,7 @@ class DOCSIF3MIB(Entity):
             	This attribute represents the active codes of the upstream channel and it is applicable only when SacCodeHoppingSelectionMode is 'sac2CodeHoppingMode2
             	**type**\: str
             
-            	**length:** 0 \| 16
+            	**length:** 0..0 \| 16..16
             
             	**config**\: False
             
@@ -5072,7 +5072,7 @@ class DOCSIF3MIB(Entity):
             	This attribute defines the ordered list of channels that comprise the upstream channel set
             	**type**\: str
             
-            	**length:** 0 \| 2..255
+            	**length:** 0..0 \| 2..255
             
             	**config**\: False
             
@@ -5182,7 +5182,7 @@ class DOCSIF3MIB(Entity):
             	This attribute defines the ordered list of channels that comprise the downstream channel set
             	**type**\: str
             
-            	**length:** 0 \| 2..255
+            	**length:** 0..0 \| 2..255
             
             	**config**\: False
             
@@ -5511,7 +5511,7 @@ class DOCSIF3MIB(Entity):
             	This attribute provides a list of the spectral amplitudes corresponding to the frequency bins ordered from lowest to highest frequencies covering the frequency span. Information about the center frequency, frequency span, number of bins and resolution bandwidth are included to provide context to the measurement point The CMTS must support the number of bins as an odd number in order to provide a spectrum representation that is symmetric about the middle data point or bin. The CMTS must support a number of bins greater than or equal to 257 for frequency spans greater than or equal to 6.4 MHz.  The CMTS must not exceed 25 kHz bin spacing for measurement of frequency spans less than or equal to 6.4 MHz.  The bins measurements are updated periodically at time intervals given by the TimeInterval attribute
             	**type**\: str
             
-            	**length:** 0 \| 2..4116
+            	**length:** 0..0 \| 2..4116
             
             	**config**\: False
             
@@ -6317,7 +6317,7 @@ class DOCSIF3MIB(Entity):
             	This attribute provides a list of the spectral amplitudes as  measured at the center frequency specified by the Frequency index.  The frequency bins are ordered from lowest to highest  frequencies covering the frequency span. Information about the center frequency, frequency span, number of bins and resolution bandwidth are included to provide context to the measurement  point
             	**type**\: str
             
-            	**length:** 0 \| 2..4116
+            	**length:** 0..0 \| 2..4116
             
             	**config**\: False
             

@@ -170,6 +170,38 @@ class PeerType(Enum):
 
 
 
+class BGPCAPABILITY(Identity):
+    """
+    Base identity for a BGP capability
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:BGP_CAPABILITY"):
+        super(BGPCAPABILITY, self).__init__(ns, pref, tag)
+
+
+
+class AFISAFITYPE(Identity):
+    """
+    Base identity type for AFI,SAFI tuples for BGP\-4
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:AFI_SAFI_TYPE"):
+        super(AFISAFITYPE, self).__init__(ns, pref, tag)
+
+
+
 class BGPWELLKNOWNSTDCOMMUNITY(Identity):
     """
     Reserved communities within the standard community space
@@ -185,22 +217,6 @@ class BGPWELLKNOWNSTDCOMMUNITY(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:BGP_WELL_KNOWN_STD_COMMUNITY"):
         super(BGPWELLKNOWNSTDCOMMUNITY, self).__init__(ns, pref, tag)
-
-
-
-class BGPCAPABILITY(Identity):
-    """
-    Base identity for a BGP capability
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:BGP_CAPABILITY"):
-        super(BGPCAPABILITY, self).__init__(ns, pref, tag)
 
 
 
@@ -221,9 +237,9 @@ class REMOVEPRIVATEASOPTION(Identity):
 
 
 
-class AFISAFITYPE(Identity):
+class MPBGP(BGPCAPABILITY):
     """
-    Base identity type for AFI,SAFI tuples for BGP\-4
+    Multi\-protocol extensions to BGP
     
     
 
@@ -232,8 +248,40 @@ class AFISAFITYPE(Identity):
     _prefix = 'oc-bgp-types'
     _revision = '2017-02-02'
 
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:AFI_SAFI_TYPE"):
-        super(AFISAFITYPE, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:MPBGP"):
+        super(MPBGP, self).__init__(ns, pref, tag)
+
+
+
+class ROUTEREFRESH(BGPCAPABILITY):
+    """
+    The BGP route\-refresh functionality
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ROUTE_REFRESH"):
+        super(ROUTEREFRESH, self).__init__(ns, pref, tag)
+
+
+
+class ASN32(BGPCAPABILITY):
+    """
+    4\-byte (32\-bit) AS number functionality
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ASN32"):
+        super(ASN32, self).__init__(ns, pref, tag)
 
 
 
@@ -253,11 +301,9 @@ class GRACEFULRESTART(BGPCAPABILITY):
 
 
 
-class NOEXPORTSUBCONFED(BGPWELLKNOWNSTDCOMMUNITY):
+class ADDPATHS(BGPCAPABILITY):
     """
-    All NLRI received carrying this community must not be
-    advertised to external BGP peers \- including over confederation
-    sub\-AS boundaries. This community has a value of 0xFFFFFF03.
+    BGP add\-paths
     
     
 
@@ -266,8 +312,187 @@ class NOEXPORTSUBCONFED(BGPWELLKNOWNSTDCOMMUNITY):
     _prefix = 'oc-bgp-types'
     _revision = '2017-02-02'
 
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:NO_EXPORT_SUBCONFED"):
-        super(NOEXPORTSUBCONFED, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ADD_PATHS"):
+        super(ADDPATHS, self).__init__(ns, pref, tag)
+
+
+
+class IPV4UNICAST(AFISAFITYPE):
+    """
+    IPv4 unicast (AFI,SAFI = 1,1)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV4_UNICAST"):
+        super(IPV4UNICAST, self).__init__(ns, pref, tag)
+
+
+
+class IPV6UNICAST(AFISAFITYPE):
+    """
+    IPv6 unicast (AFI,SAFI = 2,1)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV6_UNICAST"):
+        super(IPV6UNICAST, self).__init__(ns, pref, tag)
+
+
+
+class IPV4LABELEDUNICAST(AFISAFITYPE):
+    """
+    Labeled IPv4 unicast (AFI,SAFI = 1,4)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV4_LABELED_UNICAST"):
+        super(IPV4LABELEDUNICAST, self).__init__(ns, pref, tag)
+
+
+
+class IPV6LABELEDUNICAST(AFISAFITYPE):
+    """
+    Labeled IPv6 unicast (AFI,SAFI = 2,4)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV6_LABELED_UNICAST"):
+        super(IPV6LABELEDUNICAST, self).__init__(ns, pref, tag)
+
+
+
+class L3VPNIPV4UNICAST(AFISAFITYPE):
+    """
+    Unicast IPv4 MPLS L3VPN (AFI,SAFI = 1,128)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV4_UNICAST"):
+        super(L3VPNIPV4UNICAST, self).__init__(ns, pref, tag)
+
+
+
+class L3VPNIPV6UNICAST(AFISAFITYPE):
+    """
+    Unicast IPv6 MPLS L3VPN (AFI,SAFI = 2,128)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV6_UNICAST"):
+        super(L3VPNIPV6UNICAST, self).__init__(ns, pref, tag)
+
+
+
+class L3VPNIPV4MULTICAST(AFISAFITYPE):
+    """
+    Multicast IPv4 MPLS L3VPN (AFI,SAFI = 1,129)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV4_MULTICAST"):
+        super(L3VPNIPV4MULTICAST, self).__init__(ns, pref, tag)
+
+
+
+class L3VPNIPV6MULTICAST(AFISAFITYPE):
+    """
+    Multicast IPv6 MPLS L3VPN (AFI,SAFI = 2,129)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV6_MULTICAST"):
+        super(L3VPNIPV6MULTICAST, self).__init__(ns, pref, tag)
+
+
+
+class L2VPNVPLS(AFISAFITYPE):
+    """
+    BGP\-signalled VPLS (AFI,SAFI = 25,65)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L2VPN_VPLS"):
+        super(L2VPNVPLS, self).__init__(ns, pref, tag)
+
+
+
+class L2VPNEVPN(AFISAFITYPE):
+    """
+    BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L2VPN_EVPN"):
+        super(L2VPNEVPN, self).__init__(ns, pref, tag)
+
+
+
+class NOEXPORT(BGPWELLKNOWNSTDCOMMUNITY):
+    """
+    Do not export NLRI received carrying this community outside
+    the bounds of this autonomous system, or this confederation if
+    the local autonomous system is a confederation member AS. This
+    community has a value of 0xFFFFFF01.
+    
+    
+
+    """
+
+    _prefix = 'oc-bgp-types'
+    _revision = '2017-02-02'
+
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:NO_EXPORT"):
+        super(NOEXPORT, self).__init__(ns, pref, tag)
 
 
 
@@ -289,9 +514,11 @@ class NOADVERTISE(BGPWELLKNOWNSTDCOMMUNITY):
 
 
 
-class L2VPNEVPN(AFISAFITYPE):
+class NOEXPORTSUBCONFED(BGPWELLKNOWNSTDCOMMUNITY):
     """
-    BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)
+    All NLRI received carrying this community must not be
+    advertised to external BGP peers \- including over confederation
+    sub\-AS boundaries. This community has a value of 0xFFFFFF03.
     
     
 
@@ -300,8 +527,8 @@ class L2VPNEVPN(AFISAFITYPE):
     _prefix = 'oc-bgp-types'
     _revision = '2017-02-02'
 
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L2VPN_EVPN"):
-        super(L2VPNEVPN, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:NO_EXPORT_SUBCONFED"):
+        super(NOEXPORTSUBCONFED, self).__init__(ns, pref, tag)
 
 
 
@@ -325,9 +552,12 @@ class NOPEER(BGPWELLKNOWNSTDCOMMUNITY):
 
 
 
-class L2VPNVPLS(AFISAFITYPE):
+class PRIVATEASREMOVEALL(REMOVEPRIVATEASOPTION):
     """
-    BGP\-signalled VPLS (AFI,SAFI = 25,65)
+    Strip all private autonmous system numbers from the AS\_PATH.
+    This action is performed regardless of the other content of the
+    AS\_PATH attribute, and for all instances of private AS numbers
+    within that attribute.
     
     
 
@@ -336,56 +566,8 @@ class L2VPNVPLS(AFISAFITYPE):
     _prefix = 'oc-bgp-types'
     _revision = '2017-02-02'
 
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L2VPN_VPLS"):
-        super(L2VPNVPLS, self).__init__(ns, pref, tag)
-
-
-
-class IPV4UNICAST(AFISAFITYPE):
-    """
-    IPv4 unicast (AFI,SAFI = 1,1)
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV4_UNICAST"):
-        super(IPV4UNICAST, self).__init__(ns, pref, tag)
-
-
-
-class L3VPNIPV6MULTICAST(AFISAFITYPE):
-    """
-    Multicast IPv6 MPLS L3VPN (AFI,SAFI = 2,129)
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV6_MULTICAST"):
-        super(L3VPNIPV6MULTICAST, self).__init__(ns, pref, tag)
-
-
-
-class ROUTEREFRESH(BGPCAPABILITY):
-    """
-    The BGP route\-refresh functionality
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ROUTE_REFRESH"):
-        super(ROUTEREFRESH, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:PRIVATE_AS_REMOVE_ALL"):
+        super(PRIVATEASREMOVEALL, self).__init__(ns, pref, tag)
 
 
 
@@ -406,188 +588,6 @@ class PRIVATEASREPLACEALL(REMOVEPRIVATEASOPTION):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:PRIVATE_AS_REPLACE_ALL"):
         super(PRIVATEASREPLACEALL, self).__init__(ns, pref, tag)
-
-
-
-class L3VPNIPV6UNICAST(AFISAFITYPE):
-    """
-    Unicast IPv6 MPLS L3VPN (AFI,SAFI = 2,128)
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV6_UNICAST"):
-        super(L3VPNIPV6UNICAST, self).__init__(ns, pref, tag)
-
-
-
-class L3VPNIPV4UNICAST(AFISAFITYPE):
-    """
-    Unicast IPv4 MPLS L3VPN (AFI,SAFI = 1,128)
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV4_UNICAST"):
-        super(L3VPNIPV4UNICAST, self).__init__(ns, pref, tag)
-
-
-
-class L3VPNIPV4MULTICAST(AFISAFITYPE):
-    """
-    Multicast IPv4 MPLS L3VPN (AFI,SAFI = 1,129)
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV4_MULTICAST"):
-        super(L3VPNIPV4MULTICAST, self).__init__(ns, pref, tag)
-
-
-
-class MPBGP(BGPCAPABILITY):
-    """
-    Multi\-protocol extensions to BGP
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:MPBGP"):
-        super(MPBGP, self).__init__(ns, pref, tag)
-
-
-
-class IPV4LABELEDUNICAST(AFISAFITYPE):
-    """
-    Labeled IPv4 unicast (AFI,SAFI = 1,4)
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV4_LABELED_UNICAST"):
-        super(IPV4LABELEDUNICAST, self).__init__(ns, pref, tag)
-
-
-
-class NOEXPORT(BGPWELLKNOWNSTDCOMMUNITY):
-    """
-    Do not export NLRI received carrying this community outside
-    the bounds of this autonomous system, or this confederation if
-    the local autonomous system is a confederation member AS. This
-    community has a value of 0xFFFFFF01.
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:NO_EXPORT"):
-        super(NOEXPORT, self).__init__(ns, pref, tag)
-
-
-
-class IPV6UNICAST(AFISAFITYPE):
-    """
-    IPv6 unicast (AFI,SAFI = 2,1)
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV6_UNICAST"):
-        super(IPV6UNICAST, self).__init__(ns, pref, tag)
-
-
-
-class IPV6LABELEDUNICAST(AFISAFITYPE):
-    """
-    Labeled IPv6 unicast (AFI,SAFI = 2,4)
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV6_LABELED_UNICAST"):
-        super(IPV6LABELEDUNICAST, self).__init__(ns, pref, tag)
-
-
-
-class ASN32(BGPCAPABILITY):
-    """
-    4\-byte (32\-bit) AS number functionality
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ASN32"):
-        super(ASN32, self).__init__(ns, pref, tag)
-
-
-
-class PRIVATEASREMOVEALL(REMOVEPRIVATEASOPTION):
-    """
-    Strip all private autonmous system numbers from the AS\_PATH.
-    This action is performed regardless of the other content of the
-    AS\_PATH attribute, and for all instances of private AS numbers
-    within that attribute.
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:PRIVATE_AS_REMOVE_ALL"):
-        super(PRIVATEASREMOVEALL, self).__init__(ns, pref, tag)
-
-
-
-class ADDPATHS(BGPCAPABILITY):
-    """
-    BGP add\-paths
-    
-    
-
-    """
-
-    _prefix = 'oc-bgp-types'
-    _revision = '2017-02-02'
-
-    def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ADD_PATHS"):
-        super(ADDPATHS, self).__init__(ns, pref, tag)
 
 
 

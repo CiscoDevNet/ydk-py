@@ -2,6 +2,9 @@ module Cisco-IOS-XR-dot1x-if-cfg {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-dot1x-if-cfg";
   prefix dot1x-if-cfg;
 
+  import ietf-yang-types {
+    prefix yang;
+  }
   import Cisco-IOS-XR-types {
     prefix xr;
   }
@@ -44,6 +47,12 @@ module Cisco-IOS-XR-dot1x-if-cfg {
     container dot1x-interface {
       description
         "Interface Specific Dot1x Configuration";
+      leaf eapol-dest-addr {
+        type yang:mac-address;
+        description
+          "Destination address for EAPoL frames
+           transmission";
+      }
       leaf dot1x-profile {
         type xr:Cisco-ios-xr-string {
           length "1..63";

@@ -182,7 +182,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             	This object indicates the Global Operator Identifier. This object value should be zero when mplsNodeConfigIccId is configured with non\-null value
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -323,7 +323,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             	This object indicates the Global\_ID
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             

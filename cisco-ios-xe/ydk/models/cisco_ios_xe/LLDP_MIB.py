@@ -2046,7 +2046,7 @@ class LLDPMIB(Entity):
             	The Organizationally Unique Identifier (OUI), as defined in IEEE std 802\-2001, is a 24 bit (three octets) globally unique assigned number referenced by various standards, of the information received from the remote system
             	**type**\: str
             
-            	**length:** 3
+            	**length:** 3..3
             
             	**config**\: False
             

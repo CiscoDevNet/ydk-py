@@ -551,7 +551,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp, ['lsp_name', u'lsp_name_xr'], name, value)
+                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp, ['lsp_name', 'lsp_name_xr'], name, value)
 
 
                     class Label(Entity):
@@ -695,7 +695,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label, [u'label', u'label_mode', u'label_status', u'vrf_name', u'pathset_via_resolve', u'backup_pathset_via_resolve', u'address_family'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label, ['label', 'label_mode', 'label_status', 'vrf_name', 'pathset_via_resolve', 'backup_pathset_via_resolve', 'address_family'], name, value)
 
 
                         class Prefix(Entity):
@@ -746,7 +746,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix, [u'prefix_length'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix, ['prefix_length'], name, value)
 
 
                             class Prefix_(Entity):
@@ -806,7 +806,7 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -868,7 +868,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -929,7 +929,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -1030,7 +1030,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
 
 
                             class Nexthop(Entity):
@@ -1099,7 +1099,7 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
 
 
                                 class Address(Entity):
@@ -1159,7 +1159,7 @@ class MplsStatic(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -1262,7 +1262,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
 
 
                             class Nexthop(Entity):
@@ -1331,7 +1331,7 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
 
 
                                 class Address(Entity):
@@ -1391,7 +1391,7 @@ class MplsStatic(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -1589,7 +1589,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel, ['local_label_id', u'label', u'label_mode', u'label_status', u'vrf_name', u'pathset_via_resolve', u'backup_pathset_via_resolve', u'address_family'], name, value)
+                        self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel, ['local_label_id', 'label', 'label_mode', 'label_status', 'vrf_name', 'pathset_via_resolve', 'backup_pathset_via_resolve', 'address_family'], name, value)
 
 
                     class Prefix(Entity):
@@ -1640,7 +1640,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix, [u'prefix_length'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix, ['prefix_length'], name, value)
 
 
                         class Prefix_(Entity):
@@ -1700,7 +1700,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -1762,7 +1762,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -1823,7 +1823,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -1924,7 +1924,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
 
 
                         class Nexthop(Entity):
@@ -1993,7 +1993,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
 
 
                             class Address(Entity):
@@ -2053,7 +2053,7 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -2156,7 +2156,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
 
 
                         class Nexthop(Entity):
@@ -2225,7 +2225,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
 
 
                             class Address(Entity):
@@ -2285,7 +2285,7 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -2488,7 +2488,7 @@ class MplsStatic(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MplsStatic.Summary, [u'lsp_count', u'label_count', u'label_error_count', u'label_discrepancy_count', u'vrf_count', u'active_vrf_count', u'interface_count', u'interface_foward_reference_count', u'mpls_enabled_interface_count', u'ipv4_res_nh_count', u'ipv6_res_nh_count', u'lsd_connected', u'im_connected', u'rsi_connected', u'ribv4_connected', u'ribv6_connected'], name, value)
+            self._perform_setattr(MplsStatic.Summary, ['lsp_count', 'label_count', 'label_error_count', 'label_discrepancy_count', 'vrf_count', 'active_vrf_count', 'interface_count', 'interface_foward_reference_count', 'mpls_enabled_interface_count', 'ipv4_res_nh_count', 'ipv6_res_nh_count', 'lsd_connected', 'im_connected', 'rsi_connected', 'ribv4_connected', 'ribv6_connected'], name, value)
 
 
 
@@ -2683,7 +2683,7 @@ class MplsStatic(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MplsStatic.LocalLabels.LocalLabel, ['local_label_id', u'label', u'label_mode', u'label_status', u'vrf_name', u'pathset_via_resolve', u'backup_pathset_via_resolve', u'address_family'], name, value)
+                self._perform_setattr(MplsStatic.LocalLabels.LocalLabel, ['local_label_id', 'label', 'label_mode', 'label_status', 'vrf_name', 'pathset_via_resolve', 'backup_pathset_via_resolve', 'address_family'], name, value)
 
 
             class Prefix(Entity):
@@ -2734,7 +2734,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix, [u'prefix_length'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix, ['prefix_length'], name, value)
 
 
                 class Prefix_(Entity):
@@ -2794,7 +2794,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -2856,7 +2856,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -2917,7 +2917,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -3018,7 +3018,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
 
 
                 class Nexthop(Entity):
@@ -3087,7 +3087,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
+                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
 
 
                     class Address(Entity):
@@ -3147,7 +3147,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                            self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 
@@ -3250,7 +3250,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
 
 
                 class Nexthop(Entity):
@@ -3319,7 +3319,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
+                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
 
 
                     class Address(Entity):
@@ -3379,7 +3379,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+                            self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
 
 

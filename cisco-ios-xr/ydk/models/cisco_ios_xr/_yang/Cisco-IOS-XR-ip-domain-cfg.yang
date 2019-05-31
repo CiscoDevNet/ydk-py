@@ -32,6 +32,10 @@ module Cisco-IOS-XR-ip-domain-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-02-19 {
+    description
+      "Domains default flows Disable support.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -167,6 +171,11 @@ module Cisco-IOS-XR-ip-domain-cfg {
             "Name of the VRF instance";
         }
       }
+    }
+    leaf default-flows-disable {
+      type empty;
+      description
+        "Disable default flows programming";
     }
   }
 }

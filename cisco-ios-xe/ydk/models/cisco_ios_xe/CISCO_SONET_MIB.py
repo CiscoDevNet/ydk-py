@@ -1772,7 +1772,7 @@ class CISCOSONETMIB(Entity):
             	Sonet Section Trace To Transmit. This is string that is transmitted to perform Sonet section trace  diagnostics. The trace string is  repetitively  transmited so that a trace receiving terminal can  verify its continued connection to the intended  transmitter. The default value is a zero\-length string. Unless this object is set to a non\-zero length string,  tracing will not be performed
             	**type**\: str
             
-            	**length:** 0 \| 16 \| 64
+            	**length:** 0..0 \| 16..16 \| 64..64
             
             	**config**\: False
             
@@ -1781,7 +1781,7 @@ class CISCOSONETMIB(Entity):
             	Sonet Section Trace To Expect. The receiving terminal  verifies if the incoming string matches this string.  The value of 'cssTraceFailure' indicates whether a  trace mismatch occurred. The default value is a  zero\-length string
             	**type**\: str
             
-            	**length:** 0 \| 16 \| 64
+            	**length:** 0..0 \| 16..16 \| 64..64
             
             	**config**\: False
             
@@ -1797,7 +1797,7 @@ class CISCOSONETMIB(Entity):
             	This object is used to view the Sonet Section Trace that  is received by the receiving terminal
             	**type**\: str
             
-            	**length:** 0 \| 16 \| 64
+            	**length:** 0..0 \| 16..16 \| 64..64
             
             	**config**\: False
             
@@ -2466,7 +2466,7 @@ class CISCOSONETMIB(Entity):
             	Sonet Path Trace To Transmit. The trace string is  repetitively transmited so that a trace receiving terminal  can verify its continued receiving terminal can verify its  continued connection to the intended transmitter. The  default value is a zero\-length string. Unless this object  is set to a non\-zero length string, tracing will not be  performed
             	**type**\: str
             
-            	**length:** 0 \| 16 \| 64
+            	**length:** 0..0 \| 16..16 \| 64..64
             
             	**config**\: False
             
@@ -2475,7 +2475,7 @@ class CISCOSONETMIB(Entity):
             	Sonet Path Trace To Expect.  The receiving terminal verifies if the incoming string matches this string. The value of  'cspTraceFailure' indicates whether a trace mismatch  occured. The default value is a zero\-length string
             	**type**\: str
             
-            	**length:** 0 \| 16 \| 64
+            	**length:** 0..0 \| 16..16 \| 64..64
             
             	**config**\: False
             
@@ -2491,7 +2491,7 @@ class CISCOSONETMIB(Entity):
             	This object is used to view the Sonet Path Trace that is received by the receiving terminal
             	**type**\: str
             
-            	**length:** 0 \| 16 \| 64
+            	**length:** 0..0 \| 16..16 \| 64..64
             
             	**config**\: False
             

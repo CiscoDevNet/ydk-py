@@ -465,7 +465,7 @@ class Vlans(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                            self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 

@@ -145,7 +145,7 @@ class SubscriberDatabase(Entity):
     """
 
     _prefix = 'subscriber-infra-subdb-oper'
-    _revision = '2015-11-09'
+    _revision = '2018-09-28'
 
     def __init__(self):
         super(SubscriberDatabase, self).__init__()
@@ -186,7 +186,7 @@ class SubscriberDatabase(Entity):
         """
 
         _prefix = 'subscriber-infra-subdb-oper'
-        _revision = '2015-11-09'
+        _revision = '2018-09-28'
 
         def __init__(self):
             super(SubscriberDatabase.Nodes, self).__init__()
@@ -221,6 +221,13 @@ class SubscriberDatabase(Entity):
             
             	**config**\: False
             
+            .. attribute:: subdb_assoc
+            
+            	Subscriber data for associated templates
+            	**type**\:  :py:class:`SubdbAssoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.SubdbAssoc>`
+            
+            	**config**\: False
+            
             .. attribute:: association
             
             	Subscriber data for associated templates
@@ -247,7 +254,7 @@ class SubscriberDatabase(Entity):
             """
 
             _prefix = 'subscriber-infra-subdb-oper'
-            _revision = '2015-11-09'
+            _revision = '2018-09-28'
 
             def __init__(self):
                 super(SubscriberDatabase.Nodes.Node, self).__init__()
@@ -257,11 +264,15 @@ class SubscriberDatabase(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_classes = OrderedDict([("association", ("association", SubscriberDatabase.Nodes.Node.Association)), ("summary", ("summary", SubscriberDatabase.Nodes.Node.Summary)), ("session", ("session", SubscriberDatabase.Nodes.Node.Session))])
+                self._child_classes = OrderedDict([("subdb-assoc", ("subdb_assoc", SubscriberDatabase.Nodes.Node.SubdbAssoc)), ("association", ("association", SubscriberDatabase.Nodes.Node.Association)), ("summary", ("summary", SubscriberDatabase.Nodes.Node.Summary)), ("session", ("session", SubscriberDatabase.Nodes.Node.Session))])
                 self._leafs = OrderedDict([
                     ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
+
+                self.subdb_assoc = SubscriberDatabase.Nodes.Node.SubdbAssoc()
+                self.subdb_assoc.parent = self
+                self._children_name_map["subdb_assoc"] = "subdb-assoc"
 
                 self.association = SubscriberDatabase.Nodes.Node.Association()
                 self.association.parent = self
@@ -282,6 +293,279 @@ class SubscriberDatabase(Entity):
                 self._perform_setattr(SubscriberDatabase.Nodes.Node, ['node_name'], name, value)
 
 
+            class SubdbAssoc(Entity):
+                """
+                Subscriber data for associated templates
+                
+                .. attribute:: labels
+                
+                	List of associated subscriber labels
+                	**type**\:  :py:class:`Labels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'subscriber-infra-subdb-oper'
+                _revision = '2018-09-28'
+
+                def __init__(self):
+                    super(SubscriberDatabase.Nodes.Node.SubdbAssoc, self).__init__()
+
+                    self.yang_name = "subdb-assoc"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("labels", ("labels", SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels))])
+                    self._leafs = OrderedDict()
+
+                    self.labels = SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels()
+                    self.labels.parent = self
+                    self._children_name_map["labels"] = "labels"
+                    self._segment_path = lambda: "subdb-assoc"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc, [], name, value)
+
+
+                class Labels(Entity):
+                    """
+                    List of associated subscriber labels
+                    
+                    .. attribute:: label
+                    
+                    	Association for a given subscriber label
+                    	**type**\: list of  		 :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-infra-subdb-oper'
+                    _revision = '2018-09-28'
+
+                    def __init__(self):
+                        super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels, self).__init__()
+
+                        self.yang_name = "labels"
+                        self.yang_parent_name = "subdb-assoc"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("label", ("label", SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label))])
+                        self._leafs = OrderedDict()
+
+                        self.label = YList(self)
+                        self._segment_path = lambda: "labels"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels, [], name, value)
+
+
+                    class Label(Entity):
+                        """
+                        Association for a given subscriber label
+                        
+                        .. attribute:: subscriber_label  (key)
+                        
+                        	Subscriber label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: template
+                        
+                        	Subdb template
+                        	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_id
+                        
+                        	Session ID
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: interface_name
+                        
+                        	Interface name
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: associations
+                        
+                        	Association count which reflects number of entries in AssociatedTemplates
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: varlist_id
+                        
+                        	Varlist Id
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-infra-subdb-oper'
+                        _revision = '2018-09-28'
+
+                        def __init__(self):
+                            super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label, self).__init__()
+
+                            self.yang_name = "label"
+                            self.yang_parent_name = "labels"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['subscriber_label']
+                            self._child_classes = OrderedDict([("template", ("template", SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template))])
+                            self._leafs = OrderedDict([
+                                ('subscriber_label', (YLeaf(YType.uint32, 'subscriber-label'), ['int'])),
+                                ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('associations', (YLeaf(YType.uint32, 'associations'), ['int'])),
+                                ('varlist_id', (YLeaf(YType.uint32, 'varlist-id'), ['int'])),
+                            ])
+                            self.subscriber_label = None
+                            self.session_id = None
+                            self.interface_name = None
+                            self.associations = None
+                            self.varlist_id = None
+
+                            self.template = SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template()
+                            self.template.parent = self
+                            self._children_name_map["template"] = "template"
+                            self._segment_path = lambda: "label" + "[subscriber-label='" + str(self.subscriber_label) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label, ['subscriber_label', 'session_id', 'interface_name', 'associations', 'varlist_id'], name, value)
+
+
+                        class Template(Entity):
+                            """
+                            Subdb template
+                            
+                            .. attribute:: associated_template
+                            
+                            	Associated templates
+                            	**type**\: list of  		 :py:class:`AssociatedTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template.AssociatedTemplate>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-infra-subdb-oper'
+                            _revision = '2018-09-28'
+
+                            def __init__(self):
+                                super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template, self).__init__()
+
+                                self.yang_name = "template"
+                                self.yang_parent_name = "label"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("associated-template", ("associated_template", SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template.AssociatedTemplate))])
+                                self._leafs = OrderedDict()
+
+                                self.associated_template = YList(self)
+                                self._segment_path = lambda: "template"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template, [], name, value)
+
+
+                            class AssociatedTemplate(Entity):
+                                """
+                                Associated templates
+                                
+                                .. attribute:: template_type
+                                
+                                	Template type
+                                	**type**\:  :py:class:`SubdbObjectTypeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubdbObjectTypeData>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: template_name
+                                
+                                	Template name
+                                	**type**\: str
+                                
+                                	**length:** 0..65
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: varlist
+                                
+                                	Varlist
+                                	**type**\: str
+                                
+                                	**length:** 0..1000
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'subscriber-infra-subdb-oper'
+                                _revision = '2018-09-28'
+
+                                def __init__(self):
+                                    super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template.AssociatedTemplate, self).__init__()
+
+                                    self.yang_name = "associated-template"
+                                    self.yang_parent_name = "template"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('template_type', (YLeaf(YType.enumeration, 'template-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper', 'SubdbObjectTypeData', '')])),
+                                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                                        ('varlist', (YLeaf(YType.str, 'varlist'), ['str'])),
+                                    ])
+                                    self.template_type = None
+                                    self.template_name = None
+                                    self.varlist = None
+                                    self._segment_path = lambda: "associated-template"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template.AssociatedTemplate, ['template_type', 'template_name', 'varlist'], name, value)
+
+
+
+
+
+
+
             class Association(Entity):
                 """
                 Subscriber data for associated templates
@@ -298,7 +582,7 @@ class SubscriberDatabase(Entity):
                 """
 
                 _prefix = 'subscriber-infra-subdb-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-28'
 
                 def __init__(self):
                     super(SubscriberDatabase.Nodes.Node.Association, self).__init__()
@@ -337,7 +621,7 @@ class SubscriberDatabase(Entity):
                     """
 
                     _prefix = 'subscriber-infra-subdb-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-28'
 
                     def __init__(self):
                         super(SubscriberDatabase.Nodes.Node.Association.Labels, self).__init__()
@@ -378,6 +662,15 @@ class SubscriberDatabase(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: session_id
+                        
+                        	Session ID
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         .. attribute:: interface_name
                         
                         	Interface name
@@ -410,7 +703,7 @@ class SubscriberDatabase(Entity):
                         """
 
                         _prefix = 'subscriber-infra-subdb-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-28'
 
                         def __init__(self):
                             super(SubscriberDatabase.Nodes.Node.Association.Labels.Label, self).__init__()
@@ -423,11 +716,13 @@ class SubscriberDatabase(Entity):
                             self._child_classes = OrderedDict([("template", ("template", SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template))])
                             self._leafs = OrderedDict([
                                 ('subscriber_label', (YLeaf(YType.str, 'subscriber-label'), ['str'])),
+                                ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
                                 ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                 ('associations', (YLeaf(YType.uint32, 'associations'), ['int'])),
                                 ('varlist_id', (YLeaf(YType.uint32, 'varlist-id'), ['int'])),
                             ])
                             self.subscriber_label = None
+                            self.session_id = None
                             self.interface_name = None
                             self.associations = None
                             self.varlist_id = None
@@ -439,7 +734,7 @@ class SubscriberDatabase(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label, ['subscriber_label', u'interface_name', u'associations', u'varlist_id'], name, value)
+                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label, ['subscriber_label', 'session_id', 'interface_name', 'associations', 'varlist_id'], name, value)
 
 
                         class Template(Entity):
@@ -458,7 +753,7 @@ class SubscriberDatabase(Entity):
                             """
 
                             _prefix = 'subscriber-infra-subdb-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2018-09-28'
 
                             def __init__(self):
                                 super(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template, self).__init__()
@@ -513,7 +808,7 @@ class SubscriberDatabase(Entity):
                                 """
 
                                 _prefix = 'subscriber-infra-subdb-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2018-09-28'
 
                                 def __init__(self):
                                     super(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, self).__init__()
@@ -536,7 +831,7 @@ class SubscriberDatabase(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, [u'template_type', u'template_name', u'varlist'], name, value)
+                                    self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, ['template_type', 'template_name', 'varlist'], name, value)
 
 
 
@@ -652,7 +947,7 @@ class SubscriberDatabase(Entity):
                 """
 
                 _prefix = 'subscriber-infra-subdb-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-28'
 
                 def __init__(self):
                     super(SubscriberDatabase.Nodes.Node.Summary, self).__init__()
@@ -691,7 +986,7 @@ class SubscriberDatabase(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SubscriberDatabase.Nodes.Node.Summary, [u'assoc_db_entries', u'assoc_db_associations', u'derived_db_entries', u'config_db_entries', u'interface_db_entries', u'num_ipsub_dhcp', u'num_ipsub_inband', u'num_pppoe', u'subdb_obj_counts_by_type', u'num_subscribers_in_state', u'num_transitions_through_state'], name, value)
+                    self._perform_setattr(SubscriberDatabase.Nodes.Node.Summary, ['assoc_db_entries', 'assoc_db_associations', 'derived_db_entries', 'config_db_entries', 'interface_db_entries', 'num_ipsub_dhcp', 'num_ipsub_inband', 'num_pppoe', 'subdb_obj_counts_by_type', 'num_subscribers_in_state', 'num_transitions_through_state'], name, value)
 
 
 
@@ -711,7 +1006,7 @@ class SubscriberDatabase(Entity):
                 """
 
                 _prefix = 'subscriber-infra-subdb-oper'
-                _revision = '2015-11-09'
+                _revision = '2018-09-28'
 
                 def __init__(self):
                     super(SubscriberDatabase.Nodes.Node.Session, self).__init__()
@@ -751,7 +1046,7 @@ class SubscriberDatabase(Entity):
                     """
 
                     _prefix = 'subscriber-infra-subdb-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2018-09-28'
 
                     def __init__(self):
                         super(SubscriberDatabase.Nodes.Node.Session.Labels, self).__init__()
@@ -942,7 +1237,7 @@ class SubscriberDatabase(Entity):
                         """
 
                         _prefix = 'subscriber-infra-subdb-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2018-09-28'
 
                         def __init__(self):
                             super(SubscriberDatabase.Nodes.Node.Session.Labels.Label, self).__init__()
@@ -1001,7 +1296,7 @@ class SubscriberDatabase(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Session.Labels.Label, ['subscriber_label', u'session_state', u'activate_request_id', u'transaction_id', u'produce_done_request_id', u'destroy_req_received', u'destroy_request_id', u'is_config_changed', u'is_creator_gone', u'is_delete_notify_done', u'add_modify_done', u'is_rollback_needed', u'is_rollback_in_progress', u'is_server_restart_apply', u'is_rollback_performed', u'repl_pending', u'activate_timer_running', u'apply_timer_running', u'event_queue_size', u'restarts', u'template_interface_id'], name, value)
+                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Session.Labels.Label, ['subscriber_label', 'session_state', 'activate_request_id', 'transaction_id', 'produce_done_request_id', 'destroy_req_received', 'destroy_request_id', 'is_config_changed', 'is_creator_gone', 'is_delete_notify_done', 'add_modify_done', 'is_rollback_needed', 'is_rollback_in_progress', 'is_server_restart_apply', 'is_rollback_performed', 'repl_pending', 'activate_timer_running', 'apply_timer_running', 'event_queue_size', 'restarts', 'template_interface_id'], name, value)
 
 
 

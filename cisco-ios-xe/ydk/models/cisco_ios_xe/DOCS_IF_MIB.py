@@ -384,7 +384,7 @@ class DOCSIFMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSIFMIB.DocsIfBaseObjects, [u'docsifdocsisbasecapability'], name, value)
+            self._perform_setattr(DOCSIFMIB.DocsIfBaseObjects, ['docsifdocsisbasecapability'], name, value)
 
 
 
@@ -437,7 +437,7 @@ class DOCSIFMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DOCSIFMIB.DocsIfCmtsObjects, [u'docsifcmtsqosprofilepermissions', u'docsifcmtschannelutilizationinterval'], name, value)
+            self._perform_setattr(DOCSIFMIB.DocsIfCmtsObjects, ['docsifcmtsqosprofilepermissions', 'docsifcmtschannelutilizationinterval'], name, value)
 
 
 
@@ -609,7 +609,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfDownstreamChannelTable.DocsIfDownstreamChannelEntry, [u'ifindex', u'docsifdownchannelid', u'docsifdownchannelfrequency', u'docsifdownchannelwidth', u'docsifdownchannelmodulation', u'docsifdownchannelinterleave', u'docsifdownchannelpower', u'docsifdownchannelannex', u'docsifdownchannelstoragetype'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfDownstreamChannelTable.DocsIfDownstreamChannelEntry, ['ifindex', 'docsifdownchannelid', 'docsifdownchannelfrequency', 'docsifdownchannelwidth', 'docsifdownchannelmodulation', 'docsifdownchannelinterleave', 'docsifdownchannelpower', 'docsifdownchannelannex', 'docsifdownchannelstoragetype'], name, value)
 
             class DocsIfDownChannelAnnex(Enum):
                 """
@@ -946,7 +946,7 @@ class DOCSIFMIB(Entity):
             	Applicable for SCDMA channel types only. Number of active codes. Returns zero for Non\-SCDMA channel types. Note that legal  values from 64..128 MUST be non\-prime
             	**type**\: int
             
-            	**range:** 0..None \| 64..128
+            	**range:** 0..0 \| 64..128
             
             	**config**\: False
             
@@ -955,7 +955,7 @@ class DOCSIFMIB(Entity):
             	Applicable for SCDMA channel types only. The number of SCDMA codes per mini\-slot. Returns zero if the value is undefined, unknown or in case of a TDMA or ATDMA channel
             	**type**\: int
             
-            	**range:** 0..None \| 2..32
+            	**range:** 0..0 \| 2..32
             
             	**config**\: False
             
@@ -1077,7 +1077,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfUpstreamChannelTable.DocsIfUpstreamChannelEntry, [u'ifindex', u'docsifupchannelid', u'docsifupchannelfrequency', u'docsifupchannelwidth', u'docsifupchannelmodulationprofile', u'docsifupchannelslotsize', u'docsifupchanneltxtimingoffset', u'docsifupchannelrangingbackoffstart', u'docsifupchannelrangingbackoffend', u'docsifupchanneltxbackoffstart', u'docsifupchanneltxbackoffend', u'docsifupchannelscdmaactivecodes', u'docsifupchannelscdmacodesperslot', u'docsifupchannelscdmaframesize', u'docsifupchannelscdmahoppingseed', u'docsifupchanneltype', u'docsifupchannelclonefrom', u'docsifupchannelupdate', u'docsifupchannelstatus', u'docsifupchannelpreeqenable'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfUpstreamChannelTable.DocsIfUpstreamChannelEntry, ['ifindex', 'docsifupchannelid', 'docsifupchannelfrequency', 'docsifupchannelwidth', 'docsifupchannelmodulationprofile', 'docsifupchannelslotsize', 'docsifupchanneltxtimingoffset', 'docsifupchannelrangingbackoffstart', 'docsifupchannelrangingbackoffend', 'docsifupchanneltxbackoffstart', 'docsifupchanneltxbackoffend', 'docsifupchannelscdmaactivecodes', 'docsifupchannelscdmacodesperslot', 'docsifupchannelscdmaframesize', 'docsifupchannelscdmahoppingseed', 'docsifupchanneltype', 'docsifupchannelclonefrom', 'docsifupchannelupdate', 'docsifupchannelstatus', 'docsifupchannelpreeqenable'], name, value)
 
 
 
@@ -1269,7 +1269,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfQosProfileTable.DocsIfQosProfileEntry, [u'docsifqosprofindex', u'docsifqosprofpriority', u'docsifqosprofmaxupbandwidth', u'docsifqosprofguarupbandwidth', u'docsifqosprofmaxdownbandwidth', u'docsifqosprofmaxtxburst', u'docsifqosprofbaselineprivacy', u'docsifqosprofstatus', u'docsifqosprofmaxtransmitburst'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfQosProfileTable.DocsIfQosProfileEntry, ['docsifqosprofindex', 'docsifqosprofpriority', 'docsifqosprofmaxupbandwidth', 'docsifqosprofguarupbandwidth', 'docsifqosprofmaxdownbandwidth', 'docsifqosprofmaxtxburst', 'docsifqosprofbaselineprivacy', 'docsifqosprofstatus', 'docsifqosprofmaxtransmitburst'], name, value)
 
 
 
@@ -1470,7 +1470,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfSignalQualityTable.DocsIfSignalQualityEntry, [u'ifindex', u'docsifsigqincludescontention', u'docsifsigqunerroreds', u'docsifsigqcorrecteds', u'docsifsigquncorrectables', u'docsifsigqsignalnoise', u'docsifsigqmicroreflections', u'docsifsigqequalizationdata', u'docsifsigqextunerroreds', u'docsifsigqextcorrecteds', u'docsifsigqextuncorrectables'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfSignalQualityTable.DocsIfSignalQualityEntry, ['ifindex', 'docsifsigqincludescontention', 'docsifsigqunerroreds', 'docsifsigqcorrecteds', 'docsifsigquncorrectables', 'docsifsigqsignalnoise', 'docsifsigqmicroreflections', 'docsifsigqequalizationdata', 'docsifsigqextunerroreds', 'docsifsigqextcorrecteds', 'docsifsigqextuncorrectables'], name, value)
 
 
 
@@ -1601,7 +1601,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmMacTable.DocsIfCmMacEntry, [u'ifindex', u'docsifcmcmtsaddress', u'docsifcmcapabilities', u'docsifcmrangingresptimeout', u'docsifcmrangingtimeout'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmMacTable.DocsIfCmMacEntry, ['ifindex', 'docsifcmcmtsaddress', 'docsifcmcapabilities', 'docsifcmrangingresptimeout', 'docsifcmrangingtimeout'], name, value)
 
 
 
@@ -1867,7 +1867,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmStatusTable.DocsIfCmStatusEntry, [u'ifindex', u'docsifcmstatusvalue', u'docsifcmstatuscode', u'docsifcmstatustxpower', u'docsifcmstatusresets', u'docsifcmstatuslostsyncs', u'docsifcmstatusinvalidmaps', u'docsifcmstatusinvaliducds', u'docsifcmstatusinvalidrangingresponses', u'docsifcmstatusinvalidregistrationresponses', u'docsifcmstatust1timeouts', u'docsifcmstatust2timeouts', u'docsifcmstatust3timeouts', u'docsifcmstatust4timeouts', u'docsifcmstatusrangingaborteds', u'docsifcmstatusdocsisopermode', u'docsifcmstatusmodulationtype', u'docsifcmstatusequalizationdata'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmStatusTable.DocsIfCmStatusEntry, ['ifindex', 'docsifcmstatusvalue', 'docsifcmstatuscode', 'docsifcmstatustxpower', 'docsifcmstatusresets', 'docsifcmstatuslostsyncs', 'docsifcmstatusinvalidmaps', 'docsifcmstatusinvaliducds', 'docsifcmstatusinvalidrangingresponses', 'docsifcmstatusinvalidregistrationresponses', 'docsifcmstatust1timeouts', 'docsifcmstatust2timeouts', 'docsifcmstatust3timeouts', 'docsifcmstatust4timeouts', 'docsifcmstatusrangingaborteds', 'docsifcmstatusdocsisopermode', 'docsifcmstatusmodulationtype', 'docsifcmstatusequalizationdata'], name, value)
 
             class DocsIfCmStatusValue(Enum):
                 """
@@ -2138,7 +2138,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmServiceTable.DocsIfCmServiceEntry, [u'ifindex', u'docsifcmserviceid', u'docsifcmserviceqosprofile', u'docsifcmservicetxslotsimmed', u'docsifcmservicetxslotsded', u'docsifcmservicetxretries', u'docsifcmservicetxexceededs', u'docsifcmservicerqretries', u'docsifcmservicerqexceededs', u'docsifcmserviceexttxslotsimmed', u'docsifcmserviceexttxslotsded'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmServiceTable.DocsIfCmServiceEntry, ['ifindex', 'docsifcmserviceid', 'docsifcmserviceqosprofile', 'docsifcmservicetxslotsimmed', 'docsifcmservicetxslotsded', 'docsifcmservicetxretries', 'docsifcmservicetxexceededs', 'docsifcmservicerqretries', 'docsifcmservicerqexceededs', 'docsifcmserviceexttxslotsimmed', 'docsifcmserviceexttxslotsded'], name, value)
 
 
 
@@ -2316,7 +2316,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmtsMacTable.DocsIfCmtsMacEntry, [u'ifindex', u'docsifcmtscapabilities', u'docsifcmtssyncinterval', u'docsifcmtsucdinterval', u'docsifcmtsmaxserviceids', u'docsifcmtsinsertioninterval', u'docsifcmtsinvitedrangingattempts', u'docsifcmtsinsertinterval', u'docsifcmtsmacstoragetype'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmtsMacTable.DocsIfCmtsMacEntry, ['ifindex', 'docsifcmtscapabilities', 'docsifcmtssyncinterval', 'docsifcmtsucdinterval', 'docsifcmtsmaxserviceids', 'docsifcmtsinsertioninterval', 'docsifcmtsinvitedrangingattempts', 'docsifcmtsinsertinterval', 'docsifcmtsmacstoragetype'], name, value)
 
 
 
@@ -2468,7 +2468,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmtsStatusTable.DocsIfCmtsStatusEntry, [u'ifindex', u'docsifcmtsstatusinvalidrangereqs', u'docsifcmtsstatusrangingaborteds', u'docsifcmtsstatusinvalidregreqs', u'docsifcmtsstatusfailedregreqs', u'docsifcmtsstatusinvaliddatareqs', u'docsifcmtsstatust5timeouts'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmtsStatusTable.DocsIfCmtsStatusEntry, ['ifindex', 'docsifcmtsstatusinvalidrangereqs', 'docsifcmtsstatusrangingaborteds', 'docsifcmtsstatusinvalidregreqs', 'docsifcmtsstatusfailedregreqs', 'docsifcmtsstatusinvaliddatareqs', 'docsifcmtsstatust5timeouts'], name, value)
 
 
 
@@ -2781,7 +2781,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry, [u'docsifcmtscmstatusindex', u'docsifcmtscmstatusmacaddress', u'docsifcmtscmstatusipaddress', u'docsifcmtscmstatusdownchannelifindex', u'docsifcmtscmstatusupchannelifindex', u'docsifcmtscmstatusrxpower', u'docsifcmtscmstatustimingoffset', u'docsifcmtscmstatusequalizationdata', u'docsifcmtscmstatusvalue', u'docsifcmtscmstatusunerroreds', u'docsifcmtscmstatuscorrecteds', u'docsifcmtscmstatusuncorrectables', u'docsifcmtscmstatussignalnoise', u'docsifcmtscmstatusmicroreflections', u'docsifcmtscmstatusextunerroreds', u'docsifcmtscmstatusextcorrecteds', u'docsifcmtscmstatusextuncorrectables', u'docsifcmtscmstatusdocsisregmode', u'docsifcmtscmstatusmodulationtype', u'docsifcmtscmstatusinetaddresstype', u'docsifcmtscmstatusinetaddress', u'docsifcmtscmstatusvaluelastupdate'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry, ['docsifcmtscmstatusindex', 'docsifcmtscmstatusmacaddress', 'docsifcmtscmstatusipaddress', 'docsifcmtscmstatusdownchannelifindex', 'docsifcmtscmstatusupchannelifindex', 'docsifcmtscmstatusrxpower', 'docsifcmtscmstatustimingoffset', 'docsifcmtscmstatusequalizationdata', 'docsifcmtscmstatusvalue', 'docsifcmtscmstatusunerroreds', 'docsifcmtscmstatuscorrecteds', 'docsifcmtscmstatusuncorrectables', 'docsifcmtscmstatussignalnoise', 'docsifcmtscmstatusmicroreflections', 'docsifcmtscmstatusextunerroreds', 'docsifcmtscmstatusextcorrecteds', 'docsifcmtscmstatusextuncorrectables', 'docsifcmtscmstatusdocsisregmode', 'docsifcmtscmstatusmodulationtype', 'docsifcmtscmstatusinetaddresstype', 'docsifcmtscmstatusinetaddress', 'docsifcmtscmstatusvaluelastupdate'], name, value)
 
             class DocsIfCmtsCmStatusValue(Enum):
                 """
@@ -3073,7 +3073,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmtsServiceTable.DocsIfCmtsServiceEntry, [u'ifindex', u'docsifcmtsserviceid', u'docsifcmtsservicecmstatusindex', u'docsifcmtsserviceadminstatus', u'docsifcmtsserviceqosprofile', u'docsifcmtsservicecreatetime', u'docsifcmtsserviceinoctets', u'docsifcmtsserviceinpackets', u'docsifcmtsservicenewcmstatusindex'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmtsServiceTable.DocsIfCmtsServiceEntry, ['ifindex', 'docsifcmtsserviceid', 'docsifcmtsservicecmstatusindex', 'docsifcmtsserviceadminstatus', 'docsifcmtsserviceqosprofile', 'docsifcmtsservicecreatetime', 'docsifcmtsserviceinoctets', 'docsifcmtsserviceinpackets', 'docsifcmtsservicenewcmstatusindex'], name, value)
 
             class DocsIfCmtsServiceAdminStatus(Enum):
                 """
@@ -3388,7 +3388,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmtsModulationTable.DocsIfCmtsModulationEntry, [u'docsifcmtsmodindex', u'docsifcmtsmodintervalusagecode', u'docsifcmtsmodcontrol', u'docsifcmtsmodtype', u'docsifcmtsmodpreamblelen', u'docsifcmtsmoddifferentialencoding', u'docsifcmtsmodfecerrorcorrection', u'docsifcmtsmodfeccodewordlength', u'docsifcmtsmodscramblerseed', u'docsifcmtsmodmaxburstsize', u'docsifcmtsmodguardtimesize', u'docsifcmtsmodlastcodewordshortened', u'docsifcmtsmodscrambler', u'docsifcmtsmodbyteinterleaverdepth', u'docsifcmtsmodbyteinterleaverblocksize', u'docsifcmtsmodpreambletype', u'docsifcmtsmodtcmerrorcorrectionon', u'docsifcmtsmodscdmainterleaverstepsize', u'docsifcmtsmodscdmaspreaderenable', u'docsifcmtsmodscdmasubframecodes', u'docsifcmtsmodchanneltype'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmtsModulationTable.DocsIfCmtsModulationEntry, ['docsifcmtsmodindex', 'docsifcmtsmodintervalusagecode', 'docsifcmtsmodcontrol', 'docsifcmtsmodtype', 'docsifcmtsmodpreamblelen', 'docsifcmtsmoddifferentialencoding', 'docsifcmtsmodfecerrorcorrection', 'docsifcmtsmodfeccodewordlength', 'docsifcmtsmodscramblerseed', 'docsifcmtsmodmaxburstsize', 'docsifcmtsmodguardtimesize', 'docsifcmtsmodlastcodewordshortened', 'docsifcmtsmodscrambler', 'docsifcmtsmodbyteinterleaverdepth', 'docsifcmtsmodbyteinterleaverblocksize', 'docsifcmtsmodpreambletype', 'docsifcmtsmodtcmerrorcorrectionon', 'docsifcmtsmodscdmainterleaverstepsize', 'docsifcmtsmodscdmaspreaderenable', 'docsifcmtsmodscdmasubframecodes', 'docsifcmtsmodchanneltype'], name, value)
 
             class DocsIfCmtsModIntervalUsageCode(Enum):
                 """
@@ -3609,7 +3609,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmtsMacToCmTable.DocsIfCmtsMacToCmEntry, [u'docsifcmtscmmac', u'docsifcmtscmptr'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmtsMacToCmTable.DocsIfCmtsMacToCmEntry, ['docsifcmtscmmac', 'docsifcmtscmptr'], name, value)
 
 
 
@@ -3729,7 +3729,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmtsChannelUtilizationTable.DocsIfCmtsChannelUtilizationEntry, [u'ifindex', u'docsifcmtschannelutiftype', u'docsifcmtschannelutid', u'docsifcmtschannelututilization'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmtsChannelUtilizationTable.DocsIfCmtsChannelUtilizationEntry, ['ifindex', 'docsifcmtschannelutiftype', 'docsifcmtschannelutid', 'docsifcmtschannelututilization'], name, value)
 
 
 
@@ -3871,7 +3871,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmtsDownChannelCounterTable.DocsIfCmtsDownChannelCounterEntry, [u'ifindex', u'docsifcmtsdownchnlctrid', u'docsifcmtsdownchnlctrtotalbytes', u'docsifcmtsdownchnlctrusedbytes', u'docsifcmtsdownchnlctrexttotalbytes', u'docsifcmtsdownchnlctrextusedbytes'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmtsDownChannelCounterTable.DocsIfCmtsDownChannelCounterEntry, ['ifindex', 'docsifcmtsdownchnlctrid', 'docsifcmtsdownchnlctrtotalbytes', 'docsifcmtsdownchnlctrusedbytes', 'docsifcmtsdownchnlctrexttotalbytes', 'docsifcmtsdownchnlctrextusedbytes'], name, value)
 
 
 
@@ -4279,7 +4279,7 @@ class DOCSIFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSIFMIB.DocsIfCmtsUpChannelCounterTable.DocsIfCmtsUpChannelCounterEntry, [u'ifindex', u'docsifcmtsupchnlctrid', u'docsifcmtsupchnlctrtotalmslots', u'docsifcmtsupchnlctrucastgrantedmslots', u'docsifcmtsupchnlctrtotalcntnmslots', u'docsifcmtsupchnlctrusedcntnmslots', u'docsifcmtsupchnlctrexttotalmslots', u'docsifcmtsupchnlctrextucastgrantedmslots', u'docsifcmtsupchnlctrexttotalcntnmslots', u'docsifcmtsupchnlctrextusedcntnmslots', u'docsifcmtsupchnlctrcollcntnmslots', u'docsifcmtsupchnlctrtotalcntnreqmslots', u'docsifcmtsupchnlctrusedcntnreqmslots', u'docsifcmtsupchnlctrcollcntnreqmslots', u'docsifcmtsupchnlctrtotalcntnreqdatamslots', u'docsifcmtsupchnlctrusedcntnreqdatamslots', u'docsifcmtsupchnlctrcollcntnreqdatamslots', u'docsifcmtsupchnlctrtotalcntninitmaintmslots', u'docsifcmtsupchnlctrusedcntninitmaintmslots', u'docsifcmtsupchnlctrcollcntninitmaintmslots', u'docsifcmtsupchnlctrextcollcntnmslots', u'docsifcmtsupchnlctrexttotalcntnreqmslots', u'docsifcmtsupchnlctrextusedcntnreqmslots', u'docsifcmtsupchnlctrextcollcntnreqmslots', u'docsifcmtsupchnlctrexttotalcntnreqdatamslots', u'docsifcmtsupchnlctrextusedcntnreqdatamslots', u'docsifcmtsupchnlctrextcollcntnreqdatamslots', u'docsifcmtsupchnlctrexttotalcntninitmaintmslots', u'docsifcmtsupchnlctrextusedcntninitmaintmslots', u'docsifcmtsupchnlctrextcollcntninitmaintmslots'], name, value)
+                self._perform_setattr(DOCSIFMIB.DocsIfCmtsUpChannelCounterTable.DocsIfCmtsUpChannelCounterEntry, ['ifindex', 'docsifcmtsupchnlctrid', 'docsifcmtsupchnlctrtotalmslots', 'docsifcmtsupchnlctrucastgrantedmslots', 'docsifcmtsupchnlctrtotalcntnmslots', 'docsifcmtsupchnlctrusedcntnmslots', 'docsifcmtsupchnlctrexttotalmslots', 'docsifcmtsupchnlctrextucastgrantedmslots', 'docsifcmtsupchnlctrexttotalcntnmslots', 'docsifcmtsupchnlctrextusedcntnmslots', 'docsifcmtsupchnlctrcollcntnmslots', 'docsifcmtsupchnlctrtotalcntnreqmslots', 'docsifcmtsupchnlctrusedcntnreqmslots', 'docsifcmtsupchnlctrcollcntnreqmslots', 'docsifcmtsupchnlctrtotalcntnreqdatamslots', 'docsifcmtsupchnlctrusedcntnreqdatamslots', 'docsifcmtsupchnlctrcollcntnreqdatamslots', 'docsifcmtsupchnlctrtotalcntninitmaintmslots', 'docsifcmtsupchnlctrusedcntninitmaintmslots', 'docsifcmtsupchnlctrcollcntninitmaintmslots', 'docsifcmtsupchnlctrextcollcntnmslots', 'docsifcmtsupchnlctrexttotalcntnreqmslots', 'docsifcmtsupchnlctrextusedcntnreqmslots', 'docsifcmtsupchnlctrextcollcntnreqmslots', 'docsifcmtsupchnlctrexttotalcntnreqdatamslots', 'docsifcmtsupchnlctrextusedcntnreqdatamslots', 'docsifcmtsupchnlctrextcollcntnreqdatamslots', 'docsifcmtsupchnlctrexttotalcntninitmaintmslots', 'docsifcmtsupchnlctrextusedcntninitmaintmslots', 'docsifcmtsupchnlctrextcollcntninitmaintmslots'], name, value)
 
 
 

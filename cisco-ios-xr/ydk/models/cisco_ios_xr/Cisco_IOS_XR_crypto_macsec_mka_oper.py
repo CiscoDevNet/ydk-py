@@ -547,7 +547,7 @@ class Macsec(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary, [u'interface_name', u'inherited_policy', u'policy', u'priority', u'my_mac', u'delay_protection', u'replay_protect', u'window_size', u'include_icv_indicator', u'confidentiality_offset', u'algo_agility', u'capability', u'mka_cipher_suite', u'configured_mac_sec_cipher_suite', u'mac_sec_desired'], name, value)
+                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary, ['interface_name', 'inherited_policy', 'policy', 'priority', 'my_mac', 'delay_protection', 'replay_protect', 'window_size', 'include_icv_indicator', 'confidentiality_offset', 'algo_agility', 'capability', 'mka_cipher_suite', 'configured_mac_sec_cipher_suite', 'mac_sec_desired'], name, value)
 
 
                         class OuterTag(Entity):
@@ -620,7 +620,7 @@ class Macsec(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag, [u'ether_type', u'priority', u'cfi', u'vlan_id'], name, value)
+                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag, ['ether_type', 'priority', 'cfi', 'vlan_id'], name, value)
 
 
 
@@ -694,7 +694,7 @@ class Macsec(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag, [u'ether_type', u'priority', u'cfi', u'vlan_id'], name, value)
+                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag, ['ether_type', 'priority', 'cfi', 'vlan_id'], name, value)
 
 
 
@@ -903,7 +903,7 @@ class Macsec(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp, [u'my_sci', u'virtual_port_id', u'latest_rx', u'latest_tx', u'latest_an', u'latest_ki', u'latest_kn', u'old_rx', u'old_tx', u'old_an', u'old_ki', u'old_kn', u'wait_time', u'retire_time', u'macsec_cipher_suite', u'ssci', u'time_to_sak_rekey'], name, value)
+                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp, ['my_sci', 'virtual_port_id', 'latest_rx', 'latest_tx', 'latest_an', 'latest_ki', 'latest_kn', 'old_rx', 'old_tx', 'old_an', 'old_ki', 'old_kn', 'wait_time', 'retire_time', 'macsec_cipher_suite', 'ssci', 'time_to_sak_rekey'], name, value)
 
 
                         class FallbackKeepalive(Entity):
@@ -976,7 +976,7 @@ class Macsec(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive, [u'ckn', u'mi', u'mn'], name, value)
+                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive, ['ckn', 'mi', 'mn'], name, value)
 
 
                             class PeersStatus(Entity):
@@ -1036,7 +1036,7 @@ class Macsec(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus, [u'tx_mkpdu_timestamp', u'peer_count'], name, value)
+                                    self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus, ['tx_mkpdu_timestamp', 'peer_count'], name, value)
 
 
                                 class Peer(Entity):
@@ -1087,7 +1087,7 @@ class Macsec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer, [u'sci'], name, value)
+                                        self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer, ['sci'], name, value)
 
 
                                     class PeerData(Entity):
@@ -1149,7 +1149,7 @@ class Macsec(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData, [u'mi', u'icv_status', u'icv_check_timestamp'], name, value)
+                                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData, ['mi', 'icv_status', 'icv_check_timestamp'], name, value)
 
 
 
@@ -1344,7 +1344,7 @@ class Macsec(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca, [u'is_key_server', u'status', u'num_live_peers', u'first_ca', u'peer_sci', u'num_live_peers_responded', u'ckn', u'my_mi', u'my_mn', u'authenticator', u'status_description', u'authentication_mode', u'key_chain'], name, value)
+                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca, ['is_key_server', 'status', 'num_live_peers', 'first_ca', 'peer_sci', 'num_live_peers_responded', 'ckn', 'my_mi', 'my_mn', 'authenticator', 'status_description', 'authentication_mode', 'key_chain'], name, value)
 
 
                         class PeersStatus(Entity):
@@ -1404,7 +1404,7 @@ class Macsec(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus, [u'tx_mkpdu_timestamp', u'peer_count'], name, value)
+                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus, ['tx_mkpdu_timestamp', 'peer_count'], name, value)
 
 
                             class Peer(Entity):
@@ -1455,7 +1455,7 @@ class Macsec(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer, [u'sci'], name, value)
+                                    self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer, ['sci'], name, value)
 
 
                                 class PeerData(Entity):
@@ -1517,7 +1517,7 @@ class Macsec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData, [u'mi', u'icv_status', u'icv_check_timestamp'], name, value)
+                                        self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData, ['mi', 'icv_status', 'icv_check_timestamp'], name, value)
 
 
 
@@ -1600,7 +1600,7 @@ class Macsec(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer, [u'mi', u'sci', u'mn', u'priority', u'ssci'], name, value)
+                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer, ['mi', 'sci', 'mn', 'priority', 'ssci'], name, value)
 
 
 
@@ -1681,7 +1681,7 @@ class Macsec(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer, [u'mi', u'sci', u'mn', u'priority', u'ssci'], name, value)
+                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer, ['mi', 'sci', 'mn', 'priority', 'ssci'], name, value)
 
 
 
@@ -1762,7 +1762,7 @@ class Macsec(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer, [u'mi', u'sci', u'mn', u'priority', u'ssci'], name, value)
+                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer, ['mi', 'sci', 'mn', 'priority', 'ssci'], name, value)
 
 
 
@@ -1923,7 +1923,7 @@ class Macsec(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Info.InterfaceSummary, [u'interface_name', u'short_name', u'key_chain', u'policy', u'macsec_svc_port', u'macsec_svc_port_type', u'svcport_short_name', u'mka_mode', u'fallback_keychain', u'macsec_shutdown'], name, value)
+                            self._perform_setattr(Macsec.Mka.Interfaces.Interface.Info.InterfaceSummary, ['interface_name', 'short_name', 'key_chain', 'policy', 'macsec_svc_port', 'macsec_svc_port_type', 'svcport_short_name', 'mka_mode', 'fallback_keychain', 'macsec_shutdown'], name, value)
 
 
 

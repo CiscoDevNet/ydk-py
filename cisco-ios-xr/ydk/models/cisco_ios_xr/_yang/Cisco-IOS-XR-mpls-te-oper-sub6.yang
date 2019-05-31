@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -1351,10 +1355,23 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
         description
           "Better standby path exists";
       }
+      enum "path-option-config-change" {
+        description
+          "Path-option configuration change";
+      }
       enum "path-protection-non-revertive-config-changed" {
         description
           "Path protection non-revertive config changed
            under the tunnel I/F";
+      }
+      enum "manually-triggered-non-revertive-recovery" {
+        description
+          "Manually triggered non-revertive recovery";
+      }
+      enum "remote-node-triggered-non-revertive-recovery" {
+        description
+          "Received non-revertive recovery notification
+           from remote node";
       }
       enum "fsm-sc-must-be-last" {
         description
@@ -1657,6 +1674,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
       enum "node-link-srlg" {
         description
           "Standby LSP node and link and SRLG diverse";
+      }
+      enum "diversity-sticky" {
+        description
+          "Standby LSP using sticky explicit path";
       }
       enum "diversity-user" {
         description
@@ -2288,6 +2309,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
         "EAG value";
       leaf entry {
         type uint32;
+        description
+          "EAG value";
       }
     }
   }
@@ -2467,6 +2490,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
         "Max LSP Bandwidth per priority in kbit/s";
       leaf entry {
         type uint32;
+        description
+          "Max LSP Bandwidth per priority in kbit/s";
       }
     }
     list odu-capability {
@@ -2564,6 +2589,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
         "Discovered SRLG";
       leaf entry {
         type uint32;
+        description
+          "Discovered SRLG";
       }
     }
   }
@@ -2906,6 +2933,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
         "Constraint value";
       leaf entry {
         type uint32;
+        description
+          "Constraint value";
       }
     }
     list extended-forward-ref-value {
@@ -2913,6 +2942,8 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
         "Reference bits for undefined affinity names";
       leaf entry {
         type uint32;
+        description
+          "Reference bits for undefined affinity names";
       }
     }
   }

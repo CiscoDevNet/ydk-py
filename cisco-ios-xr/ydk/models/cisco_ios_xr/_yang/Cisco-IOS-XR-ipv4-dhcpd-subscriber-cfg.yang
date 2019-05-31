@@ -59,6 +59,12 @@ module Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg {
         description
           "The class to be used for proxy/server profile";
       }
+      leaf mode-class {
+        type string;
+        description
+          "Select proxy/server profile based on mode class
+           name";
+      }
       leaf default-gateway {
         type inet:ipv4-address-no-zone;
         description

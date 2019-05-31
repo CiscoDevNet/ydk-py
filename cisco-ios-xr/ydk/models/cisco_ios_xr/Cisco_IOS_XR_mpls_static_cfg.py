@@ -213,12 +213,9 @@ class MplsStatic(Entity):
     	Default VRF
     	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf>`
     
-    .. attribute:: enable
     
-    	MPLS Static Apply Enable
-    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-    
-    
+
+    This class is a :ref:`presence class<presence-class>`
 
     """
 
@@ -235,10 +232,8 @@ class MplsStatic(Entity):
         self.has_list_ancestor = False
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("vrfs", ("vrfs", MplsStatic.Vrfs)), ("interfaces", ("interfaces", MplsStatic.Interfaces)), ("default-vrf", ("default_vrf", MplsStatic.DefaultVrf))])
-        self._leafs = OrderedDict([
-            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-        ])
-        self.enable = None
+        self.is_presence_container = True
+        self._leafs = OrderedDict()
 
         self.vrfs = MplsStatic.Vrfs()
         self.vrfs.parent = self
@@ -255,7 +250,7 @@ class MplsStatic(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(MplsStatic, ['enable'], name, value)
+        self._perform_setattr(MplsStatic, [], name, value)
 
 
     class Vrfs(Entity):
@@ -315,11 +310,6 @@ class MplsStatic(Entity):
             	Address Family Table
             	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs>`
             
-            .. attribute:: enable
-            
-            	MPLS Static Apply Enable
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
             
 
             """
@@ -338,10 +328,8 @@ class MplsStatic(Entity):
                 self._child_classes = OrderedDict([("label-switched-paths", ("label_switched_paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths)), ("afs", ("afs", MplsStatic.Vrfs.Vrf.Afs))])
                 self._leafs = OrderedDict([
                     ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.vrf_name = None
-                self.enable = None
 
                 self.label_switched_paths = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths()
                 self.label_switched_paths.parent = self
@@ -355,7 +343,7 @@ class MplsStatic(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MplsStatic.Vrfs.Vrf, ['vrf_name', 'enable'], name, value)
+                self._perform_setattr(MplsStatic.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
             class LabelSwitchedPaths(Entity):
@@ -414,11 +402,6 @@ class MplsStatic(Entity):
                     	MPLS Static Local Label Value
                     	**type**\:  :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
                     
-                    .. attribute:: enable
-                    
-                    	MPLS Static Apply Enable
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     .. attribute:: paths
                     
                     	Forward Path Parameters
@@ -442,10 +425,8 @@ class MplsStatic(Entity):
                         self._child_classes = OrderedDict([("backup-paths", ("backup_paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths)), ("in-label", ("in_label", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel)), ("paths", ("paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths))])
                         self._leafs = OrderedDict([
                             ('lsp_name', (YLeaf(YType.str, 'lsp-name'), ['str'])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.lsp_name = None
-                        self.enable = None
 
                         self.backup_paths = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths()
                         self.backup_paths.parent = self
@@ -462,7 +443,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name', 'enable'], name, value)
+                        self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name'], name, value)
 
 
                     class BackupPaths(Entity):
@@ -952,11 +933,6 @@ class MplsStatic(Entity):
                     	Local Label
                     	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels>`
                     
-                    .. attribute:: enable
-                    
-                    	MPLS Static Apply Enable
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                    
                     
 
                     """
@@ -975,10 +951,8 @@ class MplsStatic(Entity):
                         self._child_classes = OrderedDict([("top-label-hash", ("top_label_hash", MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash)), ("local-labels", ("local_labels", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels))])
                         self._leafs = OrderedDict([
                             ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticAddressFamily', '')])),
-                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.afi = None
-                        self.enable = None
 
                         self.top_label_hash = MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash()
                         self.top_label_hash.parent = self
@@ -991,7 +965,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af, ['afi', 'enable'], name, value)
+                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af, ['afi'], name, value)
 
 
                     class TopLabelHash(Entity):
@@ -1789,11 +1763,6 @@ class MplsStatic(Entity):
         	Address Family Table
         	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs>`
         
-        .. attribute:: enable
-        
-        	MPLS Static Apply Enable
-        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-        
         
 
         """
@@ -1810,10 +1779,7 @@ class MplsStatic(Entity):
             self.has_list_ancestor = False
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("label-switched-paths", ("label_switched_paths", MplsStatic.DefaultVrf.LabelSwitchedPaths)), ("afs", ("afs", MplsStatic.DefaultVrf.Afs))])
-            self._leafs = OrderedDict([
-                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-            ])
-            self.enable = None
+            self._leafs = OrderedDict()
 
             self.label_switched_paths = MplsStatic.DefaultVrf.LabelSwitchedPaths()
             self.label_switched_paths.parent = self
@@ -1827,7 +1793,7 @@ class MplsStatic(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MplsStatic.DefaultVrf, ['enable'], name, value)
+            self._perform_setattr(MplsStatic.DefaultVrf, [], name, value)
 
 
         class LabelSwitchedPaths(Entity):
@@ -1887,11 +1853,6 @@ class MplsStatic(Entity):
                 	MPLS Static Local Label Value
                 	**type**\:  :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
                 
-                .. attribute:: enable
-                
-                	MPLS Static Apply Enable
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
                 .. attribute:: paths
                 
                 	Forward Path Parameters
@@ -1915,10 +1876,8 @@ class MplsStatic(Entity):
                     self._child_classes = OrderedDict([("backup-paths", ("backup_paths", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths)), ("in-label", ("in_label", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel)), ("paths", ("paths", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths))])
                     self._leafs = OrderedDict([
                         ('lsp_name', (YLeaf(YType.str, 'lsp-name'), ['str'])),
-                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.lsp_name = None
-                    self.enable = None
 
                     self.backup_paths = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths()
                     self.backup_paths.parent = self
@@ -1936,7 +1895,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name', 'enable'], name, value)
+                    self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name'], name, value)
 
 
                 class BackupPaths(Entity):
@@ -2427,11 +2386,6 @@ class MplsStatic(Entity):
                 	Local Label
                 	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels>`
                 
-                .. attribute:: enable
-                
-                	MPLS Static Apply Enable
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
                 
 
                 """
@@ -2450,10 +2404,8 @@ class MplsStatic(Entity):
                     self._child_classes = OrderedDict([("top-label-hash", ("top_label_hash", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash)), ("local-labels", ("local_labels", MplsStatic.DefaultVrf.Afs.Af.LocalLabels))])
                     self._leafs = OrderedDict([
                         ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticAddressFamily', '')])),
-                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.afi = None
-                    self.enable = None
 
                     self.top_label_hash = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash()
                     self.top_label_hash.parent = self
@@ -2467,7 +2419,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af, ['afi', 'enable'], name, value)
+                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af, ['afi'], name, value)
 
 
                 class TopLabelHash(Entity):

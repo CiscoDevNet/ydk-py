@@ -1365,7 +1365,7 @@ module Cisco-IOS-XR-ptp-cfg {
       description
         "Clock class to be used while acquiring
          phase-lock to a parent clock. Note that
-         this is deprecated and should not be
+         this is deprecated and should not be 
          used.";
     }
     container uncalibrated-clock-class2 {

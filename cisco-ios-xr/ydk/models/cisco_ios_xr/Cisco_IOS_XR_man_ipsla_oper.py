@@ -1054,7 +1054,7 @@ class Ipsla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.State, [u'scan_remaining', u'delete_scan_remaining', u'rediscovery_remaining', u'lpd_compeletion_time'], name, value)
+                        self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.State, ['scan_remaining', 'delete_scan_remaining', 'rediscovery_remaining', 'lpd_compeletion_time'], name, value)
 
 
 
@@ -1225,7 +1225,7 @@ class Ipsla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State, [u'target_address', u'target_mask', u'group_status', u'operation_time'], name, value)
+                                self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State, ['target_address', 'target_mask', 'group_status', 'operation_time'], name, value)
 
 
 
@@ -1369,7 +1369,7 @@ class Ipsla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath, ['path_index', u'path_status', u'operation_time', u'response_time', u'success_count', u'failure_count'], name, value)
+                                    self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath, ['path_index', 'path_status', 'operation_time', 'response_time', 'success_count', 'failure_count'], name, value)
 
 
                                 class PathId(Entity):
@@ -1442,7 +1442,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
+                                        self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
 
 
 
@@ -1557,7 +1557,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue, ['address', u'target_address', u'target_mask', u'entry'], name, value)
+                            self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue, ['address', 'target_address', 'target_mask', 'entry'], name, value)
 
 
 
@@ -1695,7 +1695,7 @@ class Ipsla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.State, [u'refresh_remaining'], name, value)
+                        self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.State, ['refresh_remaining'], name, value)
 
 
 
@@ -1886,7 +1886,7 @@ class Ipsla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf, ['vrf_name', u'prefix_count'], name, value)
+                                    self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf, ['vrf_name', 'prefix_count'], name, value)
 
 
 
@@ -1939,7 +1939,7 @@ class Ipsla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix, [u'target_address', u'target_mask'], name, value)
+                                self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix, ['target_address', 'target_mask'], name, value)
 
 
 
@@ -2197,7 +2197,7 @@ class Ipsla(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipsla.Responder.Ports.Port, ['port', u'port_xr', u'local_address', u'num_probes', u'ctrl_probes', u'permanent', u'discard_on', u'pd_time_stamp_failed', u'is_ipsla', u'drop_counter', u'socket', u'local_ipv6_address', u'family'], name, value)
+                    self._perform_setattr(Ipsla.Responder.Ports.Port, ['port', 'port_xr', 'local_address', 'num_probes', 'ctrl_probes', 'permanent', 'discard_on', 'pd_time_stamp_failed', 'is_ipsla', 'drop_counter', 'socket', 'local_ipv6_address', 'family'], name, value)
 
 
                 class Sender(Entity):
@@ -2270,7 +2270,7 @@ class Ipsla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipsla.Responder.Ports.Port.Sender, [u'ip_address', u'port', u'last_recv_time', u'ipv6_address'], name, value)
+                        self._perform_setattr(Ipsla.Responder.Ports.Port.Sender, ['ip_address', 'port', 'last_recv_time', 'ipv6_address'], name, value)
 
 
 
@@ -2646,7 +2646,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common.OperationalState, [u'modification_time', u'start_time', u'attempt_count', u'skipped_count', u'life_remaining', u'frequency', u'recurring', u'operational_state', u'flags', u'local_port', u'unexpected_packets', u'unexpected_control_packets', u'operation_time'], name, value)
+                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common.OperationalState, ['modification_time', 'start_time', 'attempt_count', 'skipped_count', 'life_remaining', 'frequency', 'recurring', 'operational_state', 'flags', 'local_port', 'unexpected_packets', 'unexpected_control_packets', 'operation_time'], name, value)
 
 
 
@@ -3025,7 +3025,7 @@ class Ipsla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target, [u'start_time', u'return_code', u'completion_time_count', u'completion_time', u'min_completion_time', u'max_completion_time', u'sum_completion_time', u'path_count', u'min_path_count', u'max_path_count', u'ok_count', u'no_path_count', u'all_paths_broken_count', u'all_paths_unexplorable_count', u'all_paths_broken_or_unexplorable_count', u'timeout_count', u'internal_error_count', u'unknown_count'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target, ['start_time', 'return_code', 'completion_time_count', 'completion_time', 'min_completion_time', 'max_completion_time', 'sum_completion_time', 'path_count', 'min_path_count', 'max_path_count', 'ok_count', 'no_path_count', 'all_paths_broken_count', 'all_paths_unexplorable_count', 'all_paths_broken_or_unexplorable_count', 'timeout_count', 'internal_error_count', 'unknown_count'], name, value)
 
 
                                 class TargetAddress(Entity):
@@ -3118,7 +3118,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
                                     class Ipv4PrefixTarget(Entity):
@@ -3169,7 +3169,7 @@ class Ipsla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
 
 
@@ -3210,7 +3210,7 @@ class Ipsla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
 
 
@@ -3262,7 +3262,7 @@ class Ipsla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
 
 
@@ -3592,7 +3592,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour, ['hour_index', u'start_time', u'return_code', u'completion_time_count', u'completion_time', u'min_completion_time', u'max_completion_time', u'sum_completion_time', u'path_count', u'min_path_count', u'max_path_count', u'ok_count', u'no_path_count', u'all_paths_broken_count', u'all_paths_unexplorable_count', u'all_paths_broken_or_unexplorable_count', u'timeout_count', u'internal_error_count', u'unknown_count'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour, ['hour_index', 'start_time', 'return_code', 'completion_time_count', 'completion_time', 'min_completion_time', 'max_completion_time', 'sum_completion_time', 'path_count', 'min_path_count', 'max_path_count', 'ok_count', 'no_path_count', 'all_paths_broken_count', 'all_paths_unexplorable_count', 'all_paths_broken_or_unexplorable_count', 'timeout_count', 'internal_error_count', 'unknown_count'], name, value)
 
 
                                     class TargetAddress(Entity):
@@ -3685,7 +3685,7 @@ class Ipsla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
                                         class Ipv4PrefixTarget(Entity):
@@ -3736,7 +3736,7 @@ class Ipsla(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
 
 
@@ -3777,7 +3777,7 @@ class Ipsla(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
 
 
@@ -3829,7 +3829,7 @@ class Ipsla(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
 
 
@@ -3983,7 +3983,7 @@ class Ipsla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath, ['path_index', u'path_status'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath, ['path_index', 'path_status'], name, value)
 
 
                                 class PathId(Entity):
@@ -4056,7 +4056,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
 
 
 
@@ -4161,7 +4161,7 @@ class Ipsla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State, [u'monitor_id', u'discovery_mode', u'start_time', u'return_code', u'completion_time', u'path_count'], name, value)
+                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State, ['monitor_id', 'discovery_mode', 'start_time', 'return_code', 'completion_time', 'path_count'], name, value)
 
 
                             class TargetAddress(Entity):
@@ -4254,7 +4254,7 @@ class Ipsla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
                                 class Ipv4PrefixTarget(Entity):
@@ -4305,7 +4305,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
 
 
@@ -4346,7 +4346,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
 
 
@@ -4398,7 +4398,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
 
 
@@ -4792,7 +4792,7 @@ class Ipsla(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample, ['sample_index', u'start_time', u'response_time', u'return_code'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample, ['sample_index', 'start_time', 'response_time', 'return_code'], name, value)
 
 
                                                 class TargetAddress(Entity):
@@ -4885,7 +4885,7 @@ class Ipsla(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
+                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
                                                     class Ipv4PrefixTarget(Entity):
@@ -4936,7 +4936,7 @@ class Ipsla(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
 
 
@@ -4977,7 +4977,7 @@ class Ipsla(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
 
 
@@ -5029,7 +5029,7 @@ class Ipsla(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
 
 
@@ -5288,7 +5288,7 @@ class Ipsla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket, ['bucket_index', u'start_time', u'response_time', u'return_code'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket, ['bucket_index', 'start_time', 'response_time', 'return_code'], name, value)
 
 
                                         class TargetAddress(Entity):
@@ -5381,7 +5381,7 @@ class Ipsla(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
                                             class Ipv4PrefixTarget(Entity):
@@ -5432,7 +5432,7 @@ class Ipsla(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
 
 
@@ -5473,7 +5473,7 @@ class Ipsla(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
 
 
@@ -5525,7 +5525,7 @@ class Ipsla(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
 
 
@@ -5920,7 +5920,7 @@ class Ipsla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
 
 
@@ -5981,7 +5981,7 @@ class Ipsla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats, [u'op_type'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats, ['op_type'], name, value)
 
 
                                 class IcmpPathJitterStats(Entity):
@@ -6307,7 +6307,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
 
 
@@ -6785,7 +6785,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
 
 
@@ -7114,7 +7114,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
 
 
@@ -7175,7 +7175,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats, [u'op_type'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats, ['op_type'], name, value)
 
 
                                     class IcmpPathJitterStats(Entity):
@@ -7501,7 +7501,7 @@ class Ipsla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
 
 
@@ -7979,7 +7979,7 @@ class Ipsla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
+                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
 
 
@@ -8081,7 +8081,7 @@ class Ipsla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath, ['path_index', u'return_code'], name, value)
+                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath, ['path_index', 'return_code'], name, value)
 
 
                                 class PathId(Entity):
@@ -8154,7 +8154,7 @@ class Ipsla(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
+                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
 
 
 
@@ -8628,7 +8628,7 @@ class Ipsla(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
 
 
@@ -8689,7 +8689,7 @@ class Ipsla(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats, [u'op_type'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats, ['op_type'], name, value)
 
 
                                             class IcmpPathJitterStats(Entity):
@@ -9015,7 +9015,7 @@ class Ipsla(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
 
 
@@ -9493,7 +9493,7 @@ class Ipsla(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
 
 
@@ -10155,7 +10155,7 @@ class Ipsla(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
+                                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
 
 
@@ -10216,7 +10216,7 @@ class Ipsla(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats, [u'op_type'], name, value)
+                                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats, ['op_type'], name, value)
 
 
                                                                 class IcmpPathJitterStats(Entity):
@@ -10542,7 +10542,7 @@ class Ipsla(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
+                                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
 
 
@@ -11020,7 +11020,7 @@ class Ipsla(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
+                                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
 
 
@@ -11394,7 +11394,7 @@ class Ipsla(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
+                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
 
 
@@ -11455,7 +11455,7 @@ class Ipsla(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats, [u'op_type'], name, value)
+                                                        self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats, ['op_type'], name, value)
 
 
                                                     class IcmpPathJitterStats(Entity):
@@ -11781,7 +11781,7 @@ class Ipsla(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
 
 
@@ -12259,7 +12259,7 @@ class Ipsla(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
 
 
@@ -12603,7 +12603,7 @@ class Ipsla(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
 
 
@@ -12664,7 +12664,7 @@ class Ipsla(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats, [u'op_type'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats, ['op_type'], name, value)
 
 
                                             class IcmpPathJitterStats(Entity):
@@ -12990,7 +12990,7 @@ class Ipsla(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
 
 
@@ -13468,7 +13468,7 @@ class Ipsla(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
 
 
@@ -13885,7 +13885,7 @@ class Ipsla(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
 
 
@@ -13946,7 +13946,7 @@ class Ipsla(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats, [u'op_type'], name, value)
+                                                            self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats, ['op_type'], name, value)
 
 
                                                         class IcmpPathJitterStats(Entity):
@@ -14272,7 +14272,7 @@ class Ipsla(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
+                                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
 
 
@@ -14750,7 +14750,7 @@ class Ipsla(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
+                                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
 
 
@@ -14854,7 +14854,7 @@ class Ipsla(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath, ['path_index', u'return_code'], name, value)
+                                                self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath, ['path_index', 'return_code'], name, value)
 
 
                                             class PathId(Entity):
@@ -14927,7 +14927,7 @@ class Ipsla(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
+                                                    self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
 
 
 
@@ -15072,7 +15072,7 @@ class Ipsla(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipsla.ApplicationInfo, [u'version', u'max_entries', u'entries_configured', u'active_entries', u'pending_entries', u'inactive_entries', u'configurable_probes', u'min_memory', u'hw_timestamp_disabled', u'operation_type'], name, value)
+            self._perform_setattr(Ipsla.ApplicationInfo, ['version', 'max_entries', 'entries_configured', 'active_entries', 'pending_entries', 'inactive_entries', 'configurable_probes', 'min_memory', 'hw_timestamp_disabled', 'operation_type'], name, value)
 
 
     def clone_ptr(self):

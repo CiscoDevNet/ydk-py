@@ -596,7 +596,7 @@ class CISCOQOSPIBMIB(Entity):
             	An octet string to identify the current incarnation.  It has meaning to the PDP that installed the PIB and perhaps its standby PDPs. By default the empty string
             	**type**\: str
             
-            	**length:** 128
+            	**length:** 128..128
             
             	**config**\: False
             

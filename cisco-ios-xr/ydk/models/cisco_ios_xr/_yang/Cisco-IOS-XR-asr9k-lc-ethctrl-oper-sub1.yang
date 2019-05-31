@@ -61,6 +61,8 @@ submodule Cisco-IOS-XR-asr9k-lc-ethctrl-oper-sub1 {
         "macaddr";
       leaf entry {
         type uint16;
+        description
+          "macaddr";
       }
     }
   }
@@ -351,6 +353,8 @@ submodule Cisco-IOS-XR-asr9k-lc-ethctrl-oper-sub1 {
         "reg";
       leaf entry {
         type uint16;
+        description
+          "reg";
       }
     }
   }

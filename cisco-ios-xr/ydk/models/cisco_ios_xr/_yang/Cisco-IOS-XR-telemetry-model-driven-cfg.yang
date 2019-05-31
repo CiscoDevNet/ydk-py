@@ -32,6 +32,10 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-23 {
+    description
+      "Changed no-tls to presence leaf";
+  }
   revision 2018-05-29 {
     description
       "Added include empty values.";
@@ -264,8 +268,7 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
           "tls hostname";
       }
       leaf no-tls {
-        type uint32;
-        default "0";
+        type empty;
         description
           "no tls";
       }

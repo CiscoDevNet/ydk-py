@@ -40,6 +40,10 @@ module Cisco-IOS-XR-ip-rib-ipv6-oper {
     description
       "Route lookup key is limited to Prefix and Prefix Length";
   }
+  revision 2018-11-20 {
+    description
+      "Add keys for route lookup via resconf.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";

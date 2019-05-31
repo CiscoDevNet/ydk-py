@@ -501,7 +501,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232, [u'data_bits', u'exec_disabled', u'hardware_flow_control_status', u'parity_status', u'baud_rate', u'stop_bits', u'overrun_error_count', u'framing_error_count', u'parity_error_count'], name, value)
+                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232, ['data_bits', 'exec_disabled', 'hardware_flow_control_status', 'parity_status', 'baud_rate', 'stop_bits', 'overrun_error_count', 'framing_error_count', 'parity_error_count'], name, value)
 
 
 
@@ -642,7 +642,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, [u'terminal_length', u'terminal_width', u'async_interface', u'flow_control_start_character', u'flow_control_stop_character', u'domain_lookup_enabled', u'motd_banner_enabled', u'private_flag', u'terminal_type', u'absolute_timeout', u'idle_time'], name, value)
+                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
 
 
 
@@ -681,7 +681,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec, [u'time_stamp_enabled'], name, value)
+                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec, ['time_stamp_enabled'], name, value)
 
 
 
@@ -720,7 +720,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa, [u'user_name'], name, value)
+                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa, ['user_name'], name, value)
 
 
 
@@ -1291,7 +1291,7 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Connection, [u'incoming_host_address', u'host_address_family', u'service'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Connection, ['incoming_host_address', 'host_address_family', 'service'], name, value)
 
 
 
@@ -1432,7 +1432,7 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, [u'terminal_length', u'terminal_width', u'async_interface', u'flow_control_start_character', u'flow_control_stop_character', u'domain_lookup_enabled', u'motd_banner_enabled', u'private_flag', u'terminal_type', u'absolute_timeout', u'idle_time'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
 
 
 
@@ -1471,7 +1471,7 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Exec, [u'time_stamp_enabled'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Exec, ['time_stamp_enabled'], name, value)
 
 
 
@@ -1510,7 +1510,7 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Aaa, [u'user_name'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Aaa, ['user_name'], name, value)
 
 
 
@@ -2369,7 +2369,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232, [u'data_bits', u'exec_disabled', u'hardware_flow_control_status', u'parity_status', u'baud_rate', u'stop_bits', u'overrun_error_count', u'framing_error_count', u'parity_error_count'], name, value)
+                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232, ['data_bits', 'exec_disabled', 'hardware_flow_control_status', 'parity_status', 'baud_rate', 'stop_bits', 'overrun_error_count', 'framing_error_count', 'parity_error_count'], name, value)
 
 
 
@@ -2510,7 +2510,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, [u'terminal_length', u'terminal_width', u'async_interface', u'flow_control_start_character', u'flow_control_stop_character', u'domain_lookup_enabled', u'motd_banner_enabled', u'private_flag', u'terminal_type', u'absolute_timeout', u'idle_time'], name, value)
+                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
 
 
 
@@ -2549,7 +2549,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec, [u'time_stamp_enabled'], name, value)
+                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec, ['time_stamp_enabled'], name, value)
 
 
 
@@ -2588,7 +2588,7 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa, [u'user_name'], name, value)
+                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa, ['user_name'], name, value)
 
 
 

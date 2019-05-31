@@ -244,7 +244,7 @@ class SystemTime(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemTime.Clock, [u'year', u'month', u'day', u'hour', u'minute', u'second', u'millisecond', u'wday', u'time_zone', u'time_source'], name, value)
+            self._perform_setattr(SystemTime.Clock, ['year', 'month', 'day', 'hour', 'minute', 'second', 'millisecond', 'wday', 'time_zone', 'time_source'], name, value)
 
 
 
@@ -261,7 +261,7 @@ class SystemTime(Entity):
         
         .. attribute:: uptime
         
-        	Amount of time in seconds since this system was last initialized
+        	Amount of time in seconds since this system     was last initialized
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -297,7 +297,7 @@ class SystemTime(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemTime.Uptime, [u'host_name', u'uptime'], name, value)
+            self._perform_setattr(SystemTime.Uptime, ['host_name', 'uptime'], name, value)
 
 
     def clone_ptr(self):

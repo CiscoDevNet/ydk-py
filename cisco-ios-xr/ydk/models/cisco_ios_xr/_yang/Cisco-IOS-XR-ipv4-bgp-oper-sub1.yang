@@ -652,7 +652,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       enum "scoped-sync-retry" {
         value 31;
         description
-          "Scoped sync is repeated due to strict
+          "Scoped sync is repeated due to strict          
            prefix check failure";
       }
       enum "cluster-id-changed" {
@@ -663,13 +663,13 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       enum "rr-disable-changed" {
         value 33;
         description
-          "Client-to-client reflection disabled/enabled
+          "Client-to-client reflection disabled/enabled   
            for cluster to which neighbor belongs";
       }
       enum "aigp-changed" {
         value 34;
         description
-          "AIGP configuration has changed
+          "AIGP configuration has changed                 
            for cluster to which neighbor belongs";
       }
       enum "signalling-changed" {
@@ -1282,33 +1282,6 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     }
     description
       "BGP Binding SID type";
-  }
-
-  typedef Bgp-prefix-sid {
-    type enumeration {
-      enum "prefix-sid-label-index" {
-        value 1;
-        description
-          "Label index type";
-      }
-      enum "prefix-sid-ipv6-sid" {
-        value 2;
-        description
-          "IPV6 SID type";
-      }
-      enum "prefix-sid-origin-at-or-srgb" {
-        value 3;
-        description
-          "SRGB type";
-      }
-      enum "prefix-sid-srv6" {
-        value 4;
-        description
-          "SRV6 SID type";
-      }
-    }
-    description
-      "Prefix SID type";
   }
 
   typedef Bgp-bp-stage {
@@ -2493,6 +2466,115 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     }
   }
 
+  grouping BGP-SRV6-SID-MANAGER-BAG {
+    description
+      "SRv6 SID Manager information";
+    container first-sid-mgr-connection-up-time-stamp {
+      description
+        "First SID Manager Connection Up time";
+      uses BGP-TIMESPEC;
+    }
+    container last-sid-mgr-connection-up-time-stamp {
+      description
+        "Last SID Manager Connection Up time";
+      uses BGP-TIMESPEC;
+    }
+    container first-sid-mgr-connection-down-time-stamp {
+      description
+        "First SID Manager Connection Down time";
+      uses BGP-TIMESPEC;
+    }
+    container last-sid-mgr-connection-down-time-stamp {
+      description
+        "Last SID Manager Connection Down time";
+      uses BGP-TIMESPEC;
+    }
+    leaf sid-mgr-connection-up-count {
+      type uint32;
+      description
+        "Numer of SID Manager Up events";
+    }
+    leaf last-sid-mgr-connection-up-age {
+      type uint32;
+      units "second";
+      description
+        "Time since last SID Manager Connection Up event
+         in seconds";
+    }
+    leaf sid-mgr-connection-down-count {
+      type uint32;
+      description
+        "Numer of SID Manager Down events";
+    }
+    leaf last-sid-mgr-connection-down-age {
+      type uint32;
+      units "second";
+      description
+        "Time since last SID Manager Connection Down
+         event in seconds";
+    }
+    leaf sid-mgr-alive {
+      type boolean;
+      description
+        "SID Manager connection is Up";
+    }
+  }
+
+  grouping BGP-EDM-LOCATOR-ENTRY {
+    description
+      "BGP EDM LOCATOR ENTRY";
+    leaf locator-name {
+      type string;
+      description
+        "Locator name";
+    }
+    leaf locator-id {
+      type uint32;
+      description
+        "Locator Id";
+    }
+    leaf locator-address {
+      type Ipv6-address;
+      description
+        "Locator address";
+    }
+    leaf locator-address-len {
+      type uint8;
+      description
+        "Locator address length";
+    }
+    leaf stale {
+      type boolean;
+      description
+        "Locator stale";
+    }
+  }
+
+  grouping BGP-SRV6-LOCATOR-BAG {
+    description
+      "SRv6 Locator information";
+    container entry {
+      description
+        "entry";
+      uses BGP-EDM-LOCATOR-ENTRY;
+    }
+  }
+
+  grouping BGP-SRV6-SUMMARY-BAG {
+    description
+      "SRv6 summary information";
+    leaf locator-count {
+      type uint32;
+      description
+        "Number of locators in bgp";
+    }
+    leaf srv6-enabled {
+      type boolean;
+      description
+        "SRv6 enabled";
+    }
+  }
+
   grouping BGP-UPDFILTER-PROC-BAG {
     description
       "BGP Update filtering Process information";
@@ -2551,6 +2633,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Raw Message data in binary format";
       leaf entry {
         type uint8;
+        description
+          "Raw Message data in binary format";
       }
     }
   }
@@ -2985,6 +3069,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "eBGP neighbor with no configured outbound policy";
     }
+    leaf is-upd-orig-loopchk-disable-set {
+      type boolean;
+      description
+        "upd_orig_loopchk_disable set ";
+    }
     leaf is-as-override-set {
       type boolean;
       description
@@ -3095,6 +3184,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Extended community attribute";
       leaf entry {
         type uint8;
+        description
+          "Extended community attribute";
       }
     }
     list extended-community-standby {
@@ -3102,6 +3193,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Extended community attribute";
       leaf entry {
         type uint8;
+        description
+          "Extended community attribute";
       }
     }
   }
@@ -3127,6 +3220,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     container cfg-local-address {
       description
         "Configured local address";
+      uses BGP-ADDRTYPE;
+    }
+    container local-address-subnet {
+      description
+        "local address subnet address";
       uses BGP-ADDRTYPE;
     }
     leaf speaker-id {
@@ -3220,7 +3318,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf tcpmss {
       type uint32;
       description
-        "Neighbor TCP Maximum Segment
+        "Neighbor TCP Maximum Segment                    
          size";
     }
     leaf msg-log-in {
@@ -3243,6 +3341,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Option to not prepend the Local AS to
          announcements";
+    }
+    leaf merge-inbound-safi1and4-updates {
+      type boolean;
+      description
+        "Merge SAFI-1 and SAFI-4 updates from neighbor";
     }
     leaf is-capability-negotiation-performed {
       type boolean;
@@ -3464,6 +3567,16 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type string;
       description
         "Update Source";
+    }
+    leaf is-local-addr-subnet-cfg {
+      type boolean;
+      description
+        "local-address-subnet configured";
+    }
+    leaf local-address-subnet-len {
+      type uint32;
+      description
+        "local address subnet address len";
     }
     leaf addpath-send-enable {
       type boolean;
@@ -3880,6 +3993,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       leaf entry {
         type uint8;
         units "byte";
+        description
+          "NCD endpoint bytestream";
       }
     }
   }
@@ -3893,6 +4008,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "nsr pl recv drop array";
       leaf entry {
         type uint32;
+        description
+          "nsr pl recv drop array";
       }
     }
   }
@@ -3906,6 +4023,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "nsr pl send drop array";
       leaf entry {
         type uint32;
+        description
+          "nsr pl send drop array";
       }
     }
   }
@@ -3919,6 +4038,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Total sent";
       leaf entry {
         type uint64;
+        description
+          "Total sent";
       }
     }
     list num-recv {
@@ -3927,6 +4048,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Total recvd";
       leaf entry {
         type uint64;
+        description
+          "Total recvd";
       }
     }
     list num-sent-drop {
@@ -4293,10 +4416,10 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "event_file_attach calls for input";
     }
-    leaf updgen-timer-id {
-      type uint32;
+    leaf updgen-timer-running {
+      type boolean;
       description
-        "Updgen master timer ID";
+        "Updgen master timer running";
     }
     leaf updgen-tree-timer-left {
       type uint64;
@@ -4318,10 +4441,10 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Timestamp when updgen timer handler got called";
     }
-    leaf io-timer-id {
-      type uint32;
+    leaf io-timer-running {
+      type boolean;
       description
-        "IO master timer ID";
+        "IO master timer Running";
     }
     leaf io-tree-timer-left {
       type uint64;
@@ -4464,6 +4587,10 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       leaf entry {
         type uint32;
         units "second";
+        description
+          "Time that each mode was entered (seconds since
+           
+           Jan 1 1970)";
       }
     }
     list standby-nsr-mode-enter-time {
@@ -4475,6 +4602,10 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       leaf entry {
         type uint32;
         units "second";
+        description
+          "Time that each mode was entered (seconds since
+           
+           Jan 1 1970)";
       }
     }
     list active-nsrfo-time {
@@ -4486,6 +4617,10 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       leaf entry {
         type uint32;
         units "second";
+        description
+          "Time that each thread isdone with its
+           
+           go-activeprocessing (seconds since Jan 1 1970)";
       }
     }
     list postit-count-info {
@@ -4720,16 +4855,53 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Memory (in bytes) used by ATTRSET entries";
     }
-    leaf lindex-entry-count {
+    leaf prefix-sid-label-index-count {
       type uint32;
       description
-        "Number of LINDEX entries";
+        "Number of Prefix-SID LabelIndex entries";
     }
-    leaf lindex-memory {
+    leaf prefix-sid-label-index-memory {
       type uint32;
       units "byte";
       description
-        "Memory (in bytes) used by LINDEX entries";
+        "Memory (in bytes) used by Prefix-SID LabelIndex
+         entries";
+    }
+    leaf prefix-sid-orig-srgb-count {
+      type uint32;
+      description
+        "Number of Prefix-SID OrigSRGB entries";
+    }
+    leaf prefix-sid-orig-srgb-memory {
+      type uint32;
+      units "byte";
+      description
+        "Memory (in bytes) used by Prefix-SID OrigSRGB
+         entries";
+    }
+    leaf prefix-sids-rv6vpnsid-count {
+      type uint32;
+      description
+        "Number of Prefix-SID SRv6VPNSID entries";
+    }
+    leaf prefix-sids-rv6vpnsid-memory {
+      type uint32;
+      units "byte";
+      description
+        "Memory (in bytes) used by Prefix-SID SRv6VPNSID
+         entries";
+    }
+    leaf prefix-sid-unk-tl-vs-count {
+      type uint32;
+      description
+        "Number of Prefix-SID UnkTLVs entries";
+    }
+    leaf prefix-sid-unk-tl-vs-memory {
+      type uint32;
+      units "byte";
+      description
+        "Memory (in bytes) used by Prefix-SID UnkTLVs
+         entries";
     }
     leaf local-as {
       type uint32;
@@ -4779,6 +4951,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "pool size";
       leaf entry {
         type uint32;
+        description
+          "pool size";
       }
     }
     list pool-alloc-count {
@@ -4787,6 +4961,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "pool alloc count";
       leaf entry {
         type uint32;
+        description
+          "pool alloc count";
       }
     }
     list pool-free-count {
@@ -4795,6 +4971,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "pool free count";
       leaf entry {
         type uint32;
+        description
+          "pool free count";
       }
     }
     list msg-log-pool-size {
@@ -4803,6 +4981,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "msg log pool size";
       leaf entry {
         type uint32;
+        description
+          "msg log pool size";
       }
     }
     list msg-log-pool-alloc-count {
@@ -4811,6 +4991,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "msg log pool alloc count";
       leaf entry {
         type uint32;
+        description
+          "msg log pool alloc count";
       }
     }
     list msg-log-pool-free-count {
@@ -4819,6 +5001,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "msg log pool free count";
       leaf entry {
         type uint32;
+        description
+          "msg log pool free count";
       }
     }
     list bmp-pool-size {
@@ -4827,6 +5011,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "bmp pool size";
       leaf entry {
         type uint32;
+        description
+          "bmp pool size";
       }
     }
     list bmp-pool-alloc-count {
@@ -4835,6 +5021,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "bmp pool alloc count";
       leaf entry {
         type uint32;
+        description
+          "bmp pool alloc count";
       }
     }
     list bmp-pool-free-count {
@@ -4843,6 +5031,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "bmp pool free count";
       leaf entry {
         type uint32;
+        description
+          "bmp pool free count";
       }
     }
   }
@@ -5388,6 +5578,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Raw Message data in binary format";
       leaf entry {
         type uint8;
+        description
+          "Raw Message data in binary format";
       }
     }
     list update-filter-element {
@@ -5655,6 +5847,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Raw Message data in binary format";
       leaf entry {
         type uint8;
+        description
+          "Raw Message data in binary format";
       }
     }
     list update-error-element {
@@ -5784,6 +5978,10 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
          session establishment";
       leaf entry {
         type uint32;
+        description
+          "Number of occurence of each action type since
+           
+           session establishment";
       }
     }
     list update-error-message {
@@ -6312,7 +6510,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       "Prefix list entry";
     list bgp-pfxlst {
       description
-        "bgp pfxlst";
+        "Next entry in prefix list";
       container bgp-prefix {
         description
           "BGP prefix";
@@ -7547,6 +7745,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "eBGP neighbor with no configured outbound policy";
     }
+    leaf is-upd-orig-loopchk-disable-set {
+      type boolean;
+      description
+        "upd_orig_loopchk_disable set ";
+    }
     leaf is-as-override-set {
       type boolean;
       description
@@ -7701,6 +7904,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Extended community attribute";
       leaf entry {
         type uint8;
+        description
+          "Extended community attribute";
       }
     }
     list extended-community-standby {
@@ -7708,6 +7913,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Extended community attribute";
       leaf entry {
         type uint8;
+        description
+          "Extended community attribute";
       }
     }
   }
@@ -7798,7 +8005,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint32;
       units "millisecond";
       description
-        "Time spent processing sub-group message list
+        "Time spent processing sub-group message list 
          (milliseconds)";
     }
     leaf write-queue-calls-count {
@@ -7950,6 +8157,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Message data in last notification";
       leaf entry {
         type uint8;
+        description
+          "Message data in last notification";
       }
     }
   }
@@ -8217,7 +8426,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf tcpmss {
       type uint32;
       description
-        "Neighbor TCP Maximum Segment
+        "Neighbor TCP Maximum Segment                    
          size";
     }
     leaf msg-log-in {
@@ -8784,6 +8993,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Dynamic neighbor";
     }
+    leaf merge-inbound-safi1and4-updates {
+      type boolean;
+      description
+        "Merge SAFI-1 and SAFI-4 updates from neighbor";
+    }
     list af-data {
       max-elements "25";
       description
@@ -8885,6 +9099,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Key of EPE object";
       leaf entry {
         type uint8;
+        description
+          "Key of EPE object";
       }
     }
     list nexthop-id {
@@ -8892,6 +9108,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "List of nexthop ID of EPE";
       leaf entry {
         type uint32;
+        description
+          "List of nexthop ID of EPE";
       }
     }
     list ifhandle {
@@ -8899,6 +9117,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "List of ifhandle of EPE";
       leaf entry {
         type uint32;
+        description
+          "List of ifhandle of EPE";
       }
     }
     list first-hop {
@@ -9039,7 +9259,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf advertisedto-pe {
       type boolean;
       description
-        "Net could be advertised
+        "Net could be advertised                         
          to PE peers";
     }
     leaf has-local-label {
@@ -9081,7 +9301,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf net-flags {
       type uint32;
       description
-        "Flags associated with
+        "Flags associated with                           
          net";
     }
     leaf net-extended-flags {
@@ -9466,6 +9686,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Set of received label stack";
       leaf entry {
         type uint32;
+        description
+          "Set of received label stack";
       }
     }
   }
@@ -9549,6 +9771,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Set of route targets";
       leaf entry {
         type uint8;
+        description
+          "Set of route targets";
       }
     }
   }
@@ -9632,6 +9856,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Nexthop metrices";
       leaf entry {
         type uint32;
+        description
+          "Nexthop metrices";
       }
     }
     list nexthop-refcount {
@@ -9639,6 +9865,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Nexthop refcounts";
       leaf entry {
         type uint32;
+        description
+          "Nexthop refcounts";
       }
     }
     list nexthop-gateway-internal-info {
@@ -10379,6 +10607,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Extended community attribute";
       leaf entry {
         type uint8;
+        description
+          "Extended community attribute";
       }
     }
     list neighbor {
@@ -11168,6 +11398,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Sync-group Version";
       leaf entry {
         type uint32;
+        description
+          "Sync-group Version";
       }
     }
   }
@@ -11722,6 +11954,10 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       leaf entry {
         type uint32;
         units "second";
+        description
+          "Time that each mode was entered (seconds since
+           
+           Jan 1 1970)";
       }
     }
     list total-pim-install-add {
@@ -11730,6 +11966,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Total number of install to PIM for add";
       leaf entry {
         type uint32;
+        description
+          "Total number of install to PIM for add";
       }
     }
     list total-pim-install-del {
@@ -11738,6 +11976,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Total number of install to PIM for del";
       leaf entry {
         type uint32;
+        description
+          "Total number of install to PIM for del";
       }
     }
     list total-pim-callback-add {
@@ -11746,6 +11986,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Total number of Pim callbacks for add";
       leaf entry {
         type uint32;
+        description
+          "Total number of Pim callbacks for add";
       }
     }
     list total-pim-callback-del {
@@ -11754,6 +11996,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Total number of Pim callbacks for del";
       leaf entry {
         type uint32;
+        description
+          "Total number of Pim callbacks for del";
       }
     }
     list total-pim-callback-add-local {
@@ -11762,6 +12006,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Total number of Pim callbacks for local add";
       leaf entry {
         type uint32;
+        description
+          "Total number of Pim callbacks for local add";
       }
     }
     list total-pim-callback-del-local {
@@ -11770,6 +12016,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Total number of Pim callbacks for Local del";
       leaf entry {
         type uint32;
+        description
+          "Total number of Pim callbacks for Local del";
       }
     }
   }
@@ -12727,36 +12975,122 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     }
   }
 
-  grouping BGP-PSID-TLV-TYPE {
+  grouping BGP-BAG-PSID-UNK-TLVS {
     description
-      "BGP Prefix SID TLV type";
-    leaf type {
-      type Bgp-prefix-sid;
-      description
-        "Prefix SID TLV type field";
-    }
-    leaf len {
+      "Prefix-SID Unknown TLVs buffer";
+    leaf tlv-count {
       type uint16;
-      units "byte";
       description
-        "Prefix SID TLV Length in bytes";
+        "Number of unknown TLVs stored";
     }
-    leaf val {
-      type string {
-        length "0..46";
-      }
+    leaf received-buffer-length {
+      type uint32;
       description
-        "Prefix SID TLV value string";
+        "Received length of unknown TLVs";
+    }
+    list tl-vs-buffer {
+      description
+        "Limited buffer of unknown TLVs";
+      leaf entry {
+        type uint8;
+        description
+          "Limited buffer of unknown TLVs";
+      }
     }
   }
 
-  grouping BGP-PSID-TYPE {
+  grouping BGP-BAG-PSID-SRV6-VPN-TSID {
     description
-      "BGP Prefix SID attribute type";
-    list prefix-sid-tlv {
+      "Prefix-SID SRv6 VPN Type And SID info";
+    leaf sid-type {
+      type uint8;
       description
-        "Prefix SID TLV array";
-      uses BGP-PSID-TLV-TYPE;
+        "SID Type";
+    }
+    leaf sid-flags {
+      type uint8;
+      description
+        "SID Flags";
+    }
+    leaf sid-value {
+      type inet:ipv6-address;
+      description
+        "SID Value";
+    }
+  }
+
+  grouping BGP-BAG-PSID-SRV6-VPN-SID {
+    description
+      "Prefix-SID SRv6-VPN-SID TLV info";
+    leaf reserved {
+      type uint8;
+      description
+        "Reserved field";
+    }
+    leaf sid-count {
+      type uint32;
+      description
+        "Number of SIDs";
+    }
+    list sid {
+      description
+        "List of SIDs";
+      uses BGP-BAG-PSID-SRV6-VPN-TSID;
+    }
+  }
+
+  grouping BGP-BAG-SRGB-RANGE {
+    description
+      "SRGB Range";
+    leaf range-start {
+      type uint32;
+      description
+        "Range start";
+    }
+    leaf range-end {
+      type uint32;
+      description
+        "Range end";
+    }
+  }
+
+  grouping BGP-BAG-PSID-ORIG-SRGB {
+    description
+      "Prefix-SID Orig-SRGB TLV info";
+    leaf flags {
+      type uint16;
+      description
+        "Flags field";
+    }
+    leaf range-count {
+      type uint32;
+      description
+        "Number of SRGB ranges";
+    }
+    list range {
+      description
+        "List of SRGB ranges";
+      uses BGP-BAG-SRGB-RANGE;
+    }
+  }
+
+  grouping BGP-BAG-PSID-LABEL-INDEX {
+    description
+      "Prefix-SID Label-Index info";
+    leaf reserved {
+      type uint8;
+      description
+        "Reserved field";
+    }
+    leaf flags {
+      type uint16;
+      description
+        "Flags field";
+    }
+    leaf label-index {
+      type uint32;
+      description
+        "LabelIndex field";
     }
   }
 
@@ -12778,10 +13112,25 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
   grouping BGP-COMMON-ATTR-ENTRY {
     description
       "Common Set of attribute entry";
-    container prefix-sid-attr {
+    container prefix-sid-label-index {
       description
-        "Prefix SID attribute";
-      uses BGP-PSID-TYPE;
+        "Prefix-SID LabelIndex TLV info";
+      uses BGP-BAG-PSID-LABEL-INDEX;
+    }
+    container prefix-sid-orig-srgb {
+      description
+        "Prefix-SID OrigSRGB TLV info";
+      uses BGP-BAG-PSID-ORIG-SRGB;
+    }
+    container prefix-sids-rv6vpnsid {
+      description
+        "Prefix-SID SRv6VPNSID TLV info";
+      uses BGP-BAG-PSID-SRV6-VPN-SID;
+    }
+    container prefix-sid-unk-tl-vs {
+      description
+        "Prefix-SID UnkTLVs TLV info";
+      uses BGP-BAG-PSID-UNK-TLVS;
     }
     container tunnel-encap {
       description
@@ -12866,7 +13215,27 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf is-label-index-present {
       type boolean;
       description
-        "Label Index attribute present";
+        "Label Index attribute - present - deprecated";
+    }
+    leaf is-prefix-sid-label-indexpresent {
+      type boolean;
+      description
+        "Prefix-SID LabelIndex present";
+    }
+    leaf is-prefix-sid-orig-srg-bpresent {
+      type boolean;
+      description
+        "Prefix-SID OrigSRGB present";
+    }
+    leaf is-prefix-sids-rv6vpnsi-dpresent {
+      type boolean;
+      description
+        "Prefix-SID SRv6VPNSID present";
+    }
+    leaf is-prefix-sid-unk-tl-vspresent {
+      type boolean;
+      description
+        "Prefix-SID UnkTLVs present";
     }
     leaf neighbor-as {
       type uint32;
@@ -12958,6 +13327,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Community attribute";
       leaf entry {
         type uint32;
+        description
+          "Community attribute";
       }
     }
     list extended-community {
@@ -12965,6 +13336,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Extended community attribute";
       leaf entry {
         type uint8;
+        description
+          "Extended community attribute";
       }
     }
     list unknown-attribute {
@@ -12972,6 +13345,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Unknown attributes";
       leaf entry {
         type uint8;
+        description
+          "Unknown attributes";
       }
     }
     list cluster {
@@ -12979,6 +13354,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Cluster list attribute";
       leaf entry {
         type uint32;
+        description
+          "Cluster list attribute";
       }
     }
     list l2tpv3-cookie {
@@ -12986,6 +13363,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "L2TPv3 Cookie";
       leaf entry {
         type uint8;
+        description
+          "L2TPv3 Cookie";
       }
     }
     list connector-value {
@@ -12993,6 +13372,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Connector Value";
       leaf entry {
         type uint8;
+        description
+          "Connector Value";
       }
     }
     list pmsi-value {
@@ -13000,6 +13381,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "PMSI Value";
       leaf entry {
         type uint8;
+        description
+          "PMSI Value";
       }
     }
     list ls-attr {
@@ -13007,6 +13390,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "BGP LS attribute";
       leaf entry {
         type uint8;
+        description
+          "BGP LS attribute";
       }
     }
     list pe-distinguisher-label {
@@ -13605,6 +13990,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "L2VPN EVPN ESI";
     }
+    leaf evpn-path-flags {
+      type uint32;
+      description
+        "L2VPN EVPN Path flags";
+    }
     leaf has-gw-addr {
       type boolean;
       description
@@ -13712,13 +14102,13 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf advertisedto-pe {
       type boolean;
       description
-        "Net could be advertised
+        "Net could be advertised                         
          to PE peers";
     }
     leaf rib-failed {
       type boolean;
       description
-        "Is net failed installed
+        "Is net failed installed                         
          in RIB";
     }
     leaf sn-rpki-origin-as-validity {
@@ -13876,11 +14266,18 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Mac associated with IP";
     }
+    leaf ether-tag-id {
+      type uint32;
+      description
+        "Ethernet Tag Id";
+    }
     list rcvd-label {
       description
         "Path received label stack";
       leaf entry {
         type uint32;
+        description
+          "Path received label stack";
       }
     }
     list l2vpn-circuit-status-value {
@@ -13888,6 +14285,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "L2VPN Circuit Status Value";
       leaf entry {
         type uint8;
+        description
+          "L2VPN Circuit Status Value";
       }
     }
     list mvpn-pmsi-value {
@@ -13895,6 +14294,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Mvpn PMSI Value";
       leaf entry {
         type uint8;
+        description
+          "Mvpn PMSI Value";
       }
     }
     list extended-community {
@@ -13902,6 +14303,8 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Mvpn Extended community attribute";
       leaf entry {
         type uint8;
+        description
+          "Mvpn Extended community attribute";
       }
     }
     list local-peers-advertised-to {
@@ -14444,6 +14847,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "BGP Site-of-Origin info";
       uses BGP-CONFIG-INFO;
     }
+    container upd-orig-loopchk-disable-info {
+      description
+        "Disable originator loopchk info";
+      uses BGP-CONFIG-INFO;
+    }
     container weight-info {
       description
         "Default weight item info";
@@ -14550,6 +14958,16 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       uses BGP-CONFIG-INFO;
     }
     container advertise-vrf-re-imp-disable-afi-v6-info {
+      description
+        "Advertise Afi Info ";
+      uses BGP-CONFIG-INFO;
+    }
+    container advertise-vrf-evpn-re-imp-disable-afi-v4-info {
+      description
+        "Advertise Afi Info ";
+      uses BGP-CONFIG-INFO;
+    }
+    container advertise-vrf-evpn-re-imp-disable-afi-v6-info {
       description
         "Advertise Afi Info ";
       uses BGP-CONFIG-INFO;
@@ -14707,6 +15125,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Always use soft reconfig";
     }
+    leaf upd-orig-loopchk-disable {
+      type boolean;
+      description
+        "Disable originator loop check";
+    }
     leaf site-of-origin {
       type string;
       description
@@ -14839,6 +15262,16 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Advertise afi";
     }
+    leaf advertise-vrf-evpn-re-imp-disable-v4 {
+      type uint8;
+      description
+        "Advertise afi";
+    }
+    leaf advertise-vrf-evpn-re-imp-disable-v6 {
+      type uint8;
+      description
+        "Advertise afi";
+    }
     leaf encapsulation-type {
       type uint32;
       description
@@ -14881,7 +15314,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       "BGP config group entity identification";
     list bgp-config-entid {
       description
-        "bgp config entid";
+        "Next entry in the list";
       container neighbor-address {
         description
           "Neighbor Address";
@@ -14928,6 +15361,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Local ipv4 or ipv6 address for neighbor
          connection";
+      uses BGP-ADDRTYPE;
+    }
+    container local-address-subnet {
+      description
+        "local address ipv4 or ipv6 address mask";
       uses BGP-ADDRTYPE;
     }
     container remote-as-info {
@@ -15018,6 +15456,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     container update-source-info {
       description
         "Update source item info";
+      uses BGP-CONFIG-INFO;
+    }
+    container local-address-subnet-info {
+      description
+        "Local address subnet item info";
       uses BGP-CONFIG-INFO;
     }
     container dmz-link-bandwidth-info {
@@ -15191,6 +15634,12 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "GracefulShutdownAcivate info";
       uses BGP-CONFIG-INFO;
     }
+    container update-in-safi14-merge-info {
+      description
+        "Merge SAFI-1 and SAFI-4 updates from neighbor
+         info";
+      uses BGP-CONFIG-INFO;
+    }
     container capability-negotiation-suppressed-info {
       description
         "Capability negotiation suppressed info";
@@ -15349,6 +15798,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Source of routing updates";
     }
+    leaf local-address-subnet-len {
+      type uint32;
+      description
+        "local address prefix len";
+    }
     leaf dmz-link-bandwidth {
       type uint32;
       description
@@ -15374,6 +15828,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint32;
       description
         "Suppress BGP 4byteas Cap";
+    }
+    leaf update-in-safi14-merge {
+      type uint32;
+      description
+        "Merge SAFI-1 and SAFI-4 updates from neighbor";
     }
     leaf capability-negotiation-suppressed {
       type uint32;

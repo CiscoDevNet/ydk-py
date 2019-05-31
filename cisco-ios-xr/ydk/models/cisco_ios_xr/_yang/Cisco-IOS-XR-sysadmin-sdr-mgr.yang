@@ -1,6 +1,7 @@
 module Cisco-IOS-XR-sysadmin-sdr-mgr {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-sdr-mgr";
   prefix calvados_sdr;
+
   import tailf-common {
     prefix tailf;
   }
@@ -10,7 +11,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
   import Cisco-IOS-XR-sysadmin-show-trace {
     prefix show_trace;
   }
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -21,26 +24,25 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR SysAdmin configuration.
-
-This module defines the SDR-SM support config for SDR
-
-Copyright(c) 2011-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR SysAdmin configuration.
+     
+     This module defines the SDR-SM support config for SDR
+     
+     Copyright(c) 2011-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
+
   revision 2018-10-22 {
     description
       "Removed choice for action re_pair";
   }
-
 
   typedef Location {
     type string {
@@ -101,11 +103,12 @@ All rights reserved.
     description
       "The List of vm reload reasons";
   }
+
   container sdr-config {
     list sdr {
+      key "name";
       description
         "Add/Edit a Secure Domain Router by name";
-      key "name";
       leaf name {
         type string {
           pattern "[a-zA-Z0-9_-]{1,30}";
@@ -177,22 +180,25 @@ All rights reserved.
               "VM Number of CPUs";
           }
         }
-        leaf disk-space-size {
-          type uint32;
-          description
-            "Edit disk space size for a Secure Domain Router, unit in [MB]";
-        }
       }
       list location {
+        key "node-location";
         min-elements 1;
         max-elements "64";
         description
           "Enter list of nodes' location to add to this LR";
-        key "node-location";
         leaf node-location {
           type Location;
           description
             "Enter location or all";
+        }
+        leaf-list slice {
+          type uint8 {
+            range "0 .. 4";
+          }
+          max-elements "4";
+          description
+            "Enter list of slices to add to this SDR";
         }
       }
       container Action {
@@ -207,9 +213,9 @@ All rights reserved.
           }
         }
         list location {
+          key "node-location";
           min-elements 1;
           max-elements "64";
-          key "node-location";
           leaf node-location {
             type VMLocationall;
             description
@@ -218,7 +224,6 @@ All rights reserved.
           tailf:action "reload" {
             input {
               choice what_act {
-                mandatory true;
                 case act_force {
                   leaf force {
                     type empty;
@@ -263,9 +268,9 @@ All rights reserved.
       container detail {
         config false;
         list location {
+          key "node-location";
           min-elements 1;
           max-elements "64";
-          key "node-location";
           leaf node-location {
             type VMLocation;
           }
@@ -308,6 +313,14 @@ All rights reserved.
           }
           leaf rack-type {
             type string;
+          }
+          leaf-list slice {
+            type union {
+              type uint8;
+              type string;
+            }
+            description
+              "Slice numbers if configured";
           }
           leaf chassis_serial {
             type string;
@@ -354,18 +367,12 @@ All rights reserved.
       }
       container reboot-history {
         config false;
-        container reverse {
-          uses rebhist;
-        }
-        container default-disp {
-          uses rebhist;
-        }
 
         grouping rebhist {
           list location {
+            key "node-location";
             min-elements 1;
             max-elements "64";
-            key "node-location";
             leaf node-location {
               type VMLocation;
             }
@@ -395,13 +402,19 @@ All rights reserved.
             }
           }
         }
+        container reverse {
+          uses rebhist;
+        }
+        container default-disp {
+          uses rebhist;
+        }
       }
       container nodes {
         config false;
         list location {
+          key "node-location";
           min-elements 1;
           max-elements "64";
-          key "node-location";
           leaf node-location {
             type VMLocation;
           }
@@ -459,9 +472,9 @@ All rights reserved.
           }
         }
         list pairing {
+          key "name";
           min-elements 1;
           max-elements "64";
-          key "name";
           leaf name {
             type string;
           }
@@ -474,9 +487,9 @@ All rights reserved.
         }
       }
       list pairing {
+        key "name";
         description
           "Add/Edit a RP Pairing by name";
-        key "name";
         leaf name {
           type string {
             pattern "[a-zA-Z0-9_-]{1,64}";
@@ -484,15 +497,15 @@ All rights reserved.
         }
         leaf rp1 {
           type RPLocation;
+          mandatory true;
           description
             "Enter RP Node location";
-          mandatory true;
         }
         leaf rp2 {
           type RPLocation;
+          mandatory true;
           description
             "Enter RP Node location";
-          mandatory true;
         }
       }
     }
@@ -506,9 +519,9 @@ All rights reserved.
   container sdr-operation {
     config false;
     list sdr {
+      key "name";
       description
         "SDR";
-      key "name";
       leaf name {
         type string {
           pattern "[a-zA-Z0-9_-]{1,30}";
@@ -519,9 +532,9 @@ All rights reserved.
       container nodes {
         config false;
         list location {
+          key "node-location node-type";
           min-elements 1;
           max-elements "64";
-          key "node-location node-type";
           leaf node-location {
             type string;
           }
@@ -544,9 +557,9 @@ All rights reserved.
   }
   container private-sdr {
     list sdr-name {
+      key "name";
       min-elements 0;
       max-elements "64";
-      key "name";
       leaf name {
         type string;
       }
@@ -560,9 +573,9 @@ All rights reserved.
         type uint32;
       }
       list pairing {
+        key "num";
         min-elements 0;
         max-elements "64";
-        key "num";
         leaf num {
           type uint32;
         }

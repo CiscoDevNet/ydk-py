@@ -378,7 +378,7 @@ class MdtConfigData(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtConfigData.MdtSubscription.Base, [u'stream', u'encoding', u'source_vrf', u'source_address', u'no_trigger', u'period', u'no_synch_on_start', u'no_filter', u'xpath', u'tdl_uri', u'transform_name'], name, value)
+                self._perform_setattr(MdtConfigData.MdtSubscription.Base, ['stream', 'encoding', 'source_vrf', 'source_address', 'no_trigger', 'period', 'no_synch_on_start', 'no_filter', 'xpath', 'tdl_uri', 'transform_name'], name, value)
 
 
 
@@ -453,7 +453,7 @@ class MdtConfigData(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtConfigData.MdtSubscription.MdtReceivers, [u'address', u'port', 'protocol', 'profile'], name, value)
+                self._perform_setattr(MdtConfigData.MdtSubscription.MdtReceivers, ['address', 'port', 'protocol', 'profile'], name, value)
 
 
 

@@ -630,6 +630,15 @@ class ObjectTracking(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: return_code_string
+                    
+                    	Latest Ret Code String
+                    	**type**\: str
+                    
+                    	**length:** 0..120
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -650,16 +659,18 @@ class ObjectTracking(Entity):
                             ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
                             ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                             ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
+                            ('return_code_string', (YLeaf(YType.str, 'return-code-string'), ['str'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
+                        self.return_code_string = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/track-type-info/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
 
 
@@ -1462,6 +1473,15 @@ class ObjectTracking(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: return_code_string
+                        
+                        	Latest Ret Code String
+                        	**type**\: str
+                        
+                        	**length:** 0..120
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1482,15 +1502,17 @@ class ObjectTracking(Entity):
                                 ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
                                 ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                                 ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
+                                ('return_code_string', (YLeaf(YType.str, 'return-code-string'), ['str'])),
                             ])
                             self.ipsla_op_id = None
                             self.rtt = None
                             self.return_code = None
+                            self.return_code_string = None
                             self._segment_path = lambda: "ipsla-tracks"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
+                            self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
 
 
@@ -2001,6 +2023,15 @@ class ObjectTracking(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: return_code_string
+                    
+                    	Latest Ret Code String
+                    	**type**\: str
+                    
+                    	**length:** 0..120
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2021,16 +2052,18 @@ class ObjectTracking(Entity):
                             ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
                             ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                             ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
+                            ('return_code_string', (YLeaf(YType.str, 'return-code-string'), ['str'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
+                        self.return_code_string = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/track-type-info/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
 
 
@@ -2787,6 +2820,15 @@ class ObjectTracking(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: return_code_string
+                    
+                    	Latest Ret Code String
+                    	**type**\: str
+                    
+                    	**length:** 0..120
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2807,16 +2849,18 @@ class ObjectTracking(Entity):
                             ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
                             ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                             ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
+                            ('return_code_string', (YLeaf(YType.str, 'return-code-string'), ['str'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
+                        self.return_code_string = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/track-type-info/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
 
 
@@ -3373,6 +3417,15 @@ class ObjectTracking(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: return_code_string
+                        
+                        	Latest Ret Code String
+                        	**type**\: str
+                        
+                        	**length:** 0..120
+                        
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3393,15 +3446,17 @@ class ObjectTracking(Entity):
                                 ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
                                 ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                                 ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
+                                ('return_code_string', (YLeaf(YType.str, 'return-code-string'), ['str'])),
                             ])
                             self.ipsla_op_id = None
                             self.rtt = None
                             self.return_code = None
+                            self.return_code_string = None
                             self._segment_path = lambda: "ipsla-tracks"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
+                            self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
 
 
@@ -4151,6 +4206,15 @@ class ObjectTracking(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: return_code_string
+                    
+                    	Latest Ret Code String
+                    	**type**\: str
+                    
+                    	**length:** 0..120
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -4171,16 +4235,18 @@ class ObjectTracking(Entity):
                             ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
                             ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                             ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
+                            ('return_code_string', (YLeaf(YType.str, 'return-code-string'), ['str'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
+                        self.return_code_string = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/track-type-info/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
 
 
@@ -4691,6 +4757,15 @@ class ObjectTracking(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: return_code_string
+                    
+                    	Latest Ret Code String
+                    	**type**\: str
+                    
+                    	**length:** 0..120
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -4711,16 +4786,18 @@ class ObjectTracking(Entity):
                             ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
                             ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                             ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
+                            ('return_code_string', (YLeaf(YType.str, 'return-code-string'), ['str'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
+                        self.return_code_string = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/track-type-info/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
 
 
@@ -5477,6 +5554,15 @@ class ObjectTracking(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: return_code_string
+                    
+                    	Latest Ret Code String
+                    	**type**\: str
+                    
+                    	**length:** 0..120
+                    
+                    	**config**\: False
+                    
                     
 
                     """
@@ -5497,16 +5583,18 @@ class ObjectTracking(Entity):
                             ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
                             ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
                             ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
+                            ('return_code_string', (YLeaf(YType.str, 'return-code-string'), ['str'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
+                        self.return_code_string = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/track-type-info/%s" % self._segment_path()
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
+                        self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
 
 

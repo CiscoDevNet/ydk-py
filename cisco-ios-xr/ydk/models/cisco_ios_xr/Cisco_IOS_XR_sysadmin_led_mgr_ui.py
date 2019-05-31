@@ -110,7 +110,7 @@ class Led(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Led.Location, [u'location'], name, value)
+            self._perform_setattr(Led.Location, ['location'], name, value)
 
 
         class LedAttributes(Entity):
@@ -123,6 +123,31 @@ class Led(Entity):
             	**type**\: str
             
             	**config**\: False
+            
+            .. attribute:: location
+            
+            	
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: print_header
+            
+            	
+            	**type**\: bool
+            
+            	**config**\: False
+            
+            	**default value**\: false
+            
+            .. attribute:: loc_header
+            
+            	
+            	**type**\: bool
+            
+            	**config**\: False
+            
+            	**default value**\: false
             
             .. attribute:: led_mode
             
@@ -156,17 +181,23 @@ class Led(Entity):
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('led_name', (YLeaf(YType.str, 'led_name'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('print_header', (YLeaf(YType.boolean, 'print_header'), ['bool'])),
+                    ('loc_header', (YLeaf(YType.boolean, 'loc_header'), ['bool'])),
                     ('led_mode', (YLeaf(YType.str, 'led_mode'), ['str'])),
                     ('led_color', (YLeaf(YType.str, 'led_color'), ['str'])),
                 ])
                 self.led_name = None
+                self.location = None
+                self.print_header = None
+                self.loc_header = None
                 self.led_mode = None
                 self.led_color = None
                 self._segment_path = lambda: "led_attributes" + "[led_name='" + str(self.led_name) + "']"
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Led.Location.LedAttributes, [u'led_name', u'led_mode', u'led_color'], name, value)
+                self._perform_setattr(Led.Location.LedAttributes, ['led_name', 'location', 'print_header', 'loc_header', 'led_mode', 'led_color'], name, value)
 
 
 
@@ -216,7 +247,7 @@ class Led(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Led.Trace, [u'buffer'], name, value)
+            self._perform_setattr(Led.Trace, ['buffer'], name, value)
 
 
         class Location(Entity):
@@ -263,7 +294,7 @@ class Led(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Led.Trace.Location, [u'location_name'], name, value)
+                self._perform_setattr(Led.Trace.Location, ['location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -310,7 +341,7 @@ class Led(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Led.Trace.Location.AllOptions, [u'option'], name, value)
+                    self._perform_setattr(Led.Trace.Location.AllOptions, ['option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -348,7 +379,7 @@ class Led(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Led.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                        self._perform_setattr(Led.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 

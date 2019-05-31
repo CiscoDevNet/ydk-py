@@ -694,7 +694,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -748,7 +748,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -873,7 +873,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     .. attribute:: upper_bound
                     
@@ -884,7 +884,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     
 
@@ -904,8 +904,8 @@ class Mpls(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('local_id', (YLeaf(YType.str, 'local-id'), ['str'])),
-                            ('lower_bound', (YLeaf(YType.str, 'lower-bound'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
-                            ('upper_bound', (YLeaf(YType.str, 'upper-bound'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                            ('lower_bound', (YLeaf(YType.str, 'lower-bound'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                            ('upper_bound', (YLeaf(YType.str, 'upper-bound'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                         ])
                         self.local_id = None
                         self.lower_bound = None
@@ -938,7 +938,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     	**config**\: False
                     
@@ -951,7 +951,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     	**config**\: False
                     
@@ -973,8 +973,8 @@ class Mpls(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('local_id', (YLeaf(YType.str, 'local-id'), ['str'])),
-                            ('lower_bound', (YLeaf(YType.str, 'lower-bound'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
-                            ('upper_bound', (YLeaf(YType.str, 'upper-bound'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                            ('lower_bound', (YLeaf(YType.str, 'lower-bound'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                            ('upper_bound', (YLeaf(YType.str, 'upper-bound'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                         ])
                         self.local_id = None
                         self.lower_bound = None
@@ -1147,7 +1147,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg, [u'name'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg, ['name'], name, value)
 
 
                 class Config(Entity):
@@ -1210,7 +1210,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.Config, [u'name', u'value', u'cost', u'flooding_type'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.Config, ['name', 'value', 'cost', 'flooding_type'], name, value)
 
 
 
@@ -1282,7 +1282,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.State, [u'name', u'value', u'cost', u'flooding_type'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.State, ['name', 'value', 'cost', 'flooding_type'], name, value)
 
 
 
@@ -1386,7 +1386,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList, [u'from_address'], name, value)
+                            self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList, ['from_address'], name, value)
 
 
                         class Config(Entity):
@@ -1446,7 +1446,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config, [u'from_address', u'to_address'], name, value)
+                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config, ['from_address', 'to_address'], name, value)
 
 
 
@@ -1511,7 +1511,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State, [u'from_address', u'to_address'], name, value)
+                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State, ['from_address', 'to_address'], name, value)
 
 
 
@@ -1825,7 +1825,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.Config, ['install_delay', 'cleanup_delay', u'reoptimize_timer'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.Config, ['install_delay', 'cleanup_delay', 'reoptimize_timer'], name, value)
 
 
 
@@ -1895,7 +1895,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.State, ['install_delay', 'cleanup_delay', u'reoptimize_timer'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.State, ['install_delay', 'cleanup_delay', 'reoptimize_timer'], name, value)
 
 
 
@@ -2241,7 +2241,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2295,7 +2295,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -3086,7 +3086,7 @@ class Mpls(Entity):
                                 
                                 			**range:** 16..1048575
                                 
-                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                                 
                                 	**config**\: False
                                 
@@ -3118,7 +3118,7 @@ class Mpls(Entity):
                                     self._leafs = OrderedDict([
                                         ('index', (YLeaf(YType.uint8, 'index'), ['int'])),
                                         ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
-                                        ('reported_label', (YLeaf(YType.str, 'reported-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                        ('reported_label', (YLeaf(YType.str, 'reported-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                                         ('reported_flags', (YLeaf(YType.uint8, 'reported-flags'), ['int'])),
                                     ])
                                     self.index = None
@@ -3234,7 +3234,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         	**config**\: False
                         
@@ -3247,7 +3247,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         	**config**\: False
                         
@@ -3284,8 +3284,8 @@ class Mpls(Entity):
                                 ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.openconfig.openconfig_mpls', 'Mpls', 'SignalingProtocols.RsvpTe.Sessions.Session.State.Status')])),
                                 ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_mpls_types', 'LSPROLE')])),
                                 ('protection_requested', (YLeaf(YType.identityref, 'protection-requested'), [('ydk.models.openconfig.openconfig_mpls_types', 'PROTECTIONTYPE')])),
-                                ('label_in', (YLeaf(YType.str, 'label-in'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
-                                ('label_out', (YLeaf(YType.str, 'label-out'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('label_in', (YLeaf(YType.str, 'label-in'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('label_out', (YLeaf(YType.str, 'label-out'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                             ])
                             self.local_index = None
                             self.source_address = None
@@ -3340,7 +3340,7 @@ class Mpls(Entity):
                             	The rate at which the head\-end device generates traffic, expressed in bytes per second
                             	**type**\: str
                             
-                            	**length:** 32
+                            	**length:** 32..32
                             
                             	**config**\: False
                             
@@ -3351,7 +3351,7 @@ class Mpls(Entity):
                             	The size of the token bucket that is used to determine the rate at which the head\-end device generates traffic, expressed in bytes per second
                             	**type**\: str
                             
-                            	**length:** 32
+                            	**length:** 32..32
                             
                             	**config**\: False
                             
@@ -3364,7 +3364,7 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**length:** 32
+                            			**length:** 32..32
                             
                             		**type**\:  :py:class:`PeakDataRate <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate>`
                             
@@ -5049,7 +5049,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -5103,7 +5103,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -6053,7 +6053,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     	**refers to**\:  :py:class:`mpls_label <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State>`
                     
@@ -6095,7 +6095,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter, [u'mpls_label'], name, value)
+                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter, ['mpls_label'], name, value)
 
 
                     class State(Entity):
@@ -6111,7 +6111,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         	**config**\: False
                         
@@ -6168,7 +6168,7 @@ class Mpls(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('mpls_label', (YLeaf(YType.str, 'mpls-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('mpls_label', (YLeaf(YType.str, 'mpls-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                                 ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
                                 ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
                                 ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
@@ -6183,7 +6183,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State, [u'mpls_label', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State, ['mpls_label', 'in_pkts', 'in_octets', 'out_pkts', 'out_octets'], name, value)
 
 
 
@@ -6300,7 +6300,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface, [u'interface_id'], name, value)
+                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface, ['interface_id'], name, value)
 
 
                     class Config(Entity):
@@ -6337,7 +6337,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config, [u'interface_id'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config, ['interface_id'], name, value)
 
 
 
@@ -6421,7 +6421,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State, [u'interface_id', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State, ['interface_id', 'in_pkts', 'in_octets', 'out_pkts', 'out_octets'], name, value)
 
 
 
@@ -6475,7 +6475,7 @@ class Mpls(Entity):
                             
                             			**range:** 16..1048575
                             
-                            		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                            		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                             
                             	**refers to**\:  :py:class:`mpls_label <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State>`
                             
@@ -6527,7 +6527,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter, [u'mpls_label'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter, ['mpls_label'], name, value)
 
 
                             class State(Entity):
@@ -6543,7 +6543,7 @@ class Mpls(Entity):
                                 
                                 			**range:** 16..1048575
                                 
-                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                                 
                                 	**config**\: False
                                 
@@ -6600,7 +6600,7 @@ class Mpls(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('mpls_label', (YLeaf(YType.str, 'mpls-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                        ('mpls_label', (YLeaf(YType.str, 'mpls-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                                         ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
                                         ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
                                         ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
@@ -6615,7 +6615,7 @@ class Mpls(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State, [u'mpls_label', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
+                                    self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State, ['mpls_label', 'in_pkts', 'in_octets', 'out_pkts', 'out_octets'], name, value)
 
 
 
@@ -6707,7 +6707,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass, [u'exp'], name, value)
+                                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass, ['exp'], name, value)
 
 
                                     class State(Entity):
@@ -6792,7 +6792,7 @@ class Mpls(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State, [u'exp', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
+                                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State, ['exp', 'in_pkts', 'in_octets', 'out_pkts', 'out_octets'], name, value)
 
 
 
@@ -6894,7 +6894,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -6948,7 +6948,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -7162,7 +7162,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath, [u'name'], name, value)
+                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath, ['name'], name, value)
 
 
                     class Config(Entity):
@@ -7217,7 +7217,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config, [u'name', u'sid_selection_mode', u'sid_protection_required'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config, ['name', 'sid_selection_mode', 'sid_protection_required'], name, value)
 
                         class SidSelectionMode(Enum):
                             """
@@ -7310,7 +7310,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State, [u'name', u'sid_selection_mode', u'sid_protection_required'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State, ['name', 'sid_selection_mode', 'sid_protection_required'], name, value)
 
                         class SidSelectionMode(Enum):
                             """
@@ -7437,7 +7437,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject, [u'index'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject, ['index'], name, value)
 
 
                             class Config(Entity):
@@ -7498,7 +7498,7 @@ class Mpls(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config, [u'address', u'hop_type', u'index'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config, ['address', 'hop_type', 'index'], name, value)
 
 
 
@@ -7565,7 +7565,7 @@ class Mpls(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State, [u'address', u'hop_type', u'index'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State, ['address', 'hop_type', 'index'], name, value)
 
 
 
@@ -7687,7 +7687,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel, [u'name'], name, value)
+                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel, ['name'], name, value)
 
 
                     class Config(Entity):
@@ -7855,7 +7855,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, [u'name', u'type', u'signaling_protocol', u'description', u'admin_status', u'preference', u'metric_type', u'metric', u'shortcut_eligible', u'protection_style_requested', u'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, ['name', 'type', 'signaling_protocol', 'description', 'admin_status', 'preference', 'metric_type', 'metric', 'shortcut_eligible', 'protection_style_requested', 'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority'], name, value)
 
 
 
@@ -8083,7 +8083,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, [u'name', u'type', u'signaling_protocol', u'description', u'admin_status', u'preference', u'metric_type', u'metric', u'shortcut_eligible', u'protection_style_requested', u'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority', u'oper_status', u'role'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, ['name', 'type', 'signaling_protocol', 'description', 'admin_status', 'preference', 'metric_type', 'metric', 'shortcut_eligible', 'protection_style_requested', 'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority', 'oper_status', 'role'], name, value)
 
 
                         class Counters(Entity):
@@ -8190,7 +8190,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters, [u'bytes', u'packets', u'path_changes', u'state_changes', u'online_time', u'current_path_time', u'next_reoptimization_time'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters, ['bytes', 'packets', 'path_changes', 'state_changes', 'online_time', 'current_path_time', 'next_reoptimization_time'], name, value)
 
 
 
@@ -8297,7 +8297,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config, [u'specification_type', u'set_bandwidth'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config, ['specification_type', 'set_bandwidth'], name, value)
 
 
 
@@ -8361,7 +8361,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State, [u'specification_type', u'set_bandwidth', u'signaled_bandwidth'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State, ['specification_type', 'set_bandwidth', 'signaled_bandwidth'], name, value)
 
 
 
@@ -8503,7 +8503,7 @@ class Mpls(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config, [u'enabled', u'min_bw', u'max_bw', u'adjust_interval', u'adjust_threshold'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config, ['enabled', 'min_bw', 'max_bw', 'adjust_interval', 'adjust_threshold'], name, value)
 
 
 
@@ -8589,7 +8589,7 @@ class Mpls(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State, [u'enabled', u'min_bw', u'max_bw', u'adjust_interval', u'adjust_threshold'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State, ['enabled', 'min_bw', 'max_bw', 'adjust_interval', 'adjust_threshold'], name, value)
 
 
 
@@ -8696,7 +8696,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, [u'enabled', u'overflow_threshold', u'trigger_event_count'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, ['enabled', 'overflow_threshold', 'trigger_event_count'], name, value)
 
 
 
@@ -8760,7 +8760,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, [u'enabled', u'overflow_threshold', u'trigger_event_count'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, ['enabled', 'overflow_threshold', 'trigger_event_count'], name, value)
 
 
 
@@ -8868,7 +8868,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, [u'enabled', u'underflow_threshold', u'trigger_event_count'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, ['enabled', 'underflow_threshold', 'trigger_event_count'], name, value)
 
 
 
@@ -8932,7 +8932,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, [u'enabled', u'underflow_threshold', u'trigger_event_count'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, ['enabled', 'underflow_threshold', 'trigger_event_count'], name, value)
 
 
 
@@ -9046,7 +9046,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config, [u'destination'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config, ['destination'], name, value)
 
 
 
@@ -9093,7 +9093,7 @@ class Mpls(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State, [u'destination'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State, ['destination'], name, value)
 
 
 
@@ -9205,7 +9205,7 @@ class Mpls(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_, [u'name'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_, ['name'], name, value)
 
 
                                 class Config(Entity):
@@ -9330,7 +9330,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, ['name', 'path_computation_method', 'use_cspf', 'cspf_tiebreaker', 'path_computation_server', 'explicit_path_name', 'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
 
 
 
@@ -9489,7 +9489,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer', u'associated_rsvp_session'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, ['name', 'path_computation_method', 'use_cspf', 'cspf_tiebreaker', 'path_computation_server', 'explicit_path_name', 'preference', 'setup_priority', 'hold_priority', 'retry_timer', 'associated_rsvp_session'], name, value)
 
 
 
@@ -9593,7 +9593,7 @@ class Mpls(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath, [u'secondary_path'], name, value)
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath, ['secondary_path'], name, value)
 
 
                                         class Config(Entity):
@@ -9641,7 +9641,7 @@ class Mpls(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config, [u'secondary_path', u'priority'], name, value)
+                                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config, ['secondary_path', 'priority'], name, value)
 
 
 
@@ -9703,7 +9703,7 @@ class Mpls(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State, [u'secondary_path', u'priority', u'active'], name, value)
+                                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State, ['secondary_path', 'priority', 'active'], name, value)
 
 
 
@@ -9811,7 +9811,7 @@ class Mpls(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config, ['exclude_group', 'include_all_group', 'include_any_group'], name, value)
 
 
 
@@ -9874,7 +9874,7 @@ class Mpls(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State, ['exclude_group', 'include_all_group', 'include_any_group'], name, value)
 
 
 
@@ -9980,7 +9980,7 @@ class Mpls(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath, [u'name'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath, ['name'], name, value)
 
 
                                 class Config(Entity):
@@ -10105,7 +10105,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, ['name', 'path_computation_method', 'use_cspf', 'cspf_tiebreaker', 'path_computation_server', 'explicit_path_name', 'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
 
 
 
@@ -10264,7 +10264,7 @@ class Mpls(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer', u'associated_rsvp_session'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, ['name', 'path_computation_method', 'use_cspf', 'cspf_tiebreaker', 'path_computation_server', 'explicit_path_name', 'preference', 'setup_priority', 'hold_priority', 'retry_timer', 'associated_rsvp_session'], name, value)
 
 
 
@@ -10370,7 +10370,7 @@ class Mpls(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config, ['exclude_group', 'include_all_group', 'include_any_group'], name, value)
 
 
 
@@ -10433,7 +10433,7 @@ class Mpls(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State, ['exclude_group', 'include_all_group', 'include_any_group'], name, value)
 
 
 
@@ -10671,7 +10671,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp, [u'name'], name, value)
+                    self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp, ['name'], name, value)
 
 
                 class Config(Entity):
@@ -10707,7 +10707,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Config, [u'name'], name, value)
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Config, ['name'], name, value)
 
 
 
@@ -10746,7 +10746,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.State, [u'name'], name, value)
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.State, ['name'], name, value)
 
 
 
@@ -10825,7 +10825,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         .. attribute:: push_label
                         
@@ -10836,7 +10836,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         
 
@@ -10856,8 +10856,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -10866,7 +10866,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -10898,7 +10898,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         	**config**\: False
                         
@@ -10911,7 +10911,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         	**config**\: False
                         
@@ -10933,8 +10933,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -10943,7 +10943,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -11023,7 +11023,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         .. attribute:: push_label
                         
@@ -11034,7 +11034,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         
 
@@ -11054,8 +11054,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -11064,7 +11064,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -11096,7 +11096,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         	**config**\: False
                         
@@ -11109,7 +11109,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         	**config**\: False
                         
@@ -11131,8 +11131,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -11141,7 +11141,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -11221,7 +11221,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         .. attribute:: push_label
                         
@@ -11232,7 +11232,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         
 
@@ -11252,8 +11252,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -11262,7 +11262,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 
@@ -11294,7 +11294,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         	**config**\: False
                         
@@ -11307,7 +11307,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         	**config**\: False
                         
@@ -11329,8 +11329,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -11339,7 +11339,7 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, ['next_hop', 'incoming_label', 'push_label'], name, value)
 
 
 

@@ -498,6 +498,8 @@ class Ipsla(Entity):
     	Responder configuration
     	**type**\:  :py:class:`Responder <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder>`
     
+    	**presence node**\: True
+    
     .. attribute:: mpls_discovery
     
     	Provider Edge(PE) discovery configuration
@@ -507,6 +509,8 @@ class Ipsla(Entity):
     
     	IPPM Server configuration
     	**type**\:  :py:class:`ServerTwamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.ServerTwamp>`
+    
+    	**presence node**\: True
     
     
 
@@ -539,16 +543,14 @@ class Ipsla(Entity):
         self.operation_.parent = self
         self._children_name_map["operation_"] = "operation"
 
-        self.responder = Ipsla.Responder()
-        self.responder.parent = self
+        self.responder = None
         self._children_name_map["responder"] = "responder"
 
         self.mpls_discovery = Ipsla.MplsDiscovery()
         self.mpls_discovery.parent = self
         self._children_name_map["mpls_discovery"] = "mpls-discovery"
 
-        self.server_twamp = Ipsla.ServerTwamp()
-        self.server_twamp.parent = self
+        self.server_twamp = None
         self._children_name_map["server_twamp"] = "server-twamp"
         self._segment_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla"
         self._is_frozen = True
@@ -844,20 +846,28 @@ class Ipsla(Entity):
                     	React on LPD Tree Trace violation for a monitored MPLSLM
                     	**type**\:  :py:class:`LpdTreeTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: timeout
                     
                     	React on probe timeout
                     	**type**\:  :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: lpd_group
                     
                     	React on LPD Group violation for a monitored MPLSLM
                     	**type**\:  :py:class:`LpdGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: connection_loss
                     
                     	React on connection loss for a monitored MPLSLM
                     	**type**\:  :py:class:`ConnectionLoss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -877,20 +887,16 @@ class Ipsla(Entity):
                         self._child_classes = OrderedDict([("lpd-tree-trace", ("lpd_tree_trace", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace)), ("timeout", ("timeout", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout)), ("lpd-group", ("lpd_group", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup)), ("connection-loss", ("connection_loss", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss))])
                         self._leafs = OrderedDict()
 
-                        self.lpd_tree_trace = Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace()
-                        self.lpd_tree_trace.parent = self
+                        self.lpd_tree_trace = None
                         self._children_name_map["lpd_tree_trace"] = "lpd-tree-trace"
 
-                        self.timeout = Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout()
-                        self.timeout.parent = self
+                        self.timeout = None
                         self._children_name_map["timeout"] = "timeout"
 
-                        self.lpd_group = Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup()
-                        self.lpd_group.parent = self
+                        self.lpd_group = None
                         self._children_name_map["lpd_group"] = "lpd-group"
 
-                        self.connection_loss = Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss()
-                        self.connection_loss.parent = self
+                        self.connection_loss = None
                         self._children_name_map["connection_loss"] = "connection-loss"
                         self._segment_path = lambda: "condition"
                         self._is_frozen = True
@@ -909,12 +915,9 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType>`
                         
-                        .. attribute:: create
                         
-                        	Create reaction condition for a particular MPLSLM
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
-                        
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -930,10 +933,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.action_type = Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType()
                             self.action_type.parent = self
@@ -942,7 +943,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace, ['create'], name, value)
+                            self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace, [], name, value)
 
 
                         class ActionType(Entity):
@@ -998,12 +999,9 @@ class Ipsla(Entity):
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ThresholdType>`
                         
-                        .. attribute:: create
                         
-                        	Create reaction condition for a particular MPLSLM
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
-                        
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -1019,10 +1017,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ActionType)), ("threshold-type", ("threshold_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.action_type = Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ActionType()
                             self.action_type.parent = self
@@ -1035,7 +1031,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout, ['create'], name, value)
+                            self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout, [], name, value)
 
 
                         class ActionType(Entity):
@@ -1143,12 +1139,9 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType>`
                         
-                        .. attribute:: create
                         
-                        	Create reaction condition for a particular MPLSLM
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
-                        
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -1164,10 +1157,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.action_type = Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType()
                             self.action_type.parent = self
@@ -1176,7 +1167,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup, ['create'], name, value)
+                            self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup, [], name, value)
 
 
                         class ActionType(Entity):
@@ -1233,12 +1224,9 @@ class Ipsla(Entity):
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType>`
                         
-                        .. attribute:: create
                         
-                        	Create reaction condition for a particular MPLSLM
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
-                        
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -1254,10 +1242,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ActionType)), ("threshold-type", ("threshold_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.action_type = Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ActionType()
                             self.action_type.parent = self
@@ -1270,7 +1256,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss, ['create'], name, value)
+                            self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss, [], name, value)
 
 
                         class ActionType(Entity):
@@ -1661,10 +1647,14 @@ class Ipsla(Entity):
                     	Perform MPLS LSP Trace operation
                     	**type**\:  :py:class:`MplsLspTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: mpls_lsp_ping
                     
                     	Perform MPLS LSP Ping operation
                     	**type**\:  :py:class:`MplsLspPing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -1684,12 +1674,10 @@ class Ipsla(Entity):
                         self._child_classes = OrderedDict([("mpls-lsp-trace", ("mpls_lsp_trace", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace)), ("mpls-lsp-ping", ("mpls_lsp_ping", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing))])
                         self._leafs = OrderedDict()
 
-                        self.mpls_lsp_trace = Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace()
-                        self.mpls_lsp_trace.parent = self
+                        self.mpls_lsp_trace = None
                         self._children_name_map["mpls_lsp_trace"] = "mpls-lsp-trace"
 
-                        self.mpls_lsp_ping = Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing()
-                        self.mpls_lsp_ping.parent = self
+                        self.mpls_lsp_ping = None
                         self._children_name_map["mpls_lsp_ping"] = "mpls-lsp-ping"
                         self._segment_path = lambda: "operation-type"
                         self._is_frozen = True
@@ -1755,11 +1743,6 @@ class Ipsla(Entity):
                         
                         	**length:** 1..32
                         
-                        .. attribute:: create
-                        
-                        	Create MPLSLM instance with specified type
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: output_nexthop
                         
                         	Echo request output nexthop
@@ -1802,6 +1785,8 @@ class Ipsla(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'man-ipsla-cfg'
@@ -1816,6 +1801,7 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("reply", ("reply", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Reply)), ("statistics", ("statistics", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Statistics)), ("scan", ("scan", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Scan))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
                                 ('exp_bits', (YLeaf(YType.uint32, 'exp-bits'), ['int'])),
@@ -1823,7 +1809,6 @@ class Ipsla(Entity):
                                 ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
                                 ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
                                 ('accesslist', (YLeaf(YType.str, 'accesslist'), ['str'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('output_nexthop', (YLeaf(YType.str, 'output-nexthop'), ['str'])),
                                 ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                                 ('force_explicit_null', (YLeaf(YType.empty, 'force-explicit-null'), ['Empty'])),
@@ -1835,7 +1820,6 @@ class Ipsla(Entity):
                             self.lsp_selector = None
                             self.output_interface = None
                             self.accesslist = None
-                            self.create = None
                             self.output_nexthop = None
                             self.timeout = None
                             self.force_explicit_null = None
@@ -1856,7 +1840,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace, ['ttl', 'exp_bits', 'tag', 'lsp_selector', 'output_interface', 'accesslist', 'create', 'output_nexthop', 'timeout', 'force_explicit_null', 'vrf'], name, value)
+                            self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace, ['ttl', 'exp_bits', 'tag', 'lsp_selector', 'output_interface', 'accesslist', 'output_nexthop', 'timeout', 'force_explicit_null', 'vrf'], name, value)
 
 
                         class Reply(Entity):
@@ -2021,6 +2005,8 @@ class Ipsla(Entity):
                         	Path discover configuration
                         	**type**\:  :py:class:`PathDiscover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover>`
                         
+                        	**presence node**\: True
+                        
                         .. attribute:: ttl
                         
                         	Time to live value
@@ -2074,11 +2060,6 @@ class Ipsla(Entity):
                         
                         	**length:** 1..32
                         
-                        .. attribute:: create
-                        
-                        	Create MPLSLM instance with specified type
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: output_nexthop
                         
                         	Echo request output nexthop
@@ -2121,6 +2102,8 @@ class Ipsla(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'man-ipsla-cfg'
@@ -2135,6 +2118,7 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.DataSize)), ("path-discover", ("path_discover", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover)), ("reply", ("reply", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Reply)), ("statistics", ("statistics", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Statistics)), ("scan", ("scan", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Scan))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
                                 ('exp_bits', (YLeaf(YType.uint32, 'exp-bits'), ['int'])),
@@ -2142,7 +2126,6 @@ class Ipsla(Entity):
                                 ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
                                 ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
                                 ('accesslist', (YLeaf(YType.str, 'accesslist'), ['str'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('output_nexthop', (YLeaf(YType.str, 'output-nexthop'), ['str'])),
                                 ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                                 ('force_explicit_null', (YLeaf(YType.empty, 'force-explicit-null'), ['Empty'])),
@@ -2154,7 +2137,6 @@ class Ipsla(Entity):
                             self.lsp_selector = None
                             self.output_interface = None
                             self.accesslist = None
-                            self.create = None
                             self.output_nexthop = None
                             self.timeout = None
                             self.force_explicit_null = None
@@ -2164,8 +2146,7 @@ class Ipsla(Entity):
                             self.data_size.parent = self
                             self._children_name_map["data_size"] = "data-size"
 
-                            self.path_discover = Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover()
-                            self.path_discover.parent = self
+                            self.path_discover = None
                             self._children_name_map["path_discover"] = "path-discover"
 
                             self.reply = Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Reply()
@@ -2183,7 +2164,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing, ['ttl', 'exp_bits', 'tag', 'lsp_selector', 'output_interface', 'accesslist', 'create', 'output_nexthop', 'timeout', 'force_explicit_null', 'vrf'], name, value)
+                            self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing, ['ttl', 'exp_bits', 'tag', 'lsp_selector', 'output_interface', 'accesslist', 'output_nexthop', 'timeout', 'force_explicit_null', 'vrf'], name, value)
 
 
                         class DataSize(Entity):
@@ -2260,12 +2241,9 @@ class Ipsla(Entity):
                             
                             	**default value**\: 0
                             
-                            .. attribute:: create
                             
-                            	Create LPD instance
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
-                            
+
+                            This class is a :ref:`presence class<presence-class>`
 
                             """
 
@@ -2281,12 +2259,11 @@ class Ipsla(Entity):
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("session", ("session", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Session)), ("path", ("path", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path)), ("echo", ("echo", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo))])
+                                self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('scan_period', (YLeaf(YType.uint32, 'scan-period'), ['int'])),
-                                    ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ])
                                 self.scan_period = None
-                                self.create = None
 
                                 self.session = Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Session()
                                 self.session.parent = self
@@ -2303,7 +2280,7 @@ class Ipsla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover, ['scan_period', 'create'], name, value)
+                                self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover, ['scan_period'], name, value)
 
 
                             class Session(Entity):
@@ -3114,45 +3091,63 @@ class Ipsla(Entity):
                     	React on destination to source jitter threshold violation
                     	**type**\:  :py:class:`JitterAverageDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: timeout
                     
                     	React on probe timeout
                     	**type**\:  :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.Timeout>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: jitter_average
                     
                     	React on average round trip jitter threshold violation
                     	**type**\:  :py:class:`JitterAverage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: verify_error
                     
                     	React on error verfication violation
                     	**type**\:  :py:class:`VerifyError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.VerifyError>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: rtt
                     
                     	React on round trip time threshold violation
                     	**type**\:  :py:class:`Rtt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.Rtt>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: packet_loss_sd
                     
                     	React on destination to source packet loss threshold violation
                     	**type**\:  :py:class:`PacketLossSd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: jitter_average_sd
                     
                     	React on average source to destination jitter threshold violation
                     	**type**\:  :py:class:`JitterAverageSd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: connection_loss
                     
                     	React on connection loss for a monitored operation
                     	**type**\:  :py:class:`ConnectionLoss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: packet_loss_ds
                     
                     	React on source to destination packet loss threshold violation
                     	**type**\:  :py:class:`PacketLossDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -3172,40 +3167,31 @@ class Ipsla(Entity):
                         self._child_classes = OrderedDict([("jitter-average-ds", ("jitter_average_ds", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs)), ("timeout", ("timeout", Ipsla.Operation.Reactions.Reaction.Condition.Timeout)), ("jitter-average", ("jitter_average", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage)), ("verify-error", ("verify_error", Ipsla.Operation.Reactions.Reaction.Condition.VerifyError)), ("rtt", ("rtt", Ipsla.Operation.Reactions.Reaction.Condition.Rtt)), ("packet-loss-sd", ("packet_loss_sd", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd)), ("jitter-average-sd", ("jitter_average_sd", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd)), ("connection-loss", ("connection_loss", Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss)), ("packet-loss-ds", ("packet_loss_ds", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs))])
                         self._leafs = OrderedDict()
 
-                        self.jitter_average_ds = Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs()
-                        self.jitter_average_ds.parent = self
+                        self.jitter_average_ds = None
                         self._children_name_map["jitter_average_ds"] = "jitter-average-ds"
 
-                        self.timeout = Ipsla.Operation.Reactions.Reaction.Condition.Timeout()
-                        self.timeout.parent = self
+                        self.timeout = None
                         self._children_name_map["timeout"] = "timeout"
 
-                        self.jitter_average = Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage()
-                        self.jitter_average.parent = self
+                        self.jitter_average = None
                         self._children_name_map["jitter_average"] = "jitter-average"
 
-                        self.verify_error = Ipsla.Operation.Reactions.Reaction.Condition.VerifyError()
-                        self.verify_error.parent = self
+                        self.verify_error = None
                         self._children_name_map["verify_error"] = "verify-error"
 
-                        self.rtt = Ipsla.Operation.Reactions.Reaction.Condition.Rtt()
-                        self.rtt.parent = self
+                        self.rtt = None
                         self._children_name_map["rtt"] = "rtt"
 
-                        self.packet_loss_sd = Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd()
-                        self.packet_loss_sd.parent = self
+                        self.packet_loss_sd = None
                         self._children_name_map["packet_loss_sd"] = "packet-loss-sd"
 
-                        self.jitter_average_sd = Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd()
-                        self.jitter_average_sd.parent = self
+                        self.jitter_average_sd = None
                         self._children_name_map["jitter_average_sd"] = "jitter-average-sd"
 
-                        self.connection_loss = Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss()
-                        self.connection_loss.parent = self
+                        self.connection_loss = None
                         self._children_name_map["connection_loss"] = "connection-loss"
 
-                        self.packet_loss_ds = Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs()
-                        self.packet_loss_ds.parent = self
+                        self.packet_loss_ds = None
                         self._children_name_map["packet_loss_ds"] = "packet-loss-ds"
                         self._segment_path = lambda: "condition"
                         self._is_frozen = True
@@ -3231,17 +3217,14 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ActionType>`
                         
-                        .. attribute:: create
-                        
-                        	Create reaction condition for a particular operation
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: threshold_type
                         
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdType>`
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -3257,10 +3240,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.threshold_limits = None
                             self._children_name_map["threshold_limits"] = "threshold-limits"
@@ -3276,7 +3257,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs, ['create'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs, [], name, value)
 
 
                         class ThresholdLimits(Entity):
@@ -3446,17 +3427,14 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType>`
                         
-                        .. attribute:: create
-                        
-                        	Create reaction condition for a particular operation
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: threshold_type
                         
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ThresholdType>`
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -3472,10 +3450,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.action_type = Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType()
                             self.action_type.parent = self
@@ -3488,7 +3464,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout, ['create'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout, [], name, value)
 
 
                         class ActionType(Entity):
@@ -3610,17 +3586,14 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ActionType>`
                         
-                        .. attribute:: create
-                        
-                        	Create reaction condition for a particular operation
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: threshold_type
                         
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdType>`
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -3636,10 +3609,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.threshold_limits = None
                             self._children_name_map["threshold_limits"] = "threshold-limits"
@@ -3655,7 +3626,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage, ['create'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage, [], name, value)
 
 
                         class ThresholdLimits(Entity):
@@ -3825,17 +3796,14 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType>`
                         
-                        .. attribute:: create
-                        
-                        	Create reaction condition for a particular operation
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: threshold_type
                         
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ThresholdType>`
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -3851,10 +3819,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.action_type = Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType()
                             self.action_type.parent = self
@@ -3867,7 +3833,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError, ['create'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError, [], name, value)
 
 
                         class ActionType(Entity):
@@ -3988,17 +3954,14 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ActionType>`
                         
-                        .. attribute:: create
-                        
-                        	Create reaction condition for a particular operation
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: threshold_type
                         
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdType>`
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -4014,10 +3977,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.threshold_limits = None
                             self._children_name_map["threshold_limits"] = "threshold-limits"
@@ -4033,7 +3994,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt, ['create'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt, [], name, value)
 
 
                         class ThresholdLimits(Entity):
@@ -4211,17 +4172,14 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ActionType>`
                         
-                        .. attribute:: create
-                        
-                        	Create reaction condition for a particular operation
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: threshold_type
                         
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdType>`
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -4237,10 +4195,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.threshold_limits = None
                             self._children_name_map["threshold_limits"] = "threshold-limits"
@@ -4256,7 +4212,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd, ['create'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd, [], name, value)
 
 
                         class ThresholdLimits(Entity):
@@ -4434,17 +4390,14 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ActionType>`
                         
-                        .. attribute:: create
-                        
-                        	Create reaction condition for a particular operation
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: threshold_type
                         
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdType>`
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -4460,10 +4413,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.threshold_limits = None
                             self._children_name_map["threshold_limits"] = "threshold-limits"
@@ -4479,7 +4430,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd, ['create'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd, [], name, value)
 
 
                         class ThresholdLimits(Entity):
@@ -4650,17 +4601,14 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType>`
                         
-                        .. attribute:: create
-                        
-                        	Create reaction condition for a particular operation
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: threshold_type
                         
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType>`
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -4676,10 +4624,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.action_type = Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType()
                             self.action_type.parent = self
@@ -4692,7 +4638,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss, ['create'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss, [], name, value)
 
 
                         class ActionType(Entity):
@@ -4814,17 +4760,14 @@ class Ipsla(Entity):
                         	Type of action to be taken on threshold violation(s)
                         	**type**\:  :py:class:`ActionType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ActionType>`
                         
-                        .. attribute:: create
-                        
-                        	Create reaction condition for a particular operation
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: threshold_type
                         
                         	Type of thresholding to perform on the monitored element
                         	**type**\:  :py:class:`ThresholdType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdType>`
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -4840,10 +4783,8 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdType))])
-                            self._leafs = OrderedDict([
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
-                            ])
-                            self.create = None
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.threshold_limits = None
                             self._children_name_map["threshold_limits"] = "threshold-limits"
@@ -4859,7 +4800,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs, ['create'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs, [], name, value)
 
 
                         class ThresholdLimits(Entity):
@@ -5202,35 +5143,49 @@ class Ipsla(Entity):
                     	ICMPEcho Operation type
                     	**type**\:  :py:class:`IcmpEcho <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: mpls_lsp_ping
                     
                     	MPLS LSP Ping Operation type
                     	**type**\:  :py:class:`MplsLspPing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: udp_echo
                     
                     	UDPEcho Operation type
                     	**type**\:  :py:class:`UdpEcho <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: mpls_lsp_trace
                     
                     	MPLS LSP Trace Operation type
                     	**type**\:  :py:class:`MplsLspTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: udp_jitter
                     
                     	UDPJitter Operation type
                     	**type**\:  :py:class:`UdpJitter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: icmp_path_echo
                     
                     	ICMPPathEcho Operation type
                     	**type**\:  :py:class:`IcmpPathEcho <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho>`
                     
+                    	**presence node**\: True
+                    
                     .. attribute:: icmp_path_jitter
                     
                     	ICMPPathJitter Operation type
                     	**type**\:  :py:class:`IcmpPathJitter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -5250,32 +5205,25 @@ class Ipsla(Entity):
                         self._child_classes = OrderedDict([("icmp-echo", ("icmp_echo", Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho)), ("mpls-lsp-ping", ("mpls_lsp_ping", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing)), ("udp-echo", ("udp_echo", Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho)), ("mpls-lsp-trace", ("mpls_lsp_trace", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace)), ("udp-jitter", ("udp_jitter", Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter)), ("icmp-path-echo", ("icmp_path_echo", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho)), ("icmp-path-jitter", ("icmp_path_jitter", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter))])
                         self._leafs = OrderedDict()
 
-                        self.icmp_echo = Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho()
-                        self.icmp_echo.parent = self
+                        self.icmp_echo = None
                         self._children_name_map["icmp_echo"] = "icmp-echo"
 
-                        self.mpls_lsp_ping = Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing()
-                        self.mpls_lsp_ping.parent = self
+                        self.mpls_lsp_ping = None
                         self._children_name_map["mpls_lsp_ping"] = "mpls-lsp-ping"
 
-                        self.udp_echo = Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho()
-                        self.udp_echo.parent = self
+                        self.udp_echo = None
                         self._children_name_map["udp_echo"] = "udp-echo"
 
-                        self.mpls_lsp_trace = Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace()
-                        self.mpls_lsp_trace.parent = self
+                        self.mpls_lsp_trace = None
                         self._children_name_map["mpls_lsp_trace"] = "mpls-lsp-trace"
 
-                        self.udp_jitter = Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter()
-                        self.udp_jitter.parent = self
+                        self.udp_jitter = None
                         self._children_name_map["udp_jitter"] = "udp-jitter"
 
-                        self.icmp_path_echo = Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho()
-                        self.icmp_path_echo.parent = self
+                        self.icmp_path_echo = None
                         self._children_name_map["icmp_path_echo"] = "icmp-path-echo"
 
-                        self.icmp_path_jitter = Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter()
-                        self.icmp_path_jitter.parent = self
+                        self.icmp_path_jitter = None
                         self._children_name_map["icmp_path_jitter"] = "icmp-path-jitter"
                         self._segment_path = lambda: "operation-type"
                         self._is_frozen = True
@@ -5316,11 +5264,6 @@ class Ipsla(Entity):
                         	**range:** 0..255
                         
                         	**default value**\: 0
-                        
-                        .. attribute:: create
-                        
-                        	Create operation with specified type
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: statistics
                         
@@ -5380,6 +5323,8 @@ class Ipsla(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'man-ipsla-cfg'
@@ -5394,12 +5339,12 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.DataSize)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.Statistics)), ("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.History)), ("enhanced-stats", ("enhanced_stats", Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('source_address_v6', (YLeaf(YType.str, 'source-address-v6'), ['str'])),
                                 ('dest_address_v6', (YLeaf(YType.str, 'dest-address-v6'), ['str'])),
                                 ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
                                 ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                                 ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                                 ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
@@ -5410,7 +5355,6 @@ class Ipsla(Entity):
                             self.dest_address_v6 = None
                             self.source_address = None
                             self.tos = None
-                            self.create = None
                             self.vrf = None
                             self.timeout = None
                             self.frequency = None
@@ -5436,7 +5380,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho, ['source_address_v6', 'dest_address_v6', 'source_address', 'tos', 'create', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho, ['source_address_v6', 'dest_address_v6', 'source_address', 'tos', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
 
 
                         class DataSize(Entity):
@@ -5739,11 +5683,6 @@ class Ipsla(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: create
-                        
-                        	Create operation with specified type
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: lsp_selector
                         
                         	Attributes used for path selection during LSP load balancing
@@ -5820,6 +5759,8 @@ class Ipsla(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'man-ipsla-cfg'
@@ -5834,11 +5775,11 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.DataSize)), ("reply", ("reply", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Reply)), ("target", ("target", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Statistics)), ("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.History)), ("enhanced-stats", ("enhanced_stats", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
                                 ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
                                 ('output_nexthop', (YLeaf(YType.str, 'output-nexthop'), ['str'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
                                 ('exp_bits', (YLeaf(YType.uint32, 'exp-bits'), ['int'])),
                                 ('force_explicit_null', (YLeaf(YType.empty, 'force-explicit-null'), ['Empty'])),
@@ -5850,7 +5791,6 @@ class Ipsla(Entity):
                             self.ttl = None
                             self.source_address = None
                             self.output_nexthop = None
-                            self.create = None
                             self.lsp_selector = None
                             self.exp_bits = None
                             self.force_explicit_null = None
@@ -5886,7 +5826,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing, ['ttl', 'source_address', 'output_nexthop', 'create', 'lsp_selector', 'exp_bits', 'force_explicit_null', 'timeout', 'output_interface', 'frequency', 'tag'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing, ['ttl', 'source_address', 'output_nexthop', 'lsp_selector', 'exp_bits', 'force_explicit_null', 'timeout', 'output_interface', 'frequency', 'tag'], name, value)
 
 
                         class DataSize(Entity):
@@ -6516,11 +6456,6 @@ class Ipsla(Entity):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: create
-                        
-                        	Create operation with specified type
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: statistics
                         
                         	Statistics collection aggregated over an hour
@@ -6591,6 +6526,8 @@ class Ipsla(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'man-ipsla-cfg'
@@ -6605,12 +6542,12 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.DataSize)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.Statistics)), ("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.History)), ("enhanced-stats", ("enhanced_stats", Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
                                 ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
                                 ('control_disable', (YLeaf(YType.empty, 'control-disable'), ['Empty'])),
                                 ('source_port', (YLeaf(YType.uint16, 'source-port'), ['int'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                                 ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                                 ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
@@ -6623,7 +6560,6 @@ class Ipsla(Entity):
                             self.tos = None
                             self.control_disable = None
                             self.source_port = None
-                            self.create = None
                             self.vrf = None
                             self.timeout = None
                             self.frequency = None
@@ -6651,7 +6587,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho, ['source_address', 'tos', 'control_disable', 'source_port', 'create', 'vrf', 'timeout', 'frequency', 'dest_port', 'verify_data', 'dest_address', 'tag'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho, ['source_address', 'tos', 'control_disable', 'source_port', 'vrf', 'timeout', 'frequency', 'dest_port', 'verify_data', 'dest_address', 'tag'], name, value)
 
 
                         class DataSize(Entity):
@@ -6949,11 +6885,6 @@ class Ipsla(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: create
-                        
-                        	Create operation with specified type
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: lsp_selector
                         
                         	Attributes used for path selection during LSP load balancing
@@ -7025,6 +6956,8 @@ class Ipsla(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'man-ipsla-cfg'
@@ -7039,11 +6972,11 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("target", ("target", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target)), ("reply", ("reply", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Reply)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Statistics)), ("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.History))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
                                 ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
                                 ('output_nexthop', (YLeaf(YType.str, 'output-nexthop'), ['str'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
                                 ('exp_bits', (YLeaf(YType.uint32, 'exp-bits'), ['int'])),
                                 ('force_explicit_null', (YLeaf(YType.empty, 'force-explicit-null'), ['Empty'])),
@@ -7055,7 +6988,6 @@ class Ipsla(Entity):
                             self.ttl = None
                             self.source_address = None
                             self.output_nexthop = None
-                            self.create = None
                             self.lsp_selector = None
                             self.exp_bits = None
                             self.force_explicit_null = None
@@ -7083,7 +7015,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace, ['ttl', 'source_address', 'output_nexthop', 'create', 'lsp_selector', 'exp_bits', 'force_explicit_null', 'timeout', 'output_interface', 'frequency', 'tag'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace, ['ttl', 'source_address', 'output_nexthop', 'lsp_selector', 'exp_bits', 'force_explicit_null', 'timeout', 'output_interface', 'frequency', 'tag'], name, value)
 
 
                         class Target(Entity):
@@ -7485,11 +7417,6 @@ class Ipsla(Entity):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: create
-                        
-                        	Create operation with specified type
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: statistics
                         
                         	Statistics collection aggregated over an hour
@@ -7555,6 +7482,8 @@ class Ipsla(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'man-ipsla-cfg'
@@ -7569,12 +7498,12 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.DataSize)), ("packet", ("packet", Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Packet)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Statistics)), ("enhanced-stats", ("enhanced_stats", Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
                                 ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
                                 ('control_disable', (YLeaf(YType.empty, 'control-disable'), ['Empty'])),
                                 ('source_port', (YLeaf(YType.uint16, 'source-port'), ['int'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                                 ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                                 ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
@@ -7587,7 +7516,6 @@ class Ipsla(Entity):
                             self.tos = None
                             self.control_disable = None
                             self.source_port = None
-                            self.create = None
                             self.vrf = None
                             self.timeout = None
                             self.frequency = None
@@ -7615,7 +7543,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter, ['source_address', 'tos', 'control_disable', 'source_port', 'create', 'vrf', 'timeout', 'frequency', 'dest_port', 'verify_data', 'dest_address', 'tag'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter, ['source_address', 'tos', 'control_disable', 'source_port', 'vrf', 'timeout', 'frequency', 'dest_port', 'verify_data', 'dest_address', 'tag'], name, value)
 
 
                         class DataSize(Entity):
@@ -7913,11 +7841,6 @@ class Ipsla(Entity):
                         
                         	**presence node**\: True
                         
-                        .. attribute:: create
-                        
-                        	Create operation with specified type
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: vrf
                         
                         	Configure IPSLA for a VPN Routing/Forwarding instance)
@@ -7961,6 +7884,8 @@ class Ipsla(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'man-ipsla-cfg'
@@ -7975,10 +7900,10 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.History)), ("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.DataSize)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.Statistics)), ("lsr-path", ("lsr_path", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.LsrPath))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
                                 ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                                 ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                                 ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
@@ -7987,7 +7912,6 @@ class Ipsla(Entity):
                             ])
                             self.source_address = None
                             self.tos = None
-                            self.create = None
                             self.vrf = None
                             self.timeout = None
                             self.frequency = None
@@ -8012,7 +7936,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho, ['source_address', 'tos', 'create', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho, ['source_address', 'tos', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
 
 
                         class History(Entity):
@@ -8364,11 +8288,6 @@ class Ipsla(Entity):
                         
                         	**presence node**\: True
                         
-                        .. attribute:: create
-                        
-                        	Create operation with specified type
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: vrf
                         
                         	Configure IPSLA for a VPN Routing/Forwarding instance)
@@ -8412,6 +8331,8 @@ class Ipsla(Entity):
                         
                         
 
+                        This class is a :ref:`presence class<presence-class>`
+
                         """
 
                         _prefix = 'man-ipsla-cfg'
@@ -8426,10 +8347,10 @@ class Ipsla(Entity):
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.DataSize)), ("packet", ("packet", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.Packet)), ("lsr-path", ("lsr_path", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.LsrPath))])
+                            self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
                                 ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
-                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                                 ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                                 ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
@@ -8438,7 +8359,6 @@ class Ipsla(Entity):
                             ])
                             self.source_address = None
                             self.tos = None
-                            self.create = None
                             self.vrf = None
                             self.timeout = None
                             self.frequency = None
@@ -8459,7 +8379,7 @@ class Ipsla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter, ['source_address', 'tos', 'create', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
+                            self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter, ['source_address', 'tos', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
 
 
                         class DataSize(Entity):
@@ -8683,6 +8603,8 @@ class Ipsla(Entity):
         	Responder TWAMP configuration
         	**type**\:  :py:class:`Twamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.Twamp>`
         
+        	**presence node**\: True
+        
         .. attribute:: type
         
         	Configure IPSLA Responder port type
@@ -8694,6 +8616,8 @@ class Ipsla(Entity):
         	**type**\:  :py:class:`TwampLight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.TwampLight>`
         
         
+
+        This class is a :ref:`presence class<presence-class>`
 
         """
 
@@ -8709,10 +8633,10 @@ class Ipsla(Entity):
             self.has_list_ancestor = False
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("twamp", ("twamp", Ipsla.Responder.Twamp)), ("type", ("type", Ipsla.Responder.Type)), ("twamp-light", ("twamp_light", Ipsla.Responder.TwampLight))])
+            self.is_presence_container = True
             self._leafs = OrderedDict()
 
-            self.twamp = Ipsla.Responder.Twamp()
-            self.twamp.parent = self
+            self.twamp = None
             self._children_name_map["twamp"] = "twamp"
 
             self.type = Ipsla.Responder.Type()
@@ -8747,6 +8671,8 @@ class Ipsla(Entity):
             
             
 
+            This class is a :ref:`presence class<presence-class>`
+
             """
 
             _prefix = 'man-ipsla-cfg'
@@ -8761,6 +8687,7 @@ class Ipsla(Entity):
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
+                self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                 ])
@@ -10709,6 +10636,8 @@ class Ipsla(Entity):
         
         
 
+        This class is a :ref:`presence class<presence-class>`
+
         """
 
         _prefix = 'man-ipsla-cfg'
@@ -10723,6 +10652,7 @@ class Ipsla(Entity):
             self.has_list_ancestor = False
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
+            self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('inactivity_timer', (YLeaf(YType.uint32, 'inactivity-timer'), ['int'])),
                 ('port', (YLeaf(YType.uint16, 'port'), ['int'])),

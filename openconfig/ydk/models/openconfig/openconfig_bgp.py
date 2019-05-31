@@ -250,7 +250,7 @@ class Bgp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.Global.Config, [u'as_', u'router_id'], name, value)
+                self._perform_setattr(Bgp.Global.Config, ['as_', 'router_id'], name, value)
 
 
 
@@ -327,7 +327,7 @@ class Bgp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.Global.State, [u'as_', u'router_id', 'total_paths', 'total_prefixes'], name, value)
+                self._perform_setattr(Bgp.Global.State, ['as_', 'router_id', 'total_paths', 'total_prefixes'], name, value)
 
 
 
@@ -428,7 +428,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.DefaultRouteDistance.Config, [u'external_route_distance', u'internal_route_distance'], name, value)
+                    self._perform_setattr(Bgp.Global.DefaultRouteDistance.Config, ['external_route_distance', 'internal_route_distance'], name, value)
 
 
 
@@ -481,7 +481,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.DefaultRouteDistance.State, [u'external_route_distance', u'internal_route_distance'], name, value)
+                    self._perform_setattr(Bgp.Global.DefaultRouteDistance.State, ['external_route_distance', 'internal_route_distance'], name, value)
 
 
 
@@ -588,7 +588,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.Confederation.Config, [u'enabled', u'identifier', u'member_as'], name, value)
+                    self._perform_setattr(Bgp.Global.Confederation.Config, ['enabled', 'identifier', 'member_as'], name, value)
 
 
 
@@ -650,7 +650,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.Confederation.State, [u'enabled', u'identifier', u'member_as'], name, value)
+                    self._perform_setattr(Bgp.Global.Confederation.State, ['enabled', 'identifier', 'member_as'], name, value)
 
 
 
@@ -1723,7 +1723,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi, [u'afi_safi_name'], name, value)
+                    self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi, ['afi_safi_name'], name, value)
 
 
                 class Config(Entity):
@@ -1768,7 +1768,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Config, [u'afi_safi_name', u'enabled'], name, value)
+                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Config, ['afi_safi_name', 'enabled'], name, value)
 
 
 
@@ -1840,7 +1840,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.State, [u'afi_safi_name', u'enabled', 'total_paths', 'total_prefixes'], name, value)
+                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.State, ['afi_safi_name', 'enabled', 'total_paths', 'total_prefixes'], name, value)
 
 
 
@@ -1927,7 +1927,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config, [u'enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config, ['enabled'], name, value)
 
 
 
@@ -1968,7 +1968,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State, [u'enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State, ['enabled'], name, value)
 
 
 
@@ -2808,7 +2808,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -2885,7 +2885,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -2926,7 +2926,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config, [u'send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config, ['send_default_route'], name, value)
 
 
 
@@ -2968,7 +2968,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State, [u'send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State, ['send_default_route'], name, value)
 
 
 
@@ -3144,7 +3144,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -3221,7 +3221,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -3262,7 +3262,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config, [u'send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config, ['send_default_route'], name, value)
 
 
 
@@ -3304,7 +3304,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State, [u'send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State, ['send_default_route'], name, value)
 
 
 
@@ -3460,7 +3460,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -3537,7 +3537,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -3694,7 +3694,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -3771,7 +3771,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -3928,7 +3928,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -4005,7 +4005,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -4162,7 +4162,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -4239,7 +4239,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -4396,7 +4396,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -4473,7 +4473,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -4630,7 +4630,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -4707,7 +4707,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -4864,7 +4864,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -4941,7 +4941,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -5098,7 +5098,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -5175,7 +5175,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -5292,7 +5292,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix, [u'prefix'], name, value)
+                    self._perform_setattr(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix, ['prefix'], name, value)
 
 
                 class Config(Entity):
@@ -5346,7 +5346,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.Config, [u'prefix', u'peer_group'], name, value)
+                        self._perform_setattr(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.Config, ['prefix', 'peer_group'], name, value)
 
 
 
@@ -5405,7 +5405,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.State, [u'prefix', u'peer_group'], name, value)
+                        self._perform_setattr(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.State, ['prefix', 'peer_group'], name, value)
 
 
 
@@ -5621,7 +5621,7 @@ class Bgp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.Neighbors.Neighbor, [u'neighbor_address'], name, value)
+                self._perform_setattr(Bgp.Neighbors.Neighbor, ['neighbor_address'], name, value)
 
 
             class Config(Entity):
@@ -5748,7 +5748,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Neighbors.Neighbor.Config, [u'peer_group', u'neighbor_address', u'enabled', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description'], name, value)
+                    self._perform_setattr(Bgp.Neighbors.Neighbor.Config, ['peer_group', 'neighbor_address', 'enabled', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description'], name, value)
 
 
 
@@ -5970,7 +5970,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Neighbors.Neighbor.State, [u'peer_group', u'neighbor_address', u'enabled', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description', u'session_state', u'last_established', u'established_transitions', u'supported_capabilities', u'dynamically_configured'], name, value)
+                    self._perform_setattr(Bgp.Neighbors.Neighbor.State, ['peer_group', 'neighbor_address', 'enabled', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description', 'session_state', 'last_established', 'established_transitions', 'supported_capabilities', 'dynamically_configured'], name, value)
 
                 class SessionState(Enum):
                     """
@@ -6131,7 +6131,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.State.Messages.Sent, [u'update', u'notification'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.State.Messages.Sent, ['update', 'notification'], name, value)
 
 
 
@@ -6183,7 +6183,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.State.Messages.Received, [u'update', u'notification'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.State.Messages.Received, ['update', 'notification'], name, value)
 
 
 
@@ -6237,7 +6237,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.State.Queues, [u'input', u'output'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.State.Queues, ['input', 'output'], name, value)
 
 
 
@@ -6455,7 +6455,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.State, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval', u'negotiated_hold_time'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.State, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval', 'negotiated_hold_time'], name, value)
 
 
 
@@ -6701,7 +6701,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.State, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address', u'local_port', u'remote_address', u'remote_port'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.State, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address', 'local_port', 'remote_address', 'remote_port'], name, value)
 
 
 
@@ -6845,7 +6845,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.State, ['treat_as_withdraw', u'erroneous_update_messages'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.State, ['treat_as_withdraw', 'erroneous_update_messages'], name, value)
 
 
 
@@ -7064,7 +7064,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only', u'peer_restart_time', u'peer_restarting', u'local_restarting', u'mode'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only', 'peer_restart_time', 'peer_restarting', 'local_restarting', 'mode'], name, value)
 
                     class Mode(Enum):
                         """
@@ -8265,7 +8265,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.ApplyPolicy.Config, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.ApplyPolicy.Config, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
 
@@ -8339,7 +8339,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.ApplyPolicy.State, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.ApplyPolicy.State, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
 
@@ -8551,7 +8551,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi, [u'afi_safi_name'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi, ['afi_safi_name'], name, value)
 
 
                     class Config(Entity):
@@ -8596,7 +8596,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config, [u'afi_safi_name', u'enabled'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config, ['afi_safi_name', 'enabled'], name, value)
 
 
 
@@ -8666,7 +8666,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State, [u'afi_safi_name', u'enabled', u'active'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State, ['afi_safi_name', 'enabled', 'active'], name, value)
 
 
                         class Prefixes(Entity):
@@ -8728,7 +8728,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes, [u'received', u'sent', u'installed'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes, ['received', 'sent', 'installed'], name, value)
 
 
 
@@ -8816,7 +8816,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config, [u'enabled'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config, ['enabled'], name, value)
 
 
 
@@ -8875,7 +8875,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State, [u'enabled', u'received', u'advertised'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State, ['enabled', 'received', 'advertised'], name, value)
 
 
 
@@ -8993,7 +8993,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
 
@@ -9067,7 +9067,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
 
@@ -9243,7 +9243,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -9320,7 +9320,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -9361,7 +9361,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config, [u'send_default_route'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config, ['send_default_route'], name, value)
 
 
 
@@ -9403,7 +9403,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State, [u'send_default_route'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State, ['send_default_route'], name, value)
 
 
 
@@ -9579,7 +9579,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -9656,7 +9656,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -9697,7 +9697,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config, [u'send_default_route'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config, ['send_default_route'], name, value)
 
 
 
@@ -9739,7 +9739,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State, [u'send_default_route'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State, ['send_default_route'], name, value)
 
 
 
@@ -9895,7 +9895,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -9972,7 +9972,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -10129,7 +10129,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -10206,7 +10206,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -10363,7 +10363,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -10440,7 +10440,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -10597,7 +10597,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -10674,7 +10674,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -10831,7 +10831,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -10908,7 +10908,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -11065,7 +11065,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -11142,7 +11142,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -11299,7 +11299,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -11376,7 +11376,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -11533,7 +11533,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -11610,7 +11610,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -14381,7 +14381,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
 
@@ -14455,7 +14455,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ApplyPolicy.State, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ApplyPolicy.State, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
 
@@ -14721,7 +14721,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config, [u'afi_safi_name', u'enabled'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config, ['afi_safi_name', 'enabled'], name, value)
 
 
 
@@ -14771,7 +14771,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State, [u'afi_safi_name', u'enabled'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State, ['afi_safi_name', 'enabled'], name, value)
 
 
 
@@ -14858,7 +14858,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config, [u'enabled'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config, ['enabled'], name, value)
 
 
 
@@ -14899,7 +14899,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State, [u'enabled'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State, ['enabled'], name, value)
 
 
 
@@ -15681,7 +15681,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
 
@@ -15755,7 +15755,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
 
@@ -15931,7 +15931,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -16008,7 +16008,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -16049,7 +16049,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config, [u'send_default_route'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config, ['send_default_route'], name, value)
 
 
 
@@ -16091,7 +16091,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State, [u'send_default_route'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State, ['send_default_route'], name, value)
 
 
 
@@ -16267,7 +16267,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -16344,7 +16344,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -16385,7 +16385,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config, [u'send_default_route'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config, ['send_default_route'], name, value)
 
 
 
@@ -16427,7 +16427,7 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State, [u'send_default_route'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State, ['send_default_route'], name, value)
 
 
 
@@ -16583,7 +16583,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -16660,7 +16660,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -16817,7 +16817,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -16894,7 +16894,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -17051,7 +17051,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -17128,7 +17128,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -17285,7 +17285,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -17362,7 +17362,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -17519,7 +17519,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -17596,7 +17596,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -17753,7 +17753,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -17830,7 +17830,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -17987,7 +17987,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -18064,7 +18064,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -18221,7 +18221,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 
@@ -18298,7 +18298,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
 

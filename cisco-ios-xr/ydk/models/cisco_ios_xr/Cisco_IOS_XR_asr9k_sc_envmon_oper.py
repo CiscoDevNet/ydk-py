@@ -651,6 +651,42 @@ class EnvironmentalMonitoringCli(Entity):
                                                 
                                                 	**config**\: False
                                                 
+                                                .. attribute:: average
+                                                
+                                                	Average sensor value over time interval
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: minimum
+                                                
+                                                	Minimum Sensor value over time interval
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: maximum
+                                                
+                                                	Maximum Sensor value over time interval
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: interval
+                                                
+                                                	Time Interval over which sensor value is monitored
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -680,6 +716,10 @@ class EnvironmentalMonitoringCli(Entity):
                                                         ('status', (YLeaf(YType.uint32, 'status'), ['int'])),
                                                         ('age_time_stamp', (YLeaf(YType.uint32, 'age-time-stamp'), ['int'])),
                                                         ('update_rate', (YLeaf(YType.uint32, 'update-rate'), ['int'])),
+                                                        ('average', (YLeaf(YType.int32, 'average'), ['int'])),
+                                                        ('minimum', (YLeaf(YType.int32, 'minimum'), ['int'])),
+                                                        ('maximum', (YLeaf(YType.int32, 'maximum'), ['int'])),
+                                                        ('interval', (YLeaf(YType.int32, 'interval'), ['int'])),
                                                     ])
                                                     self.field_validity_bitmap = None
                                                     self.device_description = None
@@ -693,11 +733,15 @@ class EnvironmentalMonitoringCli(Entity):
                                                     self.status = None
                                                     self.age_time_stamp = None
                                                     self.update_rate = None
+                                                    self.average = None
+                                                    self.minimum = None
+                                                    self.maximum = None
+                                                    self.interval = None
                                                     self._segment_path = lambda: "value-detailed-cli"
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ValueDetailedCli, [u'field_validity_bitmap', u'device_description', u'units', u'device_id', u'value', u'alarm_type', u'data_type', u'scale', u'precision', u'status', u'age_time_stamp', u'update_rate'], name, value)
+                                                    self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ValueDetailedCli, ['field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate', 'average', 'minimum', 'maximum', 'interval'], name, value)
 
 
 
@@ -887,7 +931,7 @@ class EnvironmentalMonitoringCli(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli.ValueDetailedCli, [u'threshold_severity', u'threshold_relation', u'threshold_value', u'threshold_evaluation', u'threshold_notification_enabled'], name, value)
+                                                            self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli.ValueDetailedCli, ['threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
 
 
 
@@ -1072,7 +1116,7 @@ class EnvironmentalMonitoringCli(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli.PowerBagCli, [u'power_value', u'power_max_value', u'power_unit_multiplier', u'power_accuracy', u'power_measure_caliber', u'power_current_type', u'power_origin', u'power_admin_state', u'power_oper_state', u'power_state_enter_reason'], name, value)
+                                        self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli.PowerBagCli, ['power_value', 'power_max_value', 'power_unit_multiplier', 'power_accuracy', 'power_measure_caliber', 'power_current_type', 'power_origin', 'power_admin_state', 'power_oper_state', 'power_state_enter_reason'], name, value)
 
 
 
@@ -1580,7 +1624,7 @@ class EnvironmentalMonitoring(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, [u'power_value', u'power_max_value', u'power_unit_multiplier', u'power_accuracy', u'power_measure_caliber', u'power_current_type', u'power_origin', u'power_admin_state', u'power_oper_state', u'power_state_enter_reason'], name, value)
+                                        self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, ['power_value', 'power_max_value', 'power_unit_multiplier', 'power_accuracy', 'power_measure_caliber', 'power_current_type', 'power_origin', 'power_admin_state', 'power_oper_state', 'power_state_enter_reason'], name, value)
 
 
 
@@ -1969,7 +2013,7 @@ class EnvironmentalMonitoring(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, [u'threshold_severity', u'threshold_relation', u'threshold_value', u'threshold_evaluation', u'threshold_notification_enabled'], name, value)
+                                                            self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, ['threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
 
 
 
@@ -2088,6 +2132,42 @@ class EnvironmentalMonitoring(Entity):
                                                 
                                                 	**config**\: False
                                                 
+                                                .. attribute:: average
+                                                
+                                                	Average sensor value over time interval
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: minimum
+                                                
+                                                	Minimum Sensor value over time interval
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: maximum
+                                                
+                                                	Maximum Sensor value over time interval
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: interval
+                                                
+                                                	Time Interval over which sensor value is monitored
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -2117,6 +2197,10 @@ class EnvironmentalMonitoring(Entity):
                                                         ('status', (YLeaf(YType.uint32, 'status'), ['int'])),
                                                         ('age_time_stamp', (YLeaf(YType.uint32, 'age-time-stamp'), ['int'])),
                                                         ('update_rate', (YLeaf(YType.uint32, 'update-rate'), ['int'])),
+                                                        ('average', (YLeaf(YType.int32, 'average'), ['int'])),
+                                                        ('minimum', (YLeaf(YType.int32, 'minimum'), ['int'])),
+                                                        ('maximum', (YLeaf(YType.int32, 'maximum'), ['int'])),
+                                                        ('interval', (YLeaf(YType.int32, 'interval'), ['int'])),
                                                     ])
                                                     self.field_validity_bitmap = None
                                                     self.device_description = None
@@ -2130,11 +2214,15 @@ class EnvironmentalMonitoring(Entity):
                                                     self.status = None
                                                     self.age_time_stamp = None
                                                     self.update_rate = None
+                                                    self.average = None
+                                                    self.minimum = None
+                                                    self.maximum = None
+                                                    self.interval = None
                                                     self._segment_path = lambda: "value-detailed"
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, [u'field_validity_bitmap', u'device_description', u'units', u'device_id', u'value', u'alarm_type', u'data_type', u'scale', u'precision', u'status', u'age_time_stamp', u'update_rate'], name, value)
+                                                    self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, ['field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate', 'average', 'minimum', 'maximum', 'interval'], name, value)
 
 
 

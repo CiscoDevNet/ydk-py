@@ -1,6 +1,6 @@
 """ notifications 
 
-Conversion of the 'ncEvent' XSD in the
+Conversion of the 'ncEvent' XSD in the 
 NETCONF Notifications RFC.
 
 """
@@ -20,7 +20,7 @@ class CreateSubscription(Entity):
     takes as argument the name of the notification stream
     and filter. Both of those options limit the content of
     the subscription. In addition, there are two time\-related
-    parameters, startTime and stopTime, which can be used to
+    parameters, startTime and stopTime, which can be used to 
     select the time interval of interest to the notification
     replay feature.
     
@@ -61,14 +61,14 @@ class CreateSubscription(Entity):
         
         .. attribute:: stream
         
-        	An optional parameter that indicates which stream of events is of interest. If not present, then events in the default NETCONF stream will be sent
+        	An optional parameter that indicates which stream of  events is of interest. If not present, then events in the default NETCONF stream will be sent
         	**type**\: str
         
         	**default value**\: NETCONF
         
         .. attribute:: filter
         
-        	An optional parameter that indicates which subset of all possible events is of interest. The format of this parameter is the same as that of the filter parameter in the NETCONF protocol operations. If not present, all events not precluded by other parameters will be sent
+        	An optional parameter that indicates which subset of all possible events is of interest. The format of this parameter is the same as that of the filter parameter in the NETCONF protocol operations. If not present, all events not precluded by other parameters will  be sent
         	**type**\: anyxml
         
         .. attribute:: starttime
@@ -116,7 +116,7 @@ class CreateSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CreateSubscription.Input, [u'stream', u'filter', u'starttime', u'stoptime'], name, value)
+            self._perform_setattr(CreateSubscription.Input, ['stream', 'filter', 'starttime', 'stoptime'], name, value)
 
 
     def clone_ptr(self):

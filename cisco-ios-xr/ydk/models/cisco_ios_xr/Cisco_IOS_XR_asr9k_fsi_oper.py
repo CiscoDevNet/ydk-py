@@ -254,7 +254,7 @@ class FabricStats(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats, ['type', u'last_clear_time', u'stat_table_name'], name, value)
+                        self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats, ['type', 'last_clear_time', 'stat_table_name'], name, value)
 
 
                     class StatsTable(Entity):
@@ -340,7 +340,7 @@ class FabricStats(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat, [u'count', u'counter_name'], name, value)
+                                self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat, ['count', 'counter_name'], name, value)
 
 
 

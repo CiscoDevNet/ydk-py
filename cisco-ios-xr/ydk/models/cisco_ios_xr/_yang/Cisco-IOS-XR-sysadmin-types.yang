@@ -1,7 +1,9 @@
 module Cisco-IOS-XR-sysadmin-types {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-types";
   prefix calvados_types;
-  organization "Cisco Systems Inc.";
+
+  organization
+    "Cisco Systems Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
@@ -12,34 +14,28 @@ module Cisco-IOS-XR-sysadmin-types {
      Tel: +1 800 553-NETS
      
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains definitions
      for the Calvados model objects.
-
-    This module contains a collection of YANG
-definitions for Cisco IOS-XR SysAdmin configuration.
-
-This module contains a collection of derived 
-YANG data types specific to Sysadmin.
-
-Copyright(c) 2011-2016 by Cisco Systems, Inc.
-All rights reserved.
-
-    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     
+     This module contains a collection of YANG
+     definitions for Cisco IOS-XR SysAdmin configuration.
+     
+     This module contains a collection of derived 
+     YANG data types specific to Sysadmin.
+     
+     Copyright(c) 2011-2016 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
-  revision 2017-01-31 {
+
+  revision 2018-04-09 {
     description
-      "Changed the namespace and module name";
+      "Required changes for ConfD 6.4.5";
   }
 
-
   typedef rack-id {
-    description
-      "Identifies the rack number of FCC/LCC.
-       LCC racks are identified by numbers rack0..7
-       FCC racks are identified by numbers F0..F3
-       BSC racks are identified by numbers 128..129";
     type enumeration {
       enum "L0";
       enum "L1";
@@ -64,14 +60,19 @@ All rights reserved.
       enum "B0";
       enum "B1";
     }
+    description
+      "Identifies the rack number of FCC/LCC.
+       LCC racks are identified by numbers rack0..7
+       FCC racks are identified by numbers F0..F3
+       BSC racks are identified by numbers 128..129";
   }
 
   typedef slot-id {
-    description
-      "Identifies a slot number within a rack";
     type int32 {
       range "0..15";
     }
+    description
+      "Identifies a slot number within a rack";
   }
 
   typedef ce-portid {
@@ -81,19 +82,19 @@ All rights reserved.
   }
 
   typedef plane-id {
-    description
-      "fabric plane identifier";
     type uint32 {
       range "0..7";
     }
+    description
+      "fabric plane identifier";
   }
 
   typedef sfe-id {
-    description
-      "falafel device identifier";
     type int32 {
       range "1..16";
     }
+    description
+      "falafel device identifier";
   }
 
   typedef adminstate {
@@ -134,10 +135,10 @@ All rights reserved.
   }
 
   typedef location-id {
-    description
-      "location identifier";
     type string {
       pattern "((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?";
     }
+    description
+      "location identifier";
   }
 }

@@ -256,7 +256,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
       enum "lockdown" {
         value 1;
         description
-          "Path is not a canditate forreoptimization";
+          "Path is not a candidate for reoptimization";
       }
       enum "verbatim" {
         value 4;
@@ -273,6 +273,11 @@ module Cisco-IOS-XR-mpls-te-cfg {
         value 16;
         description
           "Segment Routing path";
+      }
+      enum "sticky" {
+        value 32;
+        description
+          "Force tunnel to remain on same path";
       }
     }
     description
@@ -2394,24 +2399,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
     }
   }
 
-  grouping MPLS-TE-ATTR-SET-CFG-ENABLE {
-    description
-      "Common node of path-selection,
-       att-path-option-path-selectionCommon node of
-       path-option-attribute, auto-mesh-attribute,
-       xro-attribute, auto-backup-attribute,
-       p2mpte-attribute, otn-pp-attribute,
-       p2p-te-attribute";
-    leaf enable {
-      type empty;
-      description
-        "Attribute-set enable object that controls
-         whether this attribute-set is configured or not
-         .This object must be set before other
-         configuration supplied for this attribute-set";
-    }
-  }
-
   grouping AUTOROUTE {
     description
       "Common node of tunnel-attributes,
@@ -3026,6 +3013,12 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 default "none";
                 description
                   "Deprecated";
+              }
+              leaf sticky {
+                type Mpls-te-path-option-property;
+                default "none";
+                description
+                  "Sticky properties";
               }
             }
           }
@@ -3965,11 +3958,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
                   description
                     "Path preference level";
                 }
-                leaf enable {
-                  type empty;
-                  description
-                    "Always set to true";
-                }
                 leaf path-setup-name {
                   type xr:Cisco-ios-xr-string;
                   description
@@ -4016,11 +4004,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
               description
                 "Tunnel ID";
             }
-          }
-          leaf enable {
-            type empty;
-            description
-              "Always set to true";
           }
           leaf tunnel-name {
             type xr:Cisco-ios-xr-string {
@@ -4284,14 +4267,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
                   "The name of auto-mesh attribute set to be
                    applied to this group";
               }
-              leaf create {
-                type empty;
-                description
-                  "Auto-mesh group enable object that controls
-                   whether this group is configured or not
-                   .This object must be set before other
-                   configuration supplied for this group";
-              }
               leaf one-hop {
                 type empty;
                 description
@@ -4510,7 +4485,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 "Attribute Set Name";
             }
             uses PCE;
-            uses MPLS-TE-ATTR-SET-CFG-ENABLE;
             uses AFFINITY-MASK;
             uses BANDWIDTH;
             uses NEW-STYLE-AFFINITY-TABLE;
@@ -4530,7 +4504,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
             }
             uses INTERFACE-BANDWIDTH;
             uses PRIORITY;
-            uses MPLS-TE-ATTR-SET-CFG-ENABLE;
             uses RECORD-ROUTE;
             uses AFFINITY-MASK;
             uses BANDWIDTH;
@@ -4628,7 +4601,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 "Attribute Set Name";
             }
             uses PCE;
-            uses MPLS-TE-ATTR-SET-CFG-ENABLE;
             uses AFFINITY-MASK;
             uses LOGGING;
             uses NEW-STYLE-AFFINITY-TABLE;
@@ -4680,7 +4652,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 "Attribute Set Name";
             }
             uses PRIORITY;
-            uses MPLS-TE-ATTR-SET-CFG-ENABLE;
             uses RECORD-ROUTE;
             uses AFFINITY-MASK;
             uses PATH-SELECTION;
@@ -4856,7 +4827,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
               description
                 "Attribute Set Name";
             }
-            uses MPLS-TE-ATTR-SET-CFG-ENABLE;
             uses PATH-SELECTION;
           }
         }
@@ -4891,7 +4861,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
             uses INTERFACE-BANDWIDTH;
             uses FORWARD-CLASS;
             uses PRIORITY;
-            uses MPLS-TE-ATTR-SET-CFG-ENABLE;
             uses RECORD-ROUTE;
             uses AFFINITY-MASK;
             uses BANDWIDTH;
@@ -4991,7 +4960,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
               description
                 "Attribute Set Name";
             }
-            uses MPLS-TE-ATTR-SET-CFG-ENABLE;
             uses PATH-SELECTION;
           }
         }
@@ -5201,12 +5169,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
             key "pce-peer-address";
             description
               "PCE peer";
-            leaf enable {
-              type empty;
-              description
-                "Enabled PCE peer (default source address
-                 uses local)";
-            }
             leaf pce-peer-address {
               type inet:ipv4-address-no-zone;
               description
@@ -6455,7 +6417,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
             leaf bitrate {
               when "../signalled-bandwidth-type = 'od-uflex-cbr' or ../signalled-bandwidth-type = 'od-uflex-gfp-resize' or ../signalled-bandwidth-type = 'od-uflex-gfp-not-resize'" {
                 description
-                  "../SignalledBandwidthType = ODUflexCBR or
+                  "../SignalledBandwidthType = ODUflexCBR or 
                    ../SignalledBandwidthType =
                    ODUflexGFPResize or .
                    ./SignalledBandwidthType =
@@ -6470,7 +6432,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
             leaf od-uflex-framing-type {
               when "../signalled-bandwidth-type = 'od-uflex-cbr' or ../signalled-bandwidth-type = 'od-uflex-gfp-resize' or ../signalled-bandwidth-type = 'od-uflex-gfp-not-resize'" {
                 description
-                  "../SignalledBandwidthType = ODUflexCBR or
+                  "../SignalledBandwidthType = ODUflexCBR or 
                    ../SignalledBandwidthType =
                    ODUflexGFPResize or .
                    ./SignalledBandwidthType =

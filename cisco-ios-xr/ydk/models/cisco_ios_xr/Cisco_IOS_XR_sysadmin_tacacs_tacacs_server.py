@@ -116,7 +116,7 @@ class TacacsServer(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(TacacsServer, [u'timeout', u'key'], name, value)
+        self._perform_setattr(TacacsServer, ['timeout', 'key'], name, value)
 
 
     class Host(Entity):
@@ -186,7 +186,7 @@ class TacacsServer(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TacacsServer.Host, [u'ip', u'port', u'timeout', u'key'], name, value)
+            self._perform_setattr(TacacsServer.Host, ['ip', 'port', 'timeout', 'key'], name, value)
 
 
 

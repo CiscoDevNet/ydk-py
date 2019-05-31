@@ -51,7 +51,7 @@ class Ptp(Entity):
     
     .. attribute:: uncalibrated_clock_class
     
-    	Clock class to be used while acquiring phase\-lock to a parent clock. Note that this is deprecated and should not be used
+    	Clock class to be used while acquiring phase\-lock to a parent clock. Note that this is deprecated and should not be  used
     	**type**\: int
     
     	**range:** 0..255
@@ -188,7 +188,7 @@ class Ptp(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Ptp, [u'uncalibrated_clock_class', u'time_of_day_priority', u'frequency_priority', u'startup_clock_class', u'enable', u'min_clock_class', u'physical_layer_frequency', u'freerun_clock_class'], name, value)
+        self._perform_setattr(Ptp, ['uncalibrated_clock_class', 'time_of_day_priority', 'frequency_priority', 'startup_clock_class', 'enable', 'min_clock_class', 'physical_layer_frequency', 'freerun_clock_class'], name, value)
 
 
     class Clock(Entity):
@@ -294,7 +294,7 @@ class Ptp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.Clock, [u'timescale', u'domain', u'priority2', u'time_source', u'priority1', u'clock_class'], name, value)
+            self._perform_setattr(Ptp.Clock, ['timescale', 'domain', 'priority2', 'time_source', 'priority1', 'clock_class'], name, value)
 
 
         class Profile(Entity):
@@ -340,7 +340,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Clock.Profile, [u'clock_profile', u'telecom_clock_type'], name, value)
+                self._perform_setattr(Ptp.Clock.Profile, ['clock_profile', 'telecom_clock_type'], name, value)
 
 
 
@@ -396,7 +396,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Clock.Identity, [u'clock_id_type', u'mac_address', u'eui'], name, value)
+                self._perform_setattr(Ptp.Clock.Identity, ['clock_id_type', 'mac_address', 'eui'], name, value)
 
 
 
@@ -754,7 +754,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Profiles.Profile, [u'profile_name', u'sync_grant_duration', u'general_cos', u'sync_timeout', u'transport', u'announce_timeout', u'cos', u'ipv4ttl', u'port_state', u'delay_response_timeout', u'delay_response_grant_duration', u'event_cos', u'dscp', u'ipv6_hop_limit', u'general_dscp', u'clock_operation', u'announce_grant_duration', u'unicast_grant_invalid_request', u'event_dscp'], name, value)
+                self._perform_setattr(Ptp.Profiles.Profile, ['profile_name', 'sync_grant_duration', 'general_cos', 'sync_timeout', 'transport', 'announce_timeout', 'cos', 'ipv4ttl', 'port_state', 'delay_response_timeout', 'delay_response_grant_duration', 'event_cos', 'dscp', 'ipv6_hop_limit', 'general_dscp', 'clock_operation', 'announce_grant_duration', 'unicast_grant_invalid_request', 'event_dscp'], name, value)
 
 
             class AnnounceInterval(Entity):
@@ -801,7 +801,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.AnnounceInterval, [u'time_type', u'time_period'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.AnnounceInterval, ['time_type', 'time_period'], name, value)
 
 
 
@@ -865,7 +865,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.Interop, [u'profile', u'domain'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.Interop, ['profile', 'domain'], name, value)
 
 
                 class EgressConversion(Entity):
@@ -949,7 +949,7 @@ class Ptp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion, [u'clock_accuracy', u'priority2', u'clock_class_default', u'offset_scaled_log_variance', u'priority1'], name, value)
+                        self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion, ['clock_accuracy', 'priority2', 'clock_class_default', 'offset_scaled_log_variance', 'priority1'], name, value)
 
 
                     class ClockClassMappings(Entity):
@@ -1034,7 +1034,7 @@ class Ptp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, [u'clock_class_from', u'clock_class_to'], name, value)
+                                self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
 
 
 
@@ -1121,7 +1121,7 @@ class Ptp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion, [u'clock_accuracy', u'priority2', u'clock_class_default', u'offset_scaled_log_variance', u'priority1'], name, value)
+                        self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion, ['clock_accuracy', 'priority2', 'clock_class_default', 'offset_scaled_log_variance', 'priority1'], name, value)
 
 
                     class ClockClassMappings(Entity):
@@ -1206,7 +1206,7 @@ class Ptp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, [u'clock_class_from', u'clock_class_to'], name, value)
+                                self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
 
 
 
@@ -1255,7 +1255,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv4Address, [u'enable', u'source_ip'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv4Address, ['enable', 'source_ip'], name, value)
 
 
 
@@ -1340,7 +1340,7 @@ class Ptp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave, [u'transport'], name, value)
+                        self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave, ['transport'], name, value)
 
 
                     class Ethernet(Entity):
@@ -1385,7 +1385,7 @@ class Ptp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, [u'slave_mac_address', u'non_negotiated'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, ['slave_mac_address', 'non_negotiated'], name, value)
 
 
 
@@ -1437,7 +1437,7 @@ class Ptp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, [u'slave_ip_address', u'non_negotiated'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, ['slave_ip_address', 'non_negotiated'], name, value)
 
 
 
@@ -1487,7 +1487,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.SyncInterval, [u'time_type', u'time_period'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.SyncInterval, ['time_type', 'time_period'], name, value)
 
 
 
@@ -1572,7 +1572,7 @@ class Ptp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Profiles.Profile.Masters.Master, [u'transport'], name, value)
+                        self._perform_setattr(Ptp.Profiles.Profile.Masters.Master, ['transport'], name, value)
 
 
                     class Ethernet(Entity):
@@ -1654,7 +1654,7 @@ class Ptp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet, [u'master_mac_address', u'master_clock_class', u'non_negotiated', u'priority', u'communication'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet, ['master_mac_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
 
 
                         class DelayAsymmetry(Entity):
@@ -1706,7 +1706,7 @@ class Ptp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, [u'magnitude', u'units'], name, value)
+                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, ['magnitude', 'units'], name, value)
 
 
 
@@ -1796,7 +1796,7 @@ class Ptp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6, [u'master_ip_address', u'master_clock_class', u'non_negotiated', u'priority', u'communication'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6, ['master_ip_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
 
 
                         class DelayAsymmetry(Entity):
@@ -1848,7 +1848,7 @@ class Ptp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, [u'magnitude', u'units'], name, value)
+                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, ['magnitude', 'units'], name, value)
 
 
 
@@ -1906,7 +1906,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.Communication, [u'model', u'target_address_set', u'target_address'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.Communication, ['model', 'target_address_set', 'target_address'], name, value)
 
 
 
@@ -1954,7 +1954,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.DelayRequestMinimumInterval, [u'time_type', u'time_period'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.DelayRequestMinimumInterval, ['time_type', 'time_period'], name, value)
 
 
 
@@ -2000,7 +2000,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv6Address, [u'enable', u'source_ipv6'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv6Address, ['enable', 'source_ipv6'], name, value)
 
 
 
@@ -2063,7 +2063,7 @@ class Ptp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.UtcOffset, [u'base_offset'], name, value)
+            self._perform_setattr(Ptp.UtcOffset, ['base_offset'], name, value)
 
 
         class LeapSecondFile(Entity):
@@ -2116,7 +2116,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.UtcOffset.LeapSecondFile, [u'source_url', u'polling_frequency'], name, value)
+                self._perform_setattr(Ptp.UtcOffset.LeapSecondFile, ['source_url', 'polling_frequency'], name, value)
 
 
 
@@ -2205,7 +2205,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, [u'date', u'offset'], name, value)
+                    self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, ['date', 'offset'], name, value)
 
 
 
@@ -2292,7 +2292,7 @@ class Ptp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Logging.BestMasterClock, [u'changes'], name, value)
+                self._perform_setattr(Ptp.Logging.BestMasterClock, ['changes'], name, value)
 
 
 
@@ -2384,7 +2384,7 @@ class Ptp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.UncalibratedClockClass2, [u'clock_class', u'unless_from_holdover'], name, value)
+            self._perform_setattr(Ptp.UncalibratedClockClass2, ['clock_class', 'unless_from_holdover'], name, value)
 
 
 
@@ -2499,7 +2499,7 @@ class Ptp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.TransparentClock.Domains.Domain, [u'domain'], name, value)
+                    self._perform_setattr(Ptp.TransparentClock.Domains.Domain, ['domain'], name, value)
 
 
 
@@ -2593,7 +2593,7 @@ class Ptp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.VirtualPort, [u'clock_accuracy', u'enable', u'priority2', u'local_priority', u'offset_scaled_log_variance', u'priority1', u'clock_class'], name, value)
+            self._perform_setattr(Ptp.VirtualPort, ['clock_accuracy', 'enable', 'priority2', 'local_priority', 'offset_scaled_log_variance', 'priority1', 'clock_class'], name, value)
 
 
     def clone_ptr(self):

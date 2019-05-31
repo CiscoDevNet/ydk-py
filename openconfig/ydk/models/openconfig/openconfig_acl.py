@@ -24,22 +24,6 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class FORWARDINGACTION(Identity):
-    """
-    Base identity for actions in the forwarding category
-    
-    
-
-    """
-
-    _prefix = 'oc-acl'
-    _revision = '2017-05-26'
-
-    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:FORWARDING_ACTION"):
-        super(FORWARDINGACTION, self).__init__(ns, pref, tag)
-
-
-
 class ACLTYPE(Identity):
     """
     Base identity for types of ACL sets
@@ -56,10 +40,9 @@ class ACLTYPE(Identity):
 
 
 
-class ACLCOUNTERCAPABILITY(Identity):
+class FORWARDINGACTION(Identity):
     """
-    Base identity for system to indicate how it is able to report
-    counters
+    Base identity for actions in the forwarding category
     
     
 
@@ -68,8 +51,8 @@ class ACLCOUNTERCAPABILITY(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_COUNTER_CAPABILITY"):
-        super(ACLCOUNTERCAPABILITY, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:FORWARDING_ACTION"):
+        super(FORWARDINGACTION, self).__init__(ns, pref, tag)
 
 
 
@@ -87,6 +70,23 @@ class LOGACTION(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_ACTION"):
         super(LOGACTION, self).__init__(ns, pref, tag)
+
+
+
+class ACLCOUNTERCAPABILITY(Identity):
+    """
+    Base identity for system to indicate how it is able to report
+    counters
+    
+    
+
+    """
+
+    _prefix = 'oc-acl'
+    _revision = '2017-05-26'
+
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_COUNTER_CAPABILITY"):
+        super(ACLCOUNTERCAPABILITY, self).__init__(ns, pref, tag)
 
 
 
@@ -1803,7 +1803,7 @@ class Acl(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -1857,7 +1857,7 @@ class Acl(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                                    self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2310,7 +2310,7 @@ class Acl(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+                        self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
 
 
 
@@ -2364,7 +2364,7 @@ class Acl(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+                        self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
 
 
 
@@ -3110,9 +3110,9 @@ class Acl(Entity):
 
 
 
-class ACLL2(ACLTYPE):
+class ACLIPV4(ACLTYPE):
     """
-    MAC\-layer ACLs
+    IP\-layer ACLs with IPv4 addresses
     
     
 
@@ -3121,8 +3121,8 @@ class ACLL2(ACLTYPE):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_L2"):
-        super(ACLL2, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_IPV4"):
+        super(ACLIPV4, self).__init__(ns, pref, tag)
 
 
 
@@ -3142,9 +3142,9 @@ class ACLIPV6(ACLTYPE):
 
 
 
-class LOGNONE(LOGACTION):
+class ACLL2(ACLTYPE):
     """
-    No logging
+    MAC\-layer ACLs
     
     
 
@@ -3153,72 +3153,8 @@ class LOGNONE(LOGACTION):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_NONE"):
-        super(LOGNONE, self).__init__(ns, pref, tag)
-
-
-
-class ACLIPV4(ACLTYPE):
-    """
-    IP\-layer ACLs with IPv4 addresses
-    
-    
-
-    """
-
-    _prefix = 'oc-acl'
-    _revision = '2017-05-26'
-
-    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_IPV4"):
-        super(ACLIPV4, self).__init__(ns, pref, tag)
-
-
-
-class DROP(FORWARDINGACTION):
-    """
-    Drop packet without sending any ICMP error message
-    
-    
-
-    """
-
-    _prefix = 'oc-acl'
-    _revision = '2017-05-26'
-
-    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:DROP"):
-        super(DROP, self).__init__(ns, pref, tag)
-
-
-
-class ACCEPT(FORWARDINGACTION):
-    """
-    Accept the packet
-    
-    
-
-    """
-
-    _prefix = 'oc-acl'
-    _revision = '2017-05-26'
-
-    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACCEPT"):
-        super(ACCEPT, self).__init__(ns, pref, tag)
-
-
-
-class INTERFACEONLY(ACLCOUNTERCAPABILITY):
-    """
-    ACL counters are available and reported only per interface
-    
-    
-
-    """
-
-    _prefix = 'oc-acl'
-    _revision = '2017-05-26'
-
-    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_ONLY"):
-        super(INTERFACEONLY, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_L2"):
+        super(ACLL2, self).__init__(ns, pref, tag)
 
 
 
@@ -3240,10 +3176,9 @@ class ACLMIXED(ACLTYPE):
 
 
 
-class INTERFACEAGGREGATE(ACLCOUNTERCAPABILITY):
+class ACCEPT(FORWARDINGACTION):
     """
-    ACL counters are reported per interface, and also aggregated
-    and reported per ACL entry.
+    Accept the packet
     
     
 
@@ -3252,8 +3187,24 @@ class INTERFACEAGGREGATE(ACLCOUNTERCAPABILITY):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_AGGREGATE"):
-        super(INTERFACEAGGREGATE, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACCEPT"):
+        super(ACCEPT, self).__init__(ns, pref, tag)
+
+
+
+class DROP(FORWARDINGACTION):
+    """
+    Drop packet without sending any ICMP error message
+    
+    
+
+    """
+
+    _prefix = 'oc-acl'
+    _revision = '2017-05-26'
+
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:DROP"):
+        super(DROP, self).__init__(ns, pref, tag)
 
 
 
@@ -3289,6 +3240,38 @@ class LOGSYSLOG(LOGACTION):
 
 
 
+class LOGNONE(LOGACTION):
+    """
+    No logging
+    
+    
+
+    """
+
+    _prefix = 'oc-acl'
+    _revision = '2017-05-26'
+
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_NONE"):
+        super(LOGNONE, self).__init__(ns, pref, tag)
+
+
+
+class INTERFACEONLY(ACLCOUNTERCAPABILITY):
+    """
+    ACL counters are available and reported only per interface
+    
+    
+
+    """
+
+    _prefix = 'oc-acl'
+    _revision = '2017-05-26'
+
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_ONLY"):
+        super(INTERFACEONLY, self).__init__(ns, pref, tag)
+
+
+
 class AGGREGATEONLY(ACLCOUNTERCAPABILITY):
     """
     ACL counters are aggregated over all interfaces, and reported
@@ -3303,6 +3286,23 @@ class AGGREGATEONLY(ACLCOUNTERCAPABILITY):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:AGGREGATE_ONLY"):
         super(AGGREGATEONLY, self).__init__(ns, pref, tag)
+
+
+
+class INTERFACEAGGREGATE(ACLCOUNTERCAPABILITY):
+    """
+    ACL counters are reported per interface, and also aggregated
+    and reported per ACL entry.
+    
+    
+
+    """
+
+    _prefix = 'oc-acl'
+    _revision = '2017-05-26'
+
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_AGGREGATE"):
+        super(INTERFACEAGGREGATE, self).__init__(ns, pref, tag)
 
 
 

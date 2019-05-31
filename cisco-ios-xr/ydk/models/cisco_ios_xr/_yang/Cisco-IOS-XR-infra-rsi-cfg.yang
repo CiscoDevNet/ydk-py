@@ -44,6 +44,10 @@ module Cisco-IOS-XR-infra-rsi-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-15 {
+    description
+      "Allow min..max in range when min == max.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -352,7 +356,9 @@ module Cisco-IOS-XR-infra-rsi-cfg {
               description
                 "Group name included under interface";
               leaf group-name-index {
-                type uint32;
+                type uint32 {
+                  range "1";
+                }
                 description
                   "Group name index";
               }

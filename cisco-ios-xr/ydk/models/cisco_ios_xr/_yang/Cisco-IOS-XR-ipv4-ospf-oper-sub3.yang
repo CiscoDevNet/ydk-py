@@ -6,6 +6,9 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
   import ietf-inet-types {
     prefix inet;
   }
+  import ietf-yang-types {
+    prefix yang;
+  }
   import Cisco-IOS-XR-types {
     prefix xr;
   }
@@ -86,6 +89,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
         "OSPF interface statistics";
       leaf entry {
         type uint32;
+        description
+          "OSPF interface statistics";
       }
     }
   }
@@ -534,6 +539,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
         "nsr pl recv drop array";
       leaf entry {
         type uint32;
+        description
+          "nsr pl recv drop array";
       }
     }
   }
@@ -547,6 +554,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
         "nsr pl send drop array";
       leaf entry {
         type uint32;
+        description
+          "nsr pl send drop array";
       }
     }
   }
@@ -560,6 +569,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
         "Total sent";
       leaf entry {
         type uint64;
+        description
+          "Total sent";
       }
     }
     list num-recv {
@@ -568,6 +579,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
         "Total recvd";
       leaf entry {
         type uint64;
+        description
+          "Total recvd";
       }
     }
     list num-sent-drop {
@@ -942,6 +955,26 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
       description
         "nsr peer nodeid";
     }
+    leaf nsr-peer-ep-len {
+      type uint32;
+      description
+        "nsr peer ep len";
+    }
+    leaf nsr-peer-ep-version {
+      type uint32;
+      description
+        "nsr peer ep version";
+    }
+    leaf nsr-local-ep-len {
+      type uint32;
+      description
+        "nsr local ep len";
+    }
+    leaf nsr-local-ep-version {
+      type uint32;
+      description
+        "nsr local ep version";
+    }
     leaf nsr-fabric-mtu {
       type uint32;
       description
@@ -992,6 +1025,16 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
       description
         "nsr tmr quant";
     }
+    leaf nsr-peer-ds-hdl {
+      type uint64;
+      description
+        "nsr peer ds hdl";
+    }
+    leaf nsr-local-ds-hdl {
+      type uint64;
+      description
+        "nsr local ds hdl";
+    }
     leaf nsr-conn-to-active-attempts {
       type uint64;
       description
@@ -1017,11 +1060,23 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
       description
         "nsr conn to active errors";
     }
+    leaf nsr-peer-ep {
+      type yang:hex-string;
+      description
+        "nsr peer ep";
+    }
+    leaf nsr-local-ep {
+      type yang:hex-string;
+      description
+        "nsr local ep";
+    }
     list nsr-fsm-flag {
       description
         "Nsr Fsm Flags information";
       leaf entry {
         type Ospf-string-array;
+        description
+          "Nsr Fsm Flags information";
       }
     }
     list nsr-fsm-running-timer {
@@ -1029,6 +1084,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
         "Nsr Fsm Running Timers";
       leaf entry {
         type Ospf-string-array;
+        description
+          "Nsr Fsm Running Timers";
       }
     }
     list nsr-issu-milestone {
@@ -1190,6 +1247,8 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
         "lsa type cnt";
       leaf entry {
         type uint32;
+        description
+          "lsa type cnt";
       }
     }
   }

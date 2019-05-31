@@ -42,17 +42,33 @@ module Cisco-IOS-XR-clns-isis-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-03-15 {
+    description
+      "Removed CLI enter-tuple YANG nodes for link-group.";
+  }
   revision 2018-11-23 {
     description
       "Added advertise-definition configuration item.";
   }
+  revision 2018-11-02 {
+    description
+      "Added purge-transmit strict configuration item.";
+  }
+  revision 2018-09-27 {
+    description
+      " Modify the SRv6 container and add a Locator container.";
+  }
+  revision 2018-06-15 {
+    description
+      "Allow min..max in range when min == max.";
+  }
+  revision 2018-06-15 {
+    description
+      "Added flex-algo protection command. IosSetYangSchemaRev Cisco-IOS-XR-clns-isis-cfg";
+  }
   revision 2018-06-14 {
     description
       "Added FRR InitialDelay under address-family fast-reroute submode.";
-  }
-  revision 2018-04-20 {
-    description
-      "Added metric-type under flex-algo submode.";
   }
   revision 2018-01-24 {
     description
@@ -332,6 +348,28 @@ module Cisco-IOS-XR-clns-isis-cfg {
     }
     description
       "Isis configurable levels";
+  }
+
+  typedef Isis-configurable-level {
+    type enumeration {
+      enum "level-12" {
+        value 0;
+        description
+          "Both Levels";
+      }
+      enum "level-1" {
+        value 1;
+        description
+          "level 1";
+      }
+      enum "level-2" {
+        value 2;
+        description
+          "level 2";
+      }
+    }
+    description
+      "Isis configurable level";
   }
 
   typedef Isissid {
@@ -1573,6 +1611,98 @@ module Cisco-IOS-XR-clns-isis-cfg {
               container segment-routing {
                 description
                   "Enable Segment Routing configuration";
+                container srv6 {
+                  description
+                    "SRv6 configuration";
+                  container srv6-locators {
+                    description
+                      "SRv6 Locator configuration";
+                    list srv6-locator {
+                      key "locator-name";
+                      description
+                        "Configuration for a single SRv6 Locator";
+                      leaf running {
+                        type empty;
+                        description
+                          "The presence of this object enables a
+                           SRv6 Locator. This must be the first
+                           object created under the SRv6Locator
+                           container, and the last one deleted";
+                      }
+                      leaf locator-name {
+                        type dt1:Isis-locator-name;
+                        description
+                          "Locator Name";
+                      }
+                    }
+                  }
+                  leaf running {
+                    type empty;
+                    description
+                      "The presence of this object enables SRv6.
+                       This must be the first object created
+                       under the SRV6 container, and the last
+                       one deleted";
+                  }
+                }
+                container connected-prefix-sids {
+                  description
+                    "Connected Segment Routing prefix SID map
+                     configuration";
+                  list connected-prefix-sid {
+                    key "address-prefix algo";
+                    description
+                      "Segment Routing prefix SID map";
+                    leaf address-prefix {
+                      type inet:ip-prefix;
+                      description
+                        "IP address prefix";
+                    }
+                    leaf algo {
+                      type uint32 {
+                        range "0..255";
+                      }
+                      description
+                        "Algo";
+                    }
+                    leaf sid-type {
+                      type Isissid1;
+                      mandatory true;
+                      description
+                        "SID type for the interface";
+                    }
+                    leaf sid {
+                      type Isissid;
+                      mandatory true;
+                      description
+                        "SID value for the interface";
+                    }
+                    leaf sid-range {
+                      type uint32 {
+                        range "1..1048575";
+                      }
+                      description
+                        "Range of SIDs";
+                    }
+                    leaf interface {
+                      type string {
+                        length "1..64";
+                      }
+                      description
+                        "Interface to which prefix belongs";
+                    }
+                    leaf php {
+                      type Isisphp-flag;
+                      description
+                        "Enable/Disable Penultimate Hop Popping";
+                    }
+                    leaf explicit-null {
+                      type Isisexplicit-null-flag;
+                      description
+                        "Enable/Disable Explicit-NULL flag";
+                    }
+                  }
+                }
                 container prefix-sid-map {
                   description
                     "Enable Segment Routing prefix SID map
@@ -1606,11 +1736,6 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   description
                     "Prefer segment routing labels over LDP
                      labels";
-                }
-                leaf srv6 {
-                  type empty;
-                  description
-                    "Enable Segment Routing SRV6 configuration";
                 }
               }
               container metric-styles {
@@ -1681,37 +1806,26 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   description
                     "FRR prefix-limit configuration";
                   list priority-limit {
-                    key "level";
+                    key "level frr-type";
                     description
                       "Limit backup computation upto the prefix
                        priority";
-
-                    grouping PRIORITY-LIMIT-CONTENT {
-                      description
-                        "Content grouping.";
-                      leaf priority {
-                        type Isis-prefix-priority;
-                        mandatory true;
-                        description
-                          "Compute for all prefixes upto the
-                           specified priority";
-                      }
-                    }
                     leaf level {
                       type dt1:Isis-internal-level;
                       description
                         "Level to which configuration applies";
                     }
-                    list frr-type {
-                      key "frr-type";
+                    leaf frr-type {
+                      type Isisfrr;
                       description
-                        "keys: frr-type";
-                      leaf frr-type {
-                        type Isisfrr;
-                        description
-                          "Computation Type";
-                      }
-                      uses PRIORITY-LIMIT-CONTENT;
+                        "Computation Type";
+                    }
+                    leaf priority {
+                      type Isis-prefix-priority;
+                      mandatory true;
+                      description
+                        "Compute for all prefixes upto the
+                         specified priority";
                     }
                   }
                 }
@@ -2629,7 +2743,9 @@ module Cisco-IOS-XR-clns-isis-cfg {
                  configuration object to be removed.";
             }
             leaf metric-type {
-              type uint32;
+              type uint32 {
+                range "1";
+              }
               description
                 "Set the Flex-Algo metric-type";
             }
@@ -2639,6 +2755,12 @@ module Cisco-IOS-XR-clns-isis-cfg {
               }
               description
                 "Set the Flex-Algo priority";
+            }
+            leaf frr-disable {
+              type boolean;
+              description
+                "If TRUE, FRR protectinn is disabled for the
+                 Flex-Algo.";
             }
             leaf advertise-definition {
               type boolean;
@@ -2714,7 +2836,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
             }
             leaf mtu {
               type uint32 {
-                range "128..4352";
+                range "128..8979";
               }
               units "byte";
               mandatory true;
@@ -3930,6 +4052,12 @@ module Cisco-IOS-XR-clns-isis-cfg {
             "If TRUE, dynamic hostname resolution is
              disabled, and system IDs will always be
              displayed by show and debug output.";
+        }
+        leaf purge-transmit-strict {
+          type Isis-configurable-level;
+          default "level-12";
+          description
+            "Allow only authentication TLV in purge LSPs";
         }
         leaf nsr {
           type empty;

@@ -220,7 +220,7 @@ class MPLSLSRSTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.MplsLsrObjects, [u'mplsinsegmentindexnext', u'mplsoutsegmentindexnext', u'mplsxcindexnext', u'mplsmaxlabelstackdepth', u'mplslabelstackindexnext', u'mplsxcnotificationsenable'], name, value)
+            self._perform_setattr(MPLSLSRSTDMIB.MplsLsrObjects, ['mplsinsegmentindexnext', 'mplsoutsegmentindexnext', 'mplsxcindexnext', 'mplsmaxlabelstackdepth', 'mplslabelstackindexnext', 'mplsxcnotificationsenable'], name, value)
 
 
 
@@ -446,7 +446,7 @@ class MPLSLSRSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.MplsInterfaceTable.MplsInterfaceEntry, [u'mplsinterfaceindex', u'mplsinterfacelabelminin', u'mplsinterfacelabelmaxin', u'mplsinterfacelabelminout', u'mplsinterfacelabelmaxout', u'mplsinterfacetotalbandwidth', u'mplsinterfaceavailablebandwidth', u'mplsinterfacelabelparticipationtype', u'mplsinterfaceperfinlabelsinuse', u'mplsinterfaceperfinlabellookupfailures', u'mplsinterfaceperfoutlabelsinuse', u'mplsinterfaceperfoutfragmentedpkts'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsInterfaceTable.MplsInterfaceEntry, ['mplsinterfaceindex', 'mplsinterfacelabelminin', 'mplsinterfacelabelmaxin', 'mplsinterfacelabelminout', 'mplsinterfacelabelmaxout', 'mplsinterfacetotalbandwidth', 'mplsinterfaceavailablebandwidth', 'mplsinterfacelabelparticipationtype', 'mplsinterfaceperfinlabelsinuse', 'mplsinterfaceperfinlabellookupfailures', 'mplsinterfaceperfoutlabelsinuse', 'mplsinterfaceperfoutfragmentedpkts'], name, value)
 
 
 
@@ -729,7 +729,7 @@ class MPLSLSRSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentTable.MplsInSegmentEntry, [u'mplsinsegmentindex', u'mplsinsegmentinterface', u'mplsinsegmentlabel', u'mplsinsegmentlabelptr', u'mplsinsegmentnpop', u'mplsinsegmentaddrfamily', u'mplsinsegmentxcindex', u'mplsinsegmentowner', u'mplsinsegmenttrafficparamptr', u'mplsinsegmentrowstatus', u'mplsinsegmentstoragetype', u'mplsinsegmentperfoctets', u'mplsinsegmentperfpackets', u'mplsinsegmentperferrors', u'mplsinsegmentperfdiscards', u'mplsinsegmentperfhcoctets', u'mplsinsegmentperfdiscontinuitytime'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentTable.MplsInSegmentEntry, ['mplsinsegmentindex', 'mplsinsegmentinterface', 'mplsinsegmentlabel', 'mplsinsegmentlabelptr', 'mplsinsegmentnpop', 'mplsinsegmentaddrfamily', 'mplsinsegmentxcindex', 'mplsinsegmentowner', 'mplsinsegmenttrafficparamptr', 'mplsinsegmentrowstatus', 'mplsinsegmentstoragetype', 'mplsinsegmentperfoctets', 'mplsinsegmentperfpackets', 'mplsinsegmentperferrors', 'mplsinsegmentperfdiscards', 'mplsinsegmentperfhcoctets', 'mplsinsegmentperfdiscontinuitytime'], name, value)
 
 
 
@@ -1008,7 +1008,7 @@ class MPLSLSRSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.MplsOutSegmentTable.MplsOutSegmentEntry, [u'mplsoutsegmentindex', u'mplsoutsegmentinterface', u'mplsoutsegmentpushtoplabel', u'mplsoutsegmenttoplabel', u'mplsoutsegmenttoplabelptr', u'mplsoutsegmentnexthopaddrtype', u'mplsoutsegmentnexthopaddr', u'mplsoutsegmentxcindex', u'mplsoutsegmentowner', u'mplsoutsegmenttrafficparamptr', u'mplsoutsegmentrowstatus', u'mplsoutsegmentstoragetype', u'mplsoutsegmentperfoctets', u'mplsoutsegmentperfpackets', u'mplsoutsegmentperferrors', u'mplsoutsegmentperfdiscards', u'mplsoutsegmentperfhcoctets', u'mplsoutsegmentperfdiscontinuitytime'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsOutSegmentTable.MplsOutSegmentEntry, ['mplsoutsegmentindex', 'mplsoutsegmentinterface', 'mplsoutsegmentpushtoplabel', 'mplsoutsegmenttoplabel', 'mplsoutsegmenttoplabelptr', 'mplsoutsegmentnexthopaddrtype', 'mplsoutsegmentnexthopaddr', 'mplsoutsegmentxcindex', 'mplsoutsegmentowner', 'mplsoutsegmenttrafficparamptr', 'mplsoutsegmentrowstatus', 'mplsoutsegmentstoragetype', 'mplsoutsegmentperfoctets', 'mplsoutsegmentperfpackets', 'mplsoutsegmentperferrors', 'mplsoutsegmentperfdiscards', 'mplsoutsegmentperfhcoctets', 'mplsoutsegmentperfdiscontinuitytime'], name, value)
 
 
 
@@ -1128,7 +1128,7 @@ class MPLSLSRSTDMIB(Entity):
             	This value identifies the label switched path that this cross\-connect entry belongs to. This object cannot be modified if mplsXCRowStatus is active(1) except for this object
             	**type**\: str
             
-            	**length:** 2 \| 6
+            	**length:** 2..2 \| 6..6
             
             	**config**\: False
             
@@ -1219,7 +1219,7 @@ class MPLSLSRSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry, [u'mplsxcindex', u'mplsxcinsegmentindex', u'mplsxcoutsegmentindex', u'mplsxclspid', u'mplsxclabelstackindex', u'mplsxcowner', u'mplsxcrowstatus', u'mplsxcstoragetype', u'mplsxcadminstatus', u'mplsxcoperstatus'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry, ['mplsxcindex', 'mplsxcinsegmentindex', 'mplsxcoutsegmentindex', 'mplsxclspid', 'mplsxclabelstackindex', 'mplsxcowner', 'mplsxcrowstatus', 'mplsxcstoragetype', 'mplsxcadminstatus', 'mplsxcoperstatus'], name, value)
 
             class MplsXCAdminStatus(Enum):
                 """
@@ -1417,7 +1417,7 @@ class MPLSLSRSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.MplsLabelStackTable.MplsLabelStackEntry, [u'mplslabelstackindex', u'mplslabelstacklabelindex', u'mplslabelstacklabel', u'mplslabelstacklabelptr', u'mplslabelstackrowstatus', u'mplslabelstackstoragetype'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsLabelStackTable.MplsLabelStackEntry, ['mplslabelstackindex', 'mplslabelstacklabelindex', 'mplslabelstacklabel', 'mplslabelstacklabelptr', 'mplslabelstackrowstatus', 'mplslabelstackstoragetype'], name, value)
 
 
 
@@ -1553,7 +1553,7 @@ class MPLSLSRSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentMapTable.MplsInSegmentMapEntry, [u'mplsinsegmentmapinterface', u'mplsinsegmentmaplabel', u'mplsinsegmentmaplabelptrindex', u'mplsinsegmentmapindex'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentMapTable.MplsInSegmentMapEntry, ['mplsinsegmentmapinterface', 'mplsinsegmentmaplabel', 'mplsinsegmentmaplabelptrindex', 'mplsinsegmentmapindex'], name, value)
 
 
 

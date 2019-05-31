@@ -903,7 +903,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, ['sequence_number', u'is_ace_type', u'is_ace_sequence_number', u'is_packet_allow_or_deny', u'is_address_in_numbers', u'is_address_mask_length', u'is_length_operator', u'is_packet_minimum_length', u'is_packet_maximum_length', u'hits', u'is_comment_for_entry', u'acl_name'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, ['sequence_number', 'is_ace_type', 'is_ace_sequence_number', 'is_packet_allow_or_deny', 'is_address_in_numbers', 'is_address_mask_length', 'is_length_operator', 'is_packet_minimum_length', 'is_packet_maximum_length', 'hits', 'is_comment_for_entry', 'acl_name'], name, value)
 
 
 
@@ -1747,7 +1747,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, ['sequence_number', u'is_ace_type', u'is_ace_sequence_number', u'is_packet_allow_or_deny', u'is_protocol_operator', u'is_ipv6_protocol_type', u'is_ipv6_protocol2_type', u'is_source_address_in_numbers', u'is_source_address_prefix_length', u'source_mask', u'is_destination_address_in_numbers', u'is_destination_address_prefix_length', u'destination_mask', u'is_source_operator', u'is_source_port1', u'is_source_port2', u'is_destination_operator', u'is_destination_port1', u'is_destination_port2', u'is_log_option', u'counter_name', u'is_tcp_bits_operator', u'is_tcp_bits', u'is_tcp_bits_mask', u'is_dscp_present', u'dscp_operator', u'is_dscp_valu', u'is_dscp_valu2', u'is_precedence_present', u'is_precedence_value', u'is_header_matches', u'is_packet_length_operator', u'is_packet_length_start', u'is_packet_length_end', u'is_time_to_live_operator', u'is_time_to_live_start', u'is_time_to_live_end', u'no_stats', u'hits', u'capture', u'undetermined_transport', u'is_icmp_message_off', u'qos_group', u'is_comment_for_entry', u'next_hop_type', u'is_flow_id', u'source_prefix_group', u'destination_prefix_group', u'source_port_group', u'destination_port_group', u'acl_name', u'sequence_str', u'set_ttl'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, ['sequence_number', 'is_ace_type', 'is_ace_sequence_number', 'is_packet_allow_or_deny', 'is_protocol_operator', 'is_ipv6_protocol_type', 'is_ipv6_protocol2_type', 'is_source_address_in_numbers', 'is_source_address_prefix_length', 'source_mask', 'is_destination_address_in_numbers', 'is_destination_address_prefix_length', 'destination_mask', 'is_source_operator', 'is_source_port1', 'is_source_port2', 'is_destination_operator', 'is_destination_port1', 'is_destination_port2', 'is_log_option', 'counter_name', 'is_tcp_bits_operator', 'is_tcp_bits', 'is_tcp_bits_mask', 'is_dscp_present', 'dscp_operator', 'is_dscp_valu', 'is_dscp_valu2', 'is_precedence_present', 'is_precedence_value', 'is_header_matches', 'is_packet_length_operator', 'is_packet_length_start', 'is_packet_length_end', 'is_time_to_live_operator', 'is_time_to_live_start', 'is_time_to_live_end', 'no_stats', 'hits', 'capture', 'undetermined_transport', 'is_icmp_message_off', 'qos_group', 'is_comment_for_entry', 'next_hop_type', 'is_flow_id', 'source_prefix_group', 'destination_prefix_group', 'source_port_group', 'destination_port_group', 'acl_name', 'sequence_str', 'set_ttl'], name, value)
 
 
                         class HwNextHopInfo(Entity):
@@ -1818,7 +1818,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, [u'type', u'next_hop', u'table_id', u'vrf_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, ['type', 'next_hop', 'table_id', 'vrf_name'], name, value)
 
 
 
@@ -1910,7 +1910,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, [u'next_hop', u'vrf_name', u'track_name', u'status', u'at_status', u'acl_nh_exist'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, ['next_hop', 'vrf_name', 'track_name', 'status', 'at_status', 'acl_nh_exist'], name, value)
 
 
 
@@ -1973,7 +1973,7 @@ class Ipv6AclAndPrefixList(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, [u'udf_name', u'udf_value', u'udf_mask'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, ['udf_name', 'udf_value', 'udf_mask'], name, value)
 
 
 
@@ -2182,7 +2182,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv6AclAndPrefixList.Oor.Details, [u'is_default_maximum_configurable_ac_ls', u'is_default_maximum_configurable_ac_es', u'is_current_configured_ac_ls', u'is_current_configured_aces', u'is_current_maximum_configurable_acls', u'is_current_maximum_configurable_aces', u'is_maximum_configurable_ac_ls', u'is_maximum_configurable_ac_es'], name, value)
+                self._perform_setattr(Ipv6AclAndPrefixList.Oor.Details, ['is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
 
 
 
@@ -2343,7 +2343,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details, [u'is_default_maximum_configurable_ac_ls', u'is_default_maximum_configurable_ac_es', u'is_current_configured_ac_ls', u'is_current_configured_aces', u'is_current_maximum_configurable_acls', u'is_current_maximum_configurable_aces', u'is_maximum_configurable_ac_ls', u'is_maximum_configurable_ac_es'], name, value)
+                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details, ['is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
 
 
 
@@ -2513,7 +2513,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess, ['access_list_name', u'is_default_maximum_configurable_ac_ls', u'is_default_maximum_configurable_ac_es', u'is_current_configured_ac_ls', u'is_current_configured_aces', u'is_current_maximum_configurable_acls', u'is_current_maximum_configurable_aces', u'is_maximum_configurable_ac_ls', u'is_maximum_configurable_ac_es'], name, value)
+                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess, ['access_list_name', 'is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
 
 
 
@@ -2683,7 +2683,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix, ['prefix_list_name', u'is_default_maximum_configurable_ac_ls', u'is_default_maximum_configurable_ac_es', u'is_current_configured_ac_ls', u'is_current_configured_aces', u'is_current_maximum_configurable_acls', u'is_current_maximum_configurable_aces', u'is_maximum_configurable_ac_ls', u'is_maximum_configurable_ac_es'], name, value)
+                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix, ['prefix_list_name', 'is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
 
 
 
@@ -2844,7 +2844,7 @@ class Ipv6AclAndPrefixList(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.AccessListSummary.Details, [u'is_default_maximum_configurable_ac_ls', u'is_default_maximum_configurable_ac_es', u'is_current_configured_ac_ls', u'is_current_configured_aces', u'is_current_maximum_configurable_acls', u'is_current_maximum_configurable_aces', u'is_maximum_configurable_ac_ls', u'is_maximum_configurable_ac_es'], name, value)
+                    self._perform_setattr(Ipv6AclAndPrefixList.Oor.AccessListSummary.Details, ['is_default_maximum_configurable_ac_ls', 'is_default_maximum_configurable_ac_es', 'is_current_configured_ac_ls', 'is_current_configured_aces', 'is_current_maximum_configurable_acls', 'is_current_maximum_configurable_aces', 'is_maximum_configurable_ac_ls', 'is_maximum_configurable_ac_es'], name, value)
 
 
 

@@ -500,7 +500,7 @@ class Ssespan(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo, ['intf_name', u'src_ifh', u'intf_name_xr', u'v4_acl_flag', u'v6_acl_flag', u'gre_acl_flag', u'v4state', u'v6state', u'gre_state', u'v4sessid', u'v6sessid', u'gre_sessid', u'v4dst_type', u'v6dst_type', u'gredst_type', u'v4statsptr', u'v6statsptr', u'grev4statsptr', u'grev6statsptr', u'mplsv4stats', u'mplsv6pkts', u'np_umask', u'uidb', u'sft_hw_data'], name, value)
+                        self._perform_setattr(Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo, ['intf_name', 'src_ifh', 'intf_name_xr', 'v4_acl_flag', 'v6_acl_flag', 'gre_acl_flag', 'v4state', 'v6state', 'gre_state', 'v4sessid', 'v6sessid', 'gre_sessid', 'v4dst_type', 'v6dst_type', 'gredst_type', 'v4statsptr', 'v6statsptr', 'grev4statsptr', 'grev6statsptr', 'mplsv4stats', 'mplsv6pkts', 'np_umask', 'uidb', 'sft_hw_data'], name, value)
 
 
 
@@ -586,7 +586,7 @@ class Ssespan(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ssespan.Nodes.Node.Spanudf, [u'udf_hdr', u'udf_type', u'udf_len', u'udf_value', u'udf_hw_data'], name, value)
+                    self._perform_setattr(Ssespan.Nodes.Node.Spanudf, ['udf_hdr', 'udf_type', 'udf_len', 'udf_value', 'udf_hw_data'], name, value)
 
 
 
@@ -840,7 +840,7 @@ class Ssespan(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo, ['session_id', 'session_class', u'valid', u'id', u'state', u'class_', u'ifhandle', u'mode', u'ip_type', u'vrf_id', u'tos_bit', u'tos_bit_copied', u'ttl', u'dfbit', u'src_ip', u'dst_ip', u'sdt_hw_data'], name, value)
+                        self._perform_setattr(Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo, ['session_id', 'session_class', 'valid', 'id', 'state', 'class_', 'ifhandle', 'mode', 'ip_type', 'vrf_id', 'tos_bit', 'tos_bit_copied', 'ttl', 'dfbit', 'src_ip', 'dst_ip', 'sdt_hw_data'], name, value)
 
 
 

@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-15 {
+    description
+      "Added Aggregate statistics under summary container";
+  }
   revision 2017-10-30 {
     description
       "Added link information in grace LSA.";
@@ -1255,6 +1259,26 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
       description
         "Partner NodeID";
     }
+    leaf nsr-peer-ep-length {
+      type uint32;
+      description
+        "Peer Endpoint Length";
+    }
+    leaf nsr-peer-ep-ver {
+      type uint32;
+      description
+        "Peer Endpoint Version";
+    }
+    leaf nsr-local-ep-length {
+      type uint32;
+      description
+        "Local Endpoint Length";
+    }
+    leaf nsr-local-ep-ver {
+      type uint32;
+      description
+        "Local Endpoint Version";
+    }
     leaf nsr-mtu {
       type uint32;
       description
@@ -1305,6 +1329,16 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
       description
         "Timers processed per pulse";
     }
+    leaf nsr-peer-hdl {
+      type uint64;
+      description
+        "Peer DS Handle";
+    }
+    leaf nsr-local-hdl {
+      type uint64;
+      description
+        "Local DS Handle";
+    }
     leaf nsr-conn-to-active-attempts {
       type uint64;
       description
@@ -1329,6 +1363,16 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
       type uint64;
       description
         "Conn to active errors";
+    }
+    leaf nsr-peer-ep {
+      type yang:hex-string;
+      description
+        "Peer Endpoint";
+    }
+    leaf nsr-local-ep {
+      type yang:hex-string;
+      description
+        "Local Endpoint";
     }
     leaf-list nsr-fsm-flag {
       type Ospfv3-string-array;
@@ -1442,6 +1486,136 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
       type yang:hex-string;
       description
         "Received Hexadecimal Data";
+    }
+  }
+
+  grouping OSPFV3-SH-STATS-AGGT {
+    description
+      "OSPFV3 SH STATS AGGT";
+    leaf neighbor-number {
+      type uint32;
+      description
+        "Number of neighbor";
+    }
+    leaf adjacent-neighbor-number {
+      type uint32;
+      description
+        "Number of adjacent neighbor";
+    }
+    leaf interface-number {
+      type uint32;
+      description
+        "Number of interfaces";
+    }
+    leaf interface-up-number {
+      type uint32;
+      description
+        "Number of interfaces in UP state";
+    }
+    leaf virtual-link-up-number {
+      type uint32;
+      description
+        "Number of Virtual link in UP state";
+    }
+    leaf sham-link-up-number {
+      type uint32;
+      description
+        "Number of Sham link in UP state";
+    }
+    leaf area-numaber {
+      type uint32;
+      description
+        "Number of Area";
+    }
+    leaf unknown-lsa-count {
+      type uint32;
+      description
+        "Unknown LSA count";
+    }
+    leaf router-lsa-count {
+      type uint32;
+      description
+        "Router LSA count";
+    }
+    leaf network-lsa-count {
+      type uint32;
+      description
+        "Network LSA count";
+    }
+    leaf inter-area-prefix-lsa-count {
+      type uint32;
+      description
+        "Inter Area Prefix LSA Count";
+    }
+    leaf inter-area-router-lsa-count {
+      type uint32;
+      description
+        "Inter Area Router LSA Count";
+    }
+    leaf ase-lsa-count {
+      type uint32;
+      description
+        "ASE LSA count";
+    }
+    leaf mospf-lsa-count {
+      type uint32;
+      description
+        "MOSPF LSA count";
+    }
+    leaf type7-ase-lsa-count {
+      type uint32;
+      description
+        "Type-7 ASE LSA count ";
+    }
+    leaf link-lsa-count {
+      type uint32;
+      description
+        "Link LSA count";
+    }
+    leaf prefix-lsa-count {
+      type uint32;
+      description
+        "Prefix LSA count";
+    }
+    leaf type10lsa-count {
+      type uint32;
+      description
+        "Type-10 LSA count";
+    }
+    leaf grace-lsa-count {
+      type uint32;
+      description
+        "Grace LSA count";
+    }
+    leaf opaque-link-lsa-count {
+      type uint32;
+      description
+        "Opaque Link LSA count";
+    }
+    leaf opaque-area-lsa-count {
+      type uint32;
+      description
+        "Opaque Area LSA count";
+    }
+    leaf opaque-as-lsa-count {
+      type uint32;
+      description
+        "Opaque AS LSA count";
+    }
+    leaf unknown-area-lsa-count {
+      type uint32;
+      description
+        "Unknown Area LSA count";
+    }
+    leaf unknown-link-lsa-count {
+      type uint32;
+      description
+        "Unknown Link LSA count";
+    }
+    leaf unknown-as-lsa-count {
+      type uint32;
+      description
+        "Unknown AS LSA count";
     }
   }
 

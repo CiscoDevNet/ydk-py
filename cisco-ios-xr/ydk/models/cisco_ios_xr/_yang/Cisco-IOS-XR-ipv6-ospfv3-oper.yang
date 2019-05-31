@@ -9,7 +9,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
-    revision-date 2017-10-30;
+    revision-date 2018-06-15;
   }
 
   organization
@@ -30,11 +30,15 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
      
      This module contains definitions
      for the following management objects:
-       ospfv3: OSPFv3 operational information
+       ospfv3: OSPFv3 operational information 
      
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-15 {
+    description
+      "Added Aggregate statistics under summary container";
+  }
   revision 2017-10-30 {
     description
       "Added link information in grace LSA.";
@@ -571,6 +575,11 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
         description
           "OSPFv3 summary";
         uses OSPFV3-EDM-SUMMARY;
+      }
+      container aggregate-statistics {
+        description
+          "OSPFv3 aggregate statistics";
+        uses OSPFV3-SH-STATS-AGGT;
       }
       container route {
         description

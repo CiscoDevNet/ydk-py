@@ -2655,6 +2655,13 @@ class Dhcpv6(Entity):
                                     """
                                     ipv6 dhcpv6d proxy iid reference
                                     
+                                    .. attribute:: next_interface_id
+                                    
+                                    	next interface id
+                                    	**type**\:  :py:class:`NextInterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference.NextInterfaceId>`
+                                    
+                                    	**config**\: False
+                                    
                                     .. attribute:: proxy_iid_interface_name
                                     
                                     	Interface name for interface id
@@ -2688,18 +2695,48 @@ class Dhcpv6(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("next-interface-id", ("next_interface_id", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference.NextInterfaceId))])
                                         self._leafs = OrderedDict([
                                             ('proxy_iid_interface_name', (YLeaf(YType.str, 'proxy-iid-interface-name'), ['str'])),
                                             ('proxy_interface_id', (YLeaf(YType.str, 'proxy-interface-id'), ['str'])),
                                         ])
                                         self.proxy_iid_interface_name = None
                                         self.proxy_interface_id = None
+
+                                        self.next_interface_id = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference.NextInterfaceId()
+                                        self.next_interface_id.parent = self
+                                        self._children_name_map["next_interface_id"] = "next-interface-id"
                                         self._segment_path = lambda: "ipv6-dhcpv6d-proxy-iid-reference"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, ['proxy_iid_interface_name', 'proxy_interface_id'], name, value)
+
+
+                                    class NextInterfaceId(Entity):
+                                        """
+                                        next interface id
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                                        _revision = '2018-10-09'
+
+                                        def __init__(self):
+                                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference.NextInterfaceId, self).__init__()
+
+                                            self.yang_name = "next-interface-id"
+                                            self.yang_parent_name = "ipv6-dhcpv6d-proxy-iid-reference"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
+                                            self._segment_path = lambda: "next-interface-id"
+                                            self._is_frozen = True
+
 
 
 
@@ -2745,6 +2782,13 @@ class Dhcpv6(Entity):
                                     """
                                     ipv6 dhcpv6d proxy vrf reference
                                     
+                                    .. attribute:: next_vrf
+                                    
+                                    	next vrf
+                                    	**type**\:  :py:class:`NextVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference.NextVrf>`
+                                    
+                                    	**config**\: False
+                                    
                                     .. attribute:: proxy_reference_vrf_name
                                     
                                     	VRF name
@@ -2769,16 +2813,46 @@ class Dhcpv6(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("next-vrf", ("next_vrf", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference.NextVrf))])
                                         self._leafs = OrderedDict([
                                             ('proxy_reference_vrf_name', (YLeaf(YType.str, 'proxy-reference-vrf-name'), ['str'])),
                                         ])
                                         self.proxy_reference_vrf_name = None
+
+                                        self.next_vrf = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference.NextVrf()
+                                        self.next_vrf.parent = self
+                                        self._children_name_map["next_vrf"] = "next-vrf"
                                         self._segment_path = lambda: "ipv6-dhcpv6d-proxy-vrf-reference"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
+
+
+                                    class NextVrf(Entity):
+                                        """
+                                        next vrf
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                                        _revision = '2018-10-09'
+
+                                        def __init__(self):
+                                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference.NextVrf, self).__init__()
+
+                                            self.yang_name = "next-vrf"
+                                            self.yang_parent_name = "ipv6-dhcpv6d-proxy-vrf-reference"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
+                                            self._segment_path = lambda: "next-vrf"
+                                            self._is_frozen = True
+
 
 
 
@@ -2824,6 +2898,13 @@ class Dhcpv6(Entity):
                                     """
                                     ipv6 dhcpv6d proxy interface reference
                                     
+                                    .. attribute:: next_interface
+                                    
+                                    	next interface
+                                    	**type**\:  :py:class:`NextInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference.NextInterface>`
+                                    
+                                    	**config**\: False
+                                    
                                     .. attribute:: proxy_reference_interface_name
                                     
                                     	Interface name
@@ -2848,16 +2929,46 @@ class Dhcpv6(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("next-interface", ("next_interface", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference.NextInterface))])
                                         self._leafs = OrderedDict([
                                             ('proxy_reference_interface_name', (YLeaf(YType.str, 'proxy-reference-interface-name'), ['str'])),
                                         ])
                                         self.proxy_reference_interface_name = None
+
+                                        self.next_interface = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference.NextInterface()
+                                        self.next_interface.parent = self
+                                        self._children_name_map["next_interface"] = "next-interface"
                                         self._segment_path = lambda: "ipv6-dhcpv6d-proxy-interface-reference"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
+
+
+                                    class NextInterface(Entity):
+                                        """
+                                        next interface
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                                        _revision = '2018-10-09'
+
+                                        def __init__(self):
+                                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference.NextInterface, self).__init__()
+
+                                            self.yang_name = "next-interface"
+                                            self.yang_parent_name = "ipv6-dhcpv6d-proxy-interface-reference"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
+                                            self._segment_path = lambda: "next-interface"
+                                            self._is_frozen = True
+
 
 
 
@@ -3647,6 +3758,15 @@ class Dhcpv6(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: selected_profile_name
+                            
+                            	DHCPV6 selected profile name
+                            	**type**\: str
+                            
+                            	**length:** 0..65
+                            
+                            	**config**\: False
+                            
                             .. attribute:: framed_ipv6_prefix
                             
                             	DHCPV6 framed ipv6 addess used by ND
@@ -3761,6 +3881,7 @@ class Dhcpv6(Entity):
                                     ('tx_interface_id', (YLeaf(YType.str, 'tx-interface-id'), ['str'])),
                                     ('server_ipv6_address', (YLeaf(YType.str, 'server-ipv6-address'), ['str'])),
                                     ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('selected_profile_name', (YLeaf(YType.str, 'selected-profile-name'), ['str'])),
                                     ('framed_ipv6_prefix', (YLeaf(YType.str, 'framed-ipv6-prefix'), ['str'])),
                                     ('framed_prefix_length', (YLeaf(YType.uint8, 'framed-prefix-length'), ['int'])),
                                     ('is_nak_next_renew', (YLeaf(YType.boolean, 'is-nak-next-renew'), ['bool'])),
@@ -3791,6 +3912,7 @@ class Dhcpv6(Entity):
                                 self.tx_interface_id = None
                                 self.server_ipv6_address = None
                                 self.profile_name = None
+                                self.selected_profile_name = None
                                 self.framed_ipv6_prefix = None
                                 self.framed_prefix_length = None
                                 self.is_nak_next_renew = None
@@ -3808,7 +3930,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'duid', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'interface_name', 'access_vrf_name', 'proxy_binding_tags', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'class_name', 'pool_name', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id', 'server_ipv6_address', 'profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'serg_state', 'serg_intf_role'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'duid', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'interface_name', 'access_vrf_name', 'proxy_binding_tags', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'class_name', 'pool_name', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id', 'server_ipv6_address', 'profile_name', 'selected_profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'serg_state', 'serg_intf_role'], name, value)
 
 
                             class IaIdPd(Entity):
@@ -3856,6 +3978,13 @@ class Dhcpv6(Entity):
                                     
                                     	List of addresses in this IA
                                     	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: next_iaiapd
+                                    
+                                    	next iaiapd
+                                    	**type**\:  :py:class:`NextIaiapd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd>`
                                     
                                     	**config**\: False
                                     
@@ -3915,7 +4044,7 @@ class Dhcpv6(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([("addresses", ("addresses", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses))])
+                                        self._child_classes = OrderedDict([("addresses", ("addresses", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses)), ("next-iaiapd", ("next_iaiapd", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd))])
                                         self._leafs = OrderedDict([
                                             ('ia_type', (YLeaf(YType.enumeration, 'ia-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIaId', '')])),
                                             ('ia_id', (YLeaf(YType.uint32, 'ia-id'), ['int'])),
@@ -3932,6 +4061,10 @@ class Dhcpv6(Entity):
                                         self.addresses = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses()
                                         self.addresses.parent = self
                                         self._children_name_map["addresses"] = "addresses"
+
+                                        self.next_iaiapd = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd()
+                                        self.next_iaiapd.parent = self
+                                        self._children_name_map["next_iaiapd"] = "next-iaiapd"
                                         self._segment_path = lambda: "bag-dhcpv6d-ia-id-pd-info"
                                         self._is_frozen = True
 
@@ -3979,6 +4112,13 @@ class Dhcpv6(Entity):
                                         class BagDhcpv6dAddrAttrb(Entity):
                                             """
                                             bag dhcpv6d addr attrb
+                                            
+                                            .. attribute:: next_addr_attrb
+                                            
+                                            	next addr attrb
+                                            	**type**\:  :py:class:`NextAddrAttrb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: prefix
                                             
@@ -4035,7 +4175,7 @@ class Dhcpv6(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("next-addr-attrb", ("next_addr_attrb", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb))])
                                                 self._leafs = OrderedDict([
                                                     ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
                                                     ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
@@ -4046,12 +4186,68 @@ class Dhcpv6(Entity):
                                                 self.prefix_length = None
                                                 self.lease_time = None
                                                 self.remaining_lease_time = None
+
+                                                self.next_addr_attrb = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb()
+                                                self.next_addr_attrb.parent = self
+                                                self._children_name_map["next_addr_attrb"] = "next-addr-attrb"
                                                 self._segment_path = lambda: "bag-dhcpv6d-addr-attrb"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
 
+
+                                            class NextAddrAttrb(Entity):
+                                                """
+                                                next addr attrb
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv6-new-dhcpv6d-oper'
+                                                _revision = '2018-10-09'
+
+                                                def __init__(self):
+                                                    super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb, self).__init__()
+
+                                                    self.yang_name = "next-addr-attrb"
+                                                    self.yang_parent_name = "bag-dhcpv6d-addr-attrb"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
+                                                    self._segment_path = lambda: "next-addr-attrb"
+                                                    self._is_frozen = True
+
+
+
+
+
+                                    class NextIaiapd(Entity):
+                                        """
+                                        next iaiapd
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                                        _revision = '2018-10-09'
+
+                                        def __init__(self):
+                                            super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd, self).__init__()
+
+                                            self.yang_name = "next-iaiapd"
+                                            self.yang_parent_name = "bag-dhcpv6d-ia-id-pd-info"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
+                                            self._segment_path = lambda: "next-iaiapd"
+                                            self._is_frozen = True
 
 
 
@@ -5725,6 +5921,15 @@ class Dhcpv6(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: seleceted_profile_name
+                            
+                            	DHCPV6 selected profile name
+                            	**type**\: str
+                            
+                            	**length:** 0..64
+                            
+                            	**config**\: False
+                            
                             .. attribute:: framed_ipv6_prefix
                             
                             	DHCPV6 framed ipv6 addess used by ND
@@ -5889,6 +6094,7 @@ class Dhcpv6(Entity):
                                     ('server_binding_inner_tag', (YLeaf(YType.uint32, 'server-binding-inner-tag'), ['int'])),
                                     ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
                                     ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('seleceted_profile_name', (YLeaf(YType.str, 'seleceted-profile-name'), ['str'])),
                                     ('framed_ipv6_prefix', (YLeaf(YType.str, 'framed-ipv6-prefix'), ['str'])),
                                     ('framed_prefix_length', (YLeaf(YType.uint8, 'framed-prefix-length'), ['int'])),
                                     ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
@@ -5921,6 +6127,7 @@ class Dhcpv6(Entity):
                                 self.server_binding_inner_tag = None
                                 self.pool_name = None
                                 self.profile_name = None
+                                self.seleceted_profile_name = None
                                 self.framed_ipv6_prefix = None
                                 self.framed_prefix_length = None
                                 self.class_name = None
@@ -5944,7 +6151,7 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'link_local_address', 'interface_name', 'access_vrf_name', 'server_binding_tags', 'server_binding_outer_tag', 'server_binding_inner_tag', 'pool_name', 'profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'class_name', 'rx_remote_id', 'rx_interface_id', 'prefix_pool_name', 'address_pool_name', 'dns_server_count', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'sesrg_state', 'serg_intf_role'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'link_local_address', 'interface_name', 'access_vrf_name', 'server_binding_tags', 'server_binding_outer_tag', 'server_binding_inner_tag', 'pool_name', 'profile_name', 'seleceted_profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'class_name', 'rx_remote_id', 'rx_interface_id', 'prefix_pool_name', 'address_pool_name', 'dns_server_count', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'sesrg_state', 'serg_intf_role'], name, value)
 
 
                             class IaIdPd(Entity):
@@ -5992,6 +6199,13 @@ class Dhcpv6(Entity):
                                     
                                     	List of addresses in this IA
                                     	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: next_iaiapd
+                                    
+                                    	next iaiapd
+                                    	**type**\:  :py:class:`NextIaiapd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd>`
                                     
                                     	**config**\: False
                                     
@@ -6051,7 +6265,7 @@ class Dhcpv6(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([("addresses", ("addresses", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses))])
+                                        self._child_classes = OrderedDict([("addresses", ("addresses", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses)), ("next-iaiapd", ("next_iaiapd", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd))])
                                         self._leafs = OrderedDict([
                                             ('ia_type', (YLeaf(YType.enumeration, 'ia-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIaId', '')])),
                                             ('ia_id', (YLeaf(YType.uint32, 'ia-id'), ['int'])),
@@ -6068,6 +6282,10 @@ class Dhcpv6(Entity):
                                         self.addresses = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses()
                                         self.addresses.parent = self
                                         self._children_name_map["addresses"] = "addresses"
+
+                                        self.next_iaiapd = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd()
+                                        self.next_iaiapd.parent = self
+                                        self._children_name_map["next_iaiapd"] = "next-iaiapd"
                                         self._segment_path = lambda: "bag-dhcpv6d-ia-id-pd-info"
                                         self._is_frozen = True
 
@@ -6115,6 +6333,13 @@ class Dhcpv6(Entity):
                                         class BagDhcpv6dAddrAttrb(Entity):
                                             """
                                             bag dhcpv6d addr attrb
+                                            
+                                            .. attribute:: next_addr_attrb
+                                            
+                                            	next addr attrb
+                                            	**type**\:  :py:class:`NextAddrAttrb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: prefix
                                             
@@ -6171,7 +6396,7 @@ class Dhcpv6(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("next-addr-attrb", ("next_addr_attrb", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb))])
                                                 self._leafs = OrderedDict([
                                                     ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
                                                     ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
@@ -6182,12 +6407,68 @@ class Dhcpv6(Entity):
                                                 self.prefix_length = None
                                                 self.lease_time = None
                                                 self.remaining_lease_time = None
+
+                                                self.next_addr_attrb = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb()
+                                                self.next_addr_attrb.parent = self
+                                                self._children_name_map["next_addr_attrb"] = "next-addr-attrb"
                                                 self._segment_path = lambda: "bag-dhcpv6d-addr-attrb"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
 
+
+                                            class NextAddrAttrb(Entity):
+                                                """
+                                                next addr attrb
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv6-new-dhcpv6d-oper'
+                                                _revision = '2018-10-09'
+
+                                                def __init__(self):
+                                                    super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb, self).__init__()
+
+                                                    self.yang_name = "next-addr-attrb"
+                                                    self.yang_parent_name = "bag-dhcpv6d-addr-attrb"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
+                                                    self._segment_path = lambda: "next-addr-attrb"
+                                                    self._is_frozen = True
+
+
+
+
+
+                                    class NextIaiapd(Entity):
+                                        """
+                                        next iaiapd
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                                        _revision = '2018-10-09'
+
+                                        def __init__(self):
+                                            super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd, self).__init__()
+
+                                            self.yang_name = "next-iaiapd"
+                                            self.yang_parent_name = "bag-dhcpv6d-ia-id-pd-info"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
+                                            self._segment_path = lambda: "next-iaiapd"
+                                            self._is_frozen = True
 
 
 
@@ -7926,6 +8207,13 @@ class Dhcpv6(Entity):
                                     """
                                     ipv6 dhcpv6d server interface reference
                                     
+                                    .. attribute:: next_interface
+                                    
+                                    	next interface
+                                    	**type**\:  :py:class:`NextInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference.NextInterface>`
+                                    
+                                    	**config**\: False
+                                    
                                     .. attribute:: server_reference_interface_name
                                     
                                     	Interface name
@@ -7950,16 +8238,46 @@ class Dhcpv6(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("next-interface", ("next_interface", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference.NextInterface))])
                                         self._leafs = OrderedDict([
                                             ('server_reference_interface_name', (YLeaf(YType.str, 'server-reference-interface-name'), ['str'])),
                                         ])
                                         self.server_reference_interface_name = None
+
+                                        self.next_interface = Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference.NextInterface()
+                                        self.next_interface.parent = self
+                                        self._children_name_map["next_interface"] = "next-interface"
                                         self._segment_path = lambda: "ipv6-dhcpv6d-server-interface-reference"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, ['server_reference_interface_name'], name, value)
+
+
+                                    class NextInterface(Entity):
+                                        """
+                                        next interface
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                                        _revision = '2018-10-09'
+
+                                        def __init__(self):
+                                            super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference.NextInterface, self).__init__()
+
+                                            self.yang_name = "next-interface"
+                                            self.yang_parent_name = "ipv6-dhcpv6d-server-interface-reference"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
+                                            self._segment_path = lambda: "next-interface"
+                                            self._is_frozen = True
+
 
 
 
@@ -9338,6 +9656,51 @@ class Dhcpv6(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: l2_intf_ac_name
+                            
+                            	L2Intf AC Name
+                            	**type**\: str
+                            
+                            	**length:** 0..65
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: ifname
+                            
+                            	DHCP access interface
+                            	**type**\: str
+                            
+                            	**length:** 0..65
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: serg_state
+                            
+                            	DHCPV6 SERG state
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: serg_intf_role
+                            
+                            	DHCPV6 SERG Intf Role
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: relay_binding_chaddr
+                            
+                            	Client MAC address
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
+                            
                             
 
                             """
@@ -9367,6 +9730,11 @@ class Dhcpv6(Entity):
                                     ('next_hop_addr', (YLeaf(YType.str, 'next-hop-addr'), ['str'])),
                                     ('ia_id', (YLeaf(YType.uint32, 'ia-id'), ['int'])),
                                     ('relay_profile_name', (YLeaf(YType.str, 'relay-profile-name'), ['str'])),
+                                    ('l2_intf_ac_name', (YLeaf(YType.str, 'l2-intf-ac-name'), ['str'])),
+                                    ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
+                                    ('serg_state', (YLeaf(YType.uint32, 'serg-state'), ['int'])),
+                                    ('serg_intf_role', (YLeaf(YType.uint32, 'serg-intf-role'), ['int'])),
+                                    ('relay_binding_chaddr', (YLeaf(YType.str, 'relay-binding-chaddr'), ['str'])),
                                 ])
                                 self.client_id = None
                                 self.duid = None
@@ -9380,11 +9748,16 @@ class Dhcpv6(Entity):
                                 self.next_hop_addr = None
                                 self.ia_id = None
                                 self.relay_profile_name = None
+                                self.l2_intf_ac_name = None
+                                self.ifname = None
+                                self.serg_state = None
+                                self.serg_intf_role = None
+                                self.relay_binding_chaddr = None
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'prefix_length', 'prefix', 'vrf_name', 'lifetime', 'rem_life_time', 'interface_name', 'next_hop_addr', 'ia_id', 'relay_profile_name'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'prefix_length', 'prefix', 'vrf_name', 'lifetime', 'rem_life_time', 'interface_name', 'next_hop_addr', 'ia_id', 'relay_profile_name', 'l2_intf_ac_name', 'ifname', 'serg_state', 'serg_intf_role', 'relay_binding_chaddr'], name, value)
 
 
 

@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-ethernet-cfm-oper-sub3 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-12-20 {
+    description
+      "Bandwidth notification class and type name update.";
+  }
   revision 2017-10-06 {
     description
       "Traceroute transaction ID changed from int to uint.";

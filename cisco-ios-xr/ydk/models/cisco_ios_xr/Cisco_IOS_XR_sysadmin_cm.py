@@ -69,7 +69,7 @@ class NodeInventory(Entity):
     """
 
     _prefix = 'cmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-03'
 
     def __init__(self):
         super(NodeInventory, self).__init__()
@@ -115,7 +115,7 @@ class NodeInventory(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(NodeInventory.Summary, self).__init__()
@@ -162,7 +162,7 @@ class NodeInventory(Entity):
             """
 
             _prefix = 'cmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-03'
 
             def __init__(self):
                 super(NodeInventory.Summary.NodeLocations, self).__init__()
@@ -243,7 +243,7 @@ class NodeInventory(Entity):
                 """
 
                 _prefix = 'cmh'
-                _revision = '2017-04-12'
+                _revision = '2018-07-03'
 
                 def __init__(self):
                     super(NodeInventory.Summary.NodeLocations.Nodei, self).__init__()
@@ -294,7 +294,7 @@ class NodeInventory(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(NodeInventory.Detail, self).__init__()
@@ -341,7 +341,7 @@ class NodeInventory(Entity):
             """
 
             _prefix = 'cmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-03'
 
             def __init__(self):
                 super(NodeInventory.Detail.NodeLocations, self).__init__()
@@ -443,7 +443,7 @@ class NodeInventory(Entity):
                 """
 
                 _prefix = 'cmh'
-                _revision = '2017-04-12'
+                _revision = '2018-07-03'
 
                 def __init__(self):
                     super(NodeInventory.Detail.NodeLocations.Nodei, self).__init__()
@@ -505,7 +505,7 @@ class CardInventory(Entity):
     """
 
     _prefix = 'cmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-03'
 
     def __init__(self):
         super(CardInventory, self).__init__()
@@ -552,7 +552,7 @@ class CardInventory(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(CardInventory.CardLocations, self).__init__()
@@ -639,7 +639,7 @@ class CardInventory(Entity):
             """
 
             _prefix = 'cmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-03'
 
             def __init__(self):
                 super(CardInventory.CardLocations.Cardi, self).__init__()
@@ -696,7 +696,7 @@ class RackInventory(Entity):
     """
 
     _prefix = 'cmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-03'
 
     def __init__(self):
         super(RackInventory, self).__init__()
@@ -743,7 +743,7 @@ class RackInventory(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(RackInventory.RackLocations, self).__init__()
@@ -802,7 +802,7 @@ class RackInventory(Entity):
             """
 
             _prefix = 'cmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-03'
 
             def __init__(self):
                 super(RackInventory.RackLocations.Racki, self).__init__()
@@ -851,7 +851,7 @@ class SystemServiceInventory(Entity):
     """
 
     _prefix = 'cmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-03'
 
     def __init__(self):
         super(SystemServiceInventory, self).__init__()
@@ -898,7 +898,7 @@ class SystemServiceInventory(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(SystemServiceInventory.SsvcLocations, self).__init__()
@@ -976,7 +976,7 @@ class SystemServiceInventory(Entity):
             """
 
             _prefix = 'cmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-03'
 
             def __init__(self):
                 super(SystemServiceInventory.SsvcLocations.Ssvci, self).__init__()
@@ -1031,7 +1031,7 @@ class RackServiceInventory(Entity):
     """
 
     _prefix = 'cmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-03'
 
     def __init__(self):
         super(RackServiceInventory, self).__init__()
@@ -1078,7 +1078,7 @@ class RackServiceInventory(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(RackServiceInventory.RsvcLocations, self).__init__()
@@ -1156,7 +1156,7 @@ class RackServiceInventory(Entity):
             """
 
             _prefix = 'cmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-03'
 
             def __init__(self):
                 super(RackServiceInventory.RsvcLocations.Rsvci, self).__init__()
@@ -1211,7 +1211,7 @@ class SdrInventory(Entity):
     """
 
     _prefix = 'cmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-03'
 
     def __init__(self):
         super(SdrInventory, self).__init__()
@@ -1258,7 +1258,7 @@ class SdrInventory(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(SdrInventory.SdrLocations, self).__init__()
@@ -1326,7 +1326,7 @@ class SdrInventory(Entity):
             """
 
             _prefix = 'cmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-03'
 
             def __init__(self):
                 super(SdrInventory.SdrLocations.Sdri, self).__init__()
@@ -1377,7 +1377,7 @@ class LeaderStatistics(Entity):
     """
 
     _prefix = 'cmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-03'
 
     def __init__(self):
         super(LeaderStatistics, self).__init__()
@@ -1459,7 +1459,7 @@ class LeaderStatistics(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(LeaderStatistics.LdrLocations, self).__init__()
@@ -1516,7 +1516,7 @@ class TopologyNeighbors(Entity):
     """
 
     _prefix = 'cmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-03'
 
     def __init__(self):
         super(TopologyNeighbors, self).__init__()
@@ -1563,7 +1563,7 @@ class TopologyNeighbors(Entity):
         """
 
         _prefix = 'cmh'
-        _revision = '2017-04-12'
+        _revision = '2018-07-03'
 
         def __init__(self):
             super(TopologyNeighbors.NbrLocations, self).__init__()
@@ -1641,7 +1641,7 @@ class TopologyNeighbors(Entity):
             """
 
             _prefix = 'cmh'
-            _revision = '2017-04-12'
+            _revision = '2018-07-03'
 
             def __init__(self):
                 super(TopologyNeighbors.NbrLocations.Nbri, self).__init__()
@@ -1689,7 +1689,7 @@ class Placement(Entity):
     """
 
     _prefix = 'cmh'
-    _revision = '2017-04-12'
+    _revision = '2018-07-03'
 
     def __init__(self):
         super(Placement, self).__init__()

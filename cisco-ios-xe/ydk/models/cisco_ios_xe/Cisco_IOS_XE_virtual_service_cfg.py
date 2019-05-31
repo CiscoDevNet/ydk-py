@@ -182,7 +182,7 @@ class VirtualServiceCfgData(Entity):
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**length:** 1..1
                 
                 .. attribute:: virtualportgroup_guest_ip_address_1
                 
@@ -255,7 +255,7 @@ class VirtualServiceCfgData(Entity):
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**length:** 1..1
                 
                 .. attribute:: virtualportgroup_guest_ip_address_2
                 
@@ -328,7 +328,7 @@ class VirtualServiceCfgData(Entity):
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**length:** 1..1
                 
                 .. attribute:: virtualportgroup_guest_ip_address_3
                 
@@ -401,7 +401,7 @@ class VirtualServiceCfgData(Entity):
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**length:** 1..1
                 
                 .. attribute:: virtualportgroup_guest_ip_address_4
                 
@@ -467,7 +467,7 @@ class VirtualServiceCfgData(Entity):
                 	Management port guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**length:** 1
+                	**length:** 1..1
                 
                 .. attribute:: management_guest_ip_address
                 

@@ -191,7 +191,7 @@ class ConfdState(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(ConfdState, [u'version', u'epoll', u'daemon_status', u'read_only_mode', u'upgrade_mode'], name, value)
+        self._perform_setattr(ConfdState, ['version', 'epoll', 'daemon_status', 'read_only_mode', 'upgrade_mode'], name, value)
 
     class DaemonStatus(Enum):
         """
@@ -272,7 +272,7 @@ class ConfdState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Smp, [u'number_of_threads'], name, value)
+            self._perform_setattr(ConfdState.Smp, ['number_of_threads'], name, value)
 
 
 
@@ -351,7 +351,7 @@ class ConfdState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Ha, [u'mode', u'node_id', u'master_node_id', u'connected_slave', u'pending_slave'], name, value)
+            self._perform_setattr(ConfdState.Ha, ['mode', 'node_id', 'master_node_id', 'connected_slave', 'pending_slave'], name, value)
 
         class Mode(Enum):
             """
@@ -507,7 +507,7 @@ class ConfdState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ConfdState.LoadedDataModels.DataModel, [u'name', u'revision', u'namespace', u'prefix', u'exported_to_all', u'exported_to'], name, value)
+                self._perform_setattr(ConfdState.LoadedDataModels.DataModel, ['name', 'revision', 'namespace', 'prefix', 'exported_to_all', 'exported_to'], name, value)
 
             class ExportedTo(Enum):
                 """
@@ -691,7 +691,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Netconf.Listen.Tcp, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Netconf.Listen.Tcp, ['ip', 'port'], name, value)
 
 
 
@@ -750,7 +750,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Netconf.Listen.Ssh, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Netconf.Listen.Ssh, ['ip', 'port'], name, value)
 
 
 
@@ -899,7 +899,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Cli.Listen.Ssh, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Cli.Listen.Ssh, ['ip', 'port'], name, value)
 
 
 
@@ -1049,7 +1049,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Webui.Listen.Tcp, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Webui.Listen.Tcp, ['ip', 'port'], name, value)
 
 
 
@@ -1108,7 +1108,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Webui.Listen.Ssl, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Webui.Listen.Ssl, ['ip', 'port'], name, value)
 
 
 
@@ -1258,7 +1258,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Rest.Listen.Tcp, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Rest.Listen.Tcp, ['ip', 'port'], name, value)
 
 
 
@@ -1317,7 +1317,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Rest.Listen.Ssl, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Rest.Listen.Ssl, ['ip', 'port'], name, value)
 
 
 
@@ -1395,7 +1395,7 @@ class ConfdState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Snmp, [u'mib', u'engine_id'], name, value)
+            self._perform_setattr(ConfdState.Snmp, ['mib', 'engine_id'], name, value)
 
 
         class Listen(Entity):
@@ -1491,7 +1491,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Snmp.Listen.Udp, [u'ip', u'port'], name, value)
+                    self._perform_setattr(ConfdState.Snmp.Listen.Udp, ['ip', 'port'], name, value)
 
 
 
@@ -1550,7 +1550,7 @@ class ConfdState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ConfdState.Snmp.Version, [u'v1', u'v2c', u'v3'], name, value)
+                self._perform_setattr(ConfdState.Snmp.Version, ['v1', 'v2c', 'v3'], name, value)
 
 
 
@@ -1828,7 +1828,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -1913,7 +1913,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2000,7 +2000,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -2058,7 +2058,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -2166,7 +2166,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -2251,7 +2251,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2338,7 +2338,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -2396,7 +2396,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -2504,7 +2504,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -2589,7 +2589,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2676,7 +2676,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -2734,7 +2734,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -2842,7 +2842,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -2927,7 +2927,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -3014,7 +3014,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -3072,7 +3072,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -3180,7 +3180,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -3265,7 +3265,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -3352,7 +3352,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -3410,7 +3410,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -3518,7 +3518,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -3603,7 +3603,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -3690,7 +3690,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -3748,7 +3748,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -3856,7 +3856,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint, [u'id', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint, ['id', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -3941,7 +3941,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -4028,7 +4028,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -4086,7 +4086,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -4203,7 +4203,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay, [u'name', u'replay_support', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay, ['name', 'replay_support', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -4307,7 +4307,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -4394,7 +4394,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -4452,7 +4452,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -4563,7 +4563,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback, [u'enabled', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback, ['enabled', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -4649,7 +4649,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -4737,7 +4737,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -4796,7 +4796,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -4907,7 +4907,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks, [u'enabled', u'path', u'file', u'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks, ['enabled', 'path', 'file', 'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -4993,7 +4993,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, [u'id', u'name', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, ['id', 'name', 'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -5081,7 +5081,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, [u'lower', u'upper', u'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, ['lower', 'upper', 'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -5140,7 +5140,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, [u'id', u'name', u'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, ['id', 'name', 'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -5358,7 +5358,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Cdb.Datastore, [u'name', u'transaction_id', u'write_queue', u'filename', u'disk_size', u'ram_size', u'read_locks', u'write_lock_set', u'subscription_lock_set', u'waiting_for_replication_sync'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Cdb.Datastore, ['name', 'transaction_id', 'write_queue', 'filename', 'disk_size', 'ram_size', 'read_locks', 'write_lock_set', 'subscription_lock_set', 'waiting_for_replication_sync'], name, value)
 
 
                 class PendingSubscriptionSync(Entity):
@@ -5427,7 +5427,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, [u'priority', u'time_remaining'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, ['priority', 'time_remaining'], name, value)
 
                     class TimeRemaining(Enum):
                         """
@@ -5499,7 +5499,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, [u'client_name', u'subscription_ids'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, ['client_name', 'subscription_ids'], name, value)
 
 
 
@@ -5600,7 +5600,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, [u'priority', u'client_name', u'subscription_ids'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, ['priority', 'client_name', 'subscription_ids'], name, value)
 
 
 
@@ -5691,7 +5691,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Cdb.Client, [u'name', u'info', u'type', u'datastore', u'lock'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Cdb.Client, ['name', 'info', 'type', 'datastore', 'lock'], name, value)
 
                 class Datastore(Enum):
                     """
@@ -5866,7 +5866,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Cdb.Client.Subscription, [u'datastore', u'twophase', u'priority', u'id', u'path', u'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Cdb.Client.Subscription, ['datastore', 'twophase', 'priority', 'id', 'path', 'error'], name, value)
 
                     class Error(Enum):
                         """

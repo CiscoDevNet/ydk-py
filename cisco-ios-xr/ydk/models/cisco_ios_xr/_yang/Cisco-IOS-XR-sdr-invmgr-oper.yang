@@ -5,6 +5,9 @@ module Cisco-IOS-XR-sdr-invmgr-oper {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
+  include Cisco-IOS-XR-sdr-invmgr-oper-sub1 {
+    revision-date 2015-11-09;
+  }
 
   organization
     "Cisco Systems, Inc.";
@@ -180,6 +183,39 @@ module Cisco-IOS-XR-sdr-invmgr-oper {
               description
                 "Card";
             }
+          }
+        }
+      }
+    }
+    container memory {
+      description
+        "Memory";
+      container racks {
+        description
+          "RackTable";
+        list rack {
+          key "name";
+          description
+            "Rack name";
+          container node-ids {
+            description
+              "NodeIDTable";
+            list node-id {
+              key "name";
+              description
+                "Inventory Admin Mempool Data  Bag";
+              leaf name {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "nodeid";
+              }
+              uses INV-ADMIN-MEMPOOL-DATA;
+            }
+          }
+          leaf name {
+            type xr:Cisco-ios-xr-string;
+            description
+              "Rack name";
           }
         }
       }

@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-01 {
+    description
+      "Removed empty groupings.";
+  }
   revision 2018-07-02 {
     description
       "IPV6 MA added new fields to bag.";
@@ -186,11 +190,6 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
     }
   }
 
-  grouping TIMEVAL-ENTRY {
-    description
-      "Creatation or Update Time";
-  }
-
   grouping BGP-PA-DIR {
     description
       "BGP PA config for ingress/egress direction";
@@ -260,6 +259,8 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
         "Inbound ACLs";
       leaf entry {
         type Str;
+        description
+          "Inbound ACLs";
       }
     }
     list outbound {
@@ -268,6 +269,8 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
         "Outbound ACLs";
       leaf entry {
         type Str;
+        description
+          "Outbound ACLs";
       }
     }
     list common {
@@ -276,6 +279,8 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
         "Common ACLs";
       leaf entry {
         type Str;
+        description
+          "Common ACLs";
       }
     }
   }
@@ -343,31 +348,6 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
         "BGP PA config on the interface";
       uses BGP-PA-CONFIG;
     }
-    container utime {
-      description
-        "Address Publish Time";
-      uses TIMEVAL-ENTRY;
-    }
-    container idb-utime {
-      description
-        "IDB Create Time";
-      uses TIMEVAL-ENTRY;
-    }
-    container caps-utime {
-      description
-        "CAPS Add Time";
-      uses TIMEVAL-ENTRY;
-    }
-    container fwd-en-utime {
-      description
-        "FWD ENABLE Time";
-      uses TIMEVAL-ENTRY;
-    }
-    container fwd-dis-utime {
-      description
-        "FWD DISABLE Time";
-      uses TIMEVAL-ENTRY;
-    }
     leaf line-state {
       type Ipv6-ma-if-line-state;
       description
@@ -382,6 +362,16 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
       type Ipv6-ma-oper-state;
       description
         "IPv6 Operation State";
+    }
+    leaf ipv6-config-flag {
+      type uint32;
+      description
+        "Interface Configured Flags";
+    }
+    leaf ipv6-oper-flag {
+      type uint32;
+      description
+        "Interface Operational Flags";
     }
     leaf vrf-name {
       type string {
@@ -414,16 +404,6 @@ submodule Cisco-IOS-XR-ipv6-ma-oper-sub1 {
       type boolean;
       description
         "Is BGP Flow Tag Destination is enable";
-    }
-    leaf ipv6-config-flag {
-      type uint32;
-      description
-        "Interface Configured Flags";
-    }
-    leaf ipv6-oper-flag {
-      type uint32;
-      description
-        "Interface Operational Flags";
     }
     leaf idb-pointer {
       type uint64;

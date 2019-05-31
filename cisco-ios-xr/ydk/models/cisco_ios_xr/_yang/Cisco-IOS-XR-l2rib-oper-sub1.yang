@@ -431,11 +431,6 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
       description
         "Originating Router IP Address";
     }
-    leaf admin-distance {
-      type uint8;
-      description
-        "Admin Distance";
-    }
     leaf producer-id {
       type uint8;
       description
@@ -704,6 +699,8 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
         "TLV Value";
       leaf entry {
         type uint8;
+        description
+          "TLV Value";
       }
     }
   }
@@ -1047,6 +1044,42 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
     }
   }
 
+  grouping L2RIB-DD-PARAMS {
+    description
+      "L2RIB DD PARAMS";
+    leaf dd-params-disable {
+      type boolean;
+      description
+        "Disable duplicate detection for MAC, IPv4 or
+         IPv6 addresses.";
+    }
+    leaf dd-params-freeze-time {
+      type uint16;
+      description
+        "Length of time to freeze the mac after it has
+         been detected as duplicate. Default is 30s.";
+    }
+    leaf dd-params-retry-count {
+      type uint16;
+      description
+        "Number of times to unfreeze a MAC before
+         permanently freezing it. Default is 3 times.";
+    }
+    leaf dd-params-move-count {
+      type uint32;
+      units "second";
+      description
+        "Number of moves to occur in move-interval
+         seconds before freezing the MAC. Default is 5s.";
+    }
+    leaf dd-params-move-interval {
+      type uint32;
+      description
+        "Interval to watch for subsequent moves before
+         freezing the MAC. Default is 180s.";
+    }
+  }
+
   grouping L2RIB-TBL-SUMMARY {
     description
       "L2RIB TBL SUMMARY";
@@ -1075,6 +1108,21 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
   grouping L2RIB-SUMMARY {
     description
       "L2RIB SUMMARY";
+    container mac-dd-params {
+      description
+        "MAC duplicate detection parameters";
+      uses L2RIB-DD-PARAMS;
+    }
+    container ipv4-dd-params {
+      description
+        "IPv4 duplicate detection parameters";
+      uses L2RIB-DD-PARAMS;
+    }
+    container ipv6-dd-params {
+      description
+        "IPv6 duplicate detection parameters";
+      uses L2RIB-DD-PARAMS;
+    }
     leaf converged-tables-count {
       type uint32;
       description

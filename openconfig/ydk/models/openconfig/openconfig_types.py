@@ -31,9 +31,9 @@ class ADDRESSFAMILY(Identity):
 
 
 
-class L2ETHERNET(ADDRESSFAMILY):
+class IPV4(ADDRESSFAMILY):
     """
-    The 802.3 Ethernet address family
+    The IPv4 address family
     
     
 
@@ -42,8 +42,8 @@ class L2ETHERNET(ADDRESSFAMILY):
     _prefix = 'oc-types'
     _revision = '2017-01-13'
 
-    def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:L2_ETHERNET"):
-        super(L2ETHERNET, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:IPV4"):
+        super(IPV4, self).__init__(ns, pref, tag)
 
 
 
@@ -79,9 +79,9 @@ class MPLS(ADDRESSFAMILY):
 
 
 
-class IPV4(ADDRESSFAMILY):
+class L2ETHERNET(ADDRESSFAMILY):
     """
-    The IPv4 address family
+    The 802.3 Ethernet address family
     
     
 
@@ -90,8 +90,8 @@ class IPV4(ADDRESSFAMILY):
     _prefix = 'oc-types'
     _revision = '2017-01-13'
 
-    def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:IPV4"):
-        super(IPV4, self).__init__(ns, pref, tag)
+    def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:L2_ETHERNET"):
+        super(L2ETHERNET, self).__init__(ns, pref, tag)
 
 
 

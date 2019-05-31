@@ -369,6 +369,12 @@ class BgpReorgOpt(Enum):
 
     	Disable adv of VRF ReImported routes
 
+    .. data:: bgp_cfg_adv_vrf_evpn_re_imp_disable = 7
+
+    	Disable adv of VRF EVPN extranet Imported
+
+    	routes
+
     """
 
     bgp_cfg_adv = Enum.YLeaf(1, "bgp-cfg-adv")
@@ -382,6 +388,8 @@ class BgpReorgOpt(Enum):
     bgp_cfg_adv_def_vrf_imp_disable = Enum.YLeaf(5, "bgp-cfg-adv-def-vrf-imp-disable")
 
     bgp_cfg_adv_vrf_re_imp_disable = Enum.YLeaf(6, "bgp-cfg-adv-vrf-re-imp-disable")
+
+    bgp_cfg_adv_vrf_evpn_re_imp_disable = Enum.YLeaf(7, "bgp-cfg-adv-vrf-evpn-re-imp-disable")
 
 
 class BgpRnhInstallFormat(Enum):
@@ -627,7 +635,7 @@ class Bgp(Entity):
     """
 
     _prefix = 'ipv4-bgp-cfg'
-    _revision = '2018-01-18'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(Bgp, self).__init__()
@@ -670,7 +678,7 @@ class Bgp(Entity):
         """
 
         _prefix = 'ipv4-bgp-cfg'
-        _revision = '2018-01-18'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(Bgp.Instance, self).__init__()
@@ -716,7 +724,7 @@ class Bgp(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2018-01-18'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(Bgp.Instance.InstanceAs, self).__init__()
@@ -771,7 +779,7 @@ class Bgp(Entity):
                 """
 
                 _prefix = 'ipv4-bgp-cfg'
-                _revision = '2018-01-18'
+                _revision = '2018-06-15'
 
                 def __init__(self):
                     super(Bgp.Instance.InstanceAs.FourByteAs, self).__init__()
@@ -817,7 +825,7 @@ class Bgp(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2018-01-18'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs, self).__init__()
@@ -864,7 +872,7 @@ class Bgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf, self).__init__()
@@ -1078,7 +1086,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal, self).__init__()
@@ -1227,7 +1235,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher, self).__init__()
@@ -1274,7 +1282,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs, self).__init__()
@@ -1404,6 +1412,8 @@ class Bgp(Entity):
                                     	Define an administrative distance
                                     	**type**\:  :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance>`
                                     
+                                    	**presence node**\: True
+                                    
                                     .. attribute:: table_policy
                                     
                                     	Configure policy for installation of routes to RIB
@@ -1423,6 +1433,8 @@ class Bgp(Entity):
                                     
                                     	BGP 6PE/MPLS\-VPN label allocation mode
                                     	**type**\:  :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: eigrp_routes
                                     
@@ -1466,15 +1478,12 @@ class Bgp(Entity):
                                     	RPKI bestpath use origin\-AS validity
                                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                     
-                                    .. attribute:: srv6_label_allocation_mode
-                                    
-                                    	Label allocation mode\: per\-ce  Set per CE label mode,per\-vrf Set per VRF label mode
-                                    	**type**\: str
-                                    
                                     .. attribute:: allocate_label
                                     
                                     	Label allocation policy
                                     	**type**\:  :py:class:`AllocateLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: additional_paths_selection
                                     
@@ -1534,12 +1543,17 @@ class Bgp(Entity):
                                     
                                     	**presence node**\: True
                                     
+                                    .. attribute:: segment_routing
+                                    
+                                    	Segment\-routing Configurations
+                                    	**type**\:  :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting>`
+                                    
                                     
 
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf, self).__init__()
@@ -1549,7 +1563,7 @@ class Bgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['af_name']
-                                        self._child_classes = OrderedDict([("mvpn", ("mvpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn)), ("ebgp", ("ebgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp)), ("eibgp", ("eibgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp)), ("ibgp", ("ibgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp)), ("aggregate-addresses", ("aggregate_addresses", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses)), ("optimal-route-reflector-groups", ("optimal_route_reflector_groups", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups)), ("dampening", ("dampening", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening)), ("rip-routes", ("rip_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes)), ("lisp-routes", ("lisp_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes)), ("static-routes", ("static_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes)), ("distance", ("distance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance)), ("application-routes", ("application_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes)), ("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode)), ("eigrp-routes", ("eigrp_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes)), ("sourced-networks", ("sourced_networks", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks)), ("connected-routes", ("connected_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes)), ("allocate-label", ("allocate_label", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel)), ("additional-paths-selection", ("additional_paths_selection", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection)), ("ospf-routes", ("ospf_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes)), ("mobile-routes", ("mobile_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes)), ("subscriber-routes", ("subscriber_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes))])
+                                        self._child_classes = OrderedDict([("mvpn", ("mvpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn)), ("ebgp", ("ebgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp)), ("eibgp", ("eibgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp)), ("ibgp", ("ibgp", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp)), ("aggregate-addresses", ("aggregate_addresses", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses)), ("optimal-route-reflector-groups", ("optimal_route_reflector_groups", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups)), ("dampening", ("dampening", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening)), ("rip-routes", ("rip_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes)), ("lisp-routes", ("lisp_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes)), ("static-routes", ("static_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes)), ("distance", ("distance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance)), ("application-routes", ("application_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes)), ("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode)), ("eigrp-routes", ("eigrp_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes)), ("sourced-networks", ("sourced_networks", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks)), ("connected-routes", ("connected_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes)), ("allocate-label", ("allocate_label", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel)), ("additional-paths-selection", ("additional_paths_selection", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection)), ("ospf-routes", ("ospf_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes)), ("mobile-routes", ("mobile_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes)), ("subscriber-routes", ("subscriber_routes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes)), ("segment-routing", ("segment_routing", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting))])
                                         self._leafs = OrderedDict([
                                             ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
                                             ('rt_download', (YLeaf(YType.empty, 'rt-download'), ['Empty'])),
@@ -1564,7 +1578,6 @@ class Bgp(Entity):
                                             ('additional_paths_receive', (YLeaf(YType.enumeration, 'additional-paths-receive'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAfAdditionalPathsCfg', '')])),
                                             ('permanent_network', (YLeaf(YType.str, 'permanent-network'), ['str'])),
                                             ('rpki_bestpath_use_origin_as_validity', (YLeaf(YType.empty, 'rpki-bestpath-use-origin-as-validity'), ['Empty'])),
-                                            ('srv6_label_allocation_mode', (YLeaf(YType.str, 'srv6-label-allocation-mode'), ['str'])),
                                             ('rpki_bestpath_origin_as_allow_invalid', (YLeaf(YType.empty, 'rpki-bestpath-origin-as-allow-invalid'), ['Empty'])),
                                             ('next_hop_resolution_prefix_length_minimum', (YLeaf(YType.uint32, 'next-hop-resolution-prefix-length-minimum'), ['int'])),
                                             ('reset_weight_on_import', (YLeaf(YType.boolean, 'reset-weight-on-import'), ['bool'])),
@@ -1585,7 +1598,6 @@ class Bgp(Entity):
                                         self.additional_paths_receive = None
                                         self.permanent_network = None
                                         self.rpki_bestpath_use_origin_as_validity = None
-                                        self.srv6_label_allocation_mode = None
                                         self.rpki_bestpath_origin_as_allow_invalid = None
                                         self.next_hop_resolution_prefix_length_minimum = None
                                         self.reset_weight_on_import = None
@@ -1626,16 +1638,14 @@ class Bgp(Entity):
                                         self.static_routes = None
                                         self._children_name_map["static_routes"] = "static-routes"
 
-                                        self.distance = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance()
-                                        self.distance.parent = self
+                                        self.distance = None
                                         self._children_name_map["distance"] = "distance"
 
                                         self.application_routes = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes()
                                         self.application_routes.parent = self
                                         self._children_name_map["application_routes"] = "application-routes"
 
-                                        self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode()
-                                        self.label_mode.parent = self
+                                        self.label_mode = None
                                         self._children_name_map["label_mode"] = "label-mode"
 
                                         self.eigrp_routes = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes()
@@ -1649,8 +1659,7 @@ class Bgp(Entity):
                                         self.connected_routes = None
                                         self._children_name_map["connected_routes"] = "connected-routes"
 
-                                        self.allocate_label = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel()
-                                        self.allocate_label.parent = self
+                                        self.allocate_label = None
                                         self._children_name_map["allocate_label"] = "allocate-label"
 
                                         self.additional_paths_selection = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection()
@@ -1666,11 +1675,15 @@ class Bgp(Entity):
 
                                         self.subscriber_routes = None
                                         self._children_name_map["subscriber_routes"] = "subscriber-routes"
+
+                                        self.segment_routing = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting()
+                                        self.segment_routing.parent = self
+                                        self._children_name_map["segment_routing"] = "segment-routing"
                                         self._segment_path = lambda: "vrf-global-af" + "[af-name='" + str(self.af_name) + "']"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf, ['af_name', 'rt_download', 'allow_vpn_default_originate', 'rpki_origin_as_validation_enable', 'dynamic_med_interval', 'enable', 'table_policy', 'attribute_download', 'best_external', 'rpki_origin_as_validity_signal_ibgp', 'additional_paths_receive', 'permanent_network', 'rpki_bestpath_use_origin_as_validity', 'srv6_label_allocation_mode', 'rpki_bestpath_origin_as_allow_invalid', 'next_hop_resolution_prefix_length_minimum', 'reset_weight_on_import', 'additional_paths_send', 'advertise_local_labeled_route_safi_unicast', 'disable_as_path_loop_check'], name, value)
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf, ['af_name', 'rt_download', 'allow_vpn_default_originate', 'rpki_origin_as_validation_enable', 'dynamic_med_interval', 'enable', 'table_policy', 'attribute_download', 'best_external', 'rpki_origin_as_validity_signal_ibgp', 'additional_paths_receive', 'permanent_network', 'rpki_bestpath_use_origin_as_validity', 'rpki_bestpath_origin_as_allow_invalid', 'next_hop_resolution_prefix_length_minimum', 'reset_weight_on_import', 'additional_paths_send', 'advertise_local_labeled_route_safi_unicast', 'disable_as_path_loop_check'], name, value)
 
 
                                     class Mvpn(Entity):
@@ -1687,7 +1700,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn, self).__init__()
@@ -1751,7 +1764,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp, self).__init__()
@@ -1822,7 +1835,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp, self).__init__()
@@ -1893,7 +1906,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp, self).__init__()
@@ -1937,7 +1950,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses, self).__init__()
@@ -2007,7 +2020,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress, self).__init__()
@@ -2055,7 +2068,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups, self).__init__()
@@ -2132,7 +2145,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, self).__init__()
@@ -2182,8 +2195,6 @@ class Bgp(Entity):
                                         
                                         	**range:** 1..20000
                                         
-                                        	**mandatory**\: True
-                                        
                                         .. attribute:: suppress_threshold
                                         
                                         	Value to start suppressing a route
@@ -2191,16 +2202,12 @@ class Bgp(Entity):
                                         
                                         	**range:** 1..20000
                                         
-                                        	**mandatory**\: True
-                                        
                                         .. attribute:: suppress_time
                                         
                                         	Maximum duration to suppress a stable route (seconds)
                                         	**type**\: int
                                         
                                         	**range:** 1..255
-                                        
-                                        	**mandatory**\: True
                                         
                                         	**units**\: second
                                         
@@ -2216,7 +2223,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening, self).__init__()
@@ -2278,7 +2285,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes, self).__init__()
@@ -2329,7 +2336,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes, self).__init__()
@@ -2385,7 +2392,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes, self).__init__()
@@ -2424,7 +2431,7 @@ class Bgp(Entity):
                                         
                                         	**range:** 1..255
                                         
-                                        	**default value**\: 20
+                                        	**mandatory**\: True
                                         
                                         .. attribute:: internal_routes
                                         
@@ -2433,7 +2440,7 @@ class Bgp(Entity):
                                         
                                         	**range:** 1..255
                                         
-                                        	**default value**\: 200
+                                        	**mandatory**\: True
                                         
                                         .. attribute:: local_routes
                                         
@@ -2442,14 +2449,16 @@ class Bgp(Entity):
                                         
                                         	**range:** 1..255
                                         
-                                        	**default value**\: 200
+                                        	**mandatory**\: True
                                         
                                         
+
+                                        This class is a :ref:`presence class<presence-class>`
 
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance, self).__init__()
@@ -2460,6 +2469,7 @@ class Bgp(Entity):
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
+                                            self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('external_routes', (YLeaf(YType.uint32, 'external-routes'), ['int'])),
                                                 ('internal_routes', (YLeaf(YType.uint32, 'internal-routes'), ['int'])),
@@ -2490,7 +2500,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes, self).__init__()
@@ -2546,7 +2556,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes.ApplicationRoute, self).__init__()
@@ -2592,10 +2602,12 @@ class Bgp(Entity):
                                         
                                         
 
+                                        This class is a :ref:`presence class<presence-class>`
+
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode, self).__init__()
@@ -2606,6 +2618,7 @@ class Bgp(Entity):
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
+                                            self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('label_allocation_mode', (YLeaf(YType.str, 'label-allocation-mode'), ['str'])),
                                                 ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
@@ -2634,7 +2647,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes, self).__init__()
@@ -2690,7 +2703,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute, self).__init__()
@@ -2734,7 +2747,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks, self).__init__()
@@ -2794,7 +2807,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork, self).__init__()
@@ -2854,7 +2867,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes, self).__init__()
@@ -2903,10 +2916,12 @@ class Bgp(Entity):
                                         
                                         
 
+                                        This class is a :ref:`presence class<presence-class>`
+
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel, self).__init__()
@@ -2917,6 +2932,7 @@ class Bgp(Entity):
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
+                                            self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('all', (YLeaf(YType.boolean, 'all'), ['bool'])),
                                                 ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
@@ -2952,7 +2968,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection, self).__init__()
@@ -2991,7 +3007,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes, self).__init__()
@@ -3047,7 +3063,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute, self).__init__()
@@ -3107,7 +3123,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes, self).__init__()
@@ -3165,7 +3181,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes, self).__init__()
@@ -3193,6 +3209,95 @@ class Bgp(Entity):
 
 
 
+                                    class SegmentRouting(Entity):
+                                        """
+                                        Segment\-routing Configurations
+                                        
+                                        .. attribute:: srv6
+                                        
+                                        	SRv6 Configurations
+                                        	**type**\:  :py:class:`Srv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting.Srv6>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2018-06-15'
+
+                                        def __init__(self):
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting, self).__init__()
+
+                                            self.yang_name = "segment-routing"
+                                            self.yang_parent_name = "vrf-global-af"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("srv6", ("srv6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting.Srv6))])
+                                            self._leafs = OrderedDict()
+
+                                            self.srv6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting.Srv6()
+                                            self.srv6.parent = self
+                                            self._children_name_map["srv6"] = "srv6"
+                                            self._segment_path = lambda: "segment-routing"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting, [], name, value)
+
+
+                                        class Srv6(Entity):
+                                            """
+                                            SRv6 Configurations
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	Enable SRv6 configuration submode
+                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                            
+                                            .. attribute:: srv6sid_allocation_mode
+                                            
+                                            	SID allocation mode\: per\-ce  Set per CE SID mode,per\-vrf Set per VRF SID mode
+                                            	**type**\: str
+                                            
+                                            .. attribute:: locator_name
+                                            
+                                            	Configure Locator name for SID allocation
+                                            	**type**\: str
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting.Srv6, self).__init__()
+
+                                                self.yang_name = "srv6"
+                                                self.yang_parent_name = "segment-routing"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                    ('srv6sid_allocation_mode', (YLeaf(YType.str, 'srv6sid-allocation-mode'), ['str'])),
+                                                    ('locator_name', (YLeaf(YType.str, 'locator-name'), ['str'])),
+                                                ])
+                                                self.enable = None
+                                                self.srv6sid_allocation_mode = None
+                                                self.locator_name = None
+                                                self._segment_path = lambda: "srv6"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting.Srv6, ['enable', 'srv6sid_allocation_mode', 'locator_name'], name, value)
+
+
+
+
 
 
                             class MplsActivatedInterfaces(Entity):
@@ -3209,7 +3314,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces, self).__init__()
@@ -3246,7 +3351,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface, self).__init__()
@@ -3312,7 +3417,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers, self).__init__()
@@ -3364,7 +3469,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd, self).__init__()
@@ -3420,7 +3525,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes, self).__init__()
@@ -3476,7 +3581,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes, self).__init__()
@@ -3521,7 +3626,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors, self).__init__()
@@ -3565,6 +3670,11 @@ class Bgp(Entity):
                                 	Address family type of a VRF neighbor
                                 	**type**\:  :py:class:`VrfNeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs>`
                                 
+                                .. attribute:: local_address_sub_net
+                                
+                                	Local Address subnet of routing updates
+                                	**type**\:  :py:class:`LocalAddressSubNet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddressSubNet>`
+                                
                                 .. attribute:: internal_vpn_client_ibgp_ce
                                 
                                 	TRUE to preserve the CE path attributes.FALSE to override CE path attributes
@@ -3599,6 +3709,11 @@ class Bgp(Entity):
                                 
                                 	Set remote AS
                                 	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs>`
+                                
+                                .. attribute:: merge_safi1_and4_inbound_updates
+                                
+                                	TRUE to merge updates FALSE to not merge updates and to prevent inheritance from a parent
+                                	**type**\: bool
                                 
                                 .. attribute:: local_as
                                 
@@ -3820,7 +3935,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -3840,7 +3955,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor, self).__init__()
@@ -3850,12 +3965,13 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['neighbor_address']
-                                    self._child_classes = OrderedDict([("vrf-neighbor-afs", ("vrf_neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance))])
+                                    self._child_classes = OrderedDict([("vrf-neighbor-afs", ("vrf_neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs)), ("local-address-sub-net", ("local_address_sub_net", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddressSubNet)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
                                         ('internal_vpn_client_ibgp_ce', (YLeaf(YType.boolean, 'internal-vpn-client-ibgp-ce'), ['bool'])),
                                         ('session_group_add_member', (YLeaf(YType.str, 'session-group-add-member'), ['str'])),
                                         ('egress_peer_engineering', (YLeaf(YType.boolean, 'egress-peer-engineering'), ['bool'])),
+                                        ('merge_safi1_and4_inbound_updates', (YLeaf(YType.boolean, 'merge-safi1-and4-inbound-updates'), ['bool'])),
                                         ('neighbor_graceful_restart_stalepath_time', (YLeaf(YType.uint32, 'neighbor-graceful-restart-stalepath-time'), ['int'])),
                                         ('shutdown', (YLeaf(YType.boolean, 'shutdown'), ['bool'])),
                                         ('description', (YLeaf(YType.str, 'description'), ['str'])),
@@ -3887,6 +4003,7 @@ class Bgp(Entity):
                                     self.internal_vpn_client_ibgp_ce = None
                                     self.session_group_add_member = None
                                     self.egress_peer_engineering = None
+                                    self.merge_safi1_and4_inbound_updates = None
                                     self.neighbor_graceful_restart_stalepath_time = None
                                     self.shutdown = None
                                     self.description = None
@@ -3917,6 +4034,10 @@ class Bgp(Entity):
                                     self.vrf_neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs()
                                     self.vrf_neighbor_afs.parent = self
                                     self._children_name_map["vrf_neighbor_afs"] = "vrf-neighbor-afs"
+
+                                    self.local_address_sub_net = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddressSubNet()
+                                    self.local_address_sub_net.parent = self
+                                    self._children_name_map["local_address_sub_net"] = "local-address-sub-net"
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress()
                                     self.local_address.parent = self
@@ -3996,7 +4117,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor, ['neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor, ['neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
 
 
                                 class VrfNeighborAfs(Entity):
@@ -4013,7 +4134,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs, self).__init__()
@@ -4052,12 +4173,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -4087,6 +4208,11 @@ class Bgp(Entity):
                                         
                                         	**presence node**\: True
                                         
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6>`
+                                        
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
@@ -4113,6 +4239,11 @@ class Bgp(Entity):
                                         
                                         	RPKI origin\-AS validation disable
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -4181,6 +4312,11 @@ class Bgp(Entity):
                                         	Site\-of\-Origin extended community associated with the neighbor
                                         	**type**\:  :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin>`
                                         
+                                        .. attribute:: update_out_orig_loop_chk_disable
+                                        
+                                        	Enable/disable Originator loop check for this neighbor\-group/af\-group
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
@@ -4214,7 +4350,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -4316,7 +4452,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf, self).__init__()
@@ -4326,7 +4462,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4))])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes)), ("advertise-bridge-domain-imp-disable-v6", ("advertise_bridge_domain_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4)), ("advertise-bridge-domain-imp-disable-v4", ("advertise_bridge_domain_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', (YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable'), ['bool'])),
@@ -4345,6 +4481,7 @@ class Bgp(Entity):
                                                 ('send_community_ebgp_graceful_shutdown', (YLeaf(YType.boolean, 'send-community-ebgp-graceful-shutdown'), ['bool'])),
                                                 ('activate', (YLeaf(YType.empty, 'activate'), ['Empty'])),
                                                 ('prefix_orf_policy', (YLeaf(YType.str, 'prefix-orf-policy'), ['str'])),
+                                                ('update_out_orig_loop_chk_disable', (YLeaf(YType.empty, 'update-out-orig-loop-chk-disable'), ['Empty'])),
                                                 ('aigp', (YLeaf(YType.enumeration, 'aigp'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('aigp_send_med', (YLeaf(YType.enumeration, 'aigp-send-med'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('allow_as_in', (YLeaf(YType.uint32, 'allow-as-in'), ['int'])),
@@ -4377,6 +4514,7 @@ class Bgp(Entity):
                                             self.send_community_ebgp_graceful_shutdown = None
                                             self.activate = None
                                             self.prefix_orf_policy = None
+                                            self.update_out_orig_loop_chk_disable = None
                                             self.aigp = None
                                             self.aigp_send_med = None
                                             self.allow_as_in = None
@@ -4407,12 +4545,20 @@ class Bgp(Entity):
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
 
+                                            self.advertise_bridge_domain_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6()
+                                            self.advertise_bridge_domain_imp_disable_v6.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v6"] = "advertise-bridge-domain-imp-disable-v6"
+
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
+
+                                            self.advertise_bridge_domain_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4()
+                                            self.advertise_bridge_domain_imp_disable_v4.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v4"] = "advertise-bridge-domain-imp-disable-v4"
 
                                             self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
@@ -4472,7 +4618,7 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
                                         class AigpCostCommunity(Entity):
@@ -4506,7 +4652,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, self).__init__()
@@ -4559,7 +4705,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -4610,7 +4756,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, self).__init__()
@@ -4690,7 +4836,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, self).__init__()
@@ -4722,6 +4868,58 @@ class Bgp(Entity):
 
 
 
+                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v6"
+                                                self.yang_parent_name = "vrf-neighbor-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v6"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -4745,7 +4943,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -4795,7 +4993,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -4819,6 +5017,58 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
+                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v4"
+                                                self.yang_parent_name = "vrf-neighbor-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v4"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
 
@@ -4846,7 +5096,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, self).__init__()
@@ -4898,7 +5148,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
@@ -4957,7 +5207,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -5032,7 +5282,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, self).__init__()
@@ -5089,7 +5339,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, self).__init__()
@@ -5141,7 +5391,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, self).__init__()
@@ -5193,7 +5443,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import, self).__init__()
@@ -5241,7 +5491,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, self).__init__()
@@ -5290,7 +5540,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, self).__init__()
@@ -5339,7 +5589,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -5390,7 +5640,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, self).__init__()
@@ -5442,7 +5692,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, self).__init__()
@@ -5492,7 +5742,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -5542,7 +5792,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -5568,6 +5818,60 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
+                                class LocalAddressSubNet(Entity):
+                                    """
+                                    Local Address subnet of routing updates
+                                    
+                                    .. attribute:: local_addresss_subnet
+                                    
+                                    	local address subnet ip address 
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: prefix_len
+                                    
+                                    	prefix length
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..128
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddressSubNet, self).__init__()
+
+                                        self.yang_name = "local-address-sub-net"
+                                        self.yang_parent_name = "vrf-neighbor"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('local_addresss_subnet', (YLeaf(YType.str, 'local-addresss-subnet'), ['str','str'])),
+                                            ('prefix_len', (YLeaf(YType.uint32, 'prefix-len'), ['int'])),
+                                        ])
+                                        self.local_addresss_subnet = None
+                                        self.prefix_len = None
+                                        self._segment_path = lambda: "local-address-sub-net"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
 
 
@@ -5598,7 +5902,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress, self).__init__()
@@ -5637,7 +5941,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates, self).__init__()
@@ -5674,7 +5978,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate, self).__init__()
@@ -5724,7 +6028,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop, self).__init__()
@@ -5772,7 +6076,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs, self).__init__()
@@ -5840,7 +6144,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs, self).__init__()
@@ -5894,7 +6198,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password, self).__init__()
@@ -5951,7 +6255,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval, self).__init__()
@@ -6000,7 +6304,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId, self).__init__()
@@ -6046,7 +6350,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss, self).__init__()
@@ -6096,7 +6400,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos, self).__init__()
@@ -6152,7 +6456,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering, self).__init__()
@@ -6208,7 +6512,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -6261,7 +6565,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut, self).__init__()
@@ -6317,7 +6621,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AoKeychain, self).__init__()
@@ -6378,7 +6682,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize, self).__init__()
@@ -6429,7 +6733,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn, self).__init__()
@@ -6488,7 +6792,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize, self).__init__()
@@ -6549,7 +6853,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers, self).__init__()
@@ -6595,7 +6899,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain, self).__init__()
@@ -6649,7 +6953,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance, self).__init__()
@@ -6702,7 +7006,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -6749,7 +7053,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -6805,6 +7109,11 @@ class Bgp(Entity):
                                 	Address family type of a VRF neighbor
                                 	**type**\:  :py:class:`VrfNeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs>`
                                 
+                                .. attribute:: local_address_sub_net
+                                
+                                	Local Address subnet of routing updates
+                                	**type**\:  :py:class:`LocalAddressSubNet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddressSubNet>`
+                                
                                 .. attribute:: internal_vpn_client_ibgp_ce
                                 
                                 	TRUE to preserve the CE path attributes.FALSE to override CE path attributes
@@ -6839,6 +7148,11 @@ class Bgp(Entity):
                                 
                                 	Set remote AS
                                 	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs>`
+                                
+                                .. attribute:: merge_safi1_and4_inbound_updates
+                                
+                                	TRUE to merge updates FALSE to not merge updates and to prevent inheritance from a parent
+                                	**type**\: bool
                                 
                                 .. attribute:: local_as
                                 
@@ -7060,7 +7374,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -7080,7 +7394,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength, self).__init__()
@@ -7090,13 +7404,14 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['prefix_length','neighbor_address']
-                                    self._child_classes = OrderedDict([("vrf-neighbor-afs", ("vrf_neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance))])
+                                    self._child_classes = OrderedDict([("vrf-neighbor-afs", ("vrf_neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs)), ("local-address-sub-net", ("local_address_sub_net", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddressSubNet)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
                                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
                                         ('internal_vpn_client_ibgp_ce', (YLeaf(YType.boolean, 'internal-vpn-client-ibgp-ce'), ['bool'])),
                                         ('session_group_add_member', (YLeaf(YType.str, 'session-group-add-member'), ['str'])),
                                         ('egress_peer_engineering', (YLeaf(YType.boolean, 'egress-peer-engineering'), ['bool'])),
+                                        ('merge_safi1_and4_inbound_updates', (YLeaf(YType.boolean, 'merge-safi1-and4-inbound-updates'), ['bool'])),
                                         ('neighbor_graceful_restart_stalepath_time', (YLeaf(YType.uint32, 'neighbor-graceful-restart-stalepath-time'), ['int'])),
                                         ('shutdown', (YLeaf(YType.boolean, 'shutdown'), ['bool'])),
                                         ('description', (YLeaf(YType.str, 'description'), ['str'])),
@@ -7129,6 +7444,7 @@ class Bgp(Entity):
                                     self.internal_vpn_client_ibgp_ce = None
                                     self.session_group_add_member = None
                                     self.egress_peer_engineering = None
+                                    self.merge_safi1_and4_inbound_updates = None
                                     self.neighbor_graceful_restart_stalepath_time = None
                                     self.shutdown = None
                                     self.description = None
@@ -7159,6 +7475,10 @@ class Bgp(Entity):
                                     self.vrf_neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs()
                                     self.vrf_neighbor_afs.parent = self
                                     self._children_name_map["vrf_neighbor_afs"] = "vrf-neighbor-afs"
+
+                                    self.local_address_sub_net = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddressSubNet()
+                                    self.local_address_sub_net.parent = self
+                                    self._children_name_map["local_address_sub_net"] = "local-address-sub-net"
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress()
                                     self.local_address.parent = self
@@ -7238,7 +7558,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength, ['prefix_length', 'neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength, ['prefix_length', 'neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
 
 
                                 class VrfNeighborAfs(Entity):
@@ -7255,7 +7575,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs, self).__init__()
@@ -7294,12 +7614,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -7329,6 +7649,11 @@ class Bgp(Entity):
                                         
                                         	**presence node**\: True
                                         
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6>`
+                                        
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
@@ -7355,6 +7680,11 @@ class Bgp(Entity):
                                         
                                         	RPKI origin\-AS validation disable
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -7423,6 +7753,11 @@ class Bgp(Entity):
                                         	Site\-of\-Origin extended community associated with the neighbor
                                         	**type**\:  :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin>`
                                         
+                                        .. attribute:: update_out_orig_loop_chk_disable
+                                        
+                                        	Enable/disable Originator loop check for this neighbor\-group/af\-group
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
@@ -7456,7 +7791,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -7558,7 +7893,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf, self).__init__()
@@ -7568,7 +7903,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4))])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes)), ("advertise-bridge-domain-imp-disable-v6", ("advertise_bridge_domain_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4)), ("advertise-bridge-domain-imp-disable-v4", ("advertise_bridge_domain_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', (YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable'), ['bool'])),
@@ -7587,6 +7922,7 @@ class Bgp(Entity):
                                                 ('send_community_ebgp_graceful_shutdown', (YLeaf(YType.boolean, 'send-community-ebgp-graceful-shutdown'), ['bool'])),
                                                 ('activate', (YLeaf(YType.empty, 'activate'), ['Empty'])),
                                                 ('prefix_orf_policy', (YLeaf(YType.str, 'prefix-orf-policy'), ['str'])),
+                                                ('update_out_orig_loop_chk_disable', (YLeaf(YType.empty, 'update-out-orig-loop-chk-disable'), ['Empty'])),
                                                 ('aigp', (YLeaf(YType.enumeration, 'aigp'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('aigp_send_med', (YLeaf(YType.enumeration, 'aigp-send-med'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('allow_as_in', (YLeaf(YType.uint32, 'allow-as-in'), ['int'])),
@@ -7619,6 +7955,7 @@ class Bgp(Entity):
                                             self.send_community_ebgp_graceful_shutdown = None
                                             self.activate = None
                                             self.prefix_orf_policy = None
+                                            self.update_out_orig_loop_chk_disable = None
                                             self.aigp = None
                                             self.aigp_send_med = None
                                             self.allow_as_in = None
@@ -7649,12 +7986,20 @@ class Bgp(Entity):
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
 
+                                            self.advertise_bridge_domain_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6()
+                                            self.advertise_bridge_domain_imp_disable_v6.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v6"] = "advertise-bridge-domain-imp-disable-v6"
+
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
+
+                                            self.advertise_bridge_domain_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4()
+                                            self.advertise_bridge_domain_imp_disable_v4.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v4"] = "advertise-bridge-domain-imp-disable-v4"
 
                                             self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
@@ -7714,7 +8059,7 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
                                         class AigpCostCommunity(Entity):
@@ -7748,7 +8093,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, self).__init__()
@@ -7801,7 +8146,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -7852,7 +8197,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, self).__init__()
@@ -7932,7 +8277,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, self).__init__()
@@ -7964,6 +8309,58 @@ class Bgp(Entity):
 
 
 
+                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v6"
+                                                self.yang_parent_name = "vrf-neighbor-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v6"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -7987,7 +8384,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -8037,7 +8434,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -8061,6 +8458,58 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
+                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v4"
+                                                self.yang_parent_name = "vrf-neighbor-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v4"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
 
@@ -8088,7 +8537,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, self).__init__()
@@ -8140,7 +8589,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
@@ -8199,7 +8648,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -8274,7 +8723,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, self).__init__()
@@ -8331,7 +8780,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, self).__init__()
@@ -8383,7 +8832,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, self).__init__()
@@ -8435,7 +8884,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import, self).__init__()
@@ -8483,7 +8932,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, self).__init__()
@@ -8532,7 +8981,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, self).__init__()
@@ -8581,7 +9030,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -8632,7 +9081,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, self).__init__()
@@ -8684,7 +9133,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, self).__init__()
@@ -8734,7 +9183,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -8784,7 +9233,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -8810,6 +9259,60 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
+                                class LocalAddressSubNet(Entity):
+                                    """
+                                    Local Address subnet of routing updates
+                                    
+                                    .. attribute:: local_addresss_subnet
+                                    
+                                    	local address subnet ip address 
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: prefix_len
+                                    
+                                    	prefix length
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..128
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddressSubNet, self).__init__()
+
+                                        self.yang_name = "local-address-sub-net"
+                                        self.yang_parent_name = "vrf-neighbor-prefix-length"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('local_addresss_subnet', (YLeaf(YType.str, 'local-addresss-subnet'), ['str','str'])),
+                                            ('prefix_len', (YLeaf(YType.uint32, 'prefix-len'), ['int'])),
+                                        ])
+                                        self.local_addresss_subnet = None
+                                        self.prefix_len = None
+                                        self._segment_path = lambda: "local-address-sub-net"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
 
 
@@ -8840,7 +9343,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress, self).__init__()
@@ -8879,7 +9382,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates, self).__init__()
@@ -8916,7 +9419,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate, self).__init__()
@@ -8966,7 +9469,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop, self).__init__()
@@ -9014,7 +9517,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs, self).__init__()
@@ -9082,7 +9585,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs, self).__init__()
@@ -9136,7 +9639,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password, self).__init__()
@@ -9193,7 +9696,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval, self).__init__()
@@ -9242,7 +9745,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId, self).__init__()
@@ -9288,7 +9791,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss, self).__init__()
@@ -9338,7 +9841,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos, self).__init__()
@@ -9394,7 +9897,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering, self).__init__()
@@ -9450,7 +9953,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -9503,7 +10006,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut, self).__init__()
@@ -9559,7 +10062,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AoKeychain, self).__init__()
@@ -9620,7 +10123,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize, self).__init__()
@@ -9671,7 +10174,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn, self).__init__()
@@ -9730,7 +10233,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize, self).__init__()
@@ -9791,7 +10294,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers, self).__init__()
@@ -9837,7 +10340,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain, self).__init__()
@@ -9891,7 +10394,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance, self).__init__()
@@ -9944,7 +10447,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -9991,7 +10494,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -10040,7 +10543,7 @@ class Bgp(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2018-01-18'
+                    _revision = '2018-06-15'
 
                     def __init__(self):
                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf, self).__init__()
@@ -10097,7 +10600,7 @@ class Bgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity, self).__init__()
@@ -10151,7 +10654,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors, self).__init__()
@@ -10195,6 +10698,11 @@ class Bgp(Entity):
                                 	BGP neighbor AF configuration table
                                 	**type**\:  :py:class:`NeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs>`
                                 
+                                .. attribute:: local_address_sub_net
+                                
+                                	Local Address subnet of routing updates
+                                	**type**\:  :py:class:`LocalAddressSubNet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddressSubNet>`
+                                
                                 .. attribute:: internal_vpn_client_ibgp_ce
                                 
                                 	TRUE to preserve the CE path attributes.FALSE to override CE path attributes
@@ -10229,6 +10737,11 @@ class Bgp(Entity):
                                 
                                 	Set remote AS
                                 	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs>`
+                                
+                                .. attribute:: merge_safi1_and4_inbound_updates
+                                
+                                	TRUE to merge updates FALSE to not merge updates and to prevent inheritance from a parent
+                                	**type**\: bool
                                 
                                 .. attribute:: local_as
                                 
@@ -10450,7 +10963,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -10470,7 +10983,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor, self).__init__()
@@ -10480,12 +10993,13 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['neighbor_address']
-                                    self._child_classes = OrderedDict([("neighbor-afs", ("neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance))])
+                                    self._child_classes = OrderedDict([("neighbor-afs", ("neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs)), ("local-address-sub-net", ("local_address_sub_net", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddressSubNet)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
                                         ('internal_vpn_client_ibgp_ce', (YLeaf(YType.boolean, 'internal-vpn-client-ibgp-ce'), ['bool'])),
                                         ('session_group_add_member', (YLeaf(YType.str, 'session-group-add-member'), ['str'])),
                                         ('egress_peer_engineering', (YLeaf(YType.boolean, 'egress-peer-engineering'), ['bool'])),
+                                        ('merge_safi1_and4_inbound_updates', (YLeaf(YType.boolean, 'merge-safi1-and4-inbound-updates'), ['bool'])),
                                         ('neighbor_graceful_restart_stalepath_time', (YLeaf(YType.uint32, 'neighbor-graceful-restart-stalepath-time'), ['int'])),
                                         ('shutdown', (YLeaf(YType.boolean, 'shutdown'), ['bool'])),
                                         ('description', (YLeaf(YType.str, 'description'), ['str'])),
@@ -10517,6 +11031,7 @@ class Bgp(Entity):
                                     self.internal_vpn_client_ibgp_ce = None
                                     self.session_group_add_member = None
                                     self.egress_peer_engineering = None
+                                    self.merge_safi1_and4_inbound_updates = None
                                     self.neighbor_graceful_restart_stalepath_time = None
                                     self.shutdown = None
                                     self.description = None
@@ -10547,6 +11062,10 @@ class Bgp(Entity):
                                     self.neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs()
                                     self.neighbor_afs.parent = self
                                     self._children_name_map["neighbor_afs"] = "neighbor-afs"
+
+                                    self.local_address_sub_net = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddressSubNet()
+                                    self.local_address_sub_net.parent = self
+                                    self._children_name_map["local_address_sub_net"] = "local-address-sub-net"
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress()
                                     self.local_address.parent = self
@@ -10626,7 +11145,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor, ['neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor, ['neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
 
 
                                 class NeighborAfs(Entity):
@@ -10643,7 +11162,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs, self).__init__()
@@ -10687,12 +11206,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -10727,6 +11246,11 @@ class Bgp(Entity):
                                         
                                         	**presence node**\: True
                                         
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6>`
+                                        
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
@@ -10753,6 +11277,11 @@ class Bgp(Entity):
                                         
                                         	RPKI origin\-AS validation disable
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -10816,6 +11345,11 @@ class Bgp(Entity):
                                         	Maximum time to wait before purging long lived routes
                                         	**type**\:  :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime>`
                                         
+                                        .. attribute:: update_out_orig_loop_chk_disable
+                                        
+                                        	Enable/disable Originator loop check for this neighbor\-group/af\-group
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
@@ -10849,7 +11383,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -10951,7 +11485,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf, self).__init__()
@@ -10961,7 +11495,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4))])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes)), ("advertise-bridge-domain-imp-disable-v6", ("advertise_bridge_domain_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4)), ("advertise-bridge-domain-imp-disable-v4", ("advertise_bridge_domain_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', (YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable'), ['bool'])),
@@ -10982,6 +11516,7 @@ class Bgp(Entity):
                                                 ('send_community_ebgp_graceful_shutdown', (YLeaf(YType.boolean, 'send-community-ebgp-graceful-shutdown'), ['bool'])),
                                                 ('activate', (YLeaf(YType.empty, 'activate'), ['Empty'])),
                                                 ('prefix_orf_policy', (YLeaf(YType.str, 'prefix-orf-policy'), ['str'])),
+                                                ('update_out_orig_loop_chk_disable', (YLeaf(YType.empty, 'update-out-orig-loop-chk-disable'), ['Empty'])),
                                                 ('aigp', (YLeaf(YType.enumeration, 'aigp'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('aigp_send_med', (YLeaf(YType.enumeration, 'aigp-send-med'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('allow_as_in', (YLeaf(YType.uint32, 'allow-as-in'), ['int'])),
@@ -11016,6 +11551,7 @@ class Bgp(Entity):
                                             self.send_community_ebgp_graceful_shutdown = None
                                             self.activate = None
                                             self.prefix_orf_policy = None
+                                            self.update_out_orig_loop_chk_disable = None
                                             self.aigp = None
                                             self.aigp_send_med = None
                                             self.allow_as_in = None
@@ -11046,12 +11582,20 @@ class Bgp(Entity):
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
 
+                                            self.advertise_bridge_domain_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6()
+                                            self.advertise_bridge_domain_imp_disable_v6.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v6"] = "advertise-bridge-domain-imp-disable-v6"
+
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
+
+                                            self.advertise_bridge_domain_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4()
+                                            self.advertise_bridge_domain_imp_disable_v4.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v4"] = "advertise-bridge-domain-imp-disable-v4"
 
                                             self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
@@ -11107,7 +11651,7 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
                                         class AigpCostCommunity(Entity):
@@ -11141,7 +11685,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity, self).__init__()
@@ -11194,7 +11738,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -11245,7 +11789,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable, self).__init__()
@@ -11325,7 +11869,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes, self).__init__()
@@ -11357,6 +11901,58 @@ class Bgp(Entity):
 
 
 
+                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v6"
+                                                self.yang_parent_name = "neighbor-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v6"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -11380,7 +11976,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -11430,7 +12026,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -11454,6 +12050,58 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
+                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v4"
+                                                self.yang_parent_name = "neighbor-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v4"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
 
@@ -11481,7 +12129,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, self).__init__()
@@ -11533,7 +12181,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
@@ -11592,7 +12240,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -11641,7 +12289,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6, self).__init__()
@@ -11693,7 +12341,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6, self).__init__()
@@ -11745,7 +12393,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import, self).__init__()
@@ -11793,7 +12441,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate, self).__init__()
@@ -11842,7 +12490,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration, self).__init__()
@@ -11891,7 +12539,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -11942,7 +12590,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4, self).__init__()
@@ -11994,7 +12642,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4, self).__init__()
@@ -12044,7 +12692,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -12094,7 +12742,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -12120,6 +12768,60 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
+                                class LocalAddressSubNet(Entity):
+                                    """
+                                    Local Address subnet of routing updates
+                                    
+                                    .. attribute:: local_addresss_subnet
+                                    
+                                    	local address subnet ip address 
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: prefix_len
+                                    
+                                    	prefix length
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..128
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddressSubNet, self).__init__()
+
+                                        self.yang_name = "local-address-sub-net"
+                                        self.yang_parent_name = "neighbor"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('local_addresss_subnet', (YLeaf(YType.str, 'local-addresss-subnet'), ['str','str'])),
+                                            ('prefix_len', (YLeaf(YType.uint32, 'prefix-len'), ['int'])),
+                                        ])
+                                        self.local_addresss_subnet = None
+                                        self.prefix_len = None
+                                        self._segment_path = lambda: "local-address-sub-net"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
 
 
@@ -12150,7 +12852,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress, self).__init__()
@@ -12189,7 +12891,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates, self).__init__()
@@ -12226,7 +12928,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate, self).__init__()
@@ -12276,7 +12978,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop, self).__init__()
@@ -12324,7 +13026,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs, self).__init__()
@@ -12392,7 +13094,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs, self).__init__()
@@ -12446,7 +13148,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password, self).__init__()
@@ -12503,7 +13205,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval, self).__init__()
@@ -12552,7 +13254,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId, self).__init__()
@@ -12598,7 +13300,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss, self).__init__()
@@ -12648,7 +13350,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos, self).__init__()
@@ -12704,7 +13406,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering, self).__init__()
@@ -12760,7 +13462,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -12813,7 +13515,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut, self).__init__()
@@ -12869,7 +13571,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AoKeychain, self).__init__()
@@ -12930,7 +13632,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize, self).__init__()
@@ -12981,7 +13683,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn, self).__init__()
@@ -13040,7 +13742,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize, self).__init__()
@@ -13101,7 +13803,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers, self).__init__()
@@ -13147,7 +13849,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain, self).__init__()
@@ -13201,7 +13903,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance, self).__init__()
@@ -13254,7 +13956,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -13301,7 +14003,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -13357,6 +14059,11 @@ class Bgp(Entity):
                                 	BGP neighbor AF configuration table
                                 	**type**\:  :py:class:`NeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs>`
                                 
+                                .. attribute:: local_address_sub_net
+                                
+                                	Local Address subnet of routing updates
+                                	**type**\:  :py:class:`LocalAddressSubNet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddressSubNet>`
+                                
                                 .. attribute:: internal_vpn_client_ibgp_ce
                                 
                                 	TRUE to preserve the CE path attributes.FALSE to override CE path attributes
@@ -13391,6 +14098,11 @@ class Bgp(Entity):
                                 
                                 	Set remote AS
                                 	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs>`
+                                
+                                .. attribute:: merge_safi1_and4_inbound_updates
+                                
+                                	TRUE to merge updates FALSE to not merge updates and to prevent inheritance from a parent
+                                	**type**\: bool
                                 
                                 .. attribute:: local_as
                                 
@@ -13612,7 +14324,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -13632,7 +14344,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength, self).__init__()
@@ -13642,13 +14354,14 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['prefix_length','neighbor_address']
-                                    self._child_classes = OrderedDict([("neighbor-afs", ("neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance))])
+                                    self._child_classes = OrderedDict([("neighbor-afs", ("neighbor_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs)), ("local-address-sub-net", ("local_address_sub_net", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddressSubNet)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
                                         ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
                                         ('internal_vpn_client_ibgp_ce', (YLeaf(YType.boolean, 'internal-vpn-client-ibgp-ce'), ['bool'])),
                                         ('session_group_add_member', (YLeaf(YType.str, 'session-group-add-member'), ['str'])),
                                         ('egress_peer_engineering', (YLeaf(YType.boolean, 'egress-peer-engineering'), ['bool'])),
+                                        ('merge_safi1_and4_inbound_updates', (YLeaf(YType.boolean, 'merge-safi1-and4-inbound-updates'), ['bool'])),
                                         ('neighbor_graceful_restart_stalepath_time', (YLeaf(YType.uint32, 'neighbor-graceful-restart-stalepath-time'), ['int'])),
                                         ('shutdown', (YLeaf(YType.boolean, 'shutdown'), ['bool'])),
                                         ('description', (YLeaf(YType.str, 'description'), ['str'])),
@@ -13681,6 +14394,7 @@ class Bgp(Entity):
                                     self.internal_vpn_client_ibgp_ce = None
                                     self.session_group_add_member = None
                                     self.egress_peer_engineering = None
+                                    self.merge_safi1_and4_inbound_updates = None
                                     self.neighbor_graceful_restart_stalepath_time = None
                                     self.shutdown = None
                                     self.description = None
@@ -13711,6 +14425,10 @@ class Bgp(Entity):
                                     self.neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs()
                                     self.neighbor_afs.parent = self
                                     self._children_name_map["neighbor_afs"] = "neighbor-afs"
+
+                                    self.local_address_sub_net = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddressSubNet()
+                                    self.local_address_sub_net.parent = self
+                                    self._children_name_map["local_address_sub_net"] = "local-address-sub-net"
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress()
                                     self.local_address.parent = self
@@ -13790,7 +14508,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength, ['prefix_length', 'neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength, ['prefix_length', 'neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
 
 
                                 class NeighborAfs(Entity):
@@ -13807,7 +14525,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs, self).__init__()
@@ -13851,12 +14569,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -13891,6 +14609,11 @@ class Bgp(Entity):
                                         
                                         	**presence node**\: True
                                         
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6>`
+                                        
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
@@ -13917,6 +14640,11 @@ class Bgp(Entity):
                                         
                                         	RPKI origin\-AS validation disable
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -13980,6 +14708,11 @@ class Bgp(Entity):
                                         	Maximum time to wait before purging long lived routes
                                         	**type**\:  :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime>`
                                         
+                                        .. attribute:: update_out_orig_loop_chk_disable
+                                        
+                                        	Enable/disable Originator loop check for this neighbor\-group/af\-group
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
@@ -14013,7 +14746,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -14115,7 +14848,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf, self).__init__()
@@ -14125,7 +14858,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4))])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes)), ("advertise-bridge-domain-imp-disable-v6", ("advertise_bridge_domain_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4)), ("advertise-bridge-domain-imp-disable-v4", ("advertise_bridge_domain_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', (YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable'), ['bool'])),
@@ -14146,6 +14879,7 @@ class Bgp(Entity):
                                                 ('send_community_ebgp_graceful_shutdown', (YLeaf(YType.boolean, 'send-community-ebgp-graceful-shutdown'), ['bool'])),
                                                 ('activate', (YLeaf(YType.empty, 'activate'), ['Empty'])),
                                                 ('prefix_orf_policy', (YLeaf(YType.str, 'prefix-orf-policy'), ['str'])),
+                                                ('update_out_orig_loop_chk_disable', (YLeaf(YType.empty, 'update-out-orig-loop-chk-disable'), ['Empty'])),
                                                 ('aigp', (YLeaf(YType.enumeration, 'aigp'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('aigp_send_med', (YLeaf(YType.enumeration, 'aigp-send-med'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('allow_as_in', (YLeaf(YType.uint32, 'allow-as-in'), ['int'])),
@@ -14180,6 +14914,7 @@ class Bgp(Entity):
                                             self.send_community_ebgp_graceful_shutdown = None
                                             self.activate = None
                                             self.prefix_orf_policy = None
+                                            self.update_out_orig_loop_chk_disable = None
                                             self.aigp = None
                                             self.aigp_send_med = None
                                             self.allow_as_in = None
@@ -14210,12 +14945,20 @@ class Bgp(Entity):
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
 
+                                            self.advertise_bridge_domain_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6()
+                                            self.advertise_bridge_domain_imp_disable_v6.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v6"] = "advertise-bridge-domain-imp-disable-v6"
+
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
+
+                                            self.advertise_bridge_domain_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4()
+                                            self.advertise_bridge_domain_imp_disable_v4.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v4"] = "advertise-bridge-domain-imp-disable-v4"
 
                                             self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
@@ -14271,7 +15014,7 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
                                         class AigpCostCommunity(Entity):
@@ -14305,7 +15048,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity, self).__init__()
@@ -14358,7 +15101,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -14409,7 +15152,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable, self).__init__()
@@ -14489,7 +15232,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes, self).__init__()
@@ -14521,6 +15264,58 @@ class Bgp(Entity):
 
 
 
+                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v6"
+                                                self.yang_parent_name = "neighbor-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v6"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -14544,7 +15339,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -14594,7 +15389,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -14618,6 +15413,58 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
+                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v4"
+                                                self.yang_parent_name = "neighbor-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v4"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
 
@@ -14645,7 +15492,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, self).__init__()
@@ -14697,7 +15544,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
@@ -14756,7 +15603,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -14805,7 +15652,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6, self).__init__()
@@ -14857,7 +15704,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6, self).__init__()
@@ -14909,7 +15756,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import, self).__init__()
@@ -14957,7 +15804,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate, self).__init__()
@@ -15006,7 +15853,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration, self).__init__()
@@ -15055,7 +15902,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -15106,7 +15953,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4, self).__init__()
@@ -15158,7 +16005,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4, self).__init__()
@@ -15208,7 +16055,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -15258,7 +16105,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -15284,6 +16131,60 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
+                                class LocalAddressSubNet(Entity):
+                                    """
+                                    Local Address subnet of routing updates
+                                    
+                                    .. attribute:: local_addresss_subnet
+                                    
+                                    	local address subnet ip address 
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: prefix_len
+                                    
+                                    	prefix length
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..128
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddressSubNet, self).__init__()
+
+                                        self.yang_name = "local-address-sub-net"
+                                        self.yang_parent_name = "neighbor-prefix-length"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('local_addresss_subnet', (YLeaf(YType.str, 'local-addresss-subnet'), ['str','str'])),
+                                            ('prefix_len', (YLeaf(YType.uint32, 'prefix-len'), ['int'])),
+                                        ])
+                                        self.local_addresss_subnet = None
+                                        self.prefix_len = None
+                                        self._segment_path = lambda: "local-address-sub-net"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
 
 
@@ -15314,7 +16215,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress, self).__init__()
@@ -15353,7 +16254,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates, self).__init__()
@@ -15390,7 +16291,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate, self).__init__()
@@ -15440,7 +16341,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop, self).__init__()
@@ -15488,7 +16389,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs, self).__init__()
@@ -15556,7 +16457,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs, self).__init__()
@@ -15610,7 +16511,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password, self).__init__()
@@ -15667,7 +16568,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval, self).__init__()
@@ -15716,7 +16617,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId, self).__init__()
@@ -15762,7 +16663,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss, self).__init__()
@@ -15812,7 +16713,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos, self).__init__()
@@ -15868,7 +16769,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering, self).__init__()
@@ -15924,7 +16825,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -15977,7 +16878,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut, self).__init__()
@@ -16033,7 +16934,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AoKeychain, self).__init__()
@@ -16094,7 +16995,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize, self).__init__()
@@ -16145,7 +17046,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn, self).__init__()
@@ -16204,7 +17105,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize, self).__init__()
@@ -16265,7 +17166,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers, self).__init__()
@@ -16311,7 +17212,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain, self).__init__()
@@ -16365,7 +17266,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance, self).__init__()
@@ -16418,7 +17319,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -16465,7 +17366,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -16507,7 +17408,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups, self).__init__()
@@ -16549,6 +17450,11 @@ class Bgp(Entity):
                                 	Inherit configuration from a neighbor\-group
                                 	**type**\: str
                                 
+                                .. attribute:: local_address_sub_net
+                                
+                                	Local Address subnet of routing updates
+                                	**type**\:  :py:class:`LocalAddressSubNet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddressSubNet>`
+                                
                                 .. attribute:: internal_vpn_client_ibgp_ce
                                 
                                 	TRUE to preserve the CE path attributes.FALSE to override CE path attributes
@@ -16583,6 +17489,11 @@ class Bgp(Entity):
                                 
                                 	Set remote AS
                                 	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs>`
+                                
+                                .. attribute:: merge_safi1_and4_inbound_updates
+                                
+                                	TRUE to merge updates FALSE to not merge updates and to prevent inheritance from a parent
+                                	**type**\: bool
                                 
                                 .. attribute:: local_as
                                 
@@ -16799,7 +17710,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -16824,7 +17735,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup, self).__init__()
@@ -16834,13 +17745,14 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['neighbor_group_name']
-                                    self._child_classes = OrderedDict([("neighbor-group-afs", ("neighbor_group_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance))])
+                                    self._child_classes = OrderedDict([("neighbor-group-afs", ("neighbor_group_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs)), ("local-address-sub-net", ("local_address_sub_net", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddressSubNet)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('neighbor_group_name', (YLeaf(YType.str, 'neighbor-group-name'), ['str'])),
                                         ('neighbor_group_add_member', (YLeaf(YType.str, 'neighbor-group-add-member'), ['str'])),
                                         ('internal_vpn_client_ibgp_ce', (YLeaf(YType.boolean, 'internal-vpn-client-ibgp-ce'), ['bool'])),
                                         ('session_group_add_member', (YLeaf(YType.str, 'session-group-add-member'), ['str'])),
                                         ('egress_peer_engineering', (YLeaf(YType.boolean, 'egress-peer-engineering'), ['bool'])),
+                                        ('merge_safi1_and4_inbound_updates', (YLeaf(YType.boolean, 'merge-safi1-and4-inbound-updates'), ['bool'])),
                                         ('neighbor_graceful_restart_stalepath_time', (YLeaf(YType.uint32, 'neighbor-graceful-restart-stalepath-time'), ['int'])),
                                         ('shutdown', (YLeaf(YType.boolean, 'shutdown'), ['bool'])),
                                         ('description', (YLeaf(YType.str, 'description'), ['str'])),
@@ -16873,6 +17785,7 @@ class Bgp(Entity):
                                     self.internal_vpn_client_ibgp_ce = None
                                     self.session_group_add_member = None
                                     self.egress_peer_engineering = None
+                                    self.merge_safi1_and4_inbound_updates = None
                                     self.neighbor_graceful_restart_stalepath_time = None
                                     self.shutdown = None
                                     self.description = None
@@ -16903,6 +17816,10 @@ class Bgp(Entity):
                                     self.neighbor_group_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs()
                                     self.neighbor_group_afs.parent = self
                                     self._children_name_map["neighbor_group_afs"] = "neighbor-group-afs"
+
+                                    self.local_address_sub_net = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddressSubNet()
+                                    self.local_address_sub_net.parent = self
+                                    self._children_name_map["local_address_sub_net"] = "local-address-sub-net"
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress()
                                     self.local_address.parent = self
@@ -16982,7 +17899,7 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup, ['neighbor_group_name', 'neighbor_group_add_member', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface', 'create'], name, value)
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup, ['neighbor_group_name', 'neighbor_group_add_member', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface', 'create'], name, value)
 
 
                                 class NeighborGroupAfs(Entity):
@@ -16999,7 +17916,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs, self).__init__()
@@ -17043,12 +17960,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -17083,6 +18000,11 @@ class Bgp(Entity):
                                         
                                         	**presence node**\: True
                                         
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV6>`
+                                        
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
@@ -17109,6 +18031,11 @@ class Bgp(Entity):
                                         
                                         	RPKI origin\-AS validation disable
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV4>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -17177,6 +18104,11 @@ class Bgp(Entity):
                                         	Site\-of\-Origin extended community associated with the neighbor
                                         	**type**\:  :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin>`
                                         
+                                        .. attribute:: update_out_orig_loop_chk_disable
+                                        
+                                        	Enable/disable Originator loop check for this neighbor\-group/af\-group
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
@@ -17210,7 +18142,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -17312,7 +18244,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf, self).__init__()
@@ -17322,7 +18254,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4))])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes)), ("advertise-bridge-domain-imp-disable-v6", ("advertise_bridge_domain_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV6)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4)), ("advertise-bridge-domain-imp-disable-v4", ("advertise_bridge_domain_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
                                                 ('neighbor_af_long_lived_graceful_restart_capable', (YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable'), ['bool'])),
@@ -17343,6 +18275,7 @@ class Bgp(Entity):
                                                 ('send_community_ebgp_graceful_shutdown', (YLeaf(YType.boolean, 'send-community-ebgp-graceful-shutdown'), ['bool'])),
                                                 ('activate', (YLeaf(YType.empty, 'activate'), ['Empty'])),
                                                 ('prefix_orf_policy', (YLeaf(YType.str, 'prefix-orf-policy'), ['str'])),
+                                                ('update_out_orig_loop_chk_disable', (YLeaf(YType.empty, 'update-out-orig-loop-chk-disable'), ['Empty'])),
                                                 ('aigp', (YLeaf(YType.enumeration, 'aigp'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('aigp_send_med', (YLeaf(YType.enumeration, 'aigp-send-med'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('allow_as_in', (YLeaf(YType.uint32, 'allow-as-in'), ['int'])),
@@ -17377,6 +18310,7 @@ class Bgp(Entity):
                                             self.send_community_ebgp_graceful_shutdown = None
                                             self.activate = None
                                             self.prefix_orf_policy = None
+                                            self.update_out_orig_loop_chk_disable = None
                                             self.aigp = None
                                             self.aigp_send_med = None
                                             self.allow_as_in = None
@@ -17407,12 +18341,20 @@ class Bgp(Entity):
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
 
+                                            self.advertise_bridge_domain_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV6()
+                                            self.advertise_bridge_domain_imp_disable_v6.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v6"] = "advertise-bridge-domain-imp-disable-v6"
+
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
+
+                                            self.advertise_bridge_domain_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV4()
+                                            self.advertise_bridge_domain_imp_disable_v4.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v4"] = "advertise-bridge-domain-imp-disable-v4"
 
                                             self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
@@ -17472,7 +18414,7 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
                                         class AigpCostCommunity(Entity):
@@ -17506,7 +18448,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity, self).__init__()
@@ -17559,7 +18501,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -17610,7 +18552,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable, self).__init__()
@@ -17690,7 +18632,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes, self).__init__()
@@ -17722,6 +18664,58 @@ class Bgp(Entity):
 
 
 
+                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v6"
+                                                self.yang_parent_name = "neighbor-group-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v6"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -17745,7 +18739,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -17795,7 +18789,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -17819,6 +18813,58 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
+                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v4"
+                                                self.yang_parent_name = "neighbor-group-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v4"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
 
@@ -17846,7 +18892,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn, self).__init__()
@@ -17898,7 +18944,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn, self).__init__()
@@ -17957,7 +19003,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -18032,7 +19078,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin, self).__init__()
@@ -18089,7 +19135,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6, self).__init__()
@@ -18141,7 +19187,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6, self).__init__()
@@ -18193,7 +19239,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import, self).__init__()
@@ -18241,7 +19287,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate, self).__init__()
@@ -18290,7 +19336,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration, self).__init__()
@@ -18339,7 +19385,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -18390,7 +19436,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4, self).__init__()
@@ -18442,7 +19488,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4, self).__init__()
@@ -18492,7 +19538,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -18542,7 +19588,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -18568,6 +19614,60 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
+                                class LocalAddressSubNet(Entity):
+                                    """
+                                    Local Address subnet of routing updates
+                                    
+                                    .. attribute:: local_addresss_subnet
+                                    
+                                    	local address subnet ip address 
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: prefix_len
+                                    
+                                    	prefix length
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..128
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddressSubNet, self).__init__()
+
+                                        self.yang_name = "local-address-sub-net"
+                                        self.yang_parent_name = "neighbor-group"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('local_addresss_subnet', (YLeaf(YType.str, 'local-addresss-subnet'), ['str','str'])),
+                                            ('prefix_len', (YLeaf(YType.uint32, 'prefix-len'), ['int'])),
+                                        ])
+                                        self.local_addresss_subnet = None
+                                        self.prefix_len = None
+                                        self._segment_path = lambda: "local-address-sub-net"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
 
 
@@ -18598,7 +19698,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress, self).__init__()
@@ -18637,7 +19737,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates, self).__init__()
@@ -18674,7 +19774,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate, self).__init__()
@@ -18724,7 +19824,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop, self).__init__()
@@ -18772,7 +19872,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs, self).__init__()
@@ -18840,7 +19940,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs, self).__init__()
@@ -18894,7 +19994,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password, self).__init__()
@@ -18951,7 +20051,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval, self).__init__()
@@ -19000,7 +20100,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId, self).__init__()
@@ -19046,7 +20146,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss, self).__init__()
@@ -19096,7 +20196,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos, self).__init__()
@@ -19152,7 +20252,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering, self).__init__()
@@ -19208,7 +20308,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -19261,7 +20361,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut, self).__init__()
@@ -19317,7 +20417,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AoKeychain, self).__init__()
@@ -19378,7 +20478,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize, self).__init__()
@@ -19429,7 +20529,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn, self).__init__()
@@ -19488,7 +20588,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize, self).__init__()
@@ -19549,7 +20649,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers, self).__init__()
@@ -19595,7 +20695,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain, self).__init__()
@@ -19649,7 +20749,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance, self).__init__()
@@ -19702,7 +20802,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -19749,7 +20849,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -19791,7 +20891,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups, self).__init__()
@@ -19833,7 +20933,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup, self).__init__()
@@ -19873,7 +20973,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs, self).__init__()
@@ -19927,12 +21027,12 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
@@ -19967,6 +21067,11 @@ class Bgp(Entity):
                                         
                                         	**presence node**\: True
                                         
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV6>`
+                                        
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
@@ -19993,6 +21098,11 @@ class Bgp(Entity):
                                         
                                         	RPKI origin\-AS validation disable
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_bridge_domain_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF EVPN Extranet Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseBridgeDomainImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV4>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -20056,6 +21166,11 @@ class Bgp(Entity):
                                         	Site\-of\-Origin extended community associated with the neighbor
                                         	**type**\:  :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin>`
                                         
+                                        .. attribute:: update_out_orig_loop_chk_disable
+                                        
+                                        	Enable/disable Originator loop check for this neighbor\-group/af\-group
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
@@ -20089,7 +21204,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -20186,7 +21301,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf, self).__init__()
@@ -20196,7 +21311,7 @@ class Bgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['af_name']
-                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4))])
+                                            self._child_classes = OrderedDict([("aigp-cost-community", ("aigp_cost_community", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity)), ("advertise-def-imp-disable-v6", ("advertise_def_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6)), ("advertise-disable", ("advertise_disable", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable)), ("maximum-prefixes", ("maximum_prefixes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes)), ("advertise-bridge-domain-imp-disable-v6", ("advertise_bridge_domain_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV6)), ("remove-private-as-entire-as-path-inbound", ("remove_private_as_entire_as_path_inbound", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound)), ("advertise-def-imp-disable-v4", ("advertise_def_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4)), ("advertise-bridge-domain-imp-disable-v4", ("advertise_bridge_domain_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV4)), ("advertise-l2vpn-evpn", ("advertise_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn)), ("advertise-local-l2vpn-evpn", ("advertise_local_l2vpn_evpn", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn)), ("neighbor-af-long-lived-graceful-restart-stale-time", ("neighbor_af_long_lived_graceful_restart_stale_time", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime)), ("site-of-origin", ("site_of_origin", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin)), ("advertise-v6", ("advertise_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6)), ("advertise-local-v6", ("advertise_local_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6)), ("import", ("import_", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import)), ("default-originate", ("default_originate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate)), ("soft-reconfiguration", ("soft_reconfiguration", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration)), ("advertise-vrf-imp-disable-v6", ("advertise_vrf_imp_disable_v6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6)), ("advertise-v4", ("advertise_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4)), ("advertise-local-v4", ("advertise_local_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4)), ("remove-private-as-entire-as-path", ("remove_private_as_entire_as_path", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath)), ("advertise-vrf-imp-disable-v4", ("advertise_vrf_imp_disable_v4", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4))])
                                             self._leafs = OrderedDict([
                                                 ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
                                                 ('af_group', (YLeaf(YType.str, 'af-group'), ['str'])),
@@ -20218,6 +21333,7 @@ class Bgp(Entity):
                                                 ('multipath', (YLeaf(YType.empty, 'multipath'), ['Empty'])),
                                                 ('send_community_ebgp_graceful_shutdown', (YLeaf(YType.boolean, 'send-community-ebgp-graceful-shutdown'), ['bool'])),
                                                 ('prefix_orf_policy', (YLeaf(YType.str, 'prefix-orf-policy'), ['str'])),
+                                                ('update_out_orig_loop_chk_disable', (YLeaf(YType.empty, 'update-out-orig-loop-chk-disable'), ['Empty'])),
                                                 ('aigp', (YLeaf(YType.enumeration, 'aigp'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('aigp_send_med', (YLeaf(YType.enumeration, 'aigp-send-med'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg', '')])),
                                                 ('allow_as_in', (YLeaf(YType.uint32, 'allow-as-in'), ['int'])),
@@ -20252,6 +21368,7 @@ class Bgp(Entity):
                                             self.multipath = None
                                             self.send_community_ebgp_graceful_shutdown = None
                                             self.prefix_orf_policy = None
+                                            self.update_out_orig_loop_chk_disable = None
                                             self.aigp = None
                                             self.aigp_send_med = None
                                             self.allow_as_in = None
@@ -20281,12 +21398,20 @@ class Bgp(Entity):
                                             self.maximum_prefixes = None
                                             self._children_name_map["maximum_prefixes"] = "maximum-prefixes"
 
+                                            self.advertise_bridge_domain_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV6()
+                                            self.advertise_bridge_domain_imp_disable_v6.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v6"] = "advertise-bridge-domain-imp-disable-v6"
+
                                             self.remove_private_as_entire_as_path_inbound = None
                                             self._children_name_map["remove_private_as_entire_as_path_inbound"] = "remove-private-as-entire-as-path-inbound"
 
                                             self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4()
                                             self.advertise_def_imp_disable_v4.parent = self
                                             self._children_name_map["advertise_def_imp_disable_v4"] = "advertise-def-imp-disable-v4"
+
+                                            self.advertise_bridge_domain_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV4()
+                                            self.advertise_bridge_domain_imp_disable_v4.parent = self
+                                            self._children_name_map["advertise_bridge_domain_imp_disable_v4"] = "advertise-bridge-domain-imp-disable-v4"
 
                                             self.advertise_l2vpn_evpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn()
                                             self.advertise_l2vpn_evpn.parent = self
@@ -20346,7 +21471,7 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf, ['af_name', 'af_group', 'create', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'prefix_orf_policy', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf, ['af_name', 'af_group', 'create', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
                                         class AigpCostCommunity(Entity):
@@ -20380,7 +21505,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity, self).__init__()
@@ -20433,7 +21558,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6, self).__init__()
@@ -20484,7 +21609,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable, self).__init__()
@@ -20564,7 +21689,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes, self).__init__()
@@ -20596,6 +21721,58 @@ class Bgp(Entity):
 
 
 
+                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v6"
+                                                self.yang_parent_name = "af-group-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v6"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -20619,7 +21796,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
@@ -20669,7 +21846,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4, self).__init__()
@@ -20693,6 +21870,58 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
+                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                            """
+                                            Disable Advertise Of VRF EVPN Extranet Imported
+                                            Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily>`
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:  :py:class:`BgpReorgOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRt>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+
+                                                self.yang_name = "advertise-bridge-domain-imp-disable-v4"
+                                                self.yang_parent_name = "af-group-af"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
+                                                    ('adv_option', (YLeaf(YType.enumeration, 'adv-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt', '')])),
+                                                    ('rt_type', (YLeaf(YType.enumeration, 'rt-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAdvRt', '')])),
+                                                ])
+                                                self.af_name = None
+                                                self.adv_option = None
+                                                self.rt_type = None
+                                                self._segment_path = lambda: "advertise-bridge-domain-imp-disable-v4"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
 
@@ -20720,7 +21949,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn, self).__init__()
@@ -20772,7 +22001,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn, self).__init__()
@@ -20831,7 +22060,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
@@ -20906,7 +22135,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin, self).__init__()
@@ -20963,7 +22192,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6, self).__init__()
@@ -21015,7 +22244,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6, self).__init__()
@@ -21067,7 +22296,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import, self).__init__()
@@ -21115,7 +22344,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate, self).__init__()
@@ -21164,7 +22393,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration, self).__init__()
@@ -21213,7 +22442,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6, self).__init__()
@@ -21264,7 +22493,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4, self).__init__()
@@ -21316,7 +22545,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4, self).__init__()
@@ -21366,7 +22595,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath, self).__init__()
@@ -21416,7 +22645,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4, self).__init__()
@@ -21461,7 +22690,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups, self).__init__()
@@ -21498,6 +22727,11 @@ class Bgp(Entity):
                                 	Inherit address\-family independent config from a session\-group
                                 	**type**\: str
                                 
+                                .. attribute:: local_address_sub_net
+                                
+                                	Local Address subnet of routing updates
+                                	**type**\:  :py:class:`LocalAddressSubNet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddressSubNet>`
+                                
                                 .. attribute:: internal_vpn_client_ibgp_ce
                                 
                                 	TRUE to preserve the CE path attributes.FALSE to override CE path attributes
@@ -21527,6 +22761,11 @@ class Bgp(Entity):
                                 
                                 	Set remote AS
                                 	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs>`
+                                
+                                .. attribute:: merge_safi1_and4_inbound_updates
+                                
+                                	TRUE to merge updates FALSE to not merge updates and to prevent inheritance from a parent
+                                	**type**\: bool
                                 
                                 .. attribute:: local_as
                                 
@@ -21743,7 +22982,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -21768,7 +23007,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup, self).__init__()
@@ -21778,12 +23017,13 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['session_group_name']
-                                    self._child_classes = OrderedDict([("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance))])
+                                    self._child_classes = OrderedDict([("local-address-sub-net", ("local_address_sub_net", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddressSubNet)), ("local-address", ("local_address", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress)), ("bmp-activates", ("bmp_activates", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop)), ("remote-as", ("remote_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs)), ("local-as", ("local_as", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs)), ("password", ("password", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password)), ("advertisement-interval", ("advertisement_interval", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval)), ("neighbor-cluster-id", ("neighbor_cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId)), ("tcpmss", ("tcpmss", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss)), ("tos", ("tos", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos)), ("update-in-filtering", ("update_in_filtering", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering)), ("msg-log-out", ("msg_log_out", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut)), ("ao-keychain", ("ao_keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AoKeychain)), ("receive-buffer-size", ("receive_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize)), ("msg-log-in", ("msg_log_in", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn)), ("send-buffer-size", ("send_buffer_size", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize)), ("timers", ("timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers)), ("keychain", ("keychain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain)), ("graceful-maintenance", ("graceful_maintenance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance))])
                                     self._leafs = OrderedDict([
                                         ('session_group_name', (YLeaf(YType.str, 'session-group-name'), ['str'])),
                                         ('session_group_add_member', (YLeaf(YType.str, 'session-group-add-member'), ['str'])),
                                         ('internal_vpn_client_ibgp_ce', (YLeaf(YType.boolean, 'internal-vpn-client-ibgp-ce'), ['bool'])),
                                         ('egress_peer_engineering', (YLeaf(YType.boolean, 'egress-peer-engineering'), ['bool'])),
+                                        ('merge_safi1_and4_inbound_updates', (YLeaf(YType.boolean, 'merge-safi1-and4-inbound-updates'), ['bool'])),
                                         ('neighbor_graceful_restart_stalepath_time', (YLeaf(YType.uint32, 'neighbor-graceful-restart-stalepath-time'), ['int'])),
                                         ('shutdown', (YLeaf(YType.boolean, 'shutdown'), ['bool'])),
                                         ('description', (YLeaf(YType.str, 'description'), ['str'])),
@@ -21815,6 +23055,7 @@ class Bgp(Entity):
                                     self.session_group_add_member = None
                                     self.internal_vpn_client_ibgp_ce = None
                                     self.egress_peer_engineering = None
+                                    self.merge_safi1_and4_inbound_updates = None
                                     self.neighbor_graceful_restart_stalepath_time = None
                                     self.shutdown = None
                                     self.description = None
@@ -21841,6 +23082,10 @@ class Bgp(Entity):
                                     self.suppress_four_byte_as_capability = None
                                     self.update_source_interface = None
                                     self.create = None
+
+                                    self.local_address_sub_net = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddressSubNet()
+                                    self.local_address_sub_net.parent = self
+                                    self._children_name_map["local_address_sub_net"] = "local-address-sub-net"
 
                                     self.local_address = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress()
                                     self.local_address.parent = self
@@ -21920,7 +23165,61 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup, ['session_group_name', 'session_group_add_member', 'internal_vpn_client_ibgp_ce', 'egress_peer_engineering', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface', 'create'], name, value)
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup, ['session_group_name', 'session_group_add_member', 'internal_vpn_client_ibgp_ce', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface', 'create'], name, value)
+
+
+                                class LocalAddressSubNet(Entity):
+                                    """
+                                    Local Address subnet of routing updates
+                                    
+                                    .. attribute:: local_addresss_subnet
+                                    
+                                    	local address subnet ip address 
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: prefix_len
+                                    
+                                    	prefix length
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..128
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddressSubNet, self).__init__()
+
+                                        self.yang_name = "local-address-sub-net"
+                                        self.yang_parent_name = "session-group"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('local_addresss_subnet', (YLeaf(YType.str, 'local-addresss-subnet'), ['str','str'])),
+                                            ('prefix_len', (YLeaf(YType.uint32, 'prefix-len'), ['int'])),
+                                        ])
+                                        self.local_addresss_subnet = None
+                                        self.prefix_len = None
+                                        self._segment_path = lambda: "local-address-sub-net"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
+
 
 
                                 class LocalAddress(Entity):
@@ -21950,7 +23249,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress, self).__init__()
@@ -21989,7 +23288,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates, self).__init__()
@@ -22026,7 +23325,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate, self).__init__()
@@ -22076,7 +23375,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop, self).__init__()
@@ -22124,7 +23423,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs, self).__init__()
@@ -22192,7 +23491,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs, self).__init__()
@@ -22246,7 +23545,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password, self).__init__()
@@ -22303,7 +23602,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval, self).__init__()
@@ -22352,7 +23651,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId, self).__init__()
@@ -22398,7 +23697,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss, self).__init__()
@@ -22448,7 +23747,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos, self).__init__()
@@ -22504,7 +23803,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering, self).__init__()
@@ -22560,7 +23859,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
@@ -22613,7 +23912,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut, self).__init__()
@@ -22669,7 +23968,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AoKeychain, self).__init__()
@@ -22730,7 +24029,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize, self).__init__()
@@ -22781,7 +24080,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn, self).__init__()
@@ -22840,7 +24139,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize, self).__init__()
@@ -22901,7 +24200,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers, self).__init__()
@@ -22947,7 +24246,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain, self).__init__()
@@ -23001,7 +24300,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance, self).__init__()
@@ -23054,7 +24353,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
@@ -23101,7 +24400,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
@@ -23258,7 +24557,7 @@ class Bgp(Entity):
                         
                         .. attribute:: rpki_origin_as_validation_time
                         
-                        	Prefix validation time (in seconds). Range \: 5 \- 60. Specify 0 to disable the timer
+                        	Prefix validation time (in seconds). Range  \: 5 \- 60. Specify 0 for timer off
                         	**type**\: int
                         
                         	**range:** 0..60
@@ -23519,7 +24818,7 @@ class Bgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2018-01-18'
+                        _revision = '2018-06-15'
 
                         def __init__(self):
                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global, self).__init__()
@@ -23730,7 +25029,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId, self).__init__()
@@ -23789,7 +25088,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit, self).__init__()
@@ -23844,7 +25143,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay, self).__init__()
@@ -23888,7 +25187,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague, self).__init__()
@@ -23928,7 +25227,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers, self).__init__()
@@ -23972,7 +25271,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer, self).__init__()
@@ -24013,7 +25312,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers, self).__init__()
@@ -24102,7 +25401,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer, self).__init__()
@@ -24167,7 +25466,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport, self).__init__()
@@ -24208,7 +25507,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups, self).__init__()
@@ -24255,7 +25554,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup, self).__init__()
@@ -24297,7 +25596,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases, self).__init__()
@@ -24341,7 +25640,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases.As, self).__init__()
@@ -24387,7 +25686,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits, self).__init__()
@@ -24433,7 +25732,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain, self).__init__()
@@ -24472,7 +25771,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses, self).__init__()
@@ -24516,7 +25815,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs, self).__init__()
@@ -24556,7 +25855,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups, self).__init__()
@@ -24603,7 +25902,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup, self).__init__()
@@ -24645,7 +25944,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters, self).__init__()
@@ -24696,7 +25995,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter, self).__init__()
@@ -24746,7 +26045,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate, self).__init__()
@@ -24785,7 +26084,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs, self).__init__()
@@ -25086,6 +26385,8 @@ class Bgp(Entity):
                                 	Define an administrative distance
                                 	**type**\:  :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance>`
                                 
+                                	**presence node**\: True
+                                
                                 .. attribute:: table_policy
                                 
                                 	Configure policy for installation of routes to RIB
@@ -25105,6 +26406,8 @@ class Bgp(Entity):
                                 
                                 	BGP 6PE/MPLS\-VPN label allocation mode
                                 	**type**\:  :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: eigrp_routes
                                 
@@ -25148,15 +26451,12 @@ class Bgp(Entity):
                                 	RPKI bestpath use origin\-AS validity
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
-                                .. attribute:: srv6_label_allocation_mode
-                                
-                                	Label allocation mode\: per\-ce  Set per CE label mode,per\-vrf Set per VRF label mode
-                                	**type**\: str
-                                
                                 .. attribute:: allocate_label
                                 
                                 	Label allocation policy
                                 	**type**\:  :py:class:`AllocateLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: additional_paths_selection
                                 
@@ -25216,12 +26516,17 @@ class Bgp(Entity):
                                 
                                 	**presence node**\: True
                                 
+                                .. attribute:: segment_routing
+                                
+                                	Segment\-routing Configurations
+                                	**type**\:  :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting>`
+                                
                                 
 
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf, self).__init__()
@@ -25231,7 +26536,7 @@ class Bgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['af_name']
-                                    self._child_classes = OrderedDict([("isis-routes", ("isis_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes)), ("domain-distinguisher", ("domain_distinguisher", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher)), ("vrf-all", ("vrf_all", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll)), ("disable-cluster-client-to-client-rrs", ("disable_cluster_client_to_client_rrs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs)), ("label-delay", ("label_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay)), ("ebgp", ("ebgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp)), ("eibgp", ("eibgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp)), ("retain-rt", ("retain_rt", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt)), ("ibgp", ("ibgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp)), ("import-delay", ("import_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay)), ("aggregate-addresses", ("aggregate_addresses", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses)), ("optimal-route-reflector-groups", ("optimal_route_reflector_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups)), ("dampening", ("dampening", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening)), ("rip-routes", ("rip_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes)), ("lisp-routes", ("lisp_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes)), ("static-routes", ("static_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes)), ("distance", ("distance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance)), ("application-routes", ("application_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes)), ("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode)), ("eigrp-routes", ("eigrp_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes)), ("sourced-networks", ("sourced_networks", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks)), ("connected-routes", ("connected_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes)), ("allocate-label", ("allocate_label", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel)), ("additional-paths-selection", ("additional_paths_selection", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection)), ("ospf-routes", ("ospf_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes)), ("mobile-routes", ("mobile_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes)), ("subscriber-routes", ("subscriber_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes))])
+                                    self._child_classes = OrderedDict([("isis-routes", ("isis_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes)), ("domain-distinguisher", ("domain_distinguisher", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher)), ("vrf-all", ("vrf_all", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll)), ("disable-cluster-client-to-client-rrs", ("disable_cluster_client_to_client_rrs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs)), ("label-delay", ("label_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay)), ("ebgp", ("ebgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp)), ("eibgp", ("eibgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp)), ("retain-rt", ("retain_rt", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt)), ("ibgp", ("ibgp", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp)), ("import-delay", ("import_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay)), ("aggregate-addresses", ("aggregate_addresses", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses)), ("optimal-route-reflector-groups", ("optimal_route_reflector_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups)), ("dampening", ("dampening", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening)), ("rip-routes", ("rip_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes)), ("lisp-routes", ("lisp_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes)), ("static-routes", ("static_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes)), ("distance", ("distance", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance)), ("application-routes", ("application_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes)), ("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode)), ("eigrp-routes", ("eigrp_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes)), ("sourced-networks", ("sourced_networks", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks)), ("connected-routes", ("connected_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes)), ("allocate-label", ("allocate_label", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel)), ("additional-paths-selection", ("additional_paths_selection", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection)), ("ospf-routes", ("ospf_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes)), ("mobile-routes", ("mobile_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes)), ("subscriber-routes", ("subscriber_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes)), ("segment-routing", ("segment_routing", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting))])
                                     self._leafs = OrderedDict([
                                         ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily', '')])),
                                         ('rnh_install_format', (YLeaf(YType.enumeration, 'rnh-install-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRnhInstallFormat', '')])),
@@ -25265,7 +26570,6 @@ class Bgp(Entity):
                                         ('additional_paths_receive', (YLeaf(YType.enumeration, 'additional-paths-receive'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAfAdditionalPathsCfg', '')])),
                                         ('permanent_network', (YLeaf(YType.str, 'permanent-network'), ['str'])),
                                         ('rpki_bestpath_use_origin_as_validity', (YLeaf(YType.empty, 'rpki-bestpath-use-origin-as-validity'), ['Empty'])),
-                                        ('srv6_label_allocation_mode', (YLeaf(YType.str, 'srv6-label-allocation-mode'), ['str'])),
                                         ('rpki_bestpath_origin_as_allow_invalid', (YLeaf(YType.empty, 'rpki-bestpath-origin-as-allow-invalid'), ['Empty'])),
                                         ('next_hop_resolution_prefix_length_minimum', (YLeaf(YType.uint32, 'next-hop-resolution-prefix-length-minimum'), ['int'])),
                                         ('reset_weight_on_import', (YLeaf(YType.boolean, 'reset-weight-on-import'), ['bool'])),
@@ -25305,7 +26609,6 @@ class Bgp(Entity):
                                     self.additional_paths_receive = None
                                     self.permanent_network = None
                                     self.rpki_bestpath_use_origin_as_validity = None
-                                    self.srv6_label_allocation_mode = None
                                     self.rpki_bestpath_origin_as_allow_invalid = None
                                     self.next_hop_resolution_prefix_length_minimum = None
                                     self.reset_weight_on_import = None
@@ -25367,16 +26670,14 @@ class Bgp(Entity):
                                     self.static_routes = None
                                     self._children_name_map["static_routes"] = "static-routes"
 
-                                    self.distance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance()
-                                    self.distance.parent = self
+                                    self.distance = None
                                     self._children_name_map["distance"] = "distance"
 
                                     self.application_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes()
                                     self.application_routes.parent = self
                                     self._children_name_map["application_routes"] = "application-routes"
 
-                                    self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode()
-                                    self.label_mode.parent = self
+                                    self.label_mode = None
                                     self._children_name_map["label_mode"] = "label-mode"
 
                                     self.eigrp_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes()
@@ -25390,8 +26691,7 @@ class Bgp(Entity):
                                     self.connected_routes = None
                                     self._children_name_map["connected_routes"] = "connected-routes"
 
-                                    self.allocate_label = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel()
-                                    self.allocate_label.parent = self
+                                    self.allocate_label = None
                                     self._children_name_map["allocate_label"] = "allocate-label"
 
                                     self.additional_paths_selection = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection()
@@ -25407,11 +26707,15 @@ class Bgp(Entity):
 
                                     self.subscriber_routes = None
                                     self._children_name_map["subscriber_routes"] = "subscriber-routes"
+
+                                    self.segment_routing = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting()
+                                    self.segment_routing.parent = self
+                                    self._children_name_map["segment_routing"] = "segment-routing"
                                     self._segment_path = lambda: "global-af" + "[af-name='" + str(self.af_name) + "']"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf, ['af_name', 'rnh_install_format', 'inter_as_install', 'segmented_mcast', 'implicit_import', 'disable_default_martian_check', 'next_hop_critical_trigger_delay', 'next_hop_non_critical_trigger_delay', 'label_security_rpf', 'use_igpsr_label', 'label_retain', 'scan_time', 'source_route_target_policy', 'rpki_origin_as_validation_disable', 'update_limit_sub_group_ebgp', 'update_limit_address_family', 'update_limit_sub_group_ibgp', 'disable_client_to_client_rr', 'next_hop_route_policy', 'global_table_mcast', 'wait_rib_install', 'prefix_sid_map', 'rpki_origin_as_validation_enable', 'dynamic_med_interval', 'enable', 'table_policy', 'attribute_download', 'best_external', 'rpki_origin_as_validity_signal_ibgp', 'additional_paths_receive', 'permanent_network', 'rpki_bestpath_use_origin_as_validity', 'srv6_label_allocation_mode', 'rpki_bestpath_origin_as_allow_invalid', 'next_hop_resolution_prefix_length_minimum', 'reset_weight_on_import', 'additional_paths_send', 'advertise_local_labeled_route_safi_unicast', 'disable_as_path_loop_check'], name, value)
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf, ['af_name', 'rnh_install_format', 'inter_as_install', 'segmented_mcast', 'implicit_import', 'disable_default_martian_check', 'next_hop_critical_trigger_delay', 'next_hop_non_critical_trigger_delay', 'label_security_rpf', 'use_igpsr_label', 'label_retain', 'scan_time', 'source_route_target_policy', 'rpki_origin_as_validation_disable', 'update_limit_sub_group_ebgp', 'update_limit_address_family', 'update_limit_sub_group_ibgp', 'disable_client_to_client_rr', 'next_hop_route_policy', 'global_table_mcast', 'wait_rib_install', 'prefix_sid_map', 'rpki_origin_as_validation_enable', 'dynamic_med_interval', 'enable', 'table_policy', 'attribute_download', 'best_external', 'rpki_origin_as_validity_signal_ibgp', 'additional_paths_receive', 'permanent_network', 'rpki_bestpath_use_origin_as_validity', 'rpki_bestpath_origin_as_allow_invalid', 'next_hop_resolution_prefix_length_minimum', 'reset_weight_on_import', 'additional_paths_send', 'advertise_local_labeled_route_safi_unicast', 'disable_as_path_loop_check'], name, value)
 
 
                                 class IsisRoutes(Entity):
@@ -25429,7 +26733,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes, self).__init__()
@@ -25485,7 +26789,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute, self).__init__()
@@ -25545,7 +26849,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher, self).__init__()
@@ -25598,20 +26902,15 @@ class Bgp(Entity):
                                     
                                     .. attribute:: source_rt_import_policy
                                     
-                                    	Enable sourcing of import route\-targets from import\-policy
+                                    	Enable sourcing of import route\-targets  from import\-policy
                                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                    
-                                    .. attribute:: srv6_label_allocation_mode
-                                    
-                                    	Label allocation mode\: per\-ce  Set per CE label mode,per\-vrf Set per VRF label mode
-                                    	**type**\: str
                                     
                                     
 
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll, self).__init__()
@@ -25627,13 +26926,11 @@ class Bgp(Entity):
                                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ('table_policy', (YLeaf(YType.str, 'table-policy'), ['str'])),
                                             ('source_rt_import_policy', (YLeaf(YType.empty, 'source-rt-import-policy'), ['Empty'])),
-                                            ('srv6_label_allocation_mode', (YLeaf(YType.str, 'srv6-label-allocation-mode'), ['str'])),
                                         ])
                                         self.rnh_install_format = None
                                         self.enable = None
                                         self.table_policy = None
                                         self.source_rt_import_policy = None
-                                        self.srv6_label_allocation_mode = None
 
                                         self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode()
                                         self.label_mode.parent = self
@@ -25642,7 +26939,7 @@ class Bgp(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll, ['rnh_install_format', 'enable', 'table_policy', 'source_rt_import_policy', 'srv6_label_allocation_mode'], name, value)
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll, ['rnh_install_format', 'enable', 'table_policy', 'source_rt_import_policy'], name, value)
 
 
                                     class LabelMode(Entity):
@@ -25664,7 +26961,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode, self).__init__()
@@ -25705,7 +27002,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs, self).__init__()
@@ -25751,7 +27048,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr, self).__init__()
@@ -25792,7 +27089,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number, self).__init__()
@@ -25837,7 +27134,7 @@ class Bgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-cfg'
-                                            _revision = '2018-01-18'
+                                            _revision = '2018-06-15'
 
                                             def __init__(self):
                                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address, self).__init__()
@@ -25895,7 +27192,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay, self).__init__()
@@ -25962,7 +27259,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp, self).__init__()
@@ -26033,7 +27330,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp, self).__init__()
@@ -26083,7 +27380,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt, self).__init__()
@@ -26149,7 +27446,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp, self).__init__()
@@ -26212,7 +27509,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay, self).__init__()
@@ -26252,7 +27549,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses, self).__init__()
@@ -26322,7 +27619,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress, self).__init__()
@@ -26370,7 +27667,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups, self).__init__()
@@ -26447,7 +27744,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, self).__init__()
@@ -26497,8 +27794,6 @@ class Bgp(Entity):
                                     
                                     	**range:** 1..20000
                                     
-                                    	**mandatory**\: True
-                                    
                                     .. attribute:: suppress_threshold
                                     
                                     	Value to start suppressing a route
@@ -26506,16 +27801,12 @@ class Bgp(Entity):
                                     
                                     	**range:** 1..20000
                                     
-                                    	**mandatory**\: True
-                                    
                                     .. attribute:: suppress_time
                                     
                                     	Maximum duration to suppress a stable route (seconds)
                                     	**type**\: int
                                     
                                     	**range:** 1..255
-                                    
-                                    	**mandatory**\: True
                                     
                                     	**units**\: second
                                     
@@ -26531,7 +27822,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening, self).__init__()
@@ -26593,7 +27884,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes, self).__init__()
@@ -26644,7 +27935,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes, self).__init__()
@@ -26700,7 +27991,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes, self).__init__()
@@ -26739,7 +28030,7 @@ class Bgp(Entity):
                                     
                                     	**range:** 1..255
                                     
-                                    	**default value**\: 20
+                                    	**mandatory**\: True
                                     
                                     .. attribute:: internal_routes
                                     
@@ -26748,7 +28039,7 @@ class Bgp(Entity):
                                     
                                     	**range:** 1..255
                                     
-                                    	**default value**\: 200
+                                    	**mandatory**\: True
                                     
                                     .. attribute:: local_routes
                                     
@@ -26757,14 +28048,16 @@ class Bgp(Entity):
                                     
                                     	**range:** 1..255
                                     
-                                    	**default value**\: 200
+                                    	**mandatory**\: True
                                     
                                     
+
+                                    This class is a :ref:`presence class<presence-class>`
 
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance, self).__init__()
@@ -26775,6 +28068,7 @@ class Bgp(Entity):
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
+                                        self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('external_routes', (YLeaf(YType.uint32, 'external-routes'), ['int'])),
                                             ('internal_routes', (YLeaf(YType.uint32, 'internal-routes'), ['int'])),
@@ -26805,7 +28099,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes, self).__init__()
@@ -26861,7 +28155,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute, self).__init__()
@@ -26907,10 +28201,12 @@ class Bgp(Entity):
                                     
                                     
 
+                                    This class is a :ref:`presence class<presence-class>`
+
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode, self).__init__()
@@ -26921,6 +28217,7 @@ class Bgp(Entity):
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
+                                        self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('label_allocation_mode', (YLeaf(YType.str, 'label-allocation-mode'), ['str'])),
                                             ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
@@ -26949,7 +28246,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes, self).__init__()
@@ -27005,7 +28302,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute, self).__init__()
@@ -27049,7 +28346,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks, self).__init__()
@@ -27109,7 +28406,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork, self).__init__()
@@ -27169,7 +28466,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes, self).__init__()
@@ -27218,10 +28515,12 @@ class Bgp(Entity):
                                     
                                     
 
+                                    This class is a :ref:`presence class<presence-class>`
+
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel, self).__init__()
@@ -27232,6 +28531,7 @@ class Bgp(Entity):
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
+                                        self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('all', (YLeaf(YType.boolean, 'all'), ['bool'])),
                                             ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
@@ -27267,7 +28567,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection, self).__init__()
@@ -27306,7 +28606,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes, self).__init__()
@@ -27362,7 +28662,7 @@ class Bgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2018-01-18'
+                                        _revision = '2018-06-15'
 
                                         def __init__(self):
                                             super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute, self).__init__()
@@ -27422,7 +28722,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes, self).__init__()
@@ -27480,7 +28780,7 @@ class Bgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2018-01-18'
+                                    _revision = '2018-06-15'
 
                                     def __init__(self):
                                         super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes, self).__init__()
@@ -27508,6 +28808,95 @@ class Bgp(Entity):
 
 
 
+                                class SegmentRouting(Entity):
+                                    """
+                                    Segment\-routing Configurations
+                                    
+                                    .. attribute:: srv6
+                                    
+                                    	SRv6 Configurations
+                                    	**type**\:  :py:class:`Srv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting.Srv6>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting, self).__init__()
+
+                                        self.yang_name = "segment-routing"
+                                        self.yang_parent_name = "global-af"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("srv6", ("srv6", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting.Srv6))])
+                                        self._leafs = OrderedDict()
+
+                                        self.srv6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting.Srv6()
+                                        self.srv6.parent = self
+                                        self._children_name_map["srv6"] = "srv6"
+                                        self._segment_path = lambda: "segment-routing"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting, [], name, value)
+
+
+                                    class Srv6(Entity):
+                                        """
+                                        SRv6 Configurations
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable SRv6 configuration submode
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: srv6sid_allocation_mode
+                                        
+                                        	SID allocation mode\: per\-ce  Set per CE SID mode,per\-vrf Set per VRF SID mode
+                                        	**type**\: str
+                                        
+                                        .. attribute:: locator_name
+                                        
+                                        	Configure Locator name for SID allocation
+                                        	**type**\: str
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2018-06-15'
+
+                                        def __init__(self):
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting.Srv6, self).__init__()
+
+                                            self.yang_name = "srv6"
+                                            self.yang_parent_name = "segment-routing"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                ('srv6sid_allocation_mode', (YLeaf(YType.str, 'srv6sid-allocation-mode'), ['str'])),
+                                                ('locator_name', (YLeaf(YType.str, 'locator-name'), ['str'])),
+                                            ])
+                                            self.enable = None
+                                            self.srv6sid_allocation_mode = None
+                                            self.locator_name = None
+                                            self._segment_path = lambda: "srv6"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting.Srv6, ['enable', 'srv6sid_allocation_mode', 'locator_name'], name, value)
+
+
+
+
 
 
                         class RpkiStaticRoutes(Entity):
@@ -27524,7 +28913,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes, self).__init__()
@@ -27588,7 +28977,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute, self).__init__()
@@ -27632,7 +29021,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces, self).__init__()
@@ -27669,7 +29058,7 @@ class Bgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2018-01-18'
+                                _revision = '2018-06-15'
 
                                 def __init__(self):
                                     super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface, self).__init__()
@@ -27735,7 +29124,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers, self).__init__()
@@ -27787,7 +29176,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd, self).__init__()
@@ -27843,7 +29232,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes, self).__init__()
@@ -27899,7 +29288,7 @@ class Bgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2018-01-18'
+                            _revision = '2018-06-15'
 
                             def __init__(self):
                                 super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes, self).__init__()
@@ -27957,7 +29346,7 @@ class BmpServerAll(Entity):
     """
 
     _prefix = 'ipv4-bgp-cfg'
-    _revision = '2018-01-18'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(BmpServerAll, self).__init__()
@@ -28007,7 +29396,7 @@ class BmpServerAll(Entity):
         """
 
         _prefix = 'ipv4-bgp-cfg'
-        _revision = '2018-01-18'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(BmpServerAll.RouteMonitoring, self).__init__()
@@ -28052,7 +29441,7 @@ class BmpServers(Entity):
     """
 
     _prefix = 'ipv4-bgp-cfg'
-    _revision = '2018-01-18'
+    _revision = '2018-06-15'
 
     def __init__(self):
         super(BmpServers, self).__init__()
@@ -28186,7 +29575,7 @@ class BmpServers(Entity):
         """
 
         _prefix = 'ipv4-bgp-cfg'
-        _revision = '2018-01-18'
+        _revision = '2018-06-15'
 
         def __init__(self):
             super(BmpServers.BmpServer, self).__init__()
@@ -28273,7 +29662,7 @@ class BmpServers(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2018-01-18'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(BmpServers.BmpServer.InitialRefreshDelay, self).__init__()
@@ -28322,7 +29711,7 @@ class BmpServers(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2018-01-18'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(BmpServers.BmpServer.HostPort, self).__init__()
@@ -28372,7 +29761,7 @@ class BmpServers(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2018-01-18'
+            _revision = '2018-06-15'
 
             def __init__(self):
                 super(BmpServers.BmpServer.Tos, self).__init__()

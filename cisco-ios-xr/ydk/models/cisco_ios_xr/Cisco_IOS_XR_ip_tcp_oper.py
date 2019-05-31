@@ -1504,7 +1504,7 @@ class TcpConnection(Entity):
     """
 
     _prefix = 'ip-tcp-oper'
-    _revision = '2018-02-14'
+    _revision = '2018-11-01'
 
     def __init__(self):
         super(TcpConnection, self).__init__()
@@ -1545,7 +1545,7 @@ class TcpConnection(Entity):
         """
 
         _prefix = 'ip-tcp-oper'
-        _revision = '2018-02-14'
+        _revision = '2018-11-01'
 
         def __init__(self):
             super(TcpConnection.Nodes, self).__init__()
@@ -1620,7 +1620,7 @@ class TcpConnection(Entity):
             """
 
             _prefix = 'ip-tcp-oper'
-            _revision = '2018-02-14'
+            _revision = '2018-11-01'
 
             def __init__(self):
                 super(TcpConnection.Nodes.Node, self).__init__()
@@ -1693,7 +1693,7 @@ class TcpConnection(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(TcpConnection.Nodes.Node.Statistics, self).__init__()
@@ -1740,7 +1740,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.Statistics.Clients, self).__init__()
@@ -1833,7 +1833,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
@@ -1886,7 +1886,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.Statistics.Pcbs, self).__init__()
@@ -2088,7 +2088,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, self).__init__()
@@ -2199,7 +2199,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts, self).__init__()
@@ -2273,7 +2273,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts, self).__init__()
@@ -2388,7 +2388,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, self).__init__()
@@ -2427,7 +2427,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of successful data write to XIPC
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2439,7 +2439,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, self).__init__()
@@ -2468,7 +2468,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of successful data read from XIPC
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2480,7 +2480,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, self).__init__()
@@ -2509,7 +2509,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of failed data write to XIPC
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2521,7 +2521,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, self).__init__()
@@ -2550,7 +2550,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of failed data read from XIPC
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2562,7 +2562,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, self).__init__()
@@ -2591,7 +2591,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of successful control write to XIPC
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2603,7 +2603,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, self).__init__()
@@ -2632,7 +2632,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of successful control read to XIPC
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2644,7 +2644,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, self).__init__()
@@ -2673,7 +2673,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of failed control write to XIPC
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2685,7 +2685,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, self).__init__()
@@ -2714,7 +2714,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of failed control read from XIPC
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2726,7 +2726,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, self).__init__()
@@ -2755,7 +2755,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of bytes data has been written
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
@@ -2769,7 +2769,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, self).__init__()
@@ -2798,7 +2798,7 @@ class TcpConnection(Entity):
                                 
                                 .. attribute:: entry
                                 
-                                	
+                                	Number of bytes data has been read
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
@@ -2812,7 +2812,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, self).__init__()
@@ -3668,6 +3668,15 @@ class TcpConnection(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: sock_async_double_free_prevent_count
+                    
+                    	Total number of socket async buffer double free prevented
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
                     .. attribute:: iqs_total_ingpacket
                     
                     	Total Number of Ingress packets on TCP iqs
@@ -3687,7 +3696,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.Statistics.Summary, self).__init__()
@@ -3789,6 +3798,7 @@ class TcpConnection(Entity):
                             ('total_i_qs', (YLeaf(YType.uint32, 'total-i-qs'), ['int'])),
                             ('sockbuf_pak_res_cur', (YLeaf(YType.uint32, 'sockbuf-pak-res-cur'), ['int'])),
                             ('sockbuf_pak_res_max', (YLeaf(YType.uint32, 'sockbuf-pak-res-max'), ['int'])),
+                            ('sock_async_double_free_prevent_count', (YLeaf(YType.uint32, 'sock-async-double-free-prevent-count'), ['int'])),
                         ])
                         self.syn_cache_count = None
                         self.num_open_sockets = None
@@ -3880,6 +3890,7 @@ class TcpConnection(Entity):
                         self.total_i_qs = None
                         self.sockbuf_pak_res_cur = None
                         self.sockbuf_pak_res_max = None
+                        self.sock_async_double_free_prevent_count = None
 
                         self.iqs_total_ingpacket = YList(self)
                         self.iqs_total_egpacket = YList(self)
@@ -3887,7 +3898,7 @@ class TcpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, ['syn_cache_count', 'num_open_sockets', 'total_pakets_sent', 'send_packets_dropped', 'send_auth_packets_dropped', 'data_pakets_sent', 'data_bytes_sent', 'packets_retransmitted', 'bytes_retransmitted', 'ack_only_packets_sent', 'delay_ack_packets_sent', 'urgent_only_packets_sent', 'window_probe_packets_sent', 'window_update_packets_sent', 'control_packets_sent', 'rst_packets_sent', 'total_packets_received', 'received_packets_dropped', 'synacl_match_pkts_dropped', 'received_packets_dropped_stale_c_hdr', 'received_auth_packets_dropped', 'ack_packets_received', 'ackbytes_received', 'duplicated_ack_packets_received', 'ack_packets_for_unsent_received', 'data_packets_received_in_sequence', 'data_bytes_received_in_sequence', 'duplicate_packets_received', 'duplicate_bytes_received', 'partial_duplicate_ack_received', 'partial_duplicate_bytes_received', 'out_of_order_packets_received', 'out_of_order_bytes_received', 'after_window_packets_received', 'after_window_bytes_received', 'window_probe_packets_received', 'window_update_packets_received', 'packets_received_after_close_packet', 'bad_checksum_packets_received', 'too_short_packets_received', 'malformed_packets_received', 'no_port_packets_received', 'connections_requested', 'connections_accepted', 'connections_established', 'connections_forcibly_closed', 'connections_closed', 'connections_dropped', 'embryonic_connection_dropped', 'connections_failed', 'established_connections_reset', 'retransmit_timeouts', 'retransmit_dropped', 'keep_alive_timeouts', 'keep_alive_dropped', 'keep_alive_probes', 'paws_dropped', 'persist_dropped', 'try_lock_dropped', 'connection_rate_limited', 'syn_cache_added', 'syn_cache_completed', 'syn_cache_timed_out', 'syn_cache_overflow', 'syn_cache_reset', 'syn_cache_unreach', 'syn_cache_bucket_oflow', 'syn_cache_aborted', 'syn_cache_duplicate_sy_ns', 'syn_cache_dropped', 'pulse_errors', 'socket_layer_packets', 'reassembly_packets', 'recovered_packets', 'packet_failures', 'mss_up', 'mss_down', 'truncated_write_iov', 'no_throttle', 'low_water_mark_throttle', 'high_water_mark_throttle', 'stalled_timer_tickle_count', 'stalled_timer_tickle_time', 'iq_sock_writes', 'iq_sock_retries', 'iq_sock_aborts', 'iq_ingress_drops', 'total_i_qs', 'sockbuf_pak_res_cur', 'sockbuf_pak_res_max'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, ['syn_cache_count', 'num_open_sockets', 'total_pakets_sent', 'send_packets_dropped', 'send_auth_packets_dropped', 'data_pakets_sent', 'data_bytes_sent', 'packets_retransmitted', 'bytes_retransmitted', 'ack_only_packets_sent', 'delay_ack_packets_sent', 'urgent_only_packets_sent', 'window_probe_packets_sent', 'window_update_packets_sent', 'control_packets_sent', 'rst_packets_sent', 'total_packets_received', 'received_packets_dropped', 'synacl_match_pkts_dropped', 'received_packets_dropped_stale_c_hdr', 'received_auth_packets_dropped', 'ack_packets_received', 'ackbytes_received', 'duplicated_ack_packets_received', 'ack_packets_for_unsent_received', 'data_packets_received_in_sequence', 'data_bytes_received_in_sequence', 'duplicate_packets_received', 'duplicate_bytes_received', 'partial_duplicate_ack_received', 'partial_duplicate_bytes_received', 'out_of_order_packets_received', 'out_of_order_bytes_received', 'after_window_packets_received', 'after_window_bytes_received', 'window_probe_packets_received', 'window_update_packets_received', 'packets_received_after_close_packet', 'bad_checksum_packets_received', 'too_short_packets_received', 'malformed_packets_received', 'no_port_packets_received', 'connections_requested', 'connections_accepted', 'connections_established', 'connections_forcibly_closed', 'connections_closed', 'connections_dropped', 'embryonic_connection_dropped', 'connections_failed', 'established_connections_reset', 'retransmit_timeouts', 'retransmit_dropped', 'keep_alive_timeouts', 'keep_alive_dropped', 'keep_alive_probes', 'paws_dropped', 'persist_dropped', 'try_lock_dropped', 'connection_rate_limited', 'syn_cache_added', 'syn_cache_completed', 'syn_cache_timed_out', 'syn_cache_overflow', 'syn_cache_reset', 'syn_cache_unreach', 'syn_cache_bucket_oflow', 'syn_cache_aborted', 'syn_cache_duplicate_sy_ns', 'syn_cache_dropped', 'pulse_errors', 'socket_layer_packets', 'reassembly_packets', 'recovered_packets', 'packet_failures', 'mss_up', 'mss_down', 'truncated_write_iov', 'no_throttle', 'low_water_mark_throttle', 'high_water_mark_throttle', 'stalled_timer_tickle_count', 'stalled_timer_tickle_time', 'iq_sock_writes', 'iq_sock_retries', 'iq_sock_aborts', 'iq_ingress_drops', 'total_i_qs', 'sockbuf_pak_res_cur', 'sockbuf_pak_res_max', 'sock_async_double_free_prevent_count'], name, value)
 
 
                     class IqsTotalIngpacket(Entity):
@@ -3896,7 +3907,7 @@ class TcpConnection(Entity):
                         
                         .. attribute:: entry
                         
-                        	
+                        	Total Number of Ingress packets on TCP iqs
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -3908,7 +3919,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, self).__init__()
@@ -3937,7 +3948,7 @@ class TcpConnection(Entity):
                         
                         .. attribute:: entry
                         
-                        	
+                        	Total Number of Egress packets on TCP iqs
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -3949,7 +3960,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, self).__init__()
@@ -3990,7 +4001,7 @@ class TcpConnection(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(TcpConnection.Nodes.Node.ExtendedInformation, self).__init__()
@@ -4029,7 +4040,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes, self).__init__()
@@ -4073,7 +4084,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType, self).__init__()
@@ -4163,7 +4174,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId, self).__init__()
@@ -4237,7 +4248,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress, self).__init__()
@@ -4298,7 +4309,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress, self).__init__()
@@ -4348,7 +4359,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2018-02-14'
+                                _revision = '2018-11-01'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common, self).__init__()
@@ -4429,7 +4440,7 @@ class TcpConnection(Entity):
                                     """
 
                                     _prefix = 'ip-tcp-oper'
-                                    _revision = '2018-02-14'
+                                    _revision = '2018-11-01'
 
                                     def __init__(self):
                                         super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb, self).__init__()
@@ -4490,7 +4501,7 @@ class TcpConnection(Entity):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2018-02-14'
+                                        _revision = '2018-11-01'
 
                                         def __init__(self):
                                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options, self).__init__()
@@ -4545,7 +4556,7 @@ class TcpConnection(Entity):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2018-02-14'
+                                        _revision = '2018-11-01'
 
                                         def __init__(self):
                                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags, self).__init__()
@@ -4623,7 +4634,7 @@ class TcpConnection(Entity):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2018-02-14'
+                                        _revision = '2018-11-01'
 
                                         def __init__(self):
                                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask, self).__init__()
@@ -4758,7 +4769,7 @@ class TcpConnection(Entity):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2018-02-14'
+                                        _revision = '2018-11-01'
 
                                         def __init__(self):
                                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter, self).__init__()
@@ -4852,7 +4863,7 @@ class TcpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-tcp-oper'
-                                            _revision = '2018-02-14'
+                                            _revision = '2018-11-01'
 
                                             def __init__(self):
                                                 super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType, self).__init__()
@@ -4917,7 +4928,7 @@ class TcpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-tcp-oper'
-                                            _revision = '2018-02-14'
+                                            _revision = '2018-11-01'
 
                                             def __init__(self):
                                                 super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress, self).__init__()
@@ -4978,7 +4989,7 @@ class TcpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-tcp-oper'
-                                            _revision = '2018-02-14'
+                                            _revision = '2018-11-01'
 
                                             def __init__(self):
                                                 super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress, self).__init__()
@@ -5029,7 +5040,7 @@ class TcpConnection(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(TcpConnection.Nodes.Node.DetailInformations, self).__init__()
@@ -5857,7 +5868,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, self).__init__()
@@ -6105,7 +6116,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress, self).__init__()
@@ -6166,7 +6177,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress, self).__init__()
@@ -6293,7 +6304,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, self).__init__()
@@ -6454,7 +6465,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags, self).__init__()
@@ -6577,7 +6588,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags, self).__init__()
@@ -6681,7 +6692,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags, self).__init__()
@@ -6790,7 +6801,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags, self).__init__()
@@ -6929,7 +6940,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, self).__init__()
@@ -7076,7 +7087,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, self).__init__()
@@ -7129,7 +7140,7 @@ class TcpConnection(Entity):
                         
                         .. attribute:: entry
                         
-                        	
+                        	Cached fib pd context
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -7141,7 +7152,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, self).__init__()
@@ -7170,7 +7181,7 @@ class TcpConnection(Entity):
                         
                         .. attribute:: entry
                         
-                        	
+                        	Cached Label stack
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -7182,7 +7193,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, self).__init__()
@@ -7248,7 +7259,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer, self).__init__()
@@ -7304,7 +7315,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk, self).__init__()
@@ -7374,7 +7385,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole, self).__init__()
@@ -7421,7 +7432,7 @@ class TcpConnection(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(TcpConnection.Nodes.Node.Keychains, self).__init__()
@@ -7518,7 +7529,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.Keychains.Keychain, self).__init__()
@@ -7654,7 +7665,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Keychains.Keychain.Keys, self).__init__()
@@ -7716,7 +7727,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.Keychains.Keychain.Keys.InvalidatedKey, self).__init__()
@@ -7758,7 +7769,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Keychains.Keychain.ActiveKey, self).__init__()
@@ -7806,7 +7817,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Keychains.Keychain.SendId, self).__init__()
@@ -7848,7 +7859,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.Keychains.Keychain.SendId.Keys, self).__init__()
@@ -7897,7 +7908,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId, self).__init__()
@@ -7939,7 +7950,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId.Keys, self).__init__()
@@ -7983,7 +7994,7 @@ class TcpConnection(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(TcpConnection.Nodes.Node.BriefInformations, self).__init__()
@@ -8117,7 +8128,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, self).__init__()
@@ -8199,7 +8210,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress, self).__init__()
@@ -8260,7 +8271,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress, self).__init__()
@@ -8312,7 +8323,7 @@ class Tcp(Entity):
     """
 
     _prefix = 'ip-tcp-oper'
-    _revision = '2018-02-14'
+    _revision = '2018-11-01'
 
     def __init__(self):
         super(Tcp, self).__init__()
@@ -8352,7 +8363,7 @@ class Tcp(Entity):
         """
 
         _prefix = 'ip-tcp-oper'
-        _revision = '2018-02-14'
+        _revision = '2018-11-01'
 
         def __init__(self):
             super(Tcp.Nodes, self).__init__()
@@ -8399,7 +8410,7 @@ class Tcp(Entity):
             """
 
             _prefix = 'ip-tcp-oper'
-            _revision = '2018-02-14'
+            _revision = '2018-11-01'
 
             def __init__(self):
                 super(Tcp.Nodes.Node, self).__init__()
@@ -8449,7 +8460,7 @@ class Tcp(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(Tcp.Nodes.Node.Statistics, self).__init__()
@@ -8530,7 +8541,7 @@ class Tcp(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(Tcp.Nodes.Node.Statistics.Ipv4Traffic, self).__init__()
@@ -8615,7 +8626,7 @@ class Tcp(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(Tcp.Nodes.Node.Statistics.Ipv6Traffic, self).__init__()
@@ -8670,7 +8681,7 @@ class TcpNsr(Entity):
     """
 
     _prefix = 'ip-tcp-oper'
-    _revision = '2018-02-14'
+    _revision = '2018-11-01'
 
     def __init__(self):
         super(TcpNsr, self).__init__()
@@ -8711,7 +8722,7 @@ class TcpNsr(Entity):
         """
 
         _prefix = 'ip-tcp-oper'
-        _revision = '2018-02-14'
+        _revision = '2018-11-01'
 
         def __init__(self):
             super(TcpNsr.Nodes, self).__init__()
@@ -8779,7 +8790,7 @@ class TcpNsr(Entity):
             """
 
             _prefix = 'ip-tcp-oper'
-            _revision = '2018-02-14'
+            _revision = '2018-11-01'
 
             def __init__(self):
                 super(TcpNsr.Nodes.Node, self).__init__()
@@ -8841,7 +8852,7 @@ class TcpNsr(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(TcpNsr.Nodes.Node.Session, self).__init__()
@@ -8884,7 +8895,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Session.BriefSessions, self).__init__()
@@ -9017,7 +9028,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, self).__init__()
@@ -9059,7 +9070,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, ['id', u'address_family', u'pcb', u'sscb', u'local_port', u'foreign_port', u'vrf_id', u'is_admin_configured_up', u'is_us_operational_up', u'is_ds_operational_up', u'is_only_receive_path_replication'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication'], name, value)
 
 
                         class LocalAddress(Entity):
@@ -9068,7 +9079,7 @@ class TcpNsr(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Local address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -9080,7 +9091,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, self).__init__()
@@ -9099,7 +9110,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, [u'entry'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, ['entry'], name, value)
 
 
 
@@ -9109,7 +9120,7 @@ class TcpNsr(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Foreign address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -9121,7 +9132,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, self).__init__()
@@ -9140,7 +9151,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, [u'entry'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, ['entry'], name, value)
 
 
 
@@ -9162,7 +9173,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Session.DetailSessions, self).__init__()
@@ -9607,7 +9618,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, self).__init__()
@@ -9721,7 +9732,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, ['id', u'address_family', u'pcb', u'sscb', u'local_port', u'foreign_port', u'vrf_id', u'is_admin_configured_up', u'is_us_operational_up', u'is_ds_operational_up', u'is_only_receive_path_replication', u'cookie', u'is_session_replicated', u'is_session_synced', u'fist_standby_sequence_number', u'fssn_offset', u'nsr_down_reason', u'nsr_down_time', u'sequence_number_of_init_sync', u'is_init_sync_in_progress', u'is_init_sync_second_phase', u'init_sync_error', u'is_init_sync_error_local', u'init_sync_start_time', u'init_sync_end_time', u'init_sync_flags', u'sequence_number_of_init_sync_up_stream', u'peer_endp_hdl_up_stream', u'init_sync_start_time_up_stream', u'init_sync_end_time_up_stream', u'fist_standby_sequence_number_up_stream', u'nsr_down_reason_up_stream', u'nsr_down_time_up_stream', u'sequence_number_of_init_sync_down_stream', u'peer_endp_hdl_down_stream', u'init_sync_start_time_down_stream', u'init_sync_end_time_down_stream', u'fist_standby_sequence_number_down_stream', u'nsr_down_reason_down_stream', u'nsr_down_time_down_stream', u'max_number_of_held_packet', u'max_number_of_held_packet_reach_time', u'max_number_of_held_internal_ack', u'max_number_of_held_internal_ack_reach_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication', 'cookie', 'is_session_replicated', 'is_session_synced', 'fist_standby_sequence_number', 'fssn_offset', 'nsr_down_reason', 'nsr_down_time', 'sequence_number_of_init_sync', 'is_init_sync_in_progress', 'is_init_sync_second_phase', 'init_sync_error', 'is_init_sync_error_local', 'init_sync_start_time', 'init_sync_end_time', 'init_sync_flags', 'sequence_number_of_init_sync_up_stream', 'peer_endp_hdl_up_stream', 'init_sync_start_time_up_stream', 'init_sync_end_time_up_stream', 'fist_standby_sequence_number_up_stream', 'nsr_down_reason_up_stream', 'nsr_down_time_up_stream', 'sequence_number_of_init_sync_down_stream', 'peer_endp_hdl_down_stream', 'init_sync_start_time_down_stream', 'init_sync_end_time_down_stream', 'fist_standby_sequence_number_down_stream', 'nsr_down_reason_down_stream', 'nsr_down_time_down_stream', 'max_number_of_held_packet', 'max_number_of_held_packet_reach_time', 'max_number_of_held_internal_ack', 'max_number_of_held_internal_ack_reach_time'], name, value)
 
 
                         class SetInformation(Entity):
@@ -9887,7 +9898,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, self).__init__()
@@ -9940,7 +9951,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, [u'sscb', u'pid', u'client_name', u'client_instance', u'set_id', u'sso_role', u'mode', u'address_family', u'well_known_port', u'local_node', u'local_instance', u'protect_node', u'protect_instance', u'number_of_sessions', u'number_of_synced_sessions_up_stream', u'number_of_synced_sessions_down_stream', u'is_init_sync_in_progress', u'is_sscb_init_sync_ready'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, ['sscb', 'pid', 'client_name', 'client_instance', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_sscb_init_sync_ready'], name, value)
 
 
 
@@ -9950,7 +9961,7 @@ class TcpNsr(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Local address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -9962,7 +9973,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, self).__init__()
@@ -9981,7 +9992,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, [u'entry'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, ['entry'], name, value)
 
 
 
@@ -9991,7 +10002,7 @@ class TcpNsr(Entity):
                             
                             .. attribute:: entry
                             
-                            	
+                            	Foreign address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -10003,7 +10014,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, self).__init__()
@@ -10022,7 +10033,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, [u'entry'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, ['entry'], name, value)
 
 
 
@@ -10063,7 +10074,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue, self).__init__()
@@ -10086,7 +10097,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue, [u'sequence_number', u'data_length', u'acknoledgement_number'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue, ['sequence_number', 'data_length', 'acknoledgement_number'], name, value)
 
 
 
@@ -10127,7 +10138,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue, self).__init__()
@@ -10150,7 +10161,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue, [u'sequence_number', u'data_length', u'acknoledgement_number'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue, ['sequence_number', 'data_length', 'acknoledgement_number'], name, value)
 
 
 
@@ -10180,7 +10191,7 @@ class TcpNsr(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(TcpNsr.Nodes.Node.Client, self).__init__()
@@ -10223,7 +10234,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Client.DetailClients, self).__init__()
@@ -10350,7 +10361,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, self).__init__()
@@ -10389,7 +10400,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, ['id', u'ccb', u'pid', u'process_name', u'job_id', u'instance', u'numberof_sets', u'number_of_sessions', u'number_of_up_sessions', u'connected_at', u'is_notification_registered'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'numberof_sets', 'number_of_sessions', 'number_of_up_sessions', 'connected_at', 'is_notification_registered'], name, value)
 
 
 
@@ -10410,7 +10421,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Client.BriefClients, self).__init__()
@@ -10519,7 +10530,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, self).__init__()
@@ -10554,7 +10565,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, ['id', u'ccb', u'pid', u'process_name', u'job_id', u'instance', u'numberof_sets', u'number_of_sessions', u'number_of_up_sessions'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'numberof_sets', 'number_of_sessions', 'number_of_up_sessions'], name, value)
 
 
 
@@ -10583,7 +10594,7 @@ class TcpNsr(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(TcpNsr.Nodes.Node.SessionSet, self).__init__()
@@ -10626,7 +10637,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.SessionSet.DetailSets, self).__init__()
@@ -10963,7 +10974,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, self).__init__()
@@ -11048,7 +11059,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, ['id', u'sscb', u'pid', u'set_id', u'sso_role', u'mode', u'address_family', u'well_known_port', u'local_node', u'local_instance', u'protect_node', u'protect_instance', u'number_of_sessions', u'number_of_synced_sessions_up_stream', u'number_of_synced_sessions_down_stream', u'is_init_sync_in_progress', u'is_init_sync_second_phase', u'sequence_number_of_init_sync', u'init_sync_timer', u'total_number_of_init_sync_sessions', u'number_of_init_synced_sessions', u'number_of_sessions_init_sync_failed', u'init_sync_error', u'is_init_sync_error_local', u'init_sync_start_time', u'init_sync_end_time', u'is_sscb_init_sync_ready', u'init_sync_ready_start_time', u'init_sync_ready_end_time', u'nsr_reset_time', u'is_audit_in_progress', u'audit_seq_number', u'audit_start_time', u'audit_end_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, ['id', 'sscb', 'pid', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_init_sync_second_phase', 'sequence_number_of_init_sync', 'init_sync_timer', 'total_number_of_init_sync_sessions', 'number_of_init_synced_sessions', 'number_of_sessions_init_sync_failed', 'init_sync_error', 'is_init_sync_error_local', 'init_sync_start_time', 'init_sync_end_time', 'is_sscb_init_sync_ready', 'init_sync_ready_start_time', 'init_sync_ready_end_time', 'nsr_reset_time', 'is_audit_in_progress', 'audit_seq_number', 'audit_start_time', 'audit_end_time'], name, value)
 
 
 
@@ -11069,7 +11080,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.SessionSet.BriefSets, self).__init__()
@@ -11262,7 +11273,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, self).__init__()
@@ -11317,7 +11328,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, ['id', u'sscb', u'pid', u'client_name', u'client_instance', u'set_id', u'sso_role', u'mode', u'address_family', u'well_known_port', u'local_node', u'local_instance', u'protect_node', u'protect_instance', u'number_of_sessions', u'number_of_synced_sessions_up_stream', u'number_of_synced_sessions_down_stream', u'is_init_sync_in_progress', u'is_sscb_init_sync_ready'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, ['id', 'sscb', 'pid', 'client_name', 'client_instance', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_sscb_init_sync_ready'], name, value)
 
 
 
@@ -11360,7 +11371,7 @@ class TcpNsr(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2018-02-14'
+                _revision = '2018-11-01'
 
                 def __init__(self):
                     super(TcpNsr.Nodes.Node.Statistics, self).__init__()
@@ -11724,7 +11735,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Statistics.Summary, self).__init__()
@@ -11817,7 +11828,7 @@ class TcpNsr(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary, [u'last_cleared_time', u'number_of_connected_clients', u'number_of_disconnected_clients', u'number_of_current_clients', u'number_of_created_session_sets', u'number_of_destroyed_session_sets', u'number_of_current_session_sets', u'number_of_added_sessions', u'number_of_deleted_sessions', u'number_of_current_sessions', u'number_of_partner_node', u'number_of_attempted_init_sync', u'number_of_succeeded_init_sync', u'number_of_failed_init_sync', u'number_of_held_packets', u'number_of_held_but_dropped_packets', u'number_of_held_internal_acks', u'number_of_held_but_dropped_internal_acks', u'number_of_sent_internal_acks', u'number_of_received_internal_acks', u'number_of_qad_receive_messages_drops', u'number_of_qad_receive_messages_unknowns', u'number_of_qad_receive_messages_accepts', u'number_of_qad_stale_receive_messages_drops', u'number_of_qad_transfer_message_sent', u'number_of_qad_transfer_message_drops', u'number_of_internal_ack_drops_no_pcb', u'number_of_internal_ack_drops_no_scbdp', u'internal_ack_drops_not_replicated', u'internal_ack_drops_initsync_first_phase', u'internal_ack_drops_stale', u'internal_ack_drops_immediate_match', u'held_packet_drops'], name, value)
+                        self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary, ['last_cleared_time', 'number_of_connected_clients', 'number_of_disconnected_clients', 'number_of_current_clients', 'number_of_created_session_sets', 'number_of_destroyed_session_sets', 'number_of_current_session_sets', 'number_of_added_sessions', 'number_of_deleted_sessions', 'number_of_current_sessions', 'number_of_partner_node', 'number_of_attempted_init_sync', 'number_of_succeeded_init_sync', 'number_of_failed_init_sync', 'number_of_held_packets', 'number_of_held_but_dropped_packets', 'number_of_held_internal_acks', 'number_of_held_but_dropped_internal_acks', 'number_of_sent_internal_acks', 'number_of_received_internal_acks', 'number_of_qad_receive_messages_drops', 'number_of_qad_receive_messages_unknowns', 'number_of_qad_receive_messages_accepts', 'number_of_qad_stale_receive_messages_drops', 'number_of_qad_transfer_message_sent', 'number_of_qad_transfer_message_drops', 'number_of_internal_ack_drops_no_pcb', 'number_of_internal_ack_drops_no_scbdp', 'internal_ack_drops_not_replicated', 'internal_ack_drops_initsync_first_phase', 'internal_ack_drops_stale', 'internal_ack_drops_immediate_match', 'held_packet_drops'], name, value)
 
 
                     class SndCounters(Entity):
@@ -11843,7 +11854,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters, self).__init__()
@@ -12104,7 +12115,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common, self).__init__()
@@ -12171,7 +12182,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common, [u'data_xfer_send', u'data_xfer_send_total', u'data_xfer_send_drop', u'data_xfer_send_iov_alloc', u'data_xfer_rcv', u'data_xfer_rcv_success', u'data_xfer_rcv_fail_buffer_trim', u'data_xfer_rcv_fail_snd_una_out_of_sync', u'seg_instr_send', u'seg_instr_send_units', u'seg_instr_send_drop', u'seg_instr_rcv', u'seg_instr_rcv_success', u'seg_instr_rcv_fail_buffer_trim', u'seg_instr_rcv_fail_tcp_process', u'nack_send', u'nack_send_drop', u'nack_rcv', u'nack_rcv_success', u'nack_rcv_fail_data_send', u'cleanup_send', u'cleanup_send_drop', u'cleanup_rcv', u'cleanup_rcv_success', u'cleanup_rcv_fail_buffer_trim'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common, ['data_xfer_send', 'data_xfer_send_total', 'data_xfer_send_drop', 'data_xfer_send_iov_alloc', 'data_xfer_rcv', 'data_xfer_rcv_success', 'data_xfer_rcv_fail_buffer_trim', 'data_xfer_rcv_fail_snd_una_out_of_sync', 'seg_instr_send', 'seg_instr_send_units', 'seg_instr_send_drop', 'seg_instr_rcv', 'seg_instr_rcv_success', 'seg_instr_rcv_fail_buffer_trim', 'seg_instr_rcv_fail_tcp_process', 'nack_send', 'nack_send_drop', 'nack_rcv', 'nack_rcv_success', 'nack_rcv_fail_data_send', 'cleanup_send', 'cleanup_send_drop', 'cleanup_rcv', 'cleanup_rcv_success', 'cleanup_rcv_fail_buffer_trim'], name, value)
 
 
 
@@ -12256,7 +12267,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly, self).__init__()
@@ -12289,7 +12300,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly, [u'data_xfer_rcv_drop_no_pcb', u'data_xfer_rcv_drop_no_scb_dp', u'seg_instr_rcv_drop_no_pcb', u'seg_instr_rcv_drop_no_scb_dp', u'nack_rcv_drop_no_pcb', u'nack_rcv_drop_no_scb_dp', u'cleanup_rcv_drop_no_pcb', u'cleanup_rcv_drop_no_scb_dp'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly, ['data_xfer_rcv_drop_no_pcb', 'data_xfer_rcv_drop_no_scb_dp', 'seg_instr_rcv_drop_no_pcb', 'seg_instr_rcv_drop_no_scb_dp', 'nack_rcv_drop_no_pcb', 'nack_rcv_drop_no_scb_dp', 'cleanup_rcv_drop_no_pcb', 'cleanup_rcv_drop_no_scb_dp'], name, value)
 
 
 
@@ -12317,7 +12328,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters, self).__init__()
@@ -12578,7 +12589,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common, self).__init__()
@@ -12645,7 +12656,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common, [u'mark_session_set_send', u'mark_session_set_send_drop', u'mark_session_set_rcv', u'mark_session_set_rcv_drop', u'session_send', u'session_send_drop', u'session_rcv', u'session_rcv_drop', u'sweep_session_set_send', u'sweep_session_set_send_drop', u'sweep_session_set_rcv', u'sweep_session_set_rcv_drop', u'session_set_response_send', u'session_set_response_send_drop', u'session_set_response_rcv', u'session_set_response_rcv_drop', u'mark_session_set_ack_send', u'mark_session_set_ack_send_drop', u'mark_session_set_ack_rcv', u'mark_session_set_ack_rcv_drop', u'mark_session_set_nack_send', u'mark_session_set_nack_send_drop', u'mark_session_set_nack_rcv', u'mark_session_set_nack_rcv_drop', u'abort'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common, ['mark_session_set_send', 'mark_session_set_send_drop', 'mark_session_set_rcv', 'mark_session_set_rcv_drop', 'session_send', 'session_send_drop', 'session_rcv', 'session_rcv_drop', 'sweep_session_set_send', 'sweep_session_set_send_drop', 'sweep_session_set_rcv', 'sweep_session_set_rcv_drop', 'session_set_response_send', 'session_set_response_send_drop', 'session_set_response_rcv', 'session_set_response_rcv_drop', 'mark_session_set_ack_send', 'mark_session_set_ack_send_drop', 'mark_session_set_ack_rcv', 'mark_session_set_ack_rcv_drop', 'mark_session_set_nack_send', 'mark_session_set_nack_send_drop', 'mark_session_set_nack_rcv', 'mark_session_set_nack_rcv_drop', 'abort'], name, value)
 
 
 
@@ -12712,7 +12723,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly, self).__init__()
@@ -12741,7 +12752,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly, [u'mark_session_set_rcv_drop_aggr', u'session_rcv_drop_aggr', u'sweep_session_set_rcv_drop_aggr', u'session_set_response_rcv_drop_aggr', u'mark_session_set_ack_rcv_drop_aggr', u'mark_session_set_nack_rcv_drop_aggr'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly, ['mark_session_set_rcv_drop_aggr', 'session_rcv_drop_aggr', 'sweep_session_set_rcv_drop_aggr', 'session_set_response_rcv_drop_aggr', 'mark_session_set_ack_rcv_drop_aggr', 'mark_session_set_nack_rcv_drop_aggr'], name, value)
 
 
 
@@ -12791,7 +12802,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic, self).__init__()
@@ -12816,7 +12827,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic, [u'queued_count', u'failed_count', u'delivered_count', u'dropped_count'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic, ['queued_count', 'failed_count', 'delivered_count', 'dropped_count'], name, value)
 
 
 
@@ -12838,7 +12849,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Statistics.StatisticClients, self).__init__()
@@ -12967,7 +12978,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, self).__init__()
@@ -13006,7 +13017,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, ['id', u'ccb', u'pid', u'process_name', u'job_id', u'instance', u'connected_at', u'number_of_created_sscb', u'number_of_deleted_sscb', u'last_cleared_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'connected_at', 'number_of_created_sscb', 'number_of_deleted_sscb', 'last_cleared_time'], name, value)
 
 
                         class NotificationStatistic(Entity):
@@ -13054,7 +13065,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic, self).__init__()
@@ -13079,7 +13090,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic, [u'queued_count', u'failed_count', u'delivered_count', u'dropped_count'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic, ['queued_count', 'failed_count', 'delivered_count', 'dropped_count'], name, value)
 
 
 
@@ -13102,7 +13113,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Statistics.StatisticSets, self).__init__()
@@ -13216,7 +13227,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, self).__init__()
@@ -13251,7 +13262,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, ['id', u'sscb', u'set_id', u'number_of_attempted_init_sync', u'number_of_succeeded_init_sync', u'number_of_failed_init_sync', u'number_of_failover', u'number_of_nsr_resets', u'last_cleared_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, ['id', 'sscb', 'set_id', 'number_of_attempted_init_sync', 'number_of_succeeded_init_sync', 'number_of_failed_init_sync', 'number_of_failover', 'number_of_nsr_resets', 'last_cleared_time'], name, value)
 
 
 
@@ -13273,7 +13284,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2018-02-14'
+                    _revision = '2018-11-01'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Statistics.StatisticSessions, self).__init__()
@@ -13412,7 +13423,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2018-02-14'
+                        _revision = '2018-11-01'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, self).__init__()
@@ -13455,7 +13466,7 @@ class TcpNsr(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, ['id', u'pcb', u'number_of_times_nsr_up', u'number_of_timers_nsr_down', u'number_of_times_nsr_disabled', u'number_of_times_nsr_fail_over', u'internal_ack_drops_not_replicated', u'internal_ack_drops_initsync_first_phase', u'internal_ack_drops_stale', u'internal_ack_drops_immediate_match', u'last_cleared_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, ['id', 'pcb', 'number_of_times_nsr_up', 'number_of_timers_nsr_down', 'number_of_times_nsr_disabled', 'number_of_times_nsr_fail_over', 'internal_ack_drops_not_replicated', 'internal_ack_drops_initsync_first_phase', 'internal_ack_drops_stale', 'internal_ack_drops_immediate_match', 'last_cleared_time'], name, value)
 
 
                         class SndCounters(Entity):
@@ -13692,7 +13703,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2018-02-14'
+                            _revision = '2018-11-01'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters, self).__init__()
@@ -13759,7 +13770,7 @@ class TcpNsr(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters, [u'data_xfer_send', u'data_xfer_send_total', u'data_xfer_send_drop', u'data_xfer_send_iov_alloc', u'data_xfer_rcv', u'data_xfer_rcv_success', u'data_xfer_rcv_fail_buffer_trim', u'data_xfer_rcv_fail_snd_una_out_of_sync', u'seg_instr_send', u'seg_instr_send_units', u'seg_instr_send_drop', u'seg_instr_rcv', u'seg_instr_rcv_success', u'seg_instr_rcv_fail_buffer_trim', u'seg_instr_rcv_fail_tcp_process', u'nack_send', u'nack_send_drop', u'nack_rcv', u'nack_rcv_success', u'nack_rcv_fail_data_send', u'cleanup_send', u'cleanup_send_drop', u'cleanup_rcv', u'cleanup_rcv_success', u'cleanup_rcv_fail_buffer_trim'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters, ['data_xfer_send', 'data_xfer_send_total', 'data_xfer_send_drop', 'data_xfer_send_iov_alloc', 'data_xfer_rcv', 'data_xfer_rcv_success', 'data_xfer_rcv_fail_buffer_trim', 'data_xfer_rcv_fail_snd_una_out_of_sync', 'seg_instr_send', 'seg_instr_send_units', 'seg_instr_send_drop', 'seg_instr_rcv', 'seg_instr_rcv_success', 'seg_instr_rcv_fail_buffer_trim', 'seg_instr_rcv_fail_tcp_process', 'nack_send', 'nack_send_drop', 'nack_rcv', 'nack_rcv_success', 'nack_rcv_fail_data_send', 'cleanup_send', 'cleanup_send_drop', 'cleanup_rcv', 'cleanup_rcv_success', 'cleanup_rcv_fail_buffer_trim'], name, value)
 
 
 

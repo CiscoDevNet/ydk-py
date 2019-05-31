@@ -43,6 +43,10 @@ module Cisco-IOS-XR-l2-eth-infra-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-15 {
+    description
+      "Allow min..max in range when min == max.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -160,6 +164,18 @@ module Cisco-IOS-XR-l2-eth-infra-cfg {
       "L2 protocol mpls exp bits value";
   }
 
+  augment "/a1:interface-configurations/a1:interface-configuration" {
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-ifmgr-cfg'";
+    leaf user-network-interface {
+      type string {
+        length "1..64";
+      }
+      description
+        "User-Network Interface ID";
+    }
+  }
   augment "/a1:interface-configurations/a1:interface-configuration" {
     description
       "This augment extends the configuration data of
@@ -650,7 +666,9 @@ module Cisco-IOS-XR-l2-eth-infra-cfg {
           "Carrier Delay (up) in msecs";
       }
       leaf carrier-delay-down {
-        type uint32;
+        type uint32 {
+          range "0";
+        }
         description
           "Carrier Delay down in msecs, must be set to 0";
       }

@@ -270,7 +270,7 @@ class TelemetryModelDriven(Entity):
     """
 
     _prefix = 'telemetry-model-driven-cfg'
-    _revision = '2018-05-29'
+    _revision = '2018-07-23'
 
     def __init__(self):
         super(TelemetryModelDriven, self).__init__()
@@ -331,7 +331,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2018-05-29'
+        _revision = '2018-07-23'
 
         def __init__(self):
             super(TelemetryModelDriven.SensorGroups, self).__init__()
@@ -374,7 +374,7 @@ class TelemetryModelDriven(Entity):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2018-05-29'
+            _revision = '2018-07-23'
 
             def __init__(self):
                 super(TelemetryModelDriven.SensorGroups.SensorGroup, self).__init__()
@@ -415,7 +415,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2018-05-29'
+                _revision = '2018-07-23'
 
                 def __init__(self):
                     super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths, self).__init__()
@@ -450,7 +450,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2018-05-29'
+                    _revision = '2018-07-23'
 
                     def __init__(self):
                         super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath, self).__init__()
@@ -490,7 +490,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2018-05-29'
+        _revision = '2018-07-23'
 
         def __init__(self):
             super(TelemetryModelDriven.Subscriptions, self).__init__()
@@ -550,7 +550,7 @@ class TelemetryModelDriven(Entity):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2018-05-29'
+            _revision = '2018-07-23'
 
             def __init__(self):
                 super(TelemetryModelDriven.Subscriptions.Subscription, self).__init__()
@@ -599,7 +599,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2018-05-29'
+                _revision = '2018-07-23'
 
                 def __init__(self):
                     super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles, self).__init__()
@@ -652,7 +652,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2018-05-29'
+                    _revision = '2018-07-23'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile, self).__init__()
@@ -694,7 +694,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2018-05-29'
+                _revision = '2018-07-23'
 
                 def __init__(self):
                     super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles, self).__init__()
@@ -731,7 +731,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2018-05-29'
+                    _revision = '2018-07-23'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile, self).__init__()
@@ -771,7 +771,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2018-05-29'
+        _revision = '2018-07-23'
 
         def __init__(self):
             super(TelemetryModelDriven.Include, self).__init__()
@@ -809,7 +809,7 @@ class TelemetryModelDriven(Entity):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2018-05-29'
+            _revision = '2018-07-23'
 
             def __init__(self):
                 super(TelemetryModelDriven.Include.Empty, self).__init__()
@@ -848,7 +848,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2018-05-29'
+        _revision = '2018-07-23'
 
         def __init__(self):
             super(TelemetryModelDriven.DestinationGroups, self).__init__()
@@ -903,7 +903,7 @@ class TelemetryModelDriven(Entity):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2018-05-29'
+            _revision = '2018-07-23'
 
             def __init__(self):
                 super(TelemetryModelDriven.DestinationGroups.DestinationGroup, self).__init__()
@@ -950,7 +950,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2018-05-29'
+                _revision = '2018-07-23'
 
                 def __init__(self):
                     super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations, self).__init__()
@@ -1006,7 +1006,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2018-05-29'
+                    _revision = '2018-07-23'
 
                     def __init__(self):
                         super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination, self).__init__()
@@ -1055,11 +1055,7 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: no_tls
                         
                         	no tls
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**default value**\: 0
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: packetsize
                         
@@ -1077,7 +1073,7 @@ class TelemetryModelDriven(Entity):
                         """
 
                         _prefix = 'telemetry-model-driven-cfg'
-                        _revision = '2018-05-29'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol, self).__init__()
@@ -1092,7 +1088,7 @@ class TelemetryModelDriven(Entity):
                             self._leafs = OrderedDict([
                                 ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'ProtoType', '')])),
                                 ('tls_hostname', (YLeaf(YType.str, 'tls-hostname'), ['str'])),
-                                ('no_tls', (YLeaf(YType.uint32, 'no-tls'), ['int'])),
+                                ('no_tls', (YLeaf(YType.empty, 'no-tls'), ['Empty'])),
                                 ('packetsize', (YLeaf(YType.uint32, 'packetsize'), ['int'])),
                             ])
                             self.protocol = None
@@ -1123,7 +1119,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2018-05-29'
+                _revision = '2018-07-23'
 
                 def __init__(self):
                     super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations, self).__init__()
@@ -1179,7 +1175,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2018-05-29'
+                    _revision = '2018-07-23'
 
                     def __init__(self):
                         super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination, self).__init__()
@@ -1228,11 +1224,7 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: no_tls
                         
                         	no tls
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**default value**\: 0
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: packetsize
                         
@@ -1250,7 +1242,7 @@ class TelemetryModelDriven(Entity):
                         """
 
                         _prefix = 'telemetry-model-driven-cfg'
-                        _revision = '2018-05-29'
+                        _revision = '2018-07-23'
 
                         def __init__(self):
                             super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol, self).__init__()
@@ -1265,7 +1257,7 @@ class TelemetryModelDriven(Entity):
                             self._leafs = OrderedDict([
                                 ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'ProtoType', '')])),
                                 ('tls_hostname', (YLeaf(YType.str, 'tls-hostname'), ['str'])),
-                                ('no_tls', (YLeaf(YType.uint32, 'no-tls'), ['int'])),
+                                ('no_tls', (YLeaf(YType.empty, 'no-tls'), ['Empty'])),
                                 ('packetsize', (YLeaf(YType.uint32, 'packetsize'), ['int'])),
                             ])
                             self.protocol = None

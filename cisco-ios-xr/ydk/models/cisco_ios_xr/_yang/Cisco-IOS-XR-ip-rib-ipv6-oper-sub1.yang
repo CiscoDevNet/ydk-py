@@ -36,6 +36,10 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
     description
       "Route lookup key is limited to Prefix and Prefix Length";
   }
+  revision 2018-11-20 {
+    description
+      "Add keys for route lookup via resconf.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -139,7 +143,7 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
       "Route advertisement information";
     list ipv6-rib-edm-advert {
       description
-        "ipv6 rib edm advert";
+        "Next advertising proto";
       leaf protocol-id {
         type uint32;
         description
@@ -185,6 +189,17 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
     }
   }
 
+  grouping RIB-EDM-SRV6-SID {
+    description
+      "Information of SRv6 SID attribute installed in
+       the RIB";
+    leaf sid {
+      type inet:ipv6-address;
+      description
+        "Segment Identifier Attribute";
+    }
+  }
+
   grouping RIB-EDM-NNH {
     description
       "Information of a NNH in path installed in RIB";
@@ -227,7 +242,7 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
       "Information of a rib path";
     list ipv6-rib-edm-path {
       description
-        "ipv6 rib edm path";
+        "Next path";
       leaf address {
         type Ipv6-rib-edm-addr;
         description
@@ -492,12 +507,29 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
         description
           "Interface Index attribute";
       }
+      leaf number-of-srv6-sids {
+        type uint16;
+        description
+          "Number of SRv6 Segment Identifiers";
+      }
+      leaf has-srv6-transit-function {
+        type boolean;
+        description
+          "Path has some SRv6 transit function associated";
+      }
+      leaf srv6-transit-function {
+        type string;
+        description
+          "String representation of SRv6 transit function";
+      }
       list remote-backup-addr {
         max-elements "2";
         description
           "Remote backup node address";
         leaf entry {
           type Ipv6-rib-edm-addr;
+          description
+            "Remote backup node address";
           xr:event-telemetry "Subscribe Telemetry Event";
         }
       }
@@ -506,6 +538,8 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
           "Outgoing label stack for this path";
         leaf entry {
           type uint32;
+          description
+            "Outgoing label stack for this path";
           xr:event-telemetry "Subscribe Telemetry Event";
         }
       }
@@ -513,6 +547,11 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
         description
           "List of Next Next Hops";
         uses RIB-EDM-NNH;
+      }
+      list srv6-sid {
+        description
+          "List of SRv6 Segment Identifiers";
+        uses RIB-EDM-SRV6-SID;
       }
     }
   }
@@ -701,6 +740,16 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
       units "nanosecond";
       description
         "Route modification time(nanoseconds)";
+    }
+    leaf has-srv6-function {
+      type boolean;
+      description
+        "Route has some SRv6 function associated";
+    }
+    leaf srv6-function {
+      type string;
+      description
+        "String representation of SRv6 function";
     }
   }
 

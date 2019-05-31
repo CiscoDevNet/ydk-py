@@ -945,7 +945,7 @@ class Mpa(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, [u'bay_number', u'is_spa_inserted', u'spa_type', u'is_spa_admin_up', u'spa_oper_state', u'is_spa_power_admin_up', u'is_spa_powered', u'is_spa_in_reset', u'last_reset_reason', u'last_failure_reason', u'insertion_time', u'last_ready_time', u'up_time'], name, value)
+                            self._perform_setattr(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, ['bay_number', 'is_spa_inserted', 'spa_type', 'is_spa_admin_up', 'spa_oper_state', 'is_spa_power_admin_up', 'is_spa_powered', 'is_spa_in_reset', 'last_reset_reason', 'last_failure_reason', 'insertion_time', 'last_ready_time', 'up_time'], name, value)
 
 
 

@@ -90,7 +90,7 @@ class Oper(Entity):
     """
 
     _prefix = 'shelf_sm'
-    _revision = '2017-07-22'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Oper, self).__init__()
@@ -156,7 +156,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Oper.ShelfMgr, self).__init__()
@@ -201,7 +201,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.ShelfMgr.Trace, self).__init__()
@@ -223,7 +223,7 @@ class Oper(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Oper.ShelfMgr.Trace, [u'buffer'], name, value)
+                self._perform_setattr(Oper.ShelfMgr.Trace, ['buffer'], name, value)
 
 
             class Location(Entity):
@@ -249,7 +249,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.ShelfMgr.Trace.Location, self).__init__()
@@ -270,7 +270,7 @@ class Oper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Oper.ShelfMgr.Trace.Location, [u'location_name'], name, value)
+                    self._perform_setattr(Oper.ShelfMgr.Trace.Location, ['location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -296,7 +296,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.ShelfMgr.Trace.Location.AllOptions, self).__init__()
@@ -317,7 +317,7 @@ class Oper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions, [u'option'], name, value)
+                        self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions, ['option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -336,7 +336,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-07-22'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
@@ -355,7 +355,7 @@ class Oper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
+                            self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
 
 
@@ -393,7 +393,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Oper.Platform, self).__init__()
@@ -441,7 +441,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.Platform.Summary, self).__init__()
@@ -488,7 +488,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.Platform.Summary.Location, self).__init__()
@@ -552,7 +552,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.Platform.Summary.Location.SummaryData, self).__init__()
@@ -599,7 +599,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.Platform.Detail, self).__init__()
@@ -646,7 +646,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.Platform.Detail.Location, self).__init__()
@@ -745,7 +745,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.Platform.Detail.Location.DetailData, self).__init__()
@@ -802,7 +802,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.Platform.Slices, self).__init__()
@@ -849,7 +849,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.Platform.Slices.Location, self).__init__()
@@ -899,7 +899,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.Platform.Slices.Location.SliceValues, self).__init__()
@@ -957,7 +957,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-07-22'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Oper.Platform.Slices.Location.SliceValues.Slice, self).__init__()
@@ -1004,7 +1004,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Oper.Chassis, self).__init__()
@@ -1044,7 +1044,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.Chassis.Brief, self).__init__()
@@ -1089,7 +1089,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.Chassis.Brief.ChassisSerial, self).__init__()
@@ -1160,7 +1160,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.Chassis.Brief.ChassisSerial.BriefData, self).__init__()
@@ -1210,7 +1210,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Oper.Reload, self).__init__()
@@ -1250,7 +1250,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.Reload.Rack, self).__init__()
@@ -1288,7 +1288,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.Reload.Rack.Racks, self).__init__()
@@ -1344,7 +1344,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Oper.RebootHistory, self).__init__()
@@ -1392,7 +1392,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.RebootHistory.Card, self).__init__()
@@ -1439,7 +1439,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.RebootHistory.Card.Location, self).__init__()
@@ -1489,7 +1489,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.RebootHistory.Card.Location.Events, self).__init__()
@@ -1561,7 +1561,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-07-22'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Oper.RebootHistory.Card.Location.Events.Event, self).__init__()
@@ -1611,7 +1611,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.RebootHistory.AdminVm, self).__init__()
@@ -1658,7 +1658,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.RebootHistory.AdminVm.Location, self).__init__()
@@ -1708,7 +1708,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.RebootHistory.AdminVm.Location.Events, self).__init__()
@@ -1780,7 +1780,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-07-22'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Oper.RebootHistory.AdminVm.Location.Events.Event, self).__init__()
@@ -1837,7 +1837,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.RebootHistory.Reverse, self).__init__()
@@ -1881,7 +1881,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.RebootHistory.Reverse.Card, self).__init__()
@@ -1928,7 +1928,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.RebootHistory.Reverse.Card.Location, self).__init__()
@@ -1978,7 +1978,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-07-22'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Oper.RebootHistory.Reverse.Card.Location.Events, self).__init__()
@@ -2050,7 +2050,7 @@ class Oper(Entity):
                             """
 
                             _prefix = 'shelf_sm'
-                            _revision = '2017-07-22'
+                            _revision = '2018-04-09'
 
                             def __init__(self):
                                 super(Oper.RebootHistory.Reverse.Card.Location.Events.Event, self).__init__()
@@ -2100,7 +2100,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.RebootHistory.Reverse.AdminVm, self).__init__()
@@ -2147,7 +2147,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.RebootHistory.Reverse.AdminVm.Location, self).__init__()
@@ -2197,7 +2197,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-07-22'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Oper.RebootHistory.Reverse.AdminVm.Location.Events, self).__init__()
@@ -2269,7 +2269,7 @@ class Oper(Entity):
                             """
 
                             _prefix = 'shelf_sm'
-                            _revision = '2017-07-22'
+                            _revision = '2018-04-09'
 
                             def __init__(self):
                                 super(Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event, self).__init__()
@@ -2328,7 +2328,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Oper.Interface, self).__init__()
@@ -2549,7 +2549,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.Interface.InterfaceData, self).__init__()
@@ -2629,7 +2629,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Oper.ReloadVm, self).__init__()
@@ -2667,7 +2667,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.ReloadVm.Location, self).__init__()
@@ -2708,7 +2708,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Oper.Macpool, self).__init__()
@@ -2748,7 +2748,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Oper.Macpool.Brief, self).__init__()
@@ -2793,7 +2793,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Oper.Macpool.Brief.Rack, self).__init__()
@@ -2870,7 +2870,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Oper.Macpool.Brief.Rack.BriefData, self).__init__()
@@ -2938,7 +2938,7 @@ class Config(Entity):
     """
 
     _prefix = 'shelf_sm'
-    _revision = '2017-07-22'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Config, self).__init__()
@@ -2988,7 +2988,7 @@ class Config(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Config.Chassis, self).__init__()
@@ -3035,7 +3035,7 @@ class Config(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Config.Chassis.Serial, self).__init__()
@@ -3076,7 +3076,7 @@ class Config(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Config.Interface, self).__init__()
@@ -3114,7 +3114,7 @@ class Config(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Config.Interface.MgmtEth, self).__init__()
@@ -3159,14 +3159,14 @@ class Config(Entity):
                 	
                 	**type**\: int
                 
-                	**range:** 0..None
+                	**range:** 0..0
                 
                 .. attribute:: port  (key)
                 
                 	
                 	**type**\: int
                 
-                	**range:** 0..None
+                	**range:** 0..0
                 
                 .. attribute:: ipv4
                 
@@ -3202,7 +3202,7 @@ class Config(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-07-22'
+                _revision = '2018-04-09'
 
                 def __init__(self):
                     super(Config.Interface.MgmtEth.Locport, self).__init__()
@@ -3261,7 +3261,7 @@ class Config(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Config.Interface.MgmtEth.Locport.Ipv4, self).__init__()
@@ -3298,7 +3298,7 @@ class Config(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-07-22'
+                    _revision = '2018-04-09'
 
                     def __init__(self):
                         super(Config.Interface.MgmtEth.Locport.Arp, self).__init__()
@@ -3346,7 +3346,7 @@ class Config(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-07-22'
+                        _revision = '2018-04-09'
 
                         def __init__(self):
                             super(Config.Interface.MgmtEth.Locport.Arp.Ip, self).__init__()
@@ -3394,7 +3394,7 @@ class Config(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Config.Domain, self).__init__()
@@ -3431,7 +3431,7 @@ class Config(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Config.Domain.Name, self).__init__()
@@ -3471,7 +3471,7 @@ class Config(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-07-22'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Config.Domain.NameServer, self).__init__()
@@ -3519,7 +3519,7 @@ class Config(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-07-22'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Config.VirtualMacaddrRange, self).__init__()
@@ -3559,7 +3559,7 @@ class Actions(Entity):
     """
 
     _prefix = 'shelf_sm'
-    _revision = '2017-07-22'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Actions, self).__init__()

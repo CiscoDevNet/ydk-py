@@ -1088,7 +1088,7 @@ class MPLSTESTDMIB(Entity):
             	If mplsTunnelHopAddrType is set to asnumber(3), then this value will contain the AS number of this hop. Otherwise the agent should set this object to zero\- length string and the manager should ignore this
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1097,7 +1097,7 @@ class MPLSTESTDMIB(Entity):
             	If mplsTunnelHopAddrType is set to unnum(4), then this value will contain the interface identifier of the unnumbered interface for this hop. This object should be used in conjunction with mplsTunnelHopIpAddress which would contain the LSR Router ID in this case. Otherwise the agent should set this object to zero\-length string and the manager should ignore this
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1106,7 +1106,7 @@ class MPLSTESTDMIB(Entity):
             	If mplsTunnelHopAddrType is set to lspid(5), then this value will contain the LSPID of a tunnel of this hop. The present tunnel being configured is tunneled through this hop (using label stacking). This object is otherwise insignificant and should contain a value of 0 to indicate this fact
             	**type**\: str
             
-            	**length:** 2 \| 6
+            	**length:** 2..2 \| 6..6
             
             	**config**\: False
             
@@ -1604,7 +1604,7 @@ class MPLSTESTDMIB(Entity):
             	If mplsTunnelARHopAddrType is set to unnum(4), then this value will contain the interface identifier of the unnumbered interface for this hop. This object should be used in conjunction with mplsTunnelARHopIpAddr which would contain the LSR Router ID in this case. Otherwise the agent should set this object to zero\-length string and the manager should ignore this
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1613,7 +1613,7 @@ class MPLSTESTDMIB(Entity):
             	If mplsTunnelARHopAddrType is set to lspid(5), then this value will contain the LSP ID of this hop. This object is otherwise insignificant and should contain a value of 0 to indicate this fact
             	**type**\: str
             
-            	**length:** 2 \| 6
+            	**length:** 2..2 \| 6..6
             
             	**config**\: False
             
@@ -1776,7 +1776,7 @@ class MPLSTESTDMIB(Entity):
             	If mplsTunnelCHopAddrType is set to asnumber(3), then this value will contain the AS number of this hop. Otherwise the agent should set this object to zero\-length string and the manager should ignore this
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1785,7 +1785,7 @@ class MPLSTESTDMIB(Entity):
             	If mplsTunnelCHopAddrType is set to unnum(4), then this value will contain the unnumbered interface identifier of this hop. This object should be used in conjunction with mplsTunnelCHopIpAddr which would contain the LSR Router ID in this case. Otherwise the agent should set this object to zero\- length string and the manager should ignore this
             	**type**\: str
             
-            	**length:** 4
+            	**length:** 4..4
             
             	**config**\: False
             
@@ -1794,7 +1794,7 @@ class MPLSTESTDMIB(Entity):
             	If mplsTunnelCHopAddrType is set to lspid(5), then this value will contain the LSP ID of this hop. This object is otherwise insignificant and should contain a value of 0 to indicate this fact
             	**type**\: str
             
-            	**length:** 2 \| 6
+            	**length:** 2..2 \| 6..6
             
             	**config**\: False
             
