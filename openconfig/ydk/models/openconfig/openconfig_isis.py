@@ -20,6 +20,7 @@ ISIS
        +\-> { level adjacencies }
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64

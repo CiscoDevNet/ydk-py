@@ -51,6 +51,7 @@ ports per linecard, separate linecards for client and line ports,
 etc.).
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -75,6 +76,8 @@ class TerminalDevice(Entity):
     	Operational state data for global terminal device
     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.State>`
     
+    	**config**\: False
+    
     .. attribute:: logical_channels
     
     	Enclosing container the list of logical channels
@@ -93,7 +96,10 @@ class TerminalDevice(Entity):
     _revision = '2016-06-17'
 
     def __init__(self):
-        super(TerminalDevice, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TerminalDevice, self).__init__()
         self._top_entity = None
 
         self.yang_name = "terminal-device"
@@ -138,7 +144,10 @@ class TerminalDevice(Entity):
         _revision = '2016-06-17'
 
         def __init__(self):
-            super(TerminalDevice.Config, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TerminalDevice.Config, self).__init__()
 
             self.yang_name = "config"
             self.yang_parent_name = "terminal-device"
@@ -150,6 +159,7 @@ class TerminalDevice(Entity):
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
             self._is_frozen = True
+
 
 
     class State(Entity):
@@ -164,7 +174,10 @@ class TerminalDevice(Entity):
         _revision = '2016-06-17'
 
         def __init__(self):
-            super(TerminalDevice.State, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TerminalDevice.State, self).__init__()
 
             self.yang_name = "state"
             self.yang_parent_name = "terminal-device"
@@ -176,6 +189,7 @@ class TerminalDevice(Entity):
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
             self._is_frozen = True
+
 
 
     class LogicalChannels(Entity):
@@ -195,7 +209,10 @@ class TerminalDevice(Entity):
         _revision = '2016-06-17'
 
         def __init__(self):
-            super(TerminalDevice.LogicalChannels, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TerminalDevice.LogicalChannels, self).__init__()
 
             self.yang_name = "logical-channels"
             self.yang_parent_name = "terminal-device"
@@ -237,6 +254,8 @@ class TerminalDevice(Entity):
             	Operational state data for logical channels
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State>`
             
+            	**config**\: False
+            
             .. attribute:: otn
             
             	Top level container for OTU configuration when logical channel framing is using an OTU protocol, e.g., OTU1, OTU3, etc
@@ -265,7 +284,10 @@ class TerminalDevice(Entity):
             _revision = '2016-06-17'
 
             def __init__(self):
-                super(TerminalDevice.LogicalChannels.Channel, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TerminalDevice.LogicalChannels.Channel, self).__init__()
 
                 self.yang_name = "channel"
                 self.yang_parent_name = "logical-channels"
@@ -358,7 +380,10 @@ class TerminalDevice(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(TerminalDevice.LogicalChannels.Channel.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TerminalDevice.LogicalChannels.Channel.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "channel"
@@ -389,6 +414,7 @@ class TerminalDevice(Entity):
                     self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Config, ['index', 'description', 'admin_state', 'rate_class', 'trib_protocol', 'logical_channel_type', 'loopback_mode'], name, value)
 
 
+
             class State(Entity):
                 """
                 Operational state data for logical channels
@@ -400,40 +426,56 @@ class TerminalDevice(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Description of the logical channel
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: admin_state
                 
                 	Sets the admin state of the logical channel
                 	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
                 
+                	**config**\: False
+                
                 .. attribute:: rate_class
                 
                 	Rounded bit rate of the tributary signal. Exact bit rate will be refined by protocol selection
                 	**type**\:  :py:class:`TRIBUTARYRATECLASSTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYRATECLASSTYPE>`
+                
+                	**config**\: False
                 
                 .. attribute:: trib_protocol
                 
                 	Protocol framing of the tributary signal. If this LogicalChannel is directly connected to a Client\-Port or Optical\-Channel, this is the protocol of the associated port. If the LogicalChannel is connected to other LogicalChannels, the TributaryProtocol of the LogicalChannels will define a specific mapping/demapping or multiplexing/demultiplexing function.  Not all protocols are valid, depending on the value of trib\-rate\-class.  The expectation is that the NMS will validate that a correct combination of rate class and protocol are specfied.  Basic combinations are\:  rate class\: 1G protocols\: 1GE  rate class\: 2.5G protocols\: OC48, STM16  rate class\: 10G protocols\:  10GE LAN, 10GE WAN, OC192, STM64, OTU2, OTU2e,            OTU1e, ODU2, ODU2e, ODU1e  rate class\: 40G protocols\:  40GE, OC768, STM256, OTU3, ODU3  rate class\: 100G protocols\:  100GE, 100G MLG, OTU4, OTUCn, ODU4
                 	**type**\:  :py:class:`TRIBUTARYPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYPROTOCOLTYPE>`
                 
+                	**config**\: False
+                
                 .. attribute:: logical_channel_type
                 
                 	The type / stage of the logical element determines the configuration and operational state parameters (PMs) available for the logical element
                 	**type**\:  :py:class:`LOGICALELEMENTPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.LOGICALELEMENTPROTOCOLTYPE>`
+                
+                	**config**\: False
                 
                 .. attribute:: loopback_mode
                 
                 	Sets the loopback type on the logical channel. Setting the mode to something besides NONE activates the loopback in the specified mode
                 	**type**\:  :py:class:`LoopbackModeType <ydk.models.openconfig.openconfig_transport_types.LoopbackModeType>`
                 
+                	**config**\: False
+                
                 .. attribute:: link_state
                 
                 	Link\-state of the Ethernet protocol on the logical channel, SONET / SDH framed signal, etc
                 	**type**\:  :py:class:`LinkState <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State.LinkState>`
+                
+                	**config**\: False
                 
                 
 
@@ -443,7 +485,10 @@ class TerminalDevice(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(TerminalDevice.LogicalChannels.Channel.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TerminalDevice.LogicalChannels.Channel.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "channel"
@@ -499,6 +544,7 @@ class TerminalDevice(Entity):
 
 
 
+
             class Otn(Entity):
                 """
                 Top level container for OTU configuration when logical
@@ -515,6 +561,8 @@ class TerminalDevice(Entity):
                 	Operational state data for OTN protocol PMs, statistics, etc
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -523,7 +571,10 @@ class TerminalDevice(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(TerminalDevice.LogicalChannels.Channel.Otn, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TerminalDevice.LogicalChannels.Channel.Otn, self).__init__()
 
                     self.yang_name = "otn"
                     self.yang_parent_name = "channel"
@@ -574,7 +625,10 @@ class TerminalDevice(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(TerminalDevice.LogicalChannels.Channel.Otn.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TerminalDevice.LogicalChannels.Channel.Otn.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "otn"
@@ -597,6 +651,7 @@ class TerminalDevice(Entity):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.Config, ['tti_msg_transmit', 'tti_msg_expected', 'tti_msg_auto'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Operational state data for OTN protocol PMs, statistics,
@@ -607,25 +662,35 @@ class TerminalDevice(Entity):
                     	Trail trace identifier (TTI) message transmitted
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: tti_msg_expected
                     
                     	Trail trace identifier (TTI) message expected
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tti_msg_auto
                     
                     	Trail trace identifier (TTI) transmit message automatically created. If True, then setting a custom transmit message would be invalid
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: tti_msg_recv
                     
                     	Trail trace identifier (TTI) message received
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: rdi_msg
                     
                     	Remote defect indication (RDI) message received
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: errored_seconds
                     
@@ -634,12 +699,16 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: severely_errored_seconds
                     
                     	The number of seconds that loss of frame is detected OR the number of errored blocks, code violations, loss of sync or loss of signal is detected exceeds a predefined threshold
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: unavailable_seconds
                     
@@ -648,12 +717,16 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: code_violations
                     
                     	For ethernet or fiberchannel links, the number of 8b/10b coding violations. For SONET/SDH, the number of BIP (bit interleaved parity) errors
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: fec_uncorrectable_words
                     
@@ -662,12 +735,16 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: fec_corrected_bytes
                     
                     	The number of bytes that were corrected by the FEC
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: fec_corrected_bits
                     
@@ -676,6 +753,8 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: background_block_errors
                     
                     	The number of background block errors
@@ -683,25 +762,35 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber
                     
                     	Bit error rate before forward error correction \-\- computed value
                     	**type**\:  :py:class:`PreFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: post_fec_ber
                     
                     	Bit error rate after forward error correction \-\- computed value
                     	**type**\:  :py:class:`PostFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: q_value
                     
                     	Quality value (factor) of a channel
                     	**type**\:  :py:class:`QValue <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.QValue>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: esnr
                     
                     	Electrical signal to noise ratio. Baud rate normalized signal to noise ratio based on error vector magnitude
                     	**type**\:  :py:class:`Esnr <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -711,7 +800,10 @@ class TerminalDevice(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(TerminalDevice.LogicalChannels.Channel.Otn.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TerminalDevice.LogicalChannels.Channel.Otn.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "otn"
@@ -782,12 +874,16 @@ class TerminalDevice(Entity):
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
+                        	**config**\: False
+                        
                         .. attribute:: avg
                         
                         	The arithmetic mean value of the statistic over the sampling period
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        	**config**\: False
                         
                         .. attribute:: min
                         
@@ -796,12 +892,16 @@ class TerminalDevice(Entity):
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
+                        	**config**\: False
+                        
                         .. attribute:: max
                         
                         	The maximum value of the statitic over the sampling period
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        	**config**\: False
                         
                         
 
@@ -811,7 +911,10 @@ class TerminalDevice(Entity):
                         _revision = '2016-06-17'
 
                         def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, self).__init__()
 
                             self.yang_name = "pre-fec-ber"
                             self.yang_parent_name = "state"
@@ -833,7 +936,8 @@ class TerminalDevice(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, ['instant', 'avg', 'min', 'max'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                     class PostFecBer(Entity):
@@ -848,12 +952,16 @@ class TerminalDevice(Entity):
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
+                        	**config**\: False
+                        
                         .. attribute:: avg
                         
                         	The arithmetic mean value of the statistic over the sampling period
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        	**config**\: False
                         
                         .. attribute:: min
                         
@@ -862,12 +970,16 @@ class TerminalDevice(Entity):
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
+                        	**config**\: False
+                        
                         .. attribute:: max
                         
                         	The maximum value of the statitic over the sampling period
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        	**config**\: False
                         
                         
 
@@ -877,7 +989,10 @@ class TerminalDevice(Entity):
                         _revision = '2016-06-17'
 
                         def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, self).__init__()
 
                             self.yang_name = "post-fec-ber"
                             self.yang_parent_name = "state"
@@ -899,7 +1014,8 @@ class TerminalDevice(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, ['instant', 'avg', 'min', 'max'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                     class QValue(Entity):
@@ -913,12 +1029,16 @@ class TerminalDevice(Entity):
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
+                        	**config**\: False
+                        
                         .. attribute:: avg
                         
                         	The arithmetic mean value of the statistic over the sampling period
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        	**config**\: False
                         
                         .. attribute:: min
                         
@@ -927,12 +1047,16 @@ class TerminalDevice(Entity):
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
+                        	**config**\: False
+                        
                         .. attribute:: max
                         
                         	The maximum value of the statitic over the sampling period
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        	**config**\: False
                         
                         
 
@@ -942,7 +1066,10 @@ class TerminalDevice(Entity):
                         _revision = '2016-06-17'
 
                         def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, self).__init__()
 
                             self.yang_name = "q-value"
                             self.yang_parent_name = "state"
@@ -964,7 +1091,8 @@ class TerminalDevice(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, ['instant', 'avg', 'min', 'max'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                     class Esnr(Entity):
@@ -980,12 +1108,16 @@ class TerminalDevice(Entity):
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
+                        	**config**\: False
+                        
                         .. attribute:: avg
                         
                         	The arithmetic mean value of the statistic over the sampling period
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        	**config**\: False
                         
                         .. attribute:: min
                         
@@ -994,12 +1126,16 @@ class TerminalDevice(Entity):
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
+                        	**config**\: False
+                        
                         .. attribute:: max
                         
                         	The maximum value of the statitic over the sampling period
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        	**config**\: False
                         
                         
 
@@ -1009,7 +1145,10 @@ class TerminalDevice(Entity):
                         _revision = '2016-06-17'
 
                         def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, self).__init__()
 
                             self.yang_name = "esnr"
                             self.yang_parent_name = "state"
@@ -1031,7 +1170,10 @@ class TerminalDevice(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, ['instant', 'avg', 'min', 'max'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
 
 
             class Ethernet(Entity):
@@ -1049,6 +1191,8 @@ class TerminalDevice(Entity):
                 	Operational state data for Ethernet protocol framing on logical channels
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ethernet.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1057,7 +1201,10 @@ class TerminalDevice(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(TerminalDevice.LogicalChannels.Channel.Ethernet, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TerminalDevice.LogicalChannels.Channel.Ethernet, self).__init__()
 
                     self.yang_name = "ethernet"
                     self.yang_parent_name = "channel"
@@ -1094,7 +1241,10 @@ class TerminalDevice(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(TerminalDevice.LogicalChannels.Channel.Ethernet.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TerminalDevice.LogicalChannels.Channel.Ethernet.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ethernet"
@@ -1105,6 +1255,7 @@ class TerminalDevice(Entity):
                         self._leafs = OrderedDict()
                         self._segment_path = lambda: "config"
                         self._is_frozen = True
+
 
 
                 class State(Entity):
@@ -1119,12 +1270,16 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_mac_pause_frames
                     
                     	MAC layer PAUSE frames received on the interface
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: in_oversize_frames
                     
@@ -1133,12 +1288,16 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_jabber_frames
                     
                     	Number of jabber frames received on the interface.  Jabber frames are typically defined as oversize frames which also have a bad CRC.  Implementations may use slightly different definitions of what constitutes a jabber frame.  Often indicative of a NIC hardware problem
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: in_fragment_frames
                     
@@ -1147,12 +1306,16 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_8021q_frames
                     
                     	Number of 802.1q tagged frames received on the interface
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: in_crc_errors
                     
@@ -1161,12 +1324,16 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: out_mac_control_frames
                     
                     	MAC layer control frames sent on the interface
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_mac_pause_frames
                     
@@ -1175,12 +1342,16 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: out_8021q_frames
                     
                     	Number of 802.1q tagged frames sent on the interface
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -1190,7 +1361,10 @@ class TerminalDevice(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(TerminalDevice.LogicalChannels.Channel.Ethernet.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TerminalDevice.LogicalChannels.Channel.Ethernet.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ethernet"
@@ -1227,6 +1401,8 @@ class TerminalDevice(Entity):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ethernet.State, [u'in_mac_control_frames', u'in_mac_pause_frames', u'in_oversize_frames', u'in_jabber_frames', u'in_fragment_frames', u'in_8021q_frames', u'in_crc_errors', u'out_mac_control_frames', u'out_mac_pause_frames', u'out_8021q_frames'], name, value)
 
 
+
+
             class Ingress(Entity):
                 """
                 Top\-level container for specifying references to the
@@ -1243,6 +1419,8 @@ class TerminalDevice(Entity):
                 	Operational state data for the signal source for the logical channel
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ingress.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1251,7 +1429,10 @@ class TerminalDevice(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(TerminalDevice.LogicalChannels.Channel.Ingress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TerminalDevice.LogicalChannels.Channel.Ingress, self).__init__()
 
                     self.yang_name = "ingress"
                     self.yang_parent_name = "channel"
@@ -1304,7 +1485,10 @@ class TerminalDevice(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(TerminalDevice.LogicalChannels.Channel.Ingress.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TerminalDevice.LogicalChannels.Channel.Ingress.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ingress"
@@ -1325,6 +1509,7 @@ class TerminalDevice(Entity):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ingress.Config, ['transceiver', 'physical_channel'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Operational state data for the signal source for the
@@ -1337,6 +1522,8 @@ class TerminalDevice(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: physical_channel
                     
                     	This list should be populated with references to the client physical channels that feed this logical channel from the transceiver specified in the 'transceiver' leaf, which must be specified.  If this leaf\-list is empty, all physical channels in the transceiver are assumed to be mapped to the logical channel
@@ -1346,6 +1533,8 @@ class TerminalDevice(Entity):
                     
                     	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1354,7 +1543,10 @@ class TerminalDevice(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(TerminalDevice.LogicalChannels.Channel.Ingress.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TerminalDevice.LogicalChannels.Channel.Ingress.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ingress"
@@ -1375,6 +1567,8 @@ class TerminalDevice(Entity):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ingress.State, ['transceiver', 'physical_channel'], name, value)
 
 
+
+
             class LogicalChannelAssignments(Entity):
                 """
                 Enclosing container for tributary assignments
@@ -1392,7 +1586,10 @@ class TerminalDevice(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments, self).__init__()
 
                     self.yang_name = "logical-channel-assignments"
                     self.yang_parent_name = "channel"
@@ -1451,6 +1648,8 @@ class TerminalDevice(Entity):
                     	Operational state data for tributary assignments
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1459,7 +1658,10 @@ class TerminalDevice(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment, self).__init__()
 
                         self.yang_name = "assignment"
                         self.yang_parent_name = "logical-channel-assignments"
@@ -1540,7 +1742,10 @@ class TerminalDevice(Entity):
                         _revision = '2016-06-17'
 
                         def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "assignment"
@@ -1598,6 +1803,7 @@ class TerminalDevice(Entity):
 
 
 
+
                     class State(Entity):
                         """
                         Operational state data for tributary assignments
@@ -1609,15 +1815,21 @@ class TerminalDevice(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: description
                         
                         	Name assigned to the logical client channel
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: assignment_type
                         
                         	Each logical channel element may be assigned to subsequent stages of logical elements to implement further grooming, or can be assigned to a line\-side optical channel for transmission.  Each assignment also has an associated bandwidth allocation
                         	**type**\:  :py:class:`AssignmentType <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State.AssignmentType>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: logical_channel
                         
@@ -1628,6 +1840,8 @@ class TerminalDevice(Entity):
                         
                         	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: optical_channel
                         
                         	Reference to the line\-side optical channel that should carry the current logical channel element.  Use this reference to exit the logical element stage
@@ -1635,12 +1849,16 @@ class TerminalDevice(Entity):
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: allocation
                         
                         	Allocation of the logical client channel to the tributary or sub\-channel, expressed in Gbps
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-9223372036854775.808..9223372036854775.807
+                        
+                        	**config**\: False
                         
                         	**units**\: Gbps
                         
@@ -1652,7 +1870,10 @@ class TerminalDevice(Entity):
                         _revision = '2016-06-17'
 
                         def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "assignment"
@@ -1710,6 +1931,11 @@ class TerminalDevice(Entity):
 
 
 
+
+
+
+
+
     class OperationalModes(Entity):
         """
         Enclosing container for list of operational modes
@@ -1719,6 +1945,8 @@ class TerminalDevice(Entity):
         	List of operational modes supported by the platform. The operational mode provides a platform\-defined summary of information such as symbol rate, modulation, pulse shaping, etc
         	**type**\: list of  		 :py:class:`Mode <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1727,7 +1955,10 @@ class TerminalDevice(Entity):
         _revision = '2016-06-17'
 
         def __init__(self):
-            super(TerminalDevice.OperationalModes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TerminalDevice.OperationalModes, self).__init__()
 
             self.yang_name = "operational-modes"
             self.yang_parent_name = "terminal-device"
@@ -1762,15 +1993,21 @@ class TerminalDevice(Entity):
             
             	**refers to**\:  :py:class:`mode_id <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode.State>`
             
+            	**config**\: False
+            
             .. attribute:: config
             
             	Configuration data for operational mode
             	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode.Config>`
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	Operational state data for the platform\-defined operational mode
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode.State>`
+            
+            	**config**\: False
             
             
 
@@ -1780,7 +2017,10 @@ class TerminalDevice(Entity):
             _revision = '2016-06-17'
 
             def __init__(self):
-                super(TerminalDevice.OperationalModes.Mode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TerminalDevice.OperationalModes.Mode, self).__init__()
 
                 self.yang_name = "mode"
                 self.yang_parent_name = "operational-modes"
@@ -1820,7 +2060,10 @@ class TerminalDevice(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(TerminalDevice.OperationalModes.Mode.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TerminalDevice.OperationalModes.Mode.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "mode"
@@ -1831,6 +2074,7 @@ class TerminalDevice(Entity):
                     self._leafs = OrderedDict()
                     self._segment_path = lambda: "config"
                     self._is_frozen = True
+
 
 
             class State(Entity):
@@ -1845,15 +2089,21 @@ class TerminalDevice(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Vendor\-supplied textual description of the characteristics of this operational mode to enable operators to select the appropriate mode for the application
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: vendor_id
                 
                 	Identifier to represent the vendor / supplier of the platform and the associated operational mode information
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1863,7 +2113,10 @@ class TerminalDevice(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(TerminalDevice.OperationalModes.Mode.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TerminalDevice.OperationalModes.Mode.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "mode"
@@ -1885,7 +2138,12 @@ class TerminalDevice(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(TerminalDevice.OperationalModes.Mode.State, ['mode_id', 'description', 'vendor_id'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = TerminalDevice()
         return self._top_entity
+
+
 

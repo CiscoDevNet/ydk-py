@@ -17,6 +17,7 @@ This version of this YANG module is part of RFC 6643; see
 the RFC itself for full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -39,6 +40,10 @@ class ObjectIdentity(Identity):
     _revision = '2012-06-22'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-smiv2", pref="ietf-yang-smiv2", tag="ietf-yang-smiv2:object-identity"):
-        super(ObjectIdentity, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ObjectIdentity, self).__init__(ns, pref, tag)
+
 
 

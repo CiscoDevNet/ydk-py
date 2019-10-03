@@ -16,9 +16,12 @@
 from ydk.ext.services import Datastore, NetconfService as _NetconfService
 from ydk.errors import YServiceError as _YServiceError
 from ydk.errors.error_handler import handle_runtime_error as _handle_error
+from ydk.filters import YFilter
 
 from ydk.types import EntityCollection, Config
-from ydk.entity_utils import _read_entities
+from ydk.entity_utils import _read_entities, _get_top_level_entity, _get_child_entity_from_top
+from ydk.entity_utils import _set_nontop_entity_filter
+
 
 class NetconfService(_NetconfService):
     """ Python wrapper for NetconfService
@@ -88,7 +91,7 @@ class NetconfService(_NetconfService):
             return self._ns.discard_changes(provider)
 
     def edit_config(self, provider, target, config,
-        default_operation="", test_option="", error_option=""):
+                    default_operation="", test_option="", error_option=""):
 
         if None in (provider, target, config):
             raise _YServiceError("provider, target, and config cannot be None")
@@ -97,43 +100,17 @@ class NetconfService(_NetconfService):
             if isinstance(config, Config):
                 config = config.entities()
             return self._ns.edit_config(provider, target, config,
-                default_operation, test_option, error_option)
+                                        default_operation, test_option, error_option)
 
     def get_config(self, provider, source=Datastore.running, read_filter=None):
         if None in (provider, source):
             raise _YServiceError("provider and source cannot be None")
-
-        if read_filter is None:
-            with _handle_error():
-                return _read_entities(provider, True, source)
-
-        filters = read_filter
-        if isinstance(read_filter, EntityCollection):
-            filters = read_filter.entities()
-
-        with _handle_error():
-            result = self._ns.get_config(provider, source, filters)
-        if isinstance(read_filter, EntityCollection):
-            result = Config(result)
-        return result
+        return _ns_get(provider, source, read_filter, self._ns.get_config)
 
     def get(self, provider, read_filter=None):
         if provider is None:
             raise _YServiceError("provider cannot be None")
-
-        if read_filter is None:
-            with _handle_error():
-                return _read_entities(provider, get_config=False)
-
-        filters = read_filter
-        if isinstance(read_filter, EntityCollection):
-            filters = read_filter.entities()
-
-        with _handle_error():
-            result = self._ns.get(provider, filters)
-        if isinstance(read_filter, EntityCollection):
-            result = Config(result)
-        return result
+        return _ns_get(provider, None, read_filter, self._ns.get)
 
     def kill_session(self, provider, session_id):
         if None in (provider, session_id):
@@ -161,9 +138,33 @@ class NetconfService(_NetconfService):
             raise _YServiceError("provider and source/source_config cannot be None")
 
         with _handle_error():
-            if type(source) == Datastore:
+            if isinstance(source, Datastore):
                 return self._ns.validate(provider, source, url)
             elif source_config is not None:
                 return self._ns.validate(provider, source_config)
             else:
                 return self._ns.validate(provider, source)
+
+
+def _ns_get(provider, source, read_filter, ns_call):
+    is_config = (source is not None)
+    if read_filter is None:
+        with _handle_error():
+            return _read_entities(provider, get_config=is_config)
+
+    filters = read_filter
+    if isinstance(read_filter, EntityCollection):
+        filters = read_filter.entities()
+
+    _set_nontop_entity_filter(filters, YFilter.read)
+    top_filters = _get_top_level_entity(filters, provider.get_session().get_root_schema())
+    with _handle_error():
+        if is_config:
+            top_result = ns_call(provider, source, top_filters)
+        else:
+            top_result = ns_call(provider, top_filters)
+    result = _get_child_entity_from_top(top_result, filters)
+
+    if isinstance(read_filter, EntityCollection):
+        result = Config(result)
+    return result

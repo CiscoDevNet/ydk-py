@@ -4,6 +4,7 @@ This module defines data types (e.g., YANG identities)
 to support the OpenConfig component inventory model.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -28,7 +29,11 @@ class OPENCONFIGHARDWARECOMPONENT(Identity):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:OPENCONFIG_HARDWARE_COMPONENT"):
-        super(OPENCONFIGHARDWARECOMPONENT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OPENCONFIGHARDWARECOMPONENT, self).__init__(ns, pref, tag)
+
 
 
 class OPENCONFIGSOFTWARECOMPONENT(Identity):
@@ -44,7 +49,11 @@ class OPENCONFIGSOFTWARECOMPONENT(Identity):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:OPENCONFIG_SOFTWARE_COMPONENT"):
-        super(OPENCONFIGSOFTWARECOMPONENT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OPENCONFIGSOFTWARECOMPONENT, self).__init__(ns, pref, tag)
+
 
 
 class OPERATINGSYSTEM(OPENCONFIGSOFTWARECOMPONENT):
@@ -59,7 +68,11 @@ class OPERATINGSYSTEM(OPENCONFIGSOFTWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:OPERATING_SYSTEM"):
-        super(OPERATINGSYSTEM, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OPERATINGSYSTEM, self).__init__(ns, pref, tag)
+
 
 
 class LINECARD(OPENCONFIGHARDWARECOMPONENT):
@@ -74,7 +87,11 @@ class LINECARD(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:LINECARD"):
-        super(LINECARD, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LINECARD, self).__init__(ns, pref, tag)
+
 
 
 class MODULE(OPENCONFIGHARDWARECOMPONENT):
@@ -89,7 +106,11 @@ class MODULE(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:MODULE"):
-        super(MODULE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MODULE, self).__init__(ns, pref, tag)
+
 
 
 class CPU(OPENCONFIGHARDWARECOMPONENT):
@@ -104,7 +125,11 @@ class CPU(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:CPU"):
-        super(CPU, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CPU, self).__init__(ns, pref, tag)
+
 
 
 class TRANSCEIVER(OPENCONFIGHARDWARECOMPONENT):
@@ -119,7 +144,11 @@ class TRANSCEIVER(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:TRANSCEIVER"):
-        super(TRANSCEIVER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TRANSCEIVER, self).__init__(ns, pref, tag)
+
 
 
 class CHASSIS(OPENCONFIGHARDWARECOMPONENT):
@@ -134,7 +163,11 @@ class CHASSIS(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:CHASSIS"):
-        super(CHASSIS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CHASSIS, self).__init__(ns, pref, tag)
+
 
 
 class FAN(OPENCONFIGHARDWARECOMPONENT):
@@ -149,7 +182,11 @@ class FAN(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:FAN"):
-        super(FAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FAN, self).__init__(ns, pref, tag)
+
 
 
 class BACKPLANE(OPENCONFIGHARDWARECOMPONENT):
@@ -165,7 +202,11 @@ class BACKPLANE(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:BACKPLANE"):
-        super(BACKPLANE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BACKPLANE, self).__init__(ns, pref, tag)
+
 
 
 class SENSOR(OPENCONFIGHARDWARECOMPONENT):
@@ -180,7 +221,11 @@ class SENSOR(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:SENSOR"):
-        super(SENSOR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SENSOR, self).__init__(ns, pref, tag)
+
 
 
 class PORT(OPENCONFIGHARDWARECOMPONENT):
@@ -196,7 +241,11 @@ class PORT(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:PORT"):
-        super(PORT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PORT, self).__init__(ns, pref, tag)
+
 
 
 class POWERSUPPLY(OPENCONFIGHARDWARECOMPONENT):
@@ -211,6 +260,10 @@ class POWERSUPPLY(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-06'
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:POWER_SUPPLY"):
-        super(POWERSUPPLY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(POWERSUPPLY, self).__init__(ns, pref, tag)
+
 
 

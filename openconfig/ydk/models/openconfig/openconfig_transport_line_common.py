@@ -5,6 +5,7 @@ models for optical transport line system elements, such as
 amplifiers and ROADMs (wavelength routers).
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -27,7 +28,11 @@ class OPTICALLINEPORTTYPE(Identity):
     _revision = '2017-07-08'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:OPTICAL_LINE_PORT_TYPE"):
-        super(OPTICALLINEPORTTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OPTICALLINEPORTTYPE, self).__init__(ns, pref, tag)
+
 
 
 class INGRESS(OPTICALLINEPORTTYPE):
@@ -44,7 +49,11 @@ class INGRESS(OPTICALLINEPORTTYPE):
     _revision = '2017-07-08'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:INGRESS"):
-        super(INGRESS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INGRESS, self).__init__(ns, pref, tag)
+
 
 
 class MONITOR(OPTICALLINEPORTTYPE):
@@ -63,7 +72,11 @@ class MONITOR(OPTICALLINEPORTTYPE):
     _revision = '2017-07-08'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:MONITOR"):
-        super(MONITOR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MONITOR, self).__init__(ns, pref, tag)
+
 
 
 class DROP(OPTICALLINEPORTTYPE):
@@ -79,7 +92,11 @@ class DROP(OPTICALLINEPORTTYPE):
     _revision = '2017-07-08'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:DROP"):
-        super(DROP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DROP, self).__init__(ns, pref, tag)
+
 
 
 class ADD(OPTICALLINEPORTTYPE):
@@ -95,7 +112,11 @@ class ADD(OPTICALLINEPORTTYPE):
     _revision = '2017-07-08'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:ADD"):
-        super(ADD, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ADD, self).__init__(ns, pref, tag)
+
 
 
 class EGRESS(OPTICALLINEPORTTYPE):
@@ -112,6 +133,10 @@ class EGRESS(OPTICALLINEPORTTYPE):
     _revision = '2017-07-08'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:EGRESS"):
-        super(EGRESS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(EGRESS, self).__init__(ns, pref, tag)
+
 
 

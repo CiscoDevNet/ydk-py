@@ -4,6 +4,7 @@ This module contains general type definitions and identities
 for optical transport models.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -91,7 +92,11 @@ class SONETAPPLICATIONCODE(Identity):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:SONET_APPLICATION_CODE"):
-        super(SONETAPPLICATIONCODE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SONETAPPLICATIONCODE, self).__init__(ns, pref, tag)
+
 
 
 class OTNAPPLICATIONCODE(Identity):
@@ -106,7 +111,11 @@ class OTNAPPLICATIONCODE(Identity):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:OTN_APPLICATION_CODE"):
-        super(OTNAPPLICATIONCODE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OTNAPPLICATIONCODE, self).__init__(ns, pref, tag)
+
 
 
 class TRANSCEIVERFORMFACTORTYPE(Identity):
@@ -122,7 +131,11 @@ class TRANSCEIVERFORMFACTORTYPE(Identity):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRANSCEIVER_FORM_FACTOR_TYPE"):
-        super(TRANSCEIVERFORMFACTORTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TRANSCEIVERFORMFACTORTYPE, self).__init__(ns, pref, tag)
+
 
 
 class LOGICALELEMENTPROTOCOLTYPE(Identity):
@@ -138,7 +151,11 @@ class LOGICALELEMENTPROTOCOLTYPE(Identity):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:LOGICAL_ELEMENT_PROTOCOL_TYPE"):
-        super(LOGICALELEMENTPROTOCOLTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOGICALELEMENTPROTOCOLTYPE, self).__init__(ns, pref, tag)
+
 
 
 class TRIBUTARYRATECLASSTYPE(Identity):
@@ -154,7 +171,11 @@ class TRIBUTARYRATECLASSTYPE(Identity):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRIBUTARY_RATE_CLASS_TYPE"):
-        super(TRIBUTARYRATECLASSTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TRIBUTARYRATECLASSTYPE, self).__init__(ns, pref, tag)
+
 
 
 class ETHERNETPMDTYPE(Identity):
@@ -169,7 +190,11 @@ class ETHERNETPMDTYPE(Identity):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETHERNET_PMD_TYPE"):
-        super(ETHERNETPMDTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHERNETPMDTYPE, self).__init__(ns, pref, tag)
+
 
 
 class FIBERCONNECTORTYPE(Identity):
@@ -184,7 +209,11 @@ class FIBERCONNECTORTYPE(Identity):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:FIBER_CONNECTOR_TYPE"):
-        super(FIBERCONNECTORTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FIBERCONNECTORTYPE, self).__init__(ns, pref, tag)
+
 
 
 class OPTICALCHANNEL(OPENCONFIGHARDWARECOMPONENT):
@@ -201,7 +230,11 @@ class OPTICALCHANNEL(OPENCONFIGHARDWARECOMPONENT):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:OPTICAL_CHANNEL"):
-        super(OPTICALCHANNEL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OPTICALCHANNEL, self).__init__(ns, pref, tag)
+
 
 
 class TRIBUTARYPROTOCOLTYPE(Identity):
@@ -217,7 +250,11 @@ class TRIBUTARYPROTOCOLTYPE(Identity):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRIBUTARY_PROTOCOL_TYPE"):
-        super(TRIBUTARYPROTOCOLTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TRIBUTARYPROTOCOLTYPE, self).__init__(ns, pref, tag)
+
 
 
 class CFP2(TRANSCEIVERFORMFACTORTYPE):
@@ -234,7 +271,11 @@ class CFP2(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:CFP2"):
-        super(CFP2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CFP2, self).__init__(ns, pref, tag)
+
 
 
 class QSFP28(TRANSCEIVERFORMFACTORTYPE):
@@ -250,7 +291,11 @@ class QSFP28(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:QSFP28"):
-        super(QSFP28, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(QSFP28, self).__init__(ns, pref, tag)
+
 
 
 class ETH40GBASESR4(ETHERNETPMDTYPE):
@@ -265,7 +310,11 @@ class ETH40GBASESR4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_40GBASE_SR4"):
-        super(ETH40GBASESR4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH40GBASESR4, self).__init__(ns, pref, tag)
+
 
 
 class ETH10GBASELRM(ETHERNETPMDTYPE):
@@ -280,7 +329,11 @@ class ETH10GBASELRM(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_10GBASE_LRM"):
-        super(ETH10GBASELRM, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH10GBASELRM, self).__init__(ns, pref, tag)
+
 
 
 class ETH4X10GBASESR(ETHERNETPMDTYPE):
@@ -295,7 +348,11 @@ class ETH4X10GBASESR(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_4X10GBASE_SR"):
-        super(ETH4X10GBASESR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH4X10GBASESR, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GAOC(ETHERNETPMDTYPE):
@@ -310,7 +367,11 @@ class ETH100GAOC(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100G_AOC"):
-        super(ETH100GAOC, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GAOC, self).__init__(ns, pref, tag)
+
 
 
 class CFP4(TRANSCEIVERFORMFACTORTYPE):
@@ -326,7 +387,11 @@ class CFP4(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:CFP4"):
-        super(CFP4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CFP4, self).__init__(ns, pref, tag)
+
 
 
 class SONETUNDEFINED(SONETAPPLICATIONCODE):
@@ -341,7 +406,11 @@ class SONETUNDEFINED(SONETAPPLICATIONCODE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:SONET_UNDEFINED"):
-        super(SONETUNDEFINED, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SONETUNDEFINED, self).__init__(ns, pref, tag)
+
 
 
 class P1L12D2(OTNAPPLICATIONCODE):
@@ -356,7 +425,11 @@ class P1L12D2(OTNAPPLICATIONCODE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:P1L1_2D2"):
-        super(P1L12D2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(P1L12D2, self).__init__(ns, pref, tag)
+
 
 
 class P1L12D1(OTNAPPLICATIONCODE):
@@ -371,7 +444,11 @@ class P1L12D1(OTNAPPLICATIONCODE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:P1L1_2D1"):
-        super(P1L12D1, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(P1L12D1, self).__init__(ns, pref, tag)
+
 
 
 class TRIBRATE10G(TRIBUTARYRATECLASSTYPE):
@@ -386,7 +463,11 @@ class TRIBRATE10G(TRIBUTARYRATECLASSTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRIB_RATE_10G"):
-        super(TRIBRATE10G, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TRIBRATE10G, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTU2E(TRIBUTARYPROTOCOLTYPE):
@@ -401,7 +482,11 @@ class PROTOTU2E(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTU2E"):
-        super(PROTOTU2E, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOTU2E, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASESR4(ETHERNETPMDTYPE):
@@ -416,7 +501,11 @@ class ETH100GBASESR4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_SR4"):
-        super(ETH100GBASESR4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GBASESR4, self).__init__(ns, pref, tag)
+
 
 
 class ETH10GBASEZR(ETHERNETPMDTYPE):
@@ -431,7 +520,11 @@ class ETH10GBASEZR(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_10GBASE_ZR"):
-        super(ETH10GBASEZR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH10GBASEZR, self).__init__(ns, pref, tag)
+
 
 
 class SCCONNECTOR(FIBERCONNECTORTYPE):
@@ -446,7 +539,11 @@ class SCCONNECTOR(FIBERCONNECTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:SC_CONNECTOR"):
-        super(SCCONNECTOR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SCCONNECTOR, self).__init__(ns, pref, tag)
+
 
 
 class VSR20003R3(SONETAPPLICATIONCODE):
@@ -461,7 +558,11 @@ class VSR20003R3(SONETAPPLICATIONCODE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:VSR2000_3R3"):
-        super(VSR20003R3, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VSR20003R3, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASEER4(ETHERNETPMDTYPE):
@@ -476,7 +577,11 @@ class ETH100GBASEER4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_ER4"):
-        super(ETH100GBASEER4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GBASEER4, self).__init__(ns, pref, tag)
+
 
 
 class OTNUNDEFINED(OTNAPPLICATIONCODE):
@@ -491,7 +596,11 @@ class OTNUNDEFINED(OTNAPPLICATIONCODE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:OTN_UNDEFINED"):
-        super(OTNUNDEFINED, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OTNUNDEFINED, self).__init__(ns, pref, tag)
+
 
 
 class ETH40GBASEER4(ETHERNETPMDTYPE):
@@ -506,7 +615,11 @@ class ETH40GBASEER4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_40GBASE_ER4"):
-        super(ETH40GBASEER4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH40GBASEER4, self).__init__(ns, pref, tag)
+
 
 
 class PROTODU2E(TRIBUTARYPROTOCOLTYPE):
@@ -521,7 +634,11 @@ class PROTODU2E(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_ODU2E"):
-        super(PROTODU2E, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTODU2E, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GACC(ETHERNETPMDTYPE):
@@ -536,7 +653,11 @@ class ETH100GACC(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100G_ACC"):
-        super(ETH100GACC, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GACC, self).__init__(ns, pref, tag)
+
 
 
 class PROTOC768(TRIBUTARYPROTOCOLTYPE):
@@ -551,7 +672,11 @@ class PROTOC768(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OC768"):
-        super(PROTOC768, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOC768, self).__init__(ns, pref, tag)
+
 
 
 class ETHUNDEFINED(ETHERNETPMDTYPE):
@@ -566,7 +691,11 @@ class ETHUNDEFINED(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_UNDEFINED"):
-        super(ETHUNDEFINED, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHUNDEFINED, self).__init__(ns, pref, tag)
+
 
 
 class PROT10GEWAN(TRIBUTARYPROTOCOLTYPE):
@@ -581,7 +710,11 @@ class PROT10GEWAN(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_10GE_WAN"):
-        super(PROT10GEWAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROT10GEWAN, self).__init__(ns, pref, tag)
+
 
 
 class ETH40GBASELR4(ETHERNETPMDTYPE):
@@ -596,7 +729,11 @@ class ETH40GBASELR4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_40GBASE_LR4"):
-        super(ETH40GBASELR4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH40GBASELR4, self).__init__(ns, pref, tag)
+
 
 
 class ETH40GBASEPSM4(ETHERNETPMDTYPE):
@@ -611,7 +748,11 @@ class ETH40GBASEPSM4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_40GBASE_PSM4"):
-        super(ETH40GBASEPSM4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH40GBASEPSM4, self).__init__(ns, pref, tag)
+
 
 
 class TRIBRATE40G(TRIBUTARYRATECLASSTYPE):
@@ -626,7 +767,11 @@ class TRIBRATE40G(TRIBUTARYRATECLASSTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRIB_RATE_40G"):
-        super(TRIBRATE40G, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TRIBRATE40G, self).__init__(ns, pref, tag)
+
 
 
 class VSR20003R2(SONETAPPLICATIONCODE):
@@ -641,7 +786,11 @@ class VSR20003R2(SONETAPPLICATIONCODE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:VSR2000_3R2"):
-        super(VSR20003R2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VSR20003R2, self).__init__(ns, pref, tag)
+
 
 
 class PROTSTM16(TRIBUTARYPROTOCOLTYPE):
@@ -656,7 +805,11 @@ class PROTSTM16(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_STM16"):
-        super(PROTSTM16, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTSTM16, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTUCN(TRIBUTARYPROTOCOLTYPE):
@@ -671,7 +824,11 @@ class PROTOTUCN(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTUCN"):
-        super(PROTOTUCN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOTUCN, self).__init__(ns, pref, tag)
+
 
 
 class CFP2ACO(TRANSCEIVERFORMFACTORTYPE):
@@ -687,7 +844,11 @@ class CFP2ACO(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:CFP2_ACO"):
-        super(CFP2ACO, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CFP2ACO, self).__init__(ns, pref, tag)
+
 
 
 class X2(TRANSCEIVERFORMFACTORTYPE):
@@ -703,7 +864,11 @@ class X2(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:X2"):
-        super(X2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(X2, self).__init__(ns, pref, tag)
+
 
 
 class XFP(TRANSCEIVERFORMFACTORTYPE):
@@ -719,7 +884,11 @@ class XFP(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:XFP"):
-        super(XFP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(XFP, self).__init__(ns, pref, tag)
+
 
 
 class PROT1GE(TRIBUTARYPROTOCOLTYPE):
@@ -734,7 +903,11 @@ class PROT1GE(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_1GE"):
-        super(PROT1GE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROT1GE, self).__init__(ns, pref, tag)
+
 
 
 class VSR20003R5(SONETAPPLICATIONCODE):
@@ -749,7 +922,11 @@ class VSR20003R5(SONETAPPLICATIONCODE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:VSR2000_3R5"):
-        super(VSR20003R5, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VSR20003R5, self).__init__(ns, pref, tag)
+
 
 
 class PROT100GE(TRIBUTARYPROTOCOLTYPE):
@@ -764,7 +941,11 @@ class PROT100GE(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_100GE"):
-        super(PROT100GE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROT100GE, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTU3(TRIBUTARYPROTOCOLTYPE):
@@ -779,7 +960,11 @@ class PROTOTU3(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTU3"):
-        super(PROTOTU3, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOTU3, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTU2(TRIBUTARYPROTOCOLTYPE):
@@ -794,7 +979,11 @@ class PROTOTU2(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTU2"):
-        super(PROTOTU2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOTU2, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTU4(TRIBUTARYPROTOCOLTYPE):
@@ -810,7 +999,11 @@ class PROTOTU4(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTU4"):
-        super(PROTOTU4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOTU4, self).__init__(ns, pref, tag)
+
 
 
 class PROTETHERNET(LOGICALELEMENTPROTOCOLTYPE):
@@ -825,7 +1018,11 @@ class PROTETHERNET(LOGICALELEMENTPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_ETHERNET"):
-        super(PROTETHERNET, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTETHERNET, self).__init__(ns, pref, tag)
+
 
 
 class TRIBRATE100G(TRIBUTARYRATECLASSTYPE):
@@ -840,7 +1037,11 @@ class TRIBRATE100G(TRIBUTARYRATECLASSTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRIB_RATE_100G"):
-        super(TRIBRATE100G, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TRIBRATE100G, self).__init__(ns, pref, tag)
+
 
 
 class PROTSTM256(TRIBUTARYPROTOCOLTYPE):
@@ -855,7 +1056,11 @@ class PROTSTM256(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_STM256"):
-        super(PROTSTM256, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTSTM256, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTN(LOGICALELEMENTPROTOCOLTYPE):
@@ -870,7 +1075,11 @@ class PROTOTN(LOGICALELEMENTPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTN"):
-        super(PROTOTN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOTN, self).__init__(ns, pref, tag)
+
 
 
 class ETH10GBASELR(ETHERNETPMDTYPE):
@@ -885,7 +1094,11 @@ class ETH10GBASELR(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_10GBASE_LR"):
-        super(ETH10GBASELR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH10GBASELR, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASESR10(ETHERNETPMDTYPE):
@@ -900,7 +1113,11 @@ class ETH100GBASESR10(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_SR10"):
-        super(ETH100GBASESR10, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GBASESR10, self).__init__(ns, pref, tag)
+
 
 
 class ETH4X10GBASELR(ETHERNETPMDTYPE):
@@ -915,7 +1132,11 @@ class ETH4X10GBASELR(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_4X10GBASE_LR"):
-        super(ETH4X10GBASELR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH4X10GBASELR, self).__init__(ns, pref, tag)
+
 
 
 class SFPPLUS(TRANSCEIVERFORMFACTORTYPE):
@@ -931,7 +1152,11 @@ class SFPPLUS(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:SFP_PLUS"):
-        super(SFPPLUS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SFPPLUS, self).__init__(ns, pref, tag)
+
 
 
 class NONPLUGGABLE(TRANSCEIVERFORMFACTORTYPE):
@@ -947,7 +1172,11 @@ class NONPLUGGABLE(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:NON_PLUGGABLE"):
-        super(NONPLUGGABLE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(NONPLUGGABLE, self).__init__(ns, pref, tag)
+
 
 
 class OTHER(TRANSCEIVERFORMFACTORTYPE):
@@ -962,7 +1191,11 @@ class OTHER(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:OTHER"):
-        super(OTHER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OTHER, self).__init__(ns, pref, tag)
+
 
 
 class PROT10GELAN(TRIBUTARYPROTOCOLTYPE):
@@ -977,7 +1210,11 @@ class PROT10GELAN(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_10GE_LAN"):
-        super(PROT10GELAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROT10GELAN, self).__init__(ns, pref, tag)
+
 
 
 class PROTOC48(TRIBUTARYPROTOCOLTYPE):
@@ -992,7 +1229,11 @@ class PROTOC48(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OC48"):
-        super(PROTOC48, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOC48, self).__init__(ns, pref, tag)
+
 
 
 class P1S12D2(OTNAPPLICATIONCODE):
@@ -1007,7 +1248,11 @@ class P1S12D2(OTNAPPLICATIONCODE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:P1S1_2D2"):
-        super(P1S12D2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(P1S12D2, self).__init__(ns, pref, tag)
+
 
 
 class PROTOC192(TRIBUTARYPROTOCOLTYPE):
@@ -1022,7 +1267,11 @@ class PROTOC192(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OC192"):
-        super(PROTOC192, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOC192, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASELR4(ETHERNETPMDTYPE):
@@ -1037,7 +1286,11 @@ class ETH100GBASELR4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_LR4"):
-        super(ETH100GBASELR4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GBASELR4, self).__init__(ns, pref, tag)
+
 
 
 class TRIBRATE1G(TRIBUTARYRATECLASSTYPE):
@@ -1052,7 +1305,11 @@ class TRIBRATE1G(TRIBUTARYRATECLASSTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRIB_RATE_1G"):
-        super(TRIBRATE1G, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TRIBRATE1G, self).__init__(ns, pref, tag)
+
 
 
 class PROT40GE(TRIBUTARYPROTOCOLTYPE):
@@ -1067,7 +1324,11 @@ class PROT40GE(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_40GE"):
-        super(PROT40GE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROT40GE, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASECLR4(ETHERNETPMDTYPE):
@@ -1082,7 +1343,11 @@ class ETH100GBASECLR4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_CLR4"):
-        super(ETH100GBASECLR4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GBASECLR4, self).__init__(ns, pref, tag)
+
 
 
 class QSFP(TRANSCEIVERFORMFACTORTYPE):
@@ -1098,7 +1363,11 @@ class QSFP(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:QSFP"):
-        super(QSFP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(QSFP, self).__init__(ns, pref, tag)
+
 
 
 class MPOCONNECTOR(FIBERCONNECTORTYPE):
@@ -1114,7 +1383,11 @@ class MPOCONNECTOR(FIBERCONNECTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:MPO_CONNECTOR"):
-        super(MPOCONNECTOR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MPOCONNECTOR, self).__init__(ns, pref, tag)
+
 
 
 class PROT100GMLG(TRIBUTARYPROTOCOLTYPE):
@@ -1129,7 +1402,11 @@ class PROT100GMLG(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_100G_MLG"):
-        super(PROT100GMLG, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROT100GMLG, self).__init__(ns, pref, tag)
+
 
 
 class TRIBRATE2DOT5G(TRIBUTARYRATECLASSTYPE):
@@ -1144,7 +1421,11 @@ class TRIBRATE2DOT5G(TRIBUTARYRATECLASSTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRIB_RATE_2.5G"):
-        super(TRIBRATE2DOT5G, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TRIBRATE2DOT5G, self).__init__(ns, pref, tag)
+
 
 
 class ETH10GBASESR(ETHERNETPMDTYPE):
@@ -1159,7 +1440,11 @@ class ETH10GBASESR(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_10GBASE_SR"):
-        super(ETH10GBASESR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH10GBASESR, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASECWDM4(ETHERNETPMDTYPE):
@@ -1174,7 +1459,11 @@ class ETH100GBASECWDM4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_CWDM4"):
-        super(ETH100GBASECWDM4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GBASECWDM4, self).__init__(ns, pref, tag)
+
 
 
 class SFP(TRANSCEIVERFORMFACTORTYPE):
@@ -1190,7 +1479,11 @@ class SFP(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:SFP"):
-        super(SFP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SFP, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASEPSM4(ETHERNETPMDTYPE):
@@ -1205,7 +1498,11 @@ class ETH100GBASEPSM4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_PSM4"):
-        super(ETH100GBASEPSM4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GBASEPSM4, self).__init__(ns, pref, tag)
+
 
 
 class ETH40GBASECR4(ETHERNETPMDTYPE):
@@ -1220,7 +1517,11 @@ class ETH40GBASECR4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_40GBASE_CR4"):
-        super(ETH40GBASECR4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH40GBASECR4, self).__init__(ns, pref, tag)
+
 
 
 class PROTODU3(TRIBUTARYPROTOCOLTYPE):
@@ -1235,7 +1536,11 @@ class PROTODU3(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_ODU3"):
-        super(PROTODU3, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTODU3, self).__init__(ns, pref, tag)
+
 
 
 class PROTODU2(TRIBUTARYPROTOCOLTYPE):
@@ -1250,7 +1555,11 @@ class PROTODU2(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_ODU2"):
-        super(PROTODU2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTODU2, self).__init__(ns, pref, tag)
+
 
 
 class PROTODU4(TRIBUTARYPROTOCOLTYPE):
@@ -1265,7 +1574,11 @@ class PROTODU4(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_ODU4"):
-        super(PROTODU4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTODU4, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASECR4(ETHERNETPMDTYPE):
@@ -1280,7 +1593,11 @@ class ETH100GBASECR4(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_CR4"):
-        super(ETH100GBASECR4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH100GBASECR4, self).__init__(ns, pref, tag)
+
 
 
 class LCCONNECTOR(FIBERCONNECTORTYPE):
@@ -1295,7 +1612,11 @@ class LCCONNECTOR(FIBERCONNECTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:LC_CONNECTOR"):
-        super(LCCONNECTOR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LCCONNECTOR, self).__init__(ns, pref, tag)
+
 
 
 class PROTSTM64(TRIBUTARYPROTOCOLTYPE):
@@ -1310,7 +1631,11 @@ class PROTSTM64(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_STM64"):
-        super(PROTSTM64, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTSTM64, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTU1E(TRIBUTARYPROTOCOLTYPE):
@@ -1325,7 +1650,11 @@ class PROTOTU1E(TRIBUTARYPROTOCOLTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTU1E"):
-        super(PROTOTU1E, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PROTOTU1E, self).__init__(ns, pref, tag)
+
 
 
 class ETH10GBASEER(ETHERNETPMDTYPE):
@@ -1340,7 +1669,11 @@ class ETH10GBASEER(ETHERNETPMDTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_10GBASE_ER"):
-        super(ETH10GBASEER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETH10GBASEER, self).__init__(ns, pref, tag)
+
 
 
 class CFP(TRANSCEIVERFORMFACTORTYPE):
@@ -1356,6 +1689,10 @@ class CFP(TRANSCEIVERFORMFACTORTYPE):
     _revision = '2016-06-17'
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:CFP"):
-        super(CFP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CFP, self).__init__(ns, pref, tag)
+
 
 

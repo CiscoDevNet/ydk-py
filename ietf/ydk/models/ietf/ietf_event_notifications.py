@@ -4,6 +4,7 @@ This module contains conceptual YANG specifications
 for NETCONF Event Notifications.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -54,7 +55,11 @@ class Stream(Identity):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:stream"):
-        super(Stream, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Stream, self).__init__(ns, pref, tag)
+
 
 
 class Encodings(Identity):
@@ -69,7 +74,11 @@ class Encodings(Identity):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encodings"):
-        super(Encodings, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Encodings, self).__init__(ns, pref, tag)
+
 
 
 class Transport(Identity):
@@ -85,7 +94,11 @@ class Transport(Identity):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:transport"):
-        super(Transport, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Transport, self).__init__(ns, pref, tag)
+
 
 
 class SubscriptionResult(Identity):
@@ -102,7 +115,11 @@ class SubscriptionResult(Identity):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-result"):
-        super(SubscriptionResult, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SubscriptionResult, self).__init__(ns, pref, tag)
+
 
 
 class SubscriptionStreamStatus(Identity):
@@ -118,7 +135,11 @@ class SubscriptionStreamStatus(Identity):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-stream-status"):
-        super(SubscriptionStreamStatus, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SubscriptionStreamStatus, self).__init__(ns, pref, tag)
+
 
 
 class SubscriptionErrors(Identity):
@@ -135,7 +156,11 @@ class SubscriptionErrors(Identity):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-errors"):
-        super(SubscriptionErrors, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SubscriptionErrors, self).__init__(ns, pref, tag)
+
 
 
 class EstablishSubscription(Entity):
@@ -171,7 +196,10 @@ class EstablishSubscription(Entity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(EstablishSubscription, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EstablishSubscription, self).__init__()
         self._top_entity = None
 
         self.yang_name = "establish-subscription"
@@ -311,7 +339,10 @@ class EstablishSubscription(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(EstablishSubscription.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EstablishSubscription.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "establish-subscription"
@@ -358,7 +389,8 @@ class EstablishSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Input, ['stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Input, [u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+
 
 
     class Output(Entity):
@@ -495,7 +527,10 @@ class EstablishSubscription(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(EstablishSubscription.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EstablishSubscription.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "establish-subscription"
@@ -546,11 +581,14 @@ class EstablishSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = EstablishSubscription()
         return self._top_entity
+
+
 
 class CreateSubscription(Entity):
     """
@@ -575,7 +613,10 @@ class CreateSubscription(Entity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(CreateSubscription, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CreateSubscription, self).__init__()
         self._top_entity = None
 
         self.yang_name = "create-subscription"
@@ -638,7 +679,10 @@ class CreateSubscription(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(CreateSubscription.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CreateSubscription.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "create-subscription"
@@ -663,11 +707,14 @@ class CreateSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CreateSubscription.Input, ['stream', 'encoding', 'filter', 'starttime', 'stoptime'], name, value)
+            self._perform_setattr(CreateSubscription.Input, [u'stream', u'encoding', u'filter', u'starttime', u'stoptime'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = CreateSubscription()
         return self._top_entity
+
+
 
 class ModifySubscription(Entity):
     """
@@ -703,7 +750,10 @@ class ModifySubscription(Entity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(ModifySubscription, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ModifySubscription, self).__init__()
         self._top_entity = None
 
         self.yang_name = "modify-subscription"
@@ -817,7 +867,10 @@ class ModifySubscription(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(ModifySubscription.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ModifySubscription.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "modify-subscription"
@@ -856,7 +909,8 @@ class ModifySubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Input, ['subscription_id', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
+            self._perform_setattr(ModifySubscription.Input, [u'subscription_id', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
+
 
 
     class Output(Entity):
@@ -993,7 +1047,10 @@ class ModifySubscription(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(ModifySubscription.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ModifySubscription.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "modify-subscription"
@@ -1044,11 +1101,14 @@ class ModifySubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(ModifySubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = ModifySubscription()
         return self._top_entity
+
+
 
 class DeleteSubscription(Entity):
     """
@@ -1073,7 +1133,10 @@ class DeleteSubscription(Entity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(DeleteSubscription, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(DeleteSubscription, self).__init__()
         self._top_entity = None
 
         self.yang_name = "delete-subscription"
@@ -1116,7 +1179,10 @@ class DeleteSubscription(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(DeleteSubscription.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(DeleteSubscription.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "delete-subscription"
@@ -1133,7 +1199,8 @@ class DeleteSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Input, ['subscription_id'], name, value)
+            self._perform_setattr(DeleteSubscription.Input, [u'subscription_id'], name, value)
+
 
 
     class Output(Entity):
@@ -1155,7 +1222,10 @@ class DeleteSubscription(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(DeleteSubscription.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(DeleteSubscription.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "delete-subscription"
@@ -1172,11 +1242,14 @@ class DeleteSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Output, ['subscription_result'], name, value)
+            self._perform_setattr(DeleteSubscription.Output, [u'subscription_result'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = DeleteSubscription()
         return self._top_entity
+
+
 
 class Streams(Entity):
     """
@@ -1188,6 +1261,8 @@ class Streams(Entity):
     	Identifies the built\-in streams that are supported by the system.  Built\-in streams are associated with their own identities, each of which carries a special semantics. In case configurable custom streams are supported, as indicated by the custom\-stream identity, the configuration of those custom streams is provided         separately
     	**type**\: list of   :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
     
+    	**config**\: False
+    
     
 
     """
@@ -1196,7 +1271,10 @@ class Streams(Entity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(Streams, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Streams, self).__init__()
         self._top_entity = None
 
         self.yang_name = "streams"
@@ -1213,11 +1291,13 @@ class Streams(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Streams, ['stream'], name, value)
+        self._perform_setattr(Streams, [u'stream'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Streams()
         return self._top_entity
+
+
 
 class Filters(Entity):
     """
@@ -1238,7 +1318,10 @@ class Filters(Entity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(Filters, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Filters, self).__init__()
         self._top_entity = None
 
         self.yang_name = "filters"
@@ -1292,7 +1375,10 @@ class Filters(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(Filters.Filter, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Filters.Filter, self).__init__()
 
             self.yang_name = "filter"
             self.yang_parent_name = "filters"
@@ -1315,11 +1401,14 @@ class Filters(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Filters.Filter, ['filter_id', 'filter', 'subtree_filter', 'xpath_filter'], name, value)
+            self._perform_setattr(Filters.Filter, [u'filter_id', u'filter', 'subtree_filter', 'xpath_filter'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = Filters()
         return self._top_entity
+
+
 
 class SubscriptionConfig(Entity):
     """
@@ -1339,7 +1428,10 @@ class SubscriptionConfig(Entity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(SubscriptionConfig, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriptionConfig, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscription-config"
@@ -1517,7 +1609,10 @@ class SubscriptionConfig(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(SubscriptionConfig.Subscription, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriptionConfig.Subscription, self).__init__()
 
             self.yang_name = "subscription"
             self.yang_parent_name = "subscription-config"
@@ -1576,7 +1671,7 @@ class SubscriptionConfig(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SubscriptionConfig.Subscription, ['subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(SubscriptionConfig.Subscription, [u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -1596,7 +1691,10 @@ class SubscriptionConfig(Entity):
             _revision = '2016-10-27'
 
             def __init__(self):
-                super(SubscriptionConfig.Subscription.Receivers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriptionConfig.Subscription.Receivers, self).__init__()
 
                 self.yang_name = "receivers"
                 self.yang_parent_name = "subscription"
@@ -1634,7 +1732,7 @@ class SubscriptionConfig(Entity):
                 
                 		**type**\: str
                 
-                			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
+                			**length:** 1..253
                 
                 	**mandatory**\: True
                 
@@ -1662,7 +1760,10 @@ class SubscriptionConfig(Entity):
                 _revision = '2016-10-27'
 
                 def __init__(self):
-                    super(SubscriptionConfig.Subscription.Receivers.Receiver, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriptionConfig.Subscription.Receivers.Receiver, self).__init__()
 
                     self.yang_name = "receiver"
                     self.yang_parent_name = "receivers"
@@ -1682,11 +1783,16 @@ class SubscriptionConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
+                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = SubscriptionConfig()
         return self._top_entity
+
+
 
 class Subscriptions(Entity):
     """
@@ -1704,6 +1810,8 @@ class Subscriptions(Entity):
     	Content of a subscription. Subscriptions can be created using a control channel or RPC, or be established through configuration
     	**type**\: list of  		 :py:class:`Subscription <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription>`
     
+    	**config**\: False
+    
     
 
     """
@@ -1712,7 +1820,10 @@ class Subscriptions(Entity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(Subscriptions, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Subscriptions, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriptions"
@@ -1744,25 +1855,35 @@ class Subscriptions(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: configured_subscription
         
         	The presence of this leaf indicates that the subscription originated from configuration, not through a control channel or RPC
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        	**config**\: False
         
         .. attribute:: subscription_status
         
         	The status of the subscription
         	**type**\:  :py:class:`SubscriptionStreamStatus <ydk.models.ietf.ietf_event_notifications.SubscriptionStreamStatus>`
         
+        	**config**\: False
+        
         .. attribute:: stream
         
         	Indicates which stream of events is of interest. If not present, events in the default NETCONF stream will be sent
         	**type**\:  :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
         
+        	**config**\: False
+        
         .. attribute:: encoding
         
         	The type of encoding for the subscribed data. Default is XML
         	**type**\:  :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
+        
+        	**config**\: False
         
         	**default value**\: encode-xml
         
@@ -1770,6 +1891,8 @@ class Subscriptions(Entity):
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
         	**type**\: anyxml
+        
+        	**config**\: False
         
         .. attribute:: filter_ref
         
@@ -1780,15 +1903,21 @@ class Subscriptions(Entity):
         
         	**refers to**\:  :py:class:`filter_id <ydk.models.ietf.ietf_event_notifications.Filters.Filter>`
         
+        	**config**\: False
+        
         .. attribute:: subtree_filter
         
         	Subtree\-filter used to specify the data nodes targeted for subscription within a subtree, or subtrees, of a conceptual YANG datastore.  Objects matching the filter criteria will traverse the filter. The syntax follows the subtree filter syntax specified in RFC 6241, section 6
         	**type**\: anyxml
         
+        	**config**\: False
+        
         .. attribute:: xpath_filter
         
         	Xpath defining the data items of interest
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: starttime
         
@@ -1797,6 +1926,8 @@ class Subscriptions(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: stoptime
         
         	Used with the optional replay feature to indicate the newest notifications of interest.  If <stopTime> is not present, the notifications will continue until the subscription is terminated.  Must be used with and be later than <startTime>.  Values of <stopTime> in the future are valid.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
@@ -1804,10 +1935,14 @@ class Subscriptions(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: receivers
         
         	Set of receivers in a subscription
         	**type**\:  :py:class:`Receivers <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription.Receivers>`
+        
+        	**config**\: False
         
         .. attribute:: source_interface
         
@@ -1816,12 +1951,16 @@ class Subscriptions(Entity):
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
+        	**config**\: False
+        
         .. attribute:: source_vrf
         
         	Label of the vrf
         	**type**\: int
         
         	**range:** 16..1048574
+        
+        	**config**\: False
         
         .. attribute:: source_address
         
@@ -1838,6 +1977,8 @@ class Subscriptions(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: period
         
         	Duration of time which should occur between periodic push updates.  Where the anchor of a start\-time is available, the push will include the objects and their values which exist at an exact multiple of timeticks aligning to this start\-time anchor
@@ -1847,6 +1988,8 @@ class Subscriptions(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: anchor_time
         
         	Designates a timestamp from which the series of periodic push updates are computed. The next update will take place at the next period interval from the anchor time.  For example, for an anchor time at the top of a minute and a period interval of a minute, the next update will be sent at the top of the next minute
@@ -1854,10 +1997,14 @@ class Subscriptions(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: no_synch_on_start
         
         	This leaf acts as a flag that determines behavior at the start of the subscription.  When present, synchronization of state at the beginning of the subscription is outside the scope of the subscription. Only updates about changes that are observed from the start time, i.e. only push\-change\-update notifications are sent. When absent (default behavior), in order to facilitate a receiver's synchronization, a full update is sent when the subscription starts using a push\-update notification, just like in the case of a periodic subscription.  After that, push\-change\-update notifications only are sent unless the Publisher chooses to resynch the subscription again
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        	**config**\: False
         
         .. attribute:: dampening_period
         
@@ -1868,10 +2015,14 @@ class Subscriptions(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: excluded_change
         
         	Use to restrict which changes trigger an update. For example, if modify is excluded, only creation and deletion of objects is reported
         	**type**\: list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
+        
+        	**config**\: False
         
         .. attribute:: dscp
         
@@ -1879,6 +2030,8 @@ class Subscriptions(Entity):
         	**type**\: int
         
         	**range:** 0..63
+        
+        	**config**\: False
         
         	**default value**\: 0
         
@@ -1889,10 +2042,14 @@ class Subscriptions(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: subscription_dependency
         
         	Provides the Subscription ID of a parent subscription without which this subscription should not exist. In other words, there is no reason to stream these objects if another subscription is missing
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1902,7 +2059,10 @@ class Subscriptions(Entity):
         _revision = '2016-10-27'
 
         def __init__(self):
-            super(Subscriptions.Subscription, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Subscriptions.Subscription, self).__init__()
 
             self.yang_name = "subscription"
             self.yang_parent_name = "subscriptions"
@@ -1965,7 +2125,7 @@ class Subscriptions(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Subscriptions.Subscription, ['subscription_id', 'configured_subscription', 'subscription_status', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(Subscriptions.Subscription, [u'subscription_id', u'configured_subscription', u'subscription_status', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -1977,6 +2137,8 @@ class Subscriptions(Entity):
             	A single host or multipoint address intended as a target for the notifications for a subscription
             	**type**\: list of  		 :py:class:`Receiver <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription.Receivers.Receiver>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1985,7 +2147,10 @@ class Subscriptions(Entity):
             _revision = '2016-10-27'
 
             def __init__(self):
-                super(Subscriptions.Subscription.Receivers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Subscriptions.Subscription.Receivers, self).__init__()
 
                 self.yang_name = "receivers"
                 self.yang_parent_name = "subscription"
@@ -2023,9 +2188,11 @@ class Subscriptions(Entity):
                 
                 		**type**\: str
                 
-                			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
+                			**length:** 1..253
                 
                 	**mandatory**\: True
+                
+                	**config**\: False
                 
                 .. attribute:: port
                 
@@ -2036,10 +2203,14 @@ class Subscriptions(Entity):
                 
                 	**mandatory**\: True
                 
+                	**config**\: False
+                
                 .. attribute:: protocol
                 
                 	This leaf specifies the transport protocol used to deliver messages destined for the receiver
                 	**type**\:  :py:class:`Transport <ydk.models.ietf.ietf_event_notifications.Transport>`
+                
+                	**config**\: False
                 
                 	**default value**\: netconf
                 
@@ -2051,7 +2222,10 @@ class Subscriptions(Entity):
                 _revision = '2016-10-27'
 
                 def __init__(self):
-                    super(Subscriptions.Subscription.Receivers.Receiver, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Subscriptions.Subscription.Receivers.Receiver, self).__init__()
 
                     self.yang_name = "receiver"
                     self.yang_parent_name = "receivers"
@@ -2071,11 +2245,16 @@ class Subscriptions(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
+                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Subscriptions()
         return self._top_entity
+
+
 
 class NoResources(SubscriptionErrors):
     """
@@ -2089,7 +2268,11 @@ class NoResources(SubscriptionErrors):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:no-resources"):
-        super(NoResources, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(NoResources, self).__init__(ns, pref, tag)
+
 
 
 class Inactive(SubscriptionStreamStatus):
@@ -2105,7 +2288,11 @@ class Inactive(SubscriptionStreamStatus):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:inactive"):
-        super(Inactive, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Inactive, self).__init__(ns, pref, tag)
+
 
 
 class Suspended(SubscriptionStreamStatus):
@@ -2122,7 +2309,11 @@ class Suspended(SubscriptionStreamStatus):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:suspended"):
-        super(Suspended, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Suspended, self).__init__(ns, pref, tag)
+
 
 
 class EncodeJson(Encodings):
@@ -2137,7 +2328,11 @@ class EncodeJson(Encodings):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-json"):
-        super(EncodeJson, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(EncodeJson, self).__init__(ns, pref, tag)
+
 
 
 class InternalError(SubscriptionErrors):
@@ -2152,7 +2347,11 @@ class InternalError(SubscriptionErrors):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:internal-error"):
-        super(InternalError, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(InternalError, self).__init__(ns, pref, tag)
+
 
 
 class Other(SubscriptionErrors):
@@ -2167,7 +2366,11 @@ class Other(SubscriptionErrors):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:other"):
-        super(Other, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Other, self).__init__(ns, pref, tag)
+
 
 
 class InError(SubscriptionStreamStatus):
@@ -2184,7 +2387,11 @@ class InError(SubscriptionStreamStatus):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:in-error"):
-        super(InError, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(InError, self).__init__(ns, pref, tag)
+
 
 
 class Netconf(Transport):
@@ -2199,7 +2406,11 @@ class Netconf(Transport):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:netconf"):
-        super(Netconf, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Netconf, self).__init__(ns, pref, tag)
+
 
 
 class Error(SubscriptionResult):
@@ -2215,7 +2426,11 @@ class Error(SubscriptionResult):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error"):
-        super(Error, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Error, self).__init__(ns, pref, tag)
+
 
 
 class Active(SubscriptionStreamStatus):
@@ -2230,7 +2445,11 @@ class Active(SubscriptionStreamStatus):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:active"):
-        super(Active, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Active, self).__init__(ns, pref, tag)
+
 
 
 class NETCONF(Stream):
@@ -2247,7 +2466,11 @@ class NETCONF(Stream):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:NETCONF"):
-        super(NETCONF, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(NETCONF, self).__init__(ns, pref, tag)
+
 
 
 class Ok(SubscriptionResult):
@@ -2262,7 +2485,11 @@ class Ok(SubscriptionResult):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:ok"):
-        super(Ok, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ok, self).__init__(ns, pref, tag)
+
 
 
 class EncodeXml(Encodings):
@@ -2277,7 +2504,11 @@ class EncodeXml(Encodings):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-xml"):
-        super(EncodeXml, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(EncodeXml, self).__init__(ns, pref, tag)
+
 
 
 class SubscriptionDeleted(SubscriptionErrors):
@@ -2293,7 +2524,11 @@ class SubscriptionDeleted(SubscriptionErrors):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-deleted"):
-        super(SubscriptionDeleted, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SubscriptionDeleted, self).__init__(ns, pref, tag)
+
 
 
 class ErrorNoSuchOption(Error):
@@ -2308,7 +2543,11 @@ class ErrorNoSuchOption(Error):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-no-such-option"):
-        super(ErrorNoSuchOption, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ErrorNoSuchOption, self).__init__(ns, pref, tag)
+
 
 
 class ErrorNoSuchSubscription(Error):
@@ -2324,7 +2563,11 @@ class ErrorNoSuchSubscription(Error):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-no-such-subscription"):
-        super(ErrorNoSuchSubscription, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ErrorNoSuchSubscription, self).__init__(ns, pref, tag)
+
 
 
 class ErrorOther(Error):
@@ -2339,7 +2582,11 @@ class ErrorOther(Error):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-other"):
-        super(ErrorOther, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ErrorOther, self).__init__(ns, pref, tag)
+
 
 
 class ErrorInsufficientResources(Error):
@@ -2355,7 +2602,11 @@ class ErrorInsufficientResources(Error):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-insufficient-resources"):
-        super(ErrorInsufficientResources, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ErrorInsufficientResources, self).__init__(ns, pref, tag)
+
 
 
 class ErrorConfiguredSubscription(Error):
@@ -2371,6 +2622,10 @@ class ErrorConfiguredSubscription(Error):
     _revision = '2016-10-27'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-configured-subscription"):
-        super(ErrorConfiguredSubscription, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ErrorConfiguredSubscription, self).__init__(ns, pref, tag)
+
 
 

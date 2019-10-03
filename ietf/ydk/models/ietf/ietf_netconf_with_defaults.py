@@ -19,6 +19,7 @@ This version of this YANG module is part of RFC 6243; see
 the RFC itself for full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64

@@ -41,6 +41,7 @@ protocols used in operational practice.
 
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -212,7 +213,10 @@ class Mpls(Entity):
     _revision = '2017-03-22'
 
     def __init__(self):
-        super(Mpls, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Mpls, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls"
@@ -265,6 +269,8 @@ class Mpls(Entity):
         	Top level global MPLS state
         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.State>`
         
+        	**config**\: False
+        
         .. attribute:: interface_attributes
         
         	Parameters related to MPLS interfaces
@@ -283,7 +289,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.Global, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "mpls"
@@ -335,7 +344,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Global.Config, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Global.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "global"
@@ -352,7 +364,8 @@ class Mpls(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global.Config, [u'null_label'], name, value)
+                self._perform_setattr(Mpls.Global.Config, ['null_label'], name, value)
+
 
 
         class State(Entity):
@@ -364,6 +377,8 @@ class Mpls(Entity):
             	The null\-label type used, implicit or explicit
             	**type**\:  :py:class:`NULLLABELTYPE <ydk.models.openconfig.openconfig_mpls_types.NULLLABELTYPE>`
             
+            	**config**\: False
+            
             	**default value**\: oc-mplst:IMPLICIT
             
             
@@ -374,7 +389,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Global.State, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Global.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "global"
@@ -391,7 +409,8 @@ class Mpls(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global.State, [u'null_label'], name, value)
+                self._perform_setattr(Mpls.Global.State, ['null_label'], name, value)
+
 
 
         class InterfaceAttributes(Entity):
@@ -411,7 +430,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Global.InterfaceAttributes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Global.InterfaceAttributes, self).__init__()
 
                 self.yang_name = "interface-attributes"
                 self.yang_parent_name = "global"
@@ -451,6 +473,8 @@ class Mpls(Entity):
                 	State parameters related to TE interfaces
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes.Interface.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_ref
                 
                 	Reference to an interface or subinterface
@@ -464,7 +488,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Global.InterfaceAttributes.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Global.InterfaceAttributes.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interface-attributes"
@@ -493,7 +520,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface, [u'interface_id'], name, value)
+                    self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface, ['interface_id'], name, value)
 
 
                 class Config(Entity):
@@ -520,7 +547,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.InterfaceAttributes.Interface.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.InterfaceAttributes.Interface.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "interface"
@@ -538,7 +568,8 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.Config, [u'interface_id', u'mpls_enabled'], name, value)
+                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.Config, ['interface_id', 'mpls_enabled'], name, value)
+
 
 
                 class State(Entity):
@@ -550,10 +581,14 @@ class Mpls(Entity):
                     	Indentifier for the MPLS interface
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: mpls_enabled
                     
                     	Enable MPLS forwarding on this interface
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -565,7 +600,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.InterfaceAttributes.Interface.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.InterfaceAttributes.Interface.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "interface"
@@ -583,7 +621,8 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.State, [u'interface_id', u'mpls_enabled'], name, value)
+                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.State, ['interface_id', 'mpls_enabled'], name, value)
+
 
 
                 class InterfaceRef(Entity):
@@ -600,6 +639,8 @@ class Mpls(Entity):
                     	Operational state for interface\-ref
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -608,7 +649,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
 
                         self.yang_name = "interface-ref"
                         self.yang_parent_name = "interface"
@@ -660,7 +704,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "interface-ref"
@@ -681,6 +728,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Operational state for interface\-ref
@@ -692,6 +740,8 @@ class Mpls(Entity):
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: subinterface
                         
                         	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -701,6 +751,8 @@ class Mpls(Entity):
                         
                         	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -709,7 +761,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "interface-ref"
@@ -728,6 +783,10 @@ class Mpls(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
+
 
 
         class ReservedLabelBlocks(Entity):
@@ -751,7 +810,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Global.ReservedLabelBlocks, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Global.ReservedLabelBlocks, self).__init__()
 
                 self.yang_name = "reserved-label-blocks"
                 self.yang_parent_name = "global"
@@ -792,6 +854,8 @@ class Mpls(Entity):
                 	State parameters relating to the label block
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -800,7 +864,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, self).__init__()
 
                     self.yang_name = "reserved-label-block"
                     self.yang_parent_name = "reserved-label-blocks"
@@ -825,7 +892,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, [u'local_id'], name, value)
+                    self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, ['local_id'], name, value)
 
 
                 class Config(Entity):
@@ -846,7 +913,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                     
                     .. attribute:: upper_bound
                     
@@ -857,7 +924,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                     
                     
 
@@ -867,7 +934,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "reserved-label-block"
@@ -877,8 +947,8 @@ class Mpls(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('local_id', (YLeaf(YType.str, 'local-id'), ['str'])),
-                            ('lower_bound', (YLeaf(YType.str, 'lower-bound'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
-                            ('upper_bound', (YLeaf(YType.str, 'upper-bound'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                            ('lower_bound', (YLeaf(YType.str, 'lower-bound'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                            ('upper_bound', (YLeaf(YType.str, 'upper-bound'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                         ])
                         self.local_id = None
                         self.lower_bound = None
@@ -887,7 +957,8 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, [u'local_id', u'lower_bound', u'upper_bound'], name, value)
+                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, ['local_id', 'lower_bound', 'upper_bound'], name, value)
+
 
 
                 class State(Entity):
@@ -899,6 +970,8 @@ class Mpls(Entity):
                     	A local identifier for the global label block allocation
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: lower_bound
                     
                     	Lower bound of the global label block. The block is defined to include this label
@@ -908,7 +981,9 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: upper_bound
                     
@@ -919,7 +994,9 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -929,7 +1006,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "reserved-label-block"
@@ -939,8 +1019,8 @@ class Mpls(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('local_id', (YLeaf(YType.str, 'local-id'), ['str'])),
-                            ('lower_bound', (YLeaf(YType.str, 'lower-bound'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
-                            ('upper_bound', (YLeaf(YType.str, 'upper-bound'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                            ('lower_bound', (YLeaf(YType.str, 'lower-bound'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                            ('upper_bound', (YLeaf(YType.str, 'upper-bound'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                         ])
                         self.local_id = None
                         self.lower_bound = None
@@ -949,7 +1029,11 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, [u'local_id', u'lower_bound', u'upper_bound'], name, value)
+                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, ['local_id', 'lower_bound', 'upper_bound'], name, value)
+
+
+
+
 
 
     class TeGlobalAttributes(Entity):
@@ -979,7 +1063,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.TeGlobalAttributes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.TeGlobalAttributes, self).__init__()
 
             self.yang_name = "te-global-attributes"
             self.yang_parent_name = "mpls"
@@ -1025,7 +1112,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.TeGlobalAttributes.Srlgs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.TeGlobalAttributes.Srlgs, self).__init__()
 
                 self.yang_name = "srlgs"
                 self.yang_parent_name = "te-global-attributes"
@@ -1065,6 +1155,8 @@ class Mpls(Entity):
                 	State parameters related to the SRLG
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: static_srlg_members
                 
                 	SRLG members for static (not flooded) SRLGs 
@@ -1078,7 +1170,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.Srlgs.Srlg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg, self).__init__()
 
                     self.yang_name = "srlg"
                     self.yang_parent_name = "srlgs"
@@ -1148,7 +1243,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.Srlgs.Srlg.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "srlg"
@@ -1173,6 +1271,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.Config, [u'name', u'value', u'cost', u'flooding_type'], name, value)
 
 
+
                 class State(Entity):
                     """
                     State parameters related to the SRLG
@@ -1182,12 +1281,16 @@ class Mpls(Entity):
                     	SRLG group identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: value
                     
                     	group ID for the SRLG
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: cost
                     
@@ -1196,10 +1299,14 @@ class Mpls(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flooding_type
                     
                     	The type of SRLG, either flooded in the IGP or statically configured
                     	**type**\:  :py:class:`MplsSrlgFloodingType <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingType>`
+                    
+                    	**config**\: False
                     
                     	**default value**\: FLOODED_SRLG
                     
@@ -1211,7 +1318,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.Srlgs.Srlg.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "srlg"
@@ -1236,6 +1346,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.State, [u'name', u'value', u'cost', u'flooding_type'], name, value)
 
 
+
                 class StaticSrlgMembers(Entity):
                     """
                     SRLG members for static (not flooded) SRLGs 
@@ -1253,7 +1364,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers, self).__init__()
 
                         self.yang_name = "static-srlg-members"
                         self.yang_parent_name = "srlg"
@@ -1302,6 +1416,8 @@ class Mpls(Entity):
                         	State parameters relating to the SRLG members
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1310,7 +1426,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList, self).__init__()
 
                             self.yang_name = "members-list"
                             self.yang_parent_name = "static-srlg-members"
@@ -1376,7 +1495,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "members-list"
@@ -1397,6 +1519,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config, [u'from_address', u'to_address'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State parameters relating to the SRLG
@@ -1415,6 +1538,8 @@ class Mpls(Entity):
                             
                             			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
+                            	**config**\: False
+                            
                             .. attribute:: to_address
                             
                             	IP address of the z\-side of the SRLG link
@@ -1428,6 +1553,8 @@ class Mpls(Entity):
                             
                             			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -1436,7 +1563,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "members-list"
@@ -1457,6 +1587,11 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State, [u'from_address', u'to_address'], name, value)
 
 
+
+
+
+
+
         class MplsAdminGroups(Entity):
             """
             Top\-level container for admin\-groups configuration
@@ -1475,7 +1610,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.TeGlobalAttributes.MplsAdminGroups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.TeGlobalAttributes.MplsAdminGroups, self).__init__()
 
                 self.yang_name = "mpls-admin-groups"
                 self.yang_parent_name = "te-global-attributes"
@@ -1516,6 +1654,8 @@ class Mpls(Entity):
                 	Operational state for admin\-groups
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1524,7 +1664,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, self).__init__()
 
                     self.yang_name = "admin-group"
                     self.yang_parent_name = "mpls-admin-groups"
@@ -1549,7 +1692,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, [u'admin_group_name'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, ['admin_group_name'], name, value)
 
 
                 class Config(Entity):
@@ -1576,7 +1719,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "admin-group"
@@ -1594,7 +1740,8 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, [u'admin_group_name', u'bit_position'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, ['admin_group_name', 'bit_position'], name, value)
+
 
 
                 class State(Entity):
@@ -1606,12 +1753,16 @@ class Mpls(Entity):
                     	name for mpls admin\-group
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: bit_position
                     
                     	bit\-position value for mpls admin\-group. The value for the admin group is an integer that represents one of the bit positions in the admin\-group bitmask. Values between 0 and 31 are interpreted as the original limit of 32 admin groups. Values >=32 are interpreted as extended admin group values as per RFC7308
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1621,7 +1772,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "admin-group"
@@ -1639,7 +1793,10 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, [u'admin_group_name', u'bit_position'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, ['admin_group_name', 'bit_position'], name, value)
+
+
+
 
 
         class TeLspTimers(Entity):
@@ -1657,6 +1814,8 @@ class Mpls(Entity):
             	State related to timers for TE LSPs
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers.State>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1665,7 +1824,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.TeGlobalAttributes.TeLspTimers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.TeGlobalAttributes.TeLspTimers, self).__init__()
 
                 self.yang_name = "te-lsp-timers"
                 self.yang_parent_name = "te-global-attributes"
@@ -1730,7 +1892,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.TeLspTimers.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeGlobalAttributes.TeLspTimers.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "te-lsp-timers"
@@ -1751,7 +1916,8 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.Config, [u'install_delay', u'cleanup_delay', u'reoptimize_timer'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.Config, ['install_delay', 'cleanup_delay', u'reoptimize_timer'], name, value)
+
 
 
             class State(Entity):
@@ -1765,6 +1931,8 @@ class Mpls(Entity):
                 
                 	**range:** 0..3600
                 
+                	**config**\: False
+                
                 	**units**\: seconds
                 
                 .. attribute:: cleanup_delay
@@ -1774,6 +1942,8 @@ class Mpls(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 	**units**\: seconds
                 
                 .. attribute:: reoptimize_timer
@@ -1782,6 +1952,8 @@ class Mpls(Entity):
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 	**units**\: seconds
                 
@@ -1793,7 +1965,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.TeLspTimers.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeGlobalAttributes.TeLspTimers.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "te-lsp-timers"
@@ -1814,7 +1989,10 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.State, [u'install_delay', u'cleanup_delay', u'reoptimize_timer'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.State, ['install_delay', 'cleanup_delay', u'reoptimize_timer'], name, value)
+
+
+
 
 
     class TeInterfaceAttributes(Entity):
@@ -1835,7 +2013,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.TeInterfaceAttributes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.TeInterfaceAttributes, self).__init__()
 
             self.yang_name = "te-interface-attributes"
             self.yang_parent_name = "mpls"
@@ -1875,6 +2056,8 @@ class Mpls(Entity):
             	State parameters related to TE interfaces
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.State>`
             
+            	**config**\: False
+            
             .. attribute:: interface_ref
             
             	Reference to an interface or subinterface
@@ -1893,7 +2076,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.TeInterfaceAttributes.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.TeInterfaceAttributes.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "te-interface-attributes"
@@ -1926,7 +2112,7 @@ class Mpls(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.TeInterfaceAttributes.Interface, [u'interface_id'], name, value)
+                self._perform_setattr(Mpls.TeInterfaceAttributes.Interface, ['interface_id'], name, value)
 
 
             class Config(Entity):
@@ -1965,7 +2151,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeInterfaceAttributes.Interface.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeInterfaceAttributes.Interface.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "interface"
@@ -1987,7 +2176,8 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.Config, [u'interface_id', u'te_metric', u'srlg_membership', u'admin_group'], name, value)
+                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.Config, ['interface_id', 'te_metric', 'srlg_membership', 'admin_group'], name, value)
+
 
 
             class State(Entity):
@@ -1999,12 +2189,16 @@ class Mpls(Entity):
                 	Id of the interface
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: te_metric
                 
                 	TE specific metric for the link
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: srlg_membership
                 
@@ -2013,10 +2207,14 @@ class Mpls(Entity):
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg>`
                 
+                	**config**\: False
+                
                 .. attribute:: admin_group
                 
                 	list of admin groups (by name) on the interface
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 
 
@@ -2026,7 +2224,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeInterfaceAttributes.Interface.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeInterfaceAttributes.Interface.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "interface"
@@ -2048,7 +2249,8 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.State, [u'interface_id', u'te_metric', u'srlg_membership', u'admin_group'], name, value)
+                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.State, ['interface_id', 'te_metric', 'srlg_membership', 'admin_group'], name, value)
+
 
 
             class InterfaceRef(Entity):
@@ -2065,6 +2267,8 @@ class Mpls(Entity):
                 	Operational state for interface\-ref
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2073,7 +2277,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef, self).__init__()
 
                     self.yang_name = "interface-ref"
                     self.yang_parent_name = "interface"
@@ -2125,7 +2332,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "interface-ref"
@@ -2146,6 +2356,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Operational state for interface\-ref
@@ -2157,6 +2368,8 @@ class Mpls(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: subinterface
                     
                     	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -2166,6 +2379,8 @@ class Mpls(Entity):
                     
                     	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2174,7 +2389,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "interface-ref"
@@ -2195,6 +2413,8 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
+
+
             class IgpFloodingBandwidth(Entity):
                 """
                 Interface bandwidth change percentages
@@ -2211,6 +2431,8 @@ class Mpls(Entity):
                 	State parameters for TED update threshold 
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2219,7 +2441,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth, self).__init__()
 
                     self.yang_name = "igp-flooding-bandwidth"
                     self.yang_parent_name = "interface"
@@ -2294,7 +2519,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "igp-flooding-bandwidth"
@@ -2320,7 +2548,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, [u'threshold_type', u'delta_percentage', u'threshold_specification', u'up_thresholds', u'down_thresholds', u'up_down_thresholds'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, ['threshold_type', 'delta_percentage', 'threshold_specification', 'up_thresholds', 'down_thresholds', 'up_down_thresholds'], name, value)
 
                     class ThresholdSpecification(Enum):
                         """
@@ -2425,6 +2653,7 @@ class Mpls(Entity):
 
 
 
+
                 class State(Entity):
                     """
                     State parameters for TED update threshold 
@@ -2434,6 +2663,8 @@ class Mpls(Entity):
                     	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\_CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
                     	**type**\:  :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdType>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: delta_percentage
                     
                     	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
@@ -2441,10 +2672,14 @@ class Mpls(Entity):
                     
                     	**range:** 0..100
                     
+                    	**config**\: False
+                    
                     .. attribute:: threshold_specification
                     
                     	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
                     	**type**\:  :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecification>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: up_thresholds
                     
@@ -2453,6 +2688,8 @@ class Mpls(Entity):
                     
                     	**range:** 0..100
                     
+                    	**config**\: False
+                    
                     .. attribute:: down_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is decreasing
@@ -2460,12 +2697,16 @@ class Mpls(Entity):
                     
                     	**range:** 0..100
                     
+                    	**config**\: False
+                    
                     .. attribute:: up_down_thresholds
                     
                     	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
                     	**type**\: list of int
                     
                     	**range:** 0..100
+                    
+                    	**config**\: False
                     
                     
 
@@ -2475,7 +2716,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "igp-flooding-bandwidth"
@@ -2501,7 +2745,7 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, [u'threshold_type', u'delta_percentage', u'threshold_specification', u'up_thresholds', u'down_thresholds', u'up_down_thresholds'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, ['threshold_type', 'delta_percentage', 'threshold_specification', 'up_thresholds', 'down_thresholds', 'up_down_thresholds'], name, value)
 
                     class ThresholdSpecification(Enum):
                         """
@@ -2603,6 +2847,10 @@ class Mpls(Entity):
                         DELTA = Enum.YLeaf(0, "DELTA")
 
                         THRESHOLD_CROSSED = Enum.YLeaf(1, "THRESHOLD_CROSSED")
+
+
+
+
 
 
 
@@ -2633,7 +2881,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.SignalingProtocols, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.SignalingProtocols, self).__init__()
 
             self.yang_name = "signaling-protocols"
             self.yang_parent_name = "mpls"
@@ -2694,7 +2945,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.SignalingProtocols.RsvpTe, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.SignalingProtocols.RsvpTe, self).__init__()
 
                 self.yang_name = "rsvp-te"
                 self.yang_parent_name = "signaling-protocols"
@@ -2736,6 +2990,8 @@ class Mpls(Entity):
                 	List of RSVP sessions
                 	**type**\: list of  		 :py:class:`Session <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2744,7 +3000,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.RsvpTe.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.RsvpTe.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "rsvp-te"
@@ -2776,15 +3035,21 @@ class Mpls(Entity):
                     
                     	**refers to**\:  :py:class:`local_index <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: record_route_objects
                     
                     	Enclosing container for MPLS RRO objects associated with the traffic engineered tunnel
                     	**type**\:  :py:class:`RecordRouteObjects <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Operational state parameters relating to the RSVP session
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2794,7 +3059,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -2832,6 +3100,8 @@ class Mpls(Entity):
                         	Read\-only list of record route objects associated with the traffic engineered tunnel. Each entry in the list may contain a hop IP address, MPLS label allocated at the hop, and the flags associated with the entry
                         	**type**\: list of  		 :py:class:`RecordRouteObject <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2840,7 +3110,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects, self).__init__()
 
                             self.yang_name = "record-route-objects"
                             self.yang_parent_name = "session"
@@ -2874,10 +3147,14 @@ class Mpls(Entity):
                             
                             	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: state
                             
                             	Information related to RRO objects. The hop, label, and optional flags are present for each entry in the list
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2887,7 +3164,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject, self).__init__()
 
                                 self.yang_name = "record-route-object"
                                 self.yang_parent_name = "record-route-objects"
@@ -2922,6 +3202,8 @@ class Mpls(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: address
                                 
                                 	IP router hop for RRO entry
@@ -2935,6 +3217,8 @@ class Mpls(Entity):
                                 
                                 			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: reported_label
                                 
                                 	Label reported for RRO hop
@@ -2944,7 +3228,9 @@ class Mpls(Entity):
                                 
                                 			**range:** 16..1048575
                                 
-                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: reported_flags
                                 
@@ -2952,6 +3238,8 @@ class Mpls(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2961,7 +3249,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "record-route-object"
@@ -2972,7 +3263,7 @@ class Mpls(Entity):
                                     self._leafs = OrderedDict([
                                         ('index', (YLeaf(YType.uint8, 'index'), ['int'])),
                                         ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
-                                        ('reported_label', (YLeaf(YType.str, 'reported-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                        ('reported_label', (YLeaf(YType.str, 'reported-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                                         ('reported_flags', (YLeaf(YType.uint8, 'reported-flags'), ['int'])),
                                     ])
                                     self.index = None
@@ -2984,6 +3275,9 @@ class Mpls(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State, ['index', 'address', 'reported_label', 'reported_flags'], name, value)
+
+
+
 
 
                     class State(Entity):
@@ -2998,6 +3292,8 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_address
                         
                         	Origin address of RSVP session
@@ -3010,6 +3306,8 @@ class Mpls(Entity):
                         		**type**\: str
                         
                         			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        	**config**\: False
                         
                         .. attribute:: destination_address
                         
@@ -3024,12 +3322,16 @@ class Mpls(Entity):
                         
                         			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
+                        	**config**\: False
+                        
                         .. attribute:: tunnel_id
                         
                         	The tunnel ID is an identifier used in the RSVP session, which remains constant over the life of the tunnel
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: lsp_id
                         
@@ -3038,25 +3340,35 @@ class Mpls(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: session_name
                         
                         	The signaled name of this RSVP session
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: status
                         
                         	Enumeration of RSVP session states
                         	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.Status>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	The type/role of the RSVP session, signifing the session's role on the current device, such as a transit session vs. an ingress session
                         	**type**\:  :py:class:`LSPROLE <ydk.models.openconfig.openconfig_mpls_types.LSPROLE>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: protection_requested
                         
                         	The type of protection requested for the RSVP session
                         	**type**\:  :py:class:`PROTECTIONTYPE <ydk.models.openconfig.openconfig_mpls_types.PROTECTIONTYPE>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: label_in
                         
@@ -3067,7 +3379,9 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: label_out
                         
@@ -3078,12 +3392,16 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: sender_tspec
                         
                         	Operational state statistics relating to the SENDER\_TSPEC received for the RSVP session
                         	**type**\:  :py:class:`SenderTspec <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3093,7 +3411,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "session"
@@ -3111,8 +3432,8 @@ class Mpls(Entity):
                                 ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.openconfig.openconfig_mpls', 'Mpls', 'SignalingProtocols.RsvpTe.Sessions.Session.State.Status')])),
                                 ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_mpls_types', 'LSPROLE')])),
                                 ('protection_requested', (YLeaf(YType.identityref, 'protection-requested'), [('ydk.models.openconfig.openconfig_mpls_types', 'PROTECTIONTYPE')])),
-                                ('label_in', (YLeaf(YType.str, 'label-in'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
-                                ('label_out', (YLeaf(YType.str, 'label-out'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('label_in', (YLeaf(YType.str, 'label-in'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('label_out', (YLeaf(YType.str, 'label-out'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                             ])
                             self.local_index = None
                             self.source_address = None
@@ -3167,7 +3488,9 @@ class Mpls(Entity):
                             	The rate at which the head\-end device generates traffic, expressed in bytes per second
                             	**type**\: str
                             
-                            	**length:** 32
+                            	**length:** 32..32
+                            
+                            	**config**\: False
                             
                             	**units**\: Bps
                             
@@ -3176,7 +3499,9 @@ class Mpls(Entity):
                             	The size of the token bucket that is used to determine the rate at which the head\-end device generates traffic, expressed in bytes per second
                             	**type**\: str
                             
-                            	**length:** 32
+                            	**length:** 32..32
+                            
+                            	**config**\: False
                             
                             	**units**\: bytes per second
                             
@@ -3187,9 +3512,11 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**length:** 32
+                            			**length:** 32..32
                             
-                            		**type**\:  :py:class:`PeakDataRate <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate>`
+                            		**type**\:  :py:class:`PeakDataRate <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate>`
+                            
+                            	**config**\: False
                             
                             	**units**\: bytes per second
                             
@@ -3201,7 +3528,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec, self).__init__()
 
                                 self.yang_name = "sender-tspec"
                                 self.yang_parent_name = "state"
@@ -3212,7 +3542,7 @@ class Mpls(Entity):
                                 self._leafs = OrderedDict([
                                     ('rate', (YLeaf(YType.str, 'rate'), ['str'])),
                                     ('size', (YLeaf(YType.str, 'size'), ['str'])),
-                                    ('peak_data_rate', (YLeaf(YType.str, 'peak-data-rate'), ['str',('ydk.models.openconfig.openconfig_mpls', 'Mpls', 'SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate')])),
+                                    ('peak_data_rate', (YLeaf(YType.str, 'peak-data-rate'), ['str',('ydk.models.openconfig.openconfig_network_instance', 'NetworkInstances', 'NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate')])),
                                 ])
                                 self.rate = None
                                 self.size = None
@@ -3241,6 +3571,10 @@ class Mpls(Entity):
 
 
 
+
+
+
+
             class Neighbors(Entity):
                 """
                 Configuration and state for RSVP neighbors connecting
@@ -3251,6 +3585,8 @@ class Mpls(Entity):
                 	List of RSVP neighbors of the local system
                 	**type**\: list of  		 :py:class:`Neighbor <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -3259,7 +3595,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.RsvpTe.Neighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.RsvpTe.Neighbors, self).__init__()
 
                     self.yang_name = "neighbors"
                     self.yang_parent_name = "rsvp-te"
@@ -3297,10 +3636,14 @@ class Mpls(Entity):
                     
                     	**refers to**\:  :py:class:`address <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Operational state parameters relating to the RSVP neighbor
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3310,7 +3653,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor, self).__init__()
 
                         self.yang_name = "neighbor"
                         self.yang_parent_name = "neighbors"
@@ -3352,20 +3698,28 @@ class Mpls(Entity):
                         
                         			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
+                        	**config**\: False
+                        
                         .. attribute:: detected_interface
                         
                         	Interface where RSVP neighbor was detected
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: neighbor_status
                         
                         	Enumuration of possible RSVP neighbor states
                         	**type**\:  :py:class:`NeighborStatus <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State.NeighborStatus>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: refresh_reduction
                         
                         	Suppport of neighbor for RSVP refresh reduction
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -3375,7 +3729,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "neighbor"
@@ -3425,6 +3782,9 @@ class Mpls(Entity):
 
 
 
+
+
+
             class Global(Entity):
                 """
                 Platform wide RSVP configuration and state
@@ -3449,6 +3809,8 @@ class Mpls(Entity):
                 	Platform wide RSVP state, including counters
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -3457,7 +3819,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.RsvpTe.Global, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.RsvpTe.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "rsvp-te"
@@ -3505,6 +3870,8 @@ class Mpls(Entity):
                     	State information associated with RSVP graceful\-restart
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3513,7 +3880,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart, self).__init__()
 
                         self.yang_name = "graceful-restart"
                         self.yang_parent_name = "global"
@@ -3572,7 +3942,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "graceful-restart"
@@ -3596,6 +3969,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, ['enable', 'restart_time', 'recovery_time'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State information associated with
@@ -3606,6 +3980,8 @@ class Mpls(Entity):
                         	Enables graceful restart on the node
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         .. attribute:: restart_time
@@ -3615,12 +3991,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: recovery_time
                         
                         	RSVP state recovery time
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3630,7 +4010,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "graceful-restart"
@@ -3654,6 +4037,8 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, ['enable', 'restart_time', 'recovery_time'], name, value)
 
 
+
+
                 class SoftPreemption(Entity):
                     """
                     Protocol options relating to RSVP
@@ -3669,6 +4054,8 @@ class Mpls(Entity):
                     	State parameters relating to RSVP soft preemption support
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3677,7 +4064,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption, self).__init__()
 
                         self.yang_name = "soft-preemption"
                         self.yang_parent_name = "global"
@@ -3731,7 +4121,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "soft-preemption"
@@ -3753,6 +4146,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, ['enable', 'soft_preemption_timeout'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State parameters relating to RSVP
@@ -3763,6 +4157,8 @@ class Mpls(Entity):
                         	Enables soft preemption on a node
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         .. attribute:: soft_preemption_timeout
@@ -3771,6 +4167,8 @@ class Mpls(Entity):
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         	**default value**\: 30
                         
@@ -3782,7 +4180,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "soft-preemption"
@@ -3804,6 +4205,8 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, ['enable', 'soft_preemption_timeout'], name, value)
 
 
+
+
                 class Hellos(Entity):
                     """
                     Top level container for RSVP hello parameters
@@ -3818,6 +4221,8 @@ class Mpls(Entity):
                     	State information associated with RSVP hellos
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3826,7 +4231,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos, self).__init__()
 
                         self.yang_name = "hellos"
                         self.yang_parent_name = "global"
@@ -3882,7 +4290,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "hellos"
@@ -3904,6 +4315,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, ['hello_interval', 'refresh_reduction'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State information associated with RSVP hellos
@@ -3915,6 +4327,8 @@ class Mpls(Entity):
                         
                         	**range:** 1000..60000
                         
+                        	**config**\: False
+                        
                         	**units**\: milliseconds
                         
                         	**default value**\: 9000
@@ -3923,6 +4337,8 @@ class Mpls(Entity):
                         
                         	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: true
                         
@@ -3934,7 +4350,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "hellos"
@@ -3956,6 +4375,8 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, ['hello_interval', 'refresh_reduction'], name, value)
 
 
+
+
                 class State(Entity):
                     """
                     Platform wide RSVP state, including counters
@@ -3965,6 +4386,8 @@ class Mpls(Entity):
                     	Platform wide RSVP statistics and counters
                     	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.State.Counters>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3973,7 +4396,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "global"
@@ -4005,12 +4431,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: reservation_timeouts
                         
                         	TODO
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: rate_limited_messages
                         
@@ -4019,12 +4449,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_path_messages
                         
                         	Number of received RSVP Path messages
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_path_error_messages
                         
@@ -4033,12 +4467,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_path_tear_messages
                         
                         	Number of received RSVP Path Tear messages
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_reservation_messages
                         
@@ -4047,12 +4485,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_reservation_error_messages
                         
                         	Number of received RSVP Resv Error messages
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_reservation_tear_messages
                         
@@ -4061,12 +4503,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_hello_messages
                         
                         	Number of received RSVP hello messages
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_srefresh_messages
                         
@@ -4075,12 +4521,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_ack_messages
                         
                         	Number of received RSVP refresh reduction ack messages
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_path_messages
                         
@@ -4089,12 +4539,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_path_error_messages
                         
                         	Number of sent RSVP Path Error messages
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_path_tear_messages
                         
@@ -4103,12 +4557,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_reservation_messages
                         
                         	Number of sent RSVP Resv messages
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_reservation_error_messages
                         
@@ -4117,12 +4575,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_reservation_tear_messages
                         
                         	Number of sent RSVP Resv Tear messages
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_hello_messages
                         
@@ -4131,6 +4593,8 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_srefresh_messages
                         
                         	Number of sent RSVP summary refresh messages
@@ -4138,12 +4602,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_ack_messages
                         
                         	Number of sent RSVP refresh reduction ack messages
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4153,7 +4621,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, self).__init__()
 
                             self.yang_name = "counters"
                             self.yang_parent_name = "state"
@@ -4213,6 +4684,9 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, ['path_timeouts', 'reservation_timeouts', 'rate_limited_messages', 'in_path_messages', 'in_path_error_messages', 'in_path_tear_messages', 'in_reservation_messages', 'in_reservation_error_messages', 'in_reservation_tear_messages', 'in_hello_messages', 'in_srefresh_messages', 'in_ack_messages', 'out_path_messages', 'out_path_error_messages', 'out_path_tear_messages', 'out_reservation_messages', 'out_reservation_error_messages', 'out_reservation_tear_messages', 'out_hello_messages', 'out_srefresh_messages', 'out_ack_messages'], name, value)
 
 
+
+
+
             class InterfaceAttributes(Entity):
                 """
                 Attributes relating to RSVP\-TE enabled interfaces
@@ -4230,7 +4704,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes, self).__init__()
 
                     self.yang_name = "interface-attributes"
                     self.yang_parent_name = "rsvp-te"
@@ -4270,6 +4747,8 @@ class Mpls(Entity):
                     	Per\-interface RSVP protocol and state information
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_ref
                     
                     	Reference to an interface or subinterface
@@ -4308,7 +4787,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interface-attributes"
@@ -4377,7 +4859,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "interface"
@@ -4396,6 +4881,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, ['interface_id'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Per\-interface RSVP protocol and state information
@@ -4405,10 +4891,14 @@ class Mpls(Entity):
                         	Identifier for the interface
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: counters
                         
                         	Interface specific RSVP statistics and counters
                         	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4418,7 +4908,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "interface"
@@ -4452,12 +4945,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_path_error_messages
                             
                             	Number of received RSVP Path Error messages
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: in_path_tear_messages
                             
@@ -4466,12 +4963,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_reservation_messages
                             
                             	Number of received RSVP Resv messages
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: in_reservation_error_messages
                             
@@ -4480,12 +4981,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_reservation_tear_messages
                             
                             	Number of received RSVP Resv Tear messages
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: in_hello_messages
                             
@@ -4494,12 +4999,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_srefresh_messages
                             
                             	Number of received RSVP summary refresh messages
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: in_ack_messages
                             
@@ -4508,12 +5017,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_path_messages
                             
                             	Number of sent RSVP PATH messages
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: out_path_error_messages
                             
@@ -4522,12 +5035,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_path_tear_messages
                             
                             	Number of sent RSVP Path Tear messages
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: out_reservation_messages
                             
@@ -4536,12 +5053,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_reservation_error_messages
                             
                             	Number of sent RSVP Resv Error messages
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: out_reservation_tear_messages
                             
@@ -4550,12 +5071,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_hello_messages
                             
                             	Number of sent RSVP hello messages
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: out_srefresh_messages
                             
@@ -4564,12 +5089,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_ack_messages
                             
                             	Number of sent RSVP refresh reduction ack messages
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4579,7 +5108,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters, self).__init__()
 
                                 self.yang_name = "counters"
                                 self.yang_parent_name = "state"
@@ -4632,6 +5164,8 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters, ['in_path_messages', 'in_path_error_messages', 'in_path_tear_messages', 'in_reservation_messages', 'in_reservation_error_messages', 'in_reservation_tear_messages', 'in_hello_messages', 'in_srefresh_messages', 'in_ack_messages', 'out_path_messages', 'out_path_error_messages', 'out_path_tear_messages', 'out_reservation_messages', 'out_reservation_error_messages', 'out_reservation_tear_messages', 'out_hello_messages', 'out_srefresh_messages', 'out_ack_messages'], name, value)
 
 
+
+
                     class InterfaceRef(Entity):
                         """
                         Reference to an interface or subinterface
@@ -4646,6 +5180,8 @@ class Mpls(Entity):
                         	Operational state for interface\-ref
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4654,7 +5190,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
 
                             self.yang_name = "interface-ref"
                             self.yang_parent_name = "interface"
@@ -4706,7 +5245,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "interface-ref"
@@ -4727,6 +5269,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state for interface\-ref
@@ -4738,6 +5281,8 @@ class Mpls(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: subinterface
                             
                             	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -4747,6 +5292,8 @@ class Mpls(Entity):
                             
                             	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -4755,7 +5302,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "interface-ref"
@@ -4776,6 +5326,8 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
+
+
                     class BandwidthReservations(Entity):
                         """
                         Enclosing container for bandwidth reservation
@@ -4785,6 +5337,8 @@ class Mpls(Entity):
                         	Available and reserved bandwidth by priority on the interface
                         	**type**\: list of  		 :py:class:`BandwidthReservation <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4793,7 +5347,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations, self).__init__()
 
                             self.yang_name = "bandwidth-reservations"
                             self.yang_parent_name = "interface"
@@ -4825,14 +5382,18 @@ class Mpls(Entity):
                             
                             			**range:** 0..7
                             
-                            		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
+                            		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
                             
                             	**refers to**\:  :py:class:`priority <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: state
                             
                             	Operational state parameters relating to a bandwidth reservation at a certain priority
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4842,7 +5403,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation, self).__init__()
 
                                 self.yang_name = "bandwidth-reservation"
                                 self.yang_parent_name = "bandwidth-reservations"
@@ -4879,7 +5443,9 @@ class Mpls(Entity):
                                 
                                 			**range:** 0..7
                                 
-                                		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
+                                		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: available_bandwidth
                                 
@@ -4888,12 +5454,16 @@ class Mpls(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: reserved_bandwidth
                                 
                                 	Bandwidth currently reserved within the priority level, or the sum of all priority levels when the keyword is set to ALL
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: active_reservations_count
                                 
@@ -4902,12 +5472,16 @@ class Mpls(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: highwater_mark
                                 
                                 	Maximum bandwidth reserved on the interface within the priority, or across all priorities in the case that the priority level is set to ALL
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4917,7 +5491,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "bandwidth-reservation"
@@ -4926,7 +5503,7 @@ class Mpls(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('priority', (YLeaf(YType.str, 'priority'), ['int',('ydk.models.openconfig.openconfig_mpls', 'Mpls', 'SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority')])),
+                                        ('priority', (YLeaf(YType.str, 'priority'), ['int',('ydk.models.openconfig.openconfig_network_instance', 'NetworkInstances', 'NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority')])),
                                         ('available_bandwidth', (YLeaf(YType.uint64, 'available-bandwidth'), ['int'])),
                                         ('reserved_bandwidth', (YLeaf(YType.uint64, 'reserved-bandwidth'), ['int'])),
                                         ('active_reservations_count', (YLeaf(YType.uint64, 'active-reservations-count'), ['int'])),
@@ -4963,6 +5540,9 @@ class Mpls(Entity):
 
 
 
+
+
+
                     class Hellos(Entity):
                         """
                         Top level container for RSVP hello parameters
@@ -4977,6 +5557,8 @@ class Mpls(Entity):
                         	State information associated with RSVP hellos
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4985,7 +5567,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos, self).__init__()
 
                             self.yang_name = "hellos"
                             self.yang_parent_name = "interface"
@@ -5040,7 +5625,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "hellos"
@@ -5061,6 +5649,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config, ['hello_interval', 'refresh_reduction'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State information associated with RSVP hellos
@@ -5072,6 +5661,8 @@ class Mpls(Entity):
                             
                             	**range:** 1000..60000
                             
+                            	**config**\: False
+                            
                             	**units**\: milliseconds
                             
                             	**default value**\: 9000
@@ -5080,6 +5671,8 @@ class Mpls(Entity):
                             
                             	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: true
                             
@@ -5091,7 +5684,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "hellos"
@@ -5112,6 +5708,8 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State, ['hello_interval', 'refresh_reduction'], name, value)
 
 
+
+
                     class Authentication(Entity):
                         """
                         Configuration and state parameters relating to RSVP
@@ -5127,6 +5725,8 @@ class Mpls(Entity):
                         	State information associated with authentication
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -5135,7 +5735,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication, self).__init__()
 
                             self.yang_name = "authentication"
                             self.yang_parent_name = "interface"
@@ -5186,7 +5789,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "authentication"
@@ -5207,6 +5813,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config, ['enable', 'authentication_key'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State information associated
@@ -5217,6 +5824,8 @@ class Mpls(Entity):
                             	Enables RSVP authentication on the node
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             .. attribute:: authentication_key
@@ -5226,6 +5835,8 @@ class Mpls(Entity):
                             
                             	**length:** 1..32
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -5234,7 +5845,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "authentication"
@@ -5255,6 +5869,8 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State, ['enable', 'authentication_key'], name, value)
 
 
+
+
                     class Subscription(Entity):
                         """
                         Bandwidth percentage reservable by RSVP
@@ -5270,6 +5886,8 @@ class Mpls(Entity):
                         	State parameters relating to RSVP subscription options
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -5278,7 +5896,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription, self).__init__()
 
                             self.yang_name = "subscription"
                             self.yang_parent_name = "interface"
@@ -5322,7 +5943,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "subscription"
@@ -5341,6 +5965,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config, ['subscription'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State parameters relating to RSVP
@@ -5353,12 +5978,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: calculated_absolute_subscription_bw
                             
                             	The calculated absolute value of the bandwidth which is reservable to RSVP\-TE on the interface prior to any adjustments that may be made from external sources
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: kbps
                             
@@ -5370,7 +5999,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "subscription"
@@ -5391,6 +6023,8 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, ['subscription', 'calculated_absolute_subscription_bw'], name, value)
 
 
+
+
                     class Protection(Entity):
                         """
                         link\-protection (NHOP) related configuration
@@ -5405,6 +6039,8 @@ class Mpls(Entity):
                         	State for link\-protection
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -5413,7 +6049,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection, self).__init__()
 
                             self.yang_name = "protection"
                             self.yang_parent_name = "interface"
@@ -5465,7 +6104,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "protection"
@@ -5486,6 +6128,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config, ['link_protection_style_requested', 'bypass_optimize_interval'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State for link\-protection
@@ -5495,6 +6138,8 @@ class Mpls(Entity):
                             	Style of mpls frr protection desired\: link, link\-node, or unprotected
                             	**type**\:  :py:class:`PROTECTIONTYPE <ydk.models.openconfig.openconfig_mpls_types.PROTECTIONTYPE>`
                             
+                            	**config**\: False
+                            
                             	**default value**\: oc-mplst:LINK_NODE_PROTECTION_REQUESTED
                             
                             .. attribute:: bypass_optimize_interval
@@ -5503,6 +6148,8 @@ class Mpls(Entity):
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -5514,7 +6161,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "protection"
@@ -5535,6 +6185,11 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State, ['link_protection_style_requested', 'bypass_optimize_interval'], name, value)
 
 
+
+
+
+
+
         class Ldp(Entity):
             """
             LDP global signaling configuration
@@ -5547,7 +6202,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.SignalingProtocols.Ldp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.SignalingProtocols.Ldp, self).__init__()
 
                 self.yang_name = "ldp"
                 self.yang_parent_name = "signaling-protocols"
@@ -5559,6 +6217,7 @@ class Mpls(Entity):
                 self._segment_path = lambda: "ldp"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/%s" % self._segment_path()
                 self._is_frozen = True
+
 
 
         class SegmentRouting(Entity):
@@ -5584,7 +6243,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.SignalingProtocols.SegmentRouting, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.SignalingProtocols.SegmentRouting, self).__init__()
 
                 self.yang_name = "segment-routing"
                 self.yang_parent_name = "signaling-protocols"
@@ -5618,6 +6280,8 @@ class Mpls(Entity):
                 	Counters aggregated across all of the interfaces of the local system corresponding to traffic received or forwarded with a particular SID
                 	**type**\: list of  		 :py:class:`AggregateSidCounter <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -5626,7 +6290,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters, self).__init__()
 
                     self.yang_name = "aggregate-sid-counters"
                     self.yang_parent_name = "segment-routing"
@@ -5660,14 +6327,18 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                     
                     	**refers to**\:  :py:class:`mpls_label <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: state
                     
                     	State parameters for per\-SID statistics
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5677,7 +6348,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter, self).__init__()
 
                         self.yang_name = "aggregate-sid-counter"
                         self.yang_parent_name = "aggregate-sid-counters"
@@ -5714,7 +6388,9 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_pkts
                         
@@ -5723,12 +6399,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_octets
                         
                         	The cumulative counter of the total bytes received within the context which have matched a label corresponding to an SR Segment Identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_pkts
                         
@@ -5737,12 +6417,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_octets
                         
                         	A cumulative counter of the total bytes transmitted by the local system within the context which have a label imported that corresponds to an SR Segment Identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -5752,7 +6436,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "aggregate-sid-counter"
@@ -5761,7 +6448,7 @@ class Mpls(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('mpls_label', (YLeaf(YType.str, 'mpls-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('mpls_label', (YLeaf(YType.str, 'mpls-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                                 ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
                                 ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
                                 ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
@@ -5777,6 +6464,9 @@ class Mpls(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State, [u'mpls_label', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
+
+
+
 
 
             class Interfaces(Entity):
@@ -5796,7 +6486,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "segment-routing"
@@ -5837,6 +6530,8 @@ class Mpls(Entity):
                     	MPLS\-specific Segment Routing operational state parameters related to an interface
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_counters
                     
                     	Per\-SID statistics for MPLS
@@ -5855,7 +6550,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -5909,7 +6607,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "interface"
@@ -5928,6 +6629,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config, [u'interface_id'], name, value)
 
 
+
                     class State(Entity):
                         """
                         MPLS\-specific Segment Routing operational state parameters
@@ -5938,12 +6640,16 @@ class Mpls(Entity):
                         	A unique identifier for the interface
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_pkts
                         
                         	A cumulative counter of the packets received within the context which have matched a label corresponding to an SR Segment Identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_octets
                         
@@ -5952,6 +6658,8 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_pkts
                         
                         	A cumulative counter of the total number of packets transmitted by the local system within the context which have a label imposed that corresponds to an Segment Identifier
@@ -5959,12 +6667,16 @@ class Mpls(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_octets
                         
                         	A cumulative counter of the total bytes transmitted by the local system within the context which have a label imported that corresponds to an SR Segment Identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -5974,7 +6686,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "interface"
@@ -6001,6 +6716,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State, [u'interface_id', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
 
 
+
                     class SidCounters(Entity):
                         """
                         Per\-SID statistics for MPLS
@@ -6010,6 +6726,8 @@ class Mpls(Entity):
                         	Per segment identifier counters for the MPLS dataplane
                         	**type**\: list of  		 :py:class:`SidCounter <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -6018,7 +6736,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters, self).__init__()
 
                             self.yang_name = "sid-counters"
                             self.yang_parent_name = "interface"
@@ -6049,19 +6770,25 @@ class Mpls(Entity):
                             
                             			**range:** 16..1048575
                             
-                            		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                            		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                             
                             	**refers to**\:  :py:class:`mpls_label <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: state
                             
                             	State parameters for per\-SID statistics
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: forwarding_classes
                             
                             	Per\-SID per\-forwarding class counters for Segment Routing
                             	**type**\:  :py:class:`ForwardingClasses <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6071,7 +6798,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter, self).__init__()
 
                                 self.yang_name = "sid-counter"
                                 self.yang_parent_name = "sid-counters"
@@ -6111,7 +6841,9 @@ class Mpls(Entity):
                                 
                                 			**range:** 16..1048575
                                 
-                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: in_pkts
                                 
@@ -6120,12 +6852,16 @@ class Mpls(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: in_octets
                                 
                                 	The cumulative counter of the total bytes received within the context which have matched a label corresponding to an SR Segment Identifier
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: out_pkts
                                 
@@ -6134,12 +6870,16 @@ class Mpls(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: out_octets
                                 
                                 	A cumulative counter of the total bytes transmitted by the local system within the context which have a label imported that corresponds to an SR Segment Identifier
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6149,7 +6889,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "sid-counter"
@@ -6158,7 +6901,7 @@ class Mpls(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('mpls_label', (YLeaf(YType.str, 'mpls-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                        ('mpls_label', (YLeaf(YType.str, 'mpls-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                                         ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
                                         ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
                                         ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
@@ -6176,6 +6919,7 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State, [u'mpls_label', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
 
 
+
                             class ForwardingClasses(Entity):
                                 """
                                 Per\-SID per\-forwarding class counters for Segment Routing.
@@ -6185,6 +6929,8 @@ class Mpls(Entity):
                                 	SID entries for the forwarding class associated with the referenced MPLS EXP
                                 	**type**\: list of  		 :py:class:`ForwardingClass <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -6193,7 +6939,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses, self).__init__()
 
                                     self.yang_name = "forwarding-classes"
                                     self.yang_parent_name = "sid-counter"
@@ -6225,10 +6974,14 @@ class Mpls(Entity):
                                     
                                     	**refers to**\:  :py:class:`exp <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: state
                                     
                                     	Per\-SID, per forwarding class counters for Segment Routing with the MPLS dataplane
                                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6238,7 +6991,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass, self).__init__()
 
                                         self.yang_name = "forwarding-class"
                                         self.yang_parent_name = "forwarding-classes"
@@ -6273,12 +7029,16 @@ class Mpls(Entity):
                                         
                                         	**range:** 0..7
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_pkts
                                         
                                         	A cumulative counter of the packets received within the context which have matched a label corresponding to an SR Segment Identifier
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: in_octets
                                         
@@ -6287,6 +7047,8 @@ class Mpls(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: out_pkts
                                         
                                         	A cumulative counter of the total number of packets transmitted by the local system within the context which have a label imposed that corresponds to an Segment Identifier
@@ -6294,12 +7056,16 @@ class Mpls(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: out_octets
                                         
                                         	A cumulative counter of the total bytes transmitted by the local system within the context which have a label imported that corresponds to an SR Segment Identifier
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6309,7 +7075,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "forwarding-class"
@@ -6336,6 +7105,11 @@ class Mpls(Entity):
                                             self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State, [u'exp', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
 
 
+
+
+
+
+
                     class InterfaceRef(Entity):
                         """
                         Reference to an interface or subinterface
@@ -6350,6 +7124,8 @@ class Mpls(Entity):
                         	Operational state for interface\-ref
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -6358,7 +7134,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef, self).__init__()
 
                             self.yang_name = "interface-ref"
                             self.yang_parent_name = "interface"
@@ -6410,7 +7189,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "interface-ref"
@@ -6431,6 +7213,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state for interface\-ref
@@ -6442,6 +7225,8 @@ class Mpls(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: subinterface
                             
                             	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -6451,6 +7236,8 @@ class Mpls(Entity):
                             
                             	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -6459,7 +7246,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "interface-ref"
@@ -6478,6 +7268,12 @@ class Mpls(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
+
+
+
 
 
     class Lsps(Entity):
@@ -6507,7 +7303,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.Lsps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.Lsps, self).__init__()
 
             self.yang_name = "lsps"
             self.yang_parent_name = "mpls"
@@ -6559,7 +7358,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Lsps.ConstrainedPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Lsps.ConstrainedPath, self).__init__()
 
                 self.yang_name = "constrained-path"
                 self.yang_parent_name = "lsps"
@@ -6601,7 +7403,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths, self).__init__()
 
                     self.yang_name = "named-explicit-paths"
                     self.yang_parent_name = "constrained-path"
@@ -6641,6 +7446,8 @@ class Mpls(Entity):
                     	Operational state parameters relating to the named explicit paths
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: explicit_route_objects
                     
                     	Enclosing container for EROs
@@ -6654,7 +7461,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath, self).__init__()
 
                         self.yang_name = "named-explicit-path"
                         self.yang_parent_name = "named-explicit-paths"
@@ -6718,7 +7528,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "named-explicit-path"
@@ -6772,6 +7585,7 @@ class Mpls(Entity):
 
 
 
+
                     class State(Entity):
                         """
                         Operational state parameters relating to the named
@@ -6782,10 +7596,14 @@ class Mpls(Entity):
                         	A string name that uniquely identifies an explicit path
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid_selection_mode
                         
                         	The restrictions placed on the SIDs to be selected by the calculation method for the explicit path when it is instantiated for a SR\-TE LSP
                         	**type**\:  :py:class:`SidSelectionMode <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State.SidSelectionMode>`
+                        
+                        	**config**\: False
                         
                         	**default value**\: MIXED_MODE
                         
@@ -6793,6 +7611,8 @@ class Mpls(Entity):
                         
                         	When this value is set to true, only SIDs that are protected are to be selected by the calculating method when the explicit path is instantiated by a SR\-TE LSP
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -6804,7 +7624,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "named-explicit-path"
@@ -6858,6 +7681,7 @@ class Mpls(Entity):
 
 
 
+
                     class ExplicitRouteObjects(Entity):
                         """
                         Enclosing container for EROs
@@ -6875,7 +7699,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects, self).__init__()
 
                             self.yang_name = "explicit-route-objects"
                             self.yang_parent_name = "named-explicit-path"
@@ -6916,6 +7743,8 @@ class Mpls(Entity):
                             	State parameters relating to an explicit route
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -6924,7 +7753,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject, self).__init__()
 
                                 self.yang_name = "explicit-route-object"
                                 self.yang_parent_name = "explicit-route-objects"
@@ -6989,7 +7821,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "explicit-route-object"
@@ -7012,6 +7847,7 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config, [u'address', u'hop_type', u'index'], name, value)
 
 
+
                             class State(Entity):
                                 """
                                 State parameters relating to an explicit route
@@ -7029,10 +7865,14 @@ class Mpls(Entity):
                                 
                                 			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: hop_type
                                 
                                 	strict or loose hop
                                 	**type**\:  :py:class:`MplsHopType <ydk.models.openconfig.openconfig_mpls.MplsHopType>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: index
                                 
@@ -7040,6 +7880,8 @@ class Mpls(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7049,7 +7891,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "explicit-route-object"
@@ -7072,6 +7917,11 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State, [u'address', u'hop_type', u'index'], name, value)
 
 
+
+
+
+
+
             class Tunnels(Entity):
                 """
                 Enclosing container for tunnels
@@ -7089,7 +7939,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.ConstrainedPath.Tunnels, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Lsps.ConstrainedPath.Tunnels, self).__init__()
 
                     self.yang_name = "tunnels"
                     self.yang_parent_name = "constrained-path"
@@ -7133,6 +7986,8 @@ class Mpls(Entity):
                     	State parameters related to TE tunnels
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: bandwidth
                     
                     	Bandwidth configuration for TE LSPs
@@ -7151,7 +8006,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel, self).__init__()
 
                         self.yang_name = "tunnel"
                         self.yang_parent_name = "tunnels"
@@ -7308,7 +8166,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "tunnel"
@@ -7355,6 +8216,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, [u'name', u'type', u'signaling_protocol', u'description', u'admin_status', u'preference', u'metric_type', u'metric', u'shortcut_eligible', u'protection_style_requested', u'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State parameters related to TE tunnels
@@ -7364,25 +8226,35 @@ class Mpls(Entity):
                         	The tunnel name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Tunnel type, p2p or p2mp
                         	**type**\:  :py:class:`TUNNELTYPE <ydk.models.openconfig.openconfig_mpls_types.TUNNELTYPE>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: signaling_protocol
                         
                         	Signaling protocol used to set up this tunnel
                         	**type**\:  :py:class:`PATHSETUPPROTOCOL <ydk.models.openconfig.openconfig_mpls_types.PATHSETUPPROTOCOL>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: description
                         
                         	optional text description for the tunnel
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: admin_status
                         
                         	TE tunnel administrative state
                         	**type**\:  :py:class:`TUNNELADMINSTATUS <ydk.models.openconfig.openconfig_mpls_types.TUNNELADMINSTATUS>`
+                        
+                        	**config**\: False
                         
                         	**default value**\: oc-mplst:ADMIN_UP
                         
@@ -7393,10 +8265,14 @@ class Mpls(Entity):
                         
                         	**range:** 1..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric_type
                         
                         	The type of metric specification that should be used to set the LSP(s) metric
                         	**type**\:  :py:class:`LSPMETRICTYPE <ydk.models.openconfig.openconfig_mpls_types.LSPMETRICTYPE>`
+                        
+                        	**config**\: False
                         
                         	**default value**\: oc-mplst:LSP_METRIC_INHERITED
                         
@@ -7407,10 +8283,14 @@ class Mpls(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: shortcut_eligible
                         
                         	Whether this LSP is considered to be eligible for us as a shortcut in the IGP. In the case that this leaf is set to true, the IGP SPF calculation uses the metric specified to determine whether traffic should be carried over this LSP
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: true
                         
@@ -7418,6 +8298,8 @@ class Mpls(Entity):
                         
                         	style of mpls frr protection desired\: can be link, link\-node or unprotected
                         	**type**\:  :py:class:`PROTECTIONTYPE <ydk.models.openconfig.openconfig_mpls_types.PROTECTIONTYPE>`
+                        
+                        	**config**\: False
                         
                         	**default value**\: oc-mplst:UNPROTECTED
                         
@@ -7427,6 +8309,8 @@ class Mpls(Entity):
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         	**units**\: seconds
                         
@@ -7443,10 +8327,14 @@ class Mpls(Entity):
                         
                         			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
+                        	**config**\: False
+                        
                         .. attribute:: soft_preemption
                         
                         	Enables RSVP soft\-preemption on this LSP
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -7457,6 +8345,8 @@ class Mpls(Entity):
                         
                         	**range:** 0..7
                         
+                        	**config**\: False
+                        
                         	**default value**\: 7
                         
                         .. attribute:: hold_priority
@@ -7466,6 +8356,8 @@ class Mpls(Entity):
                         
                         	**range:** 0..7
                         
+                        	**config**\: False
+                        
                         	**default value**\: 0
                         
                         .. attribute:: oper_status
@@ -7473,15 +8365,21 @@ class Mpls(Entity):
                         	The operational status of the TE tunnel
                         	**type**\:  :py:class:`LSPOPERSTATUS <ydk.models.openconfig.openconfig_mpls_types.LSPOPERSTATUS>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: role
                         
                         	The lsp role at the current node, whether it is headend, transit or tailend
                         	**type**\:  :py:class:`LSPROLE <ydk.models.openconfig.openconfig_mpls_types.LSPROLE>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: counters
                         
                         	State data for MPLS label switched paths. This state data is specific to a single label switched path
                         	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7491,7 +8389,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "tunnel"
@@ -7558,12 +8459,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: packets
                             
                             	Number of pacets that have been forwarded over the label switched path
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: path_changes
                             
@@ -7572,12 +8477,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: state_changes
                             
                             	Number of state changes for the label switched path
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: online_time
                             
@@ -7586,6 +8495,8 @@ class Mpls(Entity):
                             
                             	**pattern:** ^[0\-9]{4}\\\-[0\-9]{2}\\\-[0\-9]{2}T[0\-9]{2}\:[0\-9]{2}\:[0\-9]{2}(\\.[0\-9]+)?Z[+\-][0\-9]{2}\:[0\-9]{2}$
                             
+                            	**config**\: False
+                            
                             .. attribute:: current_path_time
                             
                             	Indicates the time the LSP switched onto its current path. This is reset upon a LSP path change
@@ -7593,12 +8504,16 @@ class Mpls(Entity):
                             
                             	**pattern:** ^[0\-9]{4}\\\-[0\-9]{2}\\\-[0\-9]{2}T[0\-9]{2}\:[0\-9]{2}\:[0\-9]{2}(\\.[0\-9]+)?Z[+\-][0\-9]{2}\:[0\-9]{2}$
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_reoptimization_time
                             
                             	Indicates the next scheduled time the LSP will be reoptimized
                             	**type**\: str
                             
                             	**pattern:** ^[0\-9]{4}\\\-[0\-9]{2}\\\-[0\-9]{2}T[0\-9]{2}\:[0\-9]{2}\:[0\-9]{2}(\\.[0\-9]+)?Z[+\-][0\-9]{2}\:[0\-9]{2}$
+                            
+                            	**config**\: False
                             
                             
 
@@ -7608,7 +8523,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters, self).__init__()
 
                                 self.yang_name = "counters"
                                 self.yang_parent_name = "state"
@@ -7639,6 +8557,8 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters, [u'bytes', u'packets', u'path_changes', u'state_changes', u'online_time', u'current_path_time', u'next_reoptimization_time'], name, value)
 
 
+
+
                     class Bandwidth(Entity):
                         """
                         Bandwidth configuration for TE LSPs
@@ -7653,6 +8573,8 @@ class Mpls(Entity):
                         	State parameters related to bandwidth configuration of TE tunnels
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: auto_bandwidth
                         
                         	Parameters related to auto\-bandwidth
@@ -7666,7 +8588,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth, self).__init__()
 
                             self.yang_name = "bandwidth"
                             self.yang_parent_name = "tunnel"
@@ -7721,7 +8646,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "bandwidth"
@@ -7742,6 +8670,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config, [u'specification_type', u'set_bandwidth'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State parameters related to bandwidth
@@ -7752,6 +8681,8 @@ class Mpls(Entity):
                             	The method used for settign the bandwidth, either explicitly specified or configured
                             	**type**\:  :py:class:`TeBandwidthType <ydk.models.openconfig.openconfig_mpls.TeBandwidthType>`
                             
+                            	**config**\: False
+                            
                             	**default value**\: SPECIFIED
                             
                             .. attribute:: set_bandwidth
@@ -7761,12 +8692,16 @@ class Mpls(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: signaled_bandwidth
                             
                             	The currently signaled bandwidth of the LSP. In the case where the bandwidth is specified explicitly, then this will match the value of the set\-bandwidth leaf; in cases where the bandwidth is dynamically computed by the system, the current value of the bandwidth should be reflected
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -7776,7 +8711,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "bandwidth"
@@ -7799,6 +8737,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State, [u'specification_type', u'set_bandwidth', u'signaled_bandwidth'], name, value)
 
 
+
                         class AutoBandwidth(Entity):
                             """
                             Parameters related to auto\-bandwidth
@@ -7812,6 +8751,8 @@ class Mpls(Entity):
                             
                             	State parameters relating to MPLS auto\-bandwidth on the tunnel
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: overflow
                             
@@ -7831,7 +8772,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth, self).__init__()
 
                                 self.yang_name = "auto-bandwidth"
                                 self.yang_parent_name = "bandwidth"
@@ -7911,7 +8855,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "auto-bandwidth"
@@ -7938,6 +8885,7 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config, [u'enabled', u'min_bw', u'max_bw', u'adjust_interval', u'adjust_threshold'], name, value)
 
 
+
                             class State(Entity):
                                 """
                                 State parameters relating to MPLS
@@ -7948,6 +8896,8 @@ class Mpls(Entity):
                                 	enables mpls auto\-bandwidth on the lsp
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 	**default value**\: false
                                 
                                 .. attribute:: min_bw
@@ -7957,12 +8907,16 @@ class Mpls(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: max_bw
                                 
                                 	set the maximum bandwidth in Kbps for an auto\-bandwidth LSP
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: adjust_interval
                                 
@@ -7971,12 +8925,16 @@ class Mpls(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: adjust_threshold
                                 
                                 	percentage difference between the LSP's specified bandwidth and its current bandwidth allocation \-\- if the difference is greater than the specified percentage, auto\-bandwidth adjustment is triggered
                                 	**type**\: int
                                 
                                 	**range:** 0..100
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7986,7 +8944,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "auto-bandwidth"
@@ -8013,6 +8974,7 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State, [u'enabled', u'min_bw', u'max_bw', u'adjust_interval', u'adjust_threshold'], name, value)
 
 
+
                             class Overflow(Entity):
                                 """
                                 configuration of MPLS overflow bandwidth
@@ -8028,6 +8990,8 @@ class Mpls(Entity):
                                 	Config information for MPLS overflow bandwidth adjustment
                                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -8036,7 +9000,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow, self).__init__()
 
                                     self.yang_name = "overflow"
                                     self.yang_parent_name = "auto-bandwidth"
@@ -8094,7 +9061,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "overflow"
@@ -8117,6 +9087,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, [u'enabled', u'overflow_threshold', u'trigger_event_count'], name, value)
 
 
+
                                 class State(Entity):
                                     """
                                     Config information for MPLS overflow bandwidth
@@ -8127,6 +9098,8 @@ class Mpls(Entity):
                                     	enables mpls lsp bandwidth overflow adjustment on the lsp
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     	**default value**\: false
                                     
                                     .. attribute:: overflow_threshold
@@ -8136,12 +9109,16 @@ class Mpls(Entity):
                                     
                                     	**range:** 0..100
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: trigger_event_count
                                     
                                     	number of consecutive overflow sample events needed to trigger an overflow adjustment
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8151,7 +9128,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "overflow"
@@ -8174,6 +9154,8 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, [u'enabled', u'overflow_threshold', u'trigger_event_count'], name, value)
 
 
+
+
                             class Underflow(Entity):
                                 """
                                 configuration of MPLS underflow bandwidth
@@ -8189,6 +9171,8 @@ class Mpls(Entity):
                                 	State information for MPLS underflow bandwidth adjustment
                                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -8197,7 +9181,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow, self).__init__()
 
                                     self.yang_name = "underflow"
                                     self.yang_parent_name = "auto-bandwidth"
@@ -8255,7 +9242,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "underflow"
@@ -8278,6 +9268,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, [u'enabled', u'underflow_threshold', u'trigger_event_count'], name, value)
 
 
+
                                 class State(Entity):
                                     """
                                     State information for MPLS underflow bandwidth
@@ -8288,6 +9279,8 @@ class Mpls(Entity):
                                     	enables bandwidth underflow adjustment on the lsp
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     	**default value**\: false
                                     
                                     .. attribute:: underflow_threshold
@@ -8297,12 +9290,16 @@ class Mpls(Entity):
                                     
                                     	**range:** 0..100
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: trigger_event_count
                                     
                                     	number of consecutive underflow sample events needed to trigger an underflow adjustment
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8312,7 +9309,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "underflow"
@@ -8335,6 +9335,10 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, [u'enabled', u'underflow_threshold', u'trigger_event_count'], name, value)
 
 
+
+
+
+
                     class P2pTunnelAttributes(Entity):
                         """
                         Parameters related to LSPs of type P2P
@@ -8348,6 +9352,8 @@ class Mpls(Entity):
                         
                         	State parameters for P2P LSPs
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: p2p_primary_path
                         
@@ -8367,7 +9373,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes, self).__init__()
 
                             self.yang_name = "p2p-tunnel-attributes"
                             self.yang_parent_name = "tunnel"
@@ -8424,7 +9433,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "p2p-tunnel-attributes"
@@ -8441,6 +9453,7 @@ class Mpls(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config, [u'destination'], name, value)
+
 
 
                         class State(Entity):
@@ -8460,6 +9473,8 @@ class Mpls(Entity):
                             
                             			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -8468,7 +9483,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "p2p-tunnel-attributes"
@@ -8485,6 +9503,7 @@ class Mpls(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State, [u'destination'], name, value)
+
 
 
                         class P2pPrimaryPath(Entity):
@@ -8504,7 +9523,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath, self).__init__()
 
                                 self.yang_name = "p2p-primary-path"
                                 self.yang_parent_name = "p2p-tunnel-attributes"
@@ -8543,6 +9565,8 @@ class Mpls(Entity):
                                 	State parameters related to paths
                                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: candidate_secondary_paths
                                 
                                 	The set of candidate secondary paths which may be used for this primary path. When secondary paths are specified in the list the path of the secondary LSP in use must be restricted to those path options referenced. The priority of the secondary paths is specified within the list. Higher priority values are less preferred \- that is to say that a path with priority 0 is the most preferred path. In the case that the list is empty, any secondary path option may be utilised when the current primary path is in use
@@ -8561,7 +9585,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_, self).__init__()
 
                                     self.yang_name = "p2p-primary-path"
                                     self.yang_parent_name = "p2p-primary-path"
@@ -8684,7 +9711,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "p2p-primary-path"
@@ -8721,6 +9751,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
 
 
+
                                 class State(Entity):
                                     """
                                     State parameters related to paths
@@ -8730,10 +9761,14 @@ class Mpls(Entity):
                                     	Path name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: path_computation_method
                                     
                                     	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
                                     	**type**\:  :py:class:`PATHCOMPUTATIONMETHOD <ydk.models.openconfig.openconfig_mpls_types.PATHCOMPUTATIONMETHOD>`
+                                    
+                                    	**config**\: False
                                     
                                     	**default value**\: oc-mplst:LOCALLY_COMPUTED
                                     
@@ -8742,10 +9777,14 @@ class Mpls(Entity):
                                     	Flag to enable CSPF for locally computed LSPs
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: cspf_tiebreaker
                                     
                                     	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
                                     	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: path_computation_server
                                     
@@ -8760,12 +9799,16 @@ class Mpls(Entity):
                                     
                                     			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: explicit_path_name
                                     
                                     	reference to a defined path
                                     	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: preference
                                     
@@ -8774,12 +9817,16 @@ class Mpls(Entity):
                                     
                                     	**range:** 1..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: setup_priority
                                     
                                     	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
                                     	**type**\: int
                                     
                                     	**range:** 0..7
+                                    
+                                    	**config**\: False
                                     
                                     	**default value**\: 7
                                     
@@ -8790,6 +9837,8 @@ class Mpls(Entity):
                                     
                                     	**range:** 0..7
                                     
+                                    	**config**\: False
+                                    
                                     	**default value**\: 0
                                     
                                     .. attribute:: retry_timer
@@ -8798,6 +9847,8 @@ class Mpls(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 1..600
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: seconds
                                     
@@ -8810,6 +9861,8 @@ class Mpls(Entity):
                                     
                                     	**refers to**\:  :py:class:`local_index <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -8818,7 +9871,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "p2p-primary-path"
@@ -8857,6 +9913,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer', u'associated_rsvp_session'], name, value)
 
 
+
                                 class CandidateSecondaryPaths(Entity):
                                     """
                                     The set of candidate secondary paths which may be used
@@ -8883,7 +9940,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths, self).__init__()
 
                                         self.yang_name = "candidate-secondary-paths"
                                         self.yang_parent_name = "p2p-primary-path"
@@ -8923,6 +9983,8 @@ class Mpls(Entity):
                                         	Operational state parameters relating to the candidate secondary path
                                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -8931,7 +9993,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath, self).__init__()
 
                                             self.yang_name = "candidate-secondary-path"
                                             self.yang_parent_name = "candidate-secondary-paths"
@@ -8985,7 +10050,10 @@ class Mpls(Entity):
                                             _revision = '2017-03-22'
 
                                             def __init__(self):
-                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config, self).__init__()
 
                                                 self.yang_name = "config"
                                                 self.yang_parent_name = "candidate-secondary-path"
@@ -9006,6 +10074,7 @@ class Mpls(Entity):
                                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config, [u'secondary_path', u'priority'], name, value)
 
 
+
                                         class State(Entity):
                                             """
                                             Operational state parameters relating to the candidate
@@ -9018,6 +10087,8 @@ class Mpls(Entity):
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: priority
                                             
                                             	The priority of the specified secondary path option. Higher priority options are less preferable \- such that a secondary path reference with a priority of 0 is the most preferred
@@ -9025,10 +10096,14 @@ class Mpls(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: active
                                             
                                             	Indicates the current active path option that has been selected of the candidate secondary paths
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -9038,7 +10113,10 @@ class Mpls(Entity):
                                             _revision = '2017-03-22'
 
                                             def __init__(self):
-                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State, self).__init__()
 
                                                 self.yang_name = "state"
                                                 self.yang_parent_name = "candidate-secondary-path"
@@ -9061,6 +10139,9 @@ class Mpls(Entity):
                                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State, [u'secondary_path', u'priority', u'active'], name, value)
 
 
+
+
+
                                 class AdminGroups(Entity):
                                     """
                                     Top\-level container for include/exclude constraints for
@@ -9076,6 +10157,8 @@ class Mpls(Entity):
                                     	Operational state data 
                                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -9084,7 +10167,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups, self).__init__()
 
                                         self.yang_name = "admin-groups"
                                         self.yang_parent_name = "p2p-primary-path"
@@ -9141,7 +10227,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "admin-groups"
@@ -9164,6 +10253,7 @@ class Mpls(Entity):
                                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
 
 
+
                                     class State(Entity):
                                         """
                                         Operational state data 
@@ -9175,6 +10265,8 @@ class Mpls(Entity):
                                         
                                         	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: include_all_group
                                         
                                         	list of references to named admin\-groups of which all must be included
@@ -9182,12 +10274,16 @@ class Mpls(Entity):
                                         
                                         	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: include_any_group
                                         
                                         	list of references to named admin\-groups of which one must be included
                                         	**type**\: list of str
                                         
                                         	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9197,7 +10293,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "admin-groups"
@@ -9220,6 +10319,10 @@ class Mpls(Entity):
                                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
 
 
+
+
+
+
                         class P2pSecondaryPaths(Entity):
                             """
                             Secondary paths for the LSP
@@ -9237,7 +10340,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths, self).__init__()
 
                                 self.yang_name = "p2p-secondary-paths"
                                 self.yang_parent_name = "p2p-tunnel-attributes"
@@ -9276,6 +10382,8 @@ class Mpls(Entity):
                                 	State parameters related to paths
                                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: admin_groups
                                 
                                 	Top\-level container for include/exclude constraints for link affinities
@@ -9289,7 +10397,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath, self).__init__()
 
                                     self.yang_name = "p2p-secondary-path"
                                     self.yang_parent_name = "p2p-secondary-paths"
@@ -9408,7 +10519,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "p2p-secondary-path"
@@ -9445,6 +10559,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
 
 
+
                                 class State(Entity):
                                     """
                                     State parameters related to paths
@@ -9454,10 +10569,14 @@ class Mpls(Entity):
                                     	Path name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: path_computation_method
                                     
                                     	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
                                     	**type**\:  :py:class:`PATHCOMPUTATIONMETHOD <ydk.models.openconfig.openconfig_mpls_types.PATHCOMPUTATIONMETHOD>`
+                                    
+                                    	**config**\: False
                                     
                                     	**default value**\: oc-mplst:LOCALLY_COMPUTED
                                     
@@ -9466,10 +10585,14 @@ class Mpls(Entity):
                                     	Flag to enable CSPF for locally computed LSPs
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: cspf_tiebreaker
                                     
                                     	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
                                     	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: path_computation_server
                                     
@@ -9484,12 +10607,16 @@ class Mpls(Entity):
                                     
                                     			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: explicit_path_name
                                     
                                     	reference to a defined path
                                     	**type**\: str
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: preference
                                     
@@ -9498,12 +10625,16 @@ class Mpls(Entity):
                                     
                                     	**range:** 1..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: setup_priority
                                     
                                     	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
                                     	**type**\: int
                                     
                                     	**range:** 0..7
+                                    
+                                    	**config**\: False
                                     
                                     	**default value**\: 7
                                     
@@ -9514,6 +10645,8 @@ class Mpls(Entity):
                                     
                                     	**range:** 0..7
                                     
+                                    	**config**\: False
+                                    
                                     	**default value**\: 0
                                     
                                     .. attribute:: retry_timer
@@ -9522,6 +10655,8 @@ class Mpls(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 1..600
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: seconds
                                     
@@ -9534,6 +10669,8 @@ class Mpls(Entity):
                                     
                                     	**refers to**\:  :py:class:`local_index <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -9542,7 +10679,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "p2p-secondary-path"
@@ -9581,6 +10721,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer', u'associated_rsvp_session'], name, value)
 
 
+
                                 class AdminGroups(Entity):
                                     """
                                     Top\-level container for include/exclude constraints for
@@ -9596,6 +10737,8 @@ class Mpls(Entity):
                                     	Operational state data 
                                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -9604,7 +10747,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups, self).__init__()
 
                                         self.yang_name = "admin-groups"
                                         self.yang_parent_name = "p2p-secondary-path"
@@ -9661,7 +10807,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "admin-groups"
@@ -9684,6 +10833,7 @@ class Mpls(Entity):
                                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
 
 
+
                                     class State(Entity):
                                         """
                                         Operational state data 
@@ -9695,6 +10845,8 @@ class Mpls(Entity):
                                         
                                         	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: include_all_group
                                         
                                         	list of references to named admin\-groups of which all must be included
@@ -9702,12 +10854,16 @@ class Mpls(Entity):
                                         
                                         	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: include_any_group
                                         
                                         	list of references to named admin\-groups of which one must be included
                                         	**type**\: list of str
                                         
                                         	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9717,7 +10873,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "admin-groups"
@@ -9740,6 +10899,14 @@ class Mpls(Entity):
                                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
 
 
+
+
+
+
+
+
+
+
         class UnconstrainedPath(Entity):
             """
             LSPs that use the IGP\-determined path, i.e., non
@@ -9758,7 +10925,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Lsps.UnconstrainedPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Lsps.UnconstrainedPath, self).__init__()
 
                 self.yang_name = "unconstrained-path"
                 self.yang_parent_name = "lsps"
@@ -9797,7 +10967,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol, self).__init__()
 
                     self.yang_name = "path-setup-protocol"
                     self.yang_parent_name = "unconstrained-path"
@@ -9830,7 +11003,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp, self).__init__()
 
                         self.yang_name = "ldp"
                         self.yang_parent_name = "path-setup-protocol"
@@ -9842,6 +11018,9 @@ class Mpls(Entity):
                         self._segment_path = lambda: "ldp"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/%s" % self._segment_path()
                         self._is_frozen = True
+
+
+
 
 
         class StaticLsps(Entity):
@@ -9862,7 +11041,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Lsps.StaticLsps, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Lsps.StaticLsps, self).__init__()
 
                 self.yang_name = "static-lsps"
                 self.yang_parent_name = "lsps"
@@ -9902,6 +11084,8 @@ class Mpls(Entity):
                 	Operational state data for the static lsp
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: ingress
                 
                 	Static LSPs for which the router is an  ingress node
@@ -9925,7 +11109,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.StaticLsps.StaticLsp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Lsps.StaticLsps.StaticLsp, self).__init__()
 
                     self.yang_name = "static-lsp"
                     self.yang_parent_name = "static-lsps"
@@ -9962,7 +11149,7 @@ class Mpls(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp, ['name'], name, value)
+                    self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp, [u'name'], name, value)
 
 
                 class Config(Entity):
@@ -9982,7 +11169,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "static-lsp"
@@ -9998,7 +11188,8 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Config, ['name'], name, value)
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Config, [u'name'], name, value)
+
 
 
                 class State(Entity):
@@ -10010,6 +11201,8 @@ class Mpls(Entity):
                     	name to identify the LSP
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -10018,7 +11211,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "static-lsp"
@@ -10034,7 +11230,8 @@ class Mpls(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.State, ['name'], name, value)
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.State, [u'name'], name, value)
+
 
 
                 class Ingress(Entity):
@@ -10052,6 +11249,8 @@ class Mpls(Entity):
                     	Operational state data for ingress LSPs
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -10060,7 +11259,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress, self).__init__()
 
                         self.yang_name = "ingress"
                         self.yang_parent_name = "static-lsp"
@@ -10110,7 +11312,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                         
                         .. attribute:: push_label
                         
@@ -10121,7 +11323,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                         
                         
 
@@ -10131,7 +11333,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ingress"
@@ -10141,8 +11346,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -10151,7 +11356,8 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, ['next_hop', 'incoming_label', 'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+
 
 
                     class State(Entity):
@@ -10171,6 +11377,8 @@ class Mpls(Entity):
                         
                         			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_label
                         
                         	label value on the incoming packet
@@ -10180,7 +11388,9 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: push_label
                         
@@ -10191,7 +11401,9 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -10201,7 +11413,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ingress"
@@ -10211,8 +11426,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -10221,7 +11436,9 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, ['next_hop', 'incoming_label', 'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+
+
 
 
                 class Transit(Entity):
@@ -10239,6 +11456,8 @@ class Mpls(Entity):
                     	Operational state data for transit LSPs
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Transit.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -10247,7 +11466,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.Transit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Transit, self).__init__()
 
                         self.yang_name = "transit"
                         self.yang_parent_name = "static-lsp"
@@ -10297,7 +11519,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                         
                         .. attribute:: push_label
                         
@@ -10308,7 +11530,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                         
                         
 
@@ -10318,7 +11540,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "transit"
@@ -10328,8 +11553,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -10338,7 +11563,8 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, ['next_hop', 'incoming_label', 'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+
 
 
                     class State(Entity):
@@ -10358,6 +11584,8 @@ class Mpls(Entity):
                         
                         			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_label
                         
                         	label value on the incoming packet
@@ -10367,7 +11595,9 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: push_label
                         
@@ -10378,7 +11608,9 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -10388,7 +11620,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "transit"
@@ -10398,8 +11633,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -10408,7 +11643,9 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, ['next_hop', 'incoming_label', 'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+
+
 
 
                 class Egress(Entity):
@@ -10426,6 +11663,8 @@ class Mpls(Entity):
                     	Operational state data for egress LSPs
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Egress.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -10434,7 +11673,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.Egress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Egress, self).__init__()
 
                         self.yang_name = "egress"
                         self.yang_parent_name = "static-lsp"
@@ -10484,7 +11726,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                         
                         .. attribute:: push_label
                         
@@ -10495,7 +11737,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
                         
                         
 
@@ -10505,7 +11747,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "egress"
@@ -10515,8 +11760,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -10525,7 +11770,8 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, ['next_hop', 'incoming_label', 'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+
 
 
                     class State(Entity):
@@ -10545,6 +11791,8 @@ class Mpls(Entity):
                         
                         			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_label
                         
                         	label value on the incoming packet
@@ -10554,7 +11802,9 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: push_label
                         
@@ -10565,7 +11815,9 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -10575,7 +11827,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "egress"
@@ -10585,8 +11840,8 @@ class Mpls(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str'])),
-                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
-                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_segment_routing', 'MplsLabel', '')])),
+                                ('incoming_label', (YLeaf(YType.str, 'incoming-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
+                                ('push_label', (YLeaf(YType.str, 'push-label'), ['int',('ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel', '')])),
                             ])
                             self.next_hop = None
                             self.incoming_label = None
@@ -10595,9 +11850,16 @@ class Mpls(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, ['next_hop', 'incoming_label', 'push_label'], name, value)
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Mpls()
         return self._top_entity
+
+
 

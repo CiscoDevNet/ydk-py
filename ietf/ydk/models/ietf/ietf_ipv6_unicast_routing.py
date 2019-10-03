@@ -23,6 +23,7 @@ This version of this YANG module is part of RFC XXXX
 full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -46,6 +47,10 @@ class Ipv6Unicast(Ipv6):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ipv6-unicast-routing", pref="ietf-ipv6-unicast-routing", tag="ietf-ipv6-unicast-routing:ipv6-unicast"):
-        super(Ipv6Unicast, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ipv6Unicast, self).__init__(ns, pref, tag)
+
 
 

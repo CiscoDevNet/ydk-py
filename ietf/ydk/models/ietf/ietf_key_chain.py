@@ -7,6 +7,7 @@ key\-chain configuration parameters.
 
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -45,7 +46,10 @@ class KeyChains(Entity):
     _revision = '2015-02-24'
 
     def __init__(self):
-        super(KeyChains, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyChains, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-chains"
@@ -94,7 +98,10 @@ class KeyChains(Entity):
         _revision = '2015-02-24'
 
         def __init__(self):
-            super(KeyChains.AcceptTolerance, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyChains.AcceptTolerance, self).__init__()
 
             self.yang_name = "accept-tolerance"
             self.yang_parent_name = "key-chains"
@@ -111,6 +118,7 @@ class KeyChains(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(KeyChains.AcceptTolerance, ['duration'], name, value)
+
 
 
     class Key(Entity):
@@ -147,7 +155,10 @@ class KeyChains(Entity):
         _revision = '2015-02-24'
 
         def __init__(self):
-            super(KeyChains.Key, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyChains.Key, self).__init__()
 
             self.yang_name = "key"
             self.yang_parent_name = "key-chains"
@@ -202,7 +213,10 @@ class KeyChains(Entity):
             _revision = '2015-02-24'
 
             def __init__(self):
-                super(KeyChains.Key.KeyString, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(KeyChains.Key.KeyString, self).__init__()
 
                 self.yang_name = "key-string"
                 self.yang_parent_name = "key"
@@ -221,6 +235,7 @@ class KeyChains(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(KeyChains.Key.KeyString, ['keystring', 'hexadecimal_string'], name, value)
+
 
 
         class Lifetime(Entity):
@@ -250,7 +265,10 @@ class KeyChains(Entity):
             _revision = '2015-02-24'
 
             def __init__(self):
-                super(KeyChains.Key.Lifetime, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(KeyChains.Key.Lifetime, self).__init__()
 
                 self.yang_name = "lifetime"
                 self.yang_parent_name = "key"
@@ -324,7 +342,10 @@ class KeyChains(Entity):
                 _revision = '2015-02-24'
 
                 def __init__(self):
-                    super(KeyChains.Key.Lifetime.SendAcceptLifetime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(KeyChains.Key.Lifetime.SendAcceptLifetime, self).__init__()
 
                     self.yang_name = "send-accept-lifetime"
                     self.yang_parent_name = "lifetime"
@@ -349,6 +370,7 @@ class KeyChains(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(KeyChains.Key.Lifetime.SendAcceptLifetime, ['always', 'start_date_time', 'no_end_time', 'duration', 'end_date_time'], name, value)
+
 
 
             class SendLifetime(Entity):
@@ -397,7 +419,10 @@ class KeyChains(Entity):
                 _revision = '2015-02-24'
 
                 def __init__(self):
-                    super(KeyChains.Key.Lifetime.SendLifetime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(KeyChains.Key.Lifetime.SendLifetime, self).__init__()
 
                     self.yang_name = "send-lifetime"
                     self.yang_parent_name = "lifetime"
@@ -422,6 +447,7 @@ class KeyChains(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(KeyChains.Key.Lifetime.SendLifetime, ['always', 'start_date_time', 'no_end_time', 'duration', 'end_date_time'], name, value)
+
 
 
             class AcceptLifetime(Entity):
@@ -470,7 +496,10 @@ class KeyChains(Entity):
                 _revision = '2015-02-24'
 
                 def __init__(self):
-                    super(KeyChains.Key.Lifetime.AcceptLifetime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(KeyChains.Key.Lifetime.AcceptLifetime, self).__init__()
 
                     self.yang_name = "accept-lifetime"
                     self.yang_parent_name = "lifetime"
@@ -495,6 +524,8 @@ class KeyChains(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(KeyChains.Key.Lifetime.AcceptLifetime, ['always', 'start_date_time', 'no_end_time', 'duration', 'end_date_time'], name, value)
+
+
 
 
         class CryptoAlgorithm(Entity):
@@ -549,7 +580,10 @@ class KeyChains(Entity):
             _revision = '2015-02-24'
 
             def __init__(self):
-                super(KeyChains.Key.CryptoAlgorithm, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(KeyChains.Key.CryptoAlgorithm, self).__init__()
 
                 self.yang_name = "crypto-algorithm"
                 self.yang_parent_name = "key"
@@ -581,7 +615,11 @@ class KeyChains(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(KeyChains.Key.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = KeyChains()
         return self._top_entity
+
+
 

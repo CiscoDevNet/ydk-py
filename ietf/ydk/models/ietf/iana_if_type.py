@@ -26,6 +26,7 @@ The initial version of this YANG module is part of RFC 7224;
 see the RFC itself for full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -50,7 +51,11 @@ class IanaInterfaceType(InterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iana-interface-type"):
-        super(IanaInterfaceType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IanaInterfaceType, self).__init__(ns, pref, tag)
+
 
 
 class VoiceFXO(IanaInterfaceType):
@@ -65,7 +70,11 @@ class VoiceFXO(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceFXO"):
-        super(VoiceFXO, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceFXO, self).__init__(ns, pref, tag)
+
 
 
 class AtmVciEndPt(IanaInterfaceType):
@@ -80,7 +89,11 @@ class AtmVciEndPt(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmVciEndPt"):
-        super(AtmVciEndPt, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmVciEndPt, self).__init__(ns, pref, tag)
+
 
 
 class PropBWAp2Mp(IanaInterfaceType):
@@ -98,7 +111,11 @@ class PropBWAp2Mp(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propBWAp2Mp"):
-        super(PropBWAp2Mp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropBWAp2Mp, self).__init__(ns, pref, tag)
+
 
 
 class PropDocsWirelessDownstream(IanaInterfaceType):
@@ -113,7 +130,11 @@ class PropDocsWirelessDownstream(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propDocsWirelessDownstream"):
-        super(PropDocsWirelessDownstream, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropDocsWirelessDownstream, self).__init__(ns, pref, tag)
+
 
 
 class V11(IanaInterfaceType):
@@ -128,7 +149,11 @@ class V11(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:v11"):
-        super(V11, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(V11, self).__init__(ns, pref, tag)
+
 
 
 class SoftwareLoopback(IanaInterfaceType):
@@ -143,7 +168,11 @@ class SoftwareLoopback(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:softwareLoopback"):
-        super(SoftwareLoopback, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SoftwareLoopback, self).__init__(ns, pref, tag)
+
 
 
 class Hdlc(IanaInterfaceType):
@@ -158,7 +187,11 @@ class Hdlc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hdlc"):
-        super(Hdlc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Hdlc, self).__init__(ns, pref, tag)
+
 
 
 class VoiceFGDOS(IanaInterfaceType):
@@ -173,7 +206,11 @@ class VoiceFGDOS(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceFGDOS"):
-        super(VoiceFGDOS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceFGDOS, self).__init__(ns, pref, tag)
+
 
 
 class FastEtherFX(IanaInterfaceType):
@@ -189,7 +226,11 @@ class FastEtherFX(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:fastEtherFX"):
-        super(FastEtherFX, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FastEtherFX, self).__init__(ns, pref, tag)
+
 
 
 class DvbTdm(IanaInterfaceType):
@@ -204,7 +245,11 @@ class DvbTdm(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbTdm"):
-        super(DvbTdm, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DvbTdm, self).__init__(ns, pref, tag)
+
 
 
 class Nfas(IanaInterfaceType):
@@ -219,7 +264,11 @@ class Nfas(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:nfas"):
-        super(Nfas, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Nfas, self).__init__(ns, pref, tag)
+
 
 
 class IfPwType(IanaInterfaceType):
@@ -234,7 +283,11 @@ class IfPwType(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ifPwType"):
-        super(IfPwType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IfPwType, self).__init__(ns, pref, tag)
+
 
 
 class L2vlan(IanaInterfaceType):
@@ -249,7 +302,11 @@ class L2vlan(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:l2vlan"):
-        super(L2vlan, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L2vlan, self).__init__(ns, pref, tag)
+
 
 
 class Adsl2plus(IanaInterfaceType):
@@ -265,7 +322,11 @@ class Adsl2plus(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:adsl2plus"):
-        super(Adsl2plus, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Adsl2plus, self).__init__(ns, pref, tag)
+
 
 
 class Ieee802154(IanaInterfaceType):
@@ -280,7 +341,11 @@ class Ieee802154(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee802154"):
-        super(Ieee802154, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ieee802154, self).__init__(ns, pref, tag)
+
 
 
 class VoiceFXS(IanaInterfaceType):
@@ -295,7 +360,11 @@ class VoiceFXS(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceFXS"):
-        super(VoiceFXS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceFXS, self).__init__(ns, pref, tag)
+
 
 
 class DvbRcsMacLayer(IanaInterfaceType):
@@ -310,7 +379,11 @@ class DvbRcsMacLayer(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbRcsMacLayer"):
-        super(DvbRcsMacLayer, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DvbRcsMacLayer, self).__init__(ns, pref, tag)
+
 
 
 class Idsl(IanaInterfaceType):
@@ -325,7 +398,11 @@ class Idsl(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:idsl"):
-        super(Idsl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Idsl, self).__init__(ns, pref, tag)
+
 
 
 class Infiniband(IanaInterfaceType):
@@ -340,7 +417,11 @@ class Infiniband(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:infiniband"):
-        super(Infiniband, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Infiniband, self).__init__(ns, pref, tag)
+
 
 
 class DdnX25(IanaInterfaceType):
@@ -355,7 +436,11 @@ class DdnX25(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ddnX25"):
-        super(DdnX25, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DdnX25, self).__init__(ns, pref, tag)
+
 
 
 class WwanPP2(IanaInterfaceType):
@@ -370,7 +455,11 @@ class WwanPP2(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:wwanPP2"):
-        super(WwanPP2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(WwanPP2, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableUpstream(IanaInterfaceType):
@@ -385,7 +474,11 @@ class DocsCableUpstream(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:docsCableUpstream"):
-        super(DocsCableUpstream, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DocsCableUpstream, self).__init__(ns, pref, tag)
+
 
 
 class Ethernet3Mbit(IanaInterfaceType):
@@ -400,7 +493,11 @@ class Ethernet3Mbit(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ethernet3Mbit"):
-        super(Ethernet3Mbit, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ethernet3Mbit, self).__init__(ns, pref, tag)
+
 
 
 class DigitalPowerline(IanaInterfaceType):
@@ -415,7 +512,11 @@ class DigitalPowerline(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:digitalPowerline"):
-        super(DigitalPowerline, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DigitalPowerline, self).__init__(ns, pref, tag)
+
 
 
 class H323Proxy(IanaInterfaceType):
@@ -430,7 +531,11 @@ class H323Proxy(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:h323Proxy"):
-        super(H323Proxy, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(H323Proxy, self).__init__(ns, pref, tag)
+
 
 
 class Gtp(IanaInterfaceType):
@@ -445,7 +550,11 @@ class Gtp(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:gtp"):
-        super(Gtp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Gtp, self).__init__(ns, pref, tag)
+
 
 
 class IpOverAtm(IanaInterfaceType):
@@ -460,7 +569,11 @@ class IpOverAtm(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ipOverAtm"):
-        super(IpOverAtm, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IpOverAtm, self).__init__(ns, pref, tag)
+
 
 
 class AluEpon(IanaInterfaceType):
@@ -475,7 +588,11 @@ class AluEpon(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aluEpon"):
-        super(AluEpon, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AluEpon, self).__init__(ns, pref, tag)
+
 
 
 class Imt(IanaInterfaceType):
@@ -490,7 +607,11 @@ class Imt(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:imt"):
-        super(Imt, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Imt, self).__init__(ns, pref, tag)
+
 
 
 class IpSwitch(IanaInterfaceType):
@@ -505,7 +626,11 @@ class IpSwitch(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ipSwitch"):
-        super(IpSwitch, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IpSwitch, self).__init__(ns, pref, tag)
+
 
 
 class Msdsl(IanaInterfaceType):
@@ -520,7 +645,11 @@ class Msdsl(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:msdsl"):
-        super(Msdsl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Msdsl, self).__init__(ns, pref, tag)
+
 
 
 class DvbRccMacLayer(IanaInterfaceType):
@@ -535,7 +664,11 @@ class DvbRccMacLayer(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbRccMacLayer"):
-        super(DvbRccMacLayer, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DvbRccMacLayer, self).__init__(ns, pref, tag)
+
 
 
 class SmdsDxi(IanaInterfaceType):
@@ -550,7 +683,11 @@ class SmdsDxi(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:smdsDxi"):
-        super(SmdsDxi, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SmdsDxi, self).__init__(ns, pref, tag)
+
 
 
 class VoiceOverAtm(IanaInterfaceType):
@@ -565,7 +702,11 @@ class VoiceOverAtm(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceOverAtm"):
-        super(VoiceOverAtm, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceOverAtm, self).__init__(ns, pref, tag)
+
 
 
 class Arap(IanaInterfaceType):
@@ -580,7 +721,11 @@ class Arap(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:arap"):
-        super(Arap, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Arap, self).__init__(ns, pref, tag)
+
 
 
 class FastEther(IanaInterfaceType):
@@ -596,7 +741,11 @@ class FastEther(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:fastEther"):
-        super(FastEther, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FastEther, self).__init__(ns, pref, tag)
+
 
 
 class Mpc(IanaInterfaceType):
@@ -611,7 +760,11 @@ class Mpc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mpc"):
-        super(Mpc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Mpc, self).__init__(ns, pref, tag)
+
 
 
 class Linegroup(IanaInterfaceType):
@@ -626,7 +779,11 @@ class Linegroup(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:linegroup"):
-        super(Linegroup, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Linegroup, self).__init__(ns, pref, tag)
+
 
 
 class Hippi(IanaInterfaceType):
@@ -641,7 +798,11 @@ class Hippi(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hippi"):
-        super(Hippi, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Hippi, self).__init__(ns, pref, tag)
+
 
 
 class Rpr(IanaInterfaceType):
@@ -656,7 +817,11 @@ class Rpr(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:rpr"):
-        super(Rpr, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Rpr, self).__init__(ns, pref, tag)
+
 
 
 class Ds1FDL(IanaInterfaceType):
@@ -671,7 +836,11 @@ class Ds1FDL(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ds1FDL"):
-        super(Ds1FDL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ds1FDL, self).__init__(ns, pref, tag)
+
 
 
 class SonetVT(IanaInterfaceType):
@@ -686,7 +855,11 @@ class SonetVT(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sonetVT"):
-        super(SonetVT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SonetVT, self).__init__(ns, pref, tag)
+
 
 
 class VoiceEncap(IanaInterfaceType):
@@ -701,7 +874,11 @@ class VoiceEncap(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceEncap"):
-        super(VoiceEncap, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceEncap, self).__init__(ns, pref, tag)
+
 
 
 class Ss7SigLink(IanaInterfaceType):
@@ -716,7 +893,11 @@ class Ss7SigLink(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ss7SigLink"):
-        super(Ss7SigLink, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ss7SigLink, self).__init__(ns, pref, tag)
+
 
 
 class Arcnet(IanaInterfaceType):
@@ -731,7 +912,11 @@ class Arcnet(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:arcnet"):
-        super(Arcnet, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Arcnet, self).__init__(ns, pref, tag)
+
 
 
 class ActelisMetaLOOP(IanaInterfaceType):
@@ -746,7 +931,11 @@ class ActelisMetaLOOP(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:actelisMetaLOOP"):
-        super(ActelisMetaLOOP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ActelisMetaLOOP, self).__init__(ns, pref, tag)
+
 
 
 class Qllc(IanaInterfaceType):
@@ -761,7 +950,11 @@ class Qllc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:qllc"):
-        super(Qllc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Qllc, self).__init__(ns, pref, tag)
+
 
 
 class Rfc877x25(IanaInterfaceType):
@@ -776,7 +969,11 @@ class Rfc877x25(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:rfc877x25"):
-        super(Rfc877x25, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Rfc877x25, self).__init__(ns, pref, tag)
+
 
 
 class MpegTransport(IanaInterfaceType):
@@ -791,7 +988,11 @@ class MpegTransport(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mpegTransport"):
-        super(MpegTransport, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MpegTransport, self).__init__(ns, pref, tag)
+
 
 
 class X25mlp(IanaInterfaceType):
@@ -806,7 +1007,11 @@ class X25mlp(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:x25mlp"):
-        super(X25mlp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(X25mlp, self).__init__(ns, pref, tag)
+
 
 
 class VirtualTg(IanaInterfaceType):
@@ -821,7 +1026,11 @@ class VirtualTg(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:virtualTg"):
-        super(VirtualTg, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VirtualTg, self).__init__(ns, pref, tag)
+
 
 
 class HostPad(IanaInterfaceType):
@@ -836,7 +1045,11 @@ class HostPad(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hostPad"):
-        super(HostPad, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(HostPad, self).__init__(ns, pref, tag)
+
 
 
 class StarLan(IanaInterfaceType):
@@ -852,7 +1065,11 @@ class StarLan(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:starLan"):
-        super(StarLan, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(StarLan, self).__init__(ns, pref, tag)
+
 
 
 class Iso88025Dtr(IanaInterfaceType):
@@ -867,7 +1084,11 @@ class Iso88025Dtr(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88025Dtr"):
-        super(Iso88025Dtr, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Iso88025Dtr, self).__init__(ns, pref, tag)
+
 
 
 class Ibm370parChan(IanaInterfaceType):
@@ -882,7 +1103,11 @@ class Ibm370parChan(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ibm370parChan"):
-        super(Ibm370parChan, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ibm370parChan, self).__init__(ns, pref, tag)
+
 
 
 class Adsl2(IanaInterfaceType):
@@ -899,7 +1124,11 @@ class Adsl2(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:adsl2"):
-        super(Adsl2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Adsl2, self).__init__(ns, pref, tag)
+
 
 
 class OtnOtu(IanaInterfaceType):
@@ -914,7 +1143,11 @@ class OtnOtu(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:otnOtu"):
-        super(OtnOtu, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OtnOtu, self).__init__(ns, pref, tag)
+
 
 
 class PropWirelessP2P(IanaInterfaceType):
@@ -929,7 +1162,11 @@ class PropWirelessP2P(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propWirelessP2P"):
-        super(PropWirelessP2P, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropWirelessP2P, self).__init__(ns, pref, tag)
+
 
 
 class Interleave(IanaInterfaceType):
@@ -944,7 +1181,11 @@ class Interleave(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:interleave"):
-        super(Interleave, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Interleave, self).__init__(ns, pref, tag)
+
 
 
 class Isup(IanaInterfaceType):
@@ -959,7 +1200,11 @@ class Isup(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:isup"):
-        super(Isup, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Isup, self).__init__(ns, pref, tag)
+
 
 
 class Regular1822(IanaInterfaceType):
@@ -974,7 +1219,11 @@ class Regular1822(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:regular1822"):
-        super(Regular1822, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Regular1822, self).__init__(ns, pref, tag)
+
 
 
 class Gr303RDT(IanaInterfaceType):
@@ -989,7 +1238,11 @@ class Gr303RDT(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:gr303RDT"):
-        super(Gr303RDT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Gr303RDT, self).__init__(ns, pref, tag)
+
 
 
 class PropDocsWirelessMaclayer(IanaInterfaceType):
@@ -1004,7 +1257,11 @@ class PropDocsWirelessMaclayer(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propDocsWirelessMaclayer"):
-        super(PropDocsWirelessMaclayer, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropDocsWirelessMaclayer, self).__init__(ns, pref, tag)
+
 
 
 class Async(IanaInterfaceType):
@@ -1019,7 +1276,11 @@ class Async(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:async"):
-        super(Async, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Async, self).__init__(ns, pref, tag)
+
 
 
 class RadioMAC(IanaInterfaceType):
@@ -1034,7 +1295,11 @@ class RadioMAC(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:radioMAC"):
-        super(RadioMAC, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(RadioMAC, self).__init__(ns, pref, tag)
+
 
 
 class OpticalChannelGroup(IanaInterfaceType):
@@ -1049,7 +1314,11 @@ class OpticalChannelGroup(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:opticalChannelGroup"):
-        super(OpticalChannelGroup, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OpticalChannelGroup, self).__init__(ns, pref, tag)
+
 
 
 class SixToFour(IanaInterfaceType):
@@ -1064,7 +1333,11 @@ class SixToFour(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sixToFour"):
-        super(SixToFour, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SixToFour, self).__init__(ns, pref, tag)
+
 
 
 class PropDocsWirelessUpstream(IanaInterfaceType):
@@ -1079,7 +1352,11 @@ class PropDocsWirelessUpstream(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propDocsWirelessUpstream"):
-        super(PropDocsWirelessUpstream, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropDocsWirelessUpstream, self).__init__(ns, pref, tag)
+
 
 
 class Q2931(IanaInterfaceType):
@@ -1094,7 +1371,11 @@ class Q2931(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:q2931"):
-        super(Q2931, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Q2931, self).__init__(ns, pref, tag)
+
 
 
 class Fddi(IanaInterfaceType):
@@ -1109,7 +1390,11 @@ class Fddi(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:fddi"):
-        super(Fddi, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Fddi, self).__init__(ns, pref, tag)
+
 
 
 class PropCnls(IanaInterfaceType):
@@ -1124,7 +1409,11 @@ class PropCnls(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propCnls"):
-        super(PropCnls, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropCnls, self).__init__(ns, pref, tag)
+
 
 
 class Aal2(IanaInterfaceType):
@@ -1139,7 +1428,11 @@ class Aal2(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aal2"):
-        super(Aal2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Aal2, self).__init__(ns, pref, tag)
+
 
 
 class DvbAsiOut(IanaInterfaceType):
@@ -1154,7 +1447,11 @@ class DvbAsiOut(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbAsiOut"):
-        super(DvbAsiOut, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DvbAsiOut, self).__init__(ns, pref, tag)
+
 
 
 class AluELP(IanaInterfaceType):
@@ -1169,7 +1466,11 @@ class AluELP(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aluELP"):
-        super(AluELP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AluELP, self).__init__(ns, pref, tag)
+
 
 
 class CiscoISLvlan(IanaInterfaceType):
@@ -1184,7 +1485,11 @@ class CiscoISLvlan(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ciscoISLvlan"):
-        super(CiscoISLvlan, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CiscoISLvlan, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableUpstreamRfPort(IanaInterfaceType):
@@ -1199,7 +1504,11 @@ class DocsCableUpstreamRfPort(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:docsCableUpstreamRfPort"):
-        super(DocsCableUpstreamRfPort, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DocsCableUpstreamRfPort, self).__init__(ns, pref, tag)
+
 
 
 class Aal5(IanaInterfaceType):
@@ -1214,7 +1523,11 @@ class Aal5(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aal5"):
-        super(Aal5, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Aal5, self).__init__(ns, pref, tag)
+
 
 
 class FrDlciEndPt(IanaInterfaceType):
@@ -1229,7 +1542,11 @@ class FrDlciEndPt(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frDlciEndPt"):
-        super(FrDlciEndPt, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FrDlciEndPt, self).__init__(ns, pref, tag)
+
 
 
 class HippiInterface(IanaInterfaceType):
@@ -1244,7 +1561,11 @@ class HippiInterface(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hippiInterface"):
-        super(HippiInterface, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(HippiInterface, self).__init__(ns, pref, tag)
+
 
 
 class L3ipvlan(IanaInterfaceType):
@@ -1259,7 +1580,11 @@ class L3ipvlan(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:l3ipvlan"):
-        super(L3ipvlan, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L3ipvlan, self).__init__(ns, pref, tag)
+
 
 
 class Miox25(IanaInterfaceType):
@@ -1274,7 +1599,11 @@ class Miox25(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:miox25"):
-        super(Miox25, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Miox25, self).__init__(ns, pref, tag)
+
 
 
 class Hssi(IanaInterfaceType):
@@ -1289,7 +1618,11 @@ class Hssi(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hssi"):
-        super(Hssi, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Hssi, self).__init__(ns, pref, tag)
+
 
 
 class AtmVirtual(IanaInterfaceType):
@@ -1304,7 +1637,11 @@ class AtmVirtual(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmVirtual"):
-        super(AtmVirtual, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmVirtual, self).__init__(ns, pref, tag)
+
 
 
 class AluGponOnu(IanaInterfaceType):
@@ -1319,7 +1656,11 @@ class AluGponOnu(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aluGponOnu"):
-        super(AluGponOnu, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AluGponOnu, self).__init__(ns, pref, tag)
+
 
 
 class Rfc1483(IanaInterfaceType):
@@ -1334,7 +1675,11 @@ class Rfc1483(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:rfc1483"):
-        super(Rfc1483, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Rfc1483, self).__init__(ns, pref, tag)
+
 
 
 class Cnr(IanaInterfaceType):
@@ -1349,7 +1694,11 @@ class Cnr(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:cnr"):
-        super(Cnr, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Cnr, self).__init__(ns, pref, tag)
+
 
 
 class SipSig(IanaInterfaceType):
@@ -1364,7 +1713,11 @@ class SipSig(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sipSig"):
-        super(SipSig, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SipSig, self).__init__(ns, pref, tag)
+
 
 
 class Myrinet(IanaInterfaceType):
@@ -1379,7 +1732,11 @@ class Myrinet(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:myrinet"):
-        super(Myrinet, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Myrinet, self).__init__(ns, pref, tag)
+
 
 
 class Dlsw(IanaInterfaceType):
@@ -1394,7 +1751,11 @@ class Dlsw(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dlsw"):
-        super(Dlsw, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Dlsw, self).__init__(ns, pref, tag)
+
 
 
 class GigabitEthernet(IanaInterfaceType):
@@ -1410,7 +1771,11 @@ class GigabitEthernet(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:gigabitEthernet"):
-        super(GigabitEthernet, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(GigabitEthernet, self).__init__(ns, pref, tag)
+
 
 
 class X25ple(IanaInterfaceType):
@@ -1425,7 +1790,11 @@ class X25ple(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:x25ple"):
-        super(X25ple, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(X25ple, self).__init__(ns, pref, tag)
+
 
 
 class Lmp(IanaInterfaceType):
@@ -1440,7 +1809,11 @@ class Lmp(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:lmp"):
-        super(Lmp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Lmp, self).__init__(ns, pref, tag)
+
 
 
 class OpticalTransport(IanaInterfaceType):
@@ -1455,7 +1828,11 @@ class OpticalTransport(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:opticalTransport"):
-        super(OpticalTransport, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OpticalTransport, self).__init__(ns, pref, tag)
+
 
 
 class Sdlc(IanaInterfaceType):
@@ -1470,7 +1847,11 @@ class Sdlc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sdlc"):
-        super(Sdlc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Sdlc, self).__init__(ns, pref, tag)
+
 
 
 class VoiceEM(IanaInterfaceType):
@@ -1485,7 +1866,11 @@ class VoiceEM(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceEM"):
-        super(VoiceEM, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceEM, self).__init__(ns, pref, tag)
+
 
 
 class X86Laps(IanaInterfaceType):
@@ -1500,7 +1885,11 @@ class X86Laps(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:x86Laps"):
-        super(X86Laps, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(X86Laps, self).__init__(ns, pref, tag)
+
 
 
 class G9982(IanaInterfaceType):
@@ -1515,7 +1904,11 @@ class G9982(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:g9982"):
-        super(G9982, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(G9982, self).__init__(ns, pref, tag)
+
 
 
 class Iso88022llc(IanaInterfaceType):
@@ -1530,7 +1923,11 @@ class Iso88022llc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88022llc"):
-        super(Iso88022llc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Iso88022llc, self).__init__(ns, pref, tag)
+
 
 
 class DvbAsiIn(IanaInterfaceType):
@@ -1545,7 +1942,11 @@ class DvbAsiIn(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbAsiIn"):
-        super(DvbAsiIn, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DvbAsiIn, self).__init__(ns, pref, tag)
+
 
 
 class Bgppolicyaccounting(IanaInterfaceType):
@@ -1560,7 +1961,11 @@ class Bgppolicyaccounting(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:bgppolicyaccounting"):
-        super(Bgppolicyaccounting, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Bgppolicyaccounting, self).__init__(ns, pref, tag)
+
 
 
 class AluEponOnu(IanaInterfaceType):
@@ -1575,7 +1980,11 @@ class AluEponOnu(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aluEponOnu"):
-        super(AluEponOnu, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AluEponOnu, self).__init__(ns, pref, tag)
+
 
 
 class MfSigLink(IanaInterfaceType):
@@ -1590,7 +1999,11 @@ class MfSigLink(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mfSigLink"):
-        super(MfSigLink, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MfSigLink, self).__init__(ns, pref, tag)
+
 
 
 class Dcn(IanaInterfaceType):
@@ -1605,7 +2018,11 @@ class Dcn(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dcn"):
-        super(Dcn, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Dcn, self).__init__(ns, pref, tag)
+
 
 
 class AtmDxi(IanaInterfaceType):
@@ -1620,7 +2037,11 @@ class AtmDxi(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmDxi"):
-        super(AtmDxi, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmDxi, self).__init__(ns, pref, tag)
+
 
 
 class VoiceOverFrameRelay(IanaInterfaceType):
@@ -1635,7 +2056,11 @@ class VoiceOverFrameRelay(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceOverFrameRelay"):
-        super(VoiceOverFrameRelay, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceOverFrameRelay, self).__init__(ns, pref, tag)
+
 
 
 class Gfp(IanaInterfaceType):
@@ -1650,7 +2075,11 @@ class Gfp(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:gfp"):
-        super(Gfp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Gfp, self).__init__(ns, pref, tag)
+
 
 
 class SonetOverheadChannel(IanaInterfaceType):
@@ -1665,7 +2094,11 @@ class SonetOverheadChannel(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sonetOverheadChannel"):
-        super(SonetOverheadChannel, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SonetOverheadChannel, self).__init__(ns, pref, tag)
+
 
 
 class VmwareVirtualNic(IanaInterfaceType):
@@ -1680,7 +2113,11 @@ class VmwareVirtualNic(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:vmwareVirtualNic"):
-        super(VmwareVirtualNic, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VmwareVirtualNic, self).__init__(ns, pref, tag)
+
 
 
 class FcipLink(IanaInterfaceType):
@@ -1695,7 +2132,11 @@ class FcipLink(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:fcipLink"):
-        super(FcipLink, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FcipLink, self).__init__(ns, pref, tag)
+
 
 
 class IpOverClaw(IanaInterfaceType):
@@ -1710,7 +2151,11 @@ class IpOverClaw(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ipOverClaw"):
-        super(IpOverClaw, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IpOverClaw, self).__init__(ns, pref, tag)
+
 
 
 class Coffee(IanaInterfaceType):
@@ -1725,7 +2170,11 @@ class Coffee(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:coffee"):
-        super(Coffee, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Coffee, self).__init__(ns, pref, tag)
+
 
 
 class Radsl(IanaInterfaceType):
@@ -1740,7 +2189,11 @@ class Radsl(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:radsl"):
-        super(Radsl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Radsl, self).__init__(ns, pref, tag)
+
 
 
 class Vdsl2(IanaInterfaceType):
@@ -1756,7 +2209,11 @@ class Vdsl2(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:vdsl2"):
-        super(Vdsl2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Vdsl2, self).__init__(ns, pref, tag)
+
 
 
 class Rs232(IanaInterfaceType):
@@ -1771,7 +2228,11 @@ class Rs232(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:rs232"):
-        super(Rs232, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Rs232, self).__init__(ns, pref, tag)
+
 
 
 class E1(IanaInterfaceType):
@@ -1786,7 +2247,11 @@ class E1(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:e1"):
-        super(E1, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(E1, self).__init__(ns, pref, tag)
+
 
 
 class ReachDSL(IanaInterfaceType):
@@ -1801,7 +2266,11 @@ class ReachDSL(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:reachDSL"):
-        super(ReachDSL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ReachDSL, self).__init__(ns, pref, tag)
+
 
 
 class VoiceOverCable(IanaInterfaceType):
@@ -1816,7 +2285,11 @@ class VoiceOverCable(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceOverCable"):
-        super(VoiceOverCable, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceOverCable, self).__init__(ns, pref, tag)
+
 
 
 class Tr008(IanaInterfaceType):
@@ -1831,7 +2304,11 @@ class Tr008(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:tr008"):
-        super(Tr008, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Tr008, self).__init__(ns, pref, tag)
+
 
 
 class VoiceOverIp(IanaInterfaceType):
@@ -1846,7 +2323,11 @@ class VoiceOverIp(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceOverIp"):
-        super(VoiceOverIp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceOverIp, self).__init__(ns, pref, tag)
+
 
 
 class Atm(IanaInterfaceType):
@@ -1861,7 +2342,11 @@ class Atm(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atm"):
-        super(Atm, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Atm, self).__init__(ns, pref, tag)
+
 
 
 class Ds3(IanaInterfaceType):
@@ -1876,7 +2361,11 @@ class Ds3(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ds3"):
-        super(Ds3, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ds3, self).__init__(ns, pref, tag)
+
 
 
 class Ds0(IanaInterfaceType):
@@ -1891,7 +2380,11 @@ class Ds0(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ds0"):
-        super(Ds0, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ds0, self).__init__(ns, pref, tag)
+
 
 
 class Ds1(IanaInterfaceType):
@@ -1906,7 +2399,11 @@ class Ds1(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ds1"):
-        super(Ds1, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ds1, self).__init__(ns, pref, tag)
+
 
 
 class Srp(IanaInterfaceType):
@@ -1921,7 +2418,11 @@ class Srp(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:srp"):
-        super(Srp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Srp, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableDownstream(IanaInterfaceType):
@@ -1936,7 +2437,11 @@ class DocsCableDownstream(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:docsCableDownstream"):
-        super(DocsCableDownstream, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DocsCableDownstream, self).__init__(ns, pref, tag)
+
 
 
 class DvbRcsTdma(IanaInterfaceType):
@@ -1951,7 +2456,11 @@ class DvbRcsTdma(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbRcsTdma"):
-        super(DvbRcsTdma, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DvbRcsTdma, self).__init__(ns, pref, tag)
+
 
 
 class G9983(IanaInterfaceType):
@@ -1966,7 +2475,11 @@ class G9983(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:g9983"):
-        super(G9983, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(G9983, self).__init__(ns, pref, tag)
+
 
 
 class Plc(IanaInterfaceType):
@@ -1981,7 +2494,11 @@ class Plc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:plc"):
-        super(Plc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Plc, self).__init__(ns, pref, tag)
+
 
 
 class FrameRelayMPI(IanaInterfaceType):
@@ -1996,7 +2513,11 @@ class FrameRelayMPI(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frameRelayMPI"):
-        super(FrameRelayMPI, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FrameRelayMPI, self).__init__(ns, pref, tag)
+
 
 
 class Mvl(IanaInterfaceType):
@@ -2011,7 +2532,11 @@ class Mvl(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mvl"):
-        super(Mvl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Mvl, self).__init__(ns, pref, tag)
+
 
 
 class PropMultiplexor(IanaInterfaceType):
@@ -2026,7 +2551,11 @@ class PropMultiplexor(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propMultiplexor"):
-        super(PropMultiplexor, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropMultiplexor, self).__init__(ns, pref, tag)
+
 
 
 class VoiceDID(IanaInterfaceType):
@@ -2041,7 +2570,11 @@ class VoiceDID(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceDID"):
-        super(VoiceDID, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceDID, self).__init__(ns, pref, tag)
+
 
 
 class CompositeLink(IanaInterfaceType):
@@ -2056,7 +2589,11 @@ class CompositeLink(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:compositeLink"):
-        super(CompositeLink, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CompositeLink, self).__init__(ns, pref, tag)
+
 
 
 class Proteon10Mbit(IanaInterfaceType):
@@ -2071,7 +2608,11 @@ class Proteon10Mbit(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:proteon10Mbit"):
-        super(Proteon10Mbit, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Proteon10Mbit, self).__init__(ns, pref, tag)
+
 
 
 class Atmbond(IanaInterfaceType):
@@ -2086,7 +2627,11 @@ class Atmbond(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmbond"):
-        super(Atmbond, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Atmbond, self).__init__(ns, pref, tag)
+
 
 
 class Frf16MfrBundle(IanaInterfaceType):
@@ -2101,7 +2646,11 @@ class Frf16MfrBundle(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frf16MfrBundle"):
-        super(Frf16MfrBundle, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Frf16MfrBundle, self).__init__(ns, pref, tag)
+
 
 
 class CctEmul(IanaInterfaceType):
@@ -2116,7 +2665,11 @@ class CctEmul(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:cctEmul"):
-        super(CctEmul, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CctEmul, self).__init__(ns, pref, tag)
+
 
 
 class MplsTunnel(IanaInterfaceType):
@@ -2131,7 +2684,11 @@ class MplsTunnel(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mplsTunnel"):
-        super(MplsTunnel, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MplsTunnel, self).__init__(ns, pref, tag)
+
 
 
 class Gpon(IanaInterfaceType):
@@ -2147,7 +2704,11 @@ class Gpon(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:gpon"):
-        super(Gpon, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Gpon, self).__init__(ns, pref, tag)
+
 
 
 class Vdsl(IanaInterfaceType):
@@ -2162,7 +2723,11 @@ class Vdsl(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:vdsl"):
-        super(Vdsl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Vdsl, self).__init__(ns, pref, tag)
+
 
 
 class Pos(IanaInterfaceType):
@@ -2177,7 +2742,11 @@ class Pos(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pos"):
-        super(Pos, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Pos, self).__init__(ns, pref, tag)
+
 
 
 class Ieee8023adLag(IanaInterfaceType):
@@ -2192,7 +2761,11 @@ class Ieee8023adLag(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee8023adLag"):
-        super(Ieee8023adLag, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ieee8023adLag, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableMaclayer(IanaInterfaceType):
@@ -2207,7 +2780,11 @@ class DocsCableMaclayer(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:docsCableMaclayer"):
-        super(DocsCableMaclayer, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DocsCableMaclayer, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableMCmtsDownstream(IanaInterfaceType):
@@ -2222,7 +2799,11 @@ class DocsCableMCmtsDownstream(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:docsCableMCmtsDownstream"):
-        super(DocsCableMCmtsDownstream, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DocsCableMCmtsDownstream, self).__init__(ns, pref, tag)
+
 
 
 class Ppp(IanaInterfaceType):
@@ -2237,7 +2818,11 @@ class Ppp(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ppp"):
-        super(Ppp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ppp, self).__init__(ns, pref, tag)
+
 
 
 class FrameRelay(IanaInterfaceType):
@@ -2252,7 +2837,11 @@ class FrameRelay(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frameRelay"):
-        super(FrameRelay, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FrameRelay, self).__init__(ns, pref, tag)
+
 
 
 class Eplrs(IanaInterfaceType):
@@ -2267,7 +2856,11 @@ class Eplrs(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:eplrs"):
-        super(Eplrs, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Eplrs, self).__init__(ns, pref, tag)
+
 
 
 class VmwareNicTeam(IanaInterfaceType):
@@ -2282,7 +2875,11 @@ class VmwareNicTeam(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:vmwareNicTeam"):
-        super(VmwareNicTeam, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VmwareNicTeam, self).__init__(ns, pref, tag)
+
 
 
 class CableDownstreamRfPort(IanaInterfaceType):
@@ -2297,7 +2894,11 @@ class CableDownstreamRfPort(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:cableDownstreamRfPort"):
-        super(CableDownstreamRfPort, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CableDownstreamRfPort, self).__init__(ns, pref, tag)
+
 
 
 class MacSecUncontrolledIF(IanaInterfaceType):
@@ -2312,7 +2913,11 @@ class MacSecUncontrolledIF(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:macSecUncontrolledIF"):
-        super(MacSecUncontrolledIF, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MacSecUncontrolledIF, self).__init__(ns, pref, tag)
+
 
 
 class Iso88023Csmacd(IanaInterfaceType):
@@ -2328,7 +2933,11 @@ class Iso88023Csmacd(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88023Csmacd"):
-        super(Iso88023Csmacd, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Iso88023Csmacd, self).__init__(ns, pref, tag)
+
 
 
 class Usb(IanaInterfaceType):
@@ -2343,7 +2952,11 @@ class Usb(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:usb"):
-        super(Usb, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Usb, self).__init__(ns, pref, tag)
+
 
 
 class AtmFuni(IanaInterfaceType):
@@ -2358,7 +2971,11 @@ class AtmFuni(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmFuni"):
-        super(AtmFuni, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmFuni, self).__init__(ns, pref, tag)
+
 
 
 class TeLink(IanaInterfaceType):
@@ -2373,7 +2990,11 @@ class TeLink(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:teLink"):
-        super(TeLink, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TeLink, self).__init__(ns, pref, tag)
+
 
 
 class Pon622(IanaInterfaceType):
@@ -2388,7 +3009,11 @@ class Pon622(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pon622"):
-        super(Pon622, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Pon622, self).__init__(ns, pref, tag)
+
 
 
 class Econet(IanaInterfaceType):
@@ -2403,7 +3028,11 @@ class Econet(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:econet"):
-        super(Econet, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Econet, self).__init__(ns, pref, tag)
+
 
 
 class Tdlc(IanaInterfaceType):
@@ -2418,7 +3047,11 @@ class Tdlc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:tdlc"):
-        super(Tdlc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Tdlc, self).__init__(ns, pref, tag)
+
 
 
 class Ds0Bundle(IanaInterfaceType):
@@ -2433,7 +3066,11 @@ class Ds0Bundle(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ds0Bundle"):
-        super(Ds0Bundle, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ds0Bundle, self).__init__(ns, pref, tag)
+
 
 
 class Fast(IanaInterfaceType):
@@ -2448,7 +3085,11 @@ class Fast(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:fast"):
-        super(Fast, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Fast, self).__init__(ns, pref, tag)
+
 
 
 class Ieee1394(IanaInterfaceType):
@@ -2463,7 +3104,11 @@ class Ieee1394(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee1394"):
-        super(Ieee1394, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ieee1394, self).__init__(ns, pref, tag)
+
 
 
 class CblVectaStar(IanaInterfaceType):
@@ -2478,7 +3123,11 @@ class CblVectaStar(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:cblVectaStar"):
-        super(CblVectaStar, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CblVectaStar, self).__init__(ns, pref, tag)
+
 
 
 class Rsrb(IanaInterfaceType):
@@ -2493,7 +3142,11 @@ class Rsrb(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:rsrb"):
-        super(Rsrb, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Rsrb, self).__init__(ns, pref, tag)
+
 
 
 class FrameRelayInterconnect(IanaInterfaceType):
@@ -2509,7 +3162,11 @@ class FrameRelayInterconnect(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frameRelayInterconnect"):
-        super(FrameRelayInterconnect, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FrameRelayInterconnect, self).__init__(ns, pref, tag)
+
 
 
 class Isdns(IanaInterfaceType):
@@ -2524,7 +3181,11 @@ class Isdns(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:isdns"):
-        super(Isdns, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Isdns, self).__init__(ns, pref, tag)
+
 
 
 class PppMultilinkBundle(IanaInterfaceType):
@@ -2539,7 +3200,11 @@ class PppMultilinkBundle(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pppMultilinkBundle"):
-        super(PppMultilinkBundle, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PppMultilinkBundle, self).__init__(ns, pref, tag)
+
 
 
 class Aflane8025(IanaInterfaceType):
@@ -2554,7 +3219,11 @@ class Aflane8025(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aflane8025"):
-        super(Aflane8025, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Aflane8025, self).__init__(ns, pref, tag)
+
 
 
 class Lapb(IanaInterfaceType):
@@ -2569,7 +3238,11 @@ class Lapb(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:lapb"):
-        super(Lapb, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Lapb, self).__init__(ns, pref, tag)
+
 
 
 class Aflane8023(IanaInterfaceType):
@@ -2584,7 +3257,11 @@ class Aflane8023(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aflane8023"):
-        super(Aflane8023, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Aflane8023, self).__init__(ns, pref, tag)
+
 
 
 class Lapd(IanaInterfaceType):
@@ -2599,7 +3276,11 @@ class Lapd(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:lapd"):
-        super(Lapd, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Lapd, self).__init__(ns, pref, tag)
+
 
 
 class Isdnu(IanaInterfaceType):
@@ -2614,7 +3295,11 @@ class Isdnu(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:isdnu"):
-        super(Isdnu, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Isdnu, self).__init__(ns, pref, tag)
+
 
 
 class Lapf(IanaInterfaceType):
@@ -2629,7 +3314,11 @@ class Lapf(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:lapf"):
-        super(Lapf, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Lapf, self).__init__(ns, pref, tag)
+
 
 
 class CapwapWtpVirtualRadio(IanaInterfaceType):
@@ -2644,7 +3333,11 @@ class CapwapWtpVirtualRadio(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:capwapWtpVirtualRadio"):
-        super(CapwapWtpVirtualRadio, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CapwapWtpVirtualRadio, self).__init__(ns, pref, tag)
+
 
 
 class IfVfiType(IanaInterfaceType):
@@ -2659,7 +3352,11 @@ class IfVfiType(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ifVfiType"):
-        super(IfVfiType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IfVfiType, self).__init__(ns, pref, tag)
+
 
 
 class X25huntGroup(IanaInterfaceType):
@@ -2674,7 +3371,11 @@ class X25huntGroup(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:x25huntGroup"):
-        super(X25huntGroup, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(X25huntGroup, self).__init__(ns, pref, tag)
+
 
 
 class Para(IanaInterfaceType):
@@ -2689,7 +3390,11 @@ class Para(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:para"):
-        super(Para, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Para, self).__init__(ns, pref, tag)
+
 
 
 class MacSecControlledIF(IanaInterfaceType):
@@ -2704,7 +3409,11 @@ class MacSecControlledIF(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:macSecControlledIF"):
-        super(MacSecControlledIF, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MacSecControlledIF, self).__init__(ns, pref, tag)
+
 
 
 class Iso88024TokenBus(IanaInterfaceType):
@@ -2719,7 +3428,11 @@ class Iso88024TokenBus(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88024TokenBus"):
-        super(Iso88024TokenBus, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Iso88024TokenBus, self).__init__(ns, pref, tag)
+
 
 
 class LocalTalk(IanaInterfaceType):
@@ -2734,7 +3447,11 @@ class LocalTalk(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:localTalk"):
-        super(LocalTalk, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LocalTalk, self).__init__(ns, pref, tag)
+
 
 
 class Hyperchannel(IanaInterfaceType):
@@ -2749,7 +3466,11 @@ class Hyperchannel(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hyperchannel"):
-        super(Hyperchannel, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Hyperchannel, self).__init__(ns, pref, tag)
+
 
 
 class MediaMailOverIp(IanaInterfaceType):
@@ -2764,7 +3485,11 @@ class MediaMailOverIp(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mediaMailOverIp"):
-        super(MediaMailOverIp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MediaMailOverIp, self).__init__(ns, pref, tag)
+
 
 
 class IfGsn(IanaInterfaceType):
@@ -2779,7 +3504,11 @@ class IfGsn(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:if-gsn"):
-        super(IfGsn, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IfGsn, self).__init__(ns, pref, tag)
+
 
 
 class CapwapDot11Profile(IanaInterfaceType):
@@ -2794,7 +3523,11 @@ class CapwapDot11Profile(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:capwapDot11Profile"):
-        super(CapwapDot11Profile, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CapwapDot11Profile, self).__init__(ns, pref, tag)
+
 
 
 class L3ipxvlan(IanaInterfaceType):
@@ -2809,7 +3542,11 @@ class L3ipxvlan(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:l3ipxvlan"):
-        super(L3ipxvlan, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L3ipxvlan, self).__init__(ns, pref, tag)
+
 
 
 class AtmSubInterface(IanaInterfaceType):
@@ -2824,7 +3561,11 @@ class AtmSubInterface(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmSubInterface"):
-        super(AtmSubInterface, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmSubInterface, self).__init__(ns, pref, tag)
+
 
 
 class PrimaryISDN(IanaInterfaceType):
@@ -2839,7 +3580,11 @@ class PrimaryISDN(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:primaryISDN"):
-        super(PrimaryISDN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PrimaryISDN, self).__init__(ns, pref, tag)
+
 
 
 class Proteon80Mbit(IanaInterfaceType):
@@ -2854,7 +3599,11 @@ class Proteon80Mbit(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:proteon80Mbit"):
-        super(Proteon80Mbit, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Proteon80Mbit, self).__init__(ns, pref, tag)
+
 
 
 class Iso88026Man(IanaInterfaceType):
@@ -2869,7 +3618,11 @@ class Iso88026Man(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88026Man"):
-        super(Iso88026Man, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Iso88026Man, self).__init__(ns, pref, tag)
+
 
 
 class DigitalWrapperOverheadChannel(IanaInterfaceType):
@@ -2884,7 +3637,11 @@ class DigitalWrapperOverheadChannel(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:digitalWrapperOverheadChannel"):
-        super(DigitalWrapperOverheadChannel, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DigitalWrapperOverheadChannel, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableUpstreamChannel(IanaInterfaceType):
@@ -2899,7 +3656,11 @@ class DocsCableUpstreamChannel(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:docsCableUpstreamChannel"):
-        super(DocsCableUpstreamChannel, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DocsCableUpstreamChannel, self).__init__(ns, pref, tag)
+
 
 
 class OpticalChannel(IanaInterfaceType):
@@ -2914,7 +3675,11 @@ class OpticalChannel(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:opticalChannel"):
-        super(OpticalChannel, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OpticalChannel, self).__init__(ns, pref, tag)
+
 
 
 class EthernetCsmacd(IanaInterfaceType):
@@ -2930,7 +3695,11 @@ class EthernetCsmacd(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ethernetCsmacd"):
-        super(EthernetCsmacd, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(EthernetCsmacd, self).__init__(ns, pref, tag)
+
 
 
 class Bits(IanaInterfaceType):
@@ -2945,7 +3714,11 @@ class Bits(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:bits"):
-        super(Bits, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Bits, self).__init__(ns, pref, tag)
+
 
 
 class Tunnel(IanaInterfaceType):
@@ -2960,7 +3733,11 @@ class Tunnel(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:tunnel"):
-        super(Tunnel, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Tunnel, self).__init__(ns, pref, tag)
+
 
 
 class Hdsl2(IanaInterfaceType):
@@ -2975,7 +3752,11 @@ class Hdsl2(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hdsl2"):
-        super(Hdsl2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Hdsl2, self).__init__(ns, pref, tag)
+
 
 
 class FrameRelayService(IanaInterfaceType):
@@ -2990,7 +3771,11 @@ class FrameRelayService(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frameRelayService"):
-        super(FrameRelayService, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FrameRelayService, self).__init__(ns, pref, tag)
+
 
 
 class Mpls(IanaInterfaceType):
@@ -3005,7 +3790,11 @@ class Mpls(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mpls"):
-        super(Mpls, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Mpls, self).__init__(ns, pref, tag)
+
 
 
 class Ieee80211(IanaInterfaceType):
@@ -3020,7 +3809,11 @@ class Ieee80211(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee80211"):
-        super(Ieee80211, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ieee80211, self).__init__(ns, pref, tag)
+
 
 
 class Ieee80212(IanaInterfaceType):
@@ -3035,7 +3828,11 @@ class Ieee80212(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee80212"):
-        super(Ieee80212, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ieee80212, self).__init__(ns, pref, tag)
+
 
 
 class MocaVersion1(IanaInterfaceType):
@@ -3051,7 +3848,11 @@ class MocaVersion1(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mocaVersion1"):
-        super(MocaVersion1, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MocaVersion1, self).__init__(ns, pref, tag)
+
 
 
 class Sonet(IanaInterfaceType):
@@ -3066,7 +3867,11 @@ class Sonet(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sonet"):
-        super(Sonet, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Sonet, self).__init__(ns, pref, tag)
+
 
 
 class Escon(IanaInterfaceType):
@@ -3081,7 +3886,11 @@ class Escon(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:escon"):
-        super(Escon, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Escon, self).__init__(ns, pref, tag)
+
 
 
 class AluEponLogicalLink(IanaInterfaceType):
@@ -3097,7 +3906,11 @@ class AluEponLogicalLink(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aluEponLogicalLink"):
-        super(AluEponLogicalLink, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AluEponLogicalLink, self).__init__(ns, pref, tag)
+
 
 
 class G703at2mb(IanaInterfaceType):
@@ -3112,7 +3925,11 @@ class G703at2mb(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:g703at2mb"):
-        super(G703at2mb, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(G703at2mb, self).__init__(ns, pref, tag)
+
 
 
 class Ultra(IanaInterfaceType):
@@ -3127,7 +3944,11 @@ class Ultra(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ultra"):
-        super(Ultra, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ultra, self).__init__(ns, pref, tag)
+
 
 
 class DvbRccDownstream(IanaInterfaceType):
@@ -3142,7 +3963,11 @@ class DvbRccDownstream(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbRccDownstream"):
-        super(DvbRccDownstream, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DvbRccDownstream, self).__init__(ns, pref, tag)
+
 
 
 class SipTg(IanaInterfaceType):
@@ -3157,7 +3982,11 @@ class SipTg(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sipTg"):
-        super(SipTg, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SipTg, self).__init__(ns, pref, tag)
+
 
 
 class SmdsIcip(IanaInterfaceType):
@@ -3172,7 +4001,11 @@ class SmdsIcip(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:smdsIcip"):
-        super(SmdsIcip, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SmdsIcip, self).__init__(ns, pref, tag)
+
 
 
 class Bridge(IanaInterfaceType):
@@ -3187,7 +4020,11 @@ class Bridge(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:bridge"):
-        super(Bridge, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Bridge, self).__init__(ns, pref, tag)
+
 
 
 class AtmLogical(IanaInterfaceType):
@@ -3202,7 +4039,11 @@ class AtmLogical(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmLogical"):
-        super(AtmLogical, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmLogical, self).__init__(ns, pref, tag)
+
 
 
 class PropPointToPointSerial(IanaInterfaceType):
@@ -3217,7 +4058,11 @@ class PropPointToPointSerial(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propPointToPointSerial"):
-        super(PropPointToPointSerial, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropPointToPointSerial, self).__init__(ns, pref, tag)
+
 
 
 class V35(IanaInterfaceType):
@@ -3232,7 +4077,11 @@ class V35(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:v35"):
-        super(V35, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(V35, self).__init__(ns, pref, tag)
+
 
 
 class V36(IanaInterfaceType):
@@ -3247,7 +4096,11 @@ class V36(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:v36"):
-        super(V36, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(V36, self).__init__(ns, pref, tag)
+
 
 
 class V37(IanaInterfaceType):
@@ -3262,7 +4115,11 @@ class V37(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:v37"):
-        super(V37, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(V37, self).__init__(ns, pref, tag)
+
 
 
 class Ip(IanaInterfaceType):
@@ -3277,7 +4134,11 @@ class Ip(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ip"):
-        super(Ip, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ip, self).__init__(ns, pref, tag)
+
 
 
 class Gr303IDT(IanaInterfaceType):
@@ -3292,7 +4153,11 @@ class Gr303IDT(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:gr303IDT"):
-        super(Gr303IDT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Gr303IDT, self).__init__(ns, pref, tag)
+
 
 
 class BasicISDN(IanaInterfaceType):
@@ -3307,7 +4172,11 @@ class BasicISDN(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:basicISDN"):
-        super(BasicISDN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BasicISDN, self).__init__(ns, pref, tag)
+
 
 
 class G703at64k(IanaInterfaceType):
@@ -3322,7 +4191,11 @@ class G703at64k(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:g703at64k"):
-        super(G703at64k, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(G703at64k, self).__init__(ns, pref, tag)
+
 
 
 class ArcnetPlus(IanaInterfaceType):
@@ -3337,7 +4210,11 @@ class ArcnetPlus(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:arcnetPlus"):
-        super(ArcnetPlus, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ArcnetPlus, self).__init__(ns, pref, tag)
+
 
 
 class Pip(IanaInterfaceType):
@@ -3352,7 +4229,11 @@ class Pip(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pip"):
-        super(Pip, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Pip, self).__init__(ns, pref, tag)
+
 
 
 class Dtm(IanaInterfaceType):
@@ -3367,7 +4248,11 @@ class Dtm(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dtm"):
-        super(Dtm, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Dtm, self).__init__(ns, pref, tag)
+
 
 
 class Slip(IanaInterfaceType):
@@ -3382,7 +4267,11 @@ class Slip(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:slip"):
-        super(Slip, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Slip, self).__init__(ns, pref, tag)
+
 
 
 class Hiperlan2(IanaInterfaceType):
@@ -3397,7 +4286,11 @@ class Hiperlan2(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hiperlan2"):
-        super(Hiperlan2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Hiperlan2, self).__init__(ns, pref, tag)
+
 
 
 class Adsl(IanaInterfaceType):
@@ -3412,7 +4305,11 @@ class Adsl(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:adsl"):
-        super(Adsl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Adsl, self).__init__(ns, pref, tag)
+
 
 
 class Ieee80216WMAN(IanaInterfaceType):
@@ -3427,7 +4324,11 @@ class Ieee80216WMAN(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee80216WMAN"):
-        super(Ieee80216WMAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ieee80216WMAN, self).__init__(ns, pref, tag)
+
 
 
 class AtmIma(IanaInterfaceType):
@@ -3442,7 +4343,11 @@ class AtmIma(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmIma"):
-        super(AtmIma, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmIma, self).__init__(ns, pref, tag)
+
 
 
 class Isdn(IanaInterfaceType):
@@ -3457,7 +4362,11 @@ class Isdn(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:isdn"):
-        super(Isdn, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Isdn, self).__init__(ns, pref, tag)
+
 
 
 class CapwapDot11Bss(IanaInterfaceType):
@@ -3472,7 +4381,11 @@ class CapwapDot11Bss(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:capwapDot11Bss"):
-        super(CapwapDot11Bss, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CapwapDot11Bss, self).__init__(ns, pref, tag)
+
 
 
 class Sip(IanaInterfaceType):
@@ -3487,7 +4400,11 @@ class Sip(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sip"):
-        super(Sip, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Sip, self).__init__(ns, pref, tag)
+
 
 
 class PdnEtherLoop2(IanaInterfaceType):
@@ -3502,7 +4419,11 @@ class PdnEtherLoop2(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pdnEtherLoop2"):
-        super(PdnEtherLoop2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PdnEtherLoop2, self).__init__(ns, pref, tag)
+
 
 
 class VoiceEBS(IanaInterfaceType):
@@ -3517,7 +4438,11 @@ class VoiceEBS(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceEBS"):
-        super(VoiceEBS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceEBS, self).__init__(ns, pref, tag)
+
 
 
 class IpForward(IanaInterfaceType):
@@ -3532,7 +4457,11 @@ class IpForward(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ipForward"):
-        super(IpForward, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IpForward, self).__init__(ns, pref, tag)
+
 
 
 class Iso88025CRFPInt(IanaInterfaceType):
@@ -3547,7 +4476,11 @@ class Iso88025CRFPInt(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88025CRFPInt"):
-        super(Iso88025CRFPInt, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Iso88025CRFPInt, self).__init__(ns, pref, tag)
+
 
 
 class PropVirtual(IanaInterfaceType):
@@ -3562,7 +4495,11 @@ class PropVirtual(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propVirtual"):
-        super(PropVirtual, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropVirtual, self).__init__(ns, pref, tag)
+
 
 
 class WwanPP(IanaInterfaceType):
@@ -3577,7 +4514,11 @@ class WwanPP(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:wwanPP"):
-        super(WwanPP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(WwanPP, self).__init__(ns, pref, tag)
+
 
 
 class Other(IanaInterfaceType):
@@ -3592,7 +4533,11 @@ class Other(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:other"):
-        super(Other, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Other, self).__init__(ns, pref, tag)
+
 
 
 class Pon155(IanaInterfaceType):
@@ -3607,7 +4552,11 @@ class Pon155(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pon155"):
-        super(Pon155, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Pon155, self).__init__(ns, pref, tag)
+
 
 
 class Qam(IanaInterfaceType):
@@ -3622,7 +4571,11 @@ class Qam(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:qam"):
-        super(Qam, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Qam, self).__init__(ns, pref, tag)
+
 
 
 class OtnOdu(IanaInterfaceType):
@@ -3637,7 +4590,11 @@ class OtnOdu(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:otnOdu"):
-        super(OtnOdu, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OtnOdu, self).__init__(ns, pref, tag)
+
 
 
 class Iso88025Fiber(IanaInterfaceType):
@@ -3652,7 +4609,11 @@ class Iso88025Fiber(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88025Fiber"):
-        super(Iso88025Fiber, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Iso88025Fiber, self).__init__(ns, pref, tag)
+
 
 
 class Channel(IanaInterfaceType):
@@ -3667,7 +4628,11 @@ class Channel(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:channel"):
-        super(Channel, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Channel, self).__init__(ns, pref, tag)
+
 
 
 class VoiceEMFGD(IanaInterfaceType):
@@ -3682,7 +4647,11 @@ class VoiceEMFGD(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceEMFGD"):
-        super(VoiceEMFGD, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceEMFGD, self).__init__(ns, pref, tag)
+
 
 
 class AluGponPhysicalUni(IanaInterfaceType):
@@ -3697,7 +4666,11 @@ class AluGponPhysicalUni(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aluGponPhysicalUni"):
-        super(AluGponPhysicalUni, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AluGponPhysicalUni, self).__init__(ns, pref, tag)
+
 
 
 class A12MppSwitch(IanaInterfaceType):
@@ -3712,7 +4685,11 @@ class A12MppSwitch(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:a12MppSwitch"):
-        super(A12MppSwitch, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(A12MppSwitch, self).__init__(ns, pref, tag)
+
 
 
 class Ilan(IanaInterfaceType):
@@ -3727,7 +4704,11 @@ class Ilan(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ilan"):
-        super(Ilan, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ilan, self).__init__(ns, pref, tag)
+
 
 
 class PdnEtherLoop1(IanaInterfaceType):
@@ -3742,7 +4723,11 @@ class PdnEtherLoop1(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pdnEtherLoop1"):
-        super(PdnEtherLoop1, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PdnEtherLoop1, self).__init__(ns, pref, tag)
+
 
 
 class X213(IanaInterfaceType):
@@ -3757,7 +4742,11 @@ class X213(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:x213"):
-        super(X213, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(X213, self).__init__(ns, pref, tag)
+
 
 
 class SonetPath(IanaInterfaceType):
@@ -3772,7 +4761,11 @@ class SonetPath(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sonetPath"):
-        super(SonetPath, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SonetPath, self).__init__(ns, pref, tag)
+
 
 
 class VoiceFGDEANA(IanaInterfaceType):
@@ -3787,7 +4780,11 @@ class VoiceFGDEANA(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceFGDEANA"):
-        super(VoiceFGDEANA, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VoiceFGDEANA, self).__init__(ns, pref, tag)
+
 
 
 class Iso88025TokenRing(IanaInterfaceType):
@@ -3802,7 +4799,11 @@ class Iso88025TokenRing(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88025TokenRing"):
-        super(Iso88025TokenRing, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Iso88025TokenRing, self).__init__(ns, pref, tag)
+
 
 
 class PropAtm(IanaInterfaceType):
@@ -3817,7 +4818,11 @@ class PropAtm(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propAtm"):
-        super(PropAtm, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PropAtm, self).__init__(ns, pref, tag)
+
 
 
 class AluEponPhysicalUni(IanaInterfaceType):
@@ -3832,7 +4837,11 @@ class AluEponPhysicalUni(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aluEponPhysicalUni"):
-        super(AluEponPhysicalUni, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AluEponPhysicalUni, self).__init__(ns, pref, tag)
+
 
 
 class StackToStack(IanaInterfaceType):
@@ -3847,7 +4856,11 @@ class StackToStack(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:stackToStack"):
-        super(StackToStack, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(StackToStack, self).__init__(ns, pref, tag)
+
 
 
 class FrForward(IanaInterfaceType):
@@ -3862,7 +4875,11 @@ class FrForward(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frForward"):
-        super(FrForward, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FrForward, self).__init__(ns, pref, tag)
+
 
 
 class Homepna(IanaInterfaceType):
@@ -3877,7 +4894,11 @@ class Homepna(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:homepna"):
-        super(Homepna, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Homepna, self).__init__(ns, pref, tag)
+
 
 
 class Sdsl(IanaInterfaceType):
@@ -3892,7 +4913,11 @@ class Sdsl(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sdsl"):
-        super(Sdsl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Sdsl, self).__init__(ns, pref, tag)
+
 
 
 class VirtualIpAddress(IanaInterfaceType):
@@ -3907,7 +4932,11 @@ class VirtualIpAddress(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:virtualIpAddress"):
-        super(VirtualIpAddress, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VirtualIpAddress, self).__init__(ns, pref, tag)
+
 
 
 class Bsc(IanaInterfaceType):
@@ -3922,7 +4951,11 @@ class Bsc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:bsc"):
-        super(Bsc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Bsc, self).__init__(ns, pref, tag)
+
 
 
 class AtmRadio(IanaInterfaceType):
@@ -3937,7 +4970,11 @@ class AtmRadio(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmRadio"):
-        super(AtmRadio, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmRadio, self).__init__(ns, pref, tag)
+
 
 
 class AviciOpticalEther(IanaInterfaceType):
@@ -3952,7 +4989,11 @@ class AviciOpticalEther(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aviciOpticalEther"):
-        super(AviciOpticalEther, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AviciOpticalEther, self).__init__(ns, pref, tag)
+
 
 
 class G9981(IanaInterfaceType):
@@ -3967,7 +5008,11 @@ class G9981(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:g9981"):
-        super(G9981, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(G9981, self).__init__(ns, pref, tag)
+
 
 
 class FibreChannel(IanaInterfaceType):
@@ -3982,7 +5027,11 @@ class FibreChannel(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:fibreChannel"):
-        super(FibreChannel, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FibreChannel, self).__init__(ns, pref, tag)
+
 
 
 class Shdsl(IanaInterfaceType):
@@ -3997,7 +5046,11 @@ class Shdsl(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:shdsl"):
-        super(Shdsl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Shdsl, self).__init__(ns, pref, tag)
+
 
 
 class Eon(IanaInterfaceType):
@@ -4012,7 +5065,11 @@ class Eon(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:eon"):
-        super(Eon, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Eon, self).__init__(ns, pref, tag)
+
 
 
 class H323Gatekeeper(IanaInterfaceType):
@@ -4027,7 +5084,11 @@ class H323Gatekeeper(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:h323Gatekeeper"):
-        super(H323Gatekeeper, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(H323Gatekeeper, self).__init__(ns, pref, tag)
+
 
 
 class Hdh1822(IanaInterfaceType):
@@ -4042,7 +5103,11 @@ class Hdh1822(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hdh1822"):
-        super(Hdh1822, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Hdh1822, self).__init__(ns, pref, tag)
+
 
 
 class DvbRccUpstream(IanaInterfaceType):
@@ -4057,7 +5122,11 @@ class DvbRccUpstream(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbRccUpstream"):
-        super(DvbRccUpstream, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DvbRccUpstream, self).__init__(ns, pref, tag)
+
 
 
 class Nsip(IanaInterfaceType):
@@ -4072,7 +5141,11 @@ class Nsip(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:nsip"):
-        super(Nsip, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Nsip, self).__init__(ns, pref, tag)
+
 
 
 class TranspHdlc(IanaInterfaceType):
@@ -4087,7 +5160,11 @@ class TranspHdlc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:transpHdlc"):
-        super(TranspHdlc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TranspHdlc, self).__init__(ns, pref, tag)
+
 
 
 class TermPad(IanaInterfaceType):
@@ -4102,7 +5179,11 @@ class TermPad(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:termPad"):
-        super(TermPad, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TermPad, self).__init__(ns, pref, tag)
+
 
 
 class IpOverCdlc(IanaInterfaceType):
@@ -4117,7 +5198,11 @@ class IpOverCdlc(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ipOverCdlc"):
-        super(IpOverCdlc, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IpOverCdlc, self).__init__(ns, pref, tag)
+
 
 
 class Ces(IanaInterfaceType):
@@ -4132,7 +5217,11 @@ class Ces(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ces"):
-        super(Ces, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ces, self).__init__(ns, pref, tag)
+
 
 
 class Modem(IanaInterfaceType):
@@ -4147,6 +5236,10 @@ class Modem(IanaInterfaceType):
     _revision = '2014-05-08'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:modem"):
-        super(Modem, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Modem, self).__init__(ns, pref, tag)
+
 
 

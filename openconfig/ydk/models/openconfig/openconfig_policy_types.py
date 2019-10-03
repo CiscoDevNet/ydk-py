@@ -5,6 +5,7 @@ policy.  It can be imported by modules that contain protocol\-
 specific policy conditions and actions.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -96,7 +97,11 @@ class ATTRIBUTECOMPARISON(Identity):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:ATTRIBUTE_COMPARISON"):
-        super(ATTRIBUTECOMPARISON, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ATTRIBUTECOMPARISON, self).__init__(ns, pref, tag)
+
 
 
 class INSTALLPROTOCOLTYPE(Identity):
@@ -112,7 +117,11 @@ class INSTALLPROTOCOLTYPE(Identity):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:INSTALL_PROTOCOL_TYPE"):
-        super(INSTALLPROTOCOLTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INSTALLPROTOCOLTYPE, self).__init__(ns, pref, tag)
+
 
 
 class BGP(INSTALLPROTOCOLTYPE):
@@ -127,7 +136,11 @@ class BGP(INSTALLPROTOCOLTYPE):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:BGP"):
-        super(BGP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BGP, self).__init__(ns, pref, tag)
+
 
 
 class ISIS(INSTALLPROTOCOLTYPE):
@@ -142,7 +155,11 @@ class ISIS(INSTALLPROTOCOLTYPE):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:ISIS"):
-        super(ISIS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ISIS, self).__init__(ns, pref, tag)
+
 
 
 class ATTRIBUTEGE(ATTRIBUTECOMPARISON):
@@ -157,7 +174,11 @@ class ATTRIBUTEGE(ATTRIBUTECOMPARISON):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:ATTRIBUTE_GE"):
-        super(ATTRIBUTEGE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ATTRIBUTEGE, self).__init__(ns, pref, tag)
+
 
 
 class LOCALAGGREGATE(INSTALLPROTOCOLTYPE):
@@ -172,7 +193,11 @@ class LOCALAGGREGATE(INSTALLPROTOCOLTYPE):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:LOCAL_AGGREGATE"):
-        super(LOCALAGGREGATE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOCALAGGREGATE, self).__init__(ns, pref, tag)
+
 
 
 class STATIC(INSTALLPROTOCOLTYPE):
@@ -187,7 +212,11 @@ class STATIC(INSTALLPROTOCOLTYPE):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:STATIC"):
-        super(STATIC, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(STATIC, self).__init__(ns, pref, tag)
+
 
 
 class ATTRIBUTEEQ(ATTRIBUTECOMPARISON):
@@ -202,7 +231,11 @@ class ATTRIBUTEEQ(ATTRIBUTECOMPARISON):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:ATTRIBUTE_EQ"):
-        super(ATTRIBUTEEQ, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ATTRIBUTEEQ, self).__init__(ns, pref, tag)
+
 
 
 class DIRECTLYCONNECTED(INSTALLPROTOCOLTYPE):
@@ -217,7 +250,11 @@ class DIRECTLYCONNECTED(INSTALLPROTOCOLTYPE):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:DIRECTLY_CONNECTED"):
-        super(DIRECTLYCONNECTED, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DIRECTLYCONNECTED, self).__init__(ns, pref, tag)
+
 
 
 class ATTRIBUTELE(ATTRIBUTECOMPARISON):
@@ -232,7 +269,11 @@ class ATTRIBUTELE(ATTRIBUTECOMPARISON):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:ATTRIBUTE_LE"):
-        super(ATTRIBUTELE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ATTRIBUTELE, self).__init__(ns, pref, tag)
+
 
 
 class OSPF(INSTALLPROTOCOLTYPE):
@@ -247,7 +288,11 @@ class OSPF(INSTALLPROTOCOLTYPE):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:OSPF"):
-        super(OSPF, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OSPF, self).__init__(ns, pref, tag)
+
 
 
 class OSPF3(INSTALLPROTOCOLTYPE):
@@ -262,6 +307,10 @@ class OSPF3(INSTALLPROTOCOLTYPE):
     _revision = '2016-05-12'
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:OSPF3"):
-        super(OSPF3, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OSPF3, self).__init__(ns, pref, tag)
+
 
 

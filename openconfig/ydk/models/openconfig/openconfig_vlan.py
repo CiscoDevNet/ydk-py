@@ -4,6 +4,7 @@ This module defines configuration and state variables for VLANs,
 in addition to VLAN parameters associated with interfaces
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -32,7 +33,10 @@ class Vlans(Entity):
     _revision = '2016-05-26'
 
     def __init__(self):
-        super(Vlans, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vlans, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vlans"
@@ -74,6 +78,8 @@ class Vlans(Entity):
         	State variables for VLANs
         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State>`
         
+        	**config**\: False
+        
         .. attribute:: members
         
         	Enclosing container for list of member interfaces
@@ -87,7 +93,10 @@ class Vlans(Entity):
         _revision = '2016-05-26'
 
         def __init__(self):
-            super(Vlans.Vlan, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vlans.Vlan, self).__init__()
 
             self.yang_name = "vlan"
             self.yang_parent_name = "vlans"
@@ -116,7 +125,7 @@ class Vlans(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vlans.Vlan, [u'vlan_id'], name, value)
+            self._perform_setattr(Vlans.Vlan, ['vlan_id'], name, value)
 
 
         class Config(Entity):
@@ -157,7 +166,10 @@ class Vlans(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Vlans.Vlan.Config, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vlans.Vlan.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "vlan"
@@ -179,7 +191,7 @@ class Vlans(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vlans.Vlan.Config, [u'vlan_id', u'name', u'status', u'tpid'], name, value)
+                self._perform_setattr(Vlans.Vlan.Config, ['vlan_id', 'name', 'status', 'tpid'], name, value)
 
             class Status(Enum):
                 """
@@ -203,6 +215,7 @@ class Vlans(Entity):
 
 
 
+
         class State(Entity):
             """
             State variables for VLANs
@@ -214,15 +227,21 @@ class Vlans(Entity):
             
             	**range:** 1..4094
             
+            	**config**\: False
+            
             .. attribute:: name
             
             	Interface VLAN name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: status
             
             	Admin state of the VLAN
             	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.Status>`
+            
+            	**config**\: False
             
             	**default value**\: ACTIVE
             
@@ -230,6 +249,8 @@ class Vlans(Entity):
             
             	Optionally set the tag protocol identifier field (TPID) that is accepted on the VLAN
             	**type**\:  :py:class:`TPIDTYPES <ydk.models.openconfig.openconfig_vlan_types.TPIDTYPES>`
+            
+            	**config**\: False
             
             	**default value**\: oc-vlan-types:TPID_0x8100
             
@@ -241,7 +262,10 @@ class Vlans(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Vlans.Vlan.State, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vlans.Vlan.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "vlan"
@@ -263,7 +287,7 @@ class Vlans(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vlans.Vlan.State, [u'vlan_id', u'name', u'status', u'tpid'], name, value)
+                self._perform_setattr(Vlans.Vlan.State, ['vlan_id', 'name', 'status', 'tpid'], name, value)
 
             class Status(Enum):
                 """
@@ -287,6 +311,7 @@ class Vlans(Entity):
 
 
 
+
         class Members(Entity):
             """
             Enclosing container for list of member interfaces
@@ -296,6 +321,8 @@ class Vlans(Entity):
             	List of references to interfaces / subinterfaces associated with the VLAN
             	**type**\: list of  		 :py:class:`Member <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members.Member>`
             
+            	**config**\: False
+            
             
 
             """
@@ -304,7 +331,10 @@ class Vlans(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Vlans.Vlan.Members, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vlans.Vlan.Members, self).__init__()
 
                 self.yang_name = "members"
                 self.yang_parent_name = "vlan"
@@ -332,6 +362,8 @@ class Vlans(Entity):
                 	Reference to an interface or subinterface
                 	**type**\:  :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members.Member.InterfaceRef>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -340,7 +372,10 @@ class Vlans(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Vlans.Vlan.Members.Member, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vlans.Vlan.Members.Member, self).__init__()
 
                     self.yang_name = "member"
                     self.yang_parent_name = "members"
@@ -369,6 +404,8 @@ class Vlans(Entity):
                     	Operational state for interface\-ref
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members.Member.InterfaceRef.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -377,7 +414,10 @@ class Vlans(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Vlans.Vlan.Members.Member.InterfaceRef, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vlans.Vlan.Members.Member.InterfaceRef, self).__init__()
 
                         self.yang_name = "interface-ref"
                         self.yang_parent_name = "member"
@@ -408,6 +448,8 @@ class Vlans(Entity):
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: subinterface
                         
                         	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -417,6 +459,8 @@ class Vlans(Entity):
                         
                         	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -425,7 +469,10 @@ class Vlans(Entity):
                         _revision = '2016-05-26'
 
                         def __init__(self):
-                            super(Vlans.Vlan.Members.Member.InterfaceRef.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vlans.Vlan.Members.Member.InterfaceRef.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "interface-ref"
@@ -445,7 +492,14 @@ class Vlans(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Vlans()
         return self._top_entity
+
+
 

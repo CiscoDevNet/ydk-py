@@ -4,6 +4,7 @@ matrix:
     include:
         - os: osx
           language: generic
+          osx_image: xcode8.3
         - env: DOCKER=true OS_TYPE=centos OS_VERSION=centos7
         - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=xenial
         - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=bionic
@@ -11,11 +12,11 @@ matrix:
         - os: osx
 
 before_install:
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
+#    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./dependencies_osx.sh          ; fi
     - if [[ "$DOCKER" == "true" ]]; then docker pull ${OS_TYPE}:${OS_VERSION}  ; fi
 
 script:
      - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "centos" ]]; then docker run -v `pwd`:/ydk-py ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-py && ./dependencies_centos.sh && ./tests.sh" ; fi
-     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "ubuntu" ]]; then docker run -v `pwd`:/ydk-py ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-py && ./dependencies_xenial.sh && ./tests.sh" ; fi
+     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "ubuntu" ]]; then docker run -v `pwd`:/ydk-py ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-py && ./dependencies_ubuntu.sh && ./tests.sh" ; fi
      - if [[ "$DOCKER" != "true" ]]; then ./tests.sh ; fi

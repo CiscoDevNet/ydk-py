@@ -4,6 +4,7 @@ This module contains a collection of YANG groupings
 in filter configurations for policy model.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -128,7 +129,11 @@ class InputInterface(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:input-interface"):
-        super(InputInterface, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(InputInterface, self).__init__(ns, pref, tag)
+
 
 
 class SrcMac(FilterType):
@@ -143,7 +148,11 @@ class SrcMac(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:src-mac"):
-        super(SrcMac, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SrcMac, self).__init__(ns, pref, tag)
+
 
 
 class Application(FilterType):
@@ -158,7 +167,11 @@ class Application(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:application"):
-        super(Application, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Application, self).__init__(ns, pref, tag)
+
 
 
 class SecurityGroupName(FilterType):
@@ -173,7 +186,11 @@ class SecurityGroupName(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:security-group-name"):
-        super(SecurityGroupName, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SecurityGroupName, self).__init__(ns, pref, tag)
+
 
 
 class Ipv4AclName(FilterType):
@@ -188,7 +205,11 @@ class Ipv4AclName(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:ipv4-acl-name"):
-        super(Ipv4AclName, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ipv4AclName, self).__init__(ns, pref, tag)
+
 
 
 class FlowDlci(FilterType):
@@ -203,7 +224,11 @@ class FlowDlci(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:flow-dlci"):
-        super(FlowDlci, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FlowDlci, self).__init__(ns, pref, tag)
+
 
 
 class Dei(FilterType):
@@ -218,7 +243,11 @@ class Dei(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:dei"):
-        super(Dei, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Dei, self).__init__(ns, pref, tag)
+
 
 
 class Prec(FilterType):
@@ -233,7 +262,11 @@ class Prec(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:prec"):
-        super(Prec, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Prec, self).__init__(ns, pref, tag)
+
 
 
 class PacketLength(FilterType):
@@ -248,7 +281,11 @@ class PacketLength(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:packet-length"):
-        super(PacketLength, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PacketLength, self).__init__(ns, pref, tag)
+
 
 
 class Ipv4Acl(FilterType):
@@ -263,7 +300,11 @@ class Ipv4Acl(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:ipv4-acl"):
-        super(Ipv4Acl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ipv4Acl, self).__init__(ns, pref, tag)
+
 
 
 class FlowDe(FilterType):
@@ -278,7 +319,11 @@ class FlowDe(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:flow-de"):
-        super(FlowDe, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FlowDe, self).__init__(ns, pref, tag)
+
 
 
 class FlowIp(FilterType):
@@ -293,7 +338,11 @@ class FlowIp(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:flow-ip"):
-        super(FlowIp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FlowIp, self).__init__(ns, pref, tag)
+
 
 
 class FlowRecord(FilterType):
@@ -308,7 +357,11 @@ class FlowRecord(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:flow-record"):
-        super(FlowRecord, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FlowRecord, self).__init__(ns, pref, tag)
+
 
 
 class VlanInner(FilterType):
@@ -323,7 +376,11 @@ class VlanInner(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:vlan-inner"):
-        super(VlanInner, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VlanInner, self).__init__(ns, pref, tag)
+
 
 
 class Metadata(FilterType):
@@ -338,7 +395,11 @@ class Metadata(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:metadata"):
-        super(Metadata, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Metadata, self).__init__(ns, pref, tag)
+
 
 
 class Vlan(FilterType):
@@ -353,7 +414,11 @@ class Vlan(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:vlan"):
-        super(Vlan, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Vlan, self).__init__(ns, pref, tag)
+
 
 
 class AtmVci(FilterType):
@@ -368,7 +433,11 @@ class AtmVci(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:atm-vci"):
-        super(AtmVci, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmVci, self).__init__(ns, pref, tag)
+
 
 
 class ClassMap(FilterType):
@@ -383,7 +452,11 @@ class ClassMap(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:class-map"):
-        super(ClassMap, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ClassMap, self).__init__(ns, pref, tag)
+
 
 
 class QosGroup(FilterType):
@@ -398,7 +471,11 @@ class QosGroup(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:qos-group"):
-        super(QosGroup, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(QosGroup, self).__init__(ns, pref, tag)
+
 
 
 class WlanUserPriority(FilterType):
@@ -413,7 +490,11 @@ class WlanUserPriority(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:wlan-user-priority"):
-        super(WlanUserPriority, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(WlanUserPriority, self).__init__(ns, pref, tag)
+
 
 
 class IpRtp(FilterType):
@@ -428,7 +509,11 @@ class IpRtp(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:ip-rtp"):
-        super(IpRtp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IpRtp, self).__init__(ns, pref, tag)
+
 
 
 class Ipv6Acl(FilterType):
@@ -443,7 +528,11 @@ class Ipv6Acl(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:ipv6-acl"):
-        super(Ipv6Acl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ipv6Acl, self).__init__(ns, pref, tag)
+
 
 
 class AtmClp(FilterType):
@@ -458,7 +547,11 @@ class AtmClp(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:atm-clp"):
-        super(AtmClp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AtmClp, self).__init__(ns, pref, tag)
+
 
 
 class DstMac(FilterType):
@@ -473,7 +566,11 @@ class DstMac(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:dst-mac"):
-        super(DstMac, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DstMac, self).__init__(ns, pref, tag)
+
 
 
 class Cos(FilterType):
@@ -490,7 +587,11 @@ class Cos(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:cos"):
-        super(Cos, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Cos, self).__init__(ns, pref, tag)
+
 
 
 class DeiInner(FilterType):
@@ -505,7 +606,11 @@ class DeiInner(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:dei-inner"):
-        super(DeiInner, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DeiInner, self).__init__(ns, pref, tag)
+
 
 
 class MplsExpTop(FilterType):
@@ -521,7 +626,11 @@ class MplsExpTop(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:mpls-exp-top"):
-        super(MplsExpTop, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MplsExpTop, self).__init__(ns, pref, tag)
+
 
 
 class CosInner(FilterType):
@@ -537,7 +646,11 @@ class CosInner(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:cos-inner"):
-        super(CosInner, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CosInner, self).__init__(ns, pref, tag)
+
 
 
 class Ipv6AclName(FilterType):
@@ -552,7 +665,11 @@ class Ipv6AclName(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:ipv6-acl-name"):
-        super(Ipv6AclName, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ipv6AclName, self).__init__(ns, pref, tag)
+
 
 
 class MplsExpImp(FilterType):
@@ -568,7 +685,11 @@ class MplsExpImp(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:mpls-exp-imp"):
-        super(MplsExpImp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MplsExpImp, self).__init__(ns, pref, tag)
+
 
 
 class SecurityGroupTag(FilterType):
@@ -583,7 +704,11 @@ class SecurityGroupTag(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:security-group-tag"):
-        super(SecurityGroupTag, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SecurityGroupTag, self).__init__(ns, pref, tag)
+
 
 
 class ClassType(Identity):
@@ -599,7 +724,11 @@ class ClassType(Identity):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:class-type"):
-        super(ClassType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ClassType, self).__init__(ns, pref, tag)
+
 
 
 class DiscardClass(FilterType):
@@ -614,7 +743,11 @@ class DiscardClass(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:discard-class"):
-        super(DiscardClass, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DiscardClass, self).__init__(ns, pref, tag)
+
 
 
 class Vpls(FilterType):
@@ -629,7 +762,11 @@ class Vpls(FilterType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:vpls"):
-        super(Vpls, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Vpls, self).__init__(ns, pref, tag)
+
 
 
 class PolicyType(Identity):
@@ -645,7 +782,11 @@ class PolicyType(Identity):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:policy-type"):
-        super(PolicyType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PolicyType, self).__init__(ns, pref, tag)
+
 
 
 class Control(PolicyType):
@@ -661,7 +802,11 @@ class Control(PolicyType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:control"):
-        super(Control, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Control, self).__init__(ns, pref, tag)
+
 
 
 class Qos(PolicyType):
@@ -677,7 +822,11 @@ class Qos(PolicyType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:qos"):
-        super(Qos, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Qos, self).__init__(ns, pref, tag)
+
 
 
 class PerfMon(PolicyType):
@@ -693,7 +842,11 @@ class PerfMon(PolicyType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:perf-mon"):
-        super(PerfMon, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PerfMon, self).__init__(ns, pref, tag)
+
 
 
 class PacketService(PolicyType):
@@ -709,7 +862,11 @@ class PacketService(PolicyType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:packet-service"):
-        super(PacketService, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PacketService, self).__init__(ns, pref, tag)
+
 
 
 class QosClass(ClassType):
@@ -725,7 +882,11 @@ class QosClass(ClassType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:qos-class"):
-        super(QosClass, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(QosClass, self).__init__(ns, pref, tag)
+
 
 
 class ControlClass(ClassType):
@@ -741,7 +902,11 @@ class ControlClass(ClassType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:control-class"):
-        super(ControlClass, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ControlClass, self).__init__(ns, pref, tag)
+
 
 
 class InspectClass(ClassType):
@@ -757,7 +922,11 @@ class InspectClass(ClassType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:inspect-class"):
-        super(InspectClass, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(InspectClass, self).__init__(ns, pref, tag)
+
 
 
 class AppnavClass(ClassType):
@@ -773,7 +942,11 @@ class AppnavClass(ClassType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:appnav-class"):
-        super(AppnavClass, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AppnavClass, self).__init__(ns, pref, tag)
+
 
 
 class Service(PolicyType):
@@ -789,7 +962,11 @@ class Service(PolicyType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:service"):
-        super(Service, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Service, self).__init__(ns, pref, tag)
+
 
 
 class AccessControlClass(ClassType):
@@ -805,7 +982,11 @@ class AccessControlClass(ClassType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:access-control-class"):
-        super(AccessControlClass, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AccessControlClass, self).__init__(ns, pref, tag)
+
 
 
 class AccessControl(PolicyType):
@@ -821,7 +1002,11 @@ class AccessControl(PolicyType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:access-control"):
-        super(AccessControl, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AccessControl, self).__init__(ns, pref, tag)
+
 
 
 class Appnav(PolicyType):
@@ -837,7 +1022,11 @@ class Appnav(PolicyType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:appnav"):
-        super(Appnav, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Appnav, self).__init__(ns, pref, tag)
+
 
 
 class Inspect(PolicyType):
@@ -853,7 +1042,11 @@ class Inspect(PolicyType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:inspect"):
-        super(Inspect, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Inspect, self).__init__(ns, pref, tag)
+
 
 
 class Pbr(PolicyType):
@@ -869,6 +1062,10 @@ class Pbr(PolicyType):
     _revision = '2013-10-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:pbr"):
-        super(Pbr, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Pbr, self).__init__(ns, pref, tag)
+
 
 

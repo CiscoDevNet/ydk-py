@@ -22,6 +22,7 @@ protocol\-specific policy after importing the route into the
 protocol for distribution (again via routing policy).
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -44,7 +45,11 @@ class LOCALDEFINEDNEXTHOP(Identity):
     _revision = '2017-05-15'
 
     def __init__(self, ns="http://openconfig.net/yang/local-routing", pref="openconfig-local-routing", tag="openconfig-local-routing:LOCAL_DEFINED_NEXT_HOP"):
-        super(LOCALDEFINEDNEXTHOP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOCALDEFINEDNEXTHOP, self).__init__(ns, pref, tag)
+
 
 
 class LocalRoutes(Entity):
@@ -60,6 +65,8 @@ class LocalRoutes(Entity):
     
     	Operational state data for locally defined routes
     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.State>`
+    
+    	**config**\: False
     
     .. attribute:: static_routes
     
@@ -79,7 +86,10 @@ class LocalRoutes(Entity):
     _revision = '2017-05-15'
 
     def __init__(self):
-        super(LocalRoutes, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(LocalRoutes, self).__init__()
         self._top_entity = None
 
         self.yang_name = "local-routes"
@@ -124,7 +134,10 @@ class LocalRoutes(Entity):
         _revision = '2017-05-15'
 
         def __init__(self):
-            super(LocalRoutes.Config, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(LocalRoutes.Config, self).__init__()
 
             self.yang_name = "config"
             self.yang_parent_name = "local-routes"
@@ -136,6 +149,7 @@ class LocalRoutes(Entity):
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
             self._is_frozen = True
+
 
 
     class State(Entity):
@@ -150,7 +164,10 @@ class LocalRoutes(Entity):
         _revision = '2017-05-15'
 
         def __init__(self):
-            super(LocalRoutes.State, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(LocalRoutes.State, self).__init__()
 
             self.yang_name = "state"
             self.yang_parent_name = "local-routes"
@@ -162,6 +179,7 @@ class LocalRoutes(Entity):
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
             self._is_frozen = True
+
 
 
     class StaticRoutes(Entity):
@@ -181,7 +199,10 @@ class LocalRoutes(Entity):
         _revision = '2017-05-15'
 
         def __init__(self):
-            super(LocalRoutes.StaticRoutes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(LocalRoutes.StaticRoutes, self).__init__()
 
             self.yang_name = "static-routes"
             self.yang_parent_name = "local-routes"
@@ -229,6 +250,8 @@ class LocalRoutes(Entity):
             	Operational state data for static routes
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.State>`
             
+            	**config**\: False
+            
             .. attribute:: next_hops
             
             	Configuration and state parameters relating to the next\-hops that are to be utilised for the static route being specified
@@ -242,7 +265,10 @@ class LocalRoutes(Entity):
             _revision = '2017-05-15'
 
             def __init__(self):
-                super(LocalRoutes.StaticRoutes.Static, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(LocalRoutes.StaticRoutes.Static, self).__init__()
 
                 self.yang_name = "static"
                 self.yang_parent_name = "static-routes"
@@ -271,7 +297,7 @@ class LocalRoutes(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(LocalRoutes.StaticRoutes.Static, [u'prefix'], name, value)
+                self._perform_setattr(LocalRoutes.StaticRoutes.Static, ['prefix'], name, value)
 
 
             class Config(Entity):
@@ -312,7 +338,10 @@ class LocalRoutes(Entity):
                 _revision = '2017-05-15'
 
                 def __init__(self):
-                    super(LocalRoutes.StaticRoutes.Static.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LocalRoutes.StaticRoutes.Static.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "static"
@@ -330,7 +359,8 @@ class LocalRoutes(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LocalRoutes.StaticRoutes.Static.Config, [u'prefix', u'set_tag'], name, value)
+                    self._perform_setattr(LocalRoutes.StaticRoutes.Static.Config, ['prefix', 'set_tag'], name, value)
+
 
 
             class State(Entity):
@@ -350,6 +380,8 @@ class LocalRoutes(Entity):
                 
                 			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))/(12[0\-8]\|1[0\-1][0\-9]\|[1\-9][0\-9]\|[0\-9])$
                 
+                	**config**\: False
+                
                 .. attribute:: set_tag
                 
                 	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
@@ -363,6 +395,8 @@ class LocalRoutes(Entity):
                 
                 			**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -371,7 +405,10 @@ class LocalRoutes(Entity):
                 _revision = '2017-05-15'
 
                 def __init__(self):
-                    super(LocalRoutes.StaticRoutes.Static.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LocalRoutes.StaticRoutes.Static.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "static"
@@ -389,7 +426,8 @@ class LocalRoutes(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LocalRoutes.StaticRoutes.Static.State, [u'prefix', u'set_tag'], name, value)
+                    self._perform_setattr(LocalRoutes.StaticRoutes.Static.State, ['prefix', 'set_tag'], name, value)
+
 
 
             class NextHops(Entity):
@@ -411,7 +449,10 @@ class LocalRoutes(Entity):
                 _revision = '2017-05-15'
 
                 def __init__(self):
-                    super(LocalRoutes.StaticRoutes.Static.NextHops, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LocalRoutes.StaticRoutes.Static.NextHops, self).__init__()
 
                     self.yang_name = "next-hops"
                     self.yang_parent_name = "static"
@@ -451,6 +492,8 @@ class LocalRoutes(Entity):
                     	Operational state parameters relating to the next\-hop entry
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_ref
                     
                     	Reference to an interface or subinterface
@@ -464,7 +507,10 @@ class LocalRoutes(Entity):
                     _revision = '2017-05-15'
 
                     def __init__(self):
-                        super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop, self).__init__()
 
                         self.yang_name = "next-hop"
                         self.yang_parent_name = "next-hops"
@@ -492,7 +538,7 @@ class LocalRoutes(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop, [u'index'], name, value)
+                        self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop, ['index'], name, value)
 
 
                     class Config(Entity):
@@ -542,7 +588,10 @@ class LocalRoutes(Entity):
                         _revision = '2017-05-15'
 
                         def __init__(self):
-                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "next-hop"
@@ -564,7 +613,8 @@ class LocalRoutes(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, [u'index', u'next_hop', u'metric', u'recurse'], name, value)
+                            self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, ['index', 'next_hop', 'metric', 'recurse'], name, value)
+
 
 
                     class State(Entity):
@@ -576,6 +626,8 @@ class LocalRoutes(Entity):
                         
                         	An user\-specified identifier utilised to uniquely reference the next\-hop entry in the next\-hop list. The value of this index has no semantic meaning other than for referencing the entry
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: next_hop
                         
@@ -592,6 +644,8 @@ class LocalRoutes(Entity):
                         
                         		**type**\:  :py:class:`LOCALDEFINEDNEXTHOP <ydk.models.openconfig.openconfig_local_routing.LOCALDEFINEDNEXTHOP>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric
                         
                         	A metric which is utilised to specify the preference of the next\-hop entry when it is injected into the RIB. The lower the metric, the more preferable the prefix is. When this value is not specified the metric is inherited from the default metric utilised for static routes within the network instance that the static routes are being instantiated. When multiple next\-hops are specified for a static route, the metric is utilised to determine which of the next\-hops is to be installed in the RIB. When multiple next\-hops have the same metric (be it specified, or simply the default) then these next\-hops should all be installed in the RIB
@@ -599,10 +653,14 @@ class LocalRoutes(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: recurse
                         
                         	Determines whether the next\-hop should be allowed to be looked up recursively \- i.e., via a RIB entry which has been installed by a routing protocol, or another static route \- rather than needing to be connected directly to an interface of the local system within the current network instance. When the interface reference specified within the next\-hop entry is set (i.e., is not null) then forwarding is restricted to being via the interface specified \- and recursion is hence disabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -614,7 +672,10 @@ class LocalRoutes(Entity):
                         _revision = '2017-05-15'
 
                         def __init__(self):
-                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "next-hop"
@@ -636,7 +697,8 @@ class LocalRoutes(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, [u'index', u'next_hop', u'metric', u'recurse'], name, value)
+                            self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, ['index', 'next_hop', 'metric', 'recurse'], name, value)
+
 
 
                     class InterfaceRef(Entity):
@@ -653,6 +715,8 @@ class LocalRoutes(Entity):
                         	Operational state for interface\-ref
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -661,7 +725,10 @@ class LocalRoutes(Entity):
                         _revision = '2017-05-15'
 
                         def __init__(self):
-                            super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef, self).__init__()
 
                             self.yang_name = "interface-ref"
                             self.yang_parent_name = "next-hop"
@@ -713,7 +780,10 @@ class LocalRoutes(Entity):
                             _revision = '2017-05-15'
 
                             def __init__(self):
-                                super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "interface-ref"
@@ -734,6 +804,7 @@ class LocalRoutes(Entity):
                                 self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state for interface\-ref
@@ -745,6 +816,8 @@ class LocalRoutes(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: subinterface
                             
                             	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -754,6 +827,8 @@ class LocalRoutes(Entity):
                             
                             	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -762,7 +837,10 @@ class LocalRoutes(Entity):
                             _revision = '2017-05-15'
 
                             def __init__(self):
-                                super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "interface-ref"
@@ -783,6 +861,12 @@ class LocalRoutes(Entity):
                                 self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
+
+
+
+
+
+
     class LocalAggregates(Entity):
         """
         Enclosing container for locally\-defined aggregate
@@ -801,7 +885,10 @@ class LocalRoutes(Entity):
         _revision = '2017-05-15'
 
         def __init__(self):
-            super(LocalRoutes.LocalAggregates, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(LocalRoutes.LocalAggregates, self).__init__()
 
             self.yang_name = "local-aggregates"
             self.yang_parent_name = "local-routes"
@@ -849,6 +936,8 @@ class LocalRoutes(Entity):
             	Operational state data for aggregate advertisements
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.State>`
             
+            	**config**\: False
+            
             
 
             """
@@ -857,7 +946,10 @@ class LocalRoutes(Entity):
             _revision = '2017-05-15'
 
             def __init__(self):
-                super(LocalRoutes.LocalAggregates.Aggregate, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(LocalRoutes.LocalAggregates.Aggregate, self).__init__()
 
                 self.yang_name = "aggregate"
                 self.yang_parent_name = "local-aggregates"
@@ -882,7 +974,7 @@ class LocalRoutes(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate, [u'prefix'], name, value)
+                self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate, ['prefix'], name, value)
 
 
             class Config(Entity):
@@ -930,7 +1022,10 @@ class LocalRoutes(Entity):
                 _revision = '2017-05-15'
 
                 def __init__(self):
-                    super(LocalRoutes.LocalAggregates.Aggregate.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LocalRoutes.LocalAggregates.Aggregate.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "aggregate"
@@ -950,7 +1045,8 @@ class LocalRoutes(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.Config, [u'prefix', u'discard', u'set_tag'], name, value)
+                    self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.Config, ['prefix', 'discard', 'set_tag'], name, value)
+
 
 
             class State(Entity):
@@ -971,10 +1067,14 @@ class LocalRoutes(Entity):
                 
                 			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))/(12[0\-8]\|1[0\-1][0\-9]\|[1\-9][0\-9]\|[0\-9])$
                 
+                	**config**\: False
+                
                 .. attribute:: discard
                 
                 	When true, install the aggregate route with a discard next\-hop \-\- traffic destined to the aggregate will be discarded with no ICMP message generated.  When false, traffic destined to an aggregate address when no constituent routes are present will generate an ICMP unreachable message
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -991,6 +1091,8 @@ class LocalRoutes(Entity):
                 
                 			**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -999,7 +1101,10 @@ class LocalRoutes(Entity):
                 _revision = '2017-05-15'
 
                 def __init__(self):
-                    super(LocalRoutes.LocalAggregates.Aggregate.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LocalRoutes.LocalAggregates.Aggregate.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "aggregate"
@@ -1019,11 +1124,16 @@ class LocalRoutes(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.State, [u'prefix', u'discard', u'set_tag'], name, value)
+                    self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.State, ['prefix', 'discard', 'set_tag'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = LocalRoutes()
         return self._top_entity
+
+
 
 class DROP(LOCALDEFINEDNEXTHOP):
     """
@@ -1037,7 +1147,11 @@ class DROP(LOCALDEFINEDNEXTHOP):
     _revision = '2017-05-15'
 
     def __init__(self, ns="http://openconfig.net/yang/local-routing", pref="openconfig-local-routing", tag="openconfig-local-routing:DROP"):
-        super(DROP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DROP, self).__init__(ns, pref, tag)
+
 
 
 class LOCALLINK(LOCALDEFINEDNEXTHOP):
@@ -1057,6 +1171,10 @@ class LOCALLINK(LOCALDEFINEDNEXTHOP):
     _revision = '2017-05-15'
 
     def __init__(self, ns="http://openconfig.net/yang/local-routing", pref="openconfig-local-routing", tag="openconfig-local-routing:LOCAL_LINK"):
-        super(LOCALLINK, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOCALLINK, self).__init__(ns, pref, tag)
+
 
 

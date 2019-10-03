@@ -37,6 +37,7 @@ specific physical data in one location, including inventory
 attributes or status).
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -64,7 +65,10 @@ class Components(Entity):
     _revision = '2016-06-06'
 
     def __init__(self):
-        super(Components, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Components, self).__init__()
         self._top_entity = None
 
         self.yang_name = "components"
@@ -104,6 +108,8 @@ class Components(Entity):
         	Operational state data for each component
         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.State>`
         
+        	**config**\: False
+        
         .. attribute:: properties
         
         	Enclosing container 
@@ -113,11 +119,6 @@ class Components(Entity):
         
         	Enclosing container for subcomponent references
         	**type**\:  :py:class:`Subcomponents <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents>`
-        
-        .. attribute:: optical_port
-        
-        	Top\-level container 
-        	**type**\:  :py:class:`OpticalPort <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort>`
         
         .. attribute:: transceiver
         
@@ -129,6 +130,11 @@ class Components(Entity):
         	Enclosing container for the list of optical channels
         	**type**\:  :py:class:`OpticalChannel <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel>`
         
+        .. attribute:: optical_port
+        
+        	Top\-level container 
+        	**type**\:  :py:class:`OpticalPort <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort>`
+        
         
 
         """
@@ -137,14 +143,17 @@ class Components(Entity):
         _revision = '2016-06-06'
 
         def __init__(self):
-            super(Components.Component, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Components.Component, self).__init__()
 
             self.yang_name = "component"
             self.yang_parent_name = "components"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_classes = OrderedDict([("config", ("config", Components.Component.Config)), ("state", ("state", Components.Component.State)), ("properties", ("properties", Components.Component.Properties)), ("subcomponents", ("subcomponents", Components.Component.Subcomponents)), ("openconfig-transport-line-common:optical-port", ("optical_port", Components.Component.OpticalPort)), ("openconfig-platform-transceiver:transceiver", ("transceiver", Components.Component.Transceiver)), ("openconfig-terminal-device:optical-channel", ("optical_channel", Components.Component.OpticalChannel))])
+            self._child_classes = OrderedDict([("config", ("config", Components.Component.Config)), ("state", ("state", Components.Component.State)), ("properties", ("properties", Components.Component.Properties)), ("subcomponents", ("subcomponents", Components.Component.Subcomponents)), ("openconfig-platform-transceiver:transceiver", ("transceiver", Components.Component.Transceiver)), ("openconfig-terminal-device:optical-channel", ("optical_channel", Components.Component.OpticalChannel)), ("openconfig-transport-line-common:optical-port", ("optical_port", Components.Component.OpticalPort))])
             self._leafs = OrderedDict([
                 ('name', (YLeaf(YType.str, 'name'), ['str'])),
             ])
@@ -166,10 +175,6 @@ class Components(Entity):
             self.subcomponents.parent = self
             self._children_name_map["subcomponents"] = "subcomponents"
 
-            self.optical_port = Components.Component.OpticalPort()
-            self.optical_port.parent = self
-            self._children_name_map["optical_port"] = "openconfig-transport-line-common:optical-port"
-
             self.transceiver = Components.Component.Transceiver()
             self.transceiver.parent = self
             self._children_name_map["transceiver"] = "openconfig-platform-transceiver:transceiver"
@@ -177,12 +182,16 @@ class Components(Entity):
             self.optical_channel = Components.Component.OpticalChannel()
             self.optical_channel.parent = self
             self._children_name_map["optical_channel"] = "openconfig-terminal-device:optical-channel"
+
+            self.optical_port = Components.Component.OpticalPort()
+            self.optical_port.parent = self
+            self._children_name_map["optical_port"] = "openconfig-transport-line-common:optical-port"
             self._segment_path = lambda: "component" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "openconfig-platform:components/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Components.Component, ['name'], name, value)
+            self._perform_setattr(Components.Component, [u'name'], name, value)
 
 
         class Config(Entity):
@@ -202,7 +211,10 @@ class Components(Entity):
             _revision = '2016-06-06'
 
             def __init__(self):
-                super(Components.Component.Config, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Components.Component.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "component"
@@ -218,7 +230,8 @@ class Components(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Components.Component.Config, ['name'], name, value)
+                self._perform_setattr(Components.Component.Config, [u'name'], name, value)
+
 
 
         class State(Entity):
@@ -230,6 +243,8 @@ class Components(Entity):
             	Device name for the component \-\- this will not be a configurable parameter on many implementations
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Type of component as identified by the system
@@ -239,35 +254,49 @@ class Components(Entity):
             
             		**type**\:  :py:class:`OPENCONFIGSOFTWARECOMPONENT <ydk.models.openconfig.openconfig_platform_types.OPENCONFIGSOFTWARECOMPONENT>`
             
+            	**config**\: False
+            
             .. attribute:: id
             
             	Unique identifier assigned by the system for the component
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: description
             
             	System\-supplied description of the component
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: mfg_name
             
             	System\-supplied identifier for the manufacturer of the component.  This data is particularly useful when a component manufacturer is different than the overall device vendor
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: version
             
             	System\-defined version string for a hardware, firmware, or software component
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: serial_no
             
             	System\-assigned serial number of the component
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: part_no
             
             	System\-assigned part number for the component.  This should be present in particular if the component is also an FRU (field replacable unit)
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -277,7 +306,10 @@ class Components(Entity):
             _revision = '2016-06-06'
 
             def __init__(self):
-                super(Components.Component.State, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Components.Component.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "component"
@@ -307,7 +339,8 @@ class Components(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Components.Component.State, ['name', 'type', 'id', 'description', 'mfg_name', 'version', 'serial_no', 'part_no'], name, value)
+                self._perform_setattr(Components.Component.State, [u'name', u'type', u'id', u'description', u'mfg_name', u'version', u'serial_no', u'part_no'], name, value)
+
 
 
         class Properties(Entity):
@@ -327,7 +360,10 @@ class Components(Entity):
             _revision = '2016-06-06'
 
             def __init__(self):
-                super(Components.Component.Properties, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Components.Component.Properties, self).__init__()
 
                 self.yang_name = "properties"
                 self.yang_parent_name = "component"
@@ -366,6 +402,8 @@ class Components(Entity):
                 	Operational state data for each property
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Properties.Property.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -374,7 +412,10 @@ class Components(Entity):
                 _revision = '2016-06-06'
 
                 def __init__(self):
-                    super(Components.Component.Properties.Property, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Components.Component.Properties.Property, self).__init__()
 
                     self.yang_name = "property"
                     self.yang_parent_name = "properties"
@@ -398,7 +439,7 @@ class Components(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.Properties.Property, ['name'], name, value)
+                    self._perform_setattr(Components.Component.Properties.Property, [u'name'], name, value)
 
 
                 class Config(Entity):
@@ -439,7 +480,10 @@ class Components(Entity):
                     _revision = '2016-06-06'
 
                     def __init__(self):
-                        super(Components.Component.Properties.Property.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.Properties.Property.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "property"
@@ -457,7 +501,8 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.Properties.Property.Config, ['name', 'value'], name, value)
+                        self._perform_setattr(Components.Component.Properties.Property.Config, [u'name', u'value'], name, value)
+
 
 
                 class State(Entity):
@@ -468,6 +513,8 @@ class Components(Entity):
                     
                     	System\-supplied name of the property \-\- this is typically non\-configurable
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: value
                     
@@ -490,10 +537,14 @@ class Components(Entity):
                     
                     			**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     .. attribute:: configurable
                     
                     	Indication whether the property is user\-configurable
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -503,7 +554,10 @@ class Components(Entity):
                     _revision = '2016-06-06'
 
                     def __init__(self):
-                        super(Components.Component.Properties.Property.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.Properties.Property.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "property"
@@ -523,7 +577,10 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.Properties.Property.State, ['name', 'value', 'configurable'], name, value)
+                        self._perform_setattr(Components.Component.Properties.Property.State, [u'name', u'value', u'configurable'], name, value)
+
+
+
 
 
         class Subcomponents(Entity):
@@ -543,7 +600,10 @@ class Components(Entity):
             _revision = '2016-06-06'
 
             def __init__(self):
-                super(Components.Component.Subcomponents, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Components.Component.Subcomponents, self).__init__()
 
                 self.yang_name = "subcomponents"
                 self.yang_parent_name = "component"
@@ -582,6 +642,8 @@ class Components(Entity):
                 	Operational state data 
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents.Subcomponent.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -590,7 +652,10 @@ class Components(Entity):
                 _revision = '2016-06-06'
 
                 def __init__(self):
-                    super(Components.Component.Subcomponents.Subcomponent, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Components.Component.Subcomponents.Subcomponent, self).__init__()
 
                     self.yang_name = "subcomponent"
                     self.yang_parent_name = "subcomponents"
@@ -614,7 +679,7 @@ class Components(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.Subcomponents.Subcomponent, ['name'], name, value)
+                    self._perform_setattr(Components.Component.Subcomponents.Subcomponent, [u'name'], name, value)
 
 
                 class Config(Entity):
@@ -636,7 +701,10 @@ class Components(Entity):
                     _revision = '2016-06-06'
 
                     def __init__(self):
-                        super(Components.Component.Subcomponents.Subcomponent.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.Subcomponents.Subcomponent.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "subcomponent"
@@ -652,7 +720,8 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.Subcomponents.Subcomponent.Config, ['name'], name, value)
+                        self._perform_setattr(Components.Component.Subcomponents.Subcomponent.Config, [u'name'], name, value)
+
 
 
                 class State(Entity):
@@ -666,6 +735,8 @@ class Components(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component.Config>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -674,7 +745,10 @@ class Components(Entity):
                     _revision = '2016-06-06'
 
                     def __init__(self):
-                        super(Components.Component.Subcomponents.Subcomponent.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.Subcomponents.Subcomponent.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "subcomponent"
@@ -690,300 +764,10 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.Subcomponents.Subcomponent.State, ['name'], name, value)
+                        self._perform_setattr(Components.Component.Subcomponents.Subcomponent.State, [u'name'], name, value)
 
 
-        class OpticalPort(Entity):
-            """
-            Top\-level container 
-            
-            .. attribute:: config
-            
-            	Operational config data for optical line ports
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.Config>`
-            
-            .. attribute:: state
-            
-            	Operational state data for optical line ports
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State>`
-            
-            
 
-            """
-
-            _prefix = 'oc-line-com'
-            _revision = '2017-07-08'
-
-            def __init__(self):
-                super(Components.Component.OpticalPort, self).__init__()
-
-                self.yang_name = "optical-port"
-                self.yang_parent_name = "component"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("config", ("config", Components.Component.OpticalPort.Config)), ("state", ("state", Components.Component.OpticalPort.State))])
-                self._leafs = OrderedDict()
-
-                self.config = Components.Component.OpticalPort.Config()
-                self.config.parent = self
-                self._children_name_map["config"] = "config"
-
-                self.state = Components.Component.OpticalPort.State()
-                self.state.parent = self
-                self._children_name_map["state"] = "state"
-                self._segment_path = lambda: "openconfig-transport-line-common:optical-port"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Components.Component.OpticalPort, [], name, value)
-
-
-            class Config(Entity):
-                """
-                Operational config data for optical line ports
-                
-                .. attribute:: admin_state
-                
-                	Sets the admin state of the optical\-port
-                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
-                
-                
-
-                """
-
-                _prefix = 'oc-line-com'
-                _revision = '2017-07-08'
-
-                def __init__(self):
-                    super(Components.Component.OpticalPort.Config, self).__init__()
-
-                    self.yang_name = "config"
-                    self.yang_parent_name = "optical-port"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
-                    ])
-                    self.admin_state = None
-                    self._segment_path = lambda: "config"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.OpticalPort.Config, [u'admin_state'], name, value)
-
-
-            class State(Entity):
-                """
-                Operational state data for optical line ports
-                
-                .. attribute:: admin_state
-                
-                	Sets the admin state of the optical\-port
-                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
-                
-                .. attribute:: optical_port_type
-                
-                	Indicates the type of transport line port.  This is an informational field that should be made available by the device (e.g., in the openconfig\-platform model)
-                	**type**\:  :py:class:`OPTICALLINEPORTTYPE <ydk.models.openconfig.openconfig_transport_line_common.OPTICALLINEPORTTYPE>`
-                
-                .. attribute:: input_power
-                
-                	The total input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.InputPower>`
-                
-                .. attribute:: output_power
-                
-                	The total output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.OutputPower>`
-                
-                
-
-                """
-
-                _prefix = 'oc-line-com'
-                _revision = '2017-07-08'
-
-                def __init__(self):
-                    super(Components.Component.OpticalPort.State, self).__init__()
-
-                    self.yang_name = "state"
-                    self.yang_parent_name = "optical-port"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("input-power", ("input_power", Components.Component.OpticalPort.State.InputPower)), ("output-power", ("output_power", Components.Component.OpticalPort.State.OutputPower))])
-                    self._leafs = OrderedDict([
-                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
-                        ('optical_port_type', (YLeaf(YType.identityref, 'optical-port-type'), [('ydk.models.openconfig.openconfig_transport_line_common', 'OPTICALLINEPORTTYPE')])),
-                    ])
-                    self.admin_state = None
-                    self.optical_port_type = None
-
-                    self.input_power = Components.Component.OpticalPort.State.InputPower()
-                    self.input_power.parent = self
-                    self._children_name_map["input_power"] = "input-power"
-
-                    self.output_power = Components.Component.OpticalPort.State.OutputPower()
-                    self.output_power.parent = self
-                    self._children_name_map["output_power"] = "output-power"
-                    self._segment_path = lambda: "state"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.OpticalPort.State, [u'admin_state', u'optical_port_type'], name, value)
-
-
-                class InputPower(Entity):
-                    """
-                    The total input optical power of this port in units
-                    of 0.01dBm. If avg/min/max statistics are not supported,
-                    just supply the instant value
-                    
-                    .. attribute:: instant
-                    
-                    	The instantaneous value of the statistic
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: avg
-                    
-                    	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: min
-                    
-                    	The minimum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: max
-                    
-                    	The maximum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-line-com'
-                    _revision = '2017-07-08'
-
-                    def __init__(self):
-                        super(Components.Component.OpticalPort.State.InputPower, self).__init__()
-
-                        self.yang_name = "input-power"
-                        self.yang_parent_name = "state"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
-                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
-                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
-                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
-                        ])
-                        self.instant = None
-                        self.avg = None
-                        self.min = None
-                        self.max = None
-                        self._segment_path = lambda: "input-power"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalPort.State.InputPower, ['instant', 'avg', 'min', 'max'], name, value)
-
-
-                class OutputPower(Entity):
-                    """
-                    The total output optical power of this port in units
-                    of 0.01dBm. If avg/min/max statistics are not supported,
-                    just supply the instant value
-                    
-                    .. attribute:: instant
-                    
-                    	The instantaneous value of the statistic
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: avg
-                    
-                    	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: min
-                    
-                    	The minimum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: max
-                    
-                    	The maximum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-line-com'
-                    _revision = '2017-07-08'
-
-                    def __init__(self):
-                        super(Components.Component.OpticalPort.State.OutputPower, self).__init__()
-
-                        self.yang_name = "output-power"
-                        self.yang_parent_name = "state"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
-                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
-                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
-                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
-                        ])
-                        self.instant = None
-                        self.avg = None
-                        self.min = None
-                        self.max = None
-                        self._segment_path = lambda: "output-power"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalPort.State.OutputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
         class Transceiver(Entity):
@@ -1000,6 +784,8 @@ class Components(Entity):
             	Operational state data for client port transceivers
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State>`
             
+            	**config**\: False
+            
             .. attribute:: physical_channels
             
             	Enclosing container for client channels
@@ -1013,7 +799,10 @@ class Components(Entity):
             _revision = '2016-05-24'
 
             def __init__(self):
-                super(Components.Component.Transceiver, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Components.Component.Transceiver, self).__init__()
 
                 self.yang_name = "transceiver"
                 self.yang_parent_name = "component"
@@ -1063,7 +852,10 @@ class Components(Entity):
                 _revision = '2016-05-24'
 
                 def __init__(self):
-                    super(Components.Component.Transceiver.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Components.Component.Transceiver.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "transceiver"
@@ -1084,6 +876,7 @@ class Components(Entity):
                     self._perform_setattr(Components.Component.Transceiver.Config, [u'enabled', u'form_factor'], name, value)
 
 
+
             class State(Entity):
                 """
                 Operational state data for client port transceivers
@@ -1093,20 +886,28 @@ class Components(Entity):
                 	Turns power on / off to the transceiver \-\- provides a means to power on/off the transceiver (in the case of SFP, SFP+, QSFP,...) or enable high\-power mode (in the case of CFP, CFP2, CFP4) and is optionally supported (device can choose to always enable).  True = power on / high power, False = powered off
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: form_factor
                 
                 	Indicates the type of optical transceiver used on this port.  If the client port is built into the device and not plugable, then non\-pluggable is the corresponding state. If a device port supports multiple form factors (e.g. QSFP28 and QSFP+, then the value of the transceiver installed shall be reported. If no transceiver is present, then the value of the highest rate form factor shall be reported (QSFP28, for example).  The form factor is included in configuration data to allow pre\-configuring a device with the expected type of transceiver ahead of deployment.  The corresponding state leaf should reflect the actual transceiver type plugged into the system
                 	**type**\:  :py:class:`TRANSCEIVERFORMFACTORTYPE <ydk.models.openconfig.openconfig_transport_types.TRANSCEIVERFORMFACTORTYPE>`
+                
+                	**config**\: False
                 
                 .. attribute:: present
                 
                 	Indicates whether a transceiver is present in the specified client port
                 	**type**\:  :py:class:`Present <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.Present>`
                 
+                	**config**\: False
+                
                 .. attribute:: connector_type
                 
                 	Connector type used on this port
                 	**type**\:  :py:class:`FIBERCONNECTORTYPE <ydk.models.openconfig.openconfig_transport_types.FIBERCONNECTORTYPE>`
+                
+                	**config**\: False
                 
                 .. attribute:: internal_temp
                 
@@ -1115,12 +916,16 @@ class Components(Entity):
                 
                 	**range:** \-40..125
                 
+                	**config**\: False
+                
                 .. attribute:: vendor
                 
                 	Full name of transceiver vendor. 16\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h)
                 	**type**\: str
                 
                 	**length:** 1..16
+                
+                	**config**\: False
                 
                 .. attribute:: vendor_part
                 
@@ -1129,6 +934,8 @@ class Components(Entity):
                 
                 	**length:** 1..16
                 
+                	**config**\: False
+                
                 .. attribute:: vendor_rev
                 
                 	Transceiver vendor's revision number. 2\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h)
@@ -1136,20 +943,28 @@ class Components(Entity):
                 
                 	**length:** 1..2
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_compliance_code
                 
                 	Ethernet PMD that the transceiver supports. The SFF/QSFP MSAs have registers for this and CFP MSA has similar
                 	**type**\:  :py:class:`ETHERNETPMDTYPE <ydk.models.openconfig.openconfig_transport_types.ETHERNETPMDTYPE>`
+                
+                	**config**\: False
                 
                 .. attribute:: sonet_sdh_compliance_code
                 
                 	SONET/SDH application code supported by the port
                 	**type**\:  :py:class:`SONETAPPLICATIONCODE <ydk.models.openconfig.openconfig_transport_types.SONETAPPLICATIONCODE>`
                 
+                	**config**\: False
+                
                 .. attribute:: otn_compliance_code
                 
                 	OTN application code supported by the port
                 	**type**\:  :py:class:`OTNAPPLICATIONCODE <ydk.models.openconfig.openconfig_transport_types.OTNAPPLICATIONCODE>`
+                
+                	**config**\: False
                 
                 .. attribute:: serial_no
                 
@@ -1158,6 +973,8 @@ class Components(Entity):
                 
                 	**length:** 1..16
                 
+                	**config**\: False
+                
                 .. attribute:: date_code
                 
                 	Representation of the transceiver date code, typically stored as YYMMDD.  The time portion of the value is undefined and not intended to be read
@@ -1165,10 +982,14 @@ class Components(Entity):
                 
                 	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
+                	**config**\: False
+                
                 .. attribute:: fault_condition
                 
                 	Indicates if a fault condition exists in the transceiver
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -1178,7 +999,10 @@ class Components(Entity):
                 _revision = '2016-05-24'
 
                 def __init__(self):
-                    super(Components.Component.Transceiver.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Components.Component.Transceiver.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "transceiver"
@@ -1246,6 +1070,7 @@ class Components(Entity):
 
 
 
+
             class PhysicalChannels(Entity):
                 """
                 Enclosing container for client channels
@@ -1263,7 +1088,10 @@ class Components(Entity):
                 _revision = '2016-05-24'
 
                 def __init__(self):
-                    super(Components.Component.Transceiver.PhysicalChannels, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Components.Component.Transceiver.PhysicalChannels, self).__init__()
 
                     self.yang_name = "physical-channels"
                     self.yang_parent_name = "transceiver"
@@ -1306,6 +1134,8 @@ class Components(Entity):
                     	Operational state data for channels
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1314,7 +1144,10 @@ class Components(Entity):
                     _revision = '2016-05-24'
 
                     def __init__(self):
-                        super(Components.Component.Transceiver.PhysicalChannels.Channel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.Transceiver.PhysicalChannels.Channel, self).__init__()
 
                         self.yang_name = "channel"
                         self.yang_parent_name = "physical-channels"
@@ -1379,7 +1212,10 @@ class Components(Entity):
                         _revision = '2016-05-24'
 
                         def __init__(self):
-                            super(Components.Component.Transceiver.PhysicalChannels.Channel.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Components.Component.Transceiver.PhysicalChannels.Channel.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "channel"
@@ -1404,6 +1240,7 @@ class Components(Entity):
                             self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.Config, [u'index', u'description', u'tx_laser', u'target_output_power'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Operational state data for channels
@@ -1415,15 +1252,21 @@ class Components(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: description
                         
                         	Text description for the client physical channel
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_laser
                         
                         	Enable (true) or disable (false) the transmit label for the channel
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: target_output_power
                         
@@ -1431,6 +1274,8 @@ class Components(Entity):
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
+                        
+                        	**config**\: False
                         
                         	**units**\: dBm
                         
@@ -1441,20 +1286,28 @@ class Components(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: output_power
                         
                         	The output optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                         	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: input_power
                         
                         	The input optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                         	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: laser_bias_current
                         
                         	The current applied by the system to the transmit laser to achieve the output power.  The current is expressed in mA with up to one decimal precision. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                         	**type**\:  :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1464,7 +1317,10 @@ class Components(Entity):
                         _revision = '2016-05-24'
 
                         def __init__(self):
-                            super(Components.Component.Transceiver.PhysicalChannels.Channel.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Components.Component.Transceiver.PhysicalChannels.Channel.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "channel"
@@ -1518,12 +1374,16 @@ class Components(Entity):
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
+                            	**config**\: False
+                            
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
+                            
+                            	**config**\: False
                             
                             .. attribute:: min
                             
@@ -1532,12 +1392,16 @@ class Components(Entity):
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
+                            	**config**\: False
+                            
                             .. attribute:: max
                             
                             	The maximum value of the statitic over the sampling period
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
+                            
+                            	**config**\: False
                             
                             
 
@@ -1547,7 +1411,10 @@ class Components(Entity):
                             _revision = '2016-05-24'
 
                             def __init__(self):
-                                super(Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower, self).__init__()
 
                                 self.yang_name = "output-power"
                                 self.yang_parent_name = "state"
@@ -1569,7 +1436,8 @@ class Components(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                         class InputPower(Entity):
@@ -1587,12 +1455,16 @@ class Components(Entity):
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
+                            	**config**\: False
+                            
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
+                            
+                            	**config**\: False
                             
                             .. attribute:: min
                             
@@ -1601,12 +1473,16 @@ class Components(Entity):
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
+                            	**config**\: False
+                            
                             .. attribute:: max
                             
                             	The maximum value of the statitic over the sampling period
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
+                            
+                            	**config**\: False
                             
                             
 
@@ -1616,7 +1492,10 @@ class Components(Entity):
                             _revision = '2016-05-24'
 
                             def __init__(self):
-                                super(Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower, self).__init__()
 
                                 self.yang_name = "input-power"
                                 self.yang_parent_name = "state"
@@ -1638,7 +1517,8 @@ class Components(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                         class LaserBiasCurrent(Entity):
@@ -1656,12 +1536,16 @@ class Components(Entity):
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
+                            	**config**\: False
+                            
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
+                            
+                            	**config**\: False
                             
                             .. attribute:: min
                             
@@ -1670,12 +1554,16 @@ class Components(Entity):
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
+                            	**config**\: False
+                            
                             .. attribute:: max
                             
                             	The maximum value of the statitic over the sampling period
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
+                            
+                            	**config**\: False
                             
                             
 
@@ -1685,7 +1573,10 @@ class Components(Entity):
                             _revision = '2016-05-24'
 
                             def __init__(self):
-                                super(Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent, self).__init__()
 
                                 self.yang_name = "laser-bias-current"
                                 self.yang_parent_name = "state"
@@ -1707,7 +1598,12 @@ class Components(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
+
+
 
 
         class OpticalChannel(Entity):
@@ -1724,6 +1620,8 @@ class Components(Entity):
             	Operational state data for optical channels
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1732,7 +1630,10 @@ class Components(Entity):
             _revision = '2016-06-17'
 
             def __init__(self):
-                super(Components.Component.OpticalChannel, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Components.Component.OpticalChannel, self).__init__()
 
                 self.yang_name = "optical-channel"
                 self.yang_parent_name = "component"
@@ -1798,7 +1699,10 @@ class Components(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(Components.Component.OpticalChannel.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Components.Component.OpticalChannel.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "optical-channel"
@@ -1823,6 +1727,7 @@ class Components(Entity):
                     self._perform_setattr(Components.Component.OpticalChannel.Config, ['frequency', 'target_output_power', 'operational_mode', 'line_port'], name, value)
 
 
+
             class State(Entity):
                 """
                 Operational state data for optical channels
@@ -1834,12 +1739,16 @@ class Components(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: target_output_power
                 
                 	Target output optical power level of the optical channel, expressed in increments of 0.01 dBm (decibel\-milliwats)
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 	**units**\: dBm
                 
@@ -1850,12 +1759,16 @@ class Components(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: line_port
                 
                 	Reference to the line\-side physical port that carries this optical channel.  The target port should be a component in the physical inventory data model
                 	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+                
+                	**config**\: False
                 
                 .. attribute:: group_id
                 
@@ -1864,40 +1777,56 @@ class Components(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_power
                 
                 	The output optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                 	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.OutputPower>`
+                
+                	**config**\: False
                 
                 .. attribute:: input_power
                 
                 	The input optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                 	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.InputPower>`
                 
+                	**config**\: False
+                
                 .. attribute:: laser_bias_current
                 
                 	The current applied by the system to the transmit laser to achieve the output power.  The current is expressed in mA with up to one decimal precision. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                 	**type**\:  :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.LaserBiasCurrent>`
+                
+                	**config**\: False
                 
                 .. attribute:: chromatic_dispersion
                 
                 	Chromatic Dispersion of an optical channel in ps/nm as reported by receiver
                 	**type**\:  :py:class:`ChromaticDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.ChromaticDispersion>`
                 
+                	**config**\: False
+                
                 .. attribute:: polarization_mode_dispersion
                 
                 	Polarization Mode Dispersion of an optical channel in ps as reported by receiver
                 	**type**\:  :py:class:`PolarizationModeDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.PolarizationModeDispersion>`
+                
+                	**config**\: False
                 
                 .. attribute:: second_order_polarization_mode_dispersion
                 
                 	Second Order Polarization Mode Dispersion of an optical channel in ps^2 as reported by receiver
                 	**type**\:  :py:class:`SecondOrderPolarizationModeDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion>`
                 
+                	**config**\: False
+                
                 .. attribute:: polarization_dependent_loss
                 
                 	Polarization Dependent Loss of an optical channel in dB as reported by receiver
                 	**type**\:  :py:class:`PolarizationDependentLoss <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.PolarizationDependentLoss>`
+                
+                	**config**\: False
                 
                 
 
@@ -1907,7 +1836,10 @@ class Components(Entity):
                 _revision = '2016-06-17'
 
                 def __init__(self):
-                    super(Components.Component.OpticalChannel.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Components.Component.OpticalChannel.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "optical-channel"
@@ -1977,12 +1909,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     .. attribute:: min
                     
@@ -1991,12 +1927,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     
 
@@ -2006,7 +1946,10 @@ class Components(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(Components.Component.OpticalChannel.State.OutputPower, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.OpticalChannel.State.OutputPower, self).__init__()
 
                         self.yang_name = "output-power"
                         self.yang_parent_name = "state"
@@ -2028,7 +1971,8 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.OutputPower, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                 class InputPower(Entity):
@@ -2046,12 +1990,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     .. attribute:: min
                     
@@ -2060,12 +2008,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     
 
@@ -2075,7 +2027,10 @@ class Components(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(Components.Component.OpticalChannel.State.InputPower, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.OpticalChannel.State.InputPower, self).__init__()
 
                         self.yang_name = "input-power"
                         self.yang_parent_name = "state"
@@ -2097,7 +2052,8 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.InputPower, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                 class LaserBiasCurrent(Entity):
@@ -2115,12 +2071,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     .. attribute:: min
                     
@@ -2129,12 +2089,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     
 
@@ -2144,7 +2108,10 @@ class Components(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(Components.Component.OpticalChannel.State.LaserBiasCurrent, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.OpticalChannel.State.LaserBiasCurrent, self).__init__()
 
                         self.yang_name = "laser-bias-current"
                         self.yang_parent_name = "state"
@@ -2166,7 +2133,8 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.LaserBiasCurrent, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                 class ChromaticDispersion(Entity):
@@ -2181,12 +2149,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     .. attribute:: min
                     
@@ -2195,12 +2167,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     
 
@@ -2210,7 +2186,10 @@ class Components(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(Components.Component.OpticalChannel.State.ChromaticDispersion, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.OpticalChannel.State.ChromaticDispersion, self).__init__()
 
                         self.yang_name = "chromatic-dispersion"
                         self.yang_parent_name = "state"
@@ -2232,7 +2211,8 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.ChromaticDispersion, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.ChromaticDispersion, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                 class PolarizationModeDispersion(Entity):
@@ -2247,12 +2227,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     .. attribute:: min
                     
@@ -2261,12 +2245,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     
 
@@ -2276,7 +2264,10 @@ class Components(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(Components.Component.OpticalChannel.State.PolarizationModeDispersion, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.OpticalChannel.State.PolarizationModeDispersion, self).__init__()
 
                         self.yang_name = "polarization-mode-dispersion"
                         self.yang_parent_name = "state"
@@ -2298,7 +2289,8 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.PolarizationModeDispersion, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.PolarizationModeDispersion, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                 class SecondOrderPolarizationModeDispersion(Entity):
@@ -2313,12 +2305,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     .. attribute:: min
                     
@@ -2327,12 +2323,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     
 
@@ -2342,7 +2342,10 @@ class Components(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion, self).__init__()
 
                         self.yang_name = "second-order-polarization-mode-dispersion"
                         self.yang_parent_name = "state"
@@ -2364,7 +2367,8 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion, [u'instant', u'avg', u'min', u'max'], name, value)
+
 
 
                 class PolarizationDependentLoss(Entity):
@@ -2379,12 +2383,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     .. attribute:: min
                     
@@ -2393,12 +2401,16 @@ class Components(Entity):
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
+                    	**config**\: False
+                    
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    	**config**\: False
                     
                     
 
@@ -2408,7 +2420,10 @@ class Components(Entity):
                     _revision = '2016-06-17'
 
                     def __init__(self):
-                        super(Components.Component.OpticalChannel.State.PolarizationDependentLoss, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.OpticalChannel.State.PolarizationDependentLoss, self).__init__()
 
                         self.yang_name = "polarization-dependent-loss"
                         self.yang_parent_name = "state"
@@ -2430,9 +2445,354 @@ class Components(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.PolarizationDependentLoss, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.PolarizationDependentLoss, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
+
+
+        class OpticalPort(Entity):
+            """
+            Top\-level container 
+            
+            .. attribute:: config
+            
+            	Operational config data for optical line ports
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.Config>`
+            
+            .. attribute:: state
+            
+            	Operational state data for optical line ports
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'oc-line-com'
+            _revision = '2017-07-08'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Components.Component.OpticalPort, self).__init__()
+
+                self.yang_name = "optical-port"
+                self.yang_parent_name = "component"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("config", ("config", Components.Component.OpticalPort.Config)), ("state", ("state", Components.Component.OpticalPort.State))])
+                self._leafs = OrderedDict()
+
+                self.config = Components.Component.OpticalPort.Config()
+                self.config.parent = self
+                self._children_name_map["config"] = "config"
+
+                self.state = Components.Component.OpticalPort.State()
+                self.state.parent = self
+                self._children_name_map["state"] = "state"
+                self._segment_path = lambda: "openconfig-transport-line-common:optical-port"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Components.Component.OpticalPort, [], name, value)
+
+
+            class Config(Entity):
+                """
+                Operational config data for optical line ports
+                
+                .. attribute:: admin_state
+                
+                	Sets the admin state of the optical\-port
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                
+                
+
+                """
+
+                _prefix = 'oc-line-com'
+                _revision = '2017-07-08'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Components.Component.OpticalPort.Config, self).__init__()
+
+                    self.yang_name = "config"
+                    self.yang_parent_name = "optical-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
+                    ])
+                    self.admin_state = None
+                    self._segment_path = lambda: "config"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Components.Component.OpticalPort.Config, [u'admin_state'], name, value)
+
+
+
+            class State(Entity):
+                """
+                Operational state data for optical line ports
+                
+                .. attribute:: admin_state
+                
+                	Sets the admin state of the optical\-port
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                
+                	**config**\: False
+                
+                .. attribute:: optical_port_type
+                
+                	Indicates the type of transport line port.  This is an informational field that should be made available by the device (e.g., in the openconfig\-platform model)
+                	**type**\:  :py:class:`OPTICALLINEPORTTYPE <ydk.models.openconfig.openconfig_transport_line_common.OPTICALLINEPORTTYPE>`
+                
+                	**config**\: False
+                
+                .. attribute:: input_power
+                
+                	The total input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
+                	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.InputPower>`
+                
+                	**config**\: False
+                
+                .. attribute:: output_power
+                
+                	The total output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
+                	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.OutputPower>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'oc-line-com'
+                _revision = '2017-07-08'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Components.Component.OpticalPort.State, self).__init__()
+
+                    self.yang_name = "state"
+                    self.yang_parent_name = "optical-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("input-power", ("input_power", Components.Component.OpticalPort.State.InputPower)), ("output-power", ("output_power", Components.Component.OpticalPort.State.OutputPower))])
+                    self._leafs = OrderedDict([
+                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
+                        ('optical_port_type', (YLeaf(YType.identityref, 'optical-port-type'), [('ydk.models.openconfig.openconfig_transport_line_common', 'OPTICALLINEPORTTYPE')])),
+                    ])
+                    self.admin_state = None
+                    self.optical_port_type = None
+
+                    self.input_power = Components.Component.OpticalPort.State.InputPower()
+                    self.input_power.parent = self
+                    self._children_name_map["input_power"] = "input-power"
+
+                    self.output_power = Components.Component.OpticalPort.State.OutputPower()
+                    self.output_power.parent = self
+                    self._children_name_map["output_power"] = "output-power"
+                    self._segment_path = lambda: "state"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Components.Component.OpticalPort.State, [u'admin_state', u'optical_port_type'], name, value)
+
+
+                class InputPower(Entity):
+                    """
+                    The total input optical power of this port in units
+                    of 0.01dBm. If avg/min/max statistics are not supported,
+                    just supply the instant value
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-line-com'
+                    _revision = '2017-07-08'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.OpticalPort.State.InputPower, self).__init__()
+
+                        self.yang_name = "input-power"
+                        self.yang_parent_name = "state"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
+                        self._segment_path = lambda: "input-power"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Components.Component.OpticalPort.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
+                class OutputPower(Entity):
+                    """
+                    The total output optical power of this port in units
+                    of 0.01dBm. If avg/min/max statistics are not supported,
+                    just supply the instant value
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
+                    
+                    	**units**\: dBm
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-line-com'
+                    _revision = '2017-07-08'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Components.Component.OpticalPort.State.OutputPower, self).__init__()
+
+                        self.yang_name = "output-power"
+                        self.yang_parent_name = "state"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
+                        self._segment_path = lambda: "output-power"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Components.Component.OpticalPort.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Components()
         return self._top_entity
+
+
 

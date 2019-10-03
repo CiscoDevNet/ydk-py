@@ -1,15 +1,13 @@
 #!/bin/bash
 
 function print_msg {
-    echo -e "${MSG_COLOR}*** $(date): dependencies_osx.sh | $@ ${NOCOLOR}"
+    echo -e "${MSG_COLOR}*** $(date): dependencies_tests.sh | $@ ${NOCOLOR}"
 }
 
 function test_python_installation {
-  print_msg "Testing Python installation"
-  if [[ $(uname) == "Darwin" ]]; then
+    print_msg "Testing Python installation"
     PYTHON_BIN=python3
     PIP_BIN=pip3
-  else
     python --version &> _version
     status=$?
     if [ $status -ne 0 ]; then
@@ -20,13 +18,6 @@ function test_python_installation {
     PYTHON_VERSION=`cat _version` && rm _version
     print_msg "Retrieved Python version ${PYTHON_VERSION}"
 
-    PYTHON_BIN=python
-    PIP_BIN=pip
-    if [[ ${PYTHON_VERSION} = *"3."* ]]; then
-      PYTHON_BIN=python3
-      PIP_BIN=pip3
-    fi
-  fi
   print_msg "Checking installation of ${PYTHON_BIN}"
   ${PYTHON_BIN} --version &> /dev/null
   status=$?
@@ -48,17 +39,17 @@ function test_python_installation {
 }
 
 function pip_check_install {
-    if [[ $(uname) == "Linux" ]] ; then
-        os_info=$(cat /etc/*-release)
-        if [[ ${os_info} == *"fedora"* ]]; then
-            print_msg "Custom pip install of $@ for centos"
-            sudo ${PIP_BIN} install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps $@
-            return
-        fi
-    elif [[ $(uname) == "Darwin" ]] ; then
-        sudo ${PIP_BIN} install $@
-        return
-    fi
+#    if [[ $(uname) == "Linux" ]] ; then
+#        os_info=$(cat /etc/*-release)
+#        if [[ ${os_info} == *"fedora"* ]]; then
+#            print_msg "Custom pip install of $@ for centos"
+#            sudo ${PIP_BIN} install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps $@
+#            return
+#        fi
+#    elif [[ $(uname) == "Darwin" ]] ; then
+#        sudo ${PIP_BIN} install $@
+#        return
+#    fi
     sudo ${PIP_BIN} install $@
 }
 

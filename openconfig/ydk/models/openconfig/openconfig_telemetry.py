@@ -4,6 +4,7 @@ Data model which creates the configuration for the telemetry
 systems and functions on the device.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -65,7 +66,10 @@ class TelemetrySystem(Entity):
     _revision = '2016-02-04'
 
     def __init__(self):
-        super(TelemetrySystem, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TelemetrySystem, self).__init__()
         self._top_entity = None
 
         self.yang_name = "telemetry-system"
@@ -111,7 +115,10 @@ class TelemetrySystem(Entity):
         _revision = '2016-02-04'
 
         def __init__(self):
-            super(TelemetrySystem.SensorGroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetrySystem.SensorGroups, self).__init__()
 
             self.yang_name = "sensor-groups"
             self.yang_parent_name = "telemetry-system"
@@ -153,6 +160,8 @@ class TelemetrySystem(Entity):
             	State information relating to the telemetry sensor group
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.State>`
             
+            	**config**\: False
+            
             .. attribute:: sensor_paths
             
             	Top level container to hold a set of sensor paths grouped together
@@ -166,7 +175,10 @@ class TelemetrySystem(Entity):
             _revision = '2016-02-04'
 
             def __init__(self):
-                super(TelemetrySystem.SensorGroups.SensorGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetrySystem.SensorGroups.SensorGroup, self).__init__()
 
                 self.yang_name = "sensor-group"
                 self.yang_parent_name = "sensor-groups"
@@ -216,7 +228,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.SensorGroups.SensorGroup.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.SensorGroups.SensorGroup.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "sensor-group"
@@ -235,6 +250,7 @@ class TelemetrySystem(Entity):
                     self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.Config, ['sensor_group_id'], name, value)
 
 
+
             class State(Entity):
                 """
                 State information relating to the telemetry
@@ -245,6 +261,8 @@ class TelemetrySystem(Entity):
                 	Name or identifier for the sensor group itself. Will be referenced by other configuration specifying a sensor group
                 	**type**\: str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -253,7 +271,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.SensorGroups.SensorGroup.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.SensorGroups.SensorGroup.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "sensor-group"
@@ -270,6 +291,7 @@ class TelemetrySystem(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.State, ['sensor_group_id'], name, value)
+
 
 
             class SensorPaths(Entity):
@@ -290,7 +312,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths, self).__init__()
 
                     self.yang_name = "sensor-paths"
                     self.yang_parent_name = "sensor-group"
@@ -331,6 +356,8 @@ class TelemetrySystem(Entity):
                     	Configuration parameters to configure a set of data model paths as a sensor grouping
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -339,7 +366,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath, self).__init__()
 
                         self.yang_name = "sensor-path"
                         self.yang_parent_name = "sensor-paths"
@@ -389,7 +419,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "sensor-path"
@@ -410,6 +443,7 @@ class TelemetrySystem(Entity):
                             self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config, ['path', 'exclude_filter'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Configuration parameters to configure a set
@@ -420,10 +454,14 @@ class TelemetrySystem(Entity):
                         	Path to a section of operational state of interest (the sensor)
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: exclude_filter
                         
                         	Filter to exclude certain values out of the state values
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -433,7 +471,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "sensor-path"
@@ -454,6 +495,11 @@ class TelemetrySystem(Entity):
                             self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State, ['path', 'exclude_filter'], name, value)
 
 
+
+
+
+
+
     class DestinationGroups(Entity):
         """
         Top level container for destination group configuration
@@ -472,7 +518,10 @@ class TelemetrySystem(Entity):
         _revision = '2016-02-04'
 
         def __init__(self):
-            super(TelemetrySystem.DestinationGroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetrySystem.DestinationGroups, self).__init__()
 
             self.yang_name = "destination-groups"
             self.yang_parent_name = "telemetry-system"
@@ -519,6 +568,8 @@ class TelemetrySystem(Entity):
             	Top level state container for destination groups
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.State>`
             
+            	**config**\: False
+            
             .. attribute:: destinations
             
             	The destination container lists the destination information such as IP address and port of the telemetry messages from the network element
@@ -532,7 +583,10 @@ class TelemetrySystem(Entity):
             _revision = '2016-02-04'
 
             def __init__(self):
-                super(TelemetrySystem.DestinationGroups.DestinationGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetrySystem.DestinationGroups.DestinationGroup, self).__init__()
 
                 self.yang_name = "destination-group"
                 self.yang_parent_name = "destination-groups"
@@ -581,7 +635,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.DestinationGroups.DestinationGroup.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.DestinationGroups.DestinationGroup.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "destination-group"
@@ -600,6 +657,7 @@ class TelemetrySystem(Entity):
                     self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Config, ['group_id'], name, value)
 
 
+
             class State(Entity):
                 """
                 Top level state container for destination groups
@@ -609,6 +667,8 @@ class TelemetrySystem(Entity):
                 	Unique identifier for destination group
                 	**type**\: str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -617,7 +677,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.DestinationGroups.DestinationGroup.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.DestinationGroups.DestinationGroup.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "destination-group"
@@ -634,6 +697,7 @@ class TelemetrySystem(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.State, ['group_id'], name, value)
+
 
 
             class Destinations(Entity):
@@ -655,7 +719,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations, self).__init__()
 
                     self.yang_name = "destinations"
                     self.yang_parent_name = "destination-group"
@@ -711,6 +778,8 @@ class TelemetrySystem(Entity):
                     	State information associated with telemetry destinations
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -719,7 +788,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination, self).__init__()
 
                         self.yang_name = "destination"
                         self.yang_parent_name = "destinations"
@@ -786,7 +858,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "destination"
@@ -809,6 +884,7 @@ class TelemetrySystem(Entity):
                             self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config, ['destination_address', 'destination_port', 'destination_protocol'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State information associated with
@@ -827,6 +903,8 @@ class TelemetrySystem(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_port
                         
                         	Protocol (udp or tcp) port number for the telemetry stream destination
@@ -834,10 +912,14 @@ class TelemetrySystem(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_protocol
                         
                         	Protocol used to transmit telemetry data to the collector
                         	**type**\:  :py:class:`TelemetryStreamProtocol <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocol>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -847,7 +929,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "destination"
@@ -868,6 +953,11 @@ class TelemetrySystem(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State, ['destination_address', 'destination_port', 'destination_protocol'], name, value)
+
+
+
+
+
 
 
     class Subscriptions(Entity):
@@ -893,7 +983,10 @@ class TelemetrySystem(Entity):
         _revision = '2016-02-04'
 
         def __init__(self):
-            super(TelemetrySystem.Subscriptions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetrySystem.Subscriptions, self).__init__()
 
             self.yang_name = "subscriptions"
             self.yang_parent_name = "telemetry-system"
@@ -939,7 +1032,10 @@ class TelemetrySystem(Entity):
             _revision = '2016-02-04'
 
             def __init__(self):
-                super(TelemetrySystem.Subscriptions.Persistent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetrySystem.Subscriptions.Persistent, self).__init__()
 
                 self.yang_name = "persistent"
                 self.yang_parent_name = "subscriptions"
@@ -984,6 +1080,8 @@ class TelemetrySystem(Entity):
                 	State parameters relating to the telemetry subscriptions on the local device
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: sensor_profiles
                 
                 	A sensor profile is a set of sensor groups or individual sensor paths which are associated with a telemetry subscription. This is the source of the telemetry data for the subscription to send to the defined collectors
@@ -1002,7 +1100,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.Subscriptions.Persistent.Subscription, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.Subscriptions.Persistent.Subscription, self).__init__()
 
                     self.yang_name = "subscription"
                     self.yang_parent_name = "persistent"
@@ -1078,7 +1179,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Persistent.Subscription.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "subscription"
@@ -1101,6 +1205,7 @@ class TelemetrySystem(Entity):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.Config, ['subscription_id', 'local_source_address', 'originated_qos_marking'], name, value)
 
 
+
                 class State(Entity):
                     """
                     State parameters relating to the telemetry
@@ -1112,6 +1217,8 @@ class TelemetrySystem(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_source_address
                     
@@ -1126,12 +1233,16 @@ class TelemetrySystem(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: originated_qos_marking
                     
                     	DSCP marking of packets generated by the telemetry subsystem on the network device
                     	**type**\: int
                     
                     	**range:** 0..63
+                    
+                    	**config**\: False
                     
                     
 
@@ -1141,7 +1252,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Persistent.Subscription.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "subscription"
@@ -1162,6 +1276,7 @@ class TelemetrySystem(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.State, ['subscription_id', 'local_source_address', 'originated_qos_marking'], name, value)
+
 
 
                 class SensorProfiles(Entity):
@@ -1185,7 +1300,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles, self).__init__()
 
                         self.yang_name = "sensor-profiles"
                         self.yang_parent_name = "subscription"
@@ -1225,6 +1343,8 @@ class TelemetrySystem(Entity):
                         	State information relating to the sensor profile for a subscription
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1233,7 +1353,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile, self).__init__()
 
                             self.yang_name = "sensor-profile"
                             self.yang_parent_name = "sensor-profiles"
@@ -1299,7 +1422,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "sensor-profile"
@@ -1324,6 +1450,7 @@ class TelemetrySystem(Entity):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config, ['sensor_group', 'sample_interval', 'heartbeat_interval', 'suppress_redundant'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State information relating to the sensor profile
@@ -1336,12 +1463,16 @@ class TelemetrySystem(Entity):
                             
                             	**refers to**\:  :py:class:`sensor_group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: sample_interval
                             
                             	Time in milliseconds between the device's sample of a telemetry data source. For example, setting this to 100 would require the local device to collect the telemetry data every 100 milliseconds. There can be latency or jitter in transmitting the data, but the sample must occur at the specified interval.  The timestamp must reflect the actual time when the data was sampled, not simply the previous sample timestamp + sample\-interval.  If sample\-interval is set to 0, the telemetry sensor becomes event based. The sensor must then emit data upon every change of the underlying data source
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: heartbeat_interval
                             
@@ -1350,10 +1481,14 @@ class TelemetrySystem(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: suppress_redundant
                             
                             	Boolean flag to control suppression of redundant telemetry updates to the collector platform. If this flag is set to TRUE, then the collector will only send an update at the configured interval if a subscribed data value has changed. Otherwise, the device will not send an update to the collector until expiration of the heartbeat interval
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -1363,7 +1498,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "sensor-profile"
@@ -1386,6 +1524,9 @@ class TelemetrySystem(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State, ['sensor_group', 'sample_interval', 'heartbeat_interval', 'suppress_redundant'], name, value)
+
+
+
 
 
                 class DestinationGroups(Entity):
@@ -1422,7 +1563,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups, self).__init__()
 
                         self.yang_name = "destination-groups"
                         self.yang_parent_name = "subscription"
@@ -1470,7 +1614,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup, self).__init__()
 
                             self.yang_name = "destination-group"
                             self.yang_parent_name = "destination-groups"
@@ -1517,7 +1664,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "destination-group"
@@ -1534,6 +1684,7 @@ class TelemetrySystem(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config, ['group_id'], name, value)
+
 
 
                         class State(Entity):
@@ -1556,7 +1707,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "destination-group"
@@ -1575,6 +1729,11 @@ class TelemetrySystem(Entity):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State, ['group_id'], name, value)
 
 
+
+
+
+
+
         class Dynamic(Entity):
             """
             This container holds information relating to dynamic
@@ -1588,6 +1747,8 @@ class TelemetrySystem(Entity):
             	List representation of telemetry subscriptions that are configured via an inline RPC, otherwise known as dynamic telemetry subscriptions
             	**type**\: list of  		 :py:class:`Subscription <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1596,7 +1757,10 @@ class TelemetrySystem(Entity):
             _revision = '2016-02-04'
 
             def __init__(self):
-                super(TelemetrySystem.Subscriptions.Dynamic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetrySystem.Subscriptions.Dynamic, self).__init__()
 
                 self.yang_name = "dynamic"
                 self.yang_parent_name = "subscriptions"
@@ -1630,15 +1794,21 @@ class TelemetrySystem(Entity):
                 
                 	**refers to**\:  :py:class:`subscription_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State information relating to dynamic telemetry subscriptions
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: sensor_paths
                 
                 	Top level container to hold a set of sensor paths grouped together
                 	**type**\:  :py:class:`SensorPaths <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths>`
+                
+                	**config**\: False
                 
                 
 
@@ -1648,7 +1818,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.Subscriptions.Dynamic.Subscription, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.Subscriptions.Dynamic.Subscription, self).__init__()
 
                     self.yang_name = "subscription"
                     self.yang_parent_name = "dynamic"
@@ -1688,6 +1861,8 @@ class TelemetrySystem(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_address
                     
                     	IP address of the telemetry stream destination
@@ -1701,6 +1876,8 @@ class TelemetrySystem(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_port
                     
                     	Protocol (udp or tcp) port number for the telemetry stream destination
@@ -1708,10 +1885,14 @@ class TelemetrySystem(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_protocol
                     
                     	Protocol used to transmit telemetry data to the collector
                     	**type**\:  :py:class:`TelemetryStreamProtocol <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocol>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: sample_interval
                     
@@ -1720,6 +1901,8 @@ class TelemetrySystem(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: heartbeat_interval
                     
                     	Maximum time interval in seconds that may pass between updates from a device to a telemetry collector. If this interval expires, but there is no updated data to send (such as if suppress\_updates has been configured), the device must send a telemetry message to the collector
@@ -1727,10 +1910,14 @@ class TelemetrySystem(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: suppress_redundant
                     
                     	Boolean flag to control suppression of redundant telemetry updates to the collector platform. If this flag is set to TRUE, then the collector will only send an update at the configured interval if a subscribed data value has changed. Otherwise, the device will not send an update to the collector until expiration of the heartbeat interval
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: originated_qos_marking
                     
@@ -1738,6 +1925,8 @@ class TelemetrySystem(Entity):
                     	**type**\: int
                     
                     	**range:** 0..63
+                    
+                    	**config**\: False
                     
                     
 
@@ -1747,7 +1936,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Dynamic.Subscription.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Dynamic.Subscription.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "subscription"
@@ -1780,6 +1972,7 @@ class TelemetrySystem(Entity):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription.State, ['subscription_id', 'destination_address', 'destination_port', 'destination_protocol', 'sample_interval', 'heartbeat_interval', 'suppress_redundant', 'originated_qos_marking'], name, value)
 
 
+
                 class SensorPaths(Entity):
                     """
                     Top level container to hold a set of sensor
@@ -1790,6 +1983,8 @@ class TelemetrySystem(Entity):
                     	List of paths in the model which together comprise a sensor grouping. Filters for each path to exclude items are also provided
                     	**type**\: list of  		 :py:class:`SensorPath <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1798,7 +1993,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths, self).__init__()
 
                         self.yang_name = "sensor-paths"
                         self.yang_parent_name = "subscription"
@@ -1829,10 +2027,14 @@ class TelemetrySystem(Entity):
                         
                         	**refers to**\:  :py:class:`path <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	State information for a dynamic subscription's paths of interest
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1842,7 +2044,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath, self).__init__()
 
                             self.yang_name = "sensor-path"
                             self.yang_parent_name = "sensor-paths"
@@ -1875,10 +2080,14 @@ class TelemetrySystem(Entity):
                             	Path to a section of operational state of interest (the sensor)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: exclude_filter
                             
                             	Filter to exclude certain values out of the state values
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -1888,7 +2097,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "sensor-path"
@@ -1908,7 +2120,15 @@ class TelemetrySystem(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State, ['path', 'exclude_filter'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = TelemetrySystem()
         return self._top_entity
+
+
 

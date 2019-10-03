@@ -21,6 +21,7 @@ MTU (mtu) Maximum Transmission Unit
 
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -309,7 +310,11 @@ class IfLinkType(Identity):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:if-link-type"):
-        super(IfLinkType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IfLinkType, self).__init__(ns, pref, tag)
+
 
 
 class AreaType(Identity):
@@ -324,7 +329,11 @@ class AreaType(Identity):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:area-type"):
-        super(AreaType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AreaType, self).__init__(ns, pref, tag)
+
 
 
 class Ospfv3(RoutingProtocol):
@@ -339,7 +348,11 @@ class Ospfv3(RoutingProtocol):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:ospfv3"):
-        super(Ospfv3, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ospfv3, self).__init__(ns, pref, tag)
+
 
 
 class Ospfv2(RoutingProtocol):
@@ -354,7 +367,11 @@ class Ospfv2(RoutingProtocol):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:ospfv2"):
-        super(Ospfv2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ospfv2, self).__init__(ns, pref, tag)
+
 
 
 class OperationMode(Identity):
@@ -369,7 +386,11 @@ class OperationMode(Identity):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:operation-mode"):
-        super(OperationMode, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OperationMode, self).__init__(ns, pref, tag)
+
 
 
 class Ospf(RoutingProtocol):
@@ -384,7 +405,11 @@ class Ospf(RoutingProtocol):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:ospf"):
-        super(Ospf, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ospf, self).__init__(ns, pref, tag)
+
 
 
 class Normal(AreaType):
@@ -399,7 +424,11 @@ class Normal(AreaType):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:normal"):
-        super(Normal, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Normal, self).__init__(ns, pref, tag)
+
 
 
 class Nssa(AreaType):
@@ -414,7 +443,11 @@ class Nssa(AreaType):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:nssa"):
-        super(Nssa, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Nssa, self).__init__(ns, pref, tag)
+
 
 
 class ShipsInTheNight(OperationMode):
@@ -430,7 +463,11 @@ class ShipsInTheNight(OperationMode):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:ships-in-the-night"):
-        super(ShipsInTheNight, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ShipsInTheNight, self).__init__(ns, pref, tag)
+
 
 
 class Stub(AreaType):
@@ -445,7 +482,11 @@ class Stub(AreaType):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:stub"):
-        super(Stub, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Stub, self).__init__(ns, pref, tag)
+
 
 
 class IfLinkTypeVirtualLink(IfLinkType):
@@ -460,7 +501,11 @@ class IfLinkTypeVirtualLink(IfLinkType):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:if-link-type-virtual-link"):
-        super(IfLinkTypeVirtualLink, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IfLinkTypeVirtualLink, self).__init__(ns, pref, tag)
+
 
 
 class IfLinkTypeNormal(IfLinkType):
@@ -475,7 +520,11 @@ class IfLinkTypeNormal(IfLinkType):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:if-link-type-normal"):
-        super(IfLinkTypeNormal, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IfLinkTypeNormal, self).__init__(ns, pref, tag)
+
 
 
 class IfLinkTypeShamLink(IfLinkType):
@@ -490,6 +539,10 @@ class IfLinkTypeShamLink(IfLinkType):
     _revision = '2015-03-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:if-link-type-sham-link"):
-        super(IfLinkTypeShamLink, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IfLinkTypeShamLink, self).__init__(ns, pref, tag)
+
 
 

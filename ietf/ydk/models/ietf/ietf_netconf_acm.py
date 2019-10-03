@@ -16,6 +16,7 @@ This version of this YANG module is part of RFC 6536; see
 the RFC itself for full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -97,6 +98,8 @@ class Nacm(Entity):
     
     	**mandatory**\: True
     
+    	**config**\: False
+    
     .. attribute:: denied_data_writes
     
     	Number of times since the server last restarted that a protocol operation request to alter a configuration datastore was denied
@@ -106,6 +109,8 @@ class Nacm(Entity):
     
     	**mandatory**\: True
     
+    	**config**\: False
+    
     .. attribute:: denied_notifications
     
     	Number of times since the server last restarted that a notification was dropped for a subscription because access to the event type was denied
@@ -114,6 +119,8 @@ class Nacm(Entity):
     	**range:** 0..4294967295
     
     	**mandatory**\: True
+    
+    	**config**\: False
     
     .. attribute:: groups
     
@@ -133,7 +140,10 @@ class Nacm(Entity):
     _revision = '2012-02-22'
 
     def __init__(self):
-        super(Nacm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Nacm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "nacm"
@@ -190,7 +200,10 @@ class Nacm(Entity):
         _revision = '2012-02-22'
 
         def __init__(self):
-            super(Nacm.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Nacm.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "nacm"
@@ -220,7 +233,7 @@ class Nacm(Entity):
             	Group name associated with this entry
             	**type**\: str
             
-            	**pattern:** [^\\\*].\*
+            	**length:** 1..18446744073709551615
             
             .. attribute:: user_name
             
@@ -237,7 +250,10 @@ class Nacm(Entity):
             _revision = '2012-02-22'
 
             def __init__(self):
-                super(Nacm.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Nacm.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -257,6 +273,8 @@ class Nacm(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Nacm.Groups.Group, ['name', 'user_name'], name, value)
+
+
 
 
     class RuleList(Entity):
@@ -281,7 +299,7 @@ class Nacm(Entity):
         
         		**type**\: list of str
         
-        			**pattern:** [^\\\*].\*
+        			**length:** 1..18446744073709551615
         
         .. attribute:: rule
         
@@ -296,7 +314,10 @@ class Nacm(Entity):
         _revision = '2012-02-22'
 
         def __init__(self):
-            super(Nacm.RuleList, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Nacm.RuleList, self).__init__()
 
             self.yang_name = "rule-list"
             self.yang_parent_name = "nacm"
@@ -412,7 +433,10 @@ class Nacm(Entity):
             _revision = '2012-02-22'
 
             def __init__(self):
-                super(Nacm.RuleList.Rule, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Nacm.RuleList.Rule, self).__init__()
 
                 self.yang_name = "rule"
                 self.yang_parent_name = "rule-list"
@@ -444,7 +468,11 @@ class Nacm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Nacm.RuleList.Rule, ['name', 'module_name', 'rpc_name', 'notification_name', 'path', 'access_operations', 'action', 'comment'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Nacm()
         return self._top_entity
+
+
 

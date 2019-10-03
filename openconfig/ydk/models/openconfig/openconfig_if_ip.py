@@ -7,6 +7,7 @@ described by RFC 7277.  The primary differences are in the
 structure of configuration and state data.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64

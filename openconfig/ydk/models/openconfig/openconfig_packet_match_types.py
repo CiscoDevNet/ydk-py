@@ -4,6 +4,7 @@ This module defines common types for use in models requiring
 data definitions related to packet matches.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -46,7 +47,11 @@ class IPPROTOCOL(Identity):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_PROTOCOL"):
-        super(IPPROTOCOL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPPROTOCOL, self).__init__(ns, pref, tag)
+
 
 
 class TCPFLAGS(Identity):
@@ -61,7 +66,11 @@ class TCPFLAGS(Identity):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_FLAGS"):
-        super(TCPFLAGS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TCPFLAGS, self).__init__(ns, pref, tag)
+
 
 
 class ETHERTYPE(Identity):
@@ -79,7 +88,11 @@ class ETHERTYPE(Identity):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE"):
-        super(ETHERTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHERTYPE, self).__init__(ns, pref, tag)
+
 
 
 class TCPACK(TCPFLAGS):
@@ -94,7 +107,11 @@ class TCPACK(TCPFLAGS):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_ACK"):
-        super(TCPACK, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TCPACK, self).__init__(ns, pref, tag)
+
 
 
 class IPUDP(IPPROTOCOL):
@@ -109,7 +126,11 @@ class IPUDP(IPPROTOCOL):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_UDP"):
-        super(IPUDP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPUDP, self).__init__(ns, pref, tag)
+
 
 
 class ETHERTYPEARP(ETHERTYPE):
@@ -124,7 +145,11 @@ class ETHERTYPEARP(ETHERTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_ARP"):
-        super(ETHERTYPEARP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHERTYPEARP, self).__init__(ns, pref, tag)
+
 
 
 class TCPSYN(TCPFLAGS):
@@ -139,7 +164,11 @@ class TCPSYN(TCPFLAGS):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_SYN"):
-        super(TCPSYN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TCPSYN, self).__init__(ns, pref, tag)
+
 
 
 class ETHERTYPEVLAN(ETHERTYPE):
@@ -156,7 +185,11 @@ class ETHERTYPEVLAN(ETHERTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_VLAN"):
-        super(ETHERTYPEVLAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHERTYPEVLAN, self).__init__(ns, pref, tag)
+
 
 
 class TCPECE(TCPFLAGS):
@@ -174,7 +207,11 @@ class TCPECE(TCPFLAGS):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_ECE"):
-        super(TCPECE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TCPECE, self).__init__(ns, pref, tag)
+
 
 
 class IPICMP(IPPROTOCOL):
@@ -189,7 +226,11 @@ class IPICMP(IPPROTOCOL):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_ICMP"):
-        super(IPICMP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPICMP, self).__init__(ns, pref, tag)
+
 
 
 class TCPFIN(TCPFLAGS):
@@ -204,7 +245,11 @@ class TCPFIN(TCPFLAGS):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_FIN"):
-        super(TCPFIN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TCPFIN, self).__init__(ns, pref, tag)
+
 
 
 class ETHERTYPEROCE(ETHERTYPE):
@@ -219,7 +264,11 @@ class ETHERTYPEROCE(ETHERTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_ROCE"):
-        super(ETHERTYPEROCE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHERTYPEROCE, self).__init__(ns, pref, tag)
+
 
 
 class IPPIM(IPPROTOCOL):
@@ -234,7 +283,11 @@ class IPPIM(IPPROTOCOL):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_PIM"):
-        super(IPPIM, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPPIM, self).__init__(ns, pref, tag)
+
 
 
 class TCPRST(TCPFLAGS):
@@ -249,7 +302,11 @@ class TCPRST(TCPFLAGS):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_RST"):
-        super(TCPRST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TCPRST, self).__init__(ns, pref, tag)
+
 
 
 class ETHERTYPEIPV4(ETHERTYPE):
@@ -264,7 +321,11 @@ class ETHERTYPEIPV4(ETHERTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_IPV4"):
-        super(ETHERTYPEIPV4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHERTYPEIPV4, self).__init__(ns, pref, tag)
+
 
 
 class IPTCP(IPPROTOCOL):
@@ -279,7 +340,11 @@ class IPTCP(IPPROTOCOL):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_TCP"):
-        super(IPTCP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPTCP, self).__init__(ns, pref, tag)
+
 
 
 class ETHERTYPEIPV6(ETHERTYPE):
@@ -294,7 +359,11 @@ class ETHERTYPEIPV6(ETHERTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_IPV6"):
-        super(ETHERTYPEIPV6, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHERTYPEIPV6, self).__init__(ns, pref, tag)
+
 
 
 class TCPURG(TCPFLAGS):
@@ -309,7 +378,11 @@ class TCPURG(TCPFLAGS):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_URG"):
-        super(TCPURG, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TCPURG, self).__init__(ns, pref, tag)
+
 
 
 class IPRSVP(IPPROTOCOL):
@@ -324,7 +397,11 @@ class IPRSVP(IPPROTOCOL):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_RSVP"):
-        super(IPRSVP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPRSVP, self).__init__(ns, pref, tag)
+
 
 
 class ETHERTYPEMPLS(ETHERTYPE):
@@ -339,7 +416,11 @@ class ETHERTYPEMPLS(ETHERTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_MPLS"):
-        super(ETHERTYPEMPLS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHERTYPEMPLS, self).__init__(ns, pref, tag)
+
 
 
 class TCPPSH(TCPFLAGS):
@@ -354,7 +435,11 @@ class TCPPSH(TCPFLAGS):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_PSH"):
-        super(TCPPSH, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TCPPSH, self).__init__(ns, pref, tag)
+
 
 
 class IPAUTH(IPPROTOCOL):
@@ -369,7 +454,11 @@ class IPAUTH(IPPROTOCOL):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_AUTH"):
-        super(IPAUTH, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPAUTH, self).__init__(ns, pref, tag)
+
 
 
 class IPGRE(IPPROTOCOL):
@@ -384,7 +473,11 @@ class IPGRE(IPPROTOCOL):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_GRE"):
-        super(IPGRE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPGRE, self).__init__(ns, pref, tag)
+
 
 
 class IPIGMP(IPPROTOCOL):
@@ -399,7 +492,11 @@ class IPIGMP(IPPROTOCOL):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_IGMP"):
-        super(IPIGMP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPIGMP, self).__init__(ns, pref, tag)
+
 
 
 class ETHERTYPELLDP(ETHERTYPE):
@@ -414,7 +511,11 @@ class ETHERTYPELLDP(ETHERTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_LLDP"):
-        super(ETHERTYPELLDP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ETHERTYPELLDP, self).__init__(ns, pref, tag)
+
 
 
 class TCPCWR(TCPFLAGS):
@@ -429,7 +530,11 @@ class TCPCWR(TCPFLAGS):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_CWR"):
-        super(TCPCWR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TCPCWR, self).__init__(ns, pref, tag)
+
 
 
 class IPL2TP(IPPROTOCOL):
@@ -444,6 +549,10 @@ class IPL2TP(IPPROTOCOL):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_L2TP"):
-        super(IPL2TP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPL2TP, self).__init__(ns, pref, tag)
+
 
 

@@ -11,6 +11,7 @@ amplifiers can still receive a signal if one of the two fiber
 pairs is broken.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -34,7 +35,11 @@ class APSPATHS(Identity):
     _revision = '2017-03-28'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-transport-line-protection", pref="openconfig-transport-line-protection", tag="openconfig-transport-line-protection:APS_PATHS"):
-        super(APSPATHS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(APSPATHS, self).__init__(ns, pref, tag)
+
 
 
 class Aps(Entity):
@@ -54,7 +59,10 @@ class Aps(Entity):
     _revision = '2017-03-28'
 
     def __init__(self):
-        super(Aps, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Aps, self).__init__()
         self._top_entity = None
 
         self.yang_name = "aps"
@@ -93,7 +101,10 @@ class Aps(Entity):
         _revision = '2017-03-28'
 
         def __init__(self):
-            super(Aps.ApsModules, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aps.ApsModules, self).__init__()
 
             self.yang_name = "aps-modules"
             self.yang_parent_name = "aps"
@@ -134,6 +145,8 @@ class Aps(Entity):
             	Operational state data for an automatic protection switch module
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.State>`
             
+            	**config**\: False
+            
             .. attribute:: ports
             
             	Top level grouping for automatic protection switch ports
@@ -147,7 +160,10 @@ class Aps(Entity):
             _revision = '2017-03-28'
 
             def __init__(self):
-                super(Aps.ApsModules.ApsModule, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aps.ApsModules.ApsModule, self).__init__()
 
                 self.yang_name = "aps-module"
                 self.yang_parent_name = "aps-modules"
@@ -240,7 +256,10 @@ class Aps(Entity):
                 _revision = '2017-03-28'
 
                 def __init__(self):
-                    super(Aps.ApsModules.ApsModule.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aps.ApsModules.ApsModule.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "aps-module"
@@ -269,6 +288,7 @@ class Aps(Entity):
                     self._perform_setattr(Aps.ApsModules.ApsModule.Config, ['name', 'revertive', 'primary_switch_threshold', 'primary_switch_hysteresis', 'secondary_switch_threshold', 'secondary_switch_hysteresis'], name, value)
 
 
+
             class State(Entity):
                 """
                 Operational state data for an automatic protection
@@ -281,10 +301,14 @@ class Aps(Entity):
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                 
+                	**config**\: False
+                
                 .. attribute:: revertive
                 
                 	Revertive behavior of the module. If True, then automatically revert after protection switch once the fault is restored
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: primary_switch_threshold
                 
@@ -292,6 +316,8 @@ class Aps(Entity):
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 	**units**\: dBm
                 
@@ -302,6 +328,8 @@ class Aps(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 	**units**\: dB
                 
                 .. attribute:: secondary_switch_threshold
@@ -310,6 +338,8 @@ class Aps(Entity):
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 	**units**\: dBm
                 
@@ -320,12 +350,16 @@ class Aps(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 	**units**\: dB
                 
                 .. attribute:: active_path
                 
                 	Indicates which line path on the automatic protection switch is currently the active path connected to the common port
                 	**type**\:  :py:class:`APSPATHS <ydk.models.openconfig.openconfig_transport_line_protection.APSPATHS>`
+                
+                	**config**\: False
                 
                 
 
@@ -335,7 +369,10 @@ class Aps(Entity):
                 _revision = '2017-03-28'
 
                 def __init__(self):
-                    super(Aps.ApsModules.ApsModule.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aps.ApsModules.ApsModule.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "aps-module"
@@ -364,6 +401,7 @@ class Aps(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aps.ApsModules.ApsModule.State, ['name', 'revertive', 'primary_switch_threshold', 'primary_switch_hysteresis', 'secondary_switch_threshold', 'secondary_switch_hysteresis', 'active_path'], name, value)
+
 
 
             class Ports(Entity):
@@ -408,7 +446,10 @@ class Aps(Entity):
                 _revision = '2017-03-28'
 
                 def __init__(self):
-                    super(Aps.ApsModules.ApsModule.Ports, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aps.ApsModules.ApsModule.Ports, self).__init__()
 
                     self.yang_name = "ports"
                     self.yang_parent_name = "aps-module"
@@ -463,6 +504,8 @@ class Aps(Entity):
                     	State data for the line primary input port
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -471,7 +514,10 @@ class Aps(Entity):
                     _revision = '2017-03-28'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn, self).__init__()
 
                         self.yang_name = "line-primary-in"
                         self.yang_parent_name = "ports"
@@ -523,7 +569,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "line-primary-in"
@@ -544,6 +593,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config, ['enabled', 'target_attenuation'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State data for the line primary input port
@@ -552,6 +602,8 @@ class Aps(Entity):
                         
                         	This leaf contains the configured, desired state of the port. Disabling the port turns off alarm reporting for the port
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: true
                         
@@ -562,6 +614,8 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: attenuation
@@ -571,12 +625,16 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: optical_power
                         
                         	The optical input power of this port in units of 0.01dBm. Optical input power represents the signal traversing from an external destination into the module. The power is measured before any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                         	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -586,7 +644,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "line-primary-in"
@@ -629,6 +690,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: avg
@@ -637,6 +700,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -647,6 +712,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: max
@@ -655,6 +722,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -666,7 +735,10 @@ class Aps(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -688,7 +760,10 @@ class Aps(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
 
 
                 class LinePrimaryOut(Entity):
@@ -706,6 +781,8 @@ class Aps(Entity):
                     	State data for the line primary output port
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -714,7 +791,10 @@ class Aps(Entity):
                     _revision = '2017-03-28'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut, self).__init__()
 
                         self.yang_name = "line-primary-out"
                         self.yang_parent_name = "ports"
@@ -759,7 +839,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "line-primary-out"
@@ -778,6 +861,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config, ['target_attenuation'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State data for the line primary output port
@@ -789,6 +873,8 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: attenuation
@@ -798,12 +884,16 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: optical_power
                         
                         	The optical output power of this port in units of 0.01dBm. Optical output power represents the signal traversing from the module to an external destination. The power is measured after any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                         	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -813,7 +903,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "line-primary-out"
@@ -854,6 +947,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: avg
@@ -862,6 +957,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -872,6 +969,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: max
@@ -880,6 +979,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -891,7 +992,10 @@ class Aps(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -913,7 +1017,10 @@ class Aps(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
 
 
                 class LineSecondaryIn(Entity):
@@ -931,6 +1038,8 @@ class Aps(Entity):
                     	State data for the line secondary input port
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -939,7 +1048,10 @@ class Aps(Entity):
                     _revision = '2017-03-28'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn, self).__init__()
 
                         self.yang_name = "line-secondary-in"
                         self.yang_parent_name = "ports"
@@ -991,7 +1103,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "line-secondary-in"
@@ -1012,6 +1127,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config, ['enabled', 'target_attenuation'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State data for the line secondary input port
@@ -1020,6 +1136,8 @@ class Aps(Entity):
                         
                         	This leaf contains the configured, desired state of the port. Disabling the port turns off alarm reporting for the port
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: true
                         
@@ -1030,6 +1148,8 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: attenuation
@@ -1039,12 +1159,16 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: optical_power
                         
                         	The optical input power of this port in units of 0.01dBm. Optical input power represents the signal traversing from an external destination into the module. The power is measured before any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                         	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1054,7 +1178,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "line-secondary-in"
@@ -1097,6 +1224,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: avg
@@ -1105,6 +1234,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -1115,6 +1246,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: max
@@ -1123,6 +1256,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -1134,7 +1269,10 @@ class Aps(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -1156,7 +1294,10 @@ class Aps(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
 
 
                 class LineSecondaryOut(Entity):
@@ -1174,6 +1315,8 @@ class Aps(Entity):
                     	State data for the line secondary output port
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1182,7 +1325,10 @@ class Aps(Entity):
                     _revision = '2017-03-28'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut, self).__init__()
 
                         self.yang_name = "line-secondary-out"
                         self.yang_parent_name = "ports"
@@ -1227,7 +1373,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "line-secondary-out"
@@ -1246,6 +1395,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config, ['target_attenuation'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State data for the line secondary output port
@@ -1257,6 +1407,8 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: attenuation
@@ -1266,12 +1418,16 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: optical_power
                         
                         	The optical output power of this port in units of 0.01dBm. Optical output power represents the signal traversing from the module to an external destination. The power is measured after any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                         	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1281,7 +1437,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "line-secondary-out"
@@ -1322,6 +1481,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: avg
@@ -1330,6 +1491,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -1340,6 +1503,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: max
@@ -1348,6 +1513,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -1359,7 +1526,10 @@ class Aps(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -1381,7 +1551,10 @@ class Aps(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
 
 
                 class CommonIn(Entity):
@@ -1399,6 +1572,8 @@ class Aps(Entity):
                     	State data for the line common input port
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1407,7 +1582,10 @@ class Aps(Entity):
                     _revision = '2017-03-28'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.CommonIn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.CommonIn, self).__init__()
 
                         self.yang_name = "common-in"
                         self.yang_parent_name = "ports"
@@ -1459,7 +1637,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.CommonIn.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.CommonIn.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "common-in"
@@ -1480,6 +1661,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.Config, ['enabled', 'target_attenuation'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State data for the line common input port
@@ -1488,6 +1670,8 @@ class Aps(Entity):
                         
                         	This leaf contains the configured, desired state of the port. Disabling the port turns off alarm reporting for the port
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: true
                         
@@ -1498,6 +1682,8 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: attenuation
@@ -1507,12 +1693,16 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: optical_power
                         
                         	The optical input power of this port in units of 0.01dBm. Optical input power represents the signal traversing from an external destination into the module. The power is measured before any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                         	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1522,7 +1712,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.CommonIn.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.CommonIn.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "common-in"
@@ -1565,6 +1758,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: avg
@@ -1573,6 +1768,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -1583,6 +1780,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: max
@@ -1591,6 +1790,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -1602,7 +1803,10 @@ class Aps(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -1624,7 +1828,10 @@ class Aps(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
 
 
                 class CommonOutput(Entity):
@@ -1642,6 +1849,8 @@ class Aps(Entity):
                     	State data for the line common output port
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1650,7 +1859,10 @@ class Aps(Entity):
                     _revision = '2017-03-28'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.CommonOutput, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.CommonOutput, self).__init__()
 
                         self.yang_name = "common-output"
                         self.yang_parent_name = "ports"
@@ -1695,7 +1907,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.CommonOutput.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.CommonOutput.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "common-output"
@@ -1714,6 +1929,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.Config, ['target_attenuation'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State data for the line common output port
@@ -1725,6 +1941,8 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: attenuation
@@ -1734,12 +1952,16 @@ class Aps(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         	**units**\: dB
                         
                         .. attribute:: optical_power
                         
                         	The optical output power of this port in units of 0.01dBm. Optical output power represents the signal traversing from the module to an external destination. The power is measured after any attenuation. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
                         	**type**\:  :py:class:`OpticalPower <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1749,7 +1971,10 @@ class Aps(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.CommonOutput.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.CommonOutput.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "common-output"
@@ -1790,6 +2015,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: avg
@@ -1798,6 +2025,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -1808,6 +2037,8 @@ class Aps(Entity):
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
                             
+                            	**config**\: False
+                            
                             	**units**\: dBm
                             
                             .. attribute:: max
@@ -1816,6 +2047,8 @@ class Aps(Entity):
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: dBm
                             
@@ -1827,7 +2060,10 @@ class Aps(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -1849,11 +2085,19 @@ class Aps(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Aps()
         return self._top_entity
+
+
 
 class PRIMARY(APSPATHS):
     """
@@ -1868,7 +2112,11 @@ class PRIMARY(APSPATHS):
     _revision = '2017-03-28'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-transport-line-protection", pref="openconfig-transport-line-protection", tag="openconfig-transport-line-protection:PRIMARY"):
-        super(PRIMARY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PRIMARY, self).__init__(ns, pref, tag)
+
 
 
 class SECONDARY(APSPATHS):
@@ -1884,6 +2132,10 @@ class SECONDARY(APSPATHS):
     _revision = '2017-03-28'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-transport-line-protection", pref="openconfig-transport-line-protection", tag="openconfig-transport-line-protection:SECONDARY"):
-        super(SECONDARY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SECONDARY, self).__init__(ns, pref, tag)
+
 
 

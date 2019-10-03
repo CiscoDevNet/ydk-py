@@ -22,17 +22,13 @@
 #  open-config-interfaces yang module.
 #
 
-
-
 from __future__ import print_function
-from ydk.types import Empty, DELETE, Decimal64
 from ydk.services import CRUDService
 import logging
 
 from session_mgr import establish_session, init_logging
 from ydk.models.openconfig.openconfig_interfaces import Interfaces
 from ydk.errors import YError
-
 
 
 def print_interface(interface):
@@ -94,6 +90,7 @@ def print_interface(interface):
 
     print('*' * 28)
 
+
 def read_interfaces(crud_service, provider):
 
     interfaces_filter = Interfaces()
@@ -118,13 +115,9 @@ def create_interfaces_config(crud_service, provider):
         print('An error occurred creating the interface.')
 
 
-
 if __name__ == "__main__":
     init_logging()
     provider = establish_session()
     crud_service = CRUDService()
     read_interfaces(crud_service, provider)
-
-
-    provider.close()
     exit()

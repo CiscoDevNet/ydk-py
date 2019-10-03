@@ -5,6 +5,7 @@ policy. It can be imported by modules that make use of BGP
 attributes
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -184,7 +185,11 @@ class BGPWELLKNOWNSTDCOMMUNITY(Identity):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:BGP_WELL_KNOWN_STD_COMMUNITY"):
-        super(BGPWELLKNOWNSTDCOMMUNITY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BGPWELLKNOWNSTDCOMMUNITY, self).__init__(ns, pref, tag)
+
 
 
 class BGPCAPABILITY(Identity):
@@ -199,7 +204,11 @@ class BGPCAPABILITY(Identity):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:BGP_CAPABILITY"):
-        super(BGPCAPABILITY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BGPCAPABILITY, self).__init__(ns, pref, tag)
+
 
 
 class REMOVEPRIVATEASOPTION(Identity):
@@ -215,7 +224,11 @@ class REMOVEPRIVATEASOPTION(Identity):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:REMOVE_PRIVATE_AS_OPTION"):
-        super(REMOVEPRIVATEASOPTION, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(REMOVEPRIVATEASOPTION, self).__init__(ns, pref, tag)
+
 
 
 class AFISAFITYPE(Identity):
@@ -230,7 +243,11 @@ class AFISAFITYPE(Identity):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:AFI_SAFI_TYPE"):
-        super(AFISAFITYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AFISAFITYPE, self).__init__(ns, pref, tag)
+
 
 
 class GRACEFULRESTART(BGPCAPABILITY):
@@ -245,7 +262,11 @@ class GRACEFULRESTART(BGPCAPABILITY):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:GRACEFUL_RESTART"):
-        super(GRACEFULRESTART, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(GRACEFULRESTART, self).__init__(ns, pref, tag)
+
 
 
 class NOEXPORTSUBCONFED(BGPWELLKNOWNSTDCOMMUNITY):
@@ -262,7 +283,11 @@ class NOEXPORTSUBCONFED(BGPWELLKNOWNSTDCOMMUNITY):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:NO_EXPORT_SUBCONFED"):
-        super(NOEXPORTSUBCONFED, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(NOEXPORTSUBCONFED, self).__init__(ns, pref, tag)
+
 
 
 class NOADVERTISE(BGPWELLKNOWNSTDCOMMUNITY):
@@ -279,7 +304,11 @@ class NOADVERTISE(BGPWELLKNOWNSTDCOMMUNITY):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:NO_ADVERTISE"):
-        super(NOADVERTISE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(NOADVERTISE, self).__init__(ns, pref, tag)
+
 
 
 class L2VPNEVPN(AFISAFITYPE):
@@ -294,7 +323,11 @@ class L2VPNEVPN(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L2VPN_EVPN"):
-        super(L2VPNEVPN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L2VPNEVPN, self).__init__(ns, pref, tag)
+
 
 
 class NOPEER(BGPWELLKNOWNSTDCOMMUNITY):
@@ -313,7 +346,11 @@ class NOPEER(BGPWELLKNOWNSTDCOMMUNITY):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:NOPEER"):
-        super(NOPEER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(NOPEER, self).__init__(ns, pref, tag)
+
 
 
 class L2VPNVPLS(AFISAFITYPE):
@@ -328,7 +365,11 @@ class L2VPNVPLS(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L2VPN_VPLS"):
-        super(L2VPNVPLS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L2VPNVPLS, self).__init__(ns, pref, tag)
+
 
 
 class IPV4UNICAST(AFISAFITYPE):
@@ -343,7 +384,11 @@ class IPV4UNICAST(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV4_UNICAST"):
-        super(IPV4UNICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV4UNICAST, self).__init__(ns, pref, tag)
+
 
 
 class L3VPNIPV6MULTICAST(AFISAFITYPE):
@@ -358,7 +403,11 @@ class L3VPNIPV6MULTICAST(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV6_MULTICAST"):
-        super(L3VPNIPV6MULTICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L3VPNIPV6MULTICAST, self).__init__(ns, pref, tag)
+
 
 
 class ROUTEREFRESH(BGPCAPABILITY):
@@ -373,7 +422,11 @@ class ROUTEREFRESH(BGPCAPABILITY):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ROUTE_REFRESH"):
-        super(ROUTEREFRESH, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ROUTEREFRESH, self).__init__(ns, pref, tag)
+
 
 
 class PRIVATEASREPLACEALL(REMOVEPRIVATEASOPTION):
@@ -392,7 +445,11 @@ class PRIVATEASREPLACEALL(REMOVEPRIVATEASOPTION):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:PRIVATE_AS_REPLACE_ALL"):
-        super(PRIVATEASREPLACEALL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PRIVATEASREPLACEALL, self).__init__(ns, pref, tag)
+
 
 
 class L3VPNIPV6UNICAST(AFISAFITYPE):
@@ -407,7 +464,11 @@ class L3VPNIPV6UNICAST(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV6_UNICAST"):
-        super(L3VPNIPV6UNICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L3VPNIPV6UNICAST, self).__init__(ns, pref, tag)
+
 
 
 class L3VPNIPV4UNICAST(AFISAFITYPE):
@@ -422,7 +483,11 @@ class L3VPNIPV4UNICAST(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV4_UNICAST"):
-        super(L3VPNIPV4UNICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L3VPNIPV4UNICAST, self).__init__(ns, pref, tag)
+
 
 
 class L3VPNIPV4MULTICAST(AFISAFITYPE):
@@ -437,7 +502,11 @@ class L3VPNIPV4MULTICAST(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV4_MULTICAST"):
-        super(L3VPNIPV4MULTICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L3VPNIPV4MULTICAST, self).__init__(ns, pref, tag)
+
 
 
 class MPBGP(BGPCAPABILITY):
@@ -452,7 +521,11 @@ class MPBGP(BGPCAPABILITY):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:MPBGP"):
-        super(MPBGP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MPBGP, self).__init__(ns, pref, tag)
+
 
 
 class IPV4LABELEDUNICAST(AFISAFITYPE):
@@ -467,7 +540,11 @@ class IPV4LABELEDUNICAST(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV4_LABELED_UNICAST"):
-        super(IPV4LABELEDUNICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV4LABELEDUNICAST, self).__init__(ns, pref, tag)
+
 
 
 class NOEXPORT(BGPWELLKNOWNSTDCOMMUNITY):
@@ -485,7 +562,11 @@ class NOEXPORT(BGPWELLKNOWNSTDCOMMUNITY):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:NO_EXPORT"):
-        super(NOEXPORT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(NOEXPORT, self).__init__(ns, pref, tag)
+
 
 
 class IPV6UNICAST(AFISAFITYPE):
@@ -500,7 +581,11 @@ class IPV6UNICAST(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV6_UNICAST"):
-        super(IPV6UNICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV6UNICAST, self).__init__(ns, pref, tag)
+
 
 
 class IPV6LABELEDUNICAST(AFISAFITYPE):
@@ -515,7 +600,11 @@ class IPV6LABELEDUNICAST(AFISAFITYPE):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV6_LABELED_UNICAST"):
-        super(IPV6LABELEDUNICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV6LABELEDUNICAST, self).__init__(ns, pref, tag)
+
 
 
 class ASN32(BGPCAPABILITY):
@@ -530,7 +619,11 @@ class ASN32(BGPCAPABILITY):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ASN32"):
-        super(ASN32, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ASN32, self).__init__(ns, pref, tag)
+
 
 
 class PRIVATEASREMOVEALL(REMOVEPRIVATEASOPTION):
@@ -548,7 +641,11 @@ class PRIVATEASREMOVEALL(REMOVEPRIVATEASOPTION):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:PRIVATE_AS_REMOVE_ALL"):
-        super(PRIVATEASREMOVEALL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PRIVATEASREMOVEALL, self).__init__(ns, pref, tag)
+
 
 
 class ADDPATHS(BGPCAPABILITY):
@@ -563,6 +660,10 @@ class ADDPATHS(BGPCAPABILITY):
     _revision = '2017-02-02'
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ADD_PATHS"):
-        super(ADDPATHS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ADDPATHS, self).__init__(ns, pref, tag)
+
 
 

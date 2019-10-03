@@ -117,8 +117,8 @@ PYBIND11_MODULE(ydk_gnmi_, ydk_gnmi)
              arg("port"),
              arg("username"),
              arg("password"),
-			 arg("server_cerificate")="",
-			 arg("private_key")="")
+             arg("server_certificate")="",
+             arg("private_key")="")
         .def("get_root_schema", &ydk::path::gNMISession::get_root_schema, return_value_policy::reference)
         .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::gNMISession::*)(ydk::path::Rpc&) const)
              &ydk::path::gNMISession::invoke, arg("rpc"), return_value_policy::reference)
@@ -127,7 +127,7 @@ PYBIND11_MODULE(ydk_gnmi_, ydk_gnmi)
                                   std::function<void(const char * response)> out_func,
                                   std::function<bool(const char * response)> poll_func) const)
              &ydk::path::gNMISession::invoke_subscribe,
-			                      arg("rpc"),
+                                  arg("rpc"),
                                   arg("output_callback_function")=nullptr,
                                   arg("poll_callback_function")=nullptr);
 
@@ -138,8 +138,8 @@ PYBIND11_MODULE(ydk_gnmi_, ydk_gnmi)
     class_<ydk::gNMIServiceProvider, ydk::ServiceProvider>(providers, "gNMIServiceProvider")
         .def(init<ydk::path::Repository&, const string&, int, const string&, const string&, const string&, const string&>(),
             arg("repo"), arg("address"), arg("port"),
-			arg("username"), arg("password"),
-			arg("server_cerificate")="", arg("private_key")="")
+            arg("username"), arg("password"),
+            arg("server_certificate")="", arg("private_key")="")
         .def("get_encoding", &ydk::gNMIServiceProvider::get_encoding, return_value_policy::reference)
         .def("get_session", &ydk::gNMIServiceProvider::get_session, return_value_policy::reference)
         .def("get_capabilities", &ydk::gNMIServiceProvider::get_capabilities, return_value_policy::reference);
@@ -172,7 +172,7 @@ PYBIND11_MODULE(ydk_gnmi_, ydk_gnmi)
                    ydk::gNMISubscription& subscription,
                    ydk::uint32 qos = 0,
                    const string & mode = "ONCE",
-				   const string & encoding = "PROTO",
+                   const string & encoding = "PROTO",
                    std::function<void(const char * response)> out_func = nullptr)
                 {
                     ns.subscribe(provider, subscription, qos, mode, encoding, out_func);
@@ -184,7 +184,7 @@ PYBIND11_MODULE(ydk_gnmi_, ydk_gnmi)
                    vector<ydk::gNMISubscription*> & subscription_list,
                    ydk::uint32 qos = 0,
                    const string & mode = "ONCE",
-				   const string & encoding = "PROTO",
+                   const string & encoding = "PROTO",
                    std::function<void(const char * response)> out_func = nullptr)
                 {
                     ns.subscribe(provider, subscription_list, qos, mode, encoding, out_func);

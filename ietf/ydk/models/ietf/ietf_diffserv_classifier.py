@@ -17,6 +17,7 @@ This version of this YANG module is part of RFC XXXX; see
 the RFC itself for full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -39,7 +40,11 @@ class FilterType(Identity):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:filter-type"):
-        super(FilterType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FilterType, self).__init__(ns, pref, tag)
+
 
 
 class ClassifierEntryFilterOperationType(Identity):
@@ -54,7 +59,11 @@ class ClassifierEntryFilterOperationType(Identity):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:classifier-entry-filter-operation-type"):
-        super(ClassifierEntryFilterOperationType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ClassifierEntryFilterOperationType, self).__init__(ns, pref, tag)
+
 
 
 class Classifiers(Entity):
@@ -74,7 +83,10 @@ class Classifiers(Entity):
     _revision = '2015-04-07'
 
     def __init__(self):
-        super(Classifiers, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Classifiers, self).__init__()
         self._top_entity = None
 
         self.yang_name = "classifiers"
@@ -127,7 +139,10 @@ class Classifiers(Entity):
         _revision = '2015-04-07'
 
         def __init__(self):
-            super(Classifiers.ClassifierEntry, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Classifiers.ClassifierEntry, self).__init__()
 
             self.yang_name = "classifier-entry"
             self.yang_parent_name = "classifiers"
@@ -205,7 +220,10 @@ class Classifiers(Entity):
             _revision = '2015-04-07'
 
             def __init__(self):
-                super(Classifiers.ClassifierEntry.FilterEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Classifiers.ClassifierEntry.FilterEntry, self).__init__()
 
                 self.yang_name = "filter-entry"
                 self.yang_parent_name = "classifier-entry"
@@ -259,7 +277,10 @@ class Classifiers(Entity):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    super(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, self).__init__()
 
                     self.yang_name = "dscp-cfg"
                     self.yang_parent_name = "filter-entry"
@@ -278,6 +299,7 @@ class Classifiers(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, [u'dscp_min', u'dscp_max'], name, value)
+
 
 
             class SourceIpAddressCfg(Entity):
@@ -305,7 +327,10 @@ class Classifiers(Entity):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    super(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, self).__init__()
 
                     self.yang_name = "source-ip-address-cfg"
                     self.yang_parent_name = "filter-entry"
@@ -322,6 +347,7 @@ class Classifiers(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, [u'source_ip_addr'], name, value)
+
 
 
             class DestinationIpAddressCfg(Entity):
@@ -349,7 +375,10 @@ class Classifiers(Entity):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    super(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, self).__init__()
 
                     self.yang_name = "destination-ip-address-cfg"
                     self.yang_parent_name = "filter-entry"
@@ -366,6 +395,7 @@ class Classifiers(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, [u'destination_ip_addr'], name, value)
+
 
 
             class SourcePortCfg(Entity):
@@ -394,7 +424,10 @@ class Classifiers(Entity):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    super(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, self).__init__()
 
                     self.yang_name = "source-port-cfg"
                     self.yang_parent_name = "filter-entry"
@@ -413,6 +446,7 @@ class Classifiers(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, [u'source_port_min', u'source_port_max'], name, value)
+
 
 
             class DestinationPortCfg(Entity):
@@ -441,7 +475,10 @@ class Classifiers(Entity):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    super(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, self).__init__()
 
                     self.yang_name = "destination-port-cfg"
                     self.yang_parent_name = "filter-entry"
@@ -460,6 +497,7 @@ class Classifiers(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, [u'destination_port_min', u'destination_port_max'], name, value)
+
 
 
             class ProtocolCfg(Entity):
@@ -488,7 +526,10 @@ class Classifiers(Entity):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    super(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, self).__init__()
 
                     self.yang_name = "protocol-cfg"
                     self.yang_parent_name = "filter-entry"
@@ -508,9 +549,14 @@ class Classifiers(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, [u'protocol_min', u'protocol_max'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Classifiers()
         return self._top_entity
+
+
 
 class DestinationPort(FilterType):
     """
@@ -524,7 +570,11 @@ class DestinationPort(FilterType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:destination-port"):
-        super(DestinationPort, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DestinationPort, self).__init__(ns, pref, tag)
+
 
 
 class Protocol(FilterType):
@@ -539,7 +589,11 @@ class Protocol(FilterType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:protocol"):
-        super(Protocol, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Protocol, self).__init__(ns, pref, tag)
+
 
 
 class DestinationIpAddress(FilterType):
@@ -554,7 +608,11 @@ class DestinationIpAddress(FilterType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:destination-ip-address"):
-        super(DestinationIpAddress, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DestinationIpAddress, self).__init__(ns, pref, tag)
+
 
 
 class Dscp(FilterType):
@@ -569,7 +627,11 @@ class Dscp(FilterType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:dscp"):
-        super(Dscp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Dscp, self).__init__(ns, pref, tag)
+
 
 
 class MatchAllFilter(ClassifierEntryFilterOperationType):
@@ -584,7 +646,11 @@ class MatchAllFilter(ClassifierEntryFilterOperationType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:match-all-filter"):
-        super(MatchAllFilter, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MatchAllFilter, self).__init__(ns, pref, tag)
+
 
 
 class SourceIpAddress(FilterType):
@@ -599,7 +665,11 @@ class SourceIpAddress(FilterType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:source-ip-address"):
-        super(SourceIpAddress, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SourceIpAddress, self).__init__(ns, pref, tag)
+
 
 
 class MatchAnyFilter(ClassifierEntryFilterOperationType):
@@ -614,7 +684,11 @@ class MatchAnyFilter(ClassifierEntryFilterOperationType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:match-any-filter"):
-        super(MatchAnyFilter, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MatchAnyFilter, self).__init__(ns, pref, tag)
+
 
 
 class SourcePort(FilterType):
@@ -629,6 +703,10 @@ class SourcePort(FilterType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:source-port"):
-        super(SourcePort, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SourcePort, self).__init__(ns, pref, tag)
+
 
 

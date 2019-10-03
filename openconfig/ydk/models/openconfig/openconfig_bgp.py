@@ -25,6 +25,7 @@ hierarchy\:
      +\-> AFI / SAFI [ per\-AFI overrides ]
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -62,7 +63,10 @@ class Bgp(Entity):
     _revision = '2017-02-02'
 
     def __init__(self):
-        super(Bgp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Bgp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "bgp"
@@ -104,6 +108,8 @@ class Bgp(Entity):
         
         	State information relating to the global BGP router
         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.State>`
+        
+        	**config**\: False
         
         .. attribute:: default_route_distance
         
@@ -148,7 +154,10 @@ class Bgp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Bgp.Global, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bgp.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "bgp"
@@ -229,7 +238,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Global.Config, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Global.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "global"
@@ -251,6 +263,7 @@ class Bgp(Entity):
                 self._perform_setattr(Bgp.Global.Config, [u'as_', u'router_id'], name, value)
 
 
+
         class State(Entity):
             """
             State information relating to the global BGP router
@@ -264,12 +277,16 @@ class Bgp(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             .. attribute:: router_id
             
             	Router id of the router \- an unsigned 32\-bit integer expressed in dotted quad notation
             	**type**\: str
             
             	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+            
+            	**config**\: False
             
             .. attribute:: total_paths
             
@@ -278,12 +295,16 @@ class Bgp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: total_prefixes
             
             	Total number of BGP prefixes received within the context
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -293,7 +314,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Global.State, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Global.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "global"
@@ -316,7 +340,8 @@ class Bgp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.Global.State, [u'as_', u'router_id', u'total_paths', u'total_prefixes'], name, value)
+                self._perform_setattr(Bgp.Global.State, [u'as_', u'router_id', 'total_paths', 'total_prefixes'], name, value)
+
 
 
         class DefaultRouteDistance(Entity):
@@ -335,6 +360,8 @@ class Bgp(Entity):
             	State information relating to the default route distance
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.DefaultRouteDistance.State>`
             
+            	**config**\: False
+            
             
 
             """
@@ -343,7 +370,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Global.DefaultRouteDistance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Global.DefaultRouteDistance, self).__init__()
 
                 self.yang_name = "default-route-distance"
                 self.yang_parent_name = "global"
@@ -395,7 +425,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.DefaultRouteDistance.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.DefaultRouteDistance.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "default-route-distance"
@@ -417,6 +450,7 @@ class Bgp(Entity):
                     self._perform_setattr(Bgp.Global.DefaultRouteDistance.Config, [u'external_route_distance', u'internal_route_distance'], name, value)
 
 
+
             class State(Entity):
                 """
                 State information relating to the default route distance
@@ -428,12 +462,16 @@ class Bgp(Entity):
                 
                 	**range:** 1..255
                 
+                	**config**\: False
+                
                 .. attribute:: internal_route_distance
                 
                 	Administrative distance for routes learned from internal BGP (iBGP)
                 	**type**\: int
                 
                 	**range:** 1..255
+                
+                	**config**\: False
                 
                 
 
@@ -443,7 +481,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.DefaultRouteDistance.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.DefaultRouteDistance.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "default-route-distance"
@@ -465,6 +506,8 @@ class Bgp(Entity):
                     self._perform_setattr(Bgp.Global.DefaultRouteDistance.State, [u'external_route_distance', u'internal_route_distance'], name, value)
 
 
+
+
         class Confederation(Entity):
             """
             Parameters indicating whether the local system acts as part
@@ -480,6 +523,8 @@ class Bgp(Entity):
             	State information relating to the BGP confederations
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.Confederation.State>`
             
+            	**config**\: False
+            
             
 
             """
@@ -488,7 +533,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Global.Confederation, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Global.Confederation, self).__init__()
 
                 self.yang_name = "confederation"
                 self.yang_parent_name = "global"
@@ -544,7 +592,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.Confederation.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.Confederation.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "confederation"
@@ -568,6 +619,7 @@ class Bgp(Entity):
                     self._perform_setattr(Bgp.Global.Confederation.Config, [u'enabled', u'identifier', u'member_as'], name, value)
 
 
+
             class State(Entity):
                 """
                 State information relating to the BGP confederations
@@ -577,6 +629,8 @@ class Bgp(Entity):
                 	When this leaf is set to true it indicates that the local\-AS is part of a BGP confederation
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: identifier
                 
                 	Confederation identifier for the autonomous system
@@ -584,12 +638,16 @@ class Bgp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: member_as
                 
                 	Remote autonomous systems that are to be treated as part of the local confederation
                 	**type**\: list of int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -599,7 +657,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.Confederation.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.Confederation.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "confederation"
@@ -623,6 +684,8 @@ class Bgp(Entity):
                     self._perform_setattr(Bgp.Global.Confederation.State, [u'enabled', u'identifier', u'member_as'], name, value)
 
 
+
+
         class GracefulRestart(Entity):
             """
             Parameters relating the graceful restart mechanism for BGP
@@ -637,6 +700,8 @@ class Bgp(Entity):
             	State information associated with graceful\-restart
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.GracefulRestart.State>`
             
+            	**config**\: False
+            
             
 
             """
@@ -645,7 +710,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Global.GracefulRestart, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Global.GracefulRestart, self).__init__()
 
                 self.yang_name = "graceful-restart"
                 self.yang_parent_name = "global"
@@ -706,7 +774,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.GracefulRestart.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.GracefulRestart.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "graceful-restart"
@@ -729,7 +800,8 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.GracefulRestart.Config, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
+                    self._perform_setattr(Bgp.Global.GracefulRestart.Config, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+
 
 
             class State(Entity):
@@ -741,12 +813,16 @@ class Bgp(Entity):
                 	Enable or disable the graceful\-restart capability
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: restart_time
                 
                 	Estimated time (in seconds) for the local BGP speaker to restart a session. This value is advertise in the graceful restart BGP capability.  This is a 12\-bit value, referred to as Restart Time in RFC4724.  Per RFC4724, the suggested default value is <= the hold\-time value
                 	**type**\: int
                 
                 	**range:** 0..4096
+                
+                	**config**\: False
                 
                 .. attribute:: stale_routes_time
                 
@@ -755,10 +831,14 @@ class Bgp(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 .. attribute:: helper_only
                 
                 	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -768,7 +848,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.GracefulRestart.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.GracefulRestart.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "graceful-restart"
@@ -791,7 +874,9 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.GracefulRestart.State, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
+                    self._perform_setattr(Bgp.Global.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+
+
 
 
         class UseMultiplePaths(Entity):
@@ -808,6 +893,8 @@ class Bgp(Entity):
             
             	State parameters relating to multipath
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.State>`
+            
+            	**config**\: False
             
             .. attribute:: ebgp
             
@@ -827,7 +914,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Global.UseMultiplePaths, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Global.UseMultiplePaths, self).__init__()
 
                 self.yang_name = "use-multiple-paths"
                 self.yang_parent_name = "global"
@@ -879,7 +969,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.UseMultiplePaths.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.UseMultiplePaths.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "use-multiple-paths"
@@ -896,7 +989,8 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.UseMultiplePaths.Config, [u'enabled'], name, value)
+                    self._perform_setattr(Bgp.Global.UseMultiplePaths.Config, ['enabled'], name, value)
+
 
 
             class State(Entity):
@@ -908,6 +1002,8 @@ class Bgp(Entity):
                 	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 	**default value**\: false
                 
                 
@@ -918,7 +1014,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.UseMultiplePaths.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.UseMultiplePaths.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "use-multiple-paths"
@@ -935,7 +1034,8 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.UseMultiplePaths.State, [u'enabled'], name, value)
+                    self._perform_setattr(Bgp.Global.UseMultiplePaths.State, ['enabled'], name, value)
+
 
 
             class Ebgp(Entity):
@@ -952,6 +1052,8 @@ class Bgp(Entity):
                 	State information relating to eBGP multipath
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ebgp.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -960,7 +1062,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.UseMultiplePaths.Ebgp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.UseMultiplePaths.Ebgp, self).__init__()
 
                     self.yang_name = "ebgp"
                     self.yang_parent_name = "use-multiple-paths"
@@ -1013,7 +1118,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.UseMultiplePaths.Ebgp.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.UseMultiplePaths.Ebgp.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ebgp"
@@ -1032,7 +1140,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as', u'maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+
 
 
                 class State(Entity):
@@ -1044,6 +1153,8 @@ class Bgp(Entity):
                     	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: false
                     
                     .. attribute:: maximum_paths
@@ -1052,6 +1163,8 @@ class Bgp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**default value**\: 1
                     
@@ -1063,7 +1176,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.UseMultiplePaths.Ebgp.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.UseMultiplePaths.Ebgp.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ebgp"
@@ -1082,7 +1198,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as', u'maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+
+
 
 
             class Ibgp(Entity):
@@ -1099,6 +1217,8 @@ class Bgp(Entity):
                 	State information relating to iBGP multipath
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ibgp.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1107,7 +1227,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.UseMultiplePaths.Ibgp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.UseMultiplePaths.Ibgp, self).__init__()
 
                     self.yang_name = "ibgp"
                     self.yang_parent_name = "use-multiple-paths"
@@ -1153,7 +1276,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.UseMultiplePaths.Ibgp.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.UseMultiplePaths.Ibgp.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ibgp"
@@ -1170,7 +1296,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.Config, [u'maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+
 
 
                 class State(Entity):
@@ -1184,6 +1311,8 @@ class Bgp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**default value**\: 1
                     
                     
@@ -1194,7 +1323,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.UseMultiplePaths.Ibgp.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.UseMultiplePaths.Ibgp.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ibgp"
@@ -1211,7 +1343,10 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.State, [u'maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+
+
+
 
 
         class RouteSelectionOptions(Entity):
@@ -1228,6 +1363,8 @@ class Bgp(Entity):
             	State information for the route selection options
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.RouteSelectionOptions.State>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1236,7 +1373,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Global.RouteSelectionOptions, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Global.RouteSelectionOptions, self).__init__()
 
                 self.yang_name = "route-selection-options"
                 self.yang_parent_name = "global"
@@ -1316,7 +1456,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.RouteSelectionOptions.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.RouteSelectionOptions.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "route-selection-options"
@@ -1343,7 +1486,8 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.Config, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
+                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+
 
 
             class State(Entity):
@@ -1355,12 +1499,16 @@ class Bgp(Entity):
                 	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 	**default value**\: false
                 
                 .. attribute:: ignore_as_path_length
                 
                 	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -1369,12 +1517,16 @@ class Bgp(Entity):
                 	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 	**default value**\: true
                 
                 .. attribute:: advertise_inactive_routes
                 
                 	Advertise inactive routes to external peers.  The default is to only advertise active routes
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -1383,12 +1535,16 @@ class Bgp(Entity):
                 	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 	**default value**\: false
                 
                 .. attribute:: ignore_next_hop_igp_metric
                 
                 	Ignore the IGP metric to the next\-hop when calculating BGP best\-path. The default is to select the route for which the metric to the next\-hop is lowest
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -1400,7 +1556,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.RouteSelectionOptions.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.RouteSelectionOptions.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "route-selection-options"
@@ -1427,7 +1586,9 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.State, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
+                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+
+
 
 
         class AfiSafis(Entity):
@@ -1447,7 +1608,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Global.AfiSafis, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Global.AfiSafis, self).__init__()
 
                 self.yang_name = "afi-safis"
                 self.yang_parent_name = "global"
@@ -1485,6 +1649,8 @@ class Bgp(Entity):
                 
                 	State information relating to the AFI\-SAFI
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.State>`
+                
+                	**config**\: False
                 
                 .. attribute:: graceful_restart
                 
@@ -1559,7 +1725,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.AfiSafis.AfiSafi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.AfiSafis.AfiSafi, self).__init__()
 
                     self.yang_name = "afi-safi"
                     self.yang_parent_name = "afi-safis"
@@ -1663,7 +1832,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "afi-safi"
@@ -1681,7 +1853,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Config, ['afi_safi_name', 'enabled'], name, value)
+                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Config, [u'afi_safi_name', u'enabled'], name, value)
+
 
 
                 class State(Entity):
@@ -1693,10 +1866,14 @@ class Bgp(Entity):
                     	AFI,SAFI
                     	**type**\:  :py:class:`AFISAFITYPE <ydk.models.openconfig.openconfig_bgp_types.AFISAFITYPE>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: enabled
                     
                     	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -1707,12 +1884,16 @@ class Bgp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_prefixes
                     
                     	Total number of BGP prefixes received within the context
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1722,7 +1903,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "afi-safi"
@@ -1744,7 +1928,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.State, ['afi_safi_name', 'enabled', u'total_paths', u'total_prefixes'], name, value)
+                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.State, [u'afi_safi_name', u'enabled', 'total_paths', 'total_prefixes'], name, value)
+
 
 
                 class GracefulRestart(Entity):
@@ -1761,6 +1946,8 @@ class Bgp(Entity):
                     	State information for BGP graceful\-restart
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1769,7 +1956,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart, self).__init__()
 
                         self.yang_name = "graceful-restart"
                         self.yang_parent_name = "afi-safi"
@@ -1812,7 +2002,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "graceful-restart"
@@ -1828,7 +2021,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config, ['enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config, [u'enabled'], name, value)
+
 
 
                     class State(Entity):
@@ -1840,6 +2034,8 @@ class Bgp(Entity):
                         	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         
@@ -1850,7 +2046,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "graceful-restart"
@@ -1866,7 +2065,9 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State, ['enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State, [u'enabled'], name, value)
+
+
 
 
                 class RouteSelectionOptions(Entity):
@@ -1883,6 +2084,8 @@ class Bgp(Entity):
                     	State information for the route selection options
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1891,7 +2094,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions, self).__init__()
 
                         self.yang_name = "route-selection-options"
                         self.yang_parent_name = "afi-safi"
@@ -1970,7 +2176,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "route-selection-options"
@@ -1996,7 +2205,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+
 
 
                     class State(Entity):
@@ -2008,12 +2218,16 @@ class Bgp(Entity):
                         	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         .. attribute:: ignore_as_path_length
                         
                         	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -2022,12 +2236,16 @@ class Bgp(Entity):
                         	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: true
                         
                         .. attribute:: advertise_inactive_routes
                         
                         	Advertise inactive routes to external peers.  The default is to only advertise active routes
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -2036,12 +2254,16 @@ class Bgp(Entity):
                         	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         .. attribute:: ignore_next_hop_igp_metric
                         
                         	Ignore the IGP metric to the next\-hop when calculating BGP best\-path. The default is to select the route for which the metric to the next\-hop is lowest
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -2053,7 +2275,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "route-selection-options"
@@ -2079,7 +2304,9 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+
+
 
 
                 class UseMultiplePaths(Entity):
@@ -2096,6 +2323,8 @@ class Bgp(Entity):
                     
                     	State parameters relating to multipath
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ebgp
                     
@@ -2115,7 +2344,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths, self).__init__()
 
                         self.yang_name = "use-multiple-paths"
                         self.yang_parent_name = "afi-safi"
@@ -2166,7 +2398,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "use-multiple-paths"
@@ -2182,7 +2417,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config, [u'enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config, ['enabled'], name, value)
+
 
 
                     class State(Entity):
@@ -2194,6 +2430,8 @@ class Bgp(Entity):
                         	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         
@@ -2204,7 +2442,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "use-multiple-paths"
@@ -2220,7 +2461,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State, [u'enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State, ['enabled'], name, value)
+
 
 
                     class Ebgp(Entity):
@@ -2237,6 +2479,8 @@ class Bgp(Entity):
                         	State information relating to eBGP multipath
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2245,7 +2489,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp, self).__init__()
 
                             self.yang_name = "ebgp"
                             self.yang_parent_name = "use-multiple-paths"
@@ -2297,7 +2544,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ebgp"
@@ -2315,7 +2565,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as', u'maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+
 
 
                         class State(Entity):
@@ -2327,6 +2578,8 @@ class Bgp(Entity):
                             	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             .. attribute:: maximum_paths
@@ -2335,6 +2588,8 @@ class Bgp(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**default value**\: 1
                             
@@ -2346,7 +2601,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ebgp"
@@ -2364,7 +2622,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as', u'maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+
+
 
 
                     class Ibgp(Entity):
@@ -2381,6 +2641,8 @@ class Bgp(Entity):
                         	State information relating to iBGP multipath
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2389,7 +2651,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp, self).__init__()
 
                             self.yang_name = "ibgp"
                             self.yang_parent_name = "use-multiple-paths"
@@ -2434,7 +2699,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ibgp"
@@ -2450,7 +2718,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, [u'maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+
 
 
                         class State(Entity):
@@ -2464,6 +2733,8 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**default value**\: 1
                             
                             
@@ -2474,7 +2745,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ibgp"
@@ -2490,7 +2764,10 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, [u'maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+
+
+
 
 
                 class Ipv4Unicast(Entity):
@@ -2512,6 +2789,8 @@ class Bgp(Entity):
                     	State information for common IPv4 and IPv6 unicast parameters
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2520,7 +2799,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
 
                         self.yang_name = "ipv4-unicast"
                         self.yang_parent_name = "afi-safi"
@@ -2563,6 +2845,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2571,7 +2855,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "ipv4-unicast"
@@ -2638,7 +2925,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -2660,7 +2950,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -2675,10 +2966,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -2689,12 +2984,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -2706,7 +3005,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -2728,7 +3030,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
 
 
                     class Config(Entity):
@@ -2751,7 +3055,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ipv4-unicast"
@@ -2767,7 +3074,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config, ['send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config, [u'send_default_route'], name, value)
+
 
 
                     class State(Entity):
@@ -2780,6 +3088,8 @@ class Bgp(Entity):
                         	If set to true, send the default\-route to the neighbour(s)
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         
@@ -2790,7 +3100,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ipv4-unicast"
@@ -2806,7 +3119,9 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State, ['send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State, [u'send_default_route'], name, value)
+
+
 
 
                 class Ipv6Unicast(Entity):
@@ -2828,6 +3143,8 @@ class Bgp(Entity):
                     	State information for common IPv4 and IPv6 unicast parameters
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2836,7 +3153,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
 
                         self.yang_name = "ipv6-unicast"
                         self.yang_parent_name = "afi-safi"
@@ -2879,6 +3199,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2887,7 +3209,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "ipv6-unicast"
@@ -2954,7 +3279,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -2976,7 +3304,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -2991,10 +3320,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -3005,12 +3338,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -3022,7 +3359,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -3044,7 +3384,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
 
 
                     class Config(Entity):
@@ -3067,7 +3409,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ipv6-unicast"
@@ -3083,7 +3428,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config, ['send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config, [u'send_default_route'], name, value)
+
 
 
                     class State(Entity):
@@ -3096,6 +3442,8 @@ class Bgp(Entity):
                         	If set to true, send the default\-route to the neighbour(s)
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         
@@ -3106,7 +3454,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ipv6-unicast"
@@ -3122,7 +3473,9 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State, ['send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State, [u'send_default_route'], name, value)
+
+
 
 
                 class Ipv4LabeledUnicast(Entity):
@@ -3142,7 +3495,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast, self).__init__()
 
                         self.yang_name = "ipv4-labeled-unicast"
                         self.yang_parent_name = "afi-safi"
@@ -3177,6 +3533,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3185,7 +3543,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "ipv4-labeled-unicast"
@@ -3252,7 +3613,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -3274,7 +3638,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -3289,10 +3654,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -3303,12 +3672,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -3320,7 +3693,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -3342,7 +3718,10 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                 class Ipv6LabeledUnicast(Entity):
@@ -3362,7 +3741,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast, self).__init__()
 
                         self.yang_name = "ipv6-labeled-unicast"
                         self.yang_parent_name = "afi-safi"
@@ -3397,6 +3779,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3405,7 +3789,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "ipv6-labeled-unicast"
@@ -3472,7 +3859,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -3494,7 +3884,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -3509,10 +3900,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -3523,12 +3918,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -3540,7 +3939,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -3562,7 +3964,10 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                 class L3vpnIpv4Unicast(Entity):
@@ -3582,7 +3987,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast, self).__init__()
 
                         self.yang_name = "l3vpn-ipv4-unicast"
                         self.yang_parent_name = "afi-safi"
@@ -3617,6 +4025,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3625,7 +4035,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l3vpn-ipv4-unicast"
@@ -3692,7 +4105,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -3714,7 +4130,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -3729,10 +4146,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -3743,12 +4164,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -3760,7 +4185,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -3782,7 +4210,10 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                 class L3vpnIpv6Unicast(Entity):
@@ -3802,7 +4233,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast, self).__init__()
 
                         self.yang_name = "l3vpn-ipv6-unicast"
                         self.yang_parent_name = "afi-safi"
@@ -3837,6 +4271,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3845,7 +4281,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l3vpn-ipv6-unicast"
@@ -3912,7 +4351,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -3934,7 +4376,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -3949,10 +4392,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -3963,12 +4410,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -3980,7 +4431,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -4002,7 +4456,10 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                 class L3vpnIpv4Multicast(Entity):
@@ -4022,7 +4479,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast, self).__init__()
 
                         self.yang_name = "l3vpn-ipv4-multicast"
                         self.yang_parent_name = "afi-safi"
@@ -4057,6 +4517,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4065,7 +4527,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l3vpn-ipv4-multicast"
@@ -4132,7 +4597,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -4154,7 +4622,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -4169,10 +4638,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -4183,12 +4656,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -4200,7 +4677,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -4222,7 +4702,10 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                 class L3vpnIpv6Multicast(Entity):
@@ -4242,7 +4725,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast, self).__init__()
 
                         self.yang_name = "l3vpn-ipv6-multicast"
                         self.yang_parent_name = "afi-safi"
@@ -4277,6 +4763,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4285,7 +4773,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l3vpn-ipv6-multicast"
@@ -4352,7 +4843,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -4374,7 +4868,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -4389,10 +4884,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -4403,12 +4902,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -4420,7 +4923,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -4442,7 +4948,10 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                 class L2vpnVpls(Entity):
@@ -4462,7 +4971,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls, self).__init__()
 
                         self.yang_name = "l2vpn-vpls"
                         self.yang_parent_name = "afi-safi"
@@ -4497,6 +5009,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4505,7 +5019,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l2vpn-vpls"
@@ -4572,7 +5089,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -4594,7 +5114,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -4609,10 +5130,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -4623,12 +5148,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -4640,7 +5169,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -4662,7 +5194,10 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                 class L2vpnEvpn(Entity):
@@ -4682,7 +5217,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn, self).__init__()
 
                         self.yang_name = "l2vpn-evpn"
                         self.yang_parent_name = "afi-safi"
@@ -4717,6 +5255,8 @@ class Bgp(Entity):
                         	State information relating to the prefix\-limit for the AFI\-SAFI
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4725,7 +5265,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l2vpn-evpn"
@@ -4792,7 +5335,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
@@ -4814,7 +5360,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                         class State(Entity):
@@ -4829,10 +5376,14 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prevent_teardown
                             
                             	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -4843,12 +5394,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..100
                             
+                            	**config**\: False
+                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**config**\: False
                             
                             	**units**\: seconds
                             
@@ -4860,7 +5415,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
@@ -4882,7 +5440,12 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
+
+
 
 
         class DynamicNeighborPrefixes(Entity):
@@ -4910,7 +5473,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Global.DynamicNeighborPrefixes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Global.DynamicNeighborPrefixes, self).__init__()
 
                 self.yang_name = "dynamic-neighbor-prefixes"
                 self.yang_parent_name = "global"
@@ -4959,6 +5525,8 @@ class Bgp(Entity):
                 	Operational state parameters relating to the source prefix for the dynamic BGP neighbor connections
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -4967,7 +5535,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix, self).__init__()
 
                     self.yang_name = "dynamic-neighbor-prefix"
                     self.yang_parent_name = "dynamic-neighbor-prefixes"
@@ -5028,7 +5599,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "dynamic-neighbor-prefix"
@@ -5049,6 +5623,7 @@ class Bgp(Entity):
                         self._perform_setattr(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.Config, [u'prefix', u'peer_group'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Operational state parameters relating to the source
@@ -5067,12 +5642,16 @@ class Bgp(Entity):
                     
                     			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))/(12[0\-8]\|1[0\-1][0\-9]\|[1\-9][0\-9]\|[0\-9])$
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_group
                     
                     	The peer\-group within which the dynamic neighbor will be configured.  The configuration parameters used for the dynamic neighbor are those specified within the referenced peer group
                     	**type**\: str
                     
                     	**refers to**\:  :py:class:`peer_group_name <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Config>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5082,7 +5661,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "dynamic-neighbor-prefix"
@@ -5103,6 +5685,10 @@ class Bgp(Entity):
                         self._perform_setattr(Bgp.Global.DynamicNeighborPrefixes.DynamicNeighborPrefix.State, [u'prefix', u'peer_group'], name, value)
 
 
+
+
+
+
     class Neighbors(Entity):
         """
         Configuration for BGP neighbors
@@ -5120,7 +5706,10 @@ class Bgp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Bgp.Neighbors, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bgp.Neighbors, self).__init__()
 
             self.yang_name = "neighbors"
             self.yang_parent_name = "bgp"
@@ -5168,6 +5757,8 @@ class Bgp(Entity):
             
             	State information relating to the BGP neighbor
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State>`
+            
+            	**config**\: False
             
             .. attribute:: timers
             
@@ -5237,7 +5828,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.Neighbors.Neighbor, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Neighbors.Neighbor, self).__init__()
 
                 self.yang_name = "neighbor"
                 self.yang_parent_name = "neighbors"
@@ -5401,7 +5995,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "neighbor"
@@ -5437,7 +6034,8 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Neighbors.Neighbor.Config, [u'peer_group', u'neighbor_address', u'enabled', u'peer_as', u'local_as', u'peer_type', u'auth_password', u'remove_private_as', u'route_flap_damping', u'send_community', u'description'], name, value)
+                    self._perform_setattr(Bgp.Neighbors.Neighbor.Config, [u'peer_group', u'neighbor_address', u'enabled', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description'], name, value)
+
 
 
             class State(Entity):
@@ -5450,6 +6048,8 @@ class Bgp(Entity):
                 	**type**\: str
                 
                 	**refers to**\:  :py:class:`peer_group_name <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup>`
+                
+                	**config**\: False
                 
                 .. attribute:: neighbor_address
                 
@@ -5464,10 +6064,14 @@ class Bgp(Entity):
                 
                 			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                 
+                	**config**\: False
+                
                 .. attribute:: enabled
                 
                 	Whether the BGP peer is enabled. In cases where the enabled leaf is set to false, the local system should not initiate connections to the neighbor, and should not respond to TCP connections attempts from the neighbor. If the state of the BGP session is ESTABLISHED at the time that this leaf is set to false, the BGP session should be ceased
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: true
                 
@@ -5478,6 +6082,8 @@ class Bgp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: local_as
                 
                 	The local autonomous system number that is to be used when establishing sessions with the remote peer or peer group, if this differs from the global BGP router autonomous system number
@@ -5485,25 +6091,35 @@ class Bgp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peer_type
                 
                 	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
                 	**type**\:  :py:class:`PeerType <ydk.models.openconfig.openconfig_bgp_types.PeerType>`
+                
+                	**config**\: False
                 
                 .. attribute:: auth_password
                 
                 	Configures an MD5 authentication password for use with neighboring devices
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: remove_private_as
                 
                 	Remove private AS numbers from updates sent to peers \- when this leaf is not specified, the AS\_PATH attribute should be sent to the peer unchanged
                 	**type**\:  :py:class:`REMOVEPRIVATEASOPTION <ydk.models.openconfig.openconfig_bgp_types.REMOVEPRIVATEASOPTION>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_flap_damping
                 
                 	Enable route flap damping
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -5512,6 +6128,8 @@ class Bgp(Entity):
                 	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
                 	**type**\:  :py:class:`CommunityType <ydk.models.openconfig.openconfig_bgp_types.CommunityType>`
                 
+                	**config**\: False
+                
                 	**default value**\: NONE
                 
                 .. attribute:: description
@@ -5519,10 +6137,14 @@ class Bgp(Entity):
                 	An optional textual description (intended primarily for use with a peer or group
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: session_state
                 
                 	Operational state of the BGP peer
                 	**type**\:  :py:class:`SessionState <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.SessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: last_established
                 
@@ -5531,6 +6153,8 @@ class Bgp(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: established_transitions
                 
                 	Number of transitions to the Established state for the neighbor session.  This value is analogous to the bgpPeerFsmEstablishedTransitions object from the standard BGP\-4 MIB
@@ -5538,25 +6162,35 @@ class Bgp(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: supported_capabilities
                 
                 	BGP capabilities negotiated as supported with the peer
                 	**type**\: list of   :py:class:`BGPCAPABILITY <ydk.models.openconfig.openconfig_bgp_types.BGPCAPABILITY>`
+                
+                	**config**\: False
                 
                 .. attribute:: messages
                 
                 	Counters for BGP messages sent and received from the neighbor
                 	**type**\:  :py:class:`Messages <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Messages>`
                 
+                	**config**\: False
+                
                 .. attribute:: queues
                 
                 	Counters related to queued messages associated with the BGP neighbor
                 	**type**\:  :py:class:`Queues <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Queues>`
                 
+                	**config**\: False
+                
                 .. attribute:: dynamically_configured
                 
                 	When this leaf is set to true, the peer was configured dynamically due to an inbound connection request from a specified source prefix within a dynamic\-neighbor\-prefix
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -5568,7 +6202,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "neighbor"
@@ -5622,7 +6259,7 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Neighbors.Neighbor.State, [u'peer_group', u'neighbor_address', u'enabled', u'peer_as', u'local_as', u'peer_type', u'auth_password', u'remove_private_as', u'route_flap_damping', u'send_community', u'description', u'session_state', u'last_established', u'established_transitions', u'supported_capabilities', u'dynamically_configured'], name, value)
+                    self._perform_setattr(Bgp.Neighbors.Neighbor.State, [u'peer_group', u'neighbor_address', u'enabled', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description', u'session_state', u'last_established', u'established_transitions', u'supported_capabilities', u'dynamically_configured'], name, value)
 
                 class SessionState(Enum):
                     """
@@ -5694,10 +6331,14 @@ class Bgp(Entity):
                     	Counters relating to BGP messages sent to the neighbor
                     	**type**\:  :py:class:`Sent <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Messages.Sent>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: received
                     
                     	Counters for BGP messages received from the neighbor
                     	**type**\:  :py:class:`Received <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Messages.Received>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5707,7 +6348,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.State.Messages, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.State.Messages, self).__init__()
 
                         self.yang_name = "messages"
                         self.yang_parent_name = "state"
@@ -5742,12 +6386,16 @@ class Bgp(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: notification
                         
                         	Number of BGP NOTIFICATION messages indicating an error condition has occurred exchanged
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -5757,7 +6405,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.State.Messages.Sent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.State.Messages.Sent, self).__init__()
 
                             self.yang_name = "sent"
                             self.yang_parent_name = "messages"
@@ -5778,6 +6429,7 @@ class Bgp(Entity):
                             self._perform_setattr(Bgp.Neighbors.Neighbor.State.Messages.Sent, [u'update', u'notification'], name, value)
 
 
+
                     class Received(Entity):
                         """
                         Counters for BGP messages received from the neighbor
@@ -5789,12 +6441,16 @@ class Bgp(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: notification
                         
                         	Number of BGP NOTIFICATION messages indicating an error condition has occurred exchanged
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -5804,7 +6460,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.State.Messages.Received, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.State.Messages.Received, self).__init__()
 
                             self.yang_name = "received"
                             self.yang_parent_name = "messages"
@@ -5825,6 +6484,8 @@ class Bgp(Entity):
                             self._perform_setattr(Bgp.Neighbors.Neighbor.State.Messages.Received, [u'update', u'notification'], name, value)
 
 
+
+
                 class Queues(Entity):
                     """
                     Counters related to queued messages associated with the
@@ -5837,12 +6498,16 @@ class Bgp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output
                     
                     	The number of messages queued to be sent to the peer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -5852,7 +6517,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.State.Queues, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.State.Queues, self).__init__()
 
                         self.yang_name = "queues"
                         self.yang_parent_name = "state"
@@ -5873,6 +6541,8 @@ class Bgp(Entity):
                         self._perform_setattr(Bgp.Neighbors.Neighbor.State.Queues, [u'input', u'output'], name, value)
 
 
+
+
             class Timers(Entity):
                 """
                 Timers related to a BGP neighbor
@@ -5887,6 +6557,8 @@ class Bgp(Entity):
                 	State information relating to the timers used for the BGP neighbor
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Timers.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -5895,7 +6567,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.Timers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.Timers, self).__init__()
 
                     self.yang_name = "timers"
                     self.yang_parent_name = "neighbor"
@@ -5968,7 +6643,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.Timers.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.Timers.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "timers"
@@ -5990,7 +6668,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.Config, [u'connect_retry', u'hold_time', u'keepalive_interval', u'minimum_advertisement_interval'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.Config, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval'], name, value)
+
 
 
                 class State(Entity):
@@ -6005,6 +6684,8 @@ class Bgp(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     	**default value**\: 30
                     
                     .. attribute:: hold_time
@@ -6013,6 +6694,8 @@ class Bgp(Entity):
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
                     
                     	**default value**\: 90
                     
@@ -6023,6 +6706,8 @@ class Bgp(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     	**default value**\: 30
                     
                     .. attribute:: minimum_advertisement_interval
@@ -6031,6 +6716,8 @@ class Bgp(Entity):
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
                     
                     	**default value**\: 30
                     
@@ -6041,6 +6728,8 @@ class Bgp(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -6049,7 +6738,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.Timers.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.Timers.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "timers"
@@ -6073,7 +6765,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.State, [u'connect_retry', u'hold_time', u'keepalive_interval', u'minimum_advertisement_interval', u'negotiated_hold_time'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Timers.State, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval', u'negotiated_hold_time'], name, value)
+
+
 
 
             class Transport(Entity):
@@ -6090,6 +6784,8 @@ class Bgp(Entity):
                 	State information relating to the transport session(s) used for the BGP neighbor
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Transport.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -6098,7 +6794,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.Transport, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.Transport, self).__init__()
 
                     self.yang_name = "transport"
                     self.yang_parent_name = "neighbor"
@@ -6171,7 +6870,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.Transport.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.Transport.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "transport"
@@ -6193,7 +6895,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.Config, [u'tcp_mss', u'mtu_discovery', u'passive_mode', u'local_address'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.Config, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address'], name, value)
+
 
 
                 class State(Entity):
@@ -6208,10 +6911,14 @@ class Bgp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: mtu_discovery
                     
                     	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -6219,6 +6926,8 @@ class Bgp(Entity):
                     
                     	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -6237,12 +6946,16 @@ class Bgp(Entity):
                     
                     		**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_port
                     
                     	Local TCP port being used for the TCP session supporting the BGP session
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_address
                     
@@ -6257,12 +6970,16 @@ class Bgp(Entity):
                     
                     			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_port
                     
                     	Remote port being used by the peer for the TCP session supporting the BGP session
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -6272,7 +6989,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.Transport.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.Transport.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "transport"
@@ -6300,7 +7020,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.State, [u'tcp_mss', u'mtu_discovery', u'passive_mode', u'local_address', u'local_port', u'remote_address', u'remote_port'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.Transport.State, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address', u'local_port', u'remote_address', u'remote_port'], name, value)
+
+
 
 
             class ErrorHandling(Entity):
@@ -6318,6 +7040,8 @@ class Bgp(Entity):
                 	State information relating to enhanced error handling mechanisms for the BGP neighbor
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ErrorHandling.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -6326,7 +7050,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.ErrorHandling, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.ErrorHandling, self).__init__()
 
                     self.yang_name = "error-handling"
                     self.yang_parent_name = "neighbor"
@@ -6371,7 +7098,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.ErrorHandling.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.ErrorHandling.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "error-handling"
@@ -6387,7 +7117,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.Config, [u'treat_as_withdraw'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.Config, ['treat_as_withdraw'], name, value)
+
 
 
                 class State(Entity):
@@ -6400,6 +7131,8 @@ class Bgp(Entity):
                     	Specify whether erroneous UPDATE messages for which the NLRI can be extracted are reated as though the NLRI is withdrawn \- avoiding session reset
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: false
                     
                     .. attribute:: erroneous_update_messages
@@ -6409,6 +7142,8 @@ class Bgp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -6417,7 +7152,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.ErrorHandling.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.ErrorHandling.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "error-handling"
@@ -6435,7 +7173,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.State, [u'treat_as_withdraw', u'erroneous_update_messages'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.ErrorHandling.State, ['treat_as_withdraw', u'erroneous_update_messages'], name, value)
+
+
 
 
             class GracefulRestart(Entity):
@@ -6452,6 +7192,8 @@ class Bgp(Entity):
                 	State information associated with graceful\-restart
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -6460,7 +7202,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.GracefulRestart, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.GracefulRestart, self).__init__()
 
                     self.yang_name = "graceful-restart"
                     self.yang_parent_name = "neighbor"
@@ -6520,7 +7265,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.GracefulRestart.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.GracefulRestart.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "graceful-restart"
@@ -6542,7 +7290,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.Config, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.Config, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+
 
 
                 class State(Entity):
@@ -6554,12 +7303,16 @@ class Bgp(Entity):
                     	Enable or disable the graceful\-restart capability
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: restart_time
                     
                     	Estimated time (in seconds) for the local BGP speaker to restart a session. This value is advertise in the graceful restart BGP capability.  This is a 12\-bit value, referred to as Restart Time in RFC4724.  Per RFC4724, the suggested default value is <= the hold\-time value
                     	**type**\: int
                     
                     	**range:** 0..4096
+                    
+                    	**config**\: False
                     
                     .. attribute:: stale_routes_time
                     
@@ -6568,10 +7321,14 @@ class Bgp(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     .. attribute:: helper_only
                     
                     	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_restart_time
                     
@@ -6580,20 +7337,28 @@ class Bgp(Entity):
                     
                     	**range:** 0..4096
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_restarting
                     
                     	This flag indicates whether the remote neighbor is currently in the process of restarting, and hence received routes are currently stale
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_restarting
                     
                     	This flag indicates whether the local neighbor is currently restarting. The flag is unset after all NLRI have been advertised to the peer, and the End\-of\-RIB (EOR) marker has been unset
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: mode
                     
                     	Ths leaf indicates the mode of operation of BGP graceful restart with the peer
                     	**type**\:  :py:class:`Mode <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart.State.Mode>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6603,7 +7368,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.GracefulRestart.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.GracefulRestart.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "graceful-restart"
@@ -6633,7 +7401,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.State, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only', u'peer_restart_time', u'peer_restarting', u'local_restarting', u'mode'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only', u'peer_restart_time', u'peer_restarting', u'local_restarting', u'mode'], name, value)
 
                     class Mode(Enum):
                         """
@@ -6679,6 +7447,8 @@ class Bgp(Entity):
 
 
 
+
+
             class LoggingOptions(Entity):
                 """
                 Logging options for events related to the BGP neighbor or
@@ -6694,6 +7464,8 @@ class Bgp(Entity):
                 	State information relating to logging for the BGP neighbor or group
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.LoggingOptions.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -6702,7 +7474,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.LoggingOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.LoggingOptions, self).__init__()
 
                     self.yang_name = "logging-options"
                     self.yang_parent_name = "neighbor"
@@ -6746,7 +7521,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.LoggingOptions.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.LoggingOptions.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "logging-options"
@@ -6762,7 +7540,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.LoggingOptions.Config, [u'log_neighbor_state_changes'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.LoggingOptions.Config, ['log_neighbor_state_changes'], name, value)
+
 
 
                 class State(Entity):
@@ -6775,6 +7554,8 @@ class Bgp(Entity):
                     	Configure logging of peer state changes.  Default is to enable logging of peer state changes
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: true
                     
                     
@@ -6785,7 +7566,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.LoggingOptions.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.LoggingOptions.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "logging-options"
@@ -6801,7 +7585,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.LoggingOptions.State, [u'log_neighbor_state_changes'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.LoggingOptions.State, ['log_neighbor_state_changes'], name, value)
+
+
 
 
             class EbgpMultihop(Entity):
@@ -6818,6 +7604,8 @@ class Bgp(Entity):
                 	State information for eBGP multihop, for the BGP neighbor or group
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.EbgpMultihop.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -6826,7 +7614,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.EbgpMultihop, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.EbgpMultihop, self).__init__()
 
                     self.yang_name = "ebgp-multihop"
                     self.yang_parent_name = "neighbor"
@@ -6877,7 +7668,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.EbgpMultihop.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.EbgpMultihop.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ebgp-multihop"
@@ -6895,7 +7689,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.EbgpMultihop.Config, [u'enabled', u'multihop_ttl'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.EbgpMultihop.Config, ['enabled', 'multihop_ttl'], name, value)
+
 
 
                 class State(Entity):
@@ -6908,6 +7703,8 @@ class Bgp(Entity):
                     	When enabled the referenced group or neighbors are permitted to be indirectly connected \- including cases where the TTL can be decremented between the BGP peers
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: false
                     
                     .. attribute:: multihop_ttl
@@ -6917,6 +7714,8 @@ class Bgp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -6925,7 +7724,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.EbgpMultihop.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.EbgpMultihop.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ebgp-multihop"
@@ -6943,7 +7745,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.EbgpMultihop.State, [u'enabled', u'multihop_ttl'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.EbgpMultihop.State, ['enabled', 'multihop_ttl'], name, value)
+
+
 
 
             class RouteReflector(Entity):
@@ -6960,6 +7764,8 @@ class Bgp(Entity):
                 	State information relating to route reflection for the BGPgroup
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.RouteReflector.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -6968,7 +7774,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.RouteReflector, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.RouteReflector, self).__init__()
 
                     self.yang_name = "route-reflector"
                     self.yang_parent_name = "neighbor"
@@ -7025,7 +7834,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.RouteReflector.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.RouteReflector.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "route-reflector"
@@ -7043,7 +7855,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.RouteReflector.Config, [u'route_reflector_cluster_id', u'route_reflector_client'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.RouteReflector.Config, ['route_reflector_cluster_id', 'route_reflector_client'], name, value)
+
 
 
                 class State(Entity):
@@ -7064,10 +7877,14 @@ class Bgp(Entity):
                     
                     			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_reflector_client
                     
                     	Configure the neighbor as a route reflector client
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -7079,7 +7896,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.RouteReflector.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.RouteReflector.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "route-reflector"
@@ -7097,7 +7917,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.RouteReflector.State, [u'route_reflector_cluster_id', u'route_reflector_client'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.RouteReflector.State, ['route_reflector_cluster_id', 'route_reflector_client'], name, value)
+
+
 
 
             class AsPathOptions(Entity):
@@ -7115,6 +7937,8 @@ class Bgp(Entity):
                 	State information relating to the AS\_PATH manipulation mechanisms for the BGP peer or group
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AsPathOptions.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -7123,7 +7947,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.AsPathOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.AsPathOptions, self).__init__()
 
                     self.yang_name = "as-path-options"
                     self.yang_parent_name = "neighbor"
@@ -7176,7 +8003,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.AsPathOptions.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.AsPathOptions.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "as-path-options"
@@ -7194,7 +8024,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.AsPathOptions.Config, [u'allow_own_as', u'replace_peer_as'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.AsPathOptions.Config, ['allow_own_as', 'replace_peer_as'], name, value)
+
 
 
                 class State(Entity):
@@ -7209,12 +8040,16 @@ class Bgp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**default value**\: 0
                     
                     .. attribute:: replace_peer_as
                     
                     	Replace occurrences of the peer's AS in the AS\_PATH with the local autonomous system number
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -7226,7 +8061,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.AsPathOptions.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.AsPathOptions.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "as-path-options"
@@ -7244,7 +8082,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.AsPathOptions.State, [u'allow_own_as', u'replace_peer_as'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.AsPathOptions.State, ['allow_own_as', 'replace_peer_as'], name, value)
+
+
 
 
             class AddPaths(Entity):
@@ -7262,6 +8102,8 @@ class Bgp(Entity):
                 	State information associated with ADD\_PATHS
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AddPaths.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -7270,7 +8112,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.AddPaths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.AddPaths, self).__init__()
 
                     self.yang_name = "add-paths"
                     self.yang_parent_name = "neighbor"
@@ -7327,7 +8172,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.AddPaths.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.AddPaths.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "add-paths"
@@ -7347,7 +8195,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.AddPaths.Config, [u'receive', u'send_max', u'eligible_prefix_policy'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.AddPaths.Config, ['receive', 'send_max', 'eligible_prefix_policy'], name, value)
+
 
 
                 class State(Entity):
@@ -7359,6 +8208,8 @@ class Bgp(Entity):
                     	Enable ability to receive multiple path advertisements for an NLRI from the neighbor or group
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: false
                     
                     .. attribute:: send_max
@@ -7368,12 +8219,16 @@ class Bgp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: eligible_prefix_policy
                     
                     	A reference to a routing policy which can be used to restrict the prefixes for which add\-paths is enabled
                     	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7383,7 +8238,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.AddPaths.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.AddPaths.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "add-paths"
@@ -7403,7 +8261,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.AddPaths.State, [u'receive', u'send_max', u'eligible_prefix_policy'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.AddPaths.State, ['receive', 'send_max', 'eligible_prefix_policy'], name, value)
+
+
 
 
             class UseMultiplePaths(Entity):
@@ -7421,6 +8281,8 @@ class Bgp(Entity):
                 	State parameters relating to multipath
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: ebgp
                 
                 	Multipath configuration for eBGP
@@ -7434,7 +8296,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.UseMultiplePaths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.UseMultiplePaths, self).__init__()
 
                     self.yang_name = "use-multiple-paths"
                     self.yang_parent_name = "neighbor"
@@ -7481,7 +8346,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.UseMultiplePaths.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.UseMultiplePaths.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "use-multiple-paths"
@@ -7497,7 +8365,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Config, [u'enabled'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Config, ['enabled'], name, value)
+
 
 
                 class State(Entity):
@@ -7509,6 +8378,8 @@ class Bgp(Entity):
                     	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: false
                     
                     
@@ -7519,7 +8390,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.UseMultiplePaths.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.UseMultiplePaths.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "use-multiple-paths"
@@ -7535,7 +8409,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.State, [u'enabled'], name, value)
+                        self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.State, ['enabled'], name, value)
+
 
 
                 class Ebgp(Entity):
@@ -7552,6 +8427,8 @@ class Bgp(Entity):
                     	State information relating to eBGP multipath
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -7560,7 +8437,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp, self).__init__()
 
                         self.yang_name = "ebgp"
                         self.yang_parent_name = "use-multiple-paths"
@@ -7603,7 +8483,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ebgp"
@@ -7619,7 +8502,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as'], name, value)
+
 
 
                     class State(Entity):
@@ -7631,6 +8515,8 @@ class Bgp(Entity):
                         	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         
@@ -7641,7 +8527,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ebgp"
@@ -7657,7 +8546,10 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State, ['allow_multiple_as'], name, value)
+
+
+
 
 
             class ApplyPolicy(Entity):
@@ -7677,6 +8569,8 @@ class Bgp(Entity):
                 	Operational state for routing policy
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ApplyPolicy.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -7685,7 +8579,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.ApplyPolicy, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.ApplyPolicy, self).__init__()
 
                     self.yang_name = "apply-policy"
                     self.yang_parent_name = "neighbor"
@@ -7749,7 +8646,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.ApplyPolicy.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.ApplyPolicy.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "apply-policy"
@@ -7774,6 +8674,7 @@ class Bgp(Entity):
                         self._perform_setattr(Bgp.Neighbors.Neighbor.ApplyPolicy.Config, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Operational state for routing policy
@@ -7785,10 +8686,14 @@ class Bgp(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: default_import_policy
                     
                     	explicitly set a default policy if no policy definition in the import policy chain is satisfied
                     	**type**\:  :py:class:`DefaultPolicyType <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType>`
+                    
+                    	**config**\: False
                     
                     	**default value**\: REJECT_ROUTE
                     
@@ -7799,10 +8704,14 @@ class Bgp(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: default_export_policy
                     
                     	explicitly set a default policy if no policy definition in the export policy chain is satisfied
                     	**type**\:  :py:class:`DefaultPolicyType <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType>`
+                    
+                    	**config**\: False
                     
                     	**default value**\: REJECT_ROUTE
                     
@@ -7814,7 +8723,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.ApplyPolicy.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.ApplyPolicy.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "apply-policy"
@@ -7839,6 +8751,8 @@ class Bgp(Entity):
                         self._perform_setattr(Bgp.Neighbors.Neighbor.ApplyPolicy.State, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
 
 
+
+
             class AfiSafis(Entity):
                 """
                 Per\-address\-family configuration parameters associated with
@@ -7857,7 +8771,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.Neighbors.Neighbor.AfiSafis, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Neighbors.Neighbor.AfiSafis, self).__init__()
 
                     self.yang_name = "afi-safis"
                     self.yang_parent_name = "neighbor"
@@ -7894,6 +8811,8 @@ class Bgp(Entity):
                     
                     	State information relating to the AFI\-SAFI
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: graceful_restart
                     
@@ -7968,7 +8887,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi, self).__init__()
 
                         self.yang_name = "afi-safi"
                         self.yang_parent_name = "afi-safis"
@@ -8071,7 +8993,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "afi-safi"
@@ -8089,7 +9014,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config, ['afi_safi_name', 'enabled'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config, [u'afi_safi_name', u'enabled'], name, value)
+
 
 
                     class State(Entity):
@@ -8101,10 +9027,14 @@ class Bgp(Entity):
                         	AFI,SAFI
                         	**type**\:  :py:class:`AFISAFITYPE <ydk.models.openconfig.openconfig_bgp_types.AFISAFITYPE>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: enabled
                         
                         	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -8113,10 +9043,14 @@ class Bgp(Entity):
                         	This value indicates whether a particular AFI\-SAFI has been succesfully negotiated with the peer. An AFI\-SAFI may be enabled in the current running configuration, but a session restart may be required in order to negotiate the new capability
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefixes
                         
                         	Prefix counters for the BGP session
                         	**type**\:  :py:class:`Prefixes <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8126,7 +9060,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "afi-safi"
@@ -8150,7 +9087,7 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State, ['afi_safi_name', 'enabled', u'active'], name, value)
+                            self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State, [u'afi_safi_name', u'enabled', u'active'], name, value)
 
 
                         class Prefixes(Entity):
@@ -8164,6 +9101,8 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: sent
                             
                             	The number of prefixes advertised to the neighbor
@@ -8171,12 +9110,16 @@ class Bgp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: installed
                             
                             	The number of advertised prefixes installed in the Loc\-RIB
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8186,7 +9129,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes, self).__init__()
 
                                 self.yang_name = "prefixes"
                                 self.yang_parent_name = "state"
@@ -8209,6 +9155,8 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes, [u'received', u'sent', u'installed'], name, value)
 
 
+
+
                     class GracefulRestart(Entity):
                         """
                         Parameters relating to BGP graceful\-restart
@@ -8223,6 +9171,8 @@ class Bgp(Entity):
                         	State information for BGP graceful\-restart
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -8231,7 +9181,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart, self).__init__()
 
                             self.yang_name = "graceful-restart"
                             self.yang_parent_name = "afi-safi"
@@ -8274,7 +9227,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "graceful-restart"
@@ -8290,7 +9246,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config, ['enabled'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config, [u'enabled'], name, value)
+
 
 
                         class State(Entity):
@@ -8302,6 +9259,8 @@ class Bgp(Entity):
                             	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             .. attribute:: received
@@ -8309,10 +9268,14 @@ class Bgp(Entity):
                             	This leaf indicates whether the neighbor advertised the ability to support graceful\-restart for this AFI\-SAFI
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: advertised
                             
                             	This leaf indicates whether the ability to support graceful\-restart has been advertised to the peer
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -8322,7 +9285,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "graceful-restart"
@@ -8342,7 +9308,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State, ['enabled', u'received', u'advertised'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State, [u'enabled', u'received', u'advertised'], name, value)
+
+
 
 
                     class ApplyPolicy(Entity):
@@ -8362,6 +9330,8 @@ class Bgp(Entity):
                         	Operational state for routing policy
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -8370,7 +9340,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy, self).__init__()
 
                             self.yang_name = "apply-policy"
                             self.yang_parent_name = "afi-safi"
@@ -8434,7 +9407,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "apply-policy"
@@ -8459,6 +9435,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state for routing policy
@@ -8470,10 +9447,14 @@ class Bgp(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: default_import_policy
                             
                             	explicitly set a default policy if no policy definition in the import policy chain is satisfied
                             	**type**\:  :py:class:`DefaultPolicyType <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType>`
+                            
+                            	**config**\: False
                             
                             	**default value**\: REJECT_ROUTE
                             
@@ -8484,10 +9465,14 @@ class Bgp(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: default_export_policy
                             
                             	explicitly set a default policy if no policy definition in the export policy chain is satisfied
                             	**type**\:  :py:class:`DefaultPolicyType <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType>`
+                            
+                            	**config**\: False
                             
                             	**default value**\: REJECT_ROUTE
                             
@@ -8499,7 +9484,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "apply-policy"
@@ -8524,6 +9512,8 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
 
 
+
+
                     class Ipv4Unicast(Entity):
                         """
                         IPv4 unicast configuration options
@@ -8543,6 +9533,8 @@ class Bgp(Entity):
                         	State information for common IPv4 and IPv6 unicast parameters
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -8551,7 +9543,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
 
                             self.yang_name = "ipv4-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -8594,6 +9589,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -8602,7 +9599,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "ipv4-unicast"
@@ -8669,7 +9669,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -8691,7 +9694,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -8706,10 +9710,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -8720,12 +9728,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -8737,7 +9749,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -8759,7 +9774,9 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
 
 
                         class Config(Entity):
@@ -8782,7 +9799,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ipv4-unicast"
@@ -8798,7 +9818,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config, ['send_default_route'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config, [u'send_default_route'], name, value)
+
 
 
                         class State(Entity):
@@ -8811,6 +9832,8 @@ class Bgp(Entity):
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             
@@ -8821,7 +9844,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ipv4-unicast"
@@ -8837,7 +9863,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State, ['send_default_route'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State, [u'send_default_route'], name, value)
+
+
 
 
                     class Ipv6Unicast(Entity):
@@ -8859,6 +9887,8 @@ class Bgp(Entity):
                         	State information for common IPv4 and IPv6 unicast parameters
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -8867,7 +9897,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
 
                             self.yang_name = "ipv6-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -8910,6 +9943,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -8918,7 +9953,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "ipv6-unicast"
@@ -8985,7 +10023,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -9007,7 +10048,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -9022,10 +10064,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -9036,12 +10082,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -9053,7 +10103,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -9075,7 +10128,9 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
 
 
                         class Config(Entity):
@@ -9098,7 +10153,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ipv6-unicast"
@@ -9114,7 +10172,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config, ['send_default_route'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config, [u'send_default_route'], name, value)
+
 
 
                         class State(Entity):
@@ -9127,6 +10186,8 @@ class Bgp(Entity):
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             
@@ -9137,7 +10198,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ipv6-unicast"
@@ -9153,7 +10217,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State, ['send_default_route'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State, [u'send_default_route'], name, value)
+
+
 
 
                     class Ipv4LabeledUnicast(Entity):
@@ -9173,7 +10239,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast, self).__init__()
 
                             self.yang_name = "ipv4-labeled-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -9208,6 +10277,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -9216,7 +10287,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "ipv4-labeled-unicast"
@@ -9283,7 +10357,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -9305,7 +10382,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -9320,10 +10398,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -9334,12 +10416,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -9351,7 +10437,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -9373,7 +10462,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class Ipv6LabeledUnicast(Entity):
@@ -9393,7 +10485,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast, self).__init__()
 
                             self.yang_name = "ipv6-labeled-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -9428,6 +10523,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -9436,7 +10533,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "ipv6-labeled-unicast"
@@ -9503,7 +10603,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -9525,7 +10628,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -9540,10 +10644,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -9554,12 +10662,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -9571,7 +10683,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -9593,7 +10708,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L3vpnIpv4Unicast(Entity):
@@ -9613,7 +10731,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast, self).__init__()
 
                             self.yang_name = "l3vpn-ipv4-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -9648,6 +10769,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -9656,7 +10779,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l3vpn-ipv4-unicast"
@@ -9723,7 +10849,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -9745,7 +10874,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -9760,10 +10890,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -9774,12 +10908,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -9791,7 +10929,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -9813,7 +10954,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L3vpnIpv6Unicast(Entity):
@@ -9833,7 +10977,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast, self).__init__()
 
                             self.yang_name = "l3vpn-ipv6-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -9868,6 +11015,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -9876,7 +11025,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l3vpn-ipv6-unicast"
@@ -9943,7 +11095,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -9965,7 +11120,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -9980,10 +11136,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -9994,12 +11154,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -10011,7 +11175,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -10033,7 +11200,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L3vpnIpv4Multicast(Entity):
@@ -10053,7 +11223,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast, self).__init__()
 
                             self.yang_name = "l3vpn-ipv4-multicast"
                             self.yang_parent_name = "afi-safi"
@@ -10088,6 +11261,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -10096,7 +11271,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l3vpn-ipv4-multicast"
@@ -10163,7 +11341,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -10185,7 +11366,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -10200,10 +11382,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -10214,12 +11400,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -10231,7 +11421,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -10253,7 +11446,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L3vpnIpv6Multicast(Entity):
@@ -10273,7 +11469,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast, self).__init__()
 
                             self.yang_name = "l3vpn-ipv6-multicast"
                             self.yang_parent_name = "afi-safi"
@@ -10308,6 +11507,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -10316,7 +11517,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l3vpn-ipv6-multicast"
@@ -10383,7 +11587,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -10405,7 +11612,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -10420,10 +11628,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -10434,12 +11646,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -10451,7 +11667,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -10473,7 +11692,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L2vpnVpls(Entity):
@@ -10493,7 +11715,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls, self).__init__()
 
                             self.yang_name = "l2vpn-vpls"
                             self.yang_parent_name = "afi-safi"
@@ -10528,6 +11753,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -10536,7 +11763,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l2vpn-vpls"
@@ -10603,7 +11833,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -10625,7 +11858,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -10640,10 +11874,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -10654,12 +11892,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -10671,7 +11913,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -10693,7 +11938,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L2vpnEvpn(Entity):
@@ -10713,7 +11961,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn, self).__init__()
 
                             self.yang_name = "l2vpn-evpn"
                             self.yang_parent_name = "afi-safi"
@@ -10748,6 +11999,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -10756,7 +12009,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l2vpn-evpn"
@@ -10823,7 +12079,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -10845,7 +12104,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -10860,10 +12120,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -10874,12 +12138,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -10891,7 +12159,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -10913,7 +12184,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class UseMultiplePaths(Entity):
@@ -10931,6 +12205,8 @@ class Bgp(Entity):
                         	State parameters relating to multipath
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ebgp
                         
                         	Multipath configuration for eBGP
@@ -10944,7 +12220,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths, self).__init__()
 
                             self.yang_name = "use-multiple-paths"
                             self.yang_parent_name = "afi-safi"
@@ -10991,7 +12270,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "use-multiple-paths"
@@ -11007,7 +12289,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config, [u'enabled'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config, ['enabled'], name, value)
+
 
 
                         class State(Entity):
@@ -11019,6 +12302,8 @@ class Bgp(Entity):
                             	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             
@@ -11029,7 +12314,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "use-multiple-paths"
@@ -11045,7 +12333,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State, [u'enabled'], name, value)
+                                self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State, ['enabled'], name, value)
+
 
 
                         class Ebgp(Entity):
@@ -11062,6 +12351,8 @@ class Bgp(Entity):
                             	State information relating to eBGP multipath
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -11070,7 +12361,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp, self).__init__()
 
                                 self.yang_name = "ebgp"
                                 self.yang_parent_name = "use-multiple-paths"
@@ -11113,7 +12407,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "ebgp"
@@ -11129,7 +12426,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as'], name, value)
+
 
 
                             class State(Entity):
@@ -11141,6 +12439,8 @@ class Bgp(Entity):
                                 	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 	**default value**\: false
                                 
                                 
@@ -11151,7 +12451,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "ebgp"
@@ -11167,7 +12470,14 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as'], name, value)
+                                    self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, ['allow_multiple_as'], name, value)
+
+
+
+
+
+
+
 
 
     class PeerGroups(Entity):
@@ -11187,7 +12497,10 @@ class Bgp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Bgp.PeerGroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bgp.PeerGroups, self).__init__()
 
             self.yang_name = "peer-groups"
             self.yang_parent_name = "bgp"
@@ -11227,6 +12540,8 @@ class Bgp(Entity):
             
             	State information relating to the BGP peer\-group
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.State>`
+            
+            	**config**\: False
             
             .. attribute:: timers
             
@@ -11296,7 +12611,10 @@ class Bgp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Bgp.PeerGroups.PeerGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.PeerGroups.PeerGroup, self).__init__()
 
                 self.yang_name = "peer-group"
                 self.yang_parent_name = "peer-groups"
@@ -11369,7 +12687,7 @@ class Bgp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.PeerGroups.PeerGroup, [u'peer_group_name'], name, value)
+                self._perform_setattr(Bgp.PeerGroups.PeerGroup, ['peer_group_name'], name, value)
 
 
             class Config(Entity):
@@ -11438,7 +12756,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "peer-group"
@@ -11470,7 +12791,8 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.Config, [u'peer_group_name', u'peer_as', u'local_as', u'peer_type', u'auth_password', u'remove_private_as', u'route_flap_damping', u'send_community', u'description'], name, value)
+                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.Config, ['peer_group_name', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description'], name, value)
+
 
 
             class State(Entity):
@@ -11482,12 +12804,16 @@ class Bgp(Entity):
                 	Name of the BGP peer\-group
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: peer_as
                 
                 	AS number of the peer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: local_as
                 
@@ -11496,25 +12822,35 @@ class Bgp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peer_type
                 
                 	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
                 	**type**\:  :py:class:`PeerType <ydk.models.openconfig.openconfig_bgp_types.PeerType>`
+                
+                	**config**\: False
                 
                 .. attribute:: auth_password
                 
                 	Configures an MD5 authentication password for use with neighboring devices
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: remove_private_as
                 
                 	Remove private AS numbers from updates sent to peers \- when this leaf is not specified, the AS\_PATH attribute should be sent to the peer unchanged
                 	**type**\:  :py:class:`REMOVEPRIVATEASOPTION <ydk.models.openconfig.openconfig_bgp_types.REMOVEPRIVATEASOPTION>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_flap_damping
                 
                 	Enable route flap damping
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -11523,12 +12859,16 @@ class Bgp(Entity):
                 	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
                 	**type**\:  :py:class:`CommunityType <ydk.models.openconfig.openconfig_bgp_types.CommunityType>`
                 
+                	**config**\: False
+                
                 	**default value**\: NONE
                 
                 .. attribute:: description
                 
                 	An optional textual description (intended primarily for use with a peer or group
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: total_paths
                 
@@ -11537,12 +12877,16 @@ class Bgp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_prefixes
                 
                 	Total number of BGP prefixes received within the context
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -11552,7 +12896,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "peer-group"
@@ -11588,7 +12935,8 @@ class Bgp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.State, [u'peer_group_name', u'peer_as', u'local_as', u'peer_type', u'auth_password', u'remove_private_as', u'route_flap_damping', u'send_community', u'description', u'total_paths', u'total_prefixes'], name, value)
+                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.State, ['peer_group_name', 'peer_as', 'local_as', 'peer_type', 'auth_password', 'remove_private_as', 'route_flap_damping', 'send_community', 'description', 'total_paths', 'total_prefixes'], name, value)
+
 
 
             class Timers(Entity):
@@ -11605,6 +12953,8 @@ class Bgp(Entity):
                 	State information relating to the timers used for the BGP group
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Timers.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -11613,7 +12963,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.Timers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.Timers, self).__init__()
 
                     self.yang_name = "timers"
                     self.yang_parent_name = "peer-group"
@@ -11686,7 +13039,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.Timers.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.Timers.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "timers"
@@ -11708,7 +13064,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Timers.Config, [u'connect_retry', u'hold_time', u'keepalive_interval', u'minimum_advertisement_interval'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Timers.Config, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval'], name, value)
+
 
 
                 class State(Entity):
@@ -11723,6 +13080,8 @@ class Bgp(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     	**default value**\: 30
                     
                     .. attribute:: hold_time
@@ -11731,6 +13090,8 @@ class Bgp(Entity):
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
                     
                     	**default value**\: 90
                     
@@ -11741,6 +13102,8 @@ class Bgp(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     	**default value**\: 30
                     
                     .. attribute:: minimum_advertisement_interval
@@ -11749,6 +13112,8 @@ class Bgp(Entity):
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
                     
                     	**default value**\: 30
                     
@@ -11760,7 +13125,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.Timers.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.Timers.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "timers"
@@ -11782,7 +13150,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Timers.State, [u'connect_retry', u'hold_time', u'keepalive_interval', u'minimum_advertisement_interval'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Timers.State, ['connect_retry', 'hold_time', 'keepalive_interval', 'minimum_advertisement_interval'], name, value)
+
+
 
 
             class Transport(Entity):
@@ -11799,6 +13169,8 @@ class Bgp(Entity):
                 	State information relating to the transport session(s) used for the BGP neighbor or group
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Transport.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -11807,7 +13179,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.Transport, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.Transport, self).__init__()
 
                     self.yang_name = "transport"
                     self.yang_parent_name = "peer-group"
@@ -11880,7 +13255,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.Transport.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.Transport.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "transport"
@@ -11902,7 +13280,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Transport.Config, [u'tcp_mss', u'mtu_discovery', u'passive_mode', u'local_address'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Transport.Config, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address'], name, value)
+
 
 
                 class State(Entity):
@@ -11917,10 +13296,14 @@ class Bgp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: mtu_discovery
                     
                     	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -11928,6 +13311,8 @@ class Bgp(Entity):
                     
                     	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -11946,6 +13331,8 @@ class Bgp(Entity):
                     
                     		**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -11954,7 +13341,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.Transport.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.Transport.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "transport"
@@ -11976,7 +13366,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Transport.State, [u'tcp_mss', u'mtu_discovery', u'passive_mode', u'local_address'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.Transport.State, ['tcp_mss', 'mtu_discovery', 'passive_mode', 'local_address'], name, value)
+
+
 
 
             class ErrorHandling(Entity):
@@ -11993,6 +13385,8 @@ class Bgp(Entity):
                 	State information relating to enhanced error handling mechanisms for the BGP group
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ErrorHandling.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -12001,7 +13395,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.ErrorHandling, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.ErrorHandling, self).__init__()
 
                     self.yang_name = "error-handling"
                     self.yang_parent_name = "peer-group"
@@ -12046,7 +13443,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.ErrorHandling.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.ErrorHandling.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "error-handling"
@@ -12062,7 +13462,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ErrorHandling.Config, [u'treat_as_withdraw'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ErrorHandling.Config, ['treat_as_withdraw'], name, value)
+
 
 
                 class State(Entity):
@@ -12075,6 +13476,8 @@ class Bgp(Entity):
                     	Specify whether erroneous UPDATE messages for which the NLRI can be extracted are reated as though the NLRI is withdrawn \- avoiding session reset
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: false
                     
                     
@@ -12085,7 +13488,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.ErrorHandling.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.ErrorHandling.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "error-handling"
@@ -12101,7 +13507,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ErrorHandling.State, [u'treat_as_withdraw'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.ErrorHandling.State, ['treat_as_withdraw'], name, value)
+
+
 
 
             class GracefulRestart(Entity):
@@ -12118,6 +13526,8 @@ class Bgp(Entity):
                 	State information associated with graceful\-restart
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.GracefulRestart.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -12126,7 +13536,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.GracefulRestart, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.GracefulRestart, self).__init__()
 
                     self.yang_name = "graceful-restart"
                     self.yang_parent_name = "peer-group"
@@ -12186,7 +13599,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.GracefulRestart.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.GracefulRestart.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "graceful-restart"
@@ -12208,7 +13624,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.GracefulRestart.Config, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.GracefulRestart.Config, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+
 
 
                 class State(Entity):
@@ -12220,12 +13637,16 @@ class Bgp(Entity):
                     	Enable or disable the graceful\-restart capability
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: restart_time
                     
                     	Estimated time (in seconds) for the local BGP speaker to restart a session. This value is advertise in the graceful restart BGP capability.  This is a 12\-bit value, referred to as Restart Time in RFC4724.  Per RFC4724, the suggested default value is <= the hold\-time value
                     	**type**\: int
                     
                     	**range:** 0..4096
+                    
+                    	**config**\: False
                     
                     .. attribute:: stale_routes_time
                     
@@ -12234,10 +13655,14 @@ class Bgp(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     .. attribute:: helper_only
                     
                     	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -12247,7 +13672,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.GracefulRestart.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.GracefulRestart.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "graceful-restart"
@@ -12269,7 +13697,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.GracefulRestart.State, [u'enabled', u'restart_time', u'stale_routes_time', u'helper_only'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+
+
 
 
             class LoggingOptions(Entity):
@@ -12287,6 +13717,8 @@ class Bgp(Entity):
                 	State information relating to logging for the BGP neighbor or group
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.LoggingOptions.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -12295,7 +13727,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.LoggingOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.LoggingOptions, self).__init__()
 
                     self.yang_name = "logging-options"
                     self.yang_parent_name = "peer-group"
@@ -12339,7 +13774,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.LoggingOptions.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.LoggingOptions.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "logging-options"
@@ -12355,7 +13793,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.LoggingOptions.Config, [u'log_neighbor_state_changes'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.LoggingOptions.Config, ['log_neighbor_state_changes'], name, value)
+
 
 
                 class State(Entity):
@@ -12368,6 +13807,8 @@ class Bgp(Entity):
                     	Configure logging of peer state changes.  Default is to enable logging of peer state changes
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: true
                     
                     
@@ -12378,7 +13819,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.LoggingOptions.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.LoggingOptions.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "logging-options"
@@ -12394,7 +13838,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.LoggingOptions.State, [u'log_neighbor_state_changes'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.LoggingOptions.State, ['log_neighbor_state_changes'], name, value)
+
+
 
 
             class EbgpMultihop(Entity):
@@ -12411,6 +13857,8 @@ class Bgp(Entity):
                 	State information for eBGP multihop, for the BGP neighbor or group
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.EbgpMultihop.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -12419,7 +13867,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.EbgpMultihop, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.EbgpMultihop, self).__init__()
 
                     self.yang_name = "ebgp-multihop"
                     self.yang_parent_name = "peer-group"
@@ -12470,7 +13921,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ebgp-multihop"
@@ -12488,7 +13942,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config, [u'enabled', u'multihop_ttl'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config, ['enabled', 'multihop_ttl'], name, value)
+
 
 
                 class State(Entity):
@@ -12501,6 +13956,8 @@ class Bgp(Entity):
                     	When enabled the referenced group or neighbors are permitted to be indirectly connected \- including cases where the TTL can be decremented between the BGP peers
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: false
                     
                     .. attribute:: multihop_ttl
@@ -12510,6 +13967,8 @@ class Bgp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -12518,7 +13977,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.EbgpMultihop.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.EbgpMultihop.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ebgp-multihop"
@@ -12536,7 +13998,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.EbgpMultihop.State, [u'enabled', u'multihop_ttl'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.EbgpMultihop.State, ['enabled', 'multihop_ttl'], name, value)
+
+
 
 
             class RouteReflector(Entity):
@@ -12553,6 +14017,8 @@ class Bgp(Entity):
                 	State information relating to route reflection for the BGPgroup
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.RouteReflector.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -12561,7 +14027,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.RouteReflector, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.RouteReflector, self).__init__()
 
                     self.yang_name = "route-reflector"
                     self.yang_parent_name = "peer-group"
@@ -12618,7 +14087,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.RouteReflector.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.RouteReflector.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "route-reflector"
@@ -12636,7 +14108,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.RouteReflector.Config, [u'route_reflector_cluster_id', u'route_reflector_client'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.RouteReflector.Config, ['route_reflector_cluster_id', 'route_reflector_client'], name, value)
+
 
 
                 class State(Entity):
@@ -12657,10 +14130,14 @@ class Bgp(Entity):
                     
                     			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_reflector_client
                     
                     	Configure the neighbor as a route reflector client
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -12672,7 +14149,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.RouteReflector.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.RouteReflector.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "route-reflector"
@@ -12690,7 +14170,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.RouteReflector.State, [u'route_reflector_cluster_id', u'route_reflector_client'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.RouteReflector.State, ['route_reflector_cluster_id', 'route_reflector_client'], name, value)
+
+
 
 
             class AsPathOptions(Entity):
@@ -12708,6 +14190,8 @@ class Bgp(Entity):
                 	State information relating to the AS\_PATH manipulation mechanisms for the BGP peer or group
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AsPathOptions.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -12716,7 +14200,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.AsPathOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.AsPathOptions, self).__init__()
 
                     self.yang_name = "as-path-options"
                     self.yang_parent_name = "peer-group"
@@ -12769,7 +14256,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.AsPathOptions.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.AsPathOptions.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "as-path-options"
@@ -12787,7 +14277,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AsPathOptions.Config, [u'allow_own_as', u'replace_peer_as'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AsPathOptions.Config, ['allow_own_as', 'replace_peer_as'], name, value)
+
 
 
                 class State(Entity):
@@ -12802,12 +14293,16 @@ class Bgp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**default value**\: 0
                     
                     .. attribute:: replace_peer_as
                     
                     	Replace occurrences of the peer's AS in the AS\_PATH with the local autonomous system number
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -12819,7 +14314,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.AsPathOptions.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.AsPathOptions.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "as-path-options"
@@ -12837,7 +14335,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AsPathOptions.State, [u'allow_own_as', u'replace_peer_as'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AsPathOptions.State, ['allow_own_as', 'replace_peer_as'], name, value)
+
+
 
 
             class AddPaths(Entity):
@@ -12855,6 +14355,8 @@ class Bgp(Entity):
                 	State information associated with ADD\_PATHS
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AddPaths.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -12863,7 +14365,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.AddPaths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.AddPaths, self).__init__()
 
                     self.yang_name = "add-paths"
                     self.yang_parent_name = "peer-group"
@@ -12920,7 +14425,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.AddPaths.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.AddPaths.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "add-paths"
@@ -12940,7 +14448,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AddPaths.Config, [u'receive', u'send_max', u'eligible_prefix_policy'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AddPaths.Config, ['receive', 'send_max', 'eligible_prefix_policy'], name, value)
+
 
 
                 class State(Entity):
@@ -12952,6 +14461,8 @@ class Bgp(Entity):
                     	Enable ability to receive multiple path advertisements for an NLRI from the neighbor or group
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: false
                     
                     .. attribute:: send_max
@@ -12961,12 +14472,16 @@ class Bgp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: eligible_prefix_policy
                     
                     	A reference to a routing policy which can be used to restrict the prefixes for which add\-paths is enabled
                     	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -12976,7 +14491,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.AddPaths.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.AddPaths.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "add-paths"
@@ -12996,7 +14514,9 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AddPaths.State, [u'receive', u'send_max', u'eligible_prefix_policy'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AddPaths.State, ['receive', 'send_max', 'eligible_prefix_policy'], name, value)
+
+
 
 
             class UseMultiplePaths(Entity):
@@ -13013,6 +14533,8 @@ class Bgp(Entity):
                 
                 	State parameters relating to multipath
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State>`
+                
+                	**config**\: False
                 
                 .. attribute:: ebgp
                 
@@ -13032,7 +14554,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths, self).__init__()
 
                     self.yang_name = "use-multiple-paths"
                     self.yang_parent_name = "peer-group"
@@ -13083,7 +14608,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "use-multiple-paths"
@@ -13099,7 +14627,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config, [u'enabled'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config, ['enabled'], name, value)
+
 
 
                 class State(Entity):
@@ -13111,6 +14640,8 @@ class Bgp(Entity):
                     	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: false
                     
                     
@@ -13121,7 +14652,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "use-multiple-paths"
@@ -13137,7 +14671,8 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State, [u'enabled'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State, ['enabled'], name, value)
+
 
 
                 class Ebgp(Entity):
@@ -13154,6 +14689,8 @@ class Bgp(Entity):
                     	State information relating to eBGP multipath
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -13162,7 +14699,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp, self).__init__()
 
                         self.yang_name = "ebgp"
                         self.yang_parent_name = "use-multiple-paths"
@@ -13214,7 +14754,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ebgp"
@@ -13232,7 +14775,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as', u'maximum_paths'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+
 
 
                     class State(Entity):
@@ -13244,6 +14788,8 @@ class Bgp(Entity):
                         	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: false
                         
                         .. attribute:: maximum_paths
@@ -13252,6 +14798,8 @@ class Bgp(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**default value**\: 1
                         
@@ -13263,7 +14811,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ebgp"
@@ -13281,7 +14832,9 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as', u'maximum_paths'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+
+
 
 
                 class Ibgp(Entity):
@@ -13298,6 +14851,8 @@ class Bgp(Entity):
                     	State information relating to iBGP multipath
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -13306,7 +14861,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp, self).__init__()
 
                         self.yang_name = "ibgp"
                         self.yang_parent_name = "use-multiple-paths"
@@ -13351,7 +14909,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ibgp"
@@ -13367,7 +14928,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config, [u'maximum_paths'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+
 
 
                     class State(Entity):
@@ -13381,6 +14943,8 @@ class Bgp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**default value**\: 1
                         
                         
@@ -13391,7 +14955,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ibgp"
@@ -13407,7 +14974,10 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State, [u'maximum_paths'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+
+
+
 
 
             class ApplyPolicy(Entity):
@@ -13427,6 +14997,8 @@ class Bgp(Entity):
                 	Operational state for routing policy
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ApplyPolicy.State>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -13435,7 +15007,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.ApplyPolicy, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.ApplyPolicy, self).__init__()
 
                     self.yang_name = "apply-policy"
                     self.yang_parent_name = "peer-group"
@@ -13499,7 +15074,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "apply-policy"
@@ -13524,6 +15102,7 @@ class Bgp(Entity):
                         self._perform_setattr(Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Operational state for routing policy
@@ -13535,10 +15114,14 @@ class Bgp(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: default_import_policy
                     
                     	explicitly set a default policy if no policy definition in the import policy chain is satisfied
                     	**type**\:  :py:class:`DefaultPolicyType <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType>`
+                    
+                    	**config**\: False
                     
                     	**default value**\: REJECT_ROUTE
                     
@@ -13549,10 +15132,14 @@ class Bgp(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: default_export_policy
                     
                     	explicitly set a default policy if no policy definition in the export policy chain is satisfied
                     	**type**\:  :py:class:`DefaultPolicyType <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType>`
+                    
+                    	**config**\: False
                     
                     	**default value**\: REJECT_ROUTE
                     
@@ -13564,7 +15151,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.ApplyPolicy.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.ApplyPolicy.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "apply-policy"
@@ -13589,6 +15179,8 @@ class Bgp(Entity):
                         self._perform_setattr(Bgp.PeerGroups.PeerGroup.ApplyPolicy.State, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
 
 
+
+
             class AfiSafis(Entity):
                 """
                 Per\-address\-family configuration parameters associated with
@@ -13607,7 +15199,10 @@ class Bgp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Bgp.PeerGroups.PeerGroup.AfiSafis, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.PeerGroups.PeerGroup.AfiSafis, self).__init__()
 
                     self.yang_name = "afi-safis"
                     self.yang_parent_name = "peer-group"
@@ -13644,6 +15239,8 @@ class Bgp(Entity):
                     
                     	State information relating to the AFI\-SAFI
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: graceful_restart
                     
@@ -13723,7 +15320,10 @@ class Bgp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi, self).__init__()
 
                         self.yang_name = "afi-safi"
                         self.yang_parent_name = "afi-safis"
@@ -13803,7 +15403,7 @@ class Bgp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi, [u'afi_safi_name'], name, value)
+                        self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi, ['afi_safi_name'], name, value)
 
 
                     class Config(Entity):
@@ -13830,7 +15430,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "afi-safi"
@@ -13848,7 +15451,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config, ['afi_safi_name', 'enabled'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config, [u'afi_safi_name', u'enabled'], name, value)
+
 
 
                     class State(Entity):
@@ -13860,10 +15464,14 @@ class Bgp(Entity):
                         	AFI,SAFI
                         	**type**\:  :py:class:`AFISAFITYPE <ydk.models.openconfig.openconfig_bgp_types.AFISAFITYPE>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: enabled
                         
                         	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -13875,7 +15483,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "afi-safi"
@@ -13893,7 +15504,8 @@ class Bgp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State, ['afi_safi_name', 'enabled'], name, value)
+                            self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State, [u'afi_safi_name', u'enabled'], name, value)
+
 
 
                     class GracefulRestart(Entity):
@@ -13910,6 +15522,8 @@ class Bgp(Entity):
                         	State information for BGP graceful\-restart
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -13918,7 +15532,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart, self).__init__()
 
                             self.yang_name = "graceful-restart"
                             self.yang_parent_name = "afi-safi"
@@ -13961,7 +15578,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "graceful-restart"
@@ -13977,7 +15597,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config, ['enabled'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config, [u'enabled'], name, value)
+
 
 
                         class State(Entity):
@@ -13989,6 +15610,8 @@ class Bgp(Entity):
                             	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             
@@ -13999,7 +15622,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "graceful-restart"
@@ -14015,7 +15641,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State, ['enabled'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State, [u'enabled'], name, value)
+
+
 
 
                     class RouteSelectionOptions(Entity):
@@ -14032,6 +15660,8 @@ class Bgp(Entity):
                         	State information for the route selection options
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -14040,7 +15670,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions, self).__init__()
 
                             self.yang_name = "route-selection-options"
                             self.yang_parent_name = "afi-safi"
@@ -14119,7 +15752,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "route-selection-options"
@@ -14145,7 +15781,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+
 
 
                         class State(Entity):
@@ -14157,12 +15794,16 @@ class Bgp(Entity):
                             	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             .. attribute:: ignore_as_path_length
                             
                             	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -14171,12 +15812,16 @@ class Bgp(Entity):
                             	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: true
                             
                             .. attribute:: advertise_inactive_routes
                             
                             	Advertise inactive routes to external peers.  The default is to only advertise active routes
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -14185,12 +15830,16 @@ class Bgp(Entity):
                             	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             .. attribute:: ignore_next_hop_igp_metric
                             
                             	Ignore the IGP metric to the next\-hop when calculating BGP best\-path. The default is to select the route for which the metric to the next\-hop is lowest
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -14202,7 +15851,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "route-selection-options"
@@ -14228,7 +15880,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State, [u'always_compare_med', u'ignore_as_path_length', u'external_compare_router_id', u'advertise_inactive_routes', u'enable_aigp', u'ignore_next_hop_igp_metric'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+
+
 
 
                     class UseMultiplePaths(Entity):
@@ -14245,6 +15899,8 @@ class Bgp(Entity):
                         
                         	State parameters relating to multipath
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ebgp
                         
@@ -14264,7 +15920,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths, self).__init__()
 
                             self.yang_name = "use-multiple-paths"
                             self.yang_parent_name = "afi-safi"
@@ -14315,7 +15974,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "use-multiple-paths"
@@ -14331,7 +15993,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config, [u'enabled'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config, ['enabled'], name, value)
+
 
 
                         class State(Entity):
@@ -14343,6 +16006,8 @@ class Bgp(Entity):
                             	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             
@@ -14353,7 +16018,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "use-multiple-paths"
@@ -14369,7 +16037,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State, [u'enabled'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State, ['enabled'], name, value)
+
 
 
                         class Ebgp(Entity):
@@ -14386,6 +16055,8 @@ class Bgp(Entity):
                             	State information relating to eBGP multipath
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -14394,7 +16065,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp, self).__init__()
 
                                 self.yang_name = "ebgp"
                                 self.yang_parent_name = "use-multiple-paths"
@@ -14446,7 +16120,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "ebgp"
@@ -14464,7 +16141,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, [u'allow_multiple_as', u'maximum_paths'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+
 
 
                             class State(Entity):
@@ -14476,6 +16154,8 @@ class Bgp(Entity):
                                 	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 	**default value**\: false
                                 
                                 .. attribute:: maximum_paths
@@ -14484,6 +16164,8 @@ class Bgp(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: 1
                                 
@@ -14495,7 +16177,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "ebgp"
@@ -14513,7 +16198,9 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, [u'allow_multiple_as', u'maximum_paths'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+
+
 
 
                         class Ibgp(Entity):
@@ -14530,6 +16217,8 @@ class Bgp(Entity):
                             	State information relating to iBGP multipath
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -14538,7 +16227,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp, self).__init__()
 
                                 self.yang_name = "ibgp"
                                 self.yang_parent_name = "use-multiple-paths"
@@ -14583,7 +16275,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "ibgp"
@@ -14599,7 +16294,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, [u'maximum_paths'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+
 
 
                             class State(Entity):
@@ -14613,6 +16309,8 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**default value**\: 1
                                 
                                 
@@ -14623,7 +16321,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "ibgp"
@@ -14639,7 +16340,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, [u'maximum_paths'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+
+
+
 
 
                     class ApplyPolicy(Entity):
@@ -14659,6 +16363,8 @@ class Bgp(Entity):
                         	Operational state for routing policy
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -14667,7 +16373,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy, self).__init__()
 
                             self.yang_name = "apply-policy"
                             self.yang_parent_name = "afi-safi"
@@ -14731,7 +16440,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "apply-policy"
@@ -14756,6 +16468,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state for routing policy
@@ -14767,10 +16480,14 @@ class Bgp(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: default_import_policy
                             
                             	explicitly set a default policy if no policy definition in the import policy chain is satisfied
                             	**type**\:  :py:class:`DefaultPolicyType <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType>`
+                            
+                            	**config**\: False
                             
                             	**default value**\: REJECT_ROUTE
                             
@@ -14781,10 +16498,14 @@ class Bgp(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: default_export_policy
                             
                             	explicitly set a default policy if no policy definition in the export policy chain is satisfied
                             	**type**\:  :py:class:`DefaultPolicyType <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType>`
+                            
+                            	**config**\: False
                             
                             	**default value**\: REJECT_ROUTE
                             
@@ -14796,7 +16517,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "apply-policy"
@@ -14821,6 +16545,8 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State, [u'import_policy', u'default_import_policy', u'export_policy', u'default_export_policy'], name, value)
 
 
+
+
                     class Ipv4Unicast(Entity):
                         """
                         IPv4 unicast configuration options
@@ -14840,6 +16566,8 @@ class Bgp(Entity):
                         	State information for common IPv4 and IPv6 unicast parameters
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -14848,7 +16576,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
 
                             self.yang_name = "ipv4-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -14891,6 +16622,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -14899,7 +16632,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "ipv4-unicast"
@@ -14966,7 +16702,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -14988,7 +16727,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -15003,10 +16743,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -15017,12 +16761,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -15034,7 +16782,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -15056,7 +16807,9 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
 
 
                         class Config(Entity):
@@ -15079,7 +16832,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ipv4-unicast"
@@ -15095,7 +16851,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config, ['send_default_route'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config, [u'send_default_route'], name, value)
+
 
 
                         class State(Entity):
@@ -15108,6 +16865,8 @@ class Bgp(Entity):
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             
@@ -15118,7 +16877,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ipv4-unicast"
@@ -15134,7 +16896,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State, ['send_default_route'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State, [u'send_default_route'], name, value)
+
+
 
 
                     class Ipv6Unicast(Entity):
@@ -15156,6 +16920,8 @@ class Bgp(Entity):
                         	State information for common IPv4 and IPv6 unicast parameters
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -15164,7 +16930,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
 
                             self.yang_name = "ipv6-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -15207,6 +16976,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -15215,7 +16986,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "ipv6-unicast"
@@ -15282,7 +17056,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -15304,7 +17081,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -15319,10 +17097,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -15333,12 +17115,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -15350,7 +17136,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -15372,7 +17161,9 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
 
 
                         class Config(Entity):
@@ -15395,7 +17186,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ipv6-unicast"
@@ -15411,7 +17205,8 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config, ['send_default_route'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config, [u'send_default_route'], name, value)
+
 
 
                         class State(Entity):
@@ -15424,6 +17219,8 @@ class Bgp(Entity):
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             	**default value**\: false
                             
                             
@@ -15434,7 +17231,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ipv6-unicast"
@@ -15450,7 +17250,9 @@ class Bgp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State, ['send_default_route'], name, value)
+                                self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State, [u'send_default_route'], name, value)
+
+
 
 
                     class Ipv4LabeledUnicast(Entity):
@@ -15470,7 +17272,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast, self).__init__()
 
                             self.yang_name = "ipv4-labeled-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -15505,6 +17310,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -15513,7 +17320,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "ipv4-labeled-unicast"
@@ -15580,7 +17390,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -15602,7 +17415,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -15617,10 +17431,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -15631,12 +17449,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -15648,7 +17470,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -15670,7 +17495,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class Ipv6LabeledUnicast(Entity):
@@ -15690,7 +17518,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast, self).__init__()
 
                             self.yang_name = "ipv6-labeled-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -15725,6 +17556,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -15733,7 +17566,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "ipv6-labeled-unicast"
@@ -15800,7 +17636,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -15822,7 +17661,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -15837,10 +17677,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -15851,12 +17695,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -15868,7 +17716,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -15890,7 +17741,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L3vpnIpv4Unicast(Entity):
@@ -15910,7 +17764,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast, self).__init__()
 
                             self.yang_name = "l3vpn-ipv4-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -15945,6 +17802,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -15953,7 +17812,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l3vpn-ipv4-unicast"
@@ -16020,7 +17882,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -16042,7 +17907,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -16057,10 +17923,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -16071,12 +17941,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -16088,7 +17962,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -16110,7 +17987,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L3vpnIpv6Unicast(Entity):
@@ -16130,7 +18010,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast, self).__init__()
 
                             self.yang_name = "l3vpn-ipv6-unicast"
                             self.yang_parent_name = "afi-safi"
@@ -16165,6 +18048,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -16173,7 +18058,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l3vpn-ipv6-unicast"
@@ -16240,7 +18128,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -16262,7 +18153,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -16277,10 +18169,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -16291,12 +18187,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -16308,7 +18208,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -16330,7 +18233,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L3vpnIpv4Multicast(Entity):
@@ -16350,7 +18256,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast, self).__init__()
 
                             self.yang_name = "l3vpn-ipv4-multicast"
                             self.yang_parent_name = "afi-safi"
@@ -16385,6 +18294,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -16393,7 +18304,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l3vpn-ipv4-multicast"
@@ -16460,7 +18374,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -16482,7 +18399,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -16497,10 +18415,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -16511,12 +18433,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -16528,7 +18454,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -16550,7 +18479,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L3vpnIpv6Multicast(Entity):
@@ -16570,7 +18502,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast, self).__init__()
 
                             self.yang_name = "l3vpn-ipv6-multicast"
                             self.yang_parent_name = "afi-safi"
@@ -16605,6 +18540,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -16613,7 +18550,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l3vpn-ipv6-multicast"
@@ -16680,7 +18620,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -16702,7 +18645,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -16717,10 +18661,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -16731,12 +18679,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -16748,7 +18700,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -16770,7 +18725,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L2vpnVpls(Entity):
@@ -16790,7 +18748,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls, self).__init__()
 
                             self.yang_name = "l2vpn-vpls"
                             self.yang_parent_name = "afi-safi"
@@ -16825,6 +18786,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -16833,7 +18796,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l2vpn-vpls"
@@ -16900,7 +18866,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -16922,7 +18891,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -16937,10 +18907,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -16951,12 +18925,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -16968,7 +18946,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -16990,7 +18971,10 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
 
 
                     class L2vpnEvpn(Entity):
@@ -17010,7 +18994,10 @@ class Bgp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn, self).__init__()
 
                             self.yang_name = "l2vpn-evpn"
                             self.yang_parent_name = "afi-safi"
@@ -17045,6 +19032,8 @@ class Bgp(Entity):
                             	State information relating to the prefix\-limit for the AFI\-SAFI
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -17053,7 +19042,10 @@ class Bgp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit, self).__init__()
 
                                 self.yang_name = "prefix-limit"
                                 self.yang_parent_name = "l2vpn-evpn"
@@ -17120,7 +19112,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "prefix-limit"
@@ -17142,7 +19137,8 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
 
 
                             class State(Entity):
@@ -17157,10 +19153,14 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prevent_teardown
                                 
                                 	Do not tear down the BGP session when the maximum prefix limit is exceeded, but rather only log a warning. The default of this leaf is false, such that when it is not specified, the session is torn down
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -17171,12 +19171,16 @@ class Bgp(Entity):
                                 
                                 	**range:** 0..100
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -17188,7 +19192,10 @@ class Bgp(Entity):
                                 _revision = '2017-02-02'
 
                                 def __init__(self):
-                                    super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "prefix-limit"
@@ -17210,9 +19217,18 @@ class Bgp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, ['max_prefixes', 'prevent_teardown', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                    self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State, [u'max_prefixes', u'prevent_teardown', u'shutdown_threshold_pct', u'restart_timer'], name, value)
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Bgp()
         return self._top_entity
+
+
 

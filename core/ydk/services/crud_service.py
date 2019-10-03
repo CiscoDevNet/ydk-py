@@ -13,12 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ------------------------------------------------------------------
-from ydk.ext.services import CRUDService as _CrudService
+from ydk_.services import CRUDService as _CrudService
 from ydk.errors.error_handler import handle_runtime_error as _handle_error
 from ydk.errors.error_handler import check_argument as _check_argument
 from ydk.errors import YServiceError
 from ydk.types import EntityCollection, Config
-from ydk.entity_utils import _read_entities
+from ydk.entity_utils import _read_entities, _get_top_level_entity, _get_child_entity_from_top
+from ydk.entity_utils import _set_nontop_entity_filter
+from ydk.filters import YFilter
+
 
 class CRUDService(_CrudService):
     """
@@ -32,7 +35,7 @@ class CRUDService(_CrudService):
         pretty (bool, optional): Pretty formatting. Default value is True.
 
     Returns:
-        Functions read and read-config return, ydk.types.Entity or a list(ydk.types.Entity), depending on provided input.
+        Functions read and read-config return, ydk.types.Entity or a list(ydk.types.Entity), depending on provided input
         Other functions return boolean value: true - for success; false - failure.
 
     Raises:
@@ -43,55 +46,48 @@ class CRUDService(_CrudService):
 
     @_check_argument
     def create(self, provider, entity):
-        if isinstance(entity, EntityCollection):
-            entity = entity.entities()
-        with _handle_error():
-            return self._crud.create(provider, entity)
-
-    def read(self, provider, read_filter=None):
-        if provider is None:
-            raise YServiceError("provider cannot be None")
-
-        if read_filter is None:
-            with _handle_error():
-                return _read_entities(provider, get_config=False)
-
-        filters = read_filter
-        if isinstance(read_filter, EntityCollection):
-            filters = read_filter.entities()
-        with _handle_error():
-            read_entity = self._crud.read(provider, filters)
-        if isinstance(read_filter, EntityCollection):
-            read_entity = Config(read_entity)
-        return read_entity
-
-    def read_config(self, provider, read_filter=None):
-        if provider is None:
-            raise YServiceError("provider cannot be None")
-
-        if read_filter is None:
-            with _handle_error():
-                return _read_entities(provider)
-
-        filters = read_filter
-        if isinstance(read_filter, EntityCollection):
-            filters = read_filter.entities()
-        with _handle_error():
-            read_entity = self._crud.read_config(provider, filters)
-        if isinstance(read_filter, EntityCollection):
-            read_entity = Config(read_entity)
-        return read_entity
-
-    @_check_argument
-    def update(self, provider, entity):
-        if isinstance(entity, EntityCollection):
-            entity = entity.entities()
-        with _handle_error():
-            return self._crud.update(provider, entity)
+        return _crud_update(provider, entity, self._crud.create)
 
     @_check_argument
     def delete(self, provider, entity):
-        if isinstance(entity, EntityCollection):
-            entity = entity.entities()
+        return _crud_update(provider, entity, self._crud.delete)
+
+    @_check_argument
+    def update(self, provider, entity):
+        return _crud_update(provider, entity, self._crud.update)
+
+    def read(self, provider, read_filter=None):
+        return _crud_read(provider, read_filter, False, self._crud.read)
+
+    def read_config(self, provider, read_filter=None):
+        return _crud_read(provider, read_filter, True, self._crud.read_config)
+
+
+def _crud_update(provider, entity, crud_call):
+    if isinstance(entity, EntityCollection):
+        entity = entity.entities()
+    with _handle_error():
+        return crud_call(provider, entity)
+
+
+def _crud_read(provider, read_filter, is_config, crud_call):
+    if provider is None:
+        raise YServiceError("provider cannot be None")
+
+    if read_filter is None:
         with _handle_error():
-            return self._crud.delete(provider, entity)
+            return _read_entities(provider, get_config=is_config)
+
+    filters = read_filter
+    if isinstance(read_filter, EntityCollection):
+        filters = read_filter.entities()
+
+    _set_nontop_entity_filter(filters, YFilter.read)
+    top_filters = _get_top_level_entity(filters, provider.get_session().get_root_schema())
+    with _handle_error():
+        read_top_entity = crud_call(provider, top_filters)
+    read_entity = _get_child_entity_from_top(read_top_entity, filters)
+
+    if isinstance(read_filter, EntityCollection):
+        read_entity = Config(read_entity)
+    return read_entity

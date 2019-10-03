@@ -23,6 +23,7 @@ This version of this YANG module is part of RFC XXXX
 full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -46,7 +47,11 @@ class RoutingProtocol(Identity):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:routing-protocol"):
-        super(RoutingProtocol, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(RoutingProtocol, self).__init__(ns, pref, tag)
+
 
 
 class RoutingInstance(Identity):
@@ -62,7 +67,11 @@ class RoutingInstance(Identity):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:routing-instance"):
-        super(RoutingInstance, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(RoutingInstance, self).__init__(ns, pref, tag)
+
 
 
 class AddressFamily(Identity):
@@ -78,7 +87,11 @@ class AddressFamily(Identity):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:address-family"):
-        super(AddressFamily, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AddressFamily, self).__init__(ns, pref, tag)
+
 
 
 class RoutingState(Entity):
@@ -90,6 +103,8 @@ class RoutingState(Entity):
     	Each list entry is a container for state data of a routing instance.  An implementation MUST support routing instance(s) of the type 'rt\:default\-routing\-instance', and MAY support other types. An implementation MAY restrict the number of routing instances of each supported type.  An implementation SHOULD create at least one system\-controlled instance, and MAY allow the clients to create user\-controlled routing instances in configuration
     	**type**\: list of  		 :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance>`
     
+    	**config**\: False
+    
     
 
     """
@@ -98,7 +113,10 @@ class RoutingState(Entity):
     _revision = '2015-05-25'
 
     def __init__(self):
-        super(RoutingState, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingState, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-state"
@@ -137,10 +155,14 @@ class RoutingState(Entity):
         	The name of the routing instance.  For system\-controlled instances the name is persistent, i.e., it SHOULD NOT change across reboots
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: type
         
         	The routing instance type
         	**type**\:  :py:class:`RoutingInstance <ydk.models.ietf.ietf_routing.RoutingInstance>`
+        
+        	**config**\: False
         
         .. attribute:: router_id
         
@@ -149,20 +171,28 @@ class RoutingState(Entity):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
         
+        	**config**\: False
+        
         .. attribute:: interfaces
         
         	Network layer interfaces belonging to the routing instance
         	**type**\:  :py:class:`Interfaces <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Interfaces>`
+        
+        	**config**\: False
         
         .. attribute:: routing_protocols
         
         	Container for the list of routing protocol instances
         	**type**\:  :py:class:`RoutingProtocols <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols>`
         
+        	**config**\: False
+        
         .. attribute:: ribs
         
         	Container for RIBs
         	**type**\:  :py:class:`Ribs <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs>`
+        
+        	**config**\: False
         
         
 
@@ -172,7 +202,10 @@ class RoutingState(Entity):
         _revision = '2015-05-25'
 
         def __init__(self):
-            super(RoutingState.RoutingInstance, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingState.RoutingInstance, self).__init__()
 
             self.yang_name = "routing-instance"
             self.yang_parent_name = "routing-state"
@@ -205,7 +238,7 @@ class RoutingState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RoutingState.RoutingInstance, [u'name', u'type', u'router_id'], name, value)
+            self._perform_setattr(RoutingState.RoutingInstance, ['name', 'type', 'router_id'], name, value)
 
 
         class Interfaces(Entity):
@@ -220,6 +253,8 @@ class RoutingState(Entity):
             
             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
             
+            	**config**\: False
+            
             
 
             """
@@ -228,7 +263,10 @@ class RoutingState(Entity):
             _revision = '2015-05-25'
 
             def __init__(self):
-                super(RoutingState.RoutingInstance.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingState.RoutingInstance.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "routing-instance"
@@ -244,7 +282,8 @@ class RoutingState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RoutingState.RoutingInstance.Interfaces, [u'interface'], name, value)
+                self._perform_setattr(RoutingState.RoutingInstance.Interfaces, ['interface'], name, value)
+
 
 
         class RoutingProtocols(Entity):
@@ -256,6 +295,8 @@ class RoutingState(Entity):
             	State data of a routing protocol instance.  An implementation MUST provide exactly one system\-controlled instance of the type 'direct'. Other instances MAY be created by configuration
             	**type**\: list of  		 :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol>`
             
+            	**config**\: False
+            
             
 
             """
@@ -264,7 +305,10 @@ class RoutingState(Entity):
             _revision = '2015-05-25'
 
             def __init__(self):
-                super(RoutingState.RoutingInstance.RoutingProtocols, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingState.RoutingInstance.RoutingProtocols, self).__init__()
 
                 self.yang_name = "routing-protocols"
                 self.yang_parent_name = "routing-instance"
@@ -295,15 +339,21 @@ class RoutingState(Entity):
                 	Type of the routing protocol
                 	**type**\:  :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
                 
+                	**config**\: False
+                
                 .. attribute:: name  (key)
                 
                 	The name of the routing protocol instance.  For system\-controlled instances this name is persistent, i.e., it SHOULD NOT change across reboots
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ospf
                 
                 	OSPF
                 	**type**\:  :py:class:`Ospf <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf>`
+                
+                	**config**\: False
                 
                 
 
@@ -313,7 +363,10 @@ class RoutingState(Entity):
                 _revision = '2015-05-25'
 
                 def __init__(self):
-                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol, self).__init__()
 
                     self.yang_name = "routing-protocol"
                     self.yang_parent_name = "routing-protocols"
@@ -335,7 +388,7 @@ class RoutingState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol, [u'type', u'name'], name, value)
+                    self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol, ['type', 'name'], name, value)
 
 
                 class Ospf(Entity):
@@ -347,10 +400,14 @@ class RoutingState(Entity):
                     	OSPF operation mode
                     	**type**\:  :py:class:`OperationMode <ydk.models.ietf.ietf_ospf.OperationMode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: instance
                     
                     	An OSPF routing protocol instance
                     	**type**\: list of  		 :py:class:`Instance <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -360,7 +417,10 @@ class RoutingState(Entity):
                     _revision = '2015-03-09'
 
                     def __init__(self):
-                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf, self).__init__()
 
                         self.yang_name = "ospf"
                         self.yang_parent_name = "routing-protocol"
@@ -390,6 +450,8 @@ class RoutingState(Entity):
                         	Address\-family of the instance
                         	**type**\:  :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: router_id
                         
                         	Defined in RFC 2328. A 32\-bit number that uniquely identifies the router
@@ -397,20 +459,28 @@ class RoutingState(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                         
+                        	**config**\: False
+                        
                         .. attribute:: area
                         
                         	List of OSPF areas
                         	**type**\: list of  		 :py:class:`Area <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: as_scope_lsas
                         
                         	List OSPF AS scope LSA databases
                         	**type**\: list of  		 :py:class:`AsScopeLsas <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: topology
                         
                         	OSPF topology
                         	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -420,7 +490,10 @@ class RoutingState(Entity):
                         _revision = '2015-03-09'
 
                         def __init__(self):
-                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance, self).__init__()
 
                             self.yang_name = "instance"
                             self.yang_parent_name = "ospf"
@@ -462,15 +535,21 @@ class RoutingState(Entity):
                             
                             			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                             
+                            	**config**\: False
+                            
                             .. attribute:: interfaces
                             
                             	List of OSPF interfaces
                             	**type**\: list of  		 :py:class:`Interfaces <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: area_scope_lsas
                             
                             	List OSPF area scope LSA databases
                             	**type**\: list of  		 :py:class:`AreaScopeLsas <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -480,7 +559,10 @@ class RoutingState(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area, self).__init__()
 
                                 self.yang_name = "area"
                                 self.yang_parent_name = "instance"
@@ -511,35 +593,49 @@ class RoutingState(Entity):
                                 	Interface
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: network_type
                                 
                                 	Network type
                                 	**type**\:  :py:class:`NetworkType <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.NetworkType>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: passive
                                 
                                 	Enable/Disable passive
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: demand_circuit
                                 
                                 	Enable/Disable demand circuit
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: multi_area
                                 
                                 	Configure ospf multi\-area
                                 	**type**\:  :py:class:`MultiArea <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: static_neighbors
                                 
                                 	Static configured neighbors
                                 	**type**\:  :py:class:`StaticNeighbors <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: node_flag
                                 
                                 	Set prefix as a node representative prefix
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: false
                                 
@@ -548,6 +644,8 @@ class RoutingState(Entity):
                                 	Fast\-reroute configuration
                                 	**type**\:  :py:class:`FastReroute <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: cost
                                 
                                 	Interface cost
@@ -555,12 +653,16 @@ class RoutingState(Entity):
                                 
                                 	**range:** 1..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: hello_interval
                                 
                                 	Time between hello packets
                                 	**type**\: int
                                 
                                 	**range:** 1..65535
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -571,6 +673,8 @@ class RoutingState(Entity):
                                 
                                 	**range:** 1..65535
                                 
+                                	**config**\: False
+                                
                                 	**units**\: seconds
                                 
                                 .. attribute:: retransmit_interval
@@ -579,6 +683,8 @@ class RoutingState(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 1..65535
+                                
+                                	**config**\: False
                                 
                                 	**units**\: seconds
                                 
@@ -589,6 +695,8 @@ class RoutingState(Entity):
                                 
                                 	**range:** 1..65535
                                 
+                                	**config**\: False
+                                
                                 	**units**\: seconds
                                 
                                 .. attribute:: mtu_ignore
@@ -596,30 +704,42 @@ class RoutingState(Entity):
                                 	Enable/Disable ignoring of MTU in DBD packets
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lls
                                 
                                 	Enable/Disable link\-local signaling (LLS) support
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: prefix_suppression
                                 
                                 	Suppress advertisement of the prefixes
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bfd
                                 
                                 	Enable/disable bfd
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ttl_security
                                 
                                 	TTL security check
                                 	**type**\:  :py:class:`TtlSecurity <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: enable
                                 
                                 	Enable/disable protocol on the interface
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 	**default value**\: true
                                 
@@ -628,10 +748,14 @@ class RoutingState(Entity):
                                 	Authentication configuration
                                 	**type**\:  :py:class:`Authentication <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	Interface state
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: hello_timer
                                 
@@ -639,6 +763,8 @@ class RoutingState(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: milliseconds
                                 
@@ -649,6 +775,8 @@ class RoutingState(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: milliseconds
                                 
                                 .. attribute:: dr
@@ -658,6 +786,8 @@ class RoutingState(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bdr
                                 
                                 	BDR
@@ -665,20 +795,28 @@ class RoutingState(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: neighbor
                                 
                                 	List of OSPF neighbors
                                 	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: link_scope_lsas
                                 
                                 	List OSPF link scope LSA databases
                                 	**type**\: list of  		 :py:class:`LinkScopeLsas <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: topology
                                 
                                 	OSPF interface topology
                                 	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -688,7 +826,10 @@ class RoutingState(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces, self).__init__()
 
                                     self.yang_name = "interfaces"
                                     self.yang_parent_name = "area"
@@ -821,12 +962,16 @@ class RoutingState(Entity):
                                     
                                     			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: cost
                                     
                                     	Interface cost for multi\-area
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -836,7 +981,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea, self).__init__()
 
                                         self.yang_name = "multi-area"
                                         self.yang_parent_name = "interfaces"
@@ -857,6 +1005,7 @@ class RoutingState(Entity):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea, ['multi_area_id', 'cost'], name, value)
 
 
+
                                 class StaticNeighbors(Entity):
                                     """
                                     Static configured neighbors.
@@ -866,6 +1015,8 @@ class RoutingState(Entity):
                                     	Specify a neighbor router
                                     	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -874,7 +1025,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors, self).__init__()
 
                                         self.yang_name = "static-neighbors"
                                         self.yang_parent_name = "interfaces"
@@ -909,6 +1063,8 @@ class RoutingState(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cost
                                         
                                         	Neighbor cost
@@ -916,12 +1072,16 @@ class RoutingState(Entity):
                                         
                                         	**range:** 1..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: poll_interval
                                         
                                         	Neighbor poll interval
                                         	**type**\: int
                                         
                                         	**range:** 1..65535
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: seconds
                                         
@@ -932,6 +1092,8 @@ class RoutingState(Entity):
                                         
                                         	**range:** 1..255
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -940,7 +1102,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor, self).__init__()
 
                                             self.yang_name = "neighbor"
                                             self.yang_parent_name = "static-neighbors"
@@ -965,6 +1130,8 @@ class RoutingState(Entity):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor, ['address', 'cost', 'poll_interval', 'priority'], name, value)
 
 
+
+
                                 class FastReroute(Entity):
                                     """
                                     Fast\-reroute configuration.
@@ -974,6 +1141,8 @@ class RoutingState(Entity):
                                     	LFA configuration
                                     	**type**\:  :py:class:`Lfa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -982,7 +1151,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute, self).__init__()
 
                                         self.yang_name = "fast-reroute"
                                         self.yang_parent_name = "interfaces"
@@ -1011,15 +1183,21 @@ class RoutingState(Entity):
                                         	Prevent the interface to be used as backup
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: enabled
                                         
                                         	Activates LFA. This model assumes activation of per\-prefix LFA
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: remote_lfa
                                         
                                         	Remote LFA configuration
                                         	**type**\:  :py:class:`RemoteLfa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1029,7 +1207,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa, self).__init__()
 
                                             self.yang_name = "lfa"
                                             self.yang_parent_name = "fast-reroute"
@@ -1063,6 +1244,8 @@ class RoutingState(Entity):
                                             	Activates remote LFA
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -1071,7 +1254,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa, self).__init__()
 
                                                 self.yang_name = "remote-lfa"
                                                 self.yang_parent_name = "lfa"
@@ -1090,6 +1276,9 @@ class RoutingState(Entity):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa, ['enabled'], name, value)
 
 
+
+
+
                                 class TtlSecurity(Entity):
                                     """
                                     TTL security check.
@@ -1099,12 +1288,16 @@ class RoutingState(Entity):
                                     	Enable/Disable TTL security check
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: hops
                                     
                                     	Maximum number of hops that a OSPF packet may have traveled
                                     	**type**\: int
                                     
                                     	**range:** 1..254
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1114,7 +1307,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity, self).__init__()
 
                                         self.yang_name = "ttl-security"
                                         self.yang_parent_name = "interfaces"
@@ -1135,6 +1331,7 @@ class RoutingState(Entity):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity, ['enable', 'hops'], name, value)
 
 
+
                                 class Authentication(Entity):
                                     """
                                     Authentication configuration.
@@ -1144,6 +1341,8 @@ class RoutingState(Entity):
                                     	SA name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: key_chain
                                     
                                     	key\-chain name
@@ -1151,15 +1350,21 @@ class RoutingState(Entity):
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_key_chain.KeyChains>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: key
                                     
                                     	Key string in ASCII format
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: crypto_algorithm
                                     
                                     	Cryptographic algorithm associated with key
                                     	**type**\:  :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1169,7 +1374,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "interfaces"
@@ -1205,40 +1413,56 @@ class RoutingState(Entity):
                                         	The HMAC\-SHA1\-12 algorithm
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: hmac_sha1_20
                                         
                                         	The HMAC\-SHA1\-20 algorithm
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: md5
                                         
                                         	The MD5 algorithm
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sha_1
                                         
                                         	The SHA\-1 algorithm
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: hmac_sha_1
                                         
                                         	HMAC\-SHA\-1 authentication algorithm
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: hmac_sha_256
                                         
                                         	HMAC\-SHA\-256 authentication algorithm
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: hmac_sha_384
                                         
                                         	HMAC\-SHA\-384 authentication algorithm
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: hmac_sha_512
                                         
                                         	HMAC\-SHA\-512 authentication algorithm
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1248,7 +1472,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm, self).__init__()
 
                                             self.yang_name = "crypto-algorithm"
                                             self.yang_parent_name = "authentication"
@@ -1281,6 +1508,8 @@ class RoutingState(Entity):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
 
 
+
+
                                 class Neighbor(Entity):
                                     """
                                     List of OSPF neighbors.
@@ -1291,6 +1520,8 @@ class RoutingState(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: address
                                     
@@ -1305,12 +1536,16 @@ class RoutingState(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: dr
                                     
                                     	Designated Router
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: bdr
                                     
@@ -1319,10 +1554,14 @@ class RoutingState(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: state
                                     
                                     	OSPF neighbor state
                                     	**type**\:  :py:class:`NbrStateType <ydk.models.ietf.ietf_ospf.NbrStateType>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1332,7 +1571,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor, self).__init__()
 
                                         self.yang_name = "neighbor"
                                         self.yang_parent_name = "interfaces"
@@ -1359,6 +1601,7 @@ class RoutingState(Entity):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor, ['neighbor_id', 'address', 'dr', 'bdr', 'state'], name, value)
 
 
+
                                 class LinkScopeLsas(Entity):
                                     """
                                     List OSPF link scope LSA databases
@@ -1370,10 +1613,14 @@ class RoutingState(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: link_scope_lsa
                                     
                                     	List of OSPF link scope LSAs
                                     	**type**\: list of  		 :py:class:`LinkScopeLsa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1383,7 +1630,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas, self).__init__()
 
                                         self.yang_name = "link-scope-lsas"
                                         self.yang_parent_name = "interfaces"
@@ -1421,6 +1671,8 @@ class RoutingState(Entity):
                                         
                                         			**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: adv_router  (key)
                                         
                                         	Advertising router
@@ -1428,10 +1680,14 @@ class RoutingState(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: decoded_completed
                                         
                                         	The OSPF LSA body is fully decoded
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: raw_data
                                         
@@ -1440,15 +1696,21 @@ class RoutingState(Entity):
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ospfv2
                                         
                                         	OSPFv2 LSA
                                         	**type**\:  :py:class:`Ospfv2 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ospfv3
                                         
                                         	OSPFv3 LSA
                                         	**type**\:  :py:class:`Ospfv3 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1458,7 +1720,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa, self).__init__()
 
                                             self.yang_name = "link-scope-lsa"
                                             self.yang_parent_name = "link-scope-lsas"
@@ -1500,10 +1765,14 @@ class RoutingState(Entity):
                                             	Decoded OSPFv2 LSA header data
                                             	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: body
                                             
                                             	Decoded OSPFv2 LSA body data
                                             	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1513,7 +1782,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2, self).__init__()
 
                                                 self.yang_name = "ospfv2"
                                                 self.yang_parent_name = "link-scope-lsa"
@@ -1548,6 +1820,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: lsa_id
                                                 
                                                 	LSA ID
@@ -1556,6 +1830,8 @@ class RoutingState(Entity):
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: opaque_type
                                                 
@@ -1566,6 +1842,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: opaque_id
                                                 
                                                 	Opaque id
@@ -1574,6 +1852,8 @@ class RoutingState(Entity):
                                                 	**range:** 0..16777215
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: age
                                                 
@@ -1584,6 +1864,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: type
                                                 
                                                 	LSA type
@@ -1592,6 +1874,8 @@ class RoutingState(Entity):
                                                 	**range:** 0..65535
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: adv_router
                                                 
@@ -1602,6 +1886,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: seq_num
                                                 
                                                 	LSA sequence number
@@ -1609,12 +1895,16 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: checksum
                                                 
                                                 	LSA checksum
                                                 	**type**\: str
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: length
                                                 
@@ -1625,6 +1915,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -1633,7 +1925,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header, self).__init__()
 
                                                     self.yang_name = "header"
                                                     self.yang_parent_name = "ospfv2"
@@ -1670,6 +1965,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header, ['options', 'lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
 
 
+
                                             class Body(Entity):
                                                 """
                                                 Decoded OSPFv2 LSA body data.
@@ -1679,25 +1975,35 @@ class RoutingState(Entity):
                                                 	Router LSA
                                                 	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: network
                                                 
                                                 	Network LSA
                                                 	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Network>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: summary
                                                 
                                                 	Summary LSA
                                                 	**type**\:  :py:class:`Summary <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: external
                                                 
                                                 	External LSA
                                                 	**type**\:  :py:class:`External <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: opaque
                                                 
                                                 	Opaque LSA
                                                 	**type**\:  :py:class:`Opaque <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1707,7 +2013,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body, self).__init__()
 
                                                     self.yang_name = "body"
                                                     self.yang_parent_name = "ospfv2"
@@ -1752,6 +2061,8 @@ class RoutingState(Entity):
                                                     	Flags
                                                     	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Flags>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: num_of_links
                                                     
                                                     	Number of links
@@ -1759,10 +2070,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..65535
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: link
                                                     
                                                     	Router LSA link
                                                     	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -1772,7 +2087,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router, self).__init__()
 
                                                         self.yang_name = "router"
                                                         self.yang_parent_name = "body"
@@ -1812,6 +2130,8 @@ class RoutingState(Entity):
                                                         
                                                         			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: link_data  (key)
                                                         
                                                         	Link data
@@ -1825,6 +2145,8 @@ class RoutingState(Entity):
                                                         
                                                         			**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: type
                                                         
                                                         	Link type
@@ -1832,10 +2154,14 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: topology
                                                         
                                                         	Topology specific information
                                                         	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -1845,7 +2171,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link, self).__init__()
 
                                                             self.yang_name = "link"
                                                             self.yang_parent_name = "router"
@@ -1881,12 +2210,16 @@ class RoutingState(Entity):
                                                             
                                                             	**range:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: metric
                                                             
                                                             	Metric for the topology
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..65535
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -1896,7 +2229,10 @@ class RoutingState(Entity):
                                                             _revision = '2015-03-09'
 
                                                             def __init__(self):
-                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology, self).__init__()
 
                                                                 self.yang_name = "topology"
                                                                 self.yang_parent_name = "link"
@@ -1917,6 +2253,9 @@ class RoutingState(Entity):
                                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
+
                                                 class Network(Entity):
                                                     """
                                                     Network LSA.
@@ -1928,12 +2267,16 @@ class RoutingState(Entity):
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: attached_router
                                                     
                                                     	List of the routers attached to the network
                                                     	**type**\: list of str
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -1943,7 +2286,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Network, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Network, self).__init__()
 
                                                         self.yang_name = "network"
                                                         self.yang_parent_name = "body"
@@ -1964,6 +2310,7 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Network, ['network_mask', 'attached_router'], name, value)
 
 
+
                                                 class Summary(Entity):
                                                     """
                                                     Summary LSA.
@@ -1975,10 +2322,14 @@ class RoutingState(Entity):
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: topology
                                                     
                                                     	Topology specific information
                                                     	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -1988,7 +2339,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary, self).__init__()
 
                                                         self.yang_name = "summary"
                                                         self.yang_parent_name = "body"
@@ -2020,12 +2374,16 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: metric
                                                         
                                                         	Metric for the topology
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..16777215
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -2035,7 +2393,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology, self).__init__()
 
                                                             self.yang_name = "topology"
                                                             self.yang_parent_name = "summary"
@@ -2056,6 +2417,8 @@ class RoutingState(Entity):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
                                                 class External(Entity):
                                                     """
                                                     External LSA.
@@ -2067,10 +2430,14 @@ class RoutingState(Entity):
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: topology
                                                     
                                                     	Topology specific information
                                                     	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -2080,7 +2447,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External, self).__init__()
 
                                                         self.yang_name = "external"
                                                         self.yang_parent_name = "body"
@@ -2112,10 +2482,14 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: flags
                                                         
                                                         	Flags
                                                         	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology.Flags>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: metric
                                                         
@@ -2124,6 +2498,8 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..16777215
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: forwarding_address
                                                         
                                                         	Forwarding address
@@ -2131,12 +2507,16 @@ class RoutingState(Entity):
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: external_route_tag
                                                         
                                                         	Route tag
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -2146,7 +2526,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology, self).__init__()
 
                                                             self.yang_name = "topology"
                                                             self.yang_parent_name = "external"
@@ -2173,6 +2556,8 @@ class RoutingState(Entity):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology, ['mt_id', 'flags', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
 
 
+
+
                                                 class Opaque(Entity):
                                                     """
                                                     Opaque LSA.
@@ -2182,15 +2567,21 @@ class RoutingState(Entity):
                                                     	Unknown TLV
                                                     	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: router_address_tlv
                                                     
                                                     	Router address TLV
                                                     	**type**\:  :py:class:`RouterAddressTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: link_tlv
                                                     
                                                     	Link TLV
                                                     	**type**\:  :py:class:`LinkTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -2200,7 +2591,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque, self).__init__()
 
                                                         self.yang_name = "opaque"
                                                         self.yang_parent_name = "body"
@@ -2237,6 +2631,8 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..65535
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: length
                                                         
                                                         	TLV length
@@ -2244,12 +2640,16 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..65535
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: value
                                                         
                                                         	TLV value
                                                         	**type**\: str
                                                         
                                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -2259,7 +2659,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, self).__init__()
 
                                                             self.yang_name = "unknown-tlv"
                                                             self.yang_parent_name = "opaque"
@@ -2282,6 +2685,7 @@ class RoutingState(Entity):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, ['type', 'length', 'value'], name, value)
 
 
+
                                                     class RouterAddressTlv(Entity):
                                                         """
                                                         Router address TLV.
@@ -2293,6 +2697,8 @@ class RoutingState(Entity):
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
+                                                        	**config**\: False
+                                                        
                                                         
 
                                                         """
@@ -2301,7 +2707,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, self).__init__()
 
                                                             self.yang_name = "router-address-tlv"
                                                             self.yang_parent_name = "opaque"
@@ -2320,6 +2729,7 @@ class RoutingState(Entity):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, ['router_address'], name, value)
 
 
+
                                                     class LinkTlv(Entity):
                                                         """
                                                         Link TLV.
@@ -2332,6 +2742,8 @@ class RoutingState(Entity):
                                                         	**range:** 0..255
                                                         
                                                         	**mandatory**\: True
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: link_id
                                                         
@@ -2348,12 +2760,16 @@ class RoutingState(Entity):
                                                         
                                                         	**mandatory**\: True
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: local_if_ipv4_addr
                                                         
                                                         	List of local interface IPv4 addresses
                                                         	**type**\: list of str
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: local_remote_ipv4_addr
                                                         
@@ -2362,12 +2778,16 @@ class RoutingState(Entity):
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: te_metric
                                                         
                                                         	TE metric
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: max_bandwidth
                                                         
@@ -2376,12 +2796,16 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** \-92233720368547758.08..92233720368547758.07
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: max_reservable_bandwidth
                                                         
                                                         	Maximum reservable bandwidth
                                                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                         
                                                         	**range:** \-92233720368547758.08..92233720368547758.07
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: unreserved_bandwidth
                                                         
@@ -2390,6 +2814,8 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** \-92233720368547758.08..92233720368547758.07
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: admin_group
                                                         
                                                         	Administrative group/Resource class/Color
@@ -2397,10 +2823,14 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unknown_subtlv
                                                         
                                                         	Unknown sub\-TLV
                                                         	**type**\: list of  		 :py:class:`UnknownSubtlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -2410,7 +2840,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv, self).__init__()
 
                                                             self.yang_name = "link-tlv"
                                                             self.yang_parent_name = "opaque"
@@ -2458,6 +2891,8 @@ class RoutingState(Entity):
                                                             
                                                             	**range:** 0..65535
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: length
                                                             
                                                             	TLV length
@@ -2465,12 +2900,16 @@ class RoutingState(Entity):
                                                             
                                                             	**range:** 0..65535
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: value
                                                             
                                                             	TLV value
                                                             	**type**\: str
                                                             
                                                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -2480,7 +2919,10 @@ class RoutingState(Entity):
                                                             _revision = '2015-03-09'
 
                                                             def __init__(self):
-                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, self).__init__()
 
                                                                 self.yang_name = "unknown-subtlv"
                                                                 self.yang_parent_name = "link-tlv"
@@ -2503,6 +2945,11 @@ class RoutingState(Entity):
                                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, ['type', 'length', 'value'], name, value)
 
 
+
+
+
+
+
                                         class Ospfv3(Entity):
                                             """
                                             OSPFv3 LSA
@@ -2512,10 +2959,14 @@ class RoutingState(Entity):
                                             	Decoded OSPFv3 LSA header data
                                             	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: body
                                             
                                             	Decoded OSPF LSA body data
                                             	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2525,7 +2976,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3, self).__init__()
 
                                                 self.yang_name = "ospfv3"
                                                 self.yang_parent_name = "link-scope-lsa"
@@ -2562,6 +3016,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: age
                                                 
                                                 	LSA age
@@ -2570,6 +3026,8 @@ class RoutingState(Entity):
                                                 	**range:** 0..65535
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: type
                                                 
@@ -2580,6 +3038,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: adv_router
                                                 
                                                 	LSA advertising router
@@ -2589,6 +3049,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: seq_num
                                                 
                                                 	LSA sequence number
@@ -2596,12 +3058,16 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: checksum
                                                 
                                                 	LSA checksum
                                                 	**type**\: str
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: length
                                                 
@@ -2612,12 +3078,16 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: options
                                                 
                                                 	OSPFv3 LSA options
                                                 	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header.Options>`
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2627,7 +3097,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header, self).__init__()
 
                                                     self.yang_name = "header"
                                                     self.yang_parent_name = "ospfv3"
@@ -2660,6 +3133,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header, ['lsa_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'options'], name, value)
 
 
+
                                             class Body(Entity):
                                                 """
                                                 Decoded OSPF LSA body data.
@@ -2669,40 +3143,56 @@ class RoutingState(Entity):
                                                 	Router LSA
                                                 	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: network
                                                 
                                                 	Network LSA
                                                 	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: inter_area_prefix
                                                 
                                                 	Inter\-Area\-Prefix LSA
                                                 	**type**\:  :py:class:`InterAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaPrefix>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: inter_area_router
                                                 
                                                 	Inter\-Area\-Router LSA
                                                 	**type**\:  :py:class:`InterAreaRouter <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: as_external
                                                 
                                                 	AS\-External LSA
                                                 	**type**\:  :py:class:`AsExternal <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: nssa
                                                 
                                                 	NSSA LSA
                                                 	**type**\:  :py:class:`Nssa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link
                                                 
                                                 	Link LSA
                                                 	**type**\:  :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: intra_area_prefix
                                                 
                                                 	Intra\-Area\-Prefix LSA
                                                 	**type**\:  :py:class:`IntraAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2712,7 +3202,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body, self).__init__()
 
                                                     self.yang_name = "body"
                                                     self.yang_parent_name = "ospfv3"
@@ -2771,6 +3264,8 @@ class RoutingState(Entity):
                                                     
                                                     	**mandatory**\: True
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: options
                                                     
                                                     	OSPFv3 LSA options
@@ -2778,10 +3273,14 @@ class RoutingState(Entity):
                                                     
                                                     	**mandatory**\: True
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: link
                                                     
                                                     	Router LSA link
                                                     	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -2791,7 +3290,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router, self).__init__()
 
                                                         self.yang_name = "router"
                                                         self.yang_parent_name = "body"
@@ -2825,12 +3327,16 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: neighbor_interface_id  (key)
                                                         
                                                         	Neighbor Interface ID
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: neighbor_router_id  (key)
                                                         
@@ -2839,6 +3345,8 @@ class RoutingState(Entity):
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: type
                                                         
                                                         	Link type
@@ -2846,12 +3354,16 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: metric
                                                         
                                                         	Metric
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..65535
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -2861,7 +3373,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link, self).__init__()
 
                                                             self.yang_name = "link"
                                                             self.yang_parent_name = "router"
@@ -2888,6 +3403,8 @@ class RoutingState(Entity):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
 
 
+
+
                                                 class Network(Entity):
                                                     """
                                                     Network LSA.
@@ -2899,12 +3416,16 @@ class RoutingState(Entity):
                                                     
                                                     	**mandatory**\: True
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: attached_router
                                                     
                                                     	List of the routers attached to the network
                                                     	**type**\: list of str
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -2914,7 +3435,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network, self).__init__()
 
                                                         self.yang_name = "network"
                                                         self.yang_parent_name = "body"
@@ -2935,6 +3459,7 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network, ['options', 'attached_router'], name, value)
 
 
+
                                                 class InterAreaPrefix(Entity):
                                                     """
                                                     Inter\-Area\-Prefix LSA.
@@ -2946,10 +3471,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..16777215
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: prefix
                                                     
                                                     	Prefix
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: prefix_options
                                                     
@@ -2957,6 +3486,8 @@ class RoutingState(Entity):
                                                     	**type**\: str
                                                     
                                                     	**mandatory**\: True
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -2966,7 +3497,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaPrefix, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaPrefix, self).__init__()
 
                                                         self.yang_name = "inter-area-prefix"
                                                         self.yang_parent_name = "body"
@@ -2989,6 +3523,7 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaPrefix, ['metric', 'prefix', 'prefix_options'], name, value)
 
 
+
                                                 class InterAreaRouter(Entity):
                                                     """
                                                     Inter\-Area\-Router LSA.
@@ -3000,6 +3535,8 @@ class RoutingState(Entity):
                                                     
                                                     	**mandatory**\: True
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: metric
                                                     
                                                     	Metric
@@ -3007,12 +3544,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..16777215
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: destination_router_id
                                                     
                                                     	The Router ID of the router being described by the LSA
                                                     	**type**\: str
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3022,7 +3563,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter, self).__init__()
 
                                                         self.yang_name = "inter-area-router"
                                                         self.yang_parent_name = "body"
@@ -3045,6 +3589,7 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter, ['options', 'metric', 'destination_router_id'], name, value)
 
 
+
                                                 class AsExternal(Entity):
                                                     """
                                                     AS\-External LSA.
@@ -3056,10 +3601,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..16777215
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: flags
                                                     
                                                     	Flags
                                                     	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal.Flags>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: referenced_ls_type
                                                     
@@ -3068,10 +3617,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..65535
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: prefix
                                                     
                                                     	Prefix
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: prefix_options
                                                     
@@ -3080,12 +3633,16 @@ class RoutingState(Entity):
                                                     
                                                     	**mandatory**\: True
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: forwarding_address
                                                     
                                                     	Forwarding address
                                                     	**type**\: str
                                                     
                                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: external_route_tag
                                                     
@@ -3094,12 +3651,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: referenced_link_state_id
                                                     
                                                     	Referenced Link State ID
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3109,7 +3670,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal, self).__init__()
 
                                                         self.yang_name = "as-external"
                                                         self.yang_parent_name = "body"
@@ -3142,6 +3706,7 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
 
 
+
                                                 class Nssa(Entity):
                                                     """
                                                     NSSA LSA.
@@ -3153,10 +3718,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..16777215
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: flags
                                                     
                                                     	Flags
                                                     	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa.Flags>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: referenced_ls_type
                                                     
@@ -3165,10 +3734,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..65535
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: prefix
                                                     
                                                     	Prefix
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: prefix_options
                                                     
@@ -3177,12 +3750,16 @@ class RoutingState(Entity):
                                                     
                                                     	**mandatory**\: True
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: forwarding_address
                                                     
                                                     	Forwarding address
                                                     	**type**\: str
                                                     
                                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: external_route_tag
                                                     
@@ -3191,12 +3768,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: referenced_link_state_id
                                                     
                                                     	Referenced Link State ID
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3206,7 +3787,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa, self).__init__()
 
                                                         self.yang_name = "nssa"
                                                         self.yang_parent_name = "body"
@@ -3239,6 +3823,7 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
 
 
+
                                                 class Link(Entity):
                                                     """
                                                     Link LSA.
@@ -3250,12 +3835,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: options
                                                     
                                                     	OSPFv3 LSA options
                                                     	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.Options>`
                                                     
                                                     	**mandatory**\: True
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: link_local_interface_address
                                                     
@@ -3270,6 +3859,8 @@ class RoutingState(Entity):
                                                     
                                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: num_of_prefixes
                                                     
                                                     	Number of prefixes
@@ -3277,10 +3868,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: prefix_list
                                                     
                                                     	List of prefixes associated with the link
                                                     	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3290,7 +3885,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link, self).__init__()
 
                                                         self.yang_name = "link"
                                                         self.yang_parent_name = "body"
@@ -3326,12 +3924,16 @@ class RoutingState(Entity):
                                                         	Prefix
                                                         	**type**\: str
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: prefix_options
                                                         
                                                         	Prefix options
                                                         	**type**\: str
                                                         
                                                         	**mandatory**\: True
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -3341,7 +3943,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList, self).__init__()
 
                                                             self.yang_name = "prefix-list"
                                                             self.yang_parent_name = "link"
@@ -3362,6 +3967,8 @@ class RoutingState(Entity):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList, ['prefix', 'prefix_options'], name, value)
 
 
+
+
                                                 class IntraAreaPrefix(Entity):
                                                     """
                                                     Intra\-Area\-Prefix LSA.
@@ -3373,12 +3980,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..65535
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: referenced_link_state_id
                                                     
                                                     	Referenced Link State ID
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: referenced_adv_router
                                                     
@@ -3387,6 +3998,8 @@ class RoutingState(Entity):
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: num_of_prefixes
                                                     
                                                     	Number of prefixes
@@ -3394,10 +4007,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..65535
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: prefix_list
                                                     
                                                     	List of prefixes associated with the link
                                                     	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3407,7 +4024,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix, self).__init__()
 
                                                         self.yang_name = "intra-area-prefix"
                                                         self.yang_parent_name = "body"
@@ -3443,6 +4063,8 @@ class RoutingState(Entity):
                                                         	Prefix
                                                         	**type**\: str
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: prefix_options
                                                         
                                                         	Prefix options
@@ -3450,12 +4072,16 @@ class RoutingState(Entity):
                                                         
                                                         	**mandatory**\: True
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: metric
                                                         
                                                         	Metric
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..16777215
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -3465,7 +4091,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, self).__init__()
 
                                                             self.yang_name = "prefix-list"
                                                             self.yang_parent_name = "intra-area-prefix"
@@ -3488,6 +4117,12 @@ class RoutingState(Entity):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, ['prefix', 'prefix_options', 'metric'], name, value)
 
 
+
+
+
+
+
+
                                 class Topology(Entity):
                                     """
                                     OSPF interface topology.
@@ -3499,6 +4134,8 @@ class RoutingState(Entity):
                                     
                                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs.Rib>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -3507,7 +4144,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology, self).__init__()
 
                                         self.yang_name = "topology"
                                         self.yang_parent_name = "interfaces"
@@ -3526,6 +4166,8 @@ class RoutingState(Entity):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology, ['name'], name, value)
 
 
+
+
                             class AreaScopeLsas(Entity):
                                 """
                                 List OSPF area scope LSA databases
@@ -3537,10 +4179,14 @@ class RoutingState(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area_scope_lsa
                                 
                                 	List of OSPF area scope LSAs
                                 	**type**\: list of  		 :py:class:`AreaScopeLsa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3550,7 +4196,10 @@ class RoutingState(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas, self).__init__()
 
                                     self.yang_name = "area-scope-lsas"
                                     self.yang_parent_name = "area"
@@ -3588,6 +4237,8 @@ class RoutingState(Entity):
                                     
                                     			**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: adv_router  (key)
                                     
                                     	Advertising router
@@ -3595,10 +4246,14 @@ class RoutingState(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: decoded_completed
                                     
                                     	The OSPF LSA body is fully decoded
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: raw_data
                                     
@@ -3607,15 +4262,21 @@ class RoutingState(Entity):
                                     
                                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ospfv2
                                     
                                     	OSPFv2 LSA
                                     	**type**\:  :py:class:`Ospfv2 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ospfv3
                                     
                                     	OSPFv3 LSA
                                     	**type**\:  :py:class:`Ospfv3 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3625,7 +4286,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa, self).__init__()
 
                                         self.yang_name = "area-scope-lsa"
                                         self.yang_parent_name = "area-scope-lsas"
@@ -3667,10 +4331,14 @@ class RoutingState(Entity):
                                         	Decoded OSPFv2 LSA header data
                                         	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: body
                                         
                                         	Decoded OSPFv2 LSA body data
                                         	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3680,7 +4348,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2, self).__init__()
 
                                             self.yang_name = "ospfv2"
                                             self.yang_parent_name = "area-scope-lsa"
@@ -3715,6 +4386,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: lsa_id
                                             
                                             	LSA ID
@@ -3723,6 +4396,8 @@ class RoutingState(Entity):
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
                                             	**mandatory**\: True
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: opaque_type
                                             
@@ -3733,6 +4408,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: opaque_id
                                             
                                             	Opaque id
@@ -3741,6 +4418,8 @@ class RoutingState(Entity):
                                             	**range:** 0..16777215
                                             
                                             	**mandatory**\: True
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: age
                                             
@@ -3751,6 +4430,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: type
                                             
                                             	LSA type
@@ -3759,6 +4440,8 @@ class RoutingState(Entity):
                                             	**range:** 0..65535
                                             
                                             	**mandatory**\: True
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: adv_router
                                             
@@ -3769,6 +4452,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: seq_num
                                             
                                             	LSA sequence number
@@ -3776,12 +4461,16 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: checksum
                                             
                                             	LSA checksum
                                             	**type**\: str
                                             
                                             	**mandatory**\: True
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: length
                                             
@@ -3792,6 +4481,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -3800,7 +4491,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header, self).__init__()
 
                                                 self.yang_name = "header"
                                                 self.yang_parent_name = "ospfv2"
@@ -3837,6 +4531,7 @@ class RoutingState(Entity):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header, ['options', 'lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
 
 
+
                                         class Body(Entity):
                                             """
                                             Decoded OSPFv2 LSA body data.
@@ -3846,25 +4541,35 @@ class RoutingState(Entity):
                                             	Router LSA
                                             	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: network
                                             
                                             	Network LSA
                                             	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Network>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: summary
                                             
                                             	Summary LSA
                                             	**type**\:  :py:class:`Summary <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: external
                                             
                                             	External LSA
                                             	**type**\:  :py:class:`External <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: opaque
                                             
                                             	Opaque LSA
                                             	**type**\:  :py:class:`Opaque <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3874,7 +4579,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body, self).__init__()
 
                                                 self.yang_name = "body"
                                                 self.yang_parent_name = "ospfv2"
@@ -3919,6 +4627,8 @@ class RoutingState(Entity):
                                                 	Flags
                                                 	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Flags>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: num_of_links
                                                 
                                                 	Number of links
@@ -3926,10 +4636,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..65535
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link
                                                 
                                                 	Router LSA link
                                                 	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3939,7 +4653,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router, self).__init__()
 
                                                     self.yang_name = "router"
                                                     self.yang_parent_name = "body"
@@ -3979,6 +4696,8 @@ class RoutingState(Entity):
                                                     
                                                     			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: link_data  (key)
                                                     
                                                     	Link data
@@ -3992,6 +4711,8 @@ class RoutingState(Entity):
                                                     
                                                     			**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: type
                                                     
                                                     	Link type
@@ -3999,10 +4720,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: topology
                                                     
                                                     	Topology specific information
                                                     	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -4012,7 +4737,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link, self).__init__()
 
                                                         self.yang_name = "link"
                                                         self.yang_parent_name = "router"
@@ -4048,12 +4776,16 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: metric
                                                         
                                                         	Metric for the topology
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..65535
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -4063,7 +4795,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology, self).__init__()
 
                                                             self.yang_name = "topology"
                                                             self.yang_parent_name = "link"
@@ -4084,6 +4819,9 @@ class RoutingState(Entity):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
+
                                             class Network(Entity):
                                                 """
                                                 Network LSA.
@@ -4095,12 +4833,16 @@ class RoutingState(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: attached_router
                                                 
                                                 	List of the routers attached to the network
                                                 	**type**\: list of str
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4110,7 +4852,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Network, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Network, self).__init__()
 
                                                     self.yang_name = "network"
                                                     self.yang_parent_name = "body"
@@ -4131,6 +4876,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Network, ['network_mask', 'attached_router'], name, value)
 
 
+
                                             class Summary(Entity):
                                                 """
                                                 Summary LSA.
@@ -4142,10 +4888,14 @@ class RoutingState(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: topology
                                                 
                                                 	Topology specific information
                                                 	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4155,7 +4905,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary, self).__init__()
 
                                                     self.yang_name = "summary"
                                                     self.yang_parent_name = "body"
@@ -4187,12 +4940,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: metric
                                                     
                                                     	Metric for the topology
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..16777215
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -4202,7 +4959,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology, self).__init__()
 
                                                         self.yang_name = "topology"
                                                         self.yang_parent_name = "summary"
@@ -4223,6 +4983,8 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
                                             class External(Entity):
                                                 """
                                                 External LSA.
@@ -4234,10 +4996,14 @@ class RoutingState(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: topology
                                                 
                                                 	Topology specific information
                                                 	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4247,7 +5013,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External, self).__init__()
 
                                                     self.yang_name = "external"
                                                     self.yang_parent_name = "body"
@@ -4279,10 +5048,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: flags
                                                     
                                                     	Flags
                                                     	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology.Flags>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: metric
                                                     
@@ -4291,6 +5064,8 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..16777215
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: forwarding_address
                                                     
                                                     	Forwarding address
@@ -4298,12 +5073,16 @@ class RoutingState(Entity):
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: external_route_tag
                                                     
                                                     	Route tag
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -4313,7 +5092,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology, self).__init__()
 
                                                         self.yang_name = "topology"
                                                         self.yang_parent_name = "external"
@@ -4340,6 +5122,8 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology, ['mt_id', 'flags', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
 
 
+
+
                                             class Opaque(Entity):
                                                 """
                                                 Opaque LSA.
@@ -4349,15 +5133,21 @@ class RoutingState(Entity):
                                                 	Unknown TLV
                                                 	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: router_address_tlv
                                                 
                                                 	Router address TLV
                                                 	**type**\:  :py:class:`RouterAddressTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_tlv
                                                 
                                                 	Link TLV
                                                 	**type**\:  :py:class:`LinkTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4367,7 +5157,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque, self).__init__()
 
                                                     self.yang_name = "opaque"
                                                     self.yang_parent_name = "body"
@@ -4404,6 +5197,8 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..65535
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: length
                                                     
                                                     	TLV length
@@ -4411,12 +5206,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..65535
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: value
                                                     
                                                     	TLV value
                                                     	**type**\: str
                                                     
                                                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -4426,7 +5225,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, self).__init__()
 
                                                         self.yang_name = "unknown-tlv"
                                                         self.yang_parent_name = "opaque"
@@ -4449,6 +5251,7 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, ['type', 'length', 'value'], name, value)
 
 
+
                                                 class RouterAddressTlv(Entity):
                                                     """
                                                     Router address TLV.
@@ -4460,6 +5263,8 @@ class RoutingState(Entity):
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
+                                                    	**config**\: False
+                                                    
                                                     
 
                                                     """
@@ -4468,7 +5273,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, self).__init__()
 
                                                         self.yang_name = "router-address-tlv"
                                                         self.yang_parent_name = "opaque"
@@ -4487,6 +5295,7 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, ['router_address'], name, value)
 
 
+
                                                 class LinkTlv(Entity):
                                                     """
                                                     Link TLV.
@@ -4499,6 +5308,8 @@ class RoutingState(Entity):
                                                     	**range:** 0..255
                                                     
                                                     	**mandatory**\: True
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: link_id
                                                     
@@ -4515,12 +5326,16 @@ class RoutingState(Entity):
                                                     
                                                     	**mandatory**\: True
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: local_if_ipv4_addr
                                                     
                                                     	List of local interface IPv4 addresses
                                                     	**type**\: list of str
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: local_remote_ipv4_addr
                                                     
@@ -4529,12 +5344,16 @@ class RoutingState(Entity):
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: te_metric
                                                     
                                                     	TE metric
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: max_bandwidth
                                                     
@@ -4543,12 +5362,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** \-92233720368547758.08..92233720368547758.07
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: max_reservable_bandwidth
                                                     
                                                     	Maximum reservable bandwidth
                                                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                     
                                                     	**range:** \-92233720368547758.08..92233720368547758.07
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: unreserved_bandwidth
                                                     
@@ -4557,6 +5380,8 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** \-92233720368547758.08..92233720368547758.07
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: admin_group
                                                     
                                                     	Administrative group/Resource class/Color
@@ -4564,10 +5389,14 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: unknown_subtlv
                                                     
                                                     	Unknown sub\-TLV
                                                     	**type**\: list of  		 :py:class:`UnknownSubtlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -4577,7 +5406,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv, self).__init__()
 
                                                         self.yang_name = "link-tlv"
                                                         self.yang_parent_name = "opaque"
@@ -4625,6 +5457,8 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..65535
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: length
                                                         
                                                         	TLV length
@@ -4632,12 +5466,16 @@ class RoutingState(Entity):
                                                         
                                                         	**range:** 0..65535
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: value
                                                         
                                                         	TLV value
                                                         	**type**\: str
                                                         
                                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -4647,7 +5485,10 @@ class RoutingState(Entity):
                                                         _revision = '2015-03-09'
 
                                                         def __init__(self):
-                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, self).__init__()
 
                                                             self.yang_name = "unknown-subtlv"
                                                             self.yang_parent_name = "link-tlv"
@@ -4670,6 +5511,11 @@ class RoutingState(Entity):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, ['type', 'length', 'value'], name, value)
 
 
+
+
+
+
+
                                     class Ospfv3(Entity):
                                         """
                                         OSPFv3 LSA
@@ -4679,10 +5525,14 @@ class RoutingState(Entity):
                                         	Decoded OSPFv3 LSA header data
                                         	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: body
                                         
                                         	Decoded OSPF LSA body data
                                         	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4692,7 +5542,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3, self).__init__()
 
                                             self.yang_name = "ospfv3"
                                             self.yang_parent_name = "area-scope-lsa"
@@ -4729,6 +5582,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: age
                                             
                                             	LSA age
@@ -4737,6 +5592,8 @@ class RoutingState(Entity):
                                             	**range:** 0..65535
                                             
                                             	**mandatory**\: True
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: type
                                             
@@ -4747,6 +5604,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: adv_router
                                             
                                             	LSA advertising router
@@ -4756,6 +5615,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: seq_num
                                             
                                             	LSA sequence number
@@ -4763,12 +5624,16 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: checksum
                                             
                                             	LSA checksum
                                             	**type**\: str
                                             
                                             	**mandatory**\: True
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: length
                                             
@@ -4779,12 +5644,16 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: options
                                             
                                             	OSPFv3 LSA options
                                             	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header.Options>`
                                             
                                             	**mandatory**\: True
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4794,7 +5663,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header, self).__init__()
 
                                                 self.yang_name = "header"
                                                 self.yang_parent_name = "ospfv3"
@@ -4827,6 +5699,7 @@ class RoutingState(Entity):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header, ['lsa_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'options'], name, value)
 
 
+
                                         class Body(Entity):
                                             """
                                             Decoded OSPF LSA body data.
@@ -4836,40 +5709,56 @@ class RoutingState(Entity):
                                             	Router LSA
                                             	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: network
                                             
                                             	Network LSA
                                             	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: inter_area_prefix
                                             
                                             	Inter\-Area\-Prefix LSA
                                             	**type**\:  :py:class:`InterAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaPrefix>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: inter_area_router
                                             
                                             	Inter\-Area\-Router LSA
                                             	**type**\:  :py:class:`InterAreaRouter <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: as_external
                                             
                                             	AS\-External LSA
                                             	**type**\:  :py:class:`AsExternal <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: nssa
                                             
                                             	NSSA LSA
                                             	**type**\:  :py:class:`Nssa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: link
                                             
                                             	Link LSA
                                             	**type**\:  :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: intra_area_prefix
                                             
                                             	Intra\-Area\-Prefix LSA
                                             	**type**\:  :py:class:`IntraAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4879,7 +5768,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body, self).__init__()
 
                                                 self.yang_name = "body"
                                                 self.yang_parent_name = "ospfv3"
@@ -4938,6 +5830,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: options
                                                 
                                                 	OSPFv3 LSA options
@@ -4945,10 +5839,14 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link
                                                 
                                                 	Router LSA link
                                                 	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4958,7 +5856,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router, self).__init__()
 
                                                     self.yang_name = "router"
                                                     self.yang_parent_name = "body"
@@ -4992,12 +5893,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: neighbor_interface_id  (key)
                                                     
                                                     	Neighbor Interface ID
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: neighbor_router_id  (key)
                                                     
@@ -5006,6 +5911,8 @@ class RoutingState(Entity):
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: type
                                                     
                                                     	Link type
@@ -5013,12 +5920,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: metric
                                                     
                                                     	Metric
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..65535
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -5028,7 +5939,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link, self).__init__()
 
                                                         self.yang_name = "link"
                                                         self.yang_parent_name = "router"
@@ -5055,6 +5969,8 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
 
 
+
+
                                             class Network(Entity):
                                                 """
                                                 Network LSA.
@@ -5066,12 +5982,16 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: attached_router
                                                 
                                                 	List of the routers attached to the network
                                                 	**type**\: list of str
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5081,7 +6001,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network, self).__init__()
 
                                                     self.yang_name = "network"
                                                     self.yang_parent_name = "body"
@@ -5102,6 +6025,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network, ['options', 'attached_router'], name, value)
 
 
+
                                             class InterAreaPrefix(Entity):
                                                 """
                                                 Inter\-Area\-Prefix LSA.
@@ -5113,10 +6037,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..16777215
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: prefix
                                                 
                                                 	Prefix
                                                 	**type**\: str
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: prefix_options
                                                 
@@ -5124,6 +6052,8 @@ class RoutingState(Entity):
                                                 	**type**\: str
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5133,7 +6063,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaPrefix, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaPrefix, self).__init__()
 
                                                     self.yang_name = "inter-area-prefix"
                                                     self.yang_parent_name = "body"
@@ -5156,6 +6089,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaPrefix, ['metric', 'prefix', 'prefix_options'], name, value)
 
 
+
                                             class InterAreaRouter(Entity):
                                                 """
                                                 Inter\-Area\-Router LSA.
@@ -5167,6 +6101,8 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: metric
                                                 
                                                 	Metric
@@ -5174,12 +6110,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..16777215
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: destination_router_id
                                                 
                                                 	The Router ID of the router being described by the LSA
                                                 	**type**\: str
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5189,7 +6129,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter, self).__init__()
 
                                                     self.yang_name = "inter-area-router"
                                                     self.yang_parent_name = "body"
@@ -5212,6 +6155,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter, ['options', 'metric', 'destination_router_id'], name, value)
 
 
+
                                             class AsExternal(Entity):
                                                 """
                                                 AS\-External LSA.
@@ -5223,10 +6167,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..16777215
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: flags
                                                 
                                                 	Flags
                                                 	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal.Flags>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: referenced_ls_type
                                                 
@@ -5235,10 +6183,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..65535
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: prefix
                                                 
                                                 	Prefix
                                                 	**type**\: str
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: prefix_options
                                                 
@@ -5247,12 +6199,16 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: forwarding_address
                                                 
                                                 	Forwarding address
                                                 	**type**\: str
                                                 
                                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: external_route_tag
                                                 
@@ -5261,12 +6217,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: referenced_link_state_id
                                                 
                                                 	Referenced Link State ID
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5276,7 +6236,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal, self).__init__()
 
                                                     self.yang_name = "as-external"
                                                     self.yang_parent_name = "body"
@@ -5309,6 +6272,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
 
 
+
                                             class Nssa(Entity):
                                                 """
                                                 NSSA LSA.
@@ -5320,10 +6284,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..16777215
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: flags
                                                 
                                                 	Flags
                                                 	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa.Flags>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: referenced_ls_type
                                                 
@@ -5332,10 +6300,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..65535
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: prefix
                                                 
                                                 	Prefix
                                                 	**type**\: str
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: prefix_options
                                                 
@@ -5344,12 +6316,16 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: forwarding_address
                                                 
                                                 	Forwarding address
                                                 	**type**\: str
                                                 
                                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: external_route_tag
                                                 
@@ -5358,12 +6334,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: referenced_link_state_id
                                                 
                                                 	Referenced Link State ID
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5373,7 +6353,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa, self).__init__()
 
                                                     self.yang_name = "nssa"
                                                     self.yang_parent_name = "body"
@@ -5406,6 +6389,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
 
 
+
                                             class Link(Entity):
                                                 """
                                                 Link LSA.
@@ -5417,12 +6401,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: options
                                                 
                                                 	OSPFv3 LSA options
                                                 	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.Options>`
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_local_interface_address
                                                 
@@ -5437,6 +6425,8 @@ class RoutingState(Entity):
                                                 
                                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: num_of_prefixes
                                                 
                                                 	Number of prefixes
@@ -5444,10 +6434,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: prefix_list
                                                 
                                                 	List of prefixes associated with the link
                                                 	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5457,7 +6451,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link, self).__init__()
 
                                                     self.yang_name = "link"
                                                     self.yang_parent_name = "body"
@@ -5493,12 +6490,16 @@ class RoutingState(Entity):
                                                     	Prefix
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: prefix_options
                                                     
                                                     	Prefix options
                                                     	**type**\: str
                                                     
                                                     	**mandatory**\: True
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -5508,7 +6509,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList, self).__init__()
 
                                                         self.yang_name = "prefix-list"
                                                         self.yang_parent_name = "link"
@@ -5529,6 +6533,8 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList, ['prefix', 'prefix_options'], name, value)
 
 
+
+
                                             class IntraAreaPrefix(Entity):
                                                 """
                                                 Intra\-Area\-Prefix LSA.
@@ -5540,12 +6546,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..65535
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: referenced_link_state_id
                                                 
                                                 	Referenced Link State ID
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: referenced_adv_router
                                                 
@@ -5554,6 +6564,8 @@ class RoutingState(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: num_of_prefixes
                                                 
                                                 	Number of prefixes
@@ -5561,10 +6573,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..65535
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: prefix_list
                                                 
                                                 	List of prefixes associated with the link
                                                 	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5574,7 +6590,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix, self).__init__()
 
                                                     self.yang_name = "intra-area-prefix"
                                                     self.yang_parent_name = "body"
@@ -5610,6 +6629,8 @@ class RoutingState(Entity):
                                                     	Prefix
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: prefix_options
                                                     
                                                     	Prefix options
@@ -5617,12 +6638,16 @@ class RoutingState(Entity):
                                                     
                                                     	**mandatory**\: True
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: metric
                                                     
                                                     	Metric
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..16777215
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -5632,7 +6657,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, self).__init__()
 
                                                         self.yang_name = "prefix-list"
                                                         self.yang_parent_name = "intra-area-prefix"
@@ -5655,6 +6683,13 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, ['prefix', 'prefix_options', 'metric'], name, value)
 
 
+
+
+
+
+
+
+
                         class AsScopeLsas(Entity):
                             """
                             List OSPF AS scope LSA databases
@@ -5666,10 +6701,14 @@ class RoutingState(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: as_scope_lsa
                             
                             	List of OSPF AS scope LSAs
                             	**type**\: list of  		 :py:class:`AsScopeLsa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5679,7 +6718,10 @@ class RoutingState(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas, self).__init__()
 
                                 self.yang_name = "as-scope-lsas"
                                 self.yang_parent_name = "instance"
@@ -5717,6 +6759,8 @@ class RoutingState(Entity):
                                 
                                 			**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: adv_router  (key)
                                 
                                 	Advertising router
@@ -5724,10 +6768,14 @@ class RoutingState(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: decoded_completed
                                 
                                 	The OSPF LSA body is fully decoded
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: raw_data
                                 
@@ -5736,15 +6784,21 @@ class RoutingState(Entity):
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospfv2
                                 
                                 	OSPFv2 LSA
                                 	**type**\:  :py:class:`Ospfv2 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospfv3
                                 
                                 	OSPFv3 LSA
                                 	**type**\:  :py:class:`Ospfv3 <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5754,7 +6808,10 @@ class RoutingState(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa, self).__init__()
 
                                     self.yang_name = "as-scope-lsa"
                                     self.yang_parent_name = "as-scope-lsas"
@@ -5796,10 +6853,14 @@ class RoutingState(Entity):
                                     	Decoded OSPFv2 LSA header data
                                     	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: body
                                     
                                     	Decoded OSPFv2 LSA body data
                                     	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5809,7 +6870,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2, self).__init__()
 
                                         self.yang_name = "ospfv2"
                                         self.yang_parent_name = "as-scope-lsa"
@@ -5844,6 +6908,8 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lsa_id
                                         
                                         	LSA ID
@@ -5852,6 +6918,8 @@ class RoutingState(Entity):
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         	**mandatory**\: True
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: opaque_type
                                         
@@ -5862,6 +6930,8 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: opaque_id
                                         
                                         	Opaque id
@@ -5870,6 +6940,8 @@ class RoutingState(Entity):
                                         	**range:** 0..16777215
                                         
                                         	**mandatory**\: True
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: age
                                         
@@ -5880,6 +6952,8 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: type
                                         
                                         	LSA type
@@ -5888,6 +6962,8 @@ class RoutingState(Entity):
                                         	**range:** 0..65535
                                         
                                         	**mandatory**\: True
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: adv_router
                                         
@@ -5898,6 +6974,8 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: seq_num
                                         
                                         	LSA sequence number
@@ -5905,12 +6983,16 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: checksum
                                         
                                         	LSA checksum
                                         	**type**\: str
                                         
                                         	**mandatory**\: True
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: length
                                         
@@ -5921,6 +7003,8 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -5929,7 +7013,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header, self).__init__()
 
                                             self.yang_name = "header"
                                             self.yang_parent_name = "ospfv2"
@@ -5966,6 +7053,7 @@ class RoutingState(Entity):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header, ['options', 'lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
 
 
+
                                     class Body(Entity):
                                         """
                                         Decoded OSPFv2 LSA body data.
@@ -5975,25 +7063,35 @@ class RoutingState(Entity):
                                         	Router LSA
                                         	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: network
                                         
                                         	Network LSA
                                         	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Network>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: summary
                                         
                                         	Summary LSA
                                         	**type**\:  :py:class:`Summary <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external
                                         
                                         	External LSA
                                         	**type**\:  :py:class:`External <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: opaque
                                         
                                         	Opaque LSA
                                         	**type**\:  :py:class:`Opaque <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6003,7 +7101,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body, self).__init__()
 
                                             self.yang_name = "body"
                                             self.yang_parent_name = "ospfv2"
@@ -6048,6 +7149,8 @@ class RoutingState(Entity):
                                             	Flags
                                             	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Flags>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: num_of_links
                                             
                                             	Number of links
@@ -6055,10 +7158,14 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: link
                                             
                                             	Router LSA link
                                             	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6068,7 +7175,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router, self).__init__()
 
                                                 self.yang_name = "router"
                                                 self.yang_parent_name = "body"
@@ -6108,6 +7218,8 @@ class RoutingState(Entity):
                                                 
                                                 			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_data  (key)
                                                 
                                                 	Link data
@@ -6121,6 +7233,8 @@ class RoutingState(Entity):
                                                 
                                                 			**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: type
                                                 
                                                 	Link type
@@ -6128,10 +7242,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: topology
                                                 
                                                 	Topology specific information
                                                 	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6141,7 +7259,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link, self).__init__()
 
                                                     self.yang_name = "link"
                                                     self.yang_parent_name = "router"
@@ -6177,12 +7298,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: metric
                                                     
                                                     	Metric for the topology
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..65535
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -6192,7 +7317,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology, self).__init__()
 
                                                         self.yang_name = "topology"
                                                         self.yang_parent_name = "link"
@@ -6213,6 +7341,9 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
+
                                         class Network(Entity):
                                             """
                                             Network LSA.
@@ -6224,12 +7355,16 @@ class RoutingState(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attached_router
                                             
                                             	List of the routers attached to the network
                                             	**type**\: list of str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6239,7 +7374,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Network, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Network, self).__init__()
 
                                                 self.yang_name = "network"
                                                 self.yang_parent_name = "body"
@@ -6260,6 +7398,7 @@ class RoutingState(Entity):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Network, ['network_mask', 'attached_router'], name, value)
 
 
+
                                         class Summary(Entity):
                                             """
                                             Summary LSA.
@@ -6271,10 +7410,14 @@ class RoutingState(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: topology
                                             
                                             	Topology specific information
                                             	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6284,7 +7427,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary, self).__init__()
 
                                                 self.yang_name = "summary"
                                                 self.yang_parent_name = "body"
@@ -6316,12 +7462,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: metric
                                                 
                                                 	Metric for the topology
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..16777215
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6331,7 +7481,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology, self).__init__()
 
                                                     self.yang_name = "topology"
                                                     self.yang_parent_name = "summary"
@@ -6352,6 +7505,8 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
                                         class External(Entity):
                                             """
                                             External LSA.
@@ -6363,10 +7518,14 @@ class RoutingState(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: topology
                                             
                                             	Topology specific information
                                             	**type**\: list of  		 :py:class:`Topology <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6376,7 +7535,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External, self).__init__()
 
                                                 self.yang_name = "external"
                                                 self.yang_parent_name = "body"
@@ -6408,10 +7570,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: flags
                                                 
                                                 	Flags
                                                 	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology.Flags>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: metric
                                                 
@@ -6420,6 +7586,8 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..16777215
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: forwarding_address
                                                 
                                                 	Forwarding address
@@ -6427,12 +7595,16 @@ class RoutingState(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: external_route_tag
                                                 
                                                 	Route tag
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6442,7 +7614,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology, self).__init__()
 
                                                     self.yang_name = "topology"
                                                     self.yang_parent_name = "external"
@@ -6469,6 +7644,8 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology, ['mt_id', 'flags', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
 
 
+
+
                                         class Opaque(Entity):
                                             """
                                             Opaque LSA.
@@ -6478,15 +7655,21 @@ class RoutingState(Entity):
                                             	Unknown TLV
                                             	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: router_address_tlv
                                             
                                             	Router address TLV
                                             	**type**\:  :py:class:`RouterAddressTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: link_tlv
                                             
                                             	Link TLV
                                             	**type**\:  :py:class:`LinkTlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6496,7 +7679,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque, self).__init__()
 
                                                 self.yang_name = "opaque"
                                                 self.yang_parent_name = "body"
@@ -6533,6 +7719,8 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..65535
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: length
                                                 
                                                 	TLV length
@@ -6540,12 +7728,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..65535
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: value
                                                 
                                                 	TLV value
                                                 	**type**\: str
                                                 
                                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6555,7 +7747,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, self).__init__()
 
                                                     self.yang_name = "unknown-tlv"
                                                     self.yang_parent_name = "opaque"
@@ -6578,6 +7773,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, ['type', 'length', 'value'], name, value)
 
 
+
                                             class RouterAddressTlv(Entity):
                                                 """
                                                 Router address TLV.
@@ -6589,6 +7785,8 @@ class RoutingState(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -6597,7 +7795,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, self).__init__()
 
                                                     self.yang_name = "router-address-tlv"
                                                     self.yang_parent_name = "opaque"
@@ -6616,6 +7817,7 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, ['router_address'], name, value)
 
 
+
                                             class LinkTlv(Entity):
                                                 """
                                                 Link TLV.
@@ -6628,6 +7830,8 @@ class RoutingState(Entity):
                                                 	**range:** 0..255
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_id
                                                 
@@ -6644,12 +7848,16 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: local_if_ipv4_addr
                                                 
                                                 	List of local interface IPv4 addresses
                                                 	**type**\: list of str
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: local_remote_ipv4_addr
                                                 
@@ -6658,12 +7866,16 @@ class RoutingState(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: te_metric
                                                 
                                                 	TE metric
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: max_bandwidth
                                                 
@@ -6672,12 +7884,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** \-92233720368547758.08..92233720368547758.07
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: max_reservable_bandwidth
                                                 
                                                 	Maximum reservable bandwidth
                                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                                 
                                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: unreserved_bandwidth
                                                 
@@ -6686,6 +7902,8 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** \-92233720368547758.08..92233720368547758.07
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: admin_group
                                                 
                                                 	Administrative group/Resource class/Color
@@ -6693,10 +7911,14 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unknown_subtlv
                                                 
                                                 	Unknown sub\-TLV
                                                 	**type**\: list of  		 :py:class:`UnknownSubtlv <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6706,7 +7928,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv, self).__init__()
 
                                                     self.yang_name = "link-tlv"
                                                     self.yang_parent_name = "opaque"
@@ -6754,6 +7979,8 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..65535
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: length
                                                     
                                                     	TLV length
@@ -6761,12 +7988,16 @@ class RoutingState(Entity):
                                                     
                                                     	**range:** 0..65535
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: value
                                                     
                                                     	TLV value
                                                     	**type**\: str
                                                     
                                                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -6776,7 +8007,10 @@ class RoutingState(Entity):
                                                     _revision = '2015-03-09'
 
                                                     def __init__(self):
-                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, self).__init__()
 
                                                         self.yang_name = "unknown-subtlv"
                                                         self.yang_parent_name = "link-tlv"
@@ -6799,6 +8033,11 @@ class RoutingState(Entity):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, ['type', 'length', 'value'], name, value)
 
 
+
+
+
+
+
                                 class Ospfv3(Entity):
                                     """
                                     OSPFv3 LSA
@@ -6808,10 +8047,14 @@ class RoutingState(Entity):
                                     	Decoded OSPFv3 LSA header data
                                     	**type**\:  :py:class:`Header <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: body
                                     
                                     	Decoded OSPF LSA body data
                                     	**type**\:  :py:class:`Body <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6821,7 +8064,10 @@ class RoutingState(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3, self).__init__()
 
                                         self.yang_name = "ospfv3"
                                         self.yang_parent_name = "as-scope-lsa"
@@ -6858,6 +8104,8 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: age
                                         
                                         	LSA age
@@ -6866,6 +8114,8 @@ class RoutingState(Entity):
                                         	**range:** 0..65535
                                         
                                         	**mandatory**\: True
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: type
                                         
@@ -6876,6 +8126,8 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: adv_router
                                         
                                         	LSA advertising router
@@ -6885,6 +8137,8 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: seq_num
                                         
                                         	LSA sequence number
@@ -6892,12 +8146,16 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: checksum
                                         
                                         	LSA checksum
                                         	**type**\: str
                                         
                                         	**mandatory**\: True
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: length
                                         
@@ -6908,12 +8166,16 @@ class RoutingState(Entity):
                                         
                                         	**mandatory**\: True
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: options
                                         
                                         	OSPFv3 LSA options
                                         	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header.Options>`
                                         
                                         	**mandatory**\: True
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6923,7 +8185,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header, self).__init__()
 
                                             self.yang_name = "header"
                                             self.yang_parent_name = "ospfv3"
@@ -6956,6 +8221,7 @@ class RoutingState(Entity):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header, ['lsa_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'options'], name, value)
 
 
+
                                     class Body(Entity):
                                         """
                                         Decoded OSPF LSA body data.
@@ -6965,40 +8231,56 @@ class RoutingState(Entity):
                                         	Router LSA
                                         	**type**\:  :py:class:`Router <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: network
                                         
                                         	Network LSA
                                         	**type**\:  :py:class:`Network <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: inter_area_prefix
                                         
                                         	Inter\-Area\-Prefix LSA
                                         	**type**\:  :py:class:`InterAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaPrefix>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: inter_area_router
                                         
                                         	Inter\-Area\-Router LSA
                                         	**type**\:  :py:class:`InterAreaRouter <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: as_external
                                         
                                         	AS\-External LSA
                                         	**type**\:  :py:class:`AsExternal <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: nssa
                                         
                                         	NSSA LSA
                                         	**type**\:  :py:class:`Nssa <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: link
                                         
                                         	Link LSA
                                         	**type**\:  :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: intra_area_prefix
                                         
                                         	Intra\-Area\-Prefix LSA
                                         	**type**\:  :py:class:`IntraAreaPrefix <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7008,7 +8290,10 @@ class RoutingState(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body, self).__init__()
 
                                             self.yang_name = "body"
                                             self.yang_parent_name = "ospfv3"
@@ -7067,6 +8352,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: options
                                             
                                             	OSPFv3 LSA options
@@ -7074,10 +8361,14 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: link
                                             
                                             	Router LSA link
                                             	**type**\: list of  		 :py:class:`Link <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7087,7 +8378,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router, self).__init__()
 
                                                 self.yang_name = "router"
                                                 self.yang_parent_name = "body"
@@ -7121,12 +8415,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: neighbor_interface_id  (key)
                                                 
                                                 	Neighbor Interface ID
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: neighbor_router_id  (key)
                                                 
@@ -7135,6 +8433,8 @@ class RoutingState(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: type
                                                 
                                                 	Link type
@@ -7142,12 +8442,16 @@ class RoutingState(Entity):
                                                 
                                                 	**range:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: metric
                                                 
                                                 	Metric
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..65535
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -7157,7 +8461,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link, self).__init__()
 
                                                     self.yang_name = "link"
                                                     self.yang_parent_name = "router"
@@ -7184,6 +8491,8 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
 
 
+
+
                                         class Network(Entity):
                                             """
                                             Network LSA.
@@ -7195,12 +8504,16 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attached_router
                                             
                                             	List of the routers attached to the network
                                             	**type**\: list of str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7210,7 +8523,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network, self).__init__()
 
                                                 self.yang_name = "network"
                                                 self.yang_parent_name = "body"
@@ -7231,6 +8547,7 @@ class RoutingState(Entity):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network, ['options', 'attached_router'], name, value)
 
 
+
                                         class InterAreaPrefix(Entity):
                                             """
                                             Inter\-Area\-Prefix LSA.
@@ -7242,10 +8559,14 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..16777215
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: prefix
                                             
                                             	Prefix
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: prefix_options
                                             
@@ -7253,6 +8574,8 @@ class RoutingState(Entity):
                                             	**type**\: str
                                             
                                             	**mandatory**\: True
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7262,7 +8585,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaPrefix, self).__init__()
 
                                                 self.yang_name = "inter-area-prefix"
                                                 self.yang_parent_name = "body"
@@ -7285,6 +8611,7 @@ class RoutingState(Entity):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaPrefix, ['metric', 'prefix', 'prefix_options'], name, value)
 
 
+
                                         class InterAreaRouter(Entity):
                                             """
                                             Inter\-Area\-Router LSA.
@@ -7296,6 +8623,8 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: metric
                                             
                                             	Metric
@@ -7303,12 +8632,16 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..16777215
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: destination_router_id
                                             
                                             	The Router ID of the router being described by the LSA
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7318,7 +8651,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter, self).__init__()
 
                                                 self.yang_name = "inter-area-router"
                                                 self.yang_parent_name = "body"
@@ -7341,6 +8677,7 @@ class RoutingState(Entity):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter, ['options', 'metric', 'destination_router_id'], name, value)
 
 
+
                                         class AsExternal(Entity):
                                             """
                                             AS\-External LSA.
@@ -7352,10 +8689,14 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..16777215
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: flags
                                             
                                             	Flags
                                             	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal.Flags>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: referenced_ls_type
                                             
@@ -7364,10 +8705,14 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: prefix
                                             
                                             	Prefix
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: prefix_options
                                             
@@ -7376,12 +8721,16 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: forwarding_address
                                             
                                             	Forwarding address
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: external_route_tag
                                             
@@ -7390,12 +8739,16 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: referenced_link_state_id
                                             
                                             	Referenced Link State ID
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7405,7 +8758,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal, self).__init__()
 
                                                 self.yang_name = "as-external"
                                                 self.yang_parent_name = "body"
@@ -7438,6 +8794,7 @@ class RoutingState(Entity):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
 
 
+
                                         class Nssa(Entity):
                                             """
                                             NSSA LSA.
@@ -7449,10 +8806,14 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..16777215
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: flags
                                             
                                             	Flags
                                             	**type**\:  :py:class:`Flags <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa.Flags>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: referenced_ls_type
                                             
@@ -7461,10 +8822,14 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: prefix
                                             
                                             	Prefix
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: prefix_options
                                             
@@ -7473,12 +8838,16 @@ class RoutingState(Entity):
                                             
                                             	**mandatory**\: True
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: forwarding_address
                                             
                                             	Forwarding address
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: external_route_tag
                                             
@@ -7487,12 +8856,16 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: referenced_link_state_id
                                             
                                             	Referenced Link State ID
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7502,7 +8875,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa, self).__init__()
 
                                                 self.yang_name = "nssa"
                                                 self.yang_parent_name = "body"
@@ -7535,6 +8911,7 @@ class RoutingState(Entity):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
 
 
+
                                         class Link(Entity):
                                             """
                                             Link LSA.
@@ -7546,12 +8923,16 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: options
                                             
                                             	OSPFv3 LSA options
                                             	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.Options>`
                                             
                                             	**mandatory**\: True
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: link_local_interface_address
                                             
@@ -7566,6 +8947,8 @@ class RoutingState(Entity):
                                             
                                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: num_of_prefixes
                                             
                                             	Number of prefixes
@@ -7573,10 +8956,14 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: prefix_list
                                             
                                             	List of prefixes associated with the link
                                             	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7586,7 +8973,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link, self).__init__()
 
                                                 self.yang_name = "link"
                                                 self.yang_parent_name = "body"
@@ -7622,12 +9012,16 @@ class RoutingState(Entity):
                                                 	Prefix
                                                 	**type**\: str
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: prefix_options
                                                 
                                                 	Prefix options
                                                 	**type**\: str
                                                 
                                                 	**mandatory**\: True
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -7637,7 +9031,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList, self).__init__()
 
                                                     self.yang_name = "prefix-list"
                                                     self.yang_parent_name = "link"
@@ -7658,6 +9055,8 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList, ['prefix', 'prefix_options'], name, value)
 
 
+
+
                                         class IntraAreaPrefix(Entity):
                                             """
                                             Intra\-Area\-Prefix LSA.
@@ -7669,12 +9068,16 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: referenced_link_state_id
                                             
                                             	Referenced Link State ID
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: referenced_adv_router
                                             
@@ -7683,6 +9086,8 @@ class RoutingState(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: num_of_prefixes
                                             
                                             	Number of prefixes
@@ -7690,10 +9095,14 @@ class RoutingState(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: prefix_list
                                             
                                             	List of prefixes associated with the link
                                             	**type**\: list of  		 :py:class:`PrefixList <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7703,7 +9112,10 @@ class RoutingState(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix, self).__init__()
 
                                                 self.yang_name = "intra-area-prefix"
                                                 self.yang_parent_name = "body"
@@ -7739,6 +9151,8 @@ class RoutingState(Entity):
                                                 	Prefix
                                                 	**type**\: str
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: prefix_options
                                                 
                                                 	Prefix options
@@ -7746,12 +9160,16 @@ class RoutingState(Entity):
                                                 
                                                 	**mandatory**\: True
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: metric
                                                 
                                                 	Metric
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..16777215
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -7761,7 +9179,10 @@ class RoutingState(Entity):
                                                 _revision = '2015-03-09'
 
                                                 def __init__(self):
-                                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, self).__init__()
 
                                                     self.yang_name = "prefix-list"
                                                     self.yang_parent_name = "intra-area-prefix"
@@ -7784,6 +9205,12 @@ class RoutingState(Entity):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, ['prefix', 'prefix_options', 'metric'], name, value)
 
 
+
+
+
+
+
+
                         class Topology(Entity):
                             """
                             OSPF topology.
@@ -7795,10 +9222,14 @@ class RoutingState(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_routing.Routing.RoutingInstance.Ribs.Rib>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: area
                             
                             	List of ospf areas
                             	**type**\: list of  		 :py:class:`Area <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7808,7 +9239,10 @@ class RoutingState(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology, self).__init__()
 
                                 self.yang_name = "topology"
                                 self.yang_parent_name = "instance"
@@ -7846,6 +9280,8 @@ class RoutingState(Entity):
                                 
                                 			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -7854,7 +9290,10 @@ class RoutingState(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area, self).__init__()
 
                                     self.yang_name = "area"
                                     self.yang_parent_name = "topology"
@@ -7873,6 +9312,12 @@ class RoutingState(Entity):
                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area, ['area_id'], name, value)
 
 
+
+
+
+
+
+
         class Ribs(Entity):
             """
             Container for RIBs.
@@ -7882,6 +9327,8 @@ class RoutingState(Entity):
             	Each entry represents a RIB identified by the 'name' key. All routes in a RIB MUST belong to the same address family.  For each routing instance, an implementation SHOULD provide one system\-controlled default RIB for each supported address family
             	**type**\: list of  		 :py:class:`Rib <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib>`
             
+            	**config**\: False
+            
             
 
             """
@@ -7890,7 +9337,10 @@ class RoutingState(Entity):
             _revision = '2015-05-25'
 
             def __init__(self):
-                super(RoutingState.RoutingInstance.Ribs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingState.RoutingInstance.Ribs, self).__init__()
 
                 self.yang_name = "ribs"
                 self.yang_parent_name = "routing-instance"
@@ -7923,6 +9373,8 @@ class RoutingState(Entity):
                 	The name of the RIB
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: address_family
                 
                 	Address family
@@ -7930,10 +9382,14 @@ class RoutingState(Entity):
                 
                 	**mandatory**\: True
                 
+                	**config**\: False
+                
                 .. attribute:: default_rib
                 
                 	This flag has the value of 'true' if and only if the RIB is the default RIB for the given address family.  A default RIB always receives direct routes. By default it also receives routes from all routing protocols
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: true
                 
@@ -7941,6 +9397,8 @@ class RoutingState(Entity):
                 
                 	Current content of the RIB
                 	**type**\:  :py:class:`Routes <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes>`
+                
+                	**config**\: False
                 
                 
 
@@ -7950,7 +9408,10 @@ class RoutingState(Entity):
                 _revision = '2015-05-25'
 
                 def __init__(self):
-                    super(RoutingState.RoutingInstance.Ribs.Rib, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingState.RoutingInstance.Ribs.Rib, self).__init__()
 
                     self.yang_name = "rib"
                     self.yang_parent_name = "ribs"
@@ -7974,7 +9435,7 @@ class RoutingState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib, [u'name', u'address_family', u'default_rib'], name, value)
+                    self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib, ['name', 'address_family', 'default_rib'], name, value)
 
 
                 class Routes(Entity):
@@ -7986,6 +9447,8 @@ class RoutingState(Entity):
                     	A RIB route entry. This data node MUST be augmented with information specific for routes of each address family
                     	**type**\: list of  		 :py:class:`Route <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -7994,7 +9457,10 @@ class RoutingState(Entity):
                     _revision = '2015-05-25'
 
                     def __init__(self):
-                        super(RoutingState.RoutingInstance.Ribs.Rib.Routes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingState.RoutingInstance.Ribs.Rib.Routes, self).__init__()
 
                         self.yang_name = "routes"
                         self.yang_parent_name = "rib"
@@ -8023,12 +9489,16 @@ class RoutingState(Entity):
                         	Destination IP address with prefix
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_preference
                         
                         	This route attribute, also known as administrative distance, allows for selecting the preferred route among routes with the same destination prefix. A smaller value means a more preferred route
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: metric
                         
@@ -8037,10 +9507,14 @@ class RoutingState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop
                         
                         	Route's next\-hop attribute
                         	**type**\:  :py:class:`NextHop <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_protocol
                         
@@ -8049,10 +9523,14 @@ class RoutingState(Entity):
                         
                         	**mandatory**\: True
                         
+                        	**config**\: False
+                        
                         .. attribute:: active
                         
                         	Presence of this leaf indicates that the route is preferred among all routes in the same RIB that have the same destination prefix
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: last_updated
                         
@@ -8061,10 +9539,14 @@ class RoutingState(Entity):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        	**config**\: False
+                        
                         .. attribute:: update_source
                         
                         	Update source for the route
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: tag
                         
@@ -8073,12 +9555,16 @@ class RoutingState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**default value**\: 0
                         
                         .. attribute:: route_type
                         
                         	OSPF route type
                         	**type**\:  :py:class:`RouteType <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.RouteType>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8088,7 +9574,10 @@ class RoutingState(Entity):
                         _revision = '2015-05-25'
 
                         def __init__(self):
-                            super(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route, self).__init__()
 
                             self.yang_name = "route"
                             self.yang_parent_name = "routes"
@@ -8124,7 +9613,7 @@ class RoutingState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route, [u'destination_prefix', u'route_preference', u'metric', u'source_protocol', u'active', u'last_updated', u'update_source', 'tag', 'route_type'], name, value)
+                            self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route, ['destination_prefix', 'route_preference', 'metric', 'source_protocol', 'active', 'last_updated', 'update_source', 'tag', 'route_type'], name, value)
 
                         class RouteType(Enum):
                             """
@@ -8181,15 +9670,21 @@ class RoutingState(Entity):
                             	Name of the outgoing interface
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_hop_address
                             
                             	IP address
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: special_next_hop
                             
                             	Special next\-hop options
                             	**type**\:  :py:class:`SpecialNextHop <ydk.models.ietf.ietf_routing.RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop.SpecialNextHop>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8199,7 +9694,10 @@ class RoutingState(Entity):
                             _revision = '2015-05-25'
 
                             def __init__(self):
-                                super(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop, self).__init__()
 
                                 self.yang_name = "next-hop"
                                 self.yang_parent_name = "route"
@@ -8219,7 +9717,7 @@ class RoutingState(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop, [u'outgoing_interface', u'next_hop_address', u'special_next_hop'], name, value)
+                                self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop, ['outgoing_interface', 'next_hop_address', 'special_next_hop'], name, value)
 
                             class SpecialNextHop(Enum):
                                 """
@@ -8262,9 +9760,17 @@ class RoutingState(Entity):
                                 receive = Enum.YLeaf(3, "receive")
 
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = RoutingState()
         return self._top_entity
+
+
 
 class Routing(Entity):
     """
@@ -8283,7 +9789,10 @@ class Routing(Entity):
     _revision = '2015-05-25'
 
     def __init__(self):
-        super(Routing, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Routing, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing"
@@ -8360,7 +9869,10 @@ class Routing(Entity):
         _revision = '2015-05-25'
 
         def __init__(self):
-            super(Routing.RoutingInstance, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Routing.RoutingInstance, self).__init__()
 
             self.yang_name = "routing-instance"
             self.yang_parent_name = "routing"
@@ -8397,7 +9909,7 @@ class Routing(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Routing.RoutingInstance, [u'name', u'type', u'enabled', u'router_id', u'description'], name, value)
+            self._perform_setattr(Routing.RoutingInstance, ['name', 'type', 'enabled', 'router_id', 'description'], name, value)
 
 
         class Interfaces(Entity):
@@ -8419,7 +9931,10 @@ class Routing(Entity):
             _revision = '2015-05-25'
 
             def __init__(self):
-                super(Routing.RoutingInstance.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Routing.RoutingInstance.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "routing-instance"
@@ -8435,7 +9950,8 @@ class Routing(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Routing.RoutingInstance.Interfaces, [u'interface'], name, value)
+                self._perform_setattr(Routing.RoutingInstance.Interfaces, ['interface'], name, value)
+
 
 
         class RoutingProtocols(Entity):
@@ -8455,7 +9971,10 @@ class Routing(Entity):
             _revision = '2015-05-25'
 
             def __init__(self):
-                super(Routing.RoutingInstance.RoutingProtocols, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Routing.RoutingInstance.RoutingProtocols, self).__init__()
 
                 self.yang_name = "routing-protocols"
                 self.yang_parent_name = "routing-instance"
@@ -8511,7 +10030,10 @@ class Routing(Entity):
                 _revision = '2015-05-25'
 
                 def __init__(self):
-                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol, self).__init__()
 
                     self.yang_name = "routing-protocol"
                     self.yang_parent_name = "routing-protocols"
@@ -8539,7 +10061,7 @@ class Routing(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol, [u'type', u'name', u'description'], name, value)
+                    self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol, ['type', 'name', 'description'], name, value)
 
 
                 class StaticRoutes(Entity):
@@ -8567,7 +10089,10 @@ class Routing(Entity):
                     _revision = '2015-05-25'
 
                     def __init__(self):
-                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes, self).__init__()
 
                         self.yang_name = "static-routes"
                         self.yang_parent_name = "routing-protocol"
@@ -8609,7 +10134,10 @@ class Routing(Entity):
                         _revision = '2015-05-25'
 
                         def __init__(self):
-                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6, self).__init__()
 
                             self.yang_name = "ipv6"
                             self.yang_parent_name = "static-routes"
@@ -8658,7 +10186,10 @@ class Routing(Entity):
                             _revision = '2015-05-25'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route, self).__init__()
 
                                 self.yang_name = "route"
                                 self.yang_parent_name = "ipv6"
@@ -8712,7 +10243,10 @@ class Routing(Entity):
                                 _revision = '2015-05-25'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop, self).__init__()
 
                                     self.yang_name = "next-hop"
                                     self.yang_parent_name = "route"
@@ -8732,7 +10266,7 @@ class Routing(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop, [u'outgoing_interface', u'special_next_hop', 'next_hop_address'], name, value)
+                                    self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop, ['outgoing_interface', 'special_next_hop', 'next_hop_address'], name, value)
 
                                 class SpecialNextHop(Enum):
                                     """
@@ -8776,6 +10310,9 @@ class Routing(Entity):
 
 
 
+
+
+
                     class Ipv4(Entity):
                         """
                         Configuration of a 'static' pseudo\-protocol instance
@@ -8794,7 +10331,10 @@ class Routing(Entity):
                         _revision = '2015-05-25'
 
                         def __init__(self):
-                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4, self).__init__()
 
                             self.yang_name = "ipv4"
                             self.yang_parent_name = "static-routes"
@@ -8843,7 +10383,10 @@ class Routing(Entity):
                             _revision = '2015-05-25'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route, self).__init__()
 
                                 self.yang_name = "route"
                                 self.yang_parent_name = "ipv4"
@@ -8897,7 +10440,10 @@ class Routing(Entity):
                                 _revision = '2015-05-25'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop, self).__init__()
 
                                     self.yang_name = "next-hop"
                                     self.yang_parent_name = "route"
@@ -8917,7 +10463,7 @@ class Routing(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop, [u'outgoing_interface', u'special_next_hop', 'next_hop_address'], name, value)
+                                    self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop, ['outgoing_interface', 'special_next_hop', 'next_hop_address'], name, value)
 
                                 class SpecialNextHop(Enum):
                                     """
@@ -8961,6 +10507,10 @@ class Routing(Entity):
 
 
 
+
+
+
+
                 class Ospf(Entity):
                     """
                     OSPF.
@@ -8990,7 +10540,10 @@ class Routing(Entity):
                     _revision = '2015-03-09'
 
                     def __init__(self):
-                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf, self).__init__()
 
                         self.yang_name = "ospf"
                         self.yang_parent_name = "routing-protocol"
@@ -9037,7 +10590,10 @@ class Routing(Entity):
                         _revision = '2015-03-09'
 
                         def __init__(self):
-                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit, self).__init__()
 
                             self.yang_name = "all-instances-inherit"
                             self.yang_parent_name = "ospf"
@@ -9074,7 +10630,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Area, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Area, self).__init__()
 
                                 self.yang_name = "area"
                                 self.yang_parent_name = "all-instances-inherit"
@@ -9085,6 +10644,7 @@ class Routing(Entity):
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "area"
                                 self._is_frozen = True
+
 
 
                         class Interface(Entity):
@@ -9100,7 +10660,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Interface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Interface, self).__init__()
 
                                 self.yang_name = "interface"
                                 self.yang_parent_name = "all-instances-inherit"
@@ -9111,6 +10674,8 @@ class Routing(Entity):
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "interface"
                                 self._is_frozen = True
+
+
 
 
                     class Instance(Entity):
@@ -9204,7 +10769,10 @@ class Routing(Entity):
                         _revision = '2015-03-09'
 
                         def __init__(self):
-                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance, self).__init__()
 
                             self.yang_name = "instance"
                             self.yang_parent_name = "ospf"
@@ -9310,7 +10878,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance, self).__init__()
 
                                 self.yang_name = "admin-distance"
                                 self.yang_parent_name = "instance"
@@ -9335,6 +10906,7 @@ class Routing(Entity):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance, ['intra_area', 'inter_area', 'internal', 'external'], name, value)
 
 
+
                         class Nsr(Entity):
                             """
                             NSR config state.
@@ -9352,7 +10924,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Nsr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Nsr, self).__init__()
 
                                 self.yang_name = "nsr"
                                 self.yang_parent_name = "instance"
@@ -9369,6 +10944,7 @@ class Routing(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Nsr, ['enable'], name, value)
+
 
 
                         class GracefulRestart(Entity):
@@ -9409,7 +10985,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.GracefulRestart, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.GracefulRestart, self).__init__()
 
                                 self.yang_name = "graceful-restart"
                                 self.yang_parent_name = "instance"
@@ -9432,6 +11011,7 @@ class Routing(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.GracefulRestart, ['enable', 'helper_enable', 'restart_interval', 'helper_strict_lsa_checking'], name, value)
+
 
 
                         class AutoCost(Entity):
@@ -9460,7 +11040,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AutoCost, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AutoCost, self).__init__()
 
                                 self.yang_name = "auto-cost"
                                 self.yang_parent_name = "instance"
@@ -9479,6 +11062,7 @@ class Routing(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AutoCost, ['enable', 'reference_bandwidth'], name, value)
+
 
 
                         class SpfControl(Entity):
@@ -9500,7 +11084,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.SpfControl, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.SpfControl, self).__init__()
 
                                 self.yang_name = "spf-control"
                                 self.yang_parent_name = "instance"
@@ -9517,6 +11104,7 @@ class Routing(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.SpfControl, ['paths'], name, value)
+
 
 
                         class DatabaseControl(Entity):
@@ -9538,7 +11126,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.DatabaseControl, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.DatabaseControl, self).__init__()
 
                                 self.yang_name = "database-control"
                                 self.yang_parent_name = "instance"
@@ -9557,6 +11148,7 @@ class Routing(Entity):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.DatabaseControl, ['max_lsa'], name, value)
 
 
+
                         class ReloadControl(Entity):
                             """
                             Protocol reload control.
@@ -9569,7 +11161,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.ReloadControl, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.ReloadControl, self).__init__()
 
                                 self.yang_name = "reload-control"
                                 self.yang_parent_name = "instance"
@@ -9580,6 +11175,7 @@ class Routing(Entity):
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "reload-control"
                                 self._is_frozen = True
+
 
 
                         class Mpls(Entity):
@@ -9604,7 +11200,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls, self).__init__()
 
                                 self.yang_name = "mpls"
                                 self.yang_parent_name = "instance"
@@ -9654,7 +11253,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.TeRid, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.TeRid, self).__init__()
 
                                     self.yang_name = "te-rid"
                                     self.yang_parent_name = "mpls"
@@ -9673,6 +11275,7 @@ class Routing(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.TeRid, ['interface', 'router_id'], name, value)
+
 
 
                             class Ldp(Entity):
@@ -9697,7 +11300,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.Ldp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.Ldp, self).__init__()
 
                                     self.yang_name = "ldp"
                                     self.yang_parent_name = "mpls"
@@ -9718,6 +11324,8 @@ class Routing(Entity):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.Ldp, ['igp_sync', 'autoconfig'], name, value)
 
 
+
+
                         class FastReroute(Entity):
                             """
                             This container may be augmented with global
@@ -9736,7 +11344,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute, self).__init__()
 
                                 self.yang_name = "fast-reroute"
                                 self.yang_parent_name = "instance"
@@ -9771,7 +11382,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute.Lfa, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute.Lfa, self).__init__()
 
                                     self.yang_name = "lfa"
                                     self.yang_parent_name = "fast-reroute"
@@ -9782,6 +11396,8 @@ class Routing(Entity):
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "lfa"
                                     self._is_frozen = True
+
+
 
 
                         class AllAreasInherit(Entity):
@@ -9806,7 +11422,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit, self).__init__()
 
                                 self.yang_name = "all-areas-inherit"
                                 self.yang_parent_name = "instance"
@@ -9842,7 +11461,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Area, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Area, self).__init__()
 
                                     self.yang_name = "area"
                                     self.yang_parent_name = "all-areas-inherit"
@@ -9853,6 +11475,7 @@ class Routing(Entity):
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "area"
                                     self._is_frozen = True
+
 
 
                             class Interface(Entity):
@@ -9868,7 +11491,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Interface, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Interface, self).__init__()
 
                                     self.yang_name = "interface"
                                     self.yang_parent_name = "all-areas-inherit"
@@ -9879,6 +11505,8 @@ class Routing(Entity):
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "interface"
                                     self._is_frozen = True
+
+
 
 
                         class Area(Entity):
@@ -9950,7 +11578,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area, self).__init__()
 
                                 self.yang_name = "area"
                                 self.yang_parent_name = "instance"
@@ -10014,7 +11645,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range, self).__init__()
 
                                     self.yang_name = "range"
                                     self.yang_parent_name = "area"
@@ -10037,6 +11671,7 @@ class Routing(Entity):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range, ['prefix', 'advertise', 'cost'], name, value)
 
 
+
                             class AllInterfacesInherit(Entity):
                                 """
                                 Inheritance for all interfaces
@@ -10054,7 +11689,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit, self).__init__()
 
                                     self.yang_name = "all-interfaces-inherit"
                                     self.yang_parent_name = "area"
@@ -10087,7 +11725,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit.Interface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit.Interface, self).__init__()
 
                                         self.yang_name = "interface"
                                         self.yang_parent_name = "all-interfaces-inherit"
@@ -10098,6 +11739,8 @@ class Routing(Entity):
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "interface"
                                         self._is_frozen = True
+
+
 
 
                             class VirtualLink(Entity):
@@ -10199,7 +11842,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink, self).__init__()
 
                                     self.yang_name = "virtual-link"
                                     self.yang_parent_name = "area"
@@ -10270,7 +11916,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity, self).__init__()
 
                                         self.yang_name = "ttl-security"
                                         self.yang_parent_name = "virtual-link"
@@ -10289,6 +11938,7 @@ class Routing(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity, ['enable', 'hops'], name, value)
+
 
 
                                 class Authentication(Entity):
@@ -10325,7 +11975,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "virtual-link"
@@ -10404,7 +12057,10 @@ class Routing(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm, self).__init__()
 
                                             self.yang_name = "crypto-algorithm"
                                             self.yang_parent_name = "authentication"
@@ -10435,6 +12091,9 @@ class Routing(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
+
+
+
 
 
                             class ShamLink(Entity):
@@ -10555,7 +12214,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink, self).__init__()
 
                                     self.yang_name = "sham-link"
                                     self.yang_parent_name = "area"
@@ -10628,7 +12290,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity, self).__init__()
 
                                         self.yang_name = "ttl-security"
                                         self.yang_parent_name = "sham-link"
@@ -10647,6 +12312,7 @@ class Routing(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity, ['enable', 'hops'], name, value)
+
 
 
                                 class Authentication(Entity):
@@ -10683,7 +12349,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "sham-link"
@@ -10762,7 +12431,10 @@ class Routing(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm, self).__init__()
 
                                             self.yang_name = "crypto-algorithm"
                                             self.yang_parent_name = "authentication"
@@ -10793,6 +12465,9 @@ class Routing(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
+
+
+
 
 
                             class Interface(Entity):
@@ -10936,7 +12611,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface, self).__init__()
 
                                     self.yang_name = "interface"
                                     self.yang_parent_name = "area"
@@ -11072,7 +12750,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea, self).__init__()
 
                                         self.yang_name = "multi-area"
                                         self.yang_parent_name = "interface"
@@ -11093,6 +12774,7 @@ class Routing(Entity):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea, ['multi_area_id', 'cost'], name, value)
 
 
+
                                 class StaticNeighbors(Entity):
                                     """
                                     Static configured neighbors.
@@ -11110,7 +12792,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors, self).__init__()
 
                                         self.yang_name = "static-neighbors"
                                         self.yang_parent_name = "interface"
@@ -11176,7 +12861,10 @@ class Routing(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors.Neighbor, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors.Neighbor, self).__init__()
 
                                             self.yang_name = "neighbor"
                                             self.yang_parent_name = "static-neighbors"
@@ -11201,6 +12889,8 @@ class Routing(Entity):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors.Neighbor, ['address', 'cost', 'poll_interval', 'priority'], name, value)
 
 
+
+
                                 class FastReroute(Entity):
                                     """
                                     Fast\-reroute configuration.
@@ -11218,7 +12908,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute, self).__init__()
 
                                         self.yang_name = "fast-reroute"
                                         self.yang_parent_name = "interface"
@@ -11265,7 +12958,10 @@ class Routing(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa, self).__init__()
 
                                             self.yang_name = "lfa"
                                             self.yang_parent_name = "fast-reroute"
@@ -11307,7 +13003,10 @@ class Routing(Entity):
                                             _revision = '2015-03-09'
 
                                             def __init__(self):
-                                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa, self).__init__()
 
                                                 self.yang_name = "remote-lfa"
                                                 self.yang_parent_name = "lfa"
@@ -11324,6 +13023,9 @@ class Routing(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa, ['enabled'], name, value)
+
+
+
 
 
                                 class TtlSecurity(Entity):
@@ -11350,7 +13052,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.TtlSecurity, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.TtlSecurity, self).__init__()
 
                                         self.yang_name = "ttl-security"
                                         self.yang_parent_name = "interface"
@@ -11369,6 +13074,7 @@ class Routing(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.TtlSecurity, ['enable', 'hops'], name, value)
+
 
 
                                 class Authentication(Entity):
@@ -11405,7 +13111,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "interface"
@@ -11484,7 +13193,10 @@ class Routing(Entity):
                                         _revision = '2015-03-09'
 
                                         def __init__(self):
-                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm, self).__init__()
 
                                             self.yang_name = "crypto-algorithm"
                                             self.yang_parent_name = "authentication"
@@ -11517,6 +13229,8 @@ class Routing(Entity):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
 
 
+
+
                                 class Topology(Entity):
                                     """
                                     OSPF interface topology.
@@ -11543,7 +13257,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology, self).__init__()
 
                                         self.yang_name = "topology"
                                         self.yang_parent_name = "interface"
@@ -11562,6 +13279,9 @@ class Routing(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology, ['name', 'cost'], name, value)
+
+
+
 
 
                         class Topology(Entity):
@@ -11588,7 +13308,10 @@ class Routing(Entity):
                             _revision = '2015-03-09'
 
                             def __init__(self):
-                                super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology, self).__init__()
 
                                 self.yang_name = "topology"
                                 self.yang_parent_name = "instance"
@@ -11658,7 +13381,10 @@ class Routing(Entity):
                                 _revision = '2015-03-09'
 
                                 def __init__(self):
-                                    super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area, self).__init__()
 
                                     self.yang_name = "area"
                                     self.yang_parent_name = "topology"
@@ -11715,7 +13441,10 @@ class Routing(Entity):
                                     _revision = '2015-03-09'
 
                                     def __init__(self):
-                                        super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range, self).__init__()
 
                                         self.yang_name = "range"
                                         self.yang_parent_name = "area"
@@ -11738,6 +13467,13 @@ class Routing(Entity):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range, ['prefix', 'advertise', 'cost'], name, value)
 
 
+
+
+
+
+
+
+
         class Ribs(Entity):
             """
             Configuration of RIBs.
@@ -11755,7 +13491,10 @@ class Routing(Entity):
             _revision = '2015-05-25'
 
             def __init__(self):
-                super(Routing.RoutingInstance.Ribs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Routing.RoutingInstance.Ribs, self).__init__()
 
                 self.yang_name = "ribs"
                 self.yang_parent_name = "routing-instance"
@@ -11806,7 +13545,10 @@ class Routing(Entity):
                 _revision = '2015-05-25'
 
                 def __init__(self):
-                    super(Routing.RoutingInstance.Ribs.Rib, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Routing.RoutingInstance.Ribs.Rib, self).__init__()
 
                     self.yang_name = "rib"
                     self.yang_parent_name = "ribs"
@@ -11826,11 +13568,16 @@ class Routing(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Routing.RoutingInstance.Ribs.Rib, [u'name', u'address_family', u'description'], name, value)
+                    self._perform_setattr(Routing.RoutingInstance.Ribs.Rib, ['name', 'address_family', 'description'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Routing()
         return self._top_entity
+
+
 
 class FibRoute(Entity):
     """
@@ -11855,7 +13602,10 @@ class FibRoute(Entity):
     _revision = '2015-05-25'
 
     def __init__(self):
-        super(FibRoute, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FibRoute, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fib-route"
@@ -11901,7 +13651,10 @@ class FibRoute(Entity):
         _revision = '2015-05-25'
 
         def __init__(self):
-            super(FibRoute.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FibRoute.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "fib-route"
@@ -11922,7 +13675,7 @@ class FibRoute(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FibRoute.Input, [u'routing_instance_name'], name, value)
+            self._perform_setattr(FibRoute.Input, ['routing_instance_name'], name, value)
 
 
         class DestinationAddress(Entity):
@@ -11961,7 +13714,10 @@ class FibRoute(Entity):
             _revision = '2015-05-25'
 
             def __init__(self):
-                super(FibRoute.Input.DestinationAddress, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FibRoute.Input.DestinationAddress, self).__init__()
 
                 self.yang_name = "destination-address"
                 self.yang_parent_name = "input"
@@ -11982,7 +13738,9 @@ class FibRoute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FibRoute.Input.DestinationAddress, [u'address_family', 'ietf_ipv6_unicast_routing_address', 'ietf_ipv4_unicast_routing_address'], name, value)
+                self._perform_setattr(FibRoute.Input.DestinationAddress, ['address_family', 'ietf_ipv6_unicast_routing_address', 'ietf_ipv4_unicast_routing_address'], name, value)
+
+
 
 
     class Output(Entity):
@@ -12002,7 +13760,10 @@ class FibRoute(Entity):
         _revision = '2015-05-25'
 
         def __init__(self):
-            super(FibRoute.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FibRoute.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "fib-route"
@@ -12088,7 +13849,10 @@ class FibRoute(Entity):
             _revision = '2015-05-25'
 
             def __init__(self):
-                super(FibRoute.Output.Route, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FibRoute.Output.Route, self).__init__()
 
                 self.yang_name = "route"
                 self.yang_parent_name = "output"
@@ -12119,7 +13883,7 @@ class FibRoute(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FibRoute.Output.Route, [u'address_family', u'source_protocol', u'active', u'last_updated', 'ietf_ipv6_unicast_routing_destination_prefix', 'ietf_ipv4_unicast_routing_destination_prefix'], name, value)
+                self._perform_setattr(FibRoute.Output.Route, ['address_family', 'source_protocol', 'active', 'last_updated', 'ietf_ipv6_unicast_routing_destination_prefix', 'ietf_ipv4_unicast_routing_destination_prefix'], name, value)
 
 
             class NextHop(Entity):
@@ -12131,7 +13895,7 @@ class FibRoute(Entity):
                 	Name of the outgoing interface
                 	**type**\: str
                 
-                .. attribute:: ietf_routing_next_hop_address
+                .. attribute:: next_hop_address
                 
                 	IP address
                 	**type**\: str
@@ -12163,7 +13927,10 @@ class FibRoute(Entity):
                 _revision = '2015-05-25'
 
                 def __init__(self):
-                    super(FibRoute.Output.Route.NextHop, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FibRoute.Output.Route.NextHop, self).__init__()
 
                     self.yang_name = "next-hop"
                     self.yang_parent_name = "route"
@@ -12173,13 +13940,13 @@ class FibRoute(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
-                        ('ietf_routing_next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
+                        ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
                         ('ietf_ipv6_unicast_routing_next_hop_address', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:next-hop-address'), ['str'])),
                         ('ietf_ipv4_unicast_routing_next_hop_address', (YLeaf(YType.str, 'ietf-ipv4-unicast-routing:next-hop-address'), ['str'])),
                         ('special_next_hop', (YLeaf(YType.enumeration, 'special-next-hop'), [('ydk.models.ietf.ietf_routing', 'FibRoute', 'Output.Route.NextHop.SpecialNextHop')])),
                     ])
                     self.outgoing_interface = None
-                    self.ietf_routing_next_hop_address = None
+                    self.next_hop_address = None
                     self.ietf_ipv6_unicast_routing_next_hop_address = None
                     self.ietf_ipv4_unicast_routing_next_hop_address = None
                     self.special_next_hop = None
@@ -12188,7 +13955,7 @@ class FibRoute(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FibRoute.Output.Route.NextHop, [u'outgoing_interface', u'ietf_routing_next_hop_address', 'ietf_ipv6_unicast_routing_next_hop_address', 'ietf_ipv4_unicast_routing_next_hop_address', u'special_next_hop'], name, value)
+                    self._perform_setattr(FibRoute.Output.Route.NextHop, ['outgoing_interface', 'next_hop_address', 'ietf_ipv6_unicast_routing_next_hop_address', 'ietf_ipv4_unicast_routing_next_hop_address', 'special_next_hop'], name, value)
 
                 class SpecialNextHop(Enum):
                     """
@@ -12231,9 +13998,14 @@ class FibRoute(Entity):
                     receive = Enum.YLeaf(3, "receive")
 
 
+
+
+
     def clone_ptr(self):
         self._top_entity = FibRoute()
         return self._top_entity
+
+
 
 class VrfRoutingInstance(RoutingInstance):
     """
@@ -12249,7 +14021,11 @@ class VrfRoutingInstance(RoutingInstance):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:vrf-routing-instance"):
-        super(VrfRoutingInstance, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VrfRoutingInstance, self).__init__(ns, pref, tag)
+
 
 
 class Direct(RoutingProtocol):
@@ -12265,7 +14041,11 @@ class Direct(RoutingProtocol):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:direct"):
-        super(Direct, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Direct, self).__init__(ns, pref, tag)
+
 
 
 class DefaultRoutingInstance(RoutingInstance):
@@ -12282,7 +14062,11 @@ class DefaultRoutingInstance(RoutingInstance):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:default-routing-instance"):
-        super(DefaultRoutingInstance, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DefaultRoutingInstance, self).__init__(ns, pref, tag)
+
 
 
 class Static(RoutingProtocol):
@@ -12297,7 +14081,11 @@ class Static(RoutingProtocol):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:static"):
-        super(Static, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Static, self).__init__(ns, pref, tag)
+
 
 
 class Ipv4(AddressFamily):
@@ -12312,7 +14100,11 @@ class Ipv4(AddressFamily):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:ipv4"):
-        super(Ipv4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ipv4, self).__init__(ns, pref, tag)
+
 
 
 class Ipv6(AddressFamily):
@@ -12327,6 +14119,10 @@ class Ipv6(AddressFamily):
     _revision = '2015-05-25'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:ipv6"):
-        super(Ipv6, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ipv6, self).__init__(ns, pref, tag)
+
 
 

@@ -4,6 +4,7 @@ This module contains a collection of YANG type definitions for
 SYSLOG.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -83,7 +84,11 @@ class SyslogFacility(Identity):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:syslog-facility"):
-        super(SyslogFacility, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SyslogFacility, self).__init__(ns, pref, tag)
+
 
 
 class Cron2(SyslogFacility):
@@ -99,7 +104,11 @@ class Cron2(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:cron2"):
-        super(Cron2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Cron2, self).__init__(ns, pref, tag)
+
 
 
 class Cron(SyslogFacility):
@@ -114,7 +123,11 @@ class Cron(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:cron"):
-        super(Cron, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Cron, self).__init__(ns, pref, tag)
+
 
 
 class Syslog(SyslogFacility):
@@ -130,7 +143,11 @@ class Syslog(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:syslog"):
-        super(Syslog, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Syslog, self).__init__(ns, pref, tag)
+
 
 
 class Local4(SyslogFacility):
@@ -146,7 +163,11 @@ class Local4(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:local4"):
-        super(Local4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Local4, self).__init__(ns, pref, tag)
+
 
 
 class Ftp(SyslogFacility):
@@ -161,7 +182,11 @@ class Ftp(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:ftp"):
-        super(Ftp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ftp, self).__init__(ns, pref, tag)
+
 
 
 class Uucp(SyslogFacility):
@@ -176,7 +201,11 @@ class Uucp(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:uucp"):
-        super(Uucp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Uucp, self).__init__(ns, pref, tag)
+
 
 
 class Console(SyslogFacility):
@@ -191,7 +220,11 @@ class Console(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:console"):
-        super(Console, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Console, self).__init__(ns, pref, tag)
+
 
 
 class Mail(SyslogFacility):
@@ -206,7 +239,11 @@ class Mail(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:mail"):
-        super(Mail, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Mail, self).__init__(ns, pref, tag)
+
 
 
 class Authpriv(SyslogFacility):
@@ -222,7 +259,11 @@ class Authpriv(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:authpriv"):
-        super(Authpriv, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Authpriv, self).__init__(ns, pref, tag)
+
 
 
 class Ntp(SyslogFacility):
@@ -237,7 +278,11 @@ class Ntp(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:ntp"):
-        super(Ntp, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ntp, self).__init__(ns, pref, tag)
+
 
 
 class Auth(SyslogFacility):
@@ -253,7 +298,11 @@ class Auth(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:auth"):
-        super(Auth, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Auth, self).__init__(ns, pref, tag)
+
 
 
 class User(SyslogFacility):
@@ -268,7 +317,11 @@ class User(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:user"):
-        super(User, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(User, self).__init__(ns, pref, tag)
+
 
 
 class Local5(SyslogFacility):
@@ -284,7 +337,11 @@ class Local5(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:local5"):
-        super(Local5, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Local5, self).__init__(ns, pref, tag)
+
 
 
 class News(SyslogFacility):
@@ -300,7 +357,11 @@ class News(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:news"):
-        super(News, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(News, self).__init__(ns, pref, tag)
+
 
 
 class Local7(SyslogFacility):
@@ -316,7 +377,11 @@ class Local7(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:local7"):
-        super(Local7, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Local7, self).__init__(ns, pref, tag)
+
 
 
 class Local6(SyslogFacility):
@@ -332,7 +397,11 @@ class Local6(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:local6"):
-        super(Local6, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Local6, self).__init__(ns, pref, tag)
+
 
 
 class Local1(SyslogFacility):
@@ -348,7 +417,11 @@ class Local1(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:local1"):
-        super(Local1, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Local1, self).__init__(ns, pref, tag)
+
 
 
 class Local0(SyslogFacility):
@@ -364,7 +437,11 @@ class Local0(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:local0"):
-        super(Local0, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Local0, self).__init__(ns, pref, tag)
+
 
 
 class Local3(SyslogFacility):
@@ -380,7 +457,11 @@ class Local3(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:local3"):
-        super(Local3, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Local3, self).__init__(ns, pref, tag)
+
 
 
 class Local2(SyslogFacility):
@@ -396,7 +477,11 @@ class Local2(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:local2"):
-        super(Local2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Local2, self).__init__(ns, pref, tag)
+
 
 
 class Audit(SyslogFacility):
@@ -411,7 +496,11 @@ class Audit(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:audit"):
-        super(Audit, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Audit, self).__init__(ns, pref, tag)
+
 
 
 class Daemon(SyslogFacility):
@@ -426,7 +515,11 @@ class Daemon(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:daemon"):
-        super(Daemon, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Daemon, self).__init__(ns, pref, tag)
+
 
 
 class Lpr(SyslogFacility):
@@ -442,7 +535,11 @@ class Lpr(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:lpr"):
-        super(Lpr, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Lpr, self).__init__(ns, pref, tag)
+
 
 
 class Kern(SyslogFacility):
@@ -457,6 +554,10 @@ class Kern(SyslogFacility):
     _revision = '2015-11-09'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-syslog-types", pref="ietf-syslog-types", tag="ietf-syslog-types:kern"):
-        super(Kern, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Kern, self).__init__(ns, pref, tag)
+
 
 

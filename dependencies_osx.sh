@@ -25,8 +25,8 @@ function install_libssh {
 
 function install_libydk {
     print_msg "Installing YDK C++ core library"
-    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.0/libydk-0.8.0-Darwin.pkg
-    sudo installer -pkg libydk-0.8.0-Darwin.pkg -target /
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.4/libydk-0.8.4-Darwin.pkg
+    sudo installer -pkg libydk-0.8.4-Darwin.pkg -target /
 }
 
 # Terminal colors

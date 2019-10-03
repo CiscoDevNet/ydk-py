@@ -10,11 +10,13 @@ optional arguments:
 
 from argparse import ArgumentParser
 from urllib.parse import urlparse
+
 from ydk.path import Repository
 from ydk.services import CRUDService
 from ydk.providers import gNMIServiceProvider
 from ydk.models.openconfig import openconfig_bgp
-import logging
+
+from test_utils import enable_logging, print_entity
 
 
 def process_bgp(bgp):
@@ -34,13 +36,8 @@ if __name__ == "__main__":
 
     # log debug messages if verbose argument specified
     if args.verbose:
-        logger = logging.getLogger("ydk")
-        logger.setLevel(logging.DEBUG)
-        handler = logging.StreamHandler()
-        formatter = logging.Formatter(("%(asctime)s - %(name)s - "
-                                      "%(levelname)s - %(message)s"))
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
+        import logging
+        enable_logging(logging.DEBUG)
 
     repo = Repository("/usr/local/share/ydk/0.0.0.0:50051/")
     # create gNMI provider

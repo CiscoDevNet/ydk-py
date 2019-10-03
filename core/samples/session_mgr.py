@@ -23,6 +23,7 @@ from optparse import OptionParser, IndentedHelpFormatter
 from ydk.providers import NetconfServiceProvider
 import logging
 
+
 class HelpFormatterWithLineBreaks(IndentedHelpFormatter):
     def format_description(self, description):
         result = ""
@@ -31,6 +32,7 @@ class HelpFormatterWithLineBreaks(IndentedHelpFormatter):
             for paragraph in description_paragraphs:
                 result += self._format_text(paragraph) + "\n"
             return result
+
 
 def init_logging():
     """ Initialize the logging infra and add a handler """
@@ -45,6 +47,7 @@ def init_logging():
     # add the handlers to the logger
     logger.addHandler(fh)
     logger.addHandler(ch)
+
 
 def establish_session():
 
@@ -62,7 +65,6 @@ def establish_session():
                       help="NETCONF agent hostname")
     parser.add_option("--port", dest="port", default=830, type="int",
                       help="NETCONF agent SSH port")
-
 
     (o, args) = parser.parse_args()
 

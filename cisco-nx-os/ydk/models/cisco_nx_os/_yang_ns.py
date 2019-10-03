@@ -1,7 +1,7 @@
 BUNDLE_NAME = "cisco_nx_os"
 
 CAPABILITIES = {
-    "Cisco-NX-OS-device": "2018-11-04",
+    "Cisco-NX-OS-device": "2019-07-18",
 }
 
 ENTITY_LOOKUP = {

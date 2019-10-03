@@ -17,6 +17,7 @@ This version of this YANG module is part of RFC XXXX; see
 the RFC itself for full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -39,7 +40,11 @@ class Direction(Identity):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-target", pref="ietf-diffserv-target", tag="ietf-diffserv-target:direction"):
-        super(Direction, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Direction, self).__init__(ns, pref, tag)
+
 
 
 class Inbound(Direction):
@@ -54,7 +59,11 @@ class Inbound(Direction):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-target", pref="ietf-diffserv-target", tag="ietf-diffserv-target:inbound"):
-        super(Inbound, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Inbound, self).__init__(ns, pref, tag)
+
 
 
 class Outbound(Direction):
@@ -69,6 +78,10 @@ class Outbound(Direction):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-target", pref="ietf-diffserv-target", tag="ietf-diffserv-target:outbound"):
-        super(Outbound, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Outbound, self).__init__(ns, pref, tag)
+
 
 

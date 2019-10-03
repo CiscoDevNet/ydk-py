@@ -12,6 +12,7 @@ This version of this YANG module is part of RFC XXXX; see the
 RFC itself for full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -35,7 +36,11 @@ class Marking(ActionType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:marking"):
-        super(Marking, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Marking, self).__init__(ns, pref, tag)
+
 
 
 class DropType(Identity):
@@ -50,7 +55,11 @@ class DropType(Identity):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:drop-type"):
-        super(DropType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DropType, self).__init__(ns, pref, tag)
+
 
 
 class MinRate(ActionType):
@@ -65,7 +74,11 @@ class MinRate(ActionType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:min-rate"):
-        super(MinRate, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MinRate, self).__init__(ns, pref, tag)
+
 
 
 class Meter(ActionType):
@@ -80,7 +93,11 @@ class Meter(ActionType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter"):
-        super(Meter, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Meter, self).__init__(ns, pref, tag)
+
 
 
 class Priority(ActionType):
@@ -95,7 +112,11 @@ class Priority(ActionType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:priority"):
-        super(Priority, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Priority, self).__init__(ns, pref, tag)
+
 
 
 class MaxRate(ActionType):
@@ -110,7 +131,11 @@ class MaxRate(ActionType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:max-rate"):
-        super(MaxRate, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MaxRate, self).__init__(ns, pref, tag)
+
 
 
 class MeterActionType(Identity):
@@ -125,7 +150,11 @@ class MeterActionType(Identity):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter-action-type"):
-        super(MeterActionType, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MeterActionType, self).__init__(ns, pref, tag)
+
 
 
 class AlgorithmicDrop(ActionType):
@@ -140,7 +169,11 @@ class AlgorithmicDrop(ActionType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:algorithmic-drop"):
-        super(AlgorithmicDrop, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AlgorithmicDrop, self).__init__(ns, pref, tag)
+
 
 
 class AlwaysDrop(DropType):
@@ -155,7 +188,11 @@ class AlwaysDrop(DropType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:always-drop"):
-        super(AlwaysDrop, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AlwaysDrop, self).__init__(ns, pref, tag)
+
 
 
 class TailDrop(DropType):
@@ -170,7 +207,11 @@ class TailDrop(DropType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:tail-drop"):
-        super(TailDrop, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TailDrop, self).__init__(ns, pref, tag)
+
 
 
 class MeterActionDrop(MeterActionType):
@@ -185,7 +226,11 @@ class MeterActionDrop(MeterActionType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter-action-drop"):
-        super(MeterActionDrop, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MeterActionDrop, self).__init__(ns, pref, tag)
+
 
 
 class MeterActionSet(MeterActionType):
@@ -200,7 +245,11 @@ class MeterActionSet(MeterActionType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter-action-set"):
-        super(MeterActionSet, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MeterActionSet, self).__init__(ns, pref, tag)
+
 
 
 class RandomDetect(DropType):
@@ -215,6 +264,10 @@ class RandomDetect(DropType):
     _revision = '2015-04-07'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:random-detect"):
-        super(RandomDetect, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(RandomDetect, self).__init__(ns, pref, tag)
+
 
 

@@ -35,6 +35,7 @@
 #include <ydk/restconf_provider.hpp>
 #include <ydk/types.hpp>
 #include <ydk/xml_subtree_codec.hpp>
+#include <ydk/json_subtree_codec.hpp>
 
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/null_sink.h>
@@ -384,6 +385,7 @@ PYBIND11_MODULE(ydk_, ydk)
         .def("get_root_schema", &ydk::path::NetconfSession::get_root_schema, return_value_policy::reference)
         .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::NetconfSession::*)(ydk::path::Rpc& rpc) const) &ydk::path::NetconfSession::invoke, return_value_policy::reference)
         .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::NetconfSession::*)(ydk::path::DataNode& rpc) const) &ydk::path::NetconfSession::invoke, return_value_policy::reference)
+        .def("execute_netconf_operation", (std::string (ydk::path::NetconfSession::*)(ydk::path::Rpc& rpc) const) &ydk::path::NetconfSession::execute_netconf_operation)
         .def("get_capabilities", &ydk::path::NetconfSession::get_capabilities, return_value_policy::reference);
 
     class_<ydk::path::RestconfSession, ydk::path::Session>(path, "RestconfSession")
@@ -436,6 +438,7 @@ PYBIND11_MODULE(ydk_, ydk)
         .def("get_value", &ydk::path::DataNode::get_value, return_value_policy::reference)
         .def("set_value", &ydk::path::DataNode::set_value, return_value_policy::reference, arg("value"))
         .def("get_children", &ydk::path::DataNode::get_children, return_value_policy::reference)
+        .def("get_parent", &ydk::path::DataNode::get_parent, return_value_policy::reference)
         .def("get_root", &ydk::path::DataNode::get_root, return_value_policy::reference)
         .def("find", &ydk::path::DataNode::find, return_value_policy::reference, arg("path"))
         .def("add_annotation", &ydk::path::DataNode::add_annotation, return_value_policy::reference, arg("annotation"))
@@ -581,6 +584,7 @@ PYBIND11_MODULE(ydk_, ydk)
         .def_readwrite("is_presence_container", &ydk::Entity::is_presence_container, return_value_policy::reference)
         .def_readwrite("is_top_level_class", &ydk::Entity::is_top_level_class)
         .def_readwrite("has_list_ancestor", &ydk::Entity::has_list_ancestor)
+        .def_readwrite("ignore_validation", &ydk::Entity::ignore_validation)
         .def_property("parent", &ydk::Entity::get_parent, &ydk::Entity::set_parent);
 
 
@@ -939,6 +943,11 @@ PYBIND11_MODULE(ydk_, ydk)
         .def(init<>())
         .def("encode", &ydk::XmlSubtreeCodec::encode, return_value_policy::reference)
         .def("decode", &ydk::XmlSubtreeCodec::decode);
+
+    class_<ydk::JsonSubtreeCodec>(entity_utils, "JsonSubtreeCodec")
+        .def(init<>())
+        .def("encode", &ydk::JsonSubtreeCodec::encode, return_value_policy::reference)
+        .def("decode", &ydk::JsonSubtreeCodec::decode);
 
     entity_utils.def("get_entity_from_data_node", &ydk::get_entity_from_data_node);
     #if defined(PYBIND11_OVERLOAD_CAST)

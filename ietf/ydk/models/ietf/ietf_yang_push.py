@@ -4,6 +4,7 @@ This module contains conceptual YANG specifications
 for YANG push.
 
 """
+import sys
 from collections import OrderedDict
 
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
@@ -59,7 +60,11 @@ class CustomStream(Stream):
     _revision = '2016-10-28'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:custom-stream"):
-        super(CustomStream, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CustomStream, self).__init__(ns, pref, tag)
+
 
 
 class YangPush(Stream):
@@ -75,7 +80,11 @@ class YangPush(Stream):
     _revision = '2016-10-28'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:yang-push"):
-        super(YangPush, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(YangPush, self).__init__(ns, pref, tag)
+
 
 
 class ErrorDataNotAuthorized(Error):
@@ -90,7 +99,11 @@ class ErrorDataNotAuthorized(Error):
     _revision = '2016-10-28'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:error-data-not-authorized"):
-        super(ErrorDataNotAuthorized, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ErrorDataNotAuthorized, self).__init__(ns, pref, tag)
+
 
 
 class Http2(Transport):
@@ -105,6 +118,10 @@ class Http2(Transport):
     _revision = '2016-10-28'
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:http2"):
-        super(Http2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Http2, self).__init__(ns, pref, tag)
+
 
 
