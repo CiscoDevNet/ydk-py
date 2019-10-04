@@ -19,8 +19,6 @@ function install_libssh {
     cmake ..
     sudo make install
     cd -
-#    wget https://devhub.cisco.com/artifactory/osx-ydk/third-party/libssh-0.7.5.pkg
-#    sudo installer -pkg libssh-0.7.5.pkg -target /
 }
 
 function install_libydk {
@@ -52,5 +50,6 @@ pip3 -V &> /dev/null
 status=$?
 if [ $status -ne 0 ]; then
     print_msg "Installing pip3"
-    sudo easy_install pip3
+    run_cmd curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    run_cmd sudo -H python3 get-pip.py
 fi

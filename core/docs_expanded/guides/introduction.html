@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../index.html"/>
+        <link rel="up" title="Developer Guide" href="../developer_guide.html"/>
+        <link rel="next" title="How do I create, update, read and delete?" href="crud_guide.html"/>
+        <link rel="prev" title="Developer Guide" href="../developer_guide.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../developer_guide.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#writing-an-app">Writing an app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-happens-underneath">What happens underneath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#service-providers">Service providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-model-apis">Using the model APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#invoking-the-crud-service">Invoking the CRUD Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-non-top-level-objects">Using non-top level objects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#top-level-object-vs-non-top">Top level object vs. non-top</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-use-non-top-level-objects">How to use non-top level objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#limitations">Limitations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#under-the-hood">Under the hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crud_guide.html">How do I create, update, read and delete?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codec_guide.html">How do I work with instances of YANG data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="executor_guide.html">How do I execute RPCs?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">How to Disable Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="presence_class.html">What are presence classes?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deviation.html">What are deviations?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="path.html">How do I use the Path API?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opendaylight.html">How do I use OpenDaylight with YDK?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backward_compatibility.html">Backward compatibility notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Questions and Answers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../developer_guide.html">Developer Guide</a> &raquo;</li>
+      
+    <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a><ul>
+<li><a class="reference internal" href="#writing-an-app" id="id2">Writing an app</a></li>
+<li><a class="reference internal" href="#what-happens-underneath" id="id3">What happens underneath</a></li>
+<li><a class="reference internal" href="#service-providers" id="id4">Service providers</a></li>
+<li><a class="reference internal" href="#using-the-model-apis" id="id5">Using the model APIs</a></li>
+<li><a class="reference internal" href="#invoking-the-crud-service" id="id6">Invoking the CRUD Service</a></li>
+<li><a class="reference internal" href="#using-non-top-level-objects" id="id7">Using non-top level objects</a><ul>
+<li><a class="reference internal" href="#top-level-object-vs-non-top" id="id8">Top level object vs. non-top</a></li>
+<li><a class="reference internal" href="#how-to-use-non-top-level-objects" id="id9">How to use non-top level objects</a></li>
+<li><a class="reference internal" href="#limitations" id="id10">Limitations</a></li>
+<li><a class="reference internal" href="#under-the-hood" id="id11">Under the hood</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#logging" id="id12">Logging</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>YDK consists of two main components: core library, which consists of services and providers, and python model API, which are APIs generated based on YANG models and packaged as bundles.</p>
+<p>Core library consists of the below:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Service:</strong> Provides simple API interface to be used with the bindings and providers</li>
+<li><strong>ServiceProvider:</strong> Provides concrete implementation that abstracts underlying protocol details (e.g. <a class="reference internal" href="../api/providers/netconf_provider.html#ydk.providers.NetconfServiceProvider" title="ydk.providers.NetconfServiceProvider"><code class="xref py py-class docutils literal"><span class="pre">NetconfServiceProvider</span></code></a>, which is based on the NETCONF protocol)</li>
+</ul>
+</div></blockquote>
+<p>Applications can be written using the python model API in conjunction with a service and a provider.</p>
+<div class="section" id="writing-an-app">
+<h2><a class="toc-backref" href="#id2">Writing an app</a><a class="headerlink" href="#writing-an-app" title="Permalink to this headline">¶</a></h2>
+<p>In this example, we set some BGP configuration using the OpenConfig model, the CRUD (Create/Read/Update/Delete) service and the NETCONF service provider. The example in this document is a simplified version of the more complete sample that is available in <code class="docutils literal"><span class="pre">samples/bgp.py</span></code>. The more complete sample can be run with the below steps:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="o">(</span>ydk-py<span class="o">)</span>ydk-py$ <span class="nb">cd</span> core/samples
+<span class="o">(</span>ydk-py<span class="o">)</span>samples$ ./bgp.py -h
+Usage: bgp.py <span class="o">[</span>-h <span class="p">|</span> --help<span class="o">]</span> <span class="o">[</span>options<span class="o">]</span>
+
+Options:
+-h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+-v VERSION, --version<span class="o">=</span>VERSION
+                    force NETCONF version <span class="m">1</span>.0 or <span class="m">1</span>.1
+-u USERNAME, --user<span class="o">=</span>USERNAME
+-p PASSWORD, --password<span class="o">=</span>PASSWORD
+                    password
+--proto<span class="o">=</span>PROTO         Which transport protocol to use, one of ssh or tcp
+--host<span class="o">=</span>HOST           NETCONF agent hostname
+--port<span class="o">=</span>PORT           NETCONF agent SSH port
+
+<span class="o">(</span>ydk-py<span class="o">)</span>samples$ ./bgp.py --host &lt;ip-address-of-netconf-server&gt; -u &lt;username&gt; -p &lt;password&gt; --port &lt;port-number&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-happens-underneath">
+<h2><a class="toc-backref" href="#id3">What happens underneath</a><a class="headerlink" href="#what-happens-underneath" title="Permalink to this headline">¶</a></h2>
+<p>YDK performs the below actions when running this application:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Establish a session with the device</li>
+<li>Encode python data objects to the protocol format (e.g. netconf XML payload)</li>
+<li>Perform transport operation with the device and collect the response (e.g. netconf reply)</li>
+<li>Decode response as python object and return the result to app</li>
+<li>Raise python exceptions for any errors that occurred</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="service-providers">
+<h2><a class="toc-backref" href="#id4">Service providers</a><a class="headerlink" href="#service-providers" title="Permalink to this headline">¶</a></h2>
+<p>The first step in any application is to create a service provider instance. In this case, the NETCONF service provider (defined in <a class="reference internal" href="../api/providers/netconf_provider.html#ydk.providers.NetconfServiceProvider" title="ydk.providers.NetconfServiceProvider"><code class="xref py py-class docutils literal"><span class="pre">NetconfServiceProvider</span></code></a>) is responsible for mapping between the CRUD service API and the underlying manageability protocol (NETCONF RPCs).</p>
+<p>We instantiate an instance of the service provider that creates a NETCONF session to the machine with address 10.0.0.1:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ydk.providers</span> <span class="kn">import</span> <span class="n">NetconfServiceProvider</span>
+
+<span class="n">sp_instance</span> <span class="o">=</span> <span class="n">NetconfServiceProvider</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="s1">&#39;10.0.0.1&#39;</span><span class="p">,</span>
+                                     <span class="n">port</span><span class="o">=</span><span class="mi">830</span><span class="p">,</span>
+                                     <span class="n">username</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
+                                     <span class="n">password</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
+                                     <span class="n">protocol</span><span class="o">=</span><span class="s1">&#39;ssh&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="using-the-model-apis">
+<h2><a class="toc-backref" href="#id5">Using the model APIs</a><a class="headerlink" href="#using-the-model-apis" title="Permalink to this headline">¶</a></h2>
+<p>After establishing the connection, we instantiate the entities and set some data. First, we import the types from the OpenConfig BGP module:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ydk.models.openconfig</span> <span class="kn">import</span> <span class="n">openconfig_bgp</span>
+<span class="kn">from</span> <span class="nn">ydk.models.openconfig</span> <span class="kn">import</span> <span class="n">openconfig_bgp_types</span>
+</pre></div>
+</td></tr></table></div>
+<p>Next, create a <code class="xref py py-class docutils literal"><span class="pre">Bgp</span></code> configuration object and set the attributes:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># create BGP object</span>
+<span class="n">bgp_cfg</span> <span class="o">=</span> <span class="n">openconfig_bgp</span><span class="o">.</span><span class="n">Bgp</span><span class="p">()</span>
+
+<span class="c1"># set the Global AS</span>
+<span class="n">bgp_cfg</span><span class="o">.</span><span class="n">global_</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">as_</span> <span class="o">=</span> <span class="mi">65001</span>
+
+<span class="c1"># Create an AFI SAFI config</span>
+<span class="n">ipv4_afsf</span> <span class="o">=</span> <span class="n">bgp_cfg</span><span class="o">.</span><span class="n">global_</span><span class="o">.</span><span class="n">afi_safis</span><span class="o">.</span><span class="n">AfiSafi</span><span class="p">()</span>
+<span class="n">ipv4_afsf</span><span class="o">.</span><span class="n">afi_safi_name</span> <span class="o">=</span> <span class="n">openconfig_bgp_types</span><span class="o">.</span><span class="n">Ipv4Unicast</span><span class="p">()</span>
+<span class="n">ipv4_afsf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">afi_safi_name</span> <span class="o">=</span> <span class="n">openconfig_bgp_types</span><span class="o">.</span><span class="n">Ipv4Unicast</span><span class="p">()</span>
+<span class="n">ipv4_afsf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1"># Add the AFI SAFI config to the global AFI SAFI list</span>
+<span class="n">bgp_cfg</span><span class="o">.</span><span class="n">global_</span><span class="o">.</span><span class="n">afi_safis</span><span class="o">.</span><span class="n">afi_safi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ipv4_afsf</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="invoking-the-crud-service">
+<h2><a class="toc-backref" href="#id6">Invoking the CRUD Service</a><a class="headerlink" href="#invoking-the-crud-service" title="Permalink to this headline">¶</a></h2>
+<p>The CRUD service provides methods to create, read, update and delete entities on a device making use of the session provided by a service provider (NETCONF in this case).  In order to use the CRUD service, we need to import the <a class="reference internal" href="../api/services/crud_service.html#ydk.services.CRUDService" title="ydk.services.CRUDService"><code class="xref py py-class docutils literal"><span class="pre">CRUDService</span></code></a> class:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ydk.services</span> <span class="kn">import</span> <span class="n">CRUDService</span>
+</pre></div>
+</td></tr></table></div>
+<p>Next, we instantiate the CRUD service:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">crud_service</span> <span class="o">=</span> <span class="n">CRUDService</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>Finally, we invoke the create method of the in this case).  In order to use the CRUD service, we need to import the <a class="reference internal" href="../api/services/crud_service.html#ydk.services.CRUDService" title="ydk.services.CRUDService"><code class="xref py py-class docutils literal"><span class="pre">CRUDService</span></code></a> class passing in the
+service provider instance and our entity (<code class="docutils literal"><span class="pre">bgp_cfg</span></code>):</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">crud_service</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">sp_instance</span><span class="p">,</span> <span class="n">bgp_cfg</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">YError</span><span class="p">:</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note if there were any errors the above API will raise a YError exception.</p>
+</div>
+<div class="section" id="using-non-top-level-objects">
+<h2><a class="toc-backref" href="#id7">Using non-top level objects</a><a class="headerlink" href="#using-non-top-level-objects" title="Permalink to this headline">¶</a></h2>
+<p>In the example above you noticed that we started building model from top-level object - <code class="xref py py-class docutils literal"><span class="pre">Bgp</span></code> and then built the object tree down the hierarchy.
+However in certain conditions we can build independently non-top level objects and still be able to do all the CRUD operations.</p>
+<div class="section" id="top-level-object-vs-non-top">
+<h3><a class="toc-backref" href="#id8">Top level object vs. non-top</a><a class="headerlink" href="#top-level-object-vs-non-top" title="Permalink to this headline">¶</a></h3>
+<p>The top level object represents top-level container in the Yang model. Examples of top-level objects:</p>
+<blockquote>
+<div><ul class="simple">
+<li>openconfig_bgp.Bgp</li>
+<li>openconfig_interfaces.Interfaces</li>
+</ul>
+</div></blockquote>
+<p>The non-top level object represents a container in the Yang model, which is located under top level container. A member of a non-top level list can also be considered as non-top level object.
+Examples of non-top level objects:</p>
+<blockquote>
+<div><ul class="simple">
+<li>openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi</li>
+<li>openconfig_bgp.Bgp.Neighbors</li>
+<li>openconfig_bgp.Bgp.Neighbors.Neighbor</li>
+<li>openconfig_bgp.Bgp.Neighbors.Neighbor.Config</li>
+<li>openconfig_interfaces.Interfaces.Interface</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="how-to-use-non-top-level-objects">
+<h3><a class="toc-backref" href="#id9">How to use non-top level objects</a><a class="headerlink" href="#how-to-use-non-top-level-objects" title="Permalink to this headline">¶</a></h3>
+<p>You should be able to work with non-top level objects similarly as with top level.
+Your program will look more simple and straight to the point.
+The above example will look now like this:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="kn">from</span> <span class="nn">ydk.models.openconfig</span> <span class="kn">import</span> <span class="n">openconfig_bgp</span>
+   <span class="kn">from</span> <span class="nn">ydk.models.openconfig</span> <span class="kn">import</span> <span class="n">openconfig_bgp_types</span>
+
+   <span class="c1"># Create an AFI SAFI config</span>
+   <span class="n">ipv4_afsf</span> <span class="o">=</span> <span class="n">openconfig_bgp</span><span class="o">.</span><span class="n">Bgp</span><span class="o">.</span><span class="n">Global_</span><span class="o">.</span><span class="n">AfiSafis</span><span class="o">.</span><span class="n">AfiSafi</span><span class="p">()</span>
+   <span class="n">ipv4_afsf</span><span class="o">.</span><span class="n">afi_safi_name</span> <span class="o">=</span> <span class="n">openconfig_bgp_types</span><span class="o">.</span><span class="n">Ipv4Unicast</span><span class="p">()</span>
+   <span class="n">ipv4_afsf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">afi_safi_name</span> <span class="o">=</span> <span class="n">openconfig_bgp_types</span><span class="o">.</span><span class="n">Ipv4Unicast</span><span class="p">()</span>
+   <span class="n">ipv4_afsf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="bp">True</span>
+
+   <span class="n">crud_service</span> <span class="o">=</span> <span class="n">CRUDService</span><span class="p">()</span>
+   <span class="n">crud_service</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">sp_instance</span><span class="p">,</span> <span class="n">ipv4_afsf</span><span class="p">)</span>
+
+   <span class="c1"># Read single AFI SAFI config</span>
+   <span class="n">afisafiFilter</span> <span class="o">=</span> <span class="n">openconfig_bgp</span><span class="o">.</span><span class="n">Bgp</span><span class="o">.</span><span class="n">Global_</span><span class="o">.</span><span class="n">AfiSafis</span><span class="o">.</span><span class="n">AfiSafi</span><span class="p">()</span>
+   <span class="n">afisafiFilter</span><span class="o">.</span><span class="n">afi_safi_name</span> <span class="o">=</span> <span class="n">openconfig_bgp_types</span><span class="o">.</span><span class="n">IPV6UNICAST</span><span class="p">{}</span>
+
+   <span class="n">afisafi</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">ReadConfig</span><span class="p">(</span><span class="n">sp_instance</span><span class="p">,</span> <span class="n">afisafiFilter</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="limitations">
+<h3><a class="toc-backref" href="#id10">Limitations</a><a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h3>
+<p>Not all non-top level objects can be used independently. Here is the rule:</p>
+<blockquote>
+<div>When building non-top level object, we have to define all the list keys on the way up to the top level object.
+In the example above the object <cite>ipv4_afsf</cite> is a member of the list. We can use it as long as its key <cite>afi_safi_name</cite> is defined.</div></blockquote>
+</div>
+<div class="section" id="under-the-hood">
+<h3><a class="toc-backref" href="#id11">Under the hood</a><a class="headerlink" href="#under-the-hood" title="Permalink to this headline">¶</a></h3>
+<p>The programmability protocols like Netconf, gNMI, etc. are always working with top level model objects.
+When non-top level object is presented to <cite>CRUDService</cite> or <cite>NetconfService</cite>, the YDK creates corresponding top-level object and perform the requested operation.
+In case of read/get operation the protocol returns always top-level objects.
+When specified filter is a non-top level object, the YDK traverses the response object tree and finds corresponding non-top level object.</p>
+</div>
+</div>
+<div class="section" id="logging">
+<span id="howto-logging"></span><h2><a class="toc-backref" href="#id12">Logging</a><a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<p>YDK uses common Python logging.  All modules are based on the <code class="docutils literal"><span class="pre">ydk</span></code> log. The below code snippet shows how to enable basic logging with the <code class="docutils literal"><span class="pre">INFO</span></code> level, which is useful for most <cite>users</cite> of YDK. Using the <code class="docutils literal"><span class="pre">DEBUG</span></code> level will produces a lot more detailed logs, which may be useful for <cite>developers</cite> working on YDK.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;ydk&#39;</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">log</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>To see time stamps and logging levels, please see the below code snippet.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;ydk&#39;</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(name)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="crud_guide.html" class="btn btn-neutral float-right" title="How do I create, update, read and delete?" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../developer_guide.html" class="btn btn-neutral" title="Developer Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

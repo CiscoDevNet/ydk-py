@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Errors &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../index.html"/>
+        <link rel="up" title="YDK API" href="class_hierarchy.html"/>
+        <link rel="next" title="YDK Path API" href="path/path.html"/>
+        <link rel="prev" title="Types" href="types.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="class_hierarchy.html">YDK API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="services/services.html">Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="providers/providers.html">Service Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filters.html">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="path/path.html">YDK Path API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Questions and Answers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="class_hierarchy.html">YDK API</a> &raquo;</li>
+      
+    <li>Errors</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ydk.errors">
+<span id="errors"></span><h1>Errors<a class="headerlink" href="#module-ydk.errors" title="Permalink to this headline">¶</a></h1>
+<p>This module contains YDK Python errors classes. These errors are thrown in case of data not conforming to the yang model or due to a server-side error.</p>
+<dl class="exception">
+<dt id="ydk.errors.YError">
+<em class="property">exception </em><code class="descclassname">ydk.errors.</code><code class="descname">YError</code><a class="headerlink" href="#ydk.errors.YError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-exc docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+<p>Base class for Y Errors. The subclasses give a specialized view of the error that has occurred.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="ydk.errors.YModelError">
+<em class="property">exception </em><code class="descclassname">ydk.errors.</code><code class="descname">YModelError</code><a class="headerlink" href="#ydk.errors.YModelError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">ydk.errors.YError</span></code></a></p>
+<p>Model Error. Thrown when a model constraint is violated.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="ydk.errors.YServiceProviderError">
+<em class="property">exception </em><code class="descclassname">ydk.errors.</code><code class="descname">YServiceProviderError</code><a class="headerlink" href="#ydk.errors.YServiceProviderError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">ydk.errors.YError</span></code></a></p>
+<p>Exception for Service Provider. Thrown in case of a server-side error.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="ydk.errors.YClientError">
+<em class="property">exception </em><code class="descclassname">ydk.errors.</code><code class="descname">YClientError</code><a class="headerlink" href="#ydk.errors.YClientError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">ydk.errors.YError</span></code></a></p>
+<p>Exception for client connection</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="ydk.errors.YIllegalStateError">
+<em class="property">exception </em><code class="descclassname">ydk.errors.</code><code class="descname">YIllegalStateError</code><a class="headerlink" href="#ydk.errors.YIllegalStateError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">ydk.errors.YError</span></code></a></p>
+<p>Illegal State Error. Thrown when an operation/service is invoked on an object that is not in the right state. Use the error_msg for the error.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="ydk.errors.YInvalidArgumentError">
+<em class="property">exception </em><code class="descclassname">ydk.errors.</code><code class="descname">YInvalidArgumentError</code><a class="headerlink" href="#ydk.errors.YInvalidArgumentError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">ydk.errors.YError</span></code></a></p>
+<p>Invalid Argument. Use the error_msg for the error.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="ydk.errors.YOperationNotSupportedError">
+<em class="property">exception </em><code class="descclassname">ydk.errors.</code><code class="descname">YOperationNotSupportedError</code><a class="headerlink" href="#ydk.errors.YOperationNotSupportedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">ydk.errors.YError</span></code></a></p>
+<p>Operation Not Supported Error. Thrown when an operation is not supported.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="ydk.errors.YServiceError">
+<em class="property">exception </em><code class="descclassname">ydk.errors.</code><code class="descname">YServiceError</code><a class="headerlink" href="#ydk.errors.YServiceError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">ydk.errors.YError</span></code></a></p>
+<p>Exception for Service Side Validation</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="path/path.html" class="btn btn-neutral float-right" title="YDK Path API" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="types.html" class="btn btn-neutral" title="Types" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
