@@ -88,15 +88,15 @@ function check_install_gcc {
 function install_libydk {
   print_msg "Installing YDK 0.8.4 core library"
   if [[ $os_info == *"xenial"* ]]; then
-    run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/xenial/libydk-0.8.4-1_amd64.deb
+    run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/xenial/libydk-0.8.4-1.amd64.deb
   elif [[ $os_info == *"bionic"* ]]; then
-    run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/bionic/libydk-0.8.4-1_amd64.deb
+    run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/bionic/libydk-0.8.4-1.amd64.deb
   else
     MSG_COLOR=$RED
     print_msg "There are no pre-compiled YDK libraries for this Linux distribution"
     exit 1
   fi
-  gdebi -n libydk-0.8.4-1_amd64.deb}
+  gdebi -n libydk-0.8.4-1.amd64.deb}
 }
 
 # Terminal colors

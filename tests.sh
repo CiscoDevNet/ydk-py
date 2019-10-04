@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function print_msg {
-    echo -e "${MSG_COLOR}*** $(date): dependencies_tests.sh | $@ ${NOCOLOR}"
+    echo -e "${MSG_COLOR}*** $(date): tests.sh | $@ ${NOCOLOR}"
 }
 
 function test_python_installation {
@@ -64,7 +64,7 @@ test_python_installation
 print_msg "Installing YDK core package"
 cd core
 ${PYTHON_BIN} setup.py sdist
-sudo ${PIP_BIN} install  dist/ydk*.tar.gz
+sudo ${PIP_BIN} install -v dist/ydk*.tar.gz
 
 print_msg "Installing ietf bundle package"
 cd ../ietf
