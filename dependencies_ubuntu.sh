@@ -96,7 +96,7 @@ function install_libydk {
     print_msg "There are no pre-compiled YDK libraries for this Linux distribution"
     exit 1
   fi
-  gdebi -n libydk-0.8.4-1.amd64.deb}
+  gdebi -n libydk-0.8.4-1.amd64.deb
 }
 
 # Terminal colors

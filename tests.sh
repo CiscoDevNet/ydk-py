@@ -5,18 +5,8 @@ function print_msg {
 }
 
 function test_python_installation {
-    print_msg "Testing Python installation"
-    PYTHON_BIN=python3
-    PIP_BIN=pip3
-    python --version &> _version
-    status=$?
-    if [ $status -ne 0 ]; then
-      MSG_COLOR=$RED
-      print_msg "Could not locate Python"
-      exit $status
-    fi
-    PYTHON_VERSION=`cat _version` && rm _version
-    print_msg "Retrieved Python version ${PYTHON_VERSION}"
+  PYTHON_BIN=python3
+  PIP_BIN=pip3
 
   print_msg "Checking installation of ${PYTHON_BIN}"
   ${PYTHON_BIN} --version &> /dev/null
