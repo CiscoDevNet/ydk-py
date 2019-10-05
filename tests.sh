@@ -26,6 +26,12 @@ function test_python_installation {
   fi
   print_msg "Python location: $(which ${PYTHON_BIN})"
   print_msg "Pip location: $(which ${PIP_BIN})"
+
+  if [[ $(uname) == "Darwin" ]] ; then
+    python_lib_location=$(dirname $(locate libpython3.7.dylib | head -n 1))
+    export CMAKE_LIBRARY_PATH=${python_lib_location}:/usr/local/lib
+    print_msg "Setting CMAKE_LIBRARY_PATH to ${CMAKE_LIBRARY_PATH}"
+  fi
 }
 
 function pip_check_install {
@@ -55,6 +61,13 @@ print_msg "Installing YDK core package"
 cd core
 ${PYTHON_BIN} setup.py sdist
 sudo ${PIP_BIN} install -v dist/ydk*.tar.gz
+${PYTHON_BIN} -c "import ydk.providers"
+status=$?
+if [[ ${status} != 0 ]]; then
+  MSG_COLOR=${RED}
+  print_msg "Simple YDK package installation test failed. Exiting"
+  exit 1
+fi
 
 print_msg "Installing ietf bundle package"
 cd ../ietf
