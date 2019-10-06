@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DataNode &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../../index.html"/>
+        <link rel="up" title="YDK Path API" href="path.html"/>
+        <link rel="next" title="Repository" href="repository.html"/>
+        <link rel="prev" title="Codec" href="codec.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../class_hierarchy.html">YDK API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="path.html">YDK Path API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="annotation.html">Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="capability.html">Capability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="codec.html">Codec</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">DataNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="repository.html">Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="root_schema_node.html">RootSchemaNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rpc.html">Rpc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema_node.html">SchemaNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="statement.html">Statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netconf_session.html">NetconfSession</a></li>
+<li class="toctree-l3"><a class="reference internal" href="restconf_session.html">RestconfSession</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnmi_session.html">gNMISession</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Questions and Answers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="path.html">YDK Path API</a> &raquo;</li>
+      
+    <li>DataNode</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ydk.path">
+<span id="datanode"></span><h1>DataNode<a class="headerlink" href="#module-ydk.path" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ydk.path.DataNode">
+<em class="property">class </em><code class="descclassname">ydk.path.</code><code class="descname">DataNode</code><a class="headerlink" href="#ydk.path.DataNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class represents a Path API&#8217;s DataNode.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The Python DataNode is wrapper for YDK C++ DataNode implementation. No constructor is defined and the user could not instantiate a <code class="docutils literal"><span class="pre">DataNode</span></code> instance. However, the user could get an instance of <code class="docutils literal"><span class="pre">DataNode</span></code> through <a class="reference internal" href="root_schema_node.html#ydk.path.RootSchemaNode" title="ydk.path.RootSchemaNode"><code class="xref py py-class docutils literal"><span class="pre">RootSchemaNode</span></code></a>:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ydk.path</span> <span class="kn">import</span> <span class="n">NetconfSession</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">NetconfSession</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="mi">830</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root_schema</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_root_schema</span><span class="p">()</span>                               <span class="c1"># &lt;-- root_schema is an instance of RootSchemaNode</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bgp</span> <span class="o">=</span> <span class="n">root_schema</span><span class="o">.</span><span class="n">create_datanode</span><span class="p">(</span><span class="s1">&#39;openconfig-bgp:bgp&#39;</span><span class="p">)</span>               <span class="c1"># &lt;-- bgp is an instance of DataNode</span>
+</pre></div>
+</div>
+</div>
+<dl class="method">
+<dt id="ydk.path.DataNode.add_annotation">
+<code class="descname">add_annotation</code><span class="sig-paren">(</span><em>annotation</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.add_annotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method adds the annotation to this Datanode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>annotation</strong> &#8211; (<a class="reference internal" href="annotation.html#ydk.path.Annotation" title="ydk.path.Annotation"><code class="xref py py-class docutils literal"><span class="pre">Annotation</span></code></a>) Annotation to be added.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YInvalidArgumentError</span></code> prefix in case the argument is invalid.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.annotations">
+<code class="descname">annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.annotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the annotations associated with this data node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of annotations for this data node.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of <a class="reference internal" href="annotation.html#ydk.path.Annotation" title="ydk.path.Annotation"><code class="xref py py-class docutils literal"><span class="pre">Annotation</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.get_children">
+<code class="descname">get_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.get_children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return list of children for this data node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of data node children.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of <a class="reference internal" href="#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.create_datanode">
+<code class="descname">create_datanode</code><span class="sig-paren">(</span><em>path</em>, <em>value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.create_datanode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a DataNode corresponding to the path and set its value, if provided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The XPath expression identifying the node.</li>
+<li><strong>value</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The value to be set.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YPathError</span></code> prefix in case the path is invalid.</li>
+<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YInvalidArgumentError</span></code> prefix in case the argument is invalid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.create_action">
+<code class="descname">create_action</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.create_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a DataNode representing a YANG 1.1 action corresponding to the path and set its value, if provided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>path</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The XPath expression identifying the node.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YPathError</span></code> prefix in case the path is invalid.</li>
+<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YInvalidArgumentError</span></code> prefix in case the argument is invalid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.__call__">
+<code class="descname">__call__</code><span class="sig-paren">(</span><em>service_provider</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute/Invoke the DataNode containing a YANG 1.1 action through the given service provider.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>service_provider</strong> &#8211; (<code class="xref py py-class docutils literal"><span class="pre">ServiceProvider</span></code>) The Service provider.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a> instance if succeed.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or <a class="reference internal" href="#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YError</span></code> prefix in case the path is invalid or DataNode contains no action nodes.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds nodes that satisfy the given path expression. For details about the path expression see <a class="reference internal" href="../../guides/path.html#howto-path"><span class="std std-ref">How do I use the Path API?</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The path expression.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Data node satisfy the path expression supplied.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of <a class="reference internal" href="#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns this data node&#8217;s value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Value of this data node.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Python string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.get_path">
+<code class="descname">get_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.get_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the path expression representing this Node in in the NodeTree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Path to this data node.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Python string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.remove_annotation">
+<code class="descname">remove_annotation</code><span class="sig-paren">(</span><em>annotation</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.remove_annotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove given annotation for this node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>annotation</strong> &#8211; (<a class="reference internal" href="annotation.html#ydk.path.Annotation" title="ydk.path.Annotation"><code class="xref py py-class docutils literal"><span class="pre">Annotation</span></code></a>) Annotation to be removed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">If <code class="docutils literal"><span class="pre">True</span></code> the annotation was found and removed, <code class="docutils literal"><span class="pre">False</span></code> otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.get_root">
+<code class="descname">get_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.get_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the root data node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Root data node of current data node.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.get_schema_node">
+<code class="descname">get_schema_node</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.get_schema_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get <a class="reference internal" href="schema_node.html#ydk.path.SchemaNode" title="ydk.path.SchemaNode"><code class="xref py py-class docutils literal"><span class="pre">SchemaNode</span></code></a> associated with this <a class="reference internal" href="#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.DataNode.set_value">
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.DataNode.set_value" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>The DataNode should represent a <code class="docutils literal"><span class="pre">leaf</span></code> , <code class="docutils literal"><span class="pre">leaf-list</span></code> or <code class="docutils literal"><span class="pre">anyxml</span></code> element for this to work. The value should be the string representation of the type of according to the schema.</li>
+<li>This method does not validate the value being set.</li>
+</ul>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The value to set. This should be the string representation of the YANG type.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YInvalidArgumentError</span></code> prefix if the its value cannot be set (for example it represents a container).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="repository.html" class="btn btn-neutral float-right" title="Repository" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="codec.html" class="btn btn-neutral" title="Codec" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

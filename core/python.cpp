@@ -35,6 +35,7 @@
 #include <ydk/restconf_provider.hpp>
 #include <ydk/types.hpp>
 #include <ydk/xml_subtree_codec.hpp>
+#include <ydk/json_subtree_codec.hpp>
 
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/null_sink.h>
@@ -942,6 +943,11 @@ PYBIND11_MODULE(ydk_, ydk)
         .def(init<>())
         .def("encode", &ydk::XmlSubtreeCodec::encode, return_value_policy::reference)
         .def("decode", &ydk::XmlSubtreeCodec::decode);
+
+    class_<ydk::JsonSubtreeCodec>(entity_utils, "JsonSubtreeCodec")
+        .def(init<>())
+        .def("encode", &ydk::JsonSubtreeCodec::encode, return_value_policy::reference)
+        .def("decode", &ydk::JsonSubtreeCodec::decode);
 
     entity_utils.def("get_entity_from_data_node", &ydk::get_entity_from_data_node);
     #if defined(PYBIND11_OVERLOAD_CAST)

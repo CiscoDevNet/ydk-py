@@ -19,15 +19,17 @@ NetconfSession Python wrapper.
 """
 
 from ydk.ext.path import NetconfSession as _NetconfSession
+import sys
 
 
 class NetconfSession(_NetconfSession):
     """ Python wrapper for NetconfSession
     """
 
-    def __init__(self, address, username, password=None, port=830, protocol="ssh",
-                       on_demand=True, common_cache=False, timeout=None, repo=None,
-                       private_key_path=None, public_key_path=None):
+    def __init__(self,
+                 address, username, password=None, port=830, protocol="ssh",
+                 on_demand=True, common_cache=False, timeout=None, repo=None,
+                 private_key_path=None, public_key_path=None):
 
         if timeout is None:
             timeout = -1
@@ -38,35 +40,39 @@ class NetconfSession(_NetconfSession):
         if public_key_path is None:
             public_key_path = ""
 
+        if sys.version_info > (3,):
+            self._super = super()
+        else:
+            self._super = super(NetconfSession, self)
         if repo is None:
             if len(public_key_path) == 0:
-                super(NetconfSession, self).__init__(address, username, password,
-                                                     port, protocol, on_demand,
-                                                     common_cache, timeout)
+                self._super.__init__(address, username, password,
+                                     port, protocol, on_demand,
+                                     common_cache, timeout)
             else:
-                super(NetconfSession, self).__init__(address, username,
-                                                     private_key_path, public_key_path,
-                                                     port, protocol, on_demand,
-                                                     common_cache, timeout)
+                self._super.__init__(address, username,
+                                     private_key_path, public_key_path,
+                                     port, protocol, on_demand,
+                                     common_cache, timeout)
         else:
             if len(public_key_path) == 0:
-                super(NetconfSession, self).__init__(repo, address, username, password,
-                                                     port, protocol,
-                                                     on_demand, timeout)
+                self._super.__init__(repo, address, username, password,
+                                     port, protocol,
+                                     on_demand, timeout)
             else:
-                super(NetconfSession, self).__init__(repo, address, username,
-                                                     private_key_path, public_key_path,
-                                                     port, protocol, on_demand,
-                                                     common_cache, timeout)
+                self._super.__init__(repo, address, username,
+                                     private_key_path, public_key_path,
+                                     port, protocol, on_demand,
+                                     common_cache, timeout)
 
     def get_root_schema(self):
-        return super(NetconfSession, self).get_root_schema()
+        return self._super.get_root_schema()
 
     def invoke(self, rpc):
-        return super(NetconfSession, self).invoke(rpc)
+        return self._super.invoke(rpc)
 
     def execute_netconf_operation(self, rpc):
-        return super(NetconfSession, self).execute_netconf_operation(rpc)
+        return self._super.execute_netconf_operation(rpc)
 
     def get_capabilities(self):
-        return super(NetconfSession, self).get_capabilities()
+        return self._super.get_capabilities()

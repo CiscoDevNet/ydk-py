@@ -1,7 +1,26 @@
 #!/bin/sh
 
 function print_msg {
-    echo -e "${MSG_COLOR}*** $(date): dependencies_centos.sh | $@ ${NOCOLOR}"
+    echo -e "${MSG_COLOR}*** $(date) *** dependencies_centos.sh | $@ ${NOCOLOR}"
+}
+
+function install_confd {
+    print_msg "Installing confd"
+
+    wget https://github.com/CiscoDevNet/ydk-gen/files/562538/confd-basic-6.2.linux.x86_64.zip &> /dev/null
+    unzip confd-basic-6.2.linux.x86_64.zip
+    ./confd-basic-6.2.linux.x86_64.installer.bin ../confd
+}
+
+function install_openssl {
+    print_msg "Installing openssl 0.1.0u for confd"
+
+    wget https://www.openssl.org/source/openssl-1.0.1u.tar.gz &> /dev/null
+    tar -xvzf openssl-1.0.1u.tar.gz > /dev/null
+    cd openssl-1.0.1u
+    ./config shared  > /dev/null && make all > /dev/null
+#    cp libcrypto.so.1.0.0 ../../confd/lib
+    cd -
 }
 
 function install_dependencies {
@@ -11,61 +30,22 @@ function install_dependencies {
     yum install epel-release -y > /dev/null
     yum install https://centos7.iuscommunity.org/ius-release.rpm -y > /dev/null
     yum install git which libxml2-devel libxslt-devel libssh-devel libtool gcc-c++ pcre-devel -y > /dev/null
-    yum install cmake3 wget curl-devel unzip make java sudo -y > /dev/null
-    yum install python-devel python-pip python36u-devel python36u-pip  rpm-build redhat-lsb lcov -y > /dev/null
-}
-    
-function check_install_gcc {
-  print_msg "Checking gcc/g++ installation"
-  which gcc
-  local status=$?
-  if [[ $status == 0 ]]
-  then
-    gcc_version=$(echo $(gcc --version) | awk '{ print $3 }')
-    print_msg "Current gcc version is $gcc_version"
-  else
-    print_msg "The gcc not installed"
-    gcc_version="4.0"
-  fi
-  if [[ $(echo $gcc_version | cut -d '.' -f 1) < 5 ]]
-  then
-    print_msg "Upgrading gcc/g++ to version 5"
-    yum install centos-release-scl -y > /dev/null
-    yum install devtoolset-4-gcc* -y > /dev/null
+    yum install cmake3 wget curl-devel unzip make sudo -y > /dev/null
+    yum install python3-devel -y
 
-    ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/cc
-    ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/c++
-
-    ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/gcc
-    ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/g++
-
-    ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcov /usr/bin/gcov
-
-    gcc_version=$(echo $(gcc --version) | awk '{ print $3 }')
-    print_msg "Installed gcc/g++ version is $gcc_version"
-  fi
+    print_msg "Python3 location: $(which python3)"
+    print_msg "Pip3 location: $(which pip3)"
 }
 
-function install_ydk_core {
-    print_msg "Installing YDK core libraries"
-    yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.3/libydk-0.8.3-1.x86_64.rpm > /dev/null
-    print_msg "Installing YDK gNMI Service library"
-    yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.3/libydk_gnmi-0.4.0-2.x86_64.rpm > /dev/null
-}
-
+########################## EXECUTION STARTS HERE #############################
 # Terminal colors
-RED="\033[0;31m"
 NOCOLOR="\033[0m"
 YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
-os_info=$(cat /etc/*-release)
-print_msg "OS info: $os_info"
-
 install_dependencies
+install_openssl
+# install_confd
 
-check_install_gcc
-
-./dependencies_gnmi.sh
-
-install_ydk_core
+print_msg "Installing YDK C++ core package"
+yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.4/libydk-0.8.4-1.x86_64.rpm

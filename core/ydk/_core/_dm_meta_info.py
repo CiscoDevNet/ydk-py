@@ -26,14 +26,16 @@ REFERENCE_BITS = 6
 REFERENCE_UNION = 7
 ANYXML_CLASS = 8
 
+
 class _MetaInfoClassMember(object):
 
     def __init__(self, name, mtype, ptype, ytype,
                  pmodule_name, clazz_name,
                  prange, pattern, doc,
                  presentation_name, module_name, is_key,
-                 members=None, max_elements=None, min_elements=None, default_value=None,
-                 is_config=True, is_presence=False, is_mandatory=False):
+                 members=[], max_elements=None, min_elements=None,
+                 default_value=None, is_config=True, is_presence=False,
+                 is_mandatory=False, has_when=False, has_must=False):
         self._name = name
         self._mtype = mtype
         self._ptype = ptype
@@ -57,6 +59,8 @@ class _MetaInfoClassMember(object):
         self._is_config = is_config
         self._is_presence = is_presence
         self._is_mandatory = is_mandatory
+        self.has_when = has_when
+        self.has_must = has_must
 
     @property
     def members(self):
@@ -118,20 +122,35 @@ class _MetaInfoClassMember(object):
     def is_presence(self):
         return self._is_presence
 
+    @property
+    def is_config(self):
+        return self._is_config
+
     def union_list(self):
         _list = []
         if self._mtype == REFERENCE_UNION:
-            for union_member in self._members:
-                if (union_member._ptype == 'str'):
+            for union_member in self.get_all_union_members():
+                if union_member._ptype == 'str':
                     pattern = union_member._pattern
                 else:
                     pattern = union_member._range
                 _list.append((union_member._ptype, union_member._ytype, pattern))
         return _list
 
+    def get_all_union_members(self):
+        union_members = []
+        if self._mtype == REFERENCE_UNION:
+            for meta in self.members:
+                if meta.mtype == REFERENCE_UNION:
+                    union_members.extend(meta.get_all_union_members())
+                else:
+                    union_members.append(meta)
+        return union_members
+
     def ydk_class(self):
-        if (self.mtype != REFERENCE_ENUM_CLASS and self.mtype != REFERENCE_CLASS and self.mtype != REFERENCE_IDENTITY_CLASS) or \
-            len(self._pmodule_name) == 0 or len(self._clazz_name) == 0:
+        if (self.mtype != REFERENCE_ENUM_CLASS and self.mtype != REFERENCE_CLASS and
+            self.mtype != REFERENCE_IDENTITY_CLASS) or \
+             len(self._pmodule_name) == 0 or len(self._clazz_name) == 0:
             return None
         m = importlib.import_module(self._pmodule_name)
         cls_list = self._clazz_name.split('.')
@@ -150,14 +169,19 @@ class _MetaInfoClass(object):
     def __init__(
             self,
             name,
+            mtype,
             doc,
             is_abstract,
             meta_info_class_members,
             module_name,
             yang_name,
             namespace,
-            pmodule_name):
+            pmodule_name,
+            is_config=True, is_presence=False, is_mandatory=False,
+            has_when=False, has_must=False,
+            ):
         self.name = name
+        self.mtype = mtype
         self.doc = doc
         self.namespace = namespace
         self.meta_info_class_members = meta_info_class_members
@@ -165,6 +189,11 @@ class _MetaInfoClass(object):
         self.yang_name = yang_name
         self.is_abstract = is_abstract
         self.pmodule_name = pmodule_name
+        self.is_config = is_config
+        self.is_presence = is_presence
+        self.is_mandatory = is_mandatory
+        self.has_when = has_when
+        self.has_must = has_must
 
     def key_members(self):
         return [ member for member in self.meta_info_class_members if member.is_key]
@@ -181,6 +210,7 @@ class _MetaInfoClass(object):
         for cls in cls_list:
             m = getattr(m, cls)
         return m
+
 
 class _MetaInfoEnum(object):
     def __init__(
@@ -213,3 +243,38 @@ class _MetaInfoEnum(object):
         for k in self.literal_map:
             d[k] = getattr(yclass, k)
         return d
+
+
+def module_meta(pmodule_name):
+    """
+        :param pmodule_name - fully qualified name for the module,
+                e.g. 'ydk.models.ydktest.ydktest_sanity'
+        :return table of top level meta classes (_MetaInfoEnum and _MetaInfoClass)
+                for the module
+    """
+    module_meta_table = {}
+    try:
+        paths = pmodule_name.rsplit('.', 1)
+        meta_module_name = '%s.%s' % (paths[0], '_meta._%s' % paths[1])
+        meta_module = importlib.import_module(meta_module_name)
+    except ImportError:
+        return module_meta_table
+
+    if hasattr(meta_module, '_meta_table'):
+        for name, value in meta_module._meta_table.items():
+            if isinstance(value, _MetaInfoEnum):
+                module_meta_table[name] = value
+            else:
+                module_meta_table[name] = value['meta_info']
+    return module_meta_table
+
+
+def module_enums(pmodule_name):
+    """
+        :param pmodule_name - fully qualified name for the module,
+                e.g. 'ydk.models.ydktest.ydktest_sanity'
+        :return table of _MetaInfoEnum classes for the module
+    """
+    module_meta_table = module_meta(pmodule_name)
+    module_meta_enums = {x: v for x, v in module_meta_table.items() if isinstance(v, _MetaInfoEnum)}
+    return module_meta_enums

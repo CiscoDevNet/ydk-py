@@ -19,14 +19,16 @@ gNMIServiceProvider Python wrapper.
 """
 
 from ydk_gnmi_.providers import gNMIServiceProvider as _gNMIServiceProvider
+import sys
 
 
 class gNMIServiceProvider(_gNMIServiceProvider):
     """ Python wrapper for gNMIServiceProvider
     """
 
-    def __init__(self, repo, address, username, password,
-                       port=57400, server_certificate=None, private_key=None):
+    def __init__(self,
+                 repo, address, username, password,
+                 port=57400, server_certificate=None, private_key=None):
 
         if port is None:
             port = 57400
@@ -35,15 +37,19 @@ class gNMIServiceProvider(_gNMIServiceProvider):
         if private_key is None:
             private_key = ""
 
-        super(gNMIServiceProvider, self).__init__(repo, address, port,
-                                                  username, password,
-                                                  server_certificate, private_key)
+        if sys.version_info > (3,):
+            self._super = super()
+        else:
+            self._super = super(gNMIServiceProvider, self)
+        self._super.__init__(repo, address, port,
+                             username, password,
+                             server_certificate, private_key)
 
     def get_encoding(self):
-        return super(gNMIServiceProvider, self).get_encoding()
+        return self._super.get_encoding()
 
     def get_session(self):
-        return super(gNMIServiceProvider, self).get_session()
+        return self._super.get_session()
 
     def get_capabilities(self):
-        return super(gNMIServiceProvider, self).get_capabilities()
+        return self._super.get_capabilities()

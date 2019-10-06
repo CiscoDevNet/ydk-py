@@ -20,14 +20,15 @@
         - YList
         - YLeafList
         - Entity
+        - EntityCollection
 """
 from collections import OrderedDict
 from functools import reduce
 
 import importlib
 import logging
-
 import sys
+
 if sys.version_info > (3,):
     long = int
     unicode = str
@@ -43,24 +44,32 @@ from ydk.ext.types import Empty
 from ydk.ext.types import Decimal64 # Do not remove. Used in eval()
 from ydk.ext.types import Entity as _Entity
 from ydk.ext.types import LeafDataList
+
 from ydk.filters import YFilter as _YFilter
 from ydk.errors import YModelError as _YModelError
 from ydk.errors import YInvalidArgumentError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 class YLeafList(_YLeafList):
     """ Wrapper class for YLeafList, add __repr__ and get list slice
     functionalities.
     """
     def __init__(self, ytype, leaf_name):
-        super(YLeafList, self).__init__(ytype, leaf_name)
+        if sys.version_info > (3,):
+            super().__init__(ytype, leaf_name)
+        else:
+            super(YLeafList, self).__init__(ytype, leaf_name)
         self.ytype = ytype
         self.leaf_name = leaf_name
 
     def append(self, item):
         if isinstance(item, _YLeaf):
             item = item.get()
-        super(YLeafList, self).append(item)
+        if sys.version_info > (3,):
+            super().append(item)
+        else:
+            super(YLeafList, self).append(item)
 
     def extend(self, items):
         for item in items:
@@ -68,10 +77,12 @@ class YLeafList(_YLeafList):
 
     def set(self, other):
         if not isinstance(other, YLeafList):
-            raise _YModelError("Invalid value '{}' in '{}'"
-                            .format(other, self.leaf_name))
+            raise _YModelError("Invalid value '{}' in '{}'".format(other, self.leaf_name))
         else:
-            super(YLeafList, self).clear()
+            if sys.version_info > (3,):
+                super().clear()
+            else:
+                super(YLeafList, self).clear()
             for item in other:
                 self.append(item)
 
@@ -81,10 +92,13 @@ class YLeafList(_YLeafList):
             ret = YLeafList(self.ytype, self.leaf_name)
             values = [self.__getitem__(i).get() for i in range(*indices)]
             ret.extend(values)
-            return ret
         else:
             arg = len(self) + arg if arg < 0 else arg
-            return super(YLeafList, self).__getitem__(arg)
+            if sys.version_info > (3,):
+                ret = super().__getitem__(arg)
+            else:
+                ret = super(YLeafList, self).__getitem__(arg)
+        return ret
 
     def __str__(self):
         rep = [i for i in self.getYLeafs()]
@@ -95,7 +109,10 @@ class Entity(_Entity):
     """ Entity wrapper class overrides some of the ydk::Entity methods.
     """
     def __init__(self):
-        super(Entity, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Entity, self).__init__()
         self._is_frozen = False
         self.parent = None
         self.ylist_key = None
@@ -105,19 +122,27 @@ class Entity(_Entity):
         self._children_yang_names = set()
         self._child_classes = OrderedDict()
         self._leafs = OrderedDict()
-        self._segment_path = lambda : ''
-        self._absolute_path = lambda : ''
+        self._segment_path = lambda: ''
+        self._absolute_path = lambda: ''
         self._python_type_validation_enabled = True
 
     def __eq__(self, other):
         if not isinstance(other, Entity):
             return False
-        return super(Entity, self).__eq__(other)
+        if sys.version_info > (3,):
+            ret = super().__eq__(other)
+        else:
+            ret = super(Entity, self).__eq__(other)
+        return ret
 
     def __ne__(self, other):
         if not isinstance(other, Entity):
             return True
-        return super(Entity, self).__ne__(other)
+        if sys.version_info > (3,):
+            ret = super().__ne__(other)
+        else:
+            ret = super(Entity, self).__ne__(other)
+        return ret
 
     def children(self):
         return self.get_children()
@@ -132,7 +157,7 @@ class Entity(_Entity):
                     continue
                 children[name] = value
             elif isinstance(value, YList):
-                count=0
+                count = 0
                 for v in value:
                     if isinstance(v, Entity):
                         if v.get_segment_path() not in children:
@@ -163,7 +188,7 @@ class Entity(_Entity):
             return child
 
         found = False
-        self.logger.debug("Looking for '%s'" % (child_yang_name))
+        self.logger.debug("Looking for '%s'" % child_yang_name)
         if child_yang_name in self._child_classes:
             found = True
         else:
@@ -220,7 +245,7 @@ class Entity(_Entity):
                     isYLeafList = isinstance(leaf, _YLeafList)
                     isBits = isinstance(value, Bits)
 
-                    if type(value) is _YFilter:
+                    if isinstance(value, _YFilter):
                         return True
                     if isYLeaf and (not isBits or len(value.get_bitmap()) > 0):
                         return True
@@ -273,13 +298,13 @@ class Entity(_Entity):
                     leaf_name_data.append(leaf.get_name_leafdata())
                 elif isinstance(leaf, _YLeafList):
                     leaf_name_data.extend(leaf.get_name_leafdata())
-            elif (type(value) not in (list, type(None), Bits)
-                or (isinstance(value, Bits) and len(value.get_bitmap()) > 0)):
+            elif (value is not None and not isinstance(value, list) and not isinstance(value, Bits)) or \
+                 (isinstance(value, Bits) and len(value.get_bitmap()) > 0):
                 leaf.set(value)
                 leaf_name_data.append(leaf.get_name_leafdata())
             elif isinstance(value, list) and len(value) > 0:
-                l = _YLeafList(YType.str, leaf.name)
-                # l = self._leafs[name]
+                leaf_list = _YLeafList(YType.str, leaf.name)
+                # leaf_list = self._leafs[name]
                 # Above results in YModelError:
                 #     Duplicate leaf-list item detected:
                 #     /ydktest-sanity:runner/ytypes/built-in-t/enum-llist[.='local'] :
@@ -287,15 +312,15 @@ class Entity(_Entity):
                 #     Path: /ydktest-sanity:runner/one-list/identity-list/id-ref
                 for item in value:
                     _validate_value(self._leafs[name], name, item, self.logger)
-                    l.append(item)
-                leaf_name_data.extend(l.get_name_leafdata())
-        self.logger.debug('Get name leaf data for "%s". Count: %s'%(self.yang_name, len(leaf_name_data)))
+                    leaf_list.append(item)
+                leaf_name_data.extend(leaf_list.get_name_leafdata())
+        self.logger.debug('Get name leaf data for "%s". Count: %s' % (self.yang_name, len(leaf_name_data)))
         for l in leaf_name_data:
             leaf_value = l[1].value
             if "'" in leaf_value:
                 leaf_value.replace("'", "\'")
-            self.logger.debug('Leaf data name: "%s", value: "%s", yfilter: "%s", is_set: "%s"' % (
-            l[0], leaf_value, l[1].yfilter, l[1].is_set))
+            self.logger.debug('Leaf data name: "%s", value: "%s", yfilter: "%s", is_set: "%s"' %
+                              (l[0], leaf_value, l[1].yfilter, l[1].is_set))
         return leaf_name_data
 
     def get_segment_path(self):
@@ -326,6 +351,15 @@ class Entity(_Entity):
         return self.get_segment_path()
 
     def get_absolute_path(self):
+        path = self.get_segment_path()
+        if self.parent is not None:
+            path = self.parent.get_absolute_path() + '/' + path
+        elif not self.is_top_level_class:
+            # it is the best available approximation
+            path = self._get_absolute_path()
+        return path
+
+    def _get_absolute_path(self):
         path = self._absolute_path()
         if len(path) == 0 and self.is_top_level_class:
             path = self.get_segment_path()
@@ -345,12 +379,12 @@ class Entity(_Entity):
             if name != 'yfilter' and name != 'parent' and name != 'ignore_validation' \
                                  and hasattr(self, '_is_frozen') and self._is_frozen \
                                  and name not in self.__dict__:
-                raise _YModelError("Attempt to assign unknown attribute '{0}' to '{1}'.".format(name,
-                                                                                            self.__class__.__name__))
+                raise _YModelError("Attempt to assign unknown attribute '{0}' to '{1}'.".
+                                   format(name, self.__class__.__name__))
             if name in self.__dict__ and isinstance(self.__dict__[name], YList):
                 raise _YModelError("Attempt to assign value of '{}' to YList ldata. "
-                                    "Please use list append or extend method."
-                                    .format(value))
+                                   "Please use list append or extend method."
+                                   .format(value))
             if name in leaf_names and name in self.__dict__:
                 if self._python_type_validation_enabled:
                     _validate_value(self._leafs[name], name, value, self.logger)
@@ -380,7 +414,10 @@ class Entity(_Entity):
                     if hasattr(value, "parent") and name != "parent":
                         if not value.is_top_level_class:
                             value.parent = self
-                super(Entity, self).__setattr__(name, value)
+                if sys.version_info > (3,):
+                    super().__setattr__(name, value)
+                else:
+                    super(Entity, self).__setattr__(name, value)
 
     def _assign_yleaf(self, name, value, v):
         if isinstance(self.__dict__[name], Bits):
@@ -399,6 +436,83 @@ class Entity(_Entity):
 
     def __str__(self):
         return "{}.{}".format(self.__class__.__module__, self.__class__.__name__)
+
+
+def entity_to_dict(entity):
+    edict = {}
+    abs_path = entity.get_absolute_path()
+    if (hasattr(entity, 'is_presence_container') and entity.is_presence_container) or \
+            abs_path.endswith(']'):
+        edict[abs_path] = ''
+    leaf_name_data = entity.get_name_leaf_data()
+    for l in leaf_name_data:
+        leaf_name = l[0]
+        leaf_value = l[1].value
+        if leaf_name not in entity.ylist_key_names:
+            edict["%s/%s" % (abs_path, leaf_name)] = leaf_value
+    for _, child in entity.get_children().items():
+        child_dict = entity_to_dict(child)
+        for n, v in child_dict.items():
+            edict[n] = v
+    return edict
+
+
+def entity_diff(ent1, ent2):
+    if ent1 is None or ent2 is None or ent1.__class__.__name__ != ent2.__class__.__name__:
+        logger = logging.getLogger("ydk.types.Entity")
+        logger.error("entity_diff: Incompatible arguments provided.")
+        raise YInvalidArgumentError("entity_diff: Incompatible arguments provided.")
+
+    diffs = {}
+    ent1_dict = entity_to_dict(ent1)
+    ent2_dict = entity_to_dict(ent2)
+    ent1_keys = sorted(ent1_dict.keys())
+    ent2_keys = sorted(ent2_dict.keys())
+    ent1_skip_keys = []
+    for key in ent1_keys:
+        if key in ent1_skip_keys:
+            continue
+        if key in ent2_keys:
+            if ent1_dict[key] != ent2_dict[key]:
+                diffs[key] = (ent1_dict[key], ent2_dict[key])
+            ent2_keys.remove(key)
+        else:
+            diffs[key] = (ent1_dict[key], None)
+            for dup_key in ent1_keys:
+                if dup_key.startswith(key):
+                    ent1_skip_keys.append(dup_key)
+    ent2_skip_keys = []
+    for key in ent2_keys:
+        if key in ent2_skip_keys:
+            continue
+        diffs[key] = (None, ent2_dict[key])
+        for dup_key in ent2_keys:
+            if dup_key.startswith(key):
+                ent2_skip_keys.append(dup_key)
+    return diffs
+
+
+def path_to_entity(entity, abs_path):
+    top_abs_path = entity.get_absolute_path()
+    if top_abs_path == abs_path:
+        return entity
+
+    if top_abs_path in abs_path:
+        leaf_name_data = entity.get_name_leaf_data()
+        for l in leaf_name_data:
+            leaf_name = l[0]
+            if leaf_name not in entity.ylist_key_names:
+                leaf_path = "%s/%s" % (top_abs_path, leaf_name)
+                if leaf_path == abs_path:
+                    return entity
+        for _, child in entity.get_children().items():
+            child_abs_path = child.get_absolute_path()
+            if child_abs_path == abs_path:
+                return child
+            matching_entity = path_to_entity(child, abs_path)
+            if matching_entity:
+                return matching_entity
+    return None
 
 
 def _name_matches_yang_name(name, yang_name):
@@ -428,7 +542,7 @@ class EntityCollection(object):
         return self._entity_map.__len__()
 
     def _key(self, entity):
-        return entity.path();
+        return entity.path()
 
     def append(self, entities):
         """
@@ -449,10 +563,10 @@ class EntityCollection(object):
                 elif entity is None:
                     self.logger.debug("Cannot add None object to the EntityCollection")
                 else:
-                    msg = "Argument %s is not supported by EntityCollection class; data ignored"%type(entity)
+                    msg = "Argument %s is not supported by EntityCollection class; data ignored" % type(entity)
                     self._log_error_and_raise_exception(msg, YInvalidArgumentError)
         else:
-            msg = "Argument %s is not supported by EntityCollection class; data ignored"%type(entities)
+            msg = "Argument %s is not supported by EntityCollection class; data ignored" % type(entities)
             self._log_error_and_raise_exception(msg, YInvalidArgumentError)
 
     def _log_error_and_raise_exception(self, msg, exception_class):
@@ -499,7 +613,7 @@ class EntityCollection(object):
             if key in self.keys():
                 entity = self._entity_map[key]
         else:
-            msg = "Argument %s is not supported by EntityCollection class; data ignored"%type(item)
+            msg = "Argument %s is not supported by EntityCollection class; data ignored" % type(item)
             self._log_error_and_raise_exception(msg, YInvalidArgumentError)
         return entity
 
@@ -542,7 +656,7 @@ class EntityCollection(object):
         return iter(self.entities())
 
     def __str__(self):
-        ent_strs = list();
+        ent_strs = list()
         for entity in self.entities():
             ent_strs.append(format(entity))
         return "Entities in {}: {}".format(self.__class__.__name__, ent_strs)
@@ -572,7 +686,10 @@ class YList(EntityCollection):
         The keys then could be used to get entities from the YList.
     """
     def __init__(self, parent):
-        super(YList, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(YList, self).__init__()
         self.parent = parent
         self.counter = 1000000
         self._cache_dict = OrderedDict()
@@ -581,7 +698,10 @@ class YList(EntityCollection):
         if name == 'yfilter' and isinstance(value, _YFilter):
             for e in self:
                 e.yfilter = value
-        super(YList, self).__setattr__(name, value)
+        if sys.version_info > (3,):
+            super().__setattr__(name, value)
+        else:
+            super(YList, self).__setattr__(name, value)
 
     def _key(self, entity):
         key_list = []
@@ -618,7 +738,7 @@ class YList(EntityCollection):
             self._cache_dict[key] = entities
             entities.ylist_key = key
         else:
-            msg = "Argument %s is not supported by YList class; data ignored"%type(entities)
+            msg = "Argument %s is not supported by YList class; data ignored" % type(entities)
             self._log_error_and_raise_exception(msg, YInvalidArgumentError)
 
     def extend(self, entity_list):
@@ -632,15 +752,19 @@ class YList(EntityCollection):
 
     def keys(self):
         self._flush_cache()
-        return super(YList, self).keys()
+        return list(self._entity_map.keys())
 
     def entities(self):
         self._flush_cache()
-        return super(YList, self).entities()
+        return list(self._entity_map.values())
 
     def pop(self, item=None):
         self._flush_cache()
-        return super(YList, self).pop(item)
+        if sys.version_info > (3,):
+            ret = super().pop(item)
+        else:
+            ret = super(YList, self).pop(item)
+        return ret
 
     def __getitem__(self, item):
         entity = None

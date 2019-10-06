@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What are presence classes? &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../index.html"/>
+        <link rel="up" title="Developer Guide" href="../developer_guide.html"/>
+        <link rel="next" title="What are deviations?" href="deviation.html"/>
+        <link rel="prev" title="How to Disable Validation" href="validation.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../developer_guide.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crud_guide.html">How do I create, update, read and delete?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codec_guide.html">How do I work with instances of YANG data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="executor_guide.html">How do I execute RPCs?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">How to Disable Validation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">What are presence classes?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deviation.html">What are deviations?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="path.html">How do I use the Path API?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opendaylight.html">How do I use OpenDaylight with YDK?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backward_compatibility.html">Backward compatibility notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Questions and Answers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../developer_guide.html">Developer Guide</a> &raquo;</li>
+      
+    <li>What are presence classes?</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-are-presence-classes">
+<span id="presence-class"></span><h1>What are presence classes?<a class="headerlink" href="#what-are-presence-classes" title="Permalink to this headline">¶</a></h1>
+<p>According to <a class="reference external" href="https://tools.ietf.org/html/rfc6020#section-7.5.1">RFC 6020</a>, YANG supports two styles of containers. One is for organizing hierarchy. Another type (called &#8216;presence container&#8217;) is for representing configuration data. For instance the existence of presence container <code class="docutils literal"><span class="pre">ssh</span></code> indicates the capability to log in to the device using ssh. Let us consider a presence node <code class="docutils literal"><span class="pre">match-community-set</span></code> in <a class="reference external" href="https://github.com/YangModels/yang/blob/96883adbf612605f02271523d7eaa731ded46b61/vendor/cisco/xr/621/openconfig-bgp-policy.yang#L126">openconfig-bgp-policy.yang</a>. This node is generated as a YDK class shown below:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BgpConditions</span><span class="p">(</span><span class="n">Entity</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ...</span>
+
+<span class="sd">    .. attribute:: match_community_set</span>
+
+<span class="sd">    Match a referenced community\-set according to the logic defined in the match\-set\-options leaf</span>
+<span class="sd">    **type**\:   :py:class:`MatchCommunitySet &lt;ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet&gt;`</span>
+
+<span class="sd">    **presence node**\: True</span>
+
+<span class="sd">    ...</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">RoutingPolicy</span><span class="o">.</span><span class="n">PolicyDefinitions</span><span class="o">.</span><span class="n">PolicyDefinition</span><span class="o">.</span><span class="n">Statements</span><span class="o">.</span><span class="n">Statement</span><span class="o">.</span><span class="n">Conditions</span><span class="o">.</span><span class="n">BgpConditions</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">yang_name</span> <span class="o">=</span> <span class="s2">&quot;bgp-conditions&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">yang_parent_name</span> <span class="o">=</span> <span class="s2">&quot;conditions&quot;</span>
+
+        <span class="o">...</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">match_community_set</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="o">...</span>
+</pre></div>
+</td></tr></table></div>
+<p>Since the existence of container <code class="docutils literal"><span class="pre">match_community_set</span></code> itself represents configuration data, YDK does not instantiate an instance of class <code class="xref py py-class docutils literal"><span class="pre">MatchCommunitySet</span></code> and assign it to the <code class="docutils literal"><span class="pre">match_community_set</span></code> leaf. The user needs to manually instantiate and assign this object.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="deviation.html" class="btn btn-neutral float-right" title="What are deviations?" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="validation.html" class="btn btn-neutral" title="How to Disable Validation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
