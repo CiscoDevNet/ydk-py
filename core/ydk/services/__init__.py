@@ -14,11 +14,11 @@
 # limitations under the License.
 # ------------------------------------------------------------------
 
+from ydk_.services import Datastore
 from .codec_service import CodecService
 from .crud_service import CRUDService
 from .netconf_service import NetconfService
 from .executor_service import ExecutorService
-from ydk.ext.services import Datastore
 
 
 __all__ = [ "CodecService",

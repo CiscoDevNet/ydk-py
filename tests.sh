@@ -5,43 +5,24 @@ function print_msg {
 }
 
 function run_cmd {
-    local cmd=$@
-    print_msg "Running command: $cmd"
-    $cmd
+    print_msg "Running command: $@"
+    $@
     local status=$?
-    if [ $status -ne 0 ]; then
+    if [[ ${status} -ne 0 ]]; then
         MSG_COLOR=$RED
-        print_msg "Exiting '$cmd' with status=$status"
-        exit $status
+        print_msg "Exiting '$@' with status=${status}"
+        exit ${status}
     fi
-    return $status
+    return ${status}
 }
 
 function test_python_installation {
-  print_msg "Testing Python installation"
-  if [[ $(uname) == "Darwin" ]]; then
-    PYTHON_BIN=python3
-    PIP_BIN=pip3
-  else
-    python --version &> _version
-    status=$?
-    if [ $status -ne 0 ]; then
-      MSG_COLOR=$RED
-      print_msg "Could not locate Python"
-      exit $status
-    fi
-    PYTHON_VERSION=`cat _version` && rm _version
-    print_msg "Retrieved Python version ${PYTHON_VERSION}"
+  PYTHON_VERSION=3
+  PYTHON_BIN=python3
+  PIP_BIN=pip3
 
-    PYTHON_BIN=python
-    PIP_BIN=pip
-    if [[ ${PYTHON_VERSION} = *"3."* ]]; then
-      PYTHON_BIN=python3
-      PIP_BIN=pip3
-    fi
-  fi
   print_msg "Checking installation of ${PYTHON_BIN}"
-  ${PYTHON_BIN} -V
+  ${PYTHON_BIN} --version &> /dev/null
   status=$?
   if [ $status -ne 0 ]; then
     MSG_COLOR=$RED
@@ -49,30 +30,32 @@ function test_python_installation {
     exit $status
   fi
   print_msg "Checking installation of ${PIP_BIN}"
-  ${PIP_BIN} -V
+  ${PIP_BIN} -V &> /dev/null
   status=$?
   if [ $status -ne 0 ]; then
     MSG_COLOR=$RED
     print_msg "Could not locate ${PIP_BIN}"
     exit $status
   fi
+
+  if [[ $(uname) == "Linux" && ${os_info} == *"fedora"* && ${PYTHON_VERSION} == "3"* ]]; then
+    YDK_HOME=$(pwd)
+    print_msg "Creating Python3 virtual environment in ${YDK_HOME}/venv"
+    run_cmd ${PYTHON_BIN} -m venv ${YDK_HOME}/venv
+    run_cmd source ${YDK_HOME}/venv/bin/activate
+  fi
+
   print_msg "Python location: $(which ${PYTHON_BIN})"
   print_msg "Pip location: $(which ${PIP_BIN})"
 }
 
 function pip_check_install {
-    if [[ $(uname) == "Linux" ]] ; then
-        os_info=$(cat /etc/*-release)
-        if [[ ${os_info} == *"fedora"* ]]; then
-            print_msg "Custom pip install of $@ for centos"
-            sudo ${PIP_BIN} install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps $@
-            return
-        fi
-    elif [[ $(uname) == "Darwin" ]] ; then
-        sudo ${PIP_BIN} install $@
-        return
+    if [[ $(uname) == "Linux" && ${os_info} == *"fedora"* && ${PYTHON_VERSION} == "2"* ]]; then
+        print_msg "Custom pip install of $@ for centos"
+        ${PIP_BIN} install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps $@
+    else
+        ${PIP_BIN} install $@
     fi
-    sudo ${PIP_BIN} install $@
 }
 
 # Terminal colors
@@ -80,8 +63,6 @@ RED="\033[0;31m"
 NOCOLOR="\033[0m"
 YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
-
-test_python_installation
 
 os_type=$(uname)
 if [[ ${os_type} == "Linux" ]] ; then
@@ -92,38 +73,25 @@ fi
 print_msg "Running OS type: $os_type"
 print_msg "OS info: $os_info"
 
-YDK_HOME=`pwd`
+test_python_installation
+
 if [[ $(uname) == "Linux" && ${os_info} == *"fedora"* ]] ; then
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$YDK_HOME/grpc/libs/opt:$YDK_HOME/protobuf-3.5.0/src/.libs:/usr/local/lib64
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64:/usr/local/lib64:/usr/local/lib
    print_msg "LD_LIBRARY_PATH is set to: $LD_LIBRARY_PATH"
 fi
 
 print_msg "Installing YDK core package"
 cd core
 ${PYTHON_BIN} setup.py sdist
-sudo ${PIP_BIN} install  dist/ydk*.tar.gz
+${PIP_BIN} install -v dist/ydk*.tar.gz
 
-print_msg "Testing YDK core installation"
-${PYTHON_BIN} -c "import ydk.types"
+print_msg "Running simple YDK package installation test"
+${PYTHON_BIN} -c "from ydk.providers import CodecServiceProvider"
 status=$?
-if [ $status -ne 0 ]; then
-    MSG_COLOR=$RED
-    print_msg "Exiting with status=$status"
-    exit $status
-fi
-
-print_msg "Installing YDK gNMI package"
-cd ../gnmi
-${PYTHON_BIN} setup.py sdist
-sudo ${PIP_BIN} install dist/ydk*.tar.gz
-
-print_msg "Testing YDK gNMI installation"
-${PYTHON_BIN} -c "import ydk.gnmi.providers"
-status=$?
-if [ $status -ne 0 ]; then
-    MSG_COLOR=$RED
-    print_msg "Exiting with status=$status"
-    exit $status
+if [[ ${status} != 0 ]]; then
+  MSG_COLOR=${RED}
+  print_msg "YDK package installation test failed. Exiting"
+  exit ${status}
 fi
 
 print_msg "Installing ietf bundle package"
@@ -151,9 +119,6 @@ cd ../cisco-nx-os
 ${PYTHON_BIN} setup.py sdist
 pip_check_install  dist/*.tar.gz
 
-print_msg "Checking ${PYTHON_BIN} environment"
-run_cmd ${PIP_BIN} list
-
-print_msg "Running codec sample test"
+print_msg "Running codec sample"
 cd ../core/samples
 ${PYTHON_BIN} bgp_codec.py

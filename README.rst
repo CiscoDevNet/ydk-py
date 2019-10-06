@@ -21,8 +21,8 @@ YDK is composed of a core package that defines services and providers, plus one 
 Backward Compatibility
 ======================
 
-The Python YDK-0.8.3 core package is compatible with all model bundles generated previously with ydk-gen releases starting from 0.7.3.
-Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.8.3>`_ for details. 
+The Python YDK-0.8.4 core package is compatible with all model bundles generated previously with ydk-gen releases starting from 0.7.3.
+Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.8.4>`_ for details. 
 
 Docker
 ======
@@ -60,13 +60,13 @@ For Xenial (Ubuntu 16.04.4)::
   sudo ln -sf /usr/bin/gcc-5 /usr/bin/cc
   sudo ln -sf /usr/bin/g++-5 /usr/bin/c++
 
-  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.3/xenial/libydk-0.8.3-1.amd64.deb
-  sudo gdebi libydk-0.8.3-1.amd64.deb
+  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/xenial/libydk-0.8.4-1.amd64.deb
+  sudo gdebi libydk-0.8.4-1.amd64.deb
 
 For Bionic (Ubuntu 18.04.1)::
 
-  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.3/bionic/libydk-0.8.3-1.amd64.deb
-  sudo gdebi libydk-0.8.3-1.amd64.deb
+  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/bionic/libydk-0.8.4-1.amd64.deb
+  sudo gdebi libydk-0.8.4-1.amd64.deb
 
 **Centos (Fedora-based)**
 
@@ -83,7 +83,7 @@ The following packages must be present in your system before installing YDK-Py. 
   sudo ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/c++
 
   # Install YDK core library
-  sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.3/libydk-0.8.3-1.x86_64.rpm
+  sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.4/libydk-0.8.4-1.x86_64.rpm
 
 MacOS
 -----
@@ -92,10 +92,10 @@ It is required to install Xcode command line tools, `homebrew <http://brew.sh>`_
 
   xcode-select --install
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew install pkg-config libssh xml2 libxml2 curl pcre cmake pybind11
+  brew install pkg-config libssh xml2 libxml2 curl pcre cmake pybind11 doxygen libgcrypt
 
-  curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.3/libydk-0.8.3-Darwin.pkg
-  sudo installer -pkg libydk-0.8.3-Darwin.pkg -target /
+  curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.4/libydk-0.8.4-Darwin.pkg
+  sudo installer -pkg libydk-0.8.4-Darwin.pkg -target /
 
 Libssh Installation
 -------------------
@@ -104,6 +104,19 @@ The libssh-0.8.0 `does not support <http://api.libssh.org/master/libssh_tutor_th
 which is required for YDK. If after installation of libssh package the `libssh_threads.a` is missing, please downgrade the installation to libssh-0.7.6, 
 or upgrade to libssh-0.8.1 or higher.
 
+**Note for MacOS** 
+Before installing `libssh` make sure the environment for `openssl` is setup::
+
+  brew reinstall openssl
+  export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
+
+Download libssh-0.7.6 source code, compile it and install::
+
+  wget https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.7.6.tar.gz
+  tar zxf libssh-0.7.6.tar.gz && rm -f libssh-0.7.6.tar.gz
+  mkdir libssh-0.7.6/build && cd libssh-0.7.6/build
+  cmake ..
+  sudo make install
 
 gNMI Requirements
 -----------------
@@ -142,22 +155,22 @@ Instal YDK gNMI library
 
 For Xenial (Ubuntu 16.04.4)::
 
-  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.3/xenial/libydk_gnmi_0.4.0-2_amd64.deb
-  sudo gdebi libydk_gnmi_0.4.0-2_amd64.deb
+  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/xenial/libydk_gnmi-0.4.0-4.amd64.deb
+  sudo gdebi libydk_gnmi-0.4.0-4.amd64.deb
 
 For Bionic (Ubuntu 18.04.1)::
 
-  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.3/bionic/libydk_gnmi_0.4.0-2_amd64.deb
-  sudo gdebi libydk_gnmi_0.4.0-2_amd64.deb
+  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/bionic/libydk_gnmi-0.4.0-4.amd64.deb
+  sudo gdebi libydk_gnmi-0.4.0-4.amd64.deb
 
 **CentOS**::
 
-  sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.3/libydk_gnmi_0.4.0-2.x86_64.rpm
+  sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.4/libydk_gnmi-0.4.0-4.x86_64.rpm
 
 **MacOS**::
 
-  curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.3/libydk_gnmi-0.4.0-2_Darwin.pkg
-  sudo installer -pkg libydk_gnmi-0.4.0-2_Darwin.pkg -target /
+  curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.4/libydk_gnmi-0.4.0-4.Darwin.pkg
+  sudo installer -pkg libydk_gnmi-0.4.0-4.Darwin.pkg -target /
 
 Runtime environment
 ~~~~~~~~~~~~~~~~~~~
@@ -172,38 +185,61 @@ As a workaround, the YDK based application runtime environment must include sett
 Python Requirements
 -------------------
 
-YDK supports both Python2 and Python3 versions.  At least Python2.7 or Python3.4 must be installed on your system. 
+YDK supports both Python2 and Python3 versions. At least Python2.7 or Python3.4 must be installed on your system.
 
 It is also required for Python installation to include corresponding shared library. As example::
 
   python2.7  - /usr/lib/x86_64-linux-gnu/libpython2.7.so
   python3.5m - /usr/lib/x86_64-linux-gnu/libpython3.5m.so
- 
-Please follow `System Requirements` to assure presence of shared Python libraries.
+
+Please follow `System Requirements`_ to assure presence of shared Python libraries.
+
+If you choose to install Python from source (need specific version), please include `--enable-shared` flag in `configure`
+command to include build of shared library::
+
+  cd Python3.4.1
+  ./configure --prefix=/opt/python --enable-shared
+  make
+  make install
+
+Here the `/opt/python` is your Python installation directory. If installation directory is different from the system path,
+you need to configure `CMAKE_LIBRARY_PATH` environment variable to assure that `cmake` uses correct Python library::
+
+  export CMAKE_LIBRARY_PATH=/opt/python/lib
+
+Run `pip install ydk` command with `-v` option and in the console output note location of found `PythonLibs`.
+Make sure it matches with your installed Pyton dynamic library location::
+
+  -- Found PythonLibs: /opt/python/lib/libpython3.4m.so
+
+In some OS configurations during YDK package installation the cmake fails to find C/C++ headers for previously installed YDK libraries.
+In this case the header location must be specified explicitly (in below commands the default location is shown)::
+
+  export C_INCLUDE_PATH=/usr/local/include
+  export CPLUS_INCLUDE_PATH=/usr/local/include
 
 Mac OS
 ~~~~~~
 
-The developers of Python2 on Mac OS might face an issue ([#837](https://github.com/CiscoDevNet/ydk-gen/issues/837)).
+The developers of Python2 on Mac OS might face an `installation issue <https://github.com/CiscoDevNet/ydk-gen/issues/837>`_.
 This is well known and documented issue. Each developer might have different approaches for its resolution.
-One of them is to use Python2 virtual environment. See section below for details.
+One of them is to use Python2 virtual environment. See section `Using Python virtual environment`_ for details.
 
-In addition it is required properly set CMAKE_LIBRARY_PATH environment variable to assure that `cmake` uses correct Python library.
+In addition it is required properly set `CMAKE_LIBRARY_PATH` environment variable to assure that `cmake` uses correct Python library.
 Follow these steps to find and set correct library path.
 
 1. Find installations of `libpython2.7` library:
 
 .. code-block:: sh
 
-  # Example:
-  $ locate libpython2.7.dylib
+  locate libpython2.7.dylib
   /System/Library/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
   /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config/libpython2.7.dylib
   /usr/lib/libpython2.7.dylib
   /usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
   /usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config/libpython2.7.dylib
 
-2. Choose non-system Python library installation and set CMAKE_LIBRARY_PATH before any YDK component installation. Example:
+2. Choose non-system Python library installation and set `CMAKE_LIBRARY_PATH` before any YDK component installation. Example:
 
 .. code-block:: sh
 
@@ -221,7 +257,7 @@ Follow these steps to find and set correct library path.
 .. code-block:: sh
 
   -- Found PythonLibs: /usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib (found version "2.7.15")
-
+  
 5. Finally test you YDK core library installation from CLI, making sure there are no errors:
 
 .. code-block:: sh
@@ -344,4 +380,4 @@ Documentation and Support
 Release Notes
 =============
 
-The current YDK release version is 0.8.3. YDK-Py is licensed under the Apache 2.0 License.
+The current YDK release version is 0.8.4. YDK-Py is licensed under the Apache 2.0 License.

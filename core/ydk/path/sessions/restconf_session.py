@@ -20,6 +20,7 @@ RestconfSession Python wrapper.
 
 from ydk.ext.types import EncodingFormat as _EncodingFormat
 from ydk.ext.path import RestconfSession as _RestconfSession
+import sys
 
 
 class RestconfSession(_RestconfSession):
@@ -27,14 +28,17 @@ class RestconfSession(_RestconfSession):
     """
 
     def __init__(self, repo, address, username, password,
-                       port=80, encoding=_EncodingFormat.JSON,
-                       config_url_root="/data", state_url_root="/data"):
-        super(RestconfSession, self).__init__(repo, address, username, password,
-                                              port, encoding, config_url_root,
-                                              state_url_root)
+                 port=80, encoding=_EncodingFormat.JSON,
+                 config_url_root="/data", state_url_root="/data"):
+        if sys.version_info > (3,):
+            self._super = super()
+        else:
+            self._super = super(RestconfSession, self)
+        self._super.__init__(repo, address, username, password,
+                             port, encoding, config_url_root, state_url_root)
 
     def get_root_schema(self):
-        return super(RestconfSession, self).get_root_schema()
+        return self._super.get_root_schema()
 
     def invoke(self, rpc):
-        return super(RestconfSession, self).invoke(rpc)
+        return self._super.invoke(rpc)

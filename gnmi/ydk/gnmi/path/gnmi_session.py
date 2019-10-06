@@ -19,14 +19,16 @@ gNMISession Python wrapper.
 """
 
 from ydk_gnmi_.path import gNMISession as _gNMISession
+import sys
 
 
 class gNMISession(_gNMISession):
     """ Python wrapper for gNMISession
     """
 
-    def __init__(self, repo, address, port, username, password,
-                       server_certificate=None, private_key=None):
+    def __init__(self,
+                 repo, address, port, username, password,
+                 server_certificate=None, private_key=None):
 
         if port is None:
             port = 57400
@@ -35,14 +37,18 @@ class gNMISession(_gNMISession):
         if private_key is None:
             private_key = ""
 
-        super(gNMISession, self).__init__(repo, address, port, username, password,
-                                          server_certificate, private_key)
+        if sys.version_info > (3,):
+            self._super = super()
+        else:
+            self._super = super(gNMISession, self)
+        self._super.__init__(repo, address, port, username, password,
+                             server_certificate, private_key)
 
     def get_root_schema(self):
-        return super(gNMISession, self).get_root_schema()
+        return self._super.get_root_schema()
 
     def invoke(self, rpc):
-        return super(gNMISession, self).invoke(rpc)
+        return self._super.invoke(rpc)
 
     def subscribe(self, rpc, out_func=None, poll_func=None):
-        return super(gNMISession, self).subscribe(rpc, out_func, poll_func)
+        return self._super.subscribe(rpc, out_func, poll_func)

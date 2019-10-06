@@ -55,7 +55,7 @@ if __name__ == "__main__":
         logger.addHandler(handler)
 
     # create gNMI provider
-    repository = Repository('/home/ygorelik/ydk-gen/scripts/samples/repository/192.168.122.107")
+    repository = Repository('/home/ygorelik/ydk-gen/scripts/samples/repository/192.168.122.107')
     provider = gNMIServiceProvider(repo=repository,
                                       address=device.hostname,
                                       port=device.port,

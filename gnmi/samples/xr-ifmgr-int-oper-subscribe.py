@@ -31,8 +31,14 @@ optional arguments:
 """
 
 from argparse import ArgumentParser
-from urlparse import urlparse
 import datetime
+import sys
+import signal
+
+if sys.version_info > (3,):
+    from urllib.parse import urlparse
+else:
+    from urlparse import urlparse
 
 from test_utils import enable_logging, print_entity
 
@@ -41,24 +47,32 @@ from ydk.gnmi.providers import gNMIServiceProvider
 from ydk.gnmi.services import gNMIService, gNMISubscription
 
 from ydk.models.cisco_ios_xr import Cisco_IOS_XR_ifmgr_oper as ifoper
-from ydk.types import Empty
 from ydk.filters import YFilter
 
-def gnmi_subscribe_callback(response):
-    currentDT = datetime.datetime.now()
-    print("===> Received subscribe response:")
-    print(response)
-    print("===> End of subscribe response - %s" % currentDT.strftime("%Y-%m-%d %H:%M:%S"))
 
-def run_test(device, mode, ca, call_back):
+def _int_exit(signum, frame):
+    print("Exiting with signal {}{}.".
+          format(signum, '. {}'.format(frame.f_trace) if (frame.f_trace is not None) else ''))
+    sys.exit(0)
+
+
+def gnmi_subscribe_callback(response):
+    if response.startswith('update'):
+        current_dt = datetime.datetime.now()
+        print("\n===> Received subscribe response at %s: \n%s" %
+              (current_dt.strftime("%Y-%m-%d %H:%M:%S"), response))
+        print("\n===> End of subscribe response - %s" % current_dt.strftime("%Y-%m-%d %H:%M:%S"))
+
+
+def run_test(device, repo_path, mode, ca, call_back):
 
     # Create gNMI Service Provider and gNMI Service
-    repo = Repository("/home/ygorelik/ydk-gen/scripts/samples/repository/192.168.122.107")
-    provider = gNMIServiceProvider(repo, address=device.hostname,
-                                      port=device.port,
-                                      username=device.username,
-                                      password=device.password,
-                                      server_certificate=ca)
+    provider = gNMIServiceProvider(Repository(repo_path),
+                                   address=device.hostname,
+                                   port=device.port,
+                                   username=device.username,
+                                   password=device.password,
+                                   server_certificate=ca)
     gs = gNMIService()
 
     """Build entity for interface operational data"""
@@ -72,7 +86,7 @@ def run_test(device, mode, ca, call_back):
     dn.locationviews.locationview.append(lview)
     
     ifc = ifoper.InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface()
-    ifc.interface_name = '"Loopback10"'
+    ifc.interface_name = '"Loopback0"'
     ifc.state = YFilter.read
     lview.interfaces.interface.append(ifc)
 
@@ -81,22 +95,30 @@ def run_test(device, mode, ca, call_back):
     subscription.entity = ifc_oper_filter
     subscription.suppress_redundant = False;
     subscription.subscription_mode = "SAMPLE";
-    subscription.sample_interval    = 3 * 1000000000;
+    subscription.sample_interval = 3 * 1000000000;
     subscription.heartbeat_interval = 30 * 1000000000;
 
-    """Send sunscribe request"""
+    """Send subscribe request"""
     gs.subscribe(provider, subscription, 10, mode, "PROTO", call_back);
+
 
 if __name__ == "__main__":
 
     parser = ArgumentParser()
-    parser.add_argument("-v", "--verbose", help="Print debugging messages", default=False, dest='verbose', action="store_true")
     parser.add_argument("device",
                         help="gNMI server credentials in format: ssh://<user>:<password>@<host-ip>:<port>)")
-    parser.add_argument("-m", "--mode", help="Subscription mode. One of 'POLL', 'ONCE', 'STREAM'; default mode is 'ONCE'",
+    parser.add_argument("repo",
+                        help="yang model repository location - full path to repository directory")
+    parser.add_argument("-v", "--verbose",
+                        help="Print debugging messages", default=False, dest='verbose', action="store_true")
+    parser.add_argument("-m", "--mode",
+                        help="Subscription mode. One of 'POLL', 'ONCE', 'STREAM'; default mode is 'ONCE'",
                         dest='mode', choices=['POLL', 'ONCE', 'STREAM'], default='ONCE')
 
-    parser.add_argument("-ca", help="File location for gNMI server certificate of authorization. If not specified, it is assumed non-secure connecton", default='', dest='ca')
+    parser.add_argument("-ca",
+                        help="File location for gNMI server certificate of authorization."
+                             "If not specified, it is assumed non-secure connecton",
+                        default='', dest='ca')
 
     args = parser.parse_args()
     device = urlparse(args.device)
@@ -106,4 +128,6 @@ if __name__ == "__main__":
         import logging
         enable_logging(logging.DEBUG)
 
-    run_test(device, args.mode, args.ca, gnmi_subscribe_callback)
+    signal.signal(signal.SIGINT, _int_exit)
+    sys.exit(run_test(device, args.repo, args.mode, args.ca, gnmi_subscribe_callback))
+    
