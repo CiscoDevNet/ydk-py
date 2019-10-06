@@ -4,6 +4,18 @@ function print_msg {
     echo -e "${MSG_COLOR}*** $(date): tests.sh | $@ ${NOCOLOR}"
 }
 
+function run_cmd {
+    print_msg "Running command: $@"
+    $@
+    local status=$?
+    if [[ ${status} -ne 0 ]]; then
+        MSG_COLOR=$RED
+        print_msg "Exiting '$@' with status=${status}"
+        exit ${status}
+    fi
+    return ${status}
+}
+
 function test_python_installation {
   PYTHON_BIN=python3
   PIP_BIN=pip3
@@ -26,12 +38,6 @@ function test_python_installation {
   fi
   print_msg "Python location: $(which ${PYTHON_BIN})"
   print_msg "Pip location: $(which ${PIP_BIN})"
-
-  if [[ $(uname) == "Darwin" ]] ; then
-    python_lib_location=$(dirname $(locate libpython3.7.dylib | head -n 1))
-    export CMAKE_LIBRARY_PATH=${python_lib_location}:/usr/local/lib
-    print_msg "Setting CMAKE_LIBRARY_PATH to ${CMAKE_LIBRARY_PATH}"
-  fi
 }
 
 function pip_check_install {
@@ -61,12 +67,14 @@ print_msg "Installing YDK core package"
 cd core
 ${PYTHON_BIN} setup.py sdist
 sudo ${PIP_BIN} install -v dist/ydk*.tar.gz
+
+print_msg "Running simple YDK package installation test"
 ${PYTHON_BIN} -c "import ydk.providers"
 status=$?
 if [[ ${status} != 0 ]]; then
   MSG_COLOR=${RED}
-  print_msg "Simple YDK package installation test failed. Exiting"
-  exit 1
+  print_msg "YDK package installation test failed. Exiting"
+  exit ${status}
 fi
 
 print_msg "Installing ietf bundle package"

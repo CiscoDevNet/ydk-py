@@ -3,7 +3,9 @@
 yum install -y epel-release
 yum install -y which cmake3 make sudo gcc-c++
 yum install -y libxslt-devel libssh-devel python36-devel python36-pip
-pip3 install --upgrade setuptools==41.2.0
+pip3 uninstall setuptools
+pip3 install setuptools==39.1.0
+
 yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.4/libydk-0.8.4-1.x86_64.rpm
 
 #yum install centos-release-scl -y > /dev/null
