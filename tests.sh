@@ -17,6 +17,7 @@ function run_cmd {
 }
 
 function test_python_installation {
+  PYTHON_VERSION=3
   PYTHON_BIN=python3
   PIP_BIN=pip3
 
@@ -36,23 +37,25 @@ function test_python_installation {
     print_msg "Could not locate ${PIP_BIN}"
     exit $status
   fi
+
+  if [[ $(uname) == "Linux" && ${os_info} == *"fedora"* && ${PYTHON_VERSION} == "3"* ]]; then
+    YDK_HOME=$(pwd)
+    print_msg "Creating Python3 virtual environment in ${YDK_HOME}/venv"
+    run_cmd ${PYTHON_BIN} -m venv ${YDK_HOME}/venv
+    run_cmd source ${YDK_HOME}/venv/bin/activate
+  fi
+
   print_msg "Python location: $(which ${PYTHON_BIN})"
   print_msg "Pip location: $(which ${PIP_BIN})"
 }
 
 function pip_check_install {
-#    if [[ $(uname) == "Linux" ]] ; then
-#        os_info=$(cat /etc/*-release)
-#        if [[ ${os_info} == *"fedora"* ]]; then
-#            print_msg "Custom pip install of $@ for centos"
-#            sudo ${PIP_BIN} install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps $@
-#            return
-#        fi
-#    elif [[ $(uname) == "Darwin" ]] ; then
-#        sudo ${PIP_BIN} install $@
-#        return
-#    fi
-    sudo ${PIP_BIN} install $@
+    if [[ $(uname) == "Linux" && ${os_info} == *"fedora"* && ${PYTHON_VERSION} == "2"* ]]; then
+        print_msg "Custom pip install of $@ for centos"
+        ${PIP_BIN} install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps $@
+    else
+        ${PIP_BIN} install $@
+    fi
 }
 
 # Terminal colors
@@ -61,15 +64,29 @@ NOCOLOR="\033[0m"
 YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
+os_type=$(uname)
+if [[ ${os_type} == "Linux" ]] ; then
+    os_info=$(cat /etc/*-release)
+else
+    os_info=$(sw_vers)
+fi
+print_msg "Running OS type: $os_type"
+print_msg "OS info: $os_info"
+
 test_python_installation
+
+if [[ $(uname) == "Linux" && ${os_info} == *"fedora"* ]] ; then
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64:/usr/local/lib64:/usr/local/lib
+   print_msg "LD_LIBRARY_PATH is set to: $LD_LIBRARY_PATH"
+fi
 
 print_msg "Installing YDK core package"
 cd core
 ${PYTHON_BIN} setup.py sdist
-sudo ${PIP_BIN} install -v dist/ydk*.tar.gz
+${PIP_BIN} install -v dist/ydk*.tar.gz
 
 print_msg "Running simple YDK package installation test"
-${PYTHON_BIN} -c "import ydk.providers"
+${PYTHON_BIN} -c "from ydk.providers import CodecServiceProvider"
 status=$?
 if [[ ${status} != 0 ]]; then
   MSG_COLOR=${RED}
