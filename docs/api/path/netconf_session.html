@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NetconfSession &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../../index.html"/>
+        <link rel="up" title="YDK Path API" href="path.html"/>
+        <link rel="next" title="RestconfSession" href="restconf_session.html"/>
+        <link rel="prev" title="Statement" href="statement.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../class_hierarchy.html">YDK API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="path.html">YDK Path API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="annotation.html">Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="capability.html">Capability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="codec.html">Codec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_node.html">DataNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="repository.html">Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="root_schema_node.html">RootSchemaNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rpc.html">Rpc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema_node.html">SchemaNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="statement.html">Statement</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">NetconfSession</a></li>
+<li class="toctree-l3"><a class="reference internal" href="restconf_session.html">RestconfSession</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnmi_session.html">gNMISession</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Questions and Answers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="path.html">YDK Path API</a> &raquo;</li>
+      
+    <li>NetconfSession</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ydk.path">
+<span id="netconfsession"></span><h1>NetconfSession<a class="headerlink" href="#module-ydk.path" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ydk.path.NetconfSession">
+<em class="property">class </em><code class="descclassname">ydk.path.</code><code class="descname">NetconfSession</code><span class="sig-paren">(</span><em>address</em>, <em>username</em>, <em>password</em>, <em>port=830</em>, <em>protocol=&quot;ssh&quot;</em>, <em>on_demand=True</em>, <em>common_cache=False</em>, <em>int timeout=None</em>, <em>repo=None</em>, <em>private_key_path=&quot;&quot;</em>, <em>public_key_path=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.NetconfSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an instance of the <cite>NetconfSession</cite> class and connects to Netconf server, which <strong>must</strong> support model download.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>address</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) IP address or DNS name of device, which supports Netconf server; required parameter.</li>
+<li><strong>username</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Username to log in to the device; required parameter.</li>
+<li><strong>password</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Password to log in to the device.</li>
+<li><strong>port</strong> &#8211; (<code class="docutils literal"><span class="pre">int</span></code>) Device port used to access the Netconf interface. Default value is 830.</li>
+<li><strong>protocol</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Currently supported <cite>ssh</cite> for secure connection and <cite>tcp</cite> for insecure connection; default - <cite>ssh</cite>.</li>
+<li><strong>on_demand</strong> &#8211; (<code class="docutils literal"><span class="pre">bool</span></code>) On demand model downloading by default.</li>
+<li><strong>common_cache</strong> &#8211; (<code class="docutils literal"><span class="pre">bool</span></code>) Use common cache directory, if enabled.</li>
+<li><strong>timeout</strong> &#8211; (<code class="docutils literal"><span class="pre">int</span></code>) The timeout in microseconds: None or -1 for infinite timeout, 0 - for non-blocking</li>
+<li><strong>repo</strong> &#8211; (<a class="reference internal" href="repository.html#ydk.path.Repository" title="ydk.path.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a>) User provided repository - directory, which stores cached Yang models.</li>
+<li><strong>private_key_path</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Path to private key file. Requires public_key_path field.</li>
+<li><strong>public_key_path</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Path to public key file. Does not allow <cite>password</cite> field, if specified.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ydk.path.NetconfSession.get_root_schema">
+<code class="descname">get_root_schema</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.NetconfSession.get_root_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <a class="reference internal" href="root_schema_node.html#ydk.path.RootSchemaNode" title="ydk.path.RootSchemaNode"><code class="xref py py-class docutils literal"><span class="pre">RootSchemaNode</span></code></a> for this Netconf session.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="root_schema_node.html#ydk.path.RootSchemaNode" title="ydk.path.RootSchemaNode"><code class="xref py py-class docutils literal"><span class="pre">RootSchemaNode</span></code></a> for this Netconf session.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.NetconfSession.invoke">
+<code class="descname">invoke</code><span class="sig-paren">(</span><em>rpc</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.NetconfSession.invoke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invokes or executes the given RPC and returns a <a class="reference internal" href="data_node.html#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a> pointer, if the RPC has an output modeled in YANG.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rpc</strong> &#8211; (<a class="reference internal" href="rpc.html#ydk.path.Rpc" title="ydk.path.Rpc"><code class="xref py py-class docutils literal"><span class="pre">Rpc</span></code></a>) Given RPC to be executed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="data_node.html#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">invoke</code><span class="sig-paren">(</span><em>datanode</em><span class="sig-paren">)</span></dt>
+<dd><p>Invokes or executes the given DataNode and returns a <a class="reference internal" href="data_node.html#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a> pointer if the action has an output modeled in YANG.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datanode</strong> &#8211; (<a class="reference internal" href="data_node.html#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">Rpc</span></code></a>) Given DataNode containing YANG 1.1 action to be executed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="data_node.html#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.NetconfSession.execute_netconf_operation">
+<code class="descname">execute_netconf_operation</code><span class="sig-paren">(</span><em>rpc</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.NetconfSession.execute_netconf_operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends specified RPC to device (similar to <cite>invoke</cite> function) and returns device response as XML encoded string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rpc</strong> &#8211; (<a class="reference internal" href="rpc.html#ydk.path.Rpc" title="ydk.path.Rpc"><code class="xref py py-class docutils literal"><span class="pre">Rpc</span></code></a>) The RPC to be executed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">str</span></code> - reply from device in XML encoded string.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.path.NetconfSession.get_capabilities">
+<code class="descname">get_capabilities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.path.NetconfSession.get_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of capabilities of the client</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of <code class="docutils literal"><span class="pre">str</span></code> representing the client&#8217;s/server&#8217;s capabilities</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="restconf_session.html" class="btn btn-neutral float-right" title="RestconfSession" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="statement.html" class="btn btn-neutral" title="Statement" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

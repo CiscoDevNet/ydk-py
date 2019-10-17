@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Codec Service Provider &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../../index.html"/>
+        <link rel="up" title="Service Providers" href="providers.html"/>
+        <link rel="next" title="NETCONF Service Provider" href="netconf_provider.html"/>
+        <link rel="prev" title="ServiceProvider" href="service_provider.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../class_hierarchy.html">YDK API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../services/services.html">Services</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="providers.html">Service Providers</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="service_provider.html">ServiceProvider</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">Codec Service Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netconf_provider.html">NETCONF Service Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gnmi_provider.html">gNMI Service Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="odl_provider.html">Opendaylight Service Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="restconf_provider.html">RESTCONF Service Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../path/path.html">YDK Path API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Questions and Answers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="../class_hierarchy.html">YDK API</a> &raquo;</li>
+      
+          <li><a href="providers.html">Service Providers</a> &raquo;</li>
+      
+    <li>Codec Service Provider</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="codec-service-provider">
+<h1>Codec Service Provider<a class="headerlink" href="#codec-service-provider" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ydk.providers.CodecServiceProvider">
+<em class="property">class </em><code class="descclassname">ydk.providers.</code><code class="descname">CodecServiceProvider</code><span class="sig-paren">(</span><em>type=EncodingFormat.XML</em>, <em>repo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.providers.CodecServiceProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>A provider to be used with <a class="reference internal" href="../services/codec_service.html#ydk.services.CodecService" title="ydk.services.CodecService"><code class="xref py py-class docutils literal"><span class="pre">CodecService</span></code></a> for performing encoding and decoding.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<code class="docutils literal"><span class="pre">string</span></code> or <a class="reference internal" href="../types.html#ydk.types.EncodingFormat" title="ydk.types.EncodingFormat"><code class="xref py py-class docutils literal"><span class="pre">EncodingFormat</span></code></a>) &#8211; An argument specifies encoding format, could be a Python string (<code class="docutils literal"><span class="pre">xml</span></code> or <code class="docutils literal"><span class="pre">json</span></code>) or an instance of <a class="reference internal" href="../types.html#ydk.types.EncodingFormat" title="ydk.types.EncodingFormat"><code class="xref py py-class docutils literal"><span class="pre">EncodingFormat</span></code></a>.</li>
+<li><strong>repo</strong> (<a class="reference internal" href="../path/repository.html#ydk.path.Repository" title="ydk.path.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a>) &#8211; User provided repository stores cached models.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ydk.providers.CodecServiceProvider.get_root_schema">
+<code class="descname">get_root_schema</code><span class="sig-paren">(</span><em>bundle_name</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.providers.CodecServiceProvider.get_root_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return root_schema for bundle_name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bundle_name</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Bundle name.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="../path/root_schema_node.html#ydk.path.RootSchemaNode" title="ydk.path.RootSchemaNode"><code class="xref py py-class docutils literal"><span class="pre">RootSchemaNode</span></code></a> for this bundle.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="netconf_provider.html" class="btn btn-neutral float-right" title="NETCONF Service Provider" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="service_provider.html" class="btn btn-neutral" title="ServiceProvider" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
