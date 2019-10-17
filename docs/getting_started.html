@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/>
+        <link rel="next" title="Developer Guide" href="developer_guide.html"/>
+        <link rel="prev" title="About YDK" href="about_ydk.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backward-compatibility">Backward Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-debian-based">Ubuntu (Debian-based)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#centos-fedora-based">Centos (Fedora-based)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#macos">MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libssh-installation">Libssh Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gnmi-requirements">gNMI Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-protobuf-and-protoc">Install protobuf and protoc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-grpc">Install gRPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#instal-ydk-gnmi-library">Instal YDK gNMI library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#runtime-environment">Runtime environment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-requirements">Python Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mac-os">Mac OS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-install">Quick install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Centos (Fedora-based)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-platforms">Other platforms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-from-source">Installing from Source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-core-package">Installing core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-model-bundles">Installing model bundles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-gnmi-package">Installing gNMI package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-python-virtual-environment">Using Python Virtual Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#samples">Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-and-support">Documentation and Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1><a class="toc-backref" href="#id2">Getting Started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#getting-started" id="id2">Getting Started</a><ul>
+<li><a class="reference internal" href="#overview" id="id3">Overview</a></li>
+<li><a class="reference internal" href="#backward-compatibility" id="id4">Backward Compatibility</a></li>
+<li><a class="reference internal" href="#docker" id="id5">Docker</a></li>
+<li><a class="reference internal" href="#system-requirements" id="id6">System Requirements</a><ul>
+<li><a class="reference internal" href="#linux" id="id7">Linux</a><ul>
+<li><a class="reference internal" href="#ubuntu-debian-based" id="id8">Ubuntu (Debian-based)</a></li>
+<li><a class="reference internal" href="#centos-fedora-based" id="id9">Centos (Fedora-based)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macos" id="id10">MacOS</a></li>
+<li><a class="reference internal" href="#libssh-installation" id="id11">Libssh Installation</a></li>
+<li><a class="reference internal" href="#gnmi-requirements" id="id12">gNMI Requirements</a><ul>
+<li><a class="reference internal" href="#install-protobuf-and-protoc" id="id13">Install protobuf and protoc</a></li>
+<li><a class="reference internal" href="#install-grpc" id="id14">Install gRPC</a></li>
+<li><a class="reference internal" href="#instal-ydk-gnmi-library" id="id15">Instal YDK gNMI library</a></li>
+<li><a class="reference internal" href="#runtime-environment" id="id16">Runtime environment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-requirements" id="id17">Python Requirements</a><ul>
+<li><a class="reference internal" href="#mac-os" id="id18">Mac OS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#quick-install" id="id19">Quick install</a><ul>
+<li><a class="reference internal" href="#id1" id="id20">Centos (Fedora-based)</a></li>
+<li><a class="reference internal" href="#other-platforms" id="id21">Other platforms</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-from-source" id="id22">Installing from Source</a><ul>
+<li><a class="reference internal" href="#installing-core-package" id="id23">Installing core package</a></li>
+<li><a class="reference internal" href="#installing-model-bundles" id="id24">Installing model bundles</a></li>
+<li><a class="reference internal" href="#installing-gnmi-package" id="id25">Installing gNMI package</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-python-virtual-environment" id="id26">Using Python Virtual Environment</a></li>
+<li><a class="reference internal" href="#samples" id="id27">Samples</a></li>
+<li><a class="reference internal" href="#documentation-and-support" id="id28">Documentation and Support</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id3">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The YANG Development Kit (YDK) is a Software Development Kit that provides API&#8217;s that are modeled in YANG.
+The main goal of YDK is to reduce the learning curve of YANG data models by expressing the model semantics in an API
+and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers,
+plus one or more module bundles that are based on YANG models.</p>
+</div>
+<div class="section" id="backward-compatibility">
+<h2><a class="toc-backref" href="#id4">Backward Compatibility</a><a class="headerlink" href="#backward-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>The Python YDK-0.8.4 core package is compatible with all model bundles generated previously with ydk-gen releases starting from 0.7.3.
+Please see <a class="reference external" href="https://github.com/CiscoDevNet/ydk-py/releases/tag/0.8.4">the release notes</a> for details.</p>
+</div>
+<div class="section" id="docker">
+<h2><a class="toc-backref" href="#id5">Docker</a><a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference external" href="https://docs.docker.com/engine/reference/run/">docker image</a> is automatically built with the latest ydk-py installed.
+This be used to run ydk-py without installing anything natively on your machine.</p>
+<p>To use the docker image, <a class="reference external" href="https://docs.docker.com/install/">install docker</a> on your system and run the below command.
+See the <a class="reference external" href="https://docs.docker.com/engine/reference/run/">docker documentation</a> for more details:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="n">ydkdev</span><span class="o">/</span><span class="n">ydk</span><span class="o">-</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="system-requirements">
+<h2><a class="toc-backref" href="#id6">System Requirements</a><a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Please follow the below instructions to install the system requirements before installing YDK-Py:</p>
+<div class="section" id="linux">
+<h3><a class="toc-backref" href="#id7">Linux</a><a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ubuntu-debian-based">
+<h4><a class="toc-backref" href="#id8">Ubuntu (Debian-based)</a><a class="headerlink" href="#ubuntu-debian-based" title="Permalink to this headline">¶</a></h4>
+<p>Download and install third party dependency packages and then YDK core library <cite>libydk</cite>.
+You can install the library using prebuilt debian packages for Xenial and Bionic LTS distributions.
+For other Ubuntu distributions it is recommended to build core library from source.</p>
+<p>Install Third-party software dependencies:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gdebi</span><span class="o">-</span><span class="n">core</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span> <span class="n">libtool</span><span class="o">-</span><span class="nb">bin</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libcurl4</span><span class="o">-</span><span class="n">openssl</span><span class="o">-</span><span class="n">dev</span> <span class="n">libpcre3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libssh</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxml2</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxslt1</span><span class="o">-</span><span class="n">dev</span> <span class="n">cmake</span>
+</pre></div>
+</div>
+<p>For Xenial (Ubuntu 16.04.4):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="c1"># Upgrade compiler to gcc 5.*</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gcc</span><span class="o">-</span><span class="mi">5</span> <span class="n">g</span><span class="o">++-</span><span class="mi">5</span> <span class="o">-</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="mi">5</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cc</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">g</span><span class="o">++-</span><span class="mi">5</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">c</span><span class="o">++</span>
+
+<span class="c1"># Install YDK core library</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">xenial</span><span class="o">/</span><span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+<p>For Bionic (Ubuntu 18.04.1):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="c1"># Install YDK core library</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">bionic</span><span class="o">/</span><span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="centos-fedora-based">
+<h4><a class="toc-backref" href="#id9">Centos (Fedora-based)</a><a class="headerlink" href="#centos-fedora-based" title="Permalink to this headline">¶</a></h4>
+<p><strong>Note:</strong> Currently, only Centos7 and RHEL7 are known to work with YDK.
+Please see this issue on <a class="reference external" href="https://github.com/CiscoDevNet/ydk-gen/issues/518">YDK GitHub</a> for any potential/usage installation on CentOS.</p>
+<p>The following packages must be present in your system before installing YDK-Py:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="c1"># Install Third-party software dependencies</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">libssh</span><span class="o">-</span><span class="n">devel</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">python</span><span class="o">-</span><span class="n">devel</span> <span class="n">python3</span><span class="o">-</span><span class="n">devel</span>
+
+<span class="c1"># Upgrade compiler to gcc 5.*</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">centos</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">scl</span> <span class="o">-</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">devtoolset</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">gcc</span><span class="o">*</span> <span class="o">-</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rh</span><span class="o">/</span><span class="n">devtoolset</span><span class="o">-</span><span class="mi">4</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">gcc</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cc</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rh</span><span class="o">/</span><span class="n">devtoolset</span><span class="o">-</span><span class="mi">4</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">g</span><span class="o">++</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">c</span><span class="o">++</span>
+
+<span class="c1"># Install YDK core library</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">rpm</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="macos">
+<h3><a class="toc-backref" href="#id10">MacOS</a><a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
+<p>It is required to install Xcode command line tools, <a class="reference external" href="http://brew.sh">homebrew</a> and the following homebrew packages on your system before installing YDK-Py.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># Install Third-party software dependencies</span>
+xcode-select --install
+/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+brew install pkg-config libssh xml2 libxml2 curl pcre cmake pybind11
+
+<span class="c1"># Install YDK core library</span>
+curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.4/libydk-0.8.4-Darwin.pkg
+sudo installer -pkg libydk-0.8.4-Darwin.pkg -target /
+</pre></div>
+</div>
+</div>
+<div class="section" id="libssh-installation">
+<h3><a class="toc-backref" href="#id11">Libssh Installation</a><a class="headerlink" href="#libssh-installation" title="Permalink to this headline">¶</a></h3>
+<p>The libssh-0.8.0 <a class="reference external" href="http://api.libssh.org/master/libssh_tutor_threads.html">does not support</a> separate threading library,
+which is required for YDK. If after installation of libssh package the <cite>libssh_threads.a</cite> is missing, please downgrade the installation to libssh-0.7.6,
+or upgrade to libssh-0.8.1 or higher.</p>
+<p><strong>Note for MacOS</strong>
+Before installing <cite>libssh</cite> make sure the environment for <cite>openssl</cite> is setup:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>brew reinstall openssl
+<span class="nb">export</span> <span class="nv">OPENSSL_ROOT_DIR</span><span class="o">=</span>/usr/local/opt/openssl
+</pre></div>
+</div>
+<p>Download libssh-0.7.6 source code, compile it and install:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>wget https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.7.6.tar.gz
+tar zxf libssh-0.7.6.tar.gz <span class="o">&amp;&amp;</span> rm -f libssh-0.7.6.tar.gz
+mkdir libssh-0.7.6/build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> libssh-0.7.6/build
+cmake ..
+sudo make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="gnmi-requirements">
+<h3><a class="toc-backref" href="#id12">gNMI Requirements</a><a class="headerlink" href="#gnmi-requirements" title="Permalink to this headline">¶</a></h3>
+<p>In order to enable YDK support for gNMI protocol, which is optional, the following third party software must be installed prior to gNMI YDK component installation.</p>
+<div class="section" id="install-protobuf-and-protoc">
+<h4><a class="toc-backref" href="#id13">Install protobuf and protoc</a><a class="headerlink" href="#install-protobuf-and-protoc" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>wget https://github.com/google/protobuf/releases/download/v3.5.0/protobuf-cpp-3.5.0.zip
+unzip protobuf-cpp-3.5.0.zip
+<span class="nb">cd</span> protobuf-3.5.0
+./configure
+make
+sudo make install
+sudo ldconfig
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-grpc">
+<h4><a class="toc-backref" href="#id14">Install gRPC</a><a class="headerlink" href="#install-grpc" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>git clone -b v1.9.1 https://github.com/grpc/grpc
+<span class="nb">cd</span> grpc
+git submodule update --init
+sudo ldconfig
+make
+sudo make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="instal-ydk-gnmi-library">
+<h4><a class="toc-backref" href="#id15">Instal YDK gNMI library</a><a class="headerlink" href="#instal-ydk-gnmi-library" title="Permalink to this headline">¶</a></h4>
+<p><strong>Ubuntu</strong></p>
+<p>For Xenial (Ubuntu 16.04.4):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">xenial</span><span class="o">/</span><span class="n">libydk_gnmi-0</span><span class="o">.</span><span class="mf">4.0</span><span class="o">-</span><span class="mf">4.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">libydk_gnmi-0</span><span class="o">.</span><span class="mf">4.0</span><span class="o">-</span><span class="mf">4.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+<p>For Bionic (Ubuntu 18.04.1):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">bionic</span><span class="o">/</span><span class="n">libydk_gnmi-0</span><span class="o">.</span><span class="mf">4.0</span><span class="o">-</span><span class="mf">4.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">libydk_gnmi-0</span><span class="o">.</span><span class="mf">4.0</span><span class="o">-</span><span class="mf">4.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+<p><strong>CentOS</strong>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">rpm</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">libydk_gnmi-0</span><span class="o">.</span><span class="mf">4.0</span><span class="o">-</span><span class="mf">4.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+<p><strong>MacOS</strong>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">O</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">osx</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">libydk_gnmi</span><span class="o">-</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">4.</span><span class="n">Darwin</span><span class="o">.</span><span class="n">pkg</span>
+<span class="n">sudo</span> <span class="n">installer</span> <span class="o">-</span><span class="n">pkg</span> <span class="n">libydk_gnmi</span><span class="o">-</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">4.</span><span class="n">Darwin</span><span class="o">.</span><span class="n">pkg</span> <span class="o">-</span><span class="n">target</span> <span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="runtime-environment">
+<h4><a class="toc-backref" href="#id16">Runtime environment</a><a class="headerlink" href="#runtime-environment" title="Permalink to this headline">¶</a></h4>
+<p>There is an open issue with gRPC on Centos/Fedora, which requires an extra step before running any YDK gNMI application.
+See this issue on <a class="reference external" href="https://github.com/grpc/grpc/issues/10942#issuecomment-312565041">GRPC GitHub</a> for details.
+As a workaround, the YDK based application runtime environment must include setting of <cite>LD_LIBRARY_PATH</cite> variable:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span>PROTO=&quot;/Your-Protobuf-and-Grpc-installation-directory&quot;
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PROTO/grpc/libs/opt:$PROTO/protobuf-3.5.0/src/.libs:/usr/local/lib64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="python-requirements">
+<h3><a class="toc-backref" href="#id17">Python Requirements</a><a class="headerlink" href="#python-requirements" title="Permalink to this headline">¶</a></h3>
+<p>YDK supports both Python2 and Python3 versions.  At least Python2.7 or Python3.4 must be installed on your system.</p>
+<p>It is also required for Python installation to include corresponding shared library. As example:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">python2</span><span class="o">.</span><span class="mi">7</span>  <span class="o">-</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libpython2</span><span class="o">.</span><span class="mf">7.</span><span class="n">so</span>
+<span class="n">python3</span><span class="o">.</span><span class="mi">5</span><span class="n">m</span> <span class="o">-</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libpython3</span><span class="o">.</span><span class="mi">5</span><span class="n">m</span><span class="o">.</span><span class="n">so</span>
+</pre></div>
+</div>
+<p>Please follow <a class="reference internal" href="#system-requirements">System Requirements</a> to assure presence of shared Python libraries.</p>
+<p>If you choose to install Python from source (need specific version), please include <cite>&#8211;enable-shared</cite> flag in <cite>configure</cite>
+command to include build of shared library:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Python3</span><span class="o">.</span><span class="mf">4.1</span>
+<span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">python</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">shared</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>Here the <cite>/opt/python</cite> is your Python installation directory. If installation directory is different from the system path,
+you need to configure <cite>CMAKE_LIBRARY_PATH</cite> environment variable to assure that <cite>cmake</cite> uses correct Python library:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CMAKE_LIBRARY_PATH</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">lib</span>
+</pre></div>
+</div>
+<p>Run <cite>pip install ydk</cite> command with <cite>-v</cite> option and in the console output note location of found <cite>PythonLibs</cite>.
+Make sure it matches with your installed Pyton dynamic library location:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Found</span> <span class="n">PythonLibs</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libpython3</span><span class="o">.</span><span class="mi">4</span><span class="n">m</span><span class="o">.</span><span class="n">so</span>
+</pre></div>
+</div>
+<p>In some OS configurations during YDK package installation the <cite>cmake</cite> fails to find C/C++ headers for previously installed YDK libraries.
+In this case the header location must be specified explicitly (in below commands the default location is shown):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">C_INCLUDE_PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">include</span>
+<span class="n">export</span> <span class="n">CPLUS_INCLUDE_PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">include</span>
+</pre></div>
+</div>
+<div class="section" id="mac-os">
+<h4><a class="toc-backref" href="#id18">Mac OS</a><a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h4>
+<p>The developers of Python2 on Mac OS might face an <a class="reference external" href="https://github.com/CiscoDevNet/ydk-gen/issues/837">installation issue</a>.
+This is well known and documented issue. Each developer might have different approach for its resolution.
+One of them is to use Python2 virtual environment. See section <a class="reference internal" href="#using-python-virtual-environment">Using Python Virtual Environment</a> for details.</p>
+<p>In addition it is required properly set <cite>CMAKE_LIBRARY_PATH</cite> environment variable to assure that <cite>cmake</cite> uses correct Python library.
+Follow these steps to find and set correct library path.</p>
+<ol class="arabic simple">
+<li>Find installations of <cite>libpython2.7</cite> library:</li>
+</ol>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>locate libpython2.7.dylib
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ locate libpython2.7.dylib
+/System/Library/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
+/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config/libpython2.7.dylib
+/usr/lib/libpython2.7.dylib
+/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
+/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config/libpython2.7.dylib
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Choose non-system Python library installation and set CMAKE_LIBRARY_PATH before any YDK component installation. Example:</li>
+</ol>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CMAKE_LIBRARY_PATH</span><span class="o">=</span>/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Run YDK core package installation with &#8216;-v&#8217; flag to check that <cite>PythonLibs</cite> points to correct library path. Example:</li>
+</ol>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>./generate.py --core
+pip install -v gen-api/python/ydk/dist/ydk*.tar.gz
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>In &#8216;cmake&#8217; log look for &#8216;PythonLibs&#8217; and &#8216;found version&#8217; settings line:</li>
+</ol>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>-- Found PythonLibs: /usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib <span class="o">(</span>found version <span class="s2">&quot;2.7.15&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Finally test you YDK core library installation from CLI, making sure there are no errors:</li>
+</ol>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>python -c <span class="s2">&quot;import ydk.types&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="quick-install">
+<span id="howto-install"></span><h2><a class="toc-backref" href="#id19">Quick install</a><a class="headerlink" href="#quick-install" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id20">Centos (Fedora-based)</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>You can install the latest model packages from the DevHub artifactory and Python package index.
+Note that, in some systems, you need to install the new package as root.</p>
+<p>To install the core and model bundles on Centos, please follow the below steps.</p>
+<p><strong>Python2.7</strong>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python2.7/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">ietf</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python2.7/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">openconfig</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python2.7/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">cisco</span><span class="o">-</span><span class="n">ios</span><span class="o">-</span><span class="n">xr</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python2.7/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">cisco</span><span class="o">-</span><span class="n">ios</span><span class="o">-</span><span class="n">xe</span>
+</pre></div>
+</div>
+<p><strong>Python3.4</strong>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python3.4/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">ietf</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python3.4/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">openconfig</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python3.4/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">cisco</span><span class="o">-</span><span class="n">ios</span><span class="o">-</span><span class="n">xr</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python3.4/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">cisco</span><span class="o">-</span><span class="n">ios</span><span class="o">-</span><span class="n">xe</span>
+</pre></div>
+</div>
+<p><strong>Python3.6</strong>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python3.6/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">ietf</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python3.6/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">openconfig</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python3.6/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">cisco</span><span class="o">-</span><span class="n">ios</span><span class="o">-</span><span class="n">xr</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="s2">&quot;--install-purelib=/usr/lib64/python3.6/site-packages&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">cisco</span><span class="o">-</span><span class="n">ios</span><span class="o">-</span><span class="n">xe</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="other-platforms">
+<h3><a class="toc-backref" href="#id21">Other platforms</a><a class="headerlink" href="#other-platforms" title="Permalink to this headline">¶</a></h3>
+<p>You can install the latest model packages from the DevHub artifactory and Python package index.
+Note that, in some systems, you need to install the new package as root.
+You get fully operational YDK environment by installing the <code class="docutils literal"><span class="pre">ydk-models-cisco-ios-xr</span></code> and/or <code class="docutils literal"><span class="pre">ydk-models-cisco-ios-xe</span></code> bundle(s)
+(depending on whether you&#8217;re developing application for IOS XR or IOS XE platform), which automatically installs all other
+YDK-related packages (<code class="docutils literal"><span class="pre">YDK</span></code>, <code class="docutils literal"><span class="pre">openconfig</span></code> and <code class="docutils literal"><span class="pre">ietf</span></code> packages):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">cisco</span><span class="o">-</span><span class="n">ios</span><span class="o">-</span><span class="n">xr</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">cisco</span><span class="o">-</span><span class="n">ios</span><span class="o">-</span><span class="n">xe</span>
+</pre></div>
+</div>
+<p>Alternatively, you can perform a partial installation.
+If you prefer to install only the <code class="docutils literal"><span class="pre">openconfig</span></code> bundle and its dependencies (<code class="docutils literal"><span class="pre">YDK</span></code> and <code class="docutils literal"><span class="pre">ietf</span></code> packages), execute:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">openconfig</span>
+</pre></div>
+</div>
+<p>If you only want to install the <code class="docutils literal"><span class="pre">ietf</span></code> bundle and its dependencies (<code class="docutils literal"><span class="pre">YDK</span></code> package), execute:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span><span class="o">-</span><span class="n">models</span><span class="o">-</span><span class="n">ietf</span>
+</pre></div>
+</div>
+<p>To enable gNMI Service support in Python based application, install package:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ydk</span><span class="o">-</span><span class="n">service</span><span class="o">-</span><span class="n">gnmi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installing-from-source">
+<h2><a class="toc-backref" href="#id22">Installing from Source</a><a class="headerlink" href="#installing-from-source" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-core-package">
+<h3><a class="toc-backref" href="#id23">Installing core package</a><a class="headerlink" href="#installing-core-package" title="Permalink to this headline">¶</a></h3>
+<p>If you prefer not to use the YDK packages in the DevHub artifactory or Python package index, you need to install manually the <code class="docutils literal"><span class="pre">YDK</span></code> core package and then the model bundles that you plan to use.
+The Python core package is dependent on C++ core library <cite>libydk</cite>, which must be installed prior to Python package installation:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ git clone https://github.com/CiscoDevNet/ydk-gen.git
+$ <span class="nb">cd</span> ydk-gen/sdk/cpp/core
+core$ mkdir -p build
+core$ <span class="nb">cd</span> build
+build$ cmake ..
+build$ make
+build$ sudo make install
+</pre></div>
+</div>
+<p>To install the <code class="docutils literal"><span class="pre">YDK</span></code> Python core package, execute:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ydk-gen/sdk/python/core
+core$ python setup.py sdist
+core$ pip install dist/ydk*.gz
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-model-bundles">
+<h3><a class="toc-backref" href="#id24">Installing model bundles</a><a class="headerlink" href="#installing-model-bundles" title="Permalink to this headline">¶</a></h3>
+<p>Once you have installed the <code class="docutils literal"><span class="pre">YDK</span></code> core package, you can install one or more model bundles. The source code for the model bundles can be generated by running:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>git clone https://github.com/CiscoDevNet/ydk-py.git -b <span class="m">0</span>.8.4
+</pre></div>
+</div>
+<p>Note that some bundles have dependencies on other bundles.  Those dependencies are already captured in the bundle package.  Make sure you install the desired bundles in the order below.  To install the <code class="docutils literal"><span class="pre">ietf</span></code> bundle, execute:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>core$ <span class="nb">cd</span> ../ietf
+ietf$ python setup.py sdist
+ietf$ pip install dist/ydk*.gz
+</pre></div>
+</div>
+<p>To install the <code class="docutils literal"><span class="pre">openconfig</span></code> bundle, execute:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>ietf$ <span class="nb">cd</span> ../openconfig
+openconfig$ python setup.py sdist
+openconfig$ pip install dist/ydk*.gz
+</pre></div>
+</div>
+<p>To install the <code class="docutils literal"><span class="pre">cisco-ios-xr</span></code> bundle, execute:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>openconfig$ <span class="nb">cd</span> ../cisco-ios-xr
+cisco-ios-xr$ python setup.py sdist
+cisco-ios-xr$ pip install dist/ydk*.gz
+cisco-ios-xr$ <span class="nb">cd</span> ..
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-gnmi-package">
+<h3><a class="toc-backref" href="#id25">Installing gNMI package</a><a class="headerlink" href="#installing-gnmi-package" title="Permalink to this headline">¶</a></h3>
+<p>Optionaly the gNMI package for Python can be installed. The Python gNMI package is dependent on C++ core library <cite>libydk</cite>
+(see installation of Python core package above) and C++ gNMI library <cite>libydk_gnmi</cite>, which must be installed prior to Python package installation:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ydk-gen/sdk/cpp/gnmi
+gnmi$ mkdir -p build
+gnmi$ <span class="nb">cd</span> build
+build$ cmake ..
+build$ make
+build$ sudo make install
+</pre></div>
+</div>
+<p>To install the <code class="docutils literal"><span class="pre">YDK</span></code> Python gNMI package, execute:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ydk-gen/sdk/python/gnmi
+gnmi$ python setup.py sdist
+gnmi$ pip install dist/ydk*.gz
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-python-virtual-environment">
+<span id="virtual"></span><h2><a class="toc-backref" href="#id26">Using Python Virtual Environment</a><a class="headerlink" href="#using-python-virtual-environment" title="Permalink to this headline">¶</a></h2>
+<p>You may want to perform the installation under Python virtual environment (<a class="reference external" href="https://pypi.python.org/pypi/virtualenv/">virtualenv</a>/<a class="reference external" href="https://pypi.python.org/pypi/virtualenvwrapper">virtualenvwrapper</a>).  A virtual environment allows you to install multiple versions of YDK if needed.  In addition, it prevents any potential conflicts between package dependencies in your system.</p>
+<p>To install virtual environment on your system, execute:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>pip install virtualenv virtualenvwrapper
+<span class="nb">source</span> /usr/local/bin/virtualenvwrapper.sh
+</pre></div>
+</div>
+<p>Create new virtual environment:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>mkvirtualenv -p python2.7 ydk-py
+</pre></div>
+</div>
+<p>At this point, you can perform the quick install or the installation from source described above.  Take into account that you must not attempt to install YDK as root under virtual environment.</p>
+</div>
+<div class="section" id="samples">
+<h2><a class="toc-backref" href="#id27">Samples</a><a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h2>
+<p>To get started using the YDK API, there are sample applications available in the <a class="reference external" href="https://github.com/CiscoDevNet/ydk-py/tree/master/core/samples">YDK-Py repository</a>. For example, to run the <code class="docutils literal"><span class="pre">bgp.py</span></code> sample, execute:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>ydk-py$ <span class="nb">cd</span> core/samples
+samples$ ./bgp.py -h
+Usage: bgp.py <span class="o">[</span>-h <span class="p">|</span> --help<span class="o">]</span> <span class="o">[</span>options<span class="o">]</span>
+
+Options:
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -v VERSION, --version<span class="o">=</span>VERSION
+                        force NETCONF version <span class="m">1</span>.0 or <span class="m">1</span>.1
+  -u USERNAME, --user<span class="o">=</span>USERNAME
+                        login user name
+  -p PASSWORD, --password<span class="o">=</span>PASSWORD
+                        login user password
+  --proto<span class="o">=</span>PROTOCOL      Which transport protocol to use, one of ssh or tcp
+  --host<span class="o">=</span>HOST           NETCONF agent hostname or IP address
+  --port<span class="o">=</span>PORT           NETCONF agent SSH port
+
+  <span class="o">(</span>ydk-py<span class="o">)</span>samples$ ./bgp.py --host &lt;ip-address-of-netconf-server&gt; -u &lt;username&gt; -p &lt;password&gt; --port &lt;port-number&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-and-support">
+<h2><a class="toc-backref" href="#id28">Documentation and Support</a><a class="headerlink" href="#documentation-and-support" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Hundreds of samples can be found in the <a class="reference external" href="https://github.com/CiscoDevNet/ydk-py-samples">YDK-Py samples repository</a></li>
+<li>Join the <a class="reference external" href="https://communities.cisco.com/community/developer/ydk">YDK community</a> to connect with other users and with the makers of YDK</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="developer_guide.html" class="btn btn-neutral float-right" title="Developer Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="about_ydk.html" class="btn btn-neutral" title="About YDK" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
